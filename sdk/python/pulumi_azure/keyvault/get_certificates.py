@@ -96,21 +96,6 @@ def get_certificates(include_pending: Optional[bool] = None,
     """
     Use this data source to retrieve a list of certificate names from an existing Key Vault.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = azure.keyvault.get_certificates(key_vault_id=existing["id"])
-    example_get_certificate = {__key: azure.keyvault.get_certificate(name=__key,
-        key_vault_id=existing["id"]) for __key, __value in not_implemented("toset(data.azurerm_key_vault_certificates.example.names)")}
-    ```
-
 
     :param bool include_pending: Specifies whether to include certificates which are not completely provisioned. Defaults to true.
     :param str key_vault_id: Specifies the ID of the Key Vault instance to fetch certificate names from, available on the `keyvault.KeyVault` Data Source / Resource.
@@ -137,21 +122,6 @@ def get_certificates_output(include_pending: Optional[pulumi.Input[Optional[bool
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificatesResult]:
     """
     Use this data source to retrieve a list of certificate names from an existing Key Vault.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = azure.keyvault.get_certificates(key_vault_id=existing["id"])
-    example_get_certificate = {__key: azure.keyvault.get_certificate(name=__key,
-        key_vault_id=existing["id"]) for __key, __value in not_implemented("toset(data.azurerm_key_vault_certificates.example.names)")}
-    ```
 
 
     :param bool include_pending: Specifies whether to include certificates which are not completely provisioned. Defaults to true.

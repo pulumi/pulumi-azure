@@ -18,6 +18,7 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// This example provisions a Basic Container.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,6 +74,7 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

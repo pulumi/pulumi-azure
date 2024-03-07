@@ -168,6 +168,7 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -176,6 +177,7 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
         namespace_id="examplenamespace")
     pulumi.export("ruleId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the ServiceBus Namespace Authorization Rule.
@@ -218,6 +220,7 @@ def get_namespace_authorization_rule_output(name: Optional[pulumi.Input[str]] = 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -226,6 +229,7 @@ def get_namespace_authorization_rule_output(name: Optional[pulumi.Input[str]] = 
         namespace_id="examplenamespace")
     pulumi.export("ruleId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the ServiceBus Namespace Authorization Rule.

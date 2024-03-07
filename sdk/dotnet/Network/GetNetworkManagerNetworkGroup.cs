@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access information about a Network Manager Network Group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,8 +67,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetNetworkManagerNetworkGroupResult> InvokeAsync(GetNetworkManagerNetworkGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkManagerNetworkGroupResult>("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", args ?? new GetNetworkManagerNetworkGroupArgs(), options.WithDefaults());
@@ -77,10 +75,9 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access information about a Network Manager Network Group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -131,8 +128,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetNetworkManagerNetworkGroupResult> Invoke(GetNetworkManagerNetworkGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerNetworkGroupResult>("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", args ?? new GetNetworkManagerNetworkGroupInvokeArgs(), options.WithDefaults());

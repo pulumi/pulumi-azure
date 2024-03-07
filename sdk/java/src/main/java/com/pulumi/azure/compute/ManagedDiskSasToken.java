@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * With the help of this resource, data from the disk can be copied from managed disk to a storage blob or to some other system without the need of azcopy.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -73,6 +75,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

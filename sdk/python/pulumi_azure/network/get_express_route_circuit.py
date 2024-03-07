@@ -143,6 +143,7 @@ def get_express_route_circuit(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -152,6 +153,7 @@ def get_express_route_circuit(name: Optional[str] = None,
     pulumi.export("expressRouteCircuitId", example.id)
     pulumi.export("serviceKey", example.service_key)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the ExpressRoute circuit.
@@ -184,6 +186,7 @@ def get_express_route_circuit_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -193,6 +196,7 @@ def get_express_route_circuit_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("expressRouteCircuitId", example.id)
     pulumi.export("serviceKey", example.service_key)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the ExpressRoute circuit.

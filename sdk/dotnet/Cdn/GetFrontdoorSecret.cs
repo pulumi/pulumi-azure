@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Secret.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Azure.Cdn
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFrontdoorSecretResult> InvokeAsync(GetFrontdoorSecretArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorSecretResult>("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", args ?? new GetFrontdoorSecretArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Secret.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Azure.Cdn
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFrontdoorSecretResult> Invoke(GetFrontdoorSecretInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorSecretResult>("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", args ?? new GetFrontdoorSecretInvokeArgs(), options.WithDefaults());

@@ -14,10 +14,9 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// Gets information about an existing Private DNS Resolver Outbound Endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResolverOutboundEndpointResult> InvokeAsync(GetResolverOutboundEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverOutboundEndpointResult>("azure:privatedns/getResolverOutboundEndpoint:getResolverOutboundEndpoint", args ?? new GetResolverOutboundEndpointArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// Gets information about an existing Private DNS Resolver Outbound Endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResolverOutboundEndpointResult> Invoke(GetResolverOutboundEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverOutboundEndpointResult>("azure:privatedns/getResolverOutboundEndpoint:getResolverOutboundEndpoint", args ?? new GetResolverOutboundEndpointInvokeArgs(), options.WithDefaults());

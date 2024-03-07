@@ -101,6 +101,7 @@ def get_configuration_keys(configuration_store_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -108,6 +109,7 @@ def get_configuration_keys(configuration_store_id: Optional[str] = None,
     test = azure.appconfiguration.get_configuration_keys(configuration_store_id=appconf["id"])
     pulumi.export("value", test.items)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str configuration_store_id: Specifies the id of the App Configuration.
@@ -141,6 +143,7 @@ def get_configuration_keys_output(configuration_store_id: Optional[pulumi.Input[
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -148,6 +151,7 @@ def get_configuration_keys_output(configuration_store_id: Optional[pulumi.Input[
     test = azure.appconfiguration.get_configuration_keys(configuration_store_id=appconf["id"])
     pulumi.export("value", test.items)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str configuration_store_id: Specifies the id of the App Configuration.

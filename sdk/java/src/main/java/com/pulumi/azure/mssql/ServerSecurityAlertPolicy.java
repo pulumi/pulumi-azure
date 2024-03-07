@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE** Security Alert Policy is currently only available for MS SQL databases.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -87,6 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

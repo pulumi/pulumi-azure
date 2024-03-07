@@ -20,6 +20,7 @@ import (
 //
 // > **Note:** For a more complete example, see the the `examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -95,6 +96,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

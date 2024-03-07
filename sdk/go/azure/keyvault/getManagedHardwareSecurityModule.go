@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupManagedHardwareSecurityModule(ctx *pulumi.Context, args *LookupManagedHardwareSecurityModuleArgs, opts ...pulumi.InvokeOption) (*LookupManagedHardwareSecurityModuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupManagedHardwareSecurityModuleResult

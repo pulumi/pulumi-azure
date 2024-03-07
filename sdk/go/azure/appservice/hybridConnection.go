@@ -20,6 +20,7 @@ import (
 //
 // This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,6 +97,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

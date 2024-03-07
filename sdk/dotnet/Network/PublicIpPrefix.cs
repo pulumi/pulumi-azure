@@ -14,6 +14,7 @@ namespace Pulumi.Azure.Network
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,6 +43,7 @@ namespace Pulumi.Azure.Network
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -81,7 +83,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+        /// &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address)
         /// </summary>
         [Output("prefixLength")]
         public Output<int?> PrefixLength { get; private set; } = null!;
@@ -181,7 +183,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+        /// &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address)
         /// </summary>
         [Input("prefixLength")]
         public Input<int>? PrefixLength { get; set; }
@@ -261,7 +263,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+        /// &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address)
         /// </summary>
         [Input("prefixLength")]
         public Input<int>? PrefixLength { get; set; }

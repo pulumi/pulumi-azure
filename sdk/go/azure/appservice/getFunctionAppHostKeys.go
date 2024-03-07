@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetFunctionAppHostKeys(ctx *pulumi.Context, args *GetFunctionAppHostKeysArgs, opts ...pulumi.InvokeOption) (*GetFunctionAppHostKeysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFunctionAppHostKeysResult

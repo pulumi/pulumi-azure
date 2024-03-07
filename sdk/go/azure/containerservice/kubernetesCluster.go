@@ -18,6 +18,7 @@ import (
 //
 // This example provisions a basic Managed Kubernetes Cluster.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,6 +68,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -214,6 +216,7 @@ type KubernetesCluster struct {
 	//
 	// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -272,6 +275,7 @@ type KubernetesCluster struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrOutput `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
@@ -500,6 +504,7 @@ type kubernetesClusterState struct {
 	//
 	// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -558,6 +563,7 @@ type kubernetesClusterState struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	PrivateClusterPublicFqdnEnabled *bool `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
@@ -744,6 +750,7 @@ type KubernetesClusterState struct {
 	//
 	// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -802,6 +809,7 @@ type KubernetesClusterState struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrInput
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringPtrInput
@@ -972,6 +980,7 @@ type kubernetesClusterArgs struct {
 	//
 	// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -1030,6 +1039,7 @@ type kubernetesClusterArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	PrivateClusterPublicFqdnEnabled *bool `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
@@ -1195,6 +1205,7 @@ type KubernetesClusterArgs struct {
 	//
 	// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -1253,6 +1264,7 @@ type KubernetesClusterArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrInput
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringPtrInput
@@ -1692,6 +1704,7 @@ func (o KubernetesClusterOutput) PrivateClusterEnabled() pulumi.BoolPtrOutput {
 //
 // > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -1753,6 +1766,7 @@ func (o KubernetesClusterOutput) PrivateClusterEnabled() pulumi.BoolPtrOutput {
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o KubernetesClusterOutput) PrivateClusterPublicFqdnEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.PrivateClusterPublicFqdnEnabled }).(pulumi.BoolPtrOutput)
 }

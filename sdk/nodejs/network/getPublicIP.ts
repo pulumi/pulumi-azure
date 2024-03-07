@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Public IP Address.
  *
  * ## Example Usage
+ *
  * ### Reference An Existing)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,8 +23,11 @@ import * as utilities from "../utilities";
  * export const domainNameLabel = example.then(example => example.domainNameLabel);
  * export const publicIpAddress = example.then(example => example.ipAddress);
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Retrieve The Dynamic Public IP Of A New VM)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -77,6 +82,7 @@ import * as utilities from "../utilities";
  * });
  * export const publicIpAddress = example.apply(example => example.ipAddress);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPublicIP(args: GetPublicIPArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPResult> {
 
@@ -172,8 +178,10 @@ export interface GetPublicIPResult {
  * Use this data source to access information about an existing Public IP Address.
  *
  * ## Example Usage
+ *
  * ### Reference An Existing)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -185,8 +193,11 @@ export interface GetPublicIPResult {
  * export const domainNameLabel = example.then(example => example.domainNameLabel);
  * export const publicIpAddress = example.then(example => example.ipAddress);
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Retrieve The Dynamic Public IP Of A New VM)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -241,6 +252,7 @@ export interface GetPublicIPResult {
  * });
  * export const publicIpAddress = example.apply(example => example.ipAddress);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPublicIPOutput(args: GetPublicIPOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPResult> {
     return pulumi.output(args).apply((a: any) => getPublicIP(a, opts))

@@ -278,6 +278,7 @@ def get_sql_managed_instance(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -286,6 +287,7 @@ def get_sql_managed_instance(name: Optional[str] = None,
         resource_group_name="example-resources")
     pulumi.export("sqlInstanceId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the SQL Managed Instance.
@@ -334,6 +336,7 @@ def get_sql_managed_instance_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -342,6 +345,7 @@ def get_sql_managed_instance_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="example-resources")
     pulumi.export("sqlInstanceId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the SQL Managed Instance.

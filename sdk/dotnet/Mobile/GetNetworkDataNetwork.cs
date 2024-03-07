@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Mobile
         /// <summary>
         /// Get information about a Mobile Network Data Network.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -40,8 +39,7 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetNetworkDataNetworkResult> InvokeAsync(GetNetworkDataNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkDataNetworkResult>("azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork", args ?? new GetNetworkDataNetworkArgs(), options.WithDefaults());
@@ -49,10 +47,9 @@ namespace Pulumi.Azure.Mobile
         /// <summary>
         /// Get information about a Mobile Network Data Network.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -75,8 +72,7 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetNetworkDataNetworkResult> Invoke(GetNetworkDataNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkDataNetworkResult>("azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork", args ?? new GetNetworkDataNetworkInvokeArgs(), options.WithDefaults());

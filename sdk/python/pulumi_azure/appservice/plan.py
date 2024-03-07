@@ -475,8 +475,10 @@ class Plan(pulumi.CustomResource):
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.ServicePlan` resource instead.
 
         ## Example Usage
+
         ### Dedicated)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -493,8 +495,11 @@ class Plan(pulumi.CustomResource):
                 size="S1",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Shared / Consumption Plan)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -512,8 +517,11 @@ class Plan(pulumi.CustomResource):
                 size="Y1",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Linux)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -532,8 +540,11 @@ class Plan(pulumi.CustomResource):
                 size="S1",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Windows Container)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -552,6 +563,7 @@ class Plan(pulumi.CustomResource):
                 size="PC2",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -594,8 +606,10 @@ class Plan(pulumi.CustomResource):
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.ServicePlan` resource instead.
 
         ## Example Usage
+
         ### Dedicated)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -612,8 +626,11 @@ class Plan(pulumi.CustomResource):
                 size="S1",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Shared / Consumption Plan)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -631,8 +648,11 @@ class Plan(pulumi.CustomResource):
                 size="Y1",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Linux)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -651,8 +671,11 @@ class Plan(pulumi.CustomResource):
                 size="S1",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Windows Container)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -671,6 +694,7 @@ class Plan(pulumi.CustomResource):
                 size="PC2",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

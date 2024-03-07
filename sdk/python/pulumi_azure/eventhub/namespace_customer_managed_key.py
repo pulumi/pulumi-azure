@@ -185,8 +185,10 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         !> **Note:** In 2.x versions of the Azure Provider during deletion this resource will **delete and recreate the parent EventHub Namespace which may involve data loss** as it's not possible to remove the Customer Managed Key from the EventHub Namespace once it's been added. Version 3.0 of the Azure Provider will change this so that the Delete operation is a noop, requiring the parent EventHub Namespace is deleted/recreated to remove the Customer Managed Key.
 
         ## Example Usage
+
         ### With System Assigned Identity
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -255,8 +257,11 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             eventhub_namespace_id=example_event_hub_namespace.id,
             key_vault_key_ids=[example_key.id])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With User Assigned Identity
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -331,6 +336,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             key_vault_key_ids=[example_key.id],
             user_assigned_identity_id=example_user_assigned_identity.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -363,8 +369,10 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         !> **Note:** In 2.x versions of the Azure Provider during deletion this resource will **delete and recreate the parent EventHub Namespace which may involve data loss** as it's not possible to remove the Customer Managed Key from the EventHub Namespace once it's been added. Version 3.0 of the Azure Provider will change this so that the Delete operation is a noop, requiring the parent EventHub Namespace is deleted/recreated to remove the Customer Managed Key.
 
         ## Example Usage
+
         ### With System Assigned Identity
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -433,8 +441,11 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             eventhub_namespace_id=example_event_hub_namespace.id,
             key_vault_key_ids=[example_key.id])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With User Assigned Identity
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -509,6 +520,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             key_vault_key_ids=[example_key.id],
             user_assigned_identity_id=example_user_assigned_identity.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

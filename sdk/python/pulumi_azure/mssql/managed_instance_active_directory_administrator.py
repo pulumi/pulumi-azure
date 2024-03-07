@@ -199,6 +199,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -247,6 +248,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             object_id=admin.object_id,
             tenant_id=current.tenant_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -275,6 +277,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -323,6 +326,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             object_id=admin.object_id,
             tenant_id=current.tenant_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

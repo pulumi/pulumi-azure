@@ -154,6 +154,7 @@ def get_virtual_hub(name: Optional[str] = None,
 
     ## Virtual Hub Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -162,6 +163,7 @@ def get_virtual_hub(name: Optional[str] = None,
         resource_group_name="example-resources")
     pulumi.export("virtualHubId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Virtual Hub.
@@ -195,6 +197,7 @@ def get_virtual_hub_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Virtual Hub Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -203,6 +206,7 @@ def get_virtual_hub_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="example-resources")
     pulumi.export("virtualHubId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Virtual Hub.

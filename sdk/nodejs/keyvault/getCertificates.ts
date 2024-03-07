@@ -8,25 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to retrieve a list of certificate names from an existing Key Vault.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = azure.keyvault.getCertificates({
- *     keyVaultId: existing.id,
- * });
- * const exampleGetCertificate = .reduce((__obj, [, ]) => ({ ...__obj, [__key]: azure.keyvault.getCertificate({
- *     name: __key,
- *     keyVaultId: existing.id,
- * }) }));
- * ```
  */
 export function getCertificates(args: GetCertificatesArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificatesResult> {
 
@@ -77,25 +58,6 @@ export interface GetCertificatesResult {
 }
 /**
  * Use this data source to retrieve a list of certificate names from an existing Key Vault.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = azure.keyvault.getCertificates({
- *     keyVaultId: existing.id,
- * });
- * const exampleGetCertificate = .reduce((__obj, [, ]) => ({ ...__obj, [__key]: azure.keyvault.getCertificate({
- *     name: __key,
- *     keyVaultId: existing.id,
- * }) }));
- * ```
  */
 export function getCertificatesOutput(args: GetCertificatesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificatesResult> {
     return pulumi.output(args).apply((a: any) => getCertificates(a, opts))

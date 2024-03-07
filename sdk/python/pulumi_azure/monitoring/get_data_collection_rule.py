@@ -203,6 +203,7 @@ def get_data_collection_rule(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -211,6 +212,7 @@ def get_data_collection_rule(name: Optional[str] = None,
         resource_group_name=example_azurerm_resource_group["name"])
     pulumi.export("ruleId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Data Collection Rule.
@@ -248,6 +250,7 @@ def get_data_collection_rule_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -256,6 +259,7 @@ def get_data_collection_rule_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name=example_azurerm_resource_group["name"])
     pulumi.export("ruleId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Data Collection Rule.

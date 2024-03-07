@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -18,6 +19,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "iothub_dps_rg",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDps(args: GetDpsArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsResult> {
 
@@ -81,6 +83,7 @@ export interface GetDpsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -90,6 +93,7 @@ export interface GetDpsResult {
  *     resourceGroupName: "iothub_dps_rg",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDpsOutput(args: GetDpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsResult> {
     return pulumi.output(args).apply((a: any) => getDps(a, opts))

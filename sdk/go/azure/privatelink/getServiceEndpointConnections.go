@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetServiceEndpointConnections(ctx *pulumi.Context, args *GetServiceEndpointConnectionsArgs, opts ...pulumi.InvokeOption) (*GetServiceEndpointConnectionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceEndpointConnectionsResult

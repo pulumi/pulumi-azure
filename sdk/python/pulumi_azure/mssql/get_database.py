@@ -251,6 +251,7 @@ def get_database(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -269,6 +270,7 @@ def get_database(name: Optional[str] = None,
         server_id=example_server.id)
     pulumi.export("databaseId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the MS SQL Database.
@@ -310,6 +312,7 @@ def get_database_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -328,6 +331,7 @@ def get_database_output(name: Optional[pulumi.Input[str]] = None,
         server_id=example_server.id)
     pulumi.export("databaseId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the MS SQL Database.

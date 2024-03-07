@@ -203,6 +203,7 @@ class EncryptionScope(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -224,6 +225,7 @@ class EncryptionScope(pulumi.CustomResource):
             storage_account_id=example_account.id,
             source="Microsoft.Storage")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -254,6 +256,7 @@ class EncryptionScope(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -275,6 +278,7 @@ class EncryptionScope(pulumi.CustomResource):
             storage_account_id=example_account.id,
             source="Microsoft.Storage")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

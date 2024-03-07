@@ -311,6 +311,7 @@ class DscConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -330,6 +331,7 @@ class DscConfiguration(pulumi.CustomResource):
             location=example.location,
             content_embedded="configuration test {}")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -361,6 +363,7 @@ class DscConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -380,6 +383,7 @@ class DscConfiguration(pulumi.CustomResource):
             location=example.location,
             content_embedded="configuration test {}")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

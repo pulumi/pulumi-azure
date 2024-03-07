@@ -135,6 +135,7 @@ class WatchlistItem(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -161,6 +162,7 @@ class WatchlistItem(pulumi.CustomResource):
                 "k2": "v2",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -187,6 +189,7 @@ class WatchlistItem(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -213,6 +216,7 @@ class WatchlistItem(pulumi.CustomResource):
                 "k2": "v2",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -118,6 +118,7 @@ class GetHostPoolRegistrationInfo(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -136,6 +137,7 @@ class GetHostPoolRegistrationInfo(pulumi.CustomResource):
             hostpool_id=example_host_pool.id,
             expiration_date="2022-01-01T23:40:52Z")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -161,6 +163,7 @@ class GetHostPoolRegistrationInfo(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -179,6 +182,7 @@ class GetHostPoolRegistrationInfo(pulumi.CustomResource):
             hostpool_id=example_host_pool.id,
             expiration_date="2022-01-01T23:40:52Z")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

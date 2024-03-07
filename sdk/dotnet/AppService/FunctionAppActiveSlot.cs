@@ -13,8 +13,10 @@ namespace Pulumi.Azure.AppService
     /// Manages a Function App Active Slot.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Windows Function App
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -72,8 +74,11 @@ namespace Pulumi.Azure.AppService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Linux Function App
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -131,6 +136,7 @@ namespace Pulumi.Azure.AppService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

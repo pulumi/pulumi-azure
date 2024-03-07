@@ -13,8 +13,10 @@ namespace Pulumi.Azure.PostgreSql
     /// Manages a Firewall Rule for a PostgreSQL Server
     /// 
     /// ## Example Usage
+    /// 
     /// ### Single IP Address)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,8 +52,11 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### IP Range)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,6 +84,7 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  * });
  * export const eventhubAuthorizationRuleId = exampleAzuremEventhubNamespaceAuthorizationRule.id;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
 
@@ -102,6 +104,7 @@ export interface GetNamespaceAuthorizationRuleResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -113,6 +116,7 @@ export interface GetNamespaceAuthorizationRuleResult {
  * });
  * export const eventhubAuthorizationRuleId = exampleAzuremEventhubNamespaceAuthorizationRule.id;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))

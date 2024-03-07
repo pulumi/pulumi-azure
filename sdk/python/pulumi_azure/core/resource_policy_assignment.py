@@ -516,6 +516,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -544,6 +545,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
             resource_id=example.id,
             policy_definition_id=example_definition.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -553,7 +555,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         $ pulumi import azure:core/resourcePolicyAssignment:ResourcePolicyAssignment example "{resource}/providers/Microsoft.Authorization/policyAssignments/assignment1"
         ```
 
-         where `{resource}` is a Resource ID in the form `/subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/network1`.
+        where `{resource}` is a Resource ID in the form `/subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/network1`.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -587,6 +589,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -615,6 +618,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
             resource_id=example.id,
             policy_definition_id=example_definition.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -624,7 +628,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         $ pulumi import azure:core/resourcePolicyAssignment:ResourcePolicyAssignment example "{resource}/providers/Microsoft.Authorization/policyAssignments/assignment1"
         ```
 
-         where `{resource}` is a Resource ID in the form `/subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/network1`.
+        where `{resource}` is a Resource ID in the form `/subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/network1`.
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

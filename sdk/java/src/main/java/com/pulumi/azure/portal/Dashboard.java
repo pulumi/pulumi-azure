@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * !&gt; **Note:** The `azure.portal.Dashboard` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.portal.PortalDashboard` resource instead.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -178,9 +180,18 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * It is recommended to follow the steps outlined
  * [here](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically#fetch-the-json-representation-of-the-dashboard) to create a Dashboard in the Portal and extract the relevant JSON to use in this resource. From the extracted JSON, the contents of the `properties: {}` object can used. Variables can be injected as needed - see above example.
+ * 
+ * ### Using a `template_file` data source or the `templatefile` function
+ * 
+ * Since the contents of the dashboard JSON can be quite lengthy, use a template file to improve readability:
+ * 
+ * `dash.tpl`:
+ * 
+ * `main.tf`
  * 
  * ## Import
  * 
@@ -190,7 +201,7 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:portal/dashboard:Dashboard my-board /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Portal/dashboards/00000000-0000-0000-0000-000000000000
  * ```
  * 
- *  Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
+ * Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
  * 
  */
 @ResourceType(type="azure:portal/dashboard:Dashboard")

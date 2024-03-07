@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -123,6 +125,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

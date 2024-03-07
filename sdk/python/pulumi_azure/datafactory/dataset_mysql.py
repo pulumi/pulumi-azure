@@ -376,6 +376,7 @@ class DatasetMysql(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -396,6 +397,7 @@ class DatasetMysql(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_mysql.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -431,6 +433,7 @@ class DatasetMysql(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -451,6 +454,7 @@ class DatasetMysql(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_mysql.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -19,6 +19,7 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -127,6 +128,7 @@ namespace Pulumi.Azure.Compute
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -211,6 +213,10 @@ namespace Pulumi.Azure.Compute
         /// The type of extension, available types for a publisher can be found using the Azure CLI.
         /// 
         /// &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+        /// 
+        /// ```shell
+        /// az vm extension image list --location westus -o table
+        /// ```
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -371,6 +377,10 @@ namespace Pulumi.Azure.Compute
         /// The type of extension, available types for a publisher can be found using the Azure CLI.
         /// 
         /// &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+        /// 
+        /// ```shell
+        /// az vm extension image list --location westus -o table
+        /// ```
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -489,6 +499,10 @@ namespace Pulumi.Azure.Compute
         /// The type of extension, available types for a publisher can be found using the Azure CLI.
         /// 
         /// &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+        /// 
+        /// ```shell
+        /// az vm extension image list --location westus -o table
+        /// ```
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -250,6 +250,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -339,6 +340,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
             key_vault_certificate_id=example_certificate.id,
             exclude_private_key=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -368,6 +370,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -457,6 +460,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
             key_vault_certificate_id=example_certificate.id,
             exclude_private_key=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

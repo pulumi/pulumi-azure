@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Consumption
         /// <summary>
         /// Use this data source to access information about an existing Consumption Budget for a specific resource group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Azure.Consumption
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBudgetResourceGroupResult> InvokeAsync(GetBudgetResourceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResourceGroupResult>("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args ?? new GetBudgetResourceGroupArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Azure.Consumption
         /// <summary>
         /// Use this data source to access information about an existing Consumption Budget for a specific resource group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Azure.Consumption
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBudgetResourceGroupResult> Invoke(GetBudgetResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResourceGroupResult>("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args ?? new GetBudgetResourceGroupInvokeArgs(), options.WithDefaults());

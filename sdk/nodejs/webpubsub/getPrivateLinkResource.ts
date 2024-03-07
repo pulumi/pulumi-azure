@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -30,6 +31,7 @@ import * as utilities from "../utilities";
  *     webPubsubId: testService.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrivateLinkResource(args: GetPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkResourceResult> {
 
@@ -68,6 +70,7 @@ export interface GetPrivateLinkResourceResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -87,6 +90,7 @@ export interface GetPrivateLinkResourceResult {
  *     webPubsubId: testService.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrivateLinkResourceOutput(args: GetPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkResourceResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkResource(a, opts))

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,6 +23,7 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVolumeGroupSapHana(args: GetVolumeGroupSapHanaArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupSapHanaResult> {
 
@@ -87,6 +89,7 @@ export interface GetVolumeGroupSapHanaResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -98,6 +101,7 @@ export interface GetVolumeGroupSapHanaResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVolumeGroupSapHanaOutput(args: GetVolumeGroupSapHanaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupSapHanaResult> {
     return pulumi.output(args).apply((a: any) => getVolumeGroupSapHana(a, opts))

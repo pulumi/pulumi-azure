@@ -265,6 +265,7 @@ class StorageInsights(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -291,6 +292,7 @@ class StorageInsights(pulumi.CustomResource):
             storage_account_id=example_account.id,
             storage_account_key=example_account.primary_access_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -321,6 +323,7 @@ class StorageInsights(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -347,6 +350,7 @@ class StorageInsights(pulumi.CustomResource):
             storage_account_id=example_account.id,
             storage_account_key=example_account.primary_access_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

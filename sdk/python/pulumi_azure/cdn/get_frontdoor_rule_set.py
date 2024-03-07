@@ -92,6 +92,7 @@ def get_frontdoor_rule_set(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -100,6 +101,7 @@ def get_frontdoor_rule_set(name: Optional[str] = None,
         profile_name="existing-profile",
         resource_group_name="existing-resources")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Front Door Rule Set to retrieve.
@@ -131,6 +133,7 @@ def get_frontdoor_rule_set_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -139,6 +142,7 @@ def get_frontdoor_rule_set_output(name: Optional[pulumi.Input[str]] = None,
         profile_name="existing-profile",
         resource_group_name="existing-resources")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Front Door Rule Set to retrieve.

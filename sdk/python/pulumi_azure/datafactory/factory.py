@@ -468,6 +468,7 @@ class Factory(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -480,6 +481,7 @@ class Factory(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -516,6 +518,7 @@ class Factory(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -528,6 +531,7 @@ class Factory(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

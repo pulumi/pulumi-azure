@@ -83,6 +83,7 @@ def get_domain_topic(domain_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -90,6 +91,7 @@ def get_domain_topic(domain_name: Optional[str] = None,
     example = azure.eventgrid.get_domain_topic(name="my-eventgrid-domain-topic",
         resource_group_name="example-resources")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str domain_name: The name of the EventGrid Domain Topic domain.
@@ -120,6 +122,7 @@ def get_domain_topic_output(domain_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -127,6 +130,7 @@ def get_domain_topic_output(domain_name: Optional[pulumi.Input[str]] = None,
     example = azure.eventgrid.get_domain_topic(name="my-eventgrid-domain-topic",
         resource_group_name="example-resources")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str domain_name: The name of the EventGrid Domain Topic domain.

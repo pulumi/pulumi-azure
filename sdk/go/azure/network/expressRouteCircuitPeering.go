@@ -15,8 +15,10 @@ import (
 // Manages an ExpressRoute Circuit Peering.
 //
 // ## Example Usage
+//
 // ### Creating A Microsoft Peering)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -89,8 +91,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Creating Azure Private Peering)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -153,6 +158,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

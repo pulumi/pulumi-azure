@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetContainers(ctx *pulumi.Context, args *GetContainersArgs, opts ...pulumi.InvokeOption) (*GetContainersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetContainersResult

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -83,6 +85,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -92,7 +95,7 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:policy/definition:Definition examplePolicy /subscriptions/&lt;SUBSCRIPTION_ID&gt;/providers/Microsoft.Authorization/policyDefinitions/&lt;POLICY_NAME&gt;
  * ```
  * 
- *  or
+ * or
  * 
  * ```sh
  * $ pulumi import azure:policy/definition:Definition examplePolicy /providers/Microsoft.Management/managementgroups/&lt;MANGAGEMENT_GROUP_ID&gt;/providers/Microsoft.Authorization/policyDefinitions/&lt;POLICY_NAME&gt;

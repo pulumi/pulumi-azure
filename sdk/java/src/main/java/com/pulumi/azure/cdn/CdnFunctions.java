@@ -39,6 +39,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -69,6 +71,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs args) {
@@ -78,6 +81,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -108,6 +113,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomainPlain(GetFrontdoorCustomDomainPlainArgs args) {
@@ -117,6 +123,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -147,6 +155,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs args, InvokeOptions options) {
@@ -156,6 +165,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -186,6 +197,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomainPlain(GetFrontdoorCustomDomainPlainArgs args, InvokeOptions options) {
@@ -195,6 +207,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -225,6 +239,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrontdoorEndpointResult> getFrontdoorEndpoint(GetFrontdoorEndpointArgs args) {
@@ -234,6 +249,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -264,6 +281,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrontdoorEndpointResult> getFrontdoorEndpointPlain(GetFrontdoorEndpointPlainArgs args) {
@@ -273,6 +291,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -303,6 +323,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrontdoorEndpointResult> getFrontdoorEndpoint(GetFrontdoorEndpointArgs args, InvokeOptions options) {
@@ -312,6 +333,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -342,6 +365,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrontdoorEndpointResult> getFrontdoorEndpointPlain(GetFrontdoorEndpointPlainArgs args, InvokeOptions options) {
@@ -351,6 +375,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -380,6 +406,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrontdoorFirewallPolicyResult> getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs args) {
@@ -389,6 +416,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -418,6 +447,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrontdoorFirewallPolicyResult> getFrontdoorFirewallPolicyPlain(GetFrontdoorFirewallPolicyPlainArgs args) {
@@ -427,6 +457,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -456,6 +488,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrontdoorFirewallPolicyResult> getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs args, InvokeOptions options) {
@@ -465,6 +498,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -494,6 +529,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrontdoorFirewallPolicyResult> getFrontdoorFirewallPolicyPlain(GetFrontdoorFirewallPolicyPlainArgs args, InvokeOptions options) {
@@ -503,6 +539,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -533,6 +571,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs args) {
@@ -542,6 +581,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -572,6 +613,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroupPlain(GetFrontdoorOriginGroupPlainArgs args) {
@@ -581,6 +623,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -611,6 +655,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs args, InvokeOptions options) {
@@ -620,6 +665,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -650,6 +697,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroupPlain(GetFrontdoorOriginGroupPlainArgs args, InvokeOptions options) {
@@ -659,6 +707,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Profile.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -688,6 +738,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrontdoorProfileResult> getFrontdoorProfile(GetFrontdoorProfileArgs args) {
@@ -697,6 +748,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Profile.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -726,6 +779,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrontdoorProfileResult> getFrontdoorProfilePlain(GetFrontdoorProfilePlainArgs args) {
@@ -735,6 +789,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Profile.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -764,6 +820,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrontdoorProfileResult> getFrontdoorProfile(GetFrontdoorProfileArgs args, InvokeOptions options) {
@@ -773,6 +830,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Profile.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -802,6 +861,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrontdoorProfileResult> getFrontdoorProfilePlain(GetFrontdoorProfilePlainArgs args, InvokeOptions options) {
@@ -811,6 +871,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -841,6 +903,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrontdoorRuleSetResult> getFrontdoorRuleSet(GetFrontdoorRuleSetArgs args) {
@@ -850,6 +913,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -880,6 +945,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrontdoorRuleSetResult> getFrontdoorRuleSetPlain(GetFrontdoorRuleSetPlainArgs args) {
@@ -889,6 +955,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -919,6 +987,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrontdoorRuleSetResult> getFrontdoorRuleSet(GetFrontdoorRuleSetArgs args, InvokeOptions options) {
@@ -928,6 +997,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -958,6 +1029,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrontdoorRuleSetResult> getFrontdoorRuleSetPlain(GetFrontdoorRuleSetPlainArgs args, InvokeOptions options) {
@@ -967,6 +1039,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Secret.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -997,6 +1071,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrontdoorSecretResult> getFrontdoorSecret(GetFrontdoorSecretArgs args) {
@@ -1006,6 +1081,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Secret.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1036,6 +1113,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrontdoorSecretResult> getFrontdoorSecretPlain(GetFrontdoorSecretPlainArgs args) {
@@ -1045,6 +1123,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Secret.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1075,6 +1155,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrontdoorSecretResult> getFrontdoorSecret(GetFrontdoorSecretArgs args, InvokeOptions options) {
@@ -1084,6 +1165,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing Front Door (standard/premium) Secret.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1114,6 +1197,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrontdoorSecretResult> getFrontdoorSecretPlain(GetFrontdoorSecretPlainArgs args, InvokeOptions options) {
@@ -1123,6 +1207,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing CDN Profile.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1153,6 +1239,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProfileResult> getProfile(GetProfileArgs args) {
@@ -1162,6 +1249,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing CDN Profile.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1192,6 +1281,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProfileResult> getProfilePlain(GetProfilePlainArgs args) {
@@ -1201,6 +1291,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing CDN Profile.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1231,6 +1323,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProfileResult> getProfile(GetProfileArgs args, InvokeOptions options) {
@@ -1240,6 +1333,8 @@ public final class CdnFunctions {
      * Use this data source to access information about an existing CDN Profile.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1270,6 +1365,7 @@ public final class CdnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProfileResult> getProfilePlain(GetProfilePlainArgs args, InvokeOptions options) {

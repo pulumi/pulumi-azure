@@ -14,10 +14,9 @@ namespace Pulumi.Azure.DataShare
         /// <summary>
         /// Use this data source to access information about an existing Data Share Blob Storage Dataset.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Azure.DataShare
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDatasetBlobStorageResult> InvokeAsync(GetDatasetBlobStorageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatasetBlobStorageResult>("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", args ?? new GetDatasetBlobStorageArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Azure.DataShare
         /// <summary>
         /// Use this data source to access information about an existing Data Share Blob Storage Dataset.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Azure.DataShare
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDatasetBlobStorageResult> Invoke(GetDatasetBlobStorageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetBlobStorageResult>("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", args ?? new GetDatasetBlobStorageInvokeArgs(), options.WithDefaults());

@@ -30,6 +30,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare DICOM Service
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -60,6 +62,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDicomServiceResult> getDicomService(GetDicomServiceArgs args) {
@@ -69,6 +72,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare DICOM Service
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -99,6 +104,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDicomServiceResult> getDicomServicePlain(GetDicomServicePlainArgs args) {
@@ -108,6 +114,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare DICOM Service
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -138,6 +146,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDicomServiceResult> getDicomService(GetDicomServiceArgs args, InvokeOptions options) {
@@ -147,6 +156,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare DICOM Service
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -177,6 +188,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDicomServiceResult> getDicomServicePlain(GetDicomServicePlainArgs args, InvokeOptions options) {
@@ -214,6 +226,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare Med Tech Service
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -244,6 +258,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMedtechServiceResult> getMedtechService(GetMedtechServiceArgs args) {
@@ -253,6 +268,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare Med Tech Service
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -283,6 +300,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMedtechServiceResult> getMedtechServicePlain(GetMedtechServicePlainArgs args) {
@@ -292,6 +310,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare Med Tech Service
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -322,6 +342,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMedtechServiceResult> getMedtechService(GetMedtechServiceArgs args, InvokeOptions options) {
@@ -331,6 +352,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare Med Tech Service
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -361,6 +384,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMedtechServiceResult> getMedtechServicePlain(GetMedtechServicePlainArgs args, InvokeOptions options) {
@@ -370,6 +394,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare Service
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -401,6 +427,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -410,6 +437,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare Service
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -441,6 +470,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -450,6 +480,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare Service
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -481,6 +513,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -490,6 +523,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare Service
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -521,6 +556,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
@@ -530,6 +566,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare Workspace
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -560,6 +598,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
@@ -569,6 +608,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare Workspace
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -599,6 +640,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
@@ -608,6 +650,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare Workspace
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -638,6 +682,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
@@ -647,6 +692,8 @@ public final class HealthcareFunctions {
      * Use this data source to access information about an existing Healthcare Workspace
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -677,6 +724,7 @@ public final class HealthcareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {

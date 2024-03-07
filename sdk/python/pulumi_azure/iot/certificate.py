@@ -200,6 +200,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -223,6 +224,7 @@ class Certificate(pulumi.CustomResource):
             is_verified=True,
             certificate_content=std.filebase64(input="example.cer").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -251,6 +253,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -274,6 +277,7 @@ class Certificate(pulumi.CustomResource):
             is_verified=True,
             certificate_content=std.filebase64(input="example.cer").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

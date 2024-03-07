@@ -15,8 +15,10 @@ import (
 // Manages a Web App Active Slot.
 //
 // ## Example Usage
+//
 // ### Windows Web App
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,6 +78,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

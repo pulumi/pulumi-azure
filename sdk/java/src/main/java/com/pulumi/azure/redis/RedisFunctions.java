@@ -21,6 +21,8 @@ public final class RedisFunctions {
      * Use this data source to access information about an existing Redis Cache
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -52,6 +54,7 @@ public final class RedisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCacheResult> getCache(GetCacheArgs args) {
@@ -61,6 +64,8 @@ public final class RedisFunctions {
      * Use this data source to access information about an existing Redis Cache
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -92,6 +97,7 @@ public final class RedisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCacheResult> getCachePlain(GetCachePlainArgs args) {
@@ -101,6 +107,8 @@ public final class RedisFunctions {
      * Use this data source to access information about an existing Redis Cache
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class RedisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCacheResult> getCache(GetCacheArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class RedisFunctions {
      * Use this data source to access information about an existing Redis Cache
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -172,6 +183,7 @@ public final class RedisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCacheResult> getCachePlain(GetCachePlainArgs args, InvokeOptions options) {
@@ -181,6 +193,8 @@ public final class RedisFunctions {
      * Use this data source to access information about an existing Redis Enterprise Database
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -213,6 +227,7 @@ public final class RedisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnterpriseDatabaseResult> getEnterpriseDatabase(GetEnterpriseDatabaseArgs args) {
@@ -222,6 +237,8 @@ public final class RedisFunctions {
      * Use this data source to access information about an existing Redis Enterprise Database
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -254,6 +271,7 @@ public final class RedisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnterpriseDatabaseResult> getEnterpriseDatabasePlain(GetEnterpriseDatabasePlainArgs args) {
@@ -263,6 +281,8 @@ public final class RedisFunctions {
      * Use this data source to access information about an existing Redis Enterprise Database
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -295,6 +315,7 @@ public final class RedisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnterpriseDatabaseResult> getEnterpriseDatabase(GetEnterpriseDatabaseArgs args, InvokeOptions options) {
@@ -304,6 +325,8 @@ public final class RedisFunctions {
      * Use this data source to access information about an existing Redis Enterprise Database
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -336,6 +359,7 @@ public final class RedisFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnterpriseDatabaseResult> getEnterpriseDatabasePlain(GetEnterpriseDatabasePlainArgs args, InvokeOptions options) {

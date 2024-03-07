@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * Manages a Traffic Manager Profile to which multiple endpoints can be attached.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -84,6 +86,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

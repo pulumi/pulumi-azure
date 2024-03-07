@@ -167,6 +167,7 @@ def get_snapshot(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -174,6 +175,7 @@ def get_snapshot(name: Optional[str] = None,
     example = azure.compute.get_snapshot(name="my-snapshot",
         resource_group_name="my-resource-group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Snapshot.
@@ -209,6 +211,7 @@ def get_snapshot_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -216,6 +219,7 @@ def get_snapshot_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.compute.get_snapshot(name="my-snapshot",
         resource_group_name="my-resource-group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Snapshot.

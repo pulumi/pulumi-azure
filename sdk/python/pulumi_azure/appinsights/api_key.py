@@ -193,6 +193,7 @@ class ApiKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -240,6 +241,7 @@ class ApiKey(pulumi.CustomResource):
         pulumi.export("authenticateSdkControlChannel", authenticate_sdk_control_channel.api_key)
         pulumi.export("fullPermissionsApiKey", full_permissions.api_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -269,6 +271,7 @@ class ApiKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -316,6 +319,7 @@ class ApiKey(pulumi.CustomResource):
         pulumi.export("authenticateSdkControlChannel", authenticate_sdk_control_channel.api_key)
         pulumi.export("fullPermissionsApiKey", full_permissions.api_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

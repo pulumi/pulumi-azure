@@ -18,6 +18,8 @@ public final class DataprotectionFunctions {
      * Use this data source to access information about an existing Backup Vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -49,6 +51,7 @@ public final class DataprotectionFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args) {
@@ -58,6 +61,8 @@ public final class DataprotectionFunctions {
      * Use this data source to access information about an existing Backup Vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -89,6 +94,7 @@ public final class DataprotectionFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBackupVaultResult> getBackupVaultPlain(GetBackupVaultPlainArgs args) {
@@ -98,6 +104,8 @@ public final class DataprotectionFunctions {
      * Use this data source to access information about an existing Backup Vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +137,7 @@ public final class DataprotectionFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args, InvokeOptions options) {
@@ -138,6 +147,8 @@ public final class DataprotectionFunctions {
      * Use this data source to access information about an existing Backup Vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -169,6 +180,7 @@ public final class DataprotectionFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBackupVaultResult> getBackupVaultPlain(GetBackupVaultPlainArgs args, InvokeOptions options) {

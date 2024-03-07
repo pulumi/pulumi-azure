@@ -269,6 +269,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -327,6 +328,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
                 webhook_url="https://sample-webhook-url.example.com",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -336,7 +338,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
         $ pulumi import azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-rg/providers/Microsoft.DevTestLab/schedules/shutdown-computevm-SampleVM
         ```
 
-         The name of the resource within the `resource id` will always follow the format `shutdown-computevm-<VM Name>` where `<VM Name>` is replaced by the name of the target Virtual Machine
+        The name of the resource within the `resource id` will always follow the format `shutdown-computevm-<VM Name>` where `<VM Name>` is replaced by the name of the target Virtual Machine
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -361,6 +363,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -419,6 +422,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
                 webhook_url="https://sample-webhook-url.example.com",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -428,7 +432,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
         $ pulumi import azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-rg/providers/Microsoft.DevTestLab/schedules/shutdown-computevm-SampleVM
         ```
 
-         The name of the resource within the `resource id` will always follow the format `shutdown-computevm-<VM Name>` where `<VM Name>` is replaced by the name of the target Virtual Machine
+        The name of the resource within the `resource id` will always follow the format `shutdown-computevm-<VM Name>` where `<VM Name>` is replaced by the name of the target Virtual Machine
 
         :param str resource_name: The name of the resource.
         :param GlobalVMShutdownScheduleArgs args: The arguments to use to populate this resource's properties.

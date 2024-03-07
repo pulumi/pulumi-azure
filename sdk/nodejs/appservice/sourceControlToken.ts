@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -16,6 +17,7 @@ import * as utilities from "../utilities";
  *     token: "ghp_sometokenvaluesecretsauce",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

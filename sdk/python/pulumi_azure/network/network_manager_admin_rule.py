@@ -398,6 +398,7 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -456,6 +457,7 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
             ],
             description="example admin rule")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -490,6 +492,7 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -548,6 +551,7 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
             ],
             description="example admin rule")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

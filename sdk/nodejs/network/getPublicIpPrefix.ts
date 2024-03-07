@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Public IP Prefix.
  *
  * ## Example Usage
+ *
  * ### Reference An Existing)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const publicIpPrefix = example.then(example => example.ipPrefix);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPublicIpPrefix(args: GetPublicIpPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIpPrefixResult> {
 
@@ -86,8 +89,10 @@ export interface GetPublicIpPrefixResult {
  * Use this data source to access information about an existing Public IP Prefix.
  *
  * ## Example Usage
+ *
  * ### Reference An Existing)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -98,6 +103,7 @@ export interface GetPublicIpPrefixResult {
  * });
  * export const publicIpPrefix = example.then(example => example.ipPrefix);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPublicIpPrefixOutput(args: GetPublicIpPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIpPrefixResult> {
     return pulumi.output(args).apply((a: any) => getPublicIpPrefix(a, opts))

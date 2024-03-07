@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -85,6 +86,7 @@ import * as utilities from "../utilities";
  *     targetIqn: "iqn.2021-11.com.microsoft:test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

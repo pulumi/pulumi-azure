@@ -30,6 +30,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about an existing Policy Assignment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -60,6 +62,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyAssignmentResult> getPolicyAssignment(GetPolicyAssignmentArgs args) {
@@ -69,6 +72,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about an existing Policy Assignment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -99,6 +104,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyAssignmentResult> getPolicyAssignmentPlain(GetPolicyAssignmentPlainArgs args) {
@@ -108,6 +114,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about an existing Policy Assignment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -138,6 +146,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyAssignmentResult> getPolicyAssignment(GetPolicyAssignmentArgs args, InvokeOptions options) {
@@ -147,6 +156,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about an existing Policy Assignment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -177,6 +188,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyAssignmentResult> getPolicyAssignmentPlain(GetPolicyAssignmentPlainArgs args, InvokeOptions options) {
@@ -186,6 +198,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -215,6 +229,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyDefintionResult> getPolicyDefintion() {
@@ -224,6 +239,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -253,6 +270,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyDefintionResult> getPolicyDefintionPlain() {
@@ -262,6 +280,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -291,6 +311,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyDefintionResult> getPolicyDefintion(GetPolicyDefintionArgs args) {
@@ -300,6 +321,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -329,6 +352,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyDefintionResult> getPolicyDefintionPlain(GetPolicyDefintionPlainArgs args) {
@@ -338,6 +362,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -367,6 +393,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyDefintionResult> getPolicyDefintion(GetPolicyDefintionArgs args, InvokeOptions options) {
@@ -376,6 +403,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -405,6 +434,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyDefintionResult> getPolicyDefintionPlain(GetPolicyDefintionPlainArgs args, InvokeOptions options) {
@@ -414,6 +444,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -443,6 +475,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyDefintionBuiltInResult> getPolicyDefintionBuiltIn() {
@@ -452,6 +485,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -481,6 +516,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyDefintionBuiltInResult> getPolicyDefintionBuiltInPlain() {
@@ -490,6 +526,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -519,6 +557,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyDefintionBuiltInResult> getPolicyDefintionBuiltIn(GetPolicyDefintionBuiltInArgs args) {
@@ -528,6 +567,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -557,6 +598,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyDefintionBuiltInResult> getPolicyDefintionBuiltInPlain(GetPolicyDefintionBuiltInPlainArgs args) {
@@ -566,6 +608,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -595,6 +639,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyDefintionBuiltInResult> getPolicyDefintionBuiltIn(GetPolicyDefintionBuiltInArgs args, InvokeOptions options) {
@@ -604,6 +649,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -633,6 +680,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyDefintionBuiltInResult> getPolicyDefintionBuiltInPlain(GetPolicyDefintionBuiltInPlainArgs args, InvokeOptions options) {
@@ -642,6 +690,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about an existing Policy Set Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -671,6 +721,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicySetDefinitionResult> getPolicySetDefinition() {
@@ -680,6 +731,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about an existing Policy Set Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -709,6 +762,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicySetDefinitionResult> getPolicySetDefinitionPlain() {
@@ -718,6 +772,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about an existing Policy Set Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -747,6 +803,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicySetDefinitionResult> getPolicySetDefinition(GetPolicySetDefinitionArgs args) {
@@ -756,6 +813,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about an existing Policy Set Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -785,6 +844,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicySetDefinitionResult> getPolicySetDefinitionPlain(GetPolicySetDefinitionPlainArgs args) {
@@ -794,6 +854,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about an existing Policy Set Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -823,6 +885,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicySetDefinitionResult> getPolicySetDefinition(GetPolicySetDefinitionArgs args, InvokeOptions options) {
@@ -832,6 +895,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about an existing Policy Set Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -861,6 +926,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicySetDefinitionResult> getPolicySetDefinitionPlain(GetPolicySetDefinitionPlainArgs args, InvokeOptions options) {
@@ -870,6 +936,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about an existing Guest Configuration Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -901,6 +969,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs args) {
@@ -910,6 +979,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about an existing Guest Configuration Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -941,6 +1012,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignmentPlain(GetVirtualMachineConfigurationAssignmentPlainArgs args) {
@@ -950,6 +1022,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about an existing Guest Configuration Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -981,6 +1055,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs args, InvokeOptions options) {
@@ -990,6 +1065,8 @@ public final class PolicyFunctions {
      * Use this data source to access information about an existing Guest Configuration Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1021,6 +1098,7 @@ public final class PolicyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignmentPlain(GetVirtualMachineConfigurationAssignmentPlainArgs args, InvokeOptions options) {

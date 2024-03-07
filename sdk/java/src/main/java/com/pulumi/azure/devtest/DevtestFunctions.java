@@ -21,6 +21,8 @@ public final class DevtestFunctions {
      * Use this data source to access information about an existing Dev Test Lab.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -51,6 +53,7 @@ public final class DevtestFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLabResult> getLab(GetLabArgs args) {
@@ -60,6 +63,8 @@ public final class DevtestFunctions {
      * Use this data source to access information about an existing Dev Test Lab.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -90,6 +95,7 @@ public final class DevtestFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLabResult> getLabPlain(GetLabPlainArgs args) {
@@ -99,6 +105,8 @@ public final class DevtestFunctions {
      * Use this data source to access information about an existing Dev Test Lab.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +137,7 @@ public final class DevtestFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLabResult> getLab(GetLabArgs args, InvokeOptions options) {
@@ -138,6 +147,8 @@ public final class DevtestFunctions {
      * Use this data source to access information about an existing Dev Test Lab.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -168,6 +179,7 @@ public final class DevtestFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLabResult> getLabPlain(GetLabPlainArgs args, InvokeOptions options) {
@@ -177,6 +189,8 @@ public final class DevtestFunctions {
      * Use this data source to access information about an existing Dev Test Lab Virtual Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -208,6 +222,7 @@ public final class DevtestFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args) {
@@ -217,6 +232,8 @@ public final class DevtestFunctions {
      * Use this data source to access information about an existing Dev Test Lab Virtual Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -248,6 +265,7 @@ public final class DevtestFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualNetworkResult> getVirtualNetworkPlain(GetVirtualNetworkPlainArgs args) {
@@ -257,6 +275,8 @@ public final class DevtestFunctions {
      * Use this data source to access information about an existing Dev Test Lab Virtual Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -288,6 +308,7 @@ public final class DevtestFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args, InvokeOptions options) {
@@ -297,6 +318,8 @@ public final class DevtestFunctions {
      * Use this data source to access information about an existing Dev Test Lab Virtual Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -328,6 +351,7 @@ public final class DevtestFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualNetworkResult> getVirtualNetworkPlain(GetVirtualNetworkPlainArgs args, InvokeOptions options) {

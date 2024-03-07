@@ -34,8 +34,10 @@ namespace Pulumi.Azure.AppService
     /// Multiple apps in the same App Service plan can use the same VNet.
     /// 
     /// ## Example Usage
+    /// 
     /// ### With App Service)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -115,8 +117,11 @@ namespace Pulumi.Azure.AppService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Function App)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -207,6 +212,7 @@ namespace Pulumi.Azure.AppService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -203,6 +203,7 @@ class FleetUpdateRun(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -255,6 +256,7 @@ class FleetUpdateRun(pulumi.CustomResource):
                 after_stage_wait_in_seconds=21,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -283,6 +285,7 @@ class FleetUpdateRun(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -335,6 +338,7 @@ class FleetUpdateRun(pulumi.CustomResource):
                 after_stage_wait_in_seconds=21,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

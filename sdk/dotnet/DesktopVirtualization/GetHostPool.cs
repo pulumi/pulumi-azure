@@ -14,10 +14,9 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// <summary>
         /// Use this data source to access information about an existing Virtual Desktop Host Pool.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetHostPoolResult> InvokeAsync(GetHostPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostPoolResult>("azure:desktopvirtualization/getHostPool:getHostPool", args ?? new GetHostPoolArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// <summary>
         /// Use this data source to access information about an existing Virtual Desktop Host Pool.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetHostPoolResult> Invoke(GetHostPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostPoolResult>("azure:desktopvirtualization/getHostPool:getHostPool", args ?? new GetHostPoolInvokeArgs(), options.WithDefaults());

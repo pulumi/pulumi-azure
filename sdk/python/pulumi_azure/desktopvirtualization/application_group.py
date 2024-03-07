@@ -332,6 +332,7 @@ class ApplicationGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -369,6 +370,7 @@ class ApplicationGroup(pulumi.CustomResource):
             friendly_name="TestAppGroup",
             description="Acceptance Test: An application group")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -401,6 +403,7 @@ class ApplicationGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -438,6 +441,7 @@ class ApplicationGroup(pulumi.CustomResource):
             friendly_name="TestAppGroup",
             description="Acceptance Test: An application group")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

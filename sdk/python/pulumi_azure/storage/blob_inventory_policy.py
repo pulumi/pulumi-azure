@@ -104,6 +104,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -138,6 +139,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
                 ],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -163,6 +165,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -197,6 +200,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
                 ],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

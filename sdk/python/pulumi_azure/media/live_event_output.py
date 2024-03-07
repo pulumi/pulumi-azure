@@ -332,6 +332,7 @@ class LiveEventOutput(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -383,6 +384,7 @@ class LiveEventOutput(pulumi.CustomResource):
             hls_fragments_per_ts_segment=5,
             rewind_window_duration="PT5M")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -415,6 +417,7 @@ class LiveEventOutput(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -466,6 +469,7 @@ class LiveEventOutput(pulumi.CustomResource):
             hls_fragments_per_ts_segment=5,
             rewind_window_duration="PT5M")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

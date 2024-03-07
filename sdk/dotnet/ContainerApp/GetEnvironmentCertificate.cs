@@ -14,10 +14,9 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// Use this data source to access information about an existing Container App Environment Certificate.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -40,8 +39,7 @@ namespace Pulumi.Azure.ContainerApp
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEnvironmentCertificateResult> InvokeAsync(GetEnvironmentCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentCertificateResult>("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", args ?? new GetEnvironmentCertificateArgs(), options.WithDefaults());
@@ -49,10 +47,9 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// Use this data source to access information about an existing Container App Environment Certificate.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -75,8 +72,7 @@ namespace Pulumi.Azure.ContainerApp
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEnvironmentCertificateResult> Invoke(GetEnvironmentCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentCertificateResult>("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", args ?? new GetEnvironmentCertificateInvokeArgs(), options.WithDefaults());

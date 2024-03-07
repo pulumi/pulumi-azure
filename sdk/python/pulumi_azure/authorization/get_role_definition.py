@@ -129,6 +129,7 @@ def get_role_definition(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -146,6 +147,7 @@ def get_role_definition(name: Optional[str] = None,
     pulumi.export("customRoleDefinitionId", custom.id)
     pulumi.export("contributorRoleDefinitionId", builtin.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the Name of either a built-in or custom Role Definition.
@@ -184,6 +186,7 @@ def get_role_definition_output(name: Optional[pulumi.Input[Optional[str]]] = Non
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -201,6 +204,7 @@ def get_role_definition_output(name: Optional[pulumi.Input[Optional[str]]] = Non
     pulumi.export("customRoleDefinitionId", custom.id)
     pulumi.export("contributorRoleDefinitionId", builtin.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the Name of either a built-in or custom Role Definition.

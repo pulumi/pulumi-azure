@@ -167,6 +167,7 @@ class RouteServerBgpConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -207,6 +208,7 @@ class RouteServerBgpConnection(pulumi.CustomResource):
             peer_asn=65501,
             peer_ip="169.254.21.5")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -234,6 +236,7 @@ class RouteServerBgpConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -274,6 +277,7 @@ class RouteServerBgpConnection(pulumi.CustomResource):
             peer_asn=65501,
             peer_ip="169.254.21.5")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -343,6 +343,7 @@ class SourceControlSlot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -371,6 +372,7 @@ class SourceControlSlot(pulumi.CustomResource):
             repo_url="https://github.com/Azure-Samples/python-docs-hello-world",
             branch="master")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -404,6 +406,7 @@ class SourceControlSlot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -432,6 +435,7 @@ class SourceControlSlot(pulumi.CustomResource):
             repo_url="https://github.com/Azure-Samples/python-docs-hello-world",
             branch="master")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -226,6 +226,7 @@ class IPGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -246,6 +247,7 @@ class IPGroup(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -273,6 +275,7 @@ class IPGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -293,6 +296,7 @@ class IPGroup(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

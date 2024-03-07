@@ -973,8 +973,10 @@ class ScaleSet(pulumi.CustomResource):
         Manages a virtual machine scale set.
 
         ## Example Usage
+
         ### With Managed Disks (Recommended)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1090,8 +1092,11 @@ class ScaleSet(pulumi.CustomResource):
                 "environment": "staging",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Unmanaged Disks
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1166,8 +1171,11 @@ class ScaleSet(pulumi.CustomResource):
                 version="latest",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example of storage_profile_image_reference with id
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1179,6 +1187,7 @@ class ScaleSet(pulumi.CustomResource):
                 id=example.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1233,8 +1242,10 @@ class ScaleSet(pulumi.CustomResource):
         Manages a virtual machine scale set.
 
         ## Example Usage
+
         ### With Managed Disks (Recommended)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1350,8 +1361,11 @@ class ScaleSet(pulumi.CustomResource):
                 "environment": "staging",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Unmanaged Disks
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1426,8 +1440,11 @@ class ScaleSet(pulumi.CustomResource):
                 version="latest",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example of storage_profile_image_reference with id
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1439,6 +1456,7 @@ class ScaleSet(pulumi.CustomResource):
                 id=example.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

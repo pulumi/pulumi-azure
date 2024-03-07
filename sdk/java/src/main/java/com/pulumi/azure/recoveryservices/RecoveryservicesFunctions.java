@@ -18,6 +18,8 @@ public final class RecoveryservicesFunctions {
      * Use this data source to access information about an existing Recovery Services Vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -47,6 +49,7 @@ public final class RecoveryservicesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVaultResult> getVault(GetVaultArgs args) {
@@ -56,6 +59,8 @@ public final class RecoveryservicesFunctions {
      * Use this data source to access information about an existing Recovery Services Vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -85,6 +90,7 @@ public final class RecoveryservicesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVaultResult> getVaultPlain(GetVaultPlainArgs args) {
@@ -94,6 +100,8 @@ public final class RecoveryservicesFunctions {
      * Use this data source to access information about an existing Recovery Services Vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -123,6 +131,7 @@ public final class RecoveryservicesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVaultResult> getVault(GetVaultArgs args, InvokeOptions options) {
@@ -132,6 +141,8 @@ public final class RecoveryservicesFunctions {
      * Use this data source to access information about an existing Recovery Services Vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -161,6 +172,7 @@ public final class RecoveryservicesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVaultResult> getVaultPlain(GetVaultPlainArgs args, InvokeOptions options) {

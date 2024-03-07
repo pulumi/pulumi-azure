@@ -232,6 +232,7 @@ class EndpointEventGrid(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -254,6 +255,7 @@ class EndpointEventGrid(pulumi.CustomResource):
             eventgrid_topic_primary_access_key=example_topic.primary_access_key,
             eventgrid_topic_secondary_access_key=example_topic.secondary_access_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -283,6 +285,7 @@ class EndpointEventGrid(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -305,6 +308,7 @@ class EndpointEventGrid(pulumi.CustomResource):
             eventgrid_topic_primary_access_key=example_topic.primary_access_key,
             eventgrid_topic_secondary_access_key=example_topic.secondary_access_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

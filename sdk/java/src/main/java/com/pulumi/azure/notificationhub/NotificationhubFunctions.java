@@ -21,6 +21,8 @@ public final class NotificationhubFunctions {
      * Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -52,6 +54,7 @@ public final class NotificationhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHubResult> getHub(GetHubArgs args) {
@@ -61,6 +64,8 @@ public final class NotificationhubFunctions {
      * Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -92,6 +97,7 @@ public final class NotificationhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHubResult> getHubPlain(GetHubPlainArgs args) {
@@ -101,6 +107,8 @@ public final class NotificationhubFunctions {
      * Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class NotificationhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHubResult> getHub(GetHubArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class NotificationhubFunctions {
      * Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -172,6 +183,7 @@ public final class NotificationhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHubResult> getHubPlain(GetHubPlainArgs args, InvokeOptions options) {
@@ -181,6 +193,8 @@ public final class NotificationhubFunctions {
      * Use this data source to access information about an existing Notification Hub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -211,6 +225,7 @@ public final class NotificationhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args) {
@@ -220,6 +235,8 @@ public final class NotificationhubFunctions {
      * Use this data source to access information about an existing Notification Hub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -250,6 +267,7 @@ public final class NotificationhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args) {
@@ -259,6 +277,8 @@ public final class NotificationhubFunctions {
      * Use this data source to access information about an existing Notification Hub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -289,6 +309,7 @@ public final class NotificationhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOptions options) {
@@ -298,6 +319,8 @@ public final class NotificationhubFunctions {
      * Use this data source to access information about an existing Notification Hub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -328,6 +351,7 @@ public final class NotificationhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args, InvokeOptions options) {

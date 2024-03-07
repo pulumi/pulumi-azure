@@ -968,6 +968,7 @@ class FlexibleServer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1015,6 +1016,8 @@ class FlexibleServer(pulumi.CustomResource):
             storage_tier="P30",
             sku_name="GP_Standard_D4s_v3")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## `storage_tier` defaults based on `storage_mb`
 
         | `storage_mb` | GiB   | TiB | Default | Supported `storage_tier`'s           | Provisioned `IOPS`  |
@@ -1102,6 +1105,7 @@ class FlexibleServer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1149,6 +1153,8 @@ class FlexibleServer(pulumi.CustomResource):
             storage_tier="P30",
             sku_name="GP_Standard_D4s_v3")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## `storage_tier` defaults based on `storage_mb`
 
         | `storage_mb` | GiB   | TiB | Default | Supported `storage_tier`'s           | Provisioned `IOPS`  |

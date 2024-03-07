@@ -14,10 +14,9 @@ namespace Pulumi.Azure.NetApp
         /// <summary>
         /// Use this data source to access information about an existing NetApp Account Encryption Resource.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,8 +36,7 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAccountEncryptionResult> InvokeAsync(GetAccountEncryptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountEncryptionResult>("azure:netapp/getAccountEncryption:getAccountEncryption", args ?? new GetAccountEncryptionArgs(), options.WithDefaults());
@@ -46,10 +44,9 @@ namespace Pulumi.Azure.NetApp
         /// <summary>
         /// Use this data source to access information about an existing NetApp Account Encryption Resource.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,8 +66,7 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAccountEncryptionResult> Invoke(GetAccountEncryptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountEncryptionResult>("azure:netapp/getAccountEncryption:getAccountEncryption", args ?? new GetAccountEncryptionInvokeArgs(), options.WithDefaults());

@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Use this data source to access the properties of a LogToMetricAction scheduled query rule.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Azure.Monitoring
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetScheduledQueryRulesLogResult> InvokeAsync(GetScheduledQueryRulesLogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? new GetScheduledQueryRulesLogArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Use this data source to access the properties of a LogToMetricAction scheduled query rule.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Azure.Monitoring
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetScheduledQueryRulesLogResult> Invoke(GetScheduledQueryRulesLogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? new GetScheduledQueryRulesLogInvokeArgs(), options.WithDefaults());

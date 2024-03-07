@@ -24,6 +24,8 @@ public final class DesktopvirtualizationFunctions {
      * Use this data source to access information about an existing Application Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -54,6 +56,7 @@ public final class DesktopvirtualizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationGroupResult> getApplicationGroup(GetApplicationGroupArgs args) {
@@ -63,6 +66,8 @@ public final class DesktopvirtualizationFunctions {
      * Use this data source to access information about an existing Application Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -93,6 +98,7 @@ public final class DesktopvirtualizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationGroupResult> getApplicationGroupPlain(GetApplicationGroupPlainArgs args) {
@@ -102,6 +108,8 @@ public final class DesktopvirtualizationFunctions {
      * Use this data source to access information about an existing Application Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class DesktopvirtualizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationGroupResult> getApplicationGroup(GetApplicationGroupArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class DesktopvirtualizationFunctions {
      * Use this data source to access information about an existing Application Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -171,6 +182,7 @@ public final class DesktopvirtualizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationGroupResult> getApplicationGroupPlain(GetApplicationGroupPlainArgs args, InvokeOptions options) {
@@ -180,6 +192,8 @@ public final class DesktopvirtualizationFunctions {
      * Use this data source to access information about an existing Virtual Desktop Host Pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -209,6 +223,7 @@ public final class DesktopvirtualizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHostPoolResult> getHostPool(GetHostPoolArgs args) {
@@ -218,6 +233,8 @@ public final class DesktopvirtualizationFunctions {
      * Use this data source to access information about an existing Virtual Desktop Host Pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -247,6 +264,7 @@ public final class DesktopvirtualizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHostPoolResult> getHostPoolPlain(GetHostPoolPlainArgs args) {
@@ -256,6 +274,8 @@ public final class DesktopvirtualizationFunctions {
      * Use this data source to access information about an existing Virtual Desktop Host Pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -285,6 +305,7 @@ public final class DesktopvirtualizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHostPoolResult> getHostPool(GetHostPoolArgs args, InvokeOptions options) {
@@ -294,6 +315,8 @@ public final class DesktopvirtualizationFunctions {
      * Use this data source to access information about an existing Virtual Desktop Host Pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -323,6 +346,7 @@ public final class DesktopvirtualizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHostPoolResult> getHostPoolPlain(GetHostPoolPlainArgs args, InvokeOptions options) {
@@ -332,6 +356,8 @@ public final class DesktopvirtualizationFunctions {
      * Use this data source to access information about an existing Virtual Desktop Workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -362,6 +388,7 @@ public final class DesktopvirtualizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
@@ -371,6 +398,8 @@ public final class DesktopvirtualizationFunctions {
      * Use this data source to access information about an existing Virtual Desktop Workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -401,6 +430,7 @@ public final class DesktopvirtualizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
@@ -410,6 +440,8 @@ public final class DesktopvirtualizationFunctions {
      * Use this data source to access information about an existing Virtual Desktop Workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -440,6 +472,7 @@ public final class DesktopvirtualizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
@@ -449,6 +482,8 @@ public final class DesktopvirtualizationFunctions {
      * Use this data source to access information about an existing Virtual Desktop Workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -479,6 +514,7 @@ public final class DesktopvirtualizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {

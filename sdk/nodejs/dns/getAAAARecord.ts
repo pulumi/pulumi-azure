@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -18,6 +19,7 @@ import * as utilities from "../utilities";
  * });
  * export const dnsAaaaRecordId = exampleAzurermDnsAaaaRecord.id;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAAAARecord(args: GetAAAARecordArgs, opts?: pulumi.InvokeOptions): Promise<GetAAAARecordResult> {
 
@@ -82,6 +84,7 @@ export interface GetAAAARecordResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -93,6 +96,7 @@ export interface GetAAAARecordResult {
  * });
  * export const dnsAaaaRecordId = exampleAzurermDnsAaaaRecord.id;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAAAARecordOutput(args: GetAAAARecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAAAARecordResult> {
     return pulumi.output(args).apply((a: any) => getAAAARecord(a, opts))

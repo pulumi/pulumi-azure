@@ -346,6 +346,7 @@ class Image(pulumi.CustomResource):
 
         > **Note:** For a more complete example, see the `examples/image` directory within the GitHub Repository.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -358,6 +359,7 @@ class Image(pulumi.CustomResource):
             resource_group_name=example.name,
             source_virtual_machine_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -394,6 +396,7 @@ class Image(pulumi.CustomResource):
 
         > **Note:** For a more complete example, see the `examples/image` directory within the GitHub Repository.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -406,6 +409,7 @@ class Image(pulumi.CustomResource):
             resource_group_name=example.name,
             source_virtual_machine_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

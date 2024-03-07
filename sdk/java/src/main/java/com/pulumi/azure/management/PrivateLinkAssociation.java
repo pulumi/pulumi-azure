@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Manages a Resource Management Private Link Association.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -76,6 +78,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -108,6 +111,8 @@ public class PrivateLinkAssociation extends com.pulumi.resources.CustomResource 
     }
     /**
      * Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -138,6 +143,7 @@ public class PrivateLinkAssociation extends com.pulumi.resources.CustomResource 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -145,6 +151,8 @@ public class PrivateLinkAssociation extends com.pulumi.resources.CustomResource 
 
     /**
      * @return Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -175,6 +183,7 @@ public class PrivateLinkAssociation extends com.pulumi.resources.CustomResource 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<String> name() {

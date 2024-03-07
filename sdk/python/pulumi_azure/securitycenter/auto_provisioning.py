@@ -72,12 +72,14 @@ class AutoProvisioning(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
 
         example = azure.securitycenter.AutoProvisioning("example", auto_provision="On")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -104,12 +106,14 @@ class AutoProvisioning(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
 
         example = azure.securitycenter.AutoProvisioning("example", auto_provision="On")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

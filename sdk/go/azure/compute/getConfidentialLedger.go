@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetConfidentialLedger(ctx *pulumi.Context, args *GetConfidentialLedgerArgs, opts ...pulumi.InvokeOption) (*GetConfidentialLedgerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetConfidentialLedgerResult

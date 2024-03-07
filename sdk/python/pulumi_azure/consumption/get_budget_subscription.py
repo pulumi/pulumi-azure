@@ -134,6 +134,7 @@ def get_budget_subscription(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -142,6 +143,7 @@ def get_budget_subscription(name: Optional[str] = None,
         subscription_id="/subscriptions/00000000-0000-0000-0000-000000000000/")
     pulumi.export("id", example_azurerm_consumption_budget["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Consumption Budget.
@@ -173,6 +175,7 @@ def get_budget_subscription_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -181,6 +184,7 @@ def get_budget_subscription_output(name: Optional[pulumi.Input[str]] = None,
         subscription_id="/subscriptions/00000000-0000-0000-0000-000000000000/")
     pulumi.export("id", example_azurerm_consumption_budget["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Consumption Budget.

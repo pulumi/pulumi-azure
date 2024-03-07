@@ -22,6 +22,8 @@ public final class HybridFunctions {
      * &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -52,6 +54,7 @@ public final class HybridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetComputeMachineResult> getComputeMachine(GetComputeMachineArgs args) {
@@ -65,6 +68,8 @@ public final class HybridFunctions {
      * &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -95,6 +100,7 @@ public final class HybridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetComputeMachineResult> getComputeMachinePlain(GetComputeMachinePlainArgs args) {
@@ -108,6 +114,8 @@ public final class HybridFunctions {
      * &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -138,6 +146,7 @@ public final class HybridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetComputeMachineResult> getComputeMachine(GetComputeMachineArgs args, InvokeOptions options) {
@@ -151,6 +160,8 @@ public final class HybridFunctions {
      * &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -181,6 +192,7 @@ public final class HybridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetComputeMachineResult> getComputeMachinePlain(GetComputeMachinePlainArgs args, InvokeOptions options) {

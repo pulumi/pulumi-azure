@@ -14,10 +14,9 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Use this data source to access information about an existing Cosmos DB Mongo Database.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.Azure.CosmosDB
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetMongoDatabaseResult> InvokeAsync(GetMongoDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMongoDatabaseResult>("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args ?? new GetMongoDatabaseArgs(), options.WithDefaults());
@@ -48,10 +46,9 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Use this data source to access information about an existing Cosmos DB Mongo Database.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.Azure.CosmosDB
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetMongoDatabaseResult> Invoke(GetMongoDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMongoDatabaseResult>("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args ?? new GetMongoDatabaseInvokeArgs(), options.WithDefaults());

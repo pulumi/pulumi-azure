@@ -21,6 +21,8 @@ public final class DashboardFunctions {
      * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -51,6 +53,7 @@ public final class DashboardFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard
@@ -64,6 +67,8 @@ public final class DashboardFunctions {
      * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -94,6 +99,7 @@ public final class DashboardFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard
@@ -107,6 +113,8 @@ public final class DashboardFunctions {
      * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -137,6 +145,7 @@ public final class DashboardFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard
@@ -150,6 +159,8 @@ public final class DashboardFunctions {
      * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -180,6 +191,7 @@ public final class DashboardFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard
@@ -193,6 +205,8 @@ public final class DashboardFunctions {
      * Use this data source to access information about an existing Grafana Dashboard.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -223,6 +237,7 @@ public final class DashboardFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGrafanaResult> getGrafana(GetGrafanaArgs args) {
@@ -232,6 +247,8 @@ public final class DashboardFunctions {
      * Use this data source to access information about an existing Grafana Dashboard.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -262,6 +279,7 @@ public final class DashboardFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGrafanaResult> getGrafanaPlain(GetGrafanaPlainArgs args) {
@@ -271,6 +289,8 @@ public final class DashboardFunctions {
      * Use this data source to access information about an existing Grafana Dashboard.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -301,6 +321,7 @@ public final class DashboardFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGrafanaResult> getGrafana(GetGrafanaArgs args, InvokeOptions options) {
@@ -310,6 +331,8 @@ public final class DashboardFunctions {
      * Use this data source to access information about an existing Grafana Dashboard.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -340,6 +363,7 @@ public final class DashboardFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGrafanaResult> getGrafanaPlain(GetGrafanaPlainArgs args, InvokeOptions options) {

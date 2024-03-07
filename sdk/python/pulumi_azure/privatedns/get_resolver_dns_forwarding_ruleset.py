@@ -106,6 +106,7 @@ def get_resolver_dns_forwarding_ruleset(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -113,6 +114,7 @@ def get_resolver_dns_forwarding_ruleset(name: Optional[str] = None,
     example = azure.privatedns.get_resolver_dns_forwarding_ruleset(name="example-ruleset",
         resource_group_name="example-ruleset-resourcegroup")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the existing Private DNS Resolver Dns Forwarding Ruleset.
@@ -142,6 +144,7 @@ def get_resolver_dns_forwarding_ruleset_output(name: Optional[pulumi.Input[str]]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -149,6 +152,7 @@ def get_resolver_dns_forwarding_ruleset_output(name: Optional[pulumi.Input[str]]
     example = azure.privatedns.get_resolver_dns_forwarding_ruleset(name="example-ruleset",
         resource_group_name="example-ruleset-resourcegroup")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the existing Private DNS Resolver Dns Forwarding Ruleset.

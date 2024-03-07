@@ -119,6 +119,7 @@ class ServerDnsAlias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -137,6 +138,7 @@ class ServerDnsAlias(pulumi.CustomResource):
             name="example-dns-alias",
             mssql_server_id=example_server.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -162,6 +164,7 @@ class ServerDnsAlias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -180,6 +183,7 @@ class ServerDnsAlias(pulumi.CustomResource):
             name="example-dns-alias",
             mssql_server_id=example_server.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

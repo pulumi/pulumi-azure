@@ -433,6 +433,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -467,6 +468,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
             image="springio/gs-spring-boot-docker",
             language_framework="springboot")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -502,6 +504,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -536,6 +539,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
             image="springio/gs-spring-boot-docker",
             language_framework="springboot")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

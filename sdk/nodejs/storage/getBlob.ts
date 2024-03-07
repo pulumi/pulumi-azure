@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     storageContainerName: "example-storage-container-name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBlob(args: GetBlobArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobResult> {
 
@@ -94,6 +96,7 @@ export interface GetBlobResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -104,6 +107,7 @@ export interface GetBlobResult {
  *     storageContainerName: "example-storage-container-name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBlobOutput(args: GetBlobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobResult> {
     return pulumi.output(args).apply((a: any) => getBlob(a, opts))

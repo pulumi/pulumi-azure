@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Manages a Kubernetes Fleet Member.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -88,6 +90,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -97,13 +100,13 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:containerservice/fleetMember:FleetMember example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{memberName}
  * ```
  * 
- *  * Where `{subscriptionId}` is the ID of the Azure Subscription where the Kubernetes Fleet Member exists. For example `12345678-1234-9876-4563-123456789012`.
+ * * Where `{subscriptionId}` is the ID of the Azure Subscription where the Kubernetes Fleet Member exists. For example `12345678-1234-9876-4563-123456789012`.
  * 
- *  * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Fleet Member exists. For example `example-resource-group`.
+ * * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Fleet Member exists. For example `example-resource-group`.
  * 
- *  * Where `{fleetName}` is the name of the Fleet. For example `fleetValue`.
+ * * Where `{fleetName}` is the name of the Fleet. For example `fleetValue`.
  * 
- *  * Where `{memberName}` is the name of the Member. For example `memberValue`.
+ * * Where `{memberName}` is the name of the Member. For example `memberValue`.
  * 
  */
 @ResourceType(type="azure:containerservice/fleetMember:FleetMember")

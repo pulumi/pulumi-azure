@@ -199,6 +199,7 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -218,6 +219,7 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
             application_consistent_snapshot_frequency_in_hours=1,
             replication_interval_in_seconds=300)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -246,6 +248,7 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -265,6 +268,7 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
             application_consistent_snapshot_frequency_in_hours=1,
             replication_interval_in_seconds=300)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

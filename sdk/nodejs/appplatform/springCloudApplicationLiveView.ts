@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -30,12 +31,13 @@ import * as utilities from "../utilities";
  *     springCloudServiceId: exampleSpringCloudService.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Spring Cloud Application Live Views can be imported using the `resource id`, e.g.
  *
- *  g
+ * g
  *
  * ```sh
  * $ pulumi import azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/applicationLiveViews/default

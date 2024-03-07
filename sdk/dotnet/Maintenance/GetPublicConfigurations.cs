@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Maintenance
         /// <summary>
         /// Use this data source to access information about existing Public Maintenance Configurations.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.Azure.Maintenance
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPublicConfigurationsResult> InvokeAsync(GetPublicConfigurationsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicConfigurationsResult>("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args ?? new GetPublicConfigurationsArgs(), options.WithDefaults());
@@ -48,10 +46,9 @@ namespace Pulumi.Azure.Maintenance
         /// <summary>
         /// Use this data source to access information about existing Public Maintenance Configurations.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.Azure.Maintenance
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPublicConfigurationsResult> Invoke(GetPublicConfigurationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicConfigurationsResult>("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args ?? new GetPublicConfigurationsInvokeArgs(), options.WithDefaults());

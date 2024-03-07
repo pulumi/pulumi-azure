@@ -482,6 +482,7 @@ class WebTest(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -516,6 +517,7 @@ class WebTest(pulumi.CustomResource):
         pulumi.export("webtestId", example_web_test.id)
         pulumi.export("webtestsSyntheticId", example_web_test.synthetic_monitor_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -554,6 +556,7 @@ class WebTest(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -588,6 +591,7 @@ class WebTest(pulumi.CustomResource):
         pulumi.export("webtestId", example_web_test.id)
         pulumi.export("webtestsSyntheticId", example_web_test.synthetic_monitor_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

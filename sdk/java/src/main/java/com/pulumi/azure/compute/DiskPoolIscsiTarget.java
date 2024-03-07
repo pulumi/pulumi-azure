@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * !&gt; **Note:** Each Disk Pool can have a maximum of 1 iSCSI Target.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -142,6 +144,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

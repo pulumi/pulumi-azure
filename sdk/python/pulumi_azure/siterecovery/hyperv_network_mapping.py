@@ -199,6 +199,7 @@ class HypervNetworkMapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -223,6 +224,7 @@ class HypervNetworkMapping(pulumi.CustomResource):
             source_network_name="my-vmm-network",
             target_network_id=target_virtual_network.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -251,6 +253,7 @@ class HypervNetworkMapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -275,6 +278,7 @@ class HypervNetworkMapping(pulumi.CustomResource):
             source_network_name="my-vmm-network",
             target_network_id=target_virtual_network.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

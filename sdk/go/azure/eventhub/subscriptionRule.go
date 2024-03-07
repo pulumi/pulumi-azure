@@ -15,8 +15,10 @@ import (
 // Manages a ServiceBus Subscription Rule.
 //
 // ## Example Usage
+//
 // ### SQL Filter)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -79,8 +81,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Correlation Filter)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -149,6 +154,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

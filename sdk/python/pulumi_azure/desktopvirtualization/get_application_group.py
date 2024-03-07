@@ -154,6 +154,7 @@ def get_application_group(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -162,6 +163,7 @@ def get_application_group(name: Optional[str] = None,
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Application Group.
@@ -195,6 +197,7 @@ def get_application_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -203,6 +206,7 @@ def get_application_group_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Application Group.

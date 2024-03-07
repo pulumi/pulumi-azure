@@ -20,6 +20,7 @@ import (
 //
 // This example provisions a basic Kubernetes Node Pool.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,6 +76,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

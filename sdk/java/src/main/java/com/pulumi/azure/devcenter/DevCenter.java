@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Manages a Dev Center.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,6 +69,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Blocks Reference
  * 
  * ### `identity` Block
@@ -89,11 +93,11 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:devcenter/devCenter:DevCenter example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}
  * ```
  * 
- *  * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center exists. For example `12345678-1234-9876-4563-123456789012`.
+ * * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center exists. For example `12345678-1234-9876-4563-123456789012`.
  * 
- *  * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
+ * * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
  * 
- *  * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
+ * * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
  * 
  */
 @ResourceType(type="azure:devcenter/devCenter:DevCenter")

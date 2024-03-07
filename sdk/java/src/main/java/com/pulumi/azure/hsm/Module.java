@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** If the quota is not enough in some region, please submit the quota request to service team.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -145,6 +147,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

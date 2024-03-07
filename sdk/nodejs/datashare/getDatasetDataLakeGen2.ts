@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDatasetDataLakeGen2(args: GetDatasetDataLakeGen2Args, opts?: pulumi.InvokeOptions): Promise<GetDatasetDataLakeGen2Result> {
 
@@ -79,6 +81,7 @@ export interface GetDatasetDataLakeGen2Result {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -89,6 +92,7 @@ export interface GetDatasetDataLakeGen2Result {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDatasetDataLakeGen2Output(args: GetDatasetDataLakeGen2OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetDataLakeGen2Result> {
     return pulumi.output(args).apply((a: any) => getDatasetDataLakeGen2(a, opts))

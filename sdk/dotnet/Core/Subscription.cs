@@ -11,8 +11,10 @@ namespace Pulumi.Azure.Core
 {
     /// <summary>
     /// ## Example Usage
+    /// 
     /// ### Creating A New Alias And Subscription For An Enrollment Account
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,8 +37,11 @@ namespace Pulumi.Azure.Core
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Creating A New Alias And Subscription For A Microsoft Customer Account
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,8 +65,11 @@ namespace Pulumi.Azure.Core
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Creating A New Alias And Subscription For A Microsoft Partner Account
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -84,8 +92,11 @@ namespace Pulumi.Azure.Core
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Adding An Alias To An Existing Subscription
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -103,6 +114,7 @@ namespace Pulumi.Azure.Core
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -112,7 +124,7 @@ namespace Pulumi.Azure.Core
     /// $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
     /// ```
     /// 
-    ///  In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
+    /// In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
     /// </summary>
     [AzureResourceType("azure:core/subscription:Subscription")]
     public partial class Subscription : global::Pulumi.CustomResource

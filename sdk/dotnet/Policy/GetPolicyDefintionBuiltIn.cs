@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Policy
         /// <summary>
         /// Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,8 +36,7 @@ namespace Pulumi.Azure.Policy
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPolicyDefintionBuiltInResult> InvokeAsync(GetPolicyDefintionBuiltInArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefintionBuiltInResult>("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", args ?? new GetPolicyDefintionBuiltInArgs(), options.WithDefaults());
@@ -46,10 +44,9 @@ namespace Pulumi.Azure.Policy
         /// <summary>
         /// Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,8 +66,7 @@ namespace Pulumi.Azure.Policy
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPolicyDefintionBuiltInResult> Invoke(GetPolicyDefintionBuiltInInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDefintionBuiltInResult>("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", args ?? new GetPolicyDefintionBuiltInInvokeArgs(), options.WithDefaults());

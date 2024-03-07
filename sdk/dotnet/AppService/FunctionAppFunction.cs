@@ -13,8 +13,10 @@ namespace Pulumi.Azure.AppService
     /// Manages a Function App Function.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic HTTP Trigger
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -102,8 +104,11 @@ namespace Pulumi.Azure.AppService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### HTTP Trigger With Code Upload
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -203,6 +208,7 @@ namespace Pulumi.Azure.AppService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

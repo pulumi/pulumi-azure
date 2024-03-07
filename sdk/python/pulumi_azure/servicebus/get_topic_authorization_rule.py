@@ -209,6 +209,7 @@ def get_topic_authorization_rule(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -219,6 +220,7 @@ def get_topic_authorization_rule(name: Optional[str] = None,
         topic_name="example-servicebus_topic")
     pulumi.export("servicebusAuthorizationRuleId", example_azurem_servicebus_topic_authorization_rule["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the ServiceBus Topic Authorization Rule resource.
@@ -268,6 +270,7 @@ def get_topic_authorization_rule_output(name: Optional[pulumi.Input[str]] = None
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -278,6 +281,7 @@ def get_topic_authorization_rule_output(name: Optional[pulumi.Input[str]] = None
         topic_name="example-servicebus_topic")
     pulumi.export("servicebusAuthorizationRuleId", example_azurem_servicebus_topic_authorization_rule["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the ServiceBus Topic Authorization Rule resource.

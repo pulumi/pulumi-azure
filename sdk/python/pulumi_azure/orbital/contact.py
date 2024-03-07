@@ -231,6 +231,7 @@ class Contact(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -311,6 +312,7 @@ class Contact(pulumi.CustomResource):
             ground_station_name="WESTUS2_0",
             contact_profile_id=example_contact_profile.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -340,6 +342,7 @@ class Contact(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -420,6 +423,7 @@ class Contact(pulumi.CustomResource):
             ground_station_name="WESTUS2_0",
             contact_profile_id=example_contact_profile.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

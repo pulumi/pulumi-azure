@@ -300,6 +300,7 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -320,6 +321,7 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
                 "hello": "world",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -351,6 +353,7 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -371,6 +374,7 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
                 "hello": "world",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

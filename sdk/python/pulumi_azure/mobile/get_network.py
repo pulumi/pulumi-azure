@@ -130,6 +130,7 @@ def get_network(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -137,6 +138,7 @@ def get_network(name: Optional[str] = None,
     example = azure.mobile.get_network(name="example-mn",
         resource_group_name=example_azurerm_resource_group["name"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name which should be used for this Mobile Network.
@@ -168,6 +170,7 @@ def get_network_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -175,6 +178,7 @@ def get_network_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.mobile.get_network(name="example-mn",
         resource_group_name=example_azurerm_resource_group["name"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name which should be used for this Mobile Network.

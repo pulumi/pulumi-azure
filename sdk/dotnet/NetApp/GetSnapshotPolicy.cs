@@ -16,6 +16,7 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// ## NetApp Snapshot Policy Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,6 +44,7 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSnapshotPolicyResult> InvokeAsync(GetSnapshotPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotPolicyResult>("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", args ?? new GetSnapshotPolicyArgs(), options.WithDefaults());
@@ -52,6 +54,7 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// ## NetApp Snapshot Policy Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -79,6 +82,7 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSnapshotPolicyResult> Invoke(GetSnapshotPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotPolicyResult>("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", args ?? new GetSnapshotPolicyInvokeArgs(), options.WithDefaults());

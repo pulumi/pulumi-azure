@@ -105,6 +105,7 @@ def get_sql_database(account_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -113,6 +114,7 @@ def get_sql_database(account_name: Optional[str] = None,
         resource_group_name="tfex-cosmosdb-sql-database-rg",
         account_name="tfex-cosmosdb-sql-database-account-name")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the Cosmos DB SQL Database to create the table within.
@@ -145,6 +147,7 @@ def get_sql_database_output(account_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -153,6 +156,7 @@ def get_sql_database_output(account_name: Optional[pulumi.Input[str]] = None,
         resource_group_name="tfex-cosmosdb-sql-database-rg",
         account_name="tfex-cosmosdb-sql-database-account-name")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the Cosmos DB SQL Database to create the table within.

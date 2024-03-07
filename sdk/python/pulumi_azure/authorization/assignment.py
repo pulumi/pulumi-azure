@@ -430,8 +430,10 @@ class Assignment(pulumi.CustomResource):
         Assigns a given Principal (User or Group) to a given Role.
 
         ## Example Usage
+
         ### Using A Built-In Role)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -443,8 +445,11 @@ class Assignment(pulumi.CustomResource):
             role_definition_name="Reader",
             principal_id=example.object_id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Role & Service Principal)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -466,8 +471,11 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example.object_id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Role & User)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -489,8 +497,11 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example.object_id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Role & Management Group)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -513,6 +524,7 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example.object_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -522,15 +534,15 @@ class Assignment(pulumi.CustomResource):
         $ pulumi import azure:authorization/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
         ```
 
-         * for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
+        * for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
 
-         * for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
+        * for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
 
-         * for scope referencing a Key Vault, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vaultname/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
+        * for scope referencing a Key Vault, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vaultname/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
 
-         text
+        text
 
-         /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
+        /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -564,8 +576,10 @@ class Assignment(pulumi.CustomResource):
         Assigns a given Principal (User or Group) to a given Role.
 
         ## Example Usage
+
         ### Using A Built-In Role)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -577,8 +591,11 @@ class Assignment(pulumi.CustomResource):
             role_definition_name="Reader",
             principal_id=example.object_id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Role & Service Principal)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -600,8 +617,11 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example.object_id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Role & User)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -623,8 +643,11 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example.object_id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Role & Management Group)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -647,6 +670,7 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example.object_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -656,15 +680,15 @@ class Assignment(pulumi.CustomResource):
         $ pulumi import azure:authorization/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
         ```
 
-         * for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
+        * for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
 
-         * for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
+        * for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
 
-         * for scope referencing a Key Vault, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vaultname/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
+        * for scope referencing a Key Vault, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vaultname/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
 
-         text
+        text
 
-         /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
+        /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
 
         :param str resource_name: The name of the resource.
         :param AssignmentArgs args: The arguments to use to populate this resource's properties.

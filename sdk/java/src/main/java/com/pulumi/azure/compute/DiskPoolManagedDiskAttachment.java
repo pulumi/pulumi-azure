@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** You must provide the StoragePool resource provider RBAC permissions to the disks that will be added to the disk pool.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -136,6 +138,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

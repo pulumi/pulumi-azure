@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages a Snowflake Dataset inside an Azure Data Factory.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -76,12 +78,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * Data Factory Snowflake Datasets can be imported using the `resource id`,
- * 
- * e.g.
+ * Data Factory Snowflake Datasets can be imported using the `resource id`,  e.g.
  * 
  * ```sh
  * $ pulumi import azure:datafactory/datasetSnowflake:DatasetSnowflake example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example

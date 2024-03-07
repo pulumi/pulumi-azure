@@ -538,8 +538,10 @@ class Key(pulumi.CustomResource):
         > **Note:** To use this resource, your client should have RBAC roles with permissions like `Key Vault Crypto Officer` or `Key Vault Administrator` or an assigned Key Vault Access Policy with permissions `Create`,`Delete`,`Get`,`Purge`,`Recover`,`Update` and `GetRotationPolicy` for keys without Rotation Policy. Include `SetRotationPolicy` for keys with Rotation Policy.
 
         > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Key resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_keys_on_destroy` for more information.
+
         ### Additional Examples
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -591,6 +593,7 @@ class Key(pulumi.CustomResource):
                 notify_before_expiry="P29D",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -629,8 +632,10 @@ class Key(pulumi.CustomResource):
         > **Note:** To use this resource, your client should have RBAC roles with permissions like `Key Vault Crypto Officer` or `Key Vault Administrator` or an assigned Key Vault Access Policy with permissions `Create`,`Delete`,`Get`,`Purge`,`Recover`,`Update` and `GetRotationPolicy` for keys without Rotation Policy. Include `SetRotationPolicy` for keys with Rotation Policy.
 
         > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Key resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_keys_on_destroy` for more information.
+
         ### Additional Examples
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -682,6 +687,7 @@ class Key(pulumi.CustomResource):
                 notify_before_expiry="P29D",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

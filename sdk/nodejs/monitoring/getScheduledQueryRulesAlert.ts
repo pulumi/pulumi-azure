@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const queryRuleId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getScheduledQueryRulesAlert(args: GetScheduledQueryRulesAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRulesAlertResult> {
 
@@ -114,6 +116,7 @@ export interface GetScheduledQueryRulesAlertResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -124,6 +127,7 @@ export interface GetScheduledQueryRulesAlertResult {
  * });
  * export const queryRuleId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getScheduledQueryRulesAlertOutput(args: GetScheduledQueryRulesAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRulesAlertResult> {
     return pulumi.output(args).apply((a: any) => getScheduledQueryRulesAlert(a, opts))

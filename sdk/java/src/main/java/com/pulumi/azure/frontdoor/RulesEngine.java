@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Manages an Azure Front Door (classic) Rules Engine configuration and rules.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -139,6 +141,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

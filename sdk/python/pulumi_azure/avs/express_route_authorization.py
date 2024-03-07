@@ -135,6 +135,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -158,6 +159,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
             name="example-authorization",
             private_cloud_id=example_private_cloud.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -183,6 +185,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -206,6 +209,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
             name="example-authorization",
             private_cloud_id=example_private_cloud.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

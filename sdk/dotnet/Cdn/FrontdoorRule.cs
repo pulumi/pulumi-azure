@@ -16,6 +16,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -202,6 +203,8 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Specifying IP Address Ranges
     /// 
     /// When specifying IP address ranges in the `socket_address_condition` and the `remote_address_condition` `match_values` use the following format:

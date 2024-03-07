@@ -166,6 +166,7 @@ def get_certificate_data(key_vault_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -176,6 +177,7 @@ def get_certificate_data(key_vault_id: Optional[str] = None,
         key_vault_id=example.id)
     pulumi.export("examplePem", example_get_certificate_data.pem)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
@@ -217,6 +219,7 @@ def get_certificate_data_output(key_vault_id: Optional[pulumi.Input[str]] = None
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -227,6 +230,7 @@ def get_certificate_data_output(key_vault_id: Optional[pulumi.Input[str]] = None
         key_vault_id=example.id)
     pulumi.export("examplePem", example_get_certificate_data.pem)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.

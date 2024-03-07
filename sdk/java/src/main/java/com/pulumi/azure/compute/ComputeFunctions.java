@@ -78,6 +78,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Availability Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -108,6 +110,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAvailabilitySetResult> getAvailabilitySet(GetAvailabilitySetArgs args) {
@@ -117,6 +120,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Availability Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -147,6 +152,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAvailabilitySetResult> getAvailabilitySetPlain(GetAvailabilitySetPlainArgs args) {
@@ -156,6 +162,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Availability Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -186,6 +194,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAvailabilitySetResult> getAvailabilitySet(GetAvailabilitySetArgs args, InvokeOptions options) {
@@ -195,6 +204,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Availability Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -225,6 +236,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAvailabilitySetResult> getAvailabilitySetPlain(GetAvailabilitySetPlainArgs args, InvokeOptions options) {
@@ -234,6 +246,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Bastion Host.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -264,6 +278,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBastionHostResult> getBastionHost(GetBastionHostArgs args) {
@@ -273,6 +288,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Bastion Host.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -303,6 +320,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBastionHostResult> getBastionHostPlain(GetBastionHostPlainArgs args) {
@@ -312,6 +330,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Bastion Host.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -342,6 +362,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBastionHostResult> getBastionHost(GetBastionHostArgs args, InvokeOptions options) {
@@ -351,6 +372,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Bastion Host.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -381,6 +404,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBastionHostResult> getBastionHostPlain(GetBastionHostPlainArgs args, InvokeOptions options) {
@@ -390,6 +414,8 @@ public final class ComputeFunctions {
      * Gets information about an existing Confidential Ledger.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -420,6 +446,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConfidentialLedgerResult> getConfidentialLedger(GetConfidentialLedgerArgs args) {
@@ -429,6 +456,8 @@ public final class ComputeFunctions {
      * Gets information about an existing Confidential Ledger.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -459,6 +488,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConfidentialLedgerResult> getConfidentialLedgerPlain(GetConfidentialLedgerPlainArgs args) {
@@ -468,6 +498,8 @@ public final class ComputeFunctions {
      * Gets information about an existing Confidential Ledger.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -498,6 +530,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConfidentialLedgerResult> getConfidentialLedger(GetConfidentialLedgerArgs args, InvokeOptions options) {
@@ -507,6 +540,8 @@ public final class ComputeFunctions {
      * Gets information about an existing Confidential Ledger.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -537,6 +572,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConfidentialLedgerResult> getConfidentialLedgerPlain(GetConfidentialLedgerPlainArgs args, InvokeOptions options) {
@@ -546,6 +582,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Dedicated Host.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -577,6 +615,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDedicatedHostResult> getDedicatedHost(GetDedicatedHostArgs args) {
@@ -586,6 +625,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Dedicated Host.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -617,6 +658,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDedicatedHostResult> getDedicatedHostPlain(GetDedicatedHostPlainArgs args) {
@@ -626,6 +668,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Dedicated Host.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -657,6 +701,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDedicatedHostResult> getDedicatedHost(GetDedicatedHostArgs args, InvokeOptions options) {
@@ -666,6 +711,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Dedicated Host.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -697,6 +744,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDedicatedHostResult> getDedicatedHostPlain(GetDedicatedHostPlainArgs args, InvokeOptions options) {
@@ -706,6 +754,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Dedicated Host Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -736,6 +786,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDedicatedHostGroupResult> getDedicatedHostGroup(GetDedicatedHostGroupArgs args) {
@@ -745,6 +796,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Dedicated Host Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -775,6 +828,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDedicatedHostGroupResult> getDedicatedHostGroupPlain(GetDedicatedHostGroupPlainArgs args) {
@@ -784,6 +838,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Dedicated Host Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -814,6 +870,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDedicatedHostGroupResult> getDedicatedHostGroup(GetDedicatedHostGroupArgs args, InvokeOptions options) {
@@ -823,6 +880,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Dedicated Host Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -853,6 +912,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDedicatedHostGroupResult> getDedicatedHostGroupPlain(GetDedicatedHostGroupPlainArgs args, InvokeOptions options) {
@@ -862,6 +922,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Disk Access.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -892,6 +954,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDiskAccessResult> getDiskAccess(GetDiskAccessArgs args) {
@@ -901,6 +964,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Disk Access.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -931,6 +996,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDiskAccessResult> getDiskAccessPlain(GetDiskAccessPlainArgs args) {
@@ -940,6 +1006,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Disk Access.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -970,6 +1038,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDiskAccessResult> getDiskAccess(GetDiskAccessArgs args, InvokeOptions options) {
@@ -979,6 +1048,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Disk Access.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1009,6 +1080,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDiskAccessResult> getDiskAccessPlain(GetDiskAccessPlainArgs args, InvokeOptions options) {
@@ -1018,6 +1090,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Disk Encryption Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1048,6 +1122,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDiskEncryptionSetResult> getDiskEncryptionSet(GetDiskEncryptionSetArgs args) {
@@ -1057,6 +1132,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Disk Encryption Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1087,6 +1164,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDiskEncryptionSetResult> getDiskEncryptionSetPlain(GetDiskEncryptionSetPlainArgs args) {
@@ -1096,6 +1174,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Disk Encryption Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1126,6 +1206,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDiskEncryptionSetResult> getDiskEncryptionSet(GetDiskEncryptionSetArgs args, InvokeOptions options) {
@@ -1135,6 +1216,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Disk Encryption Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1165,6 +1248,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDiskEncryptionSetResult> getDiskEncryptionSetPlain(GetDiskEncryptionSetPlainArgs args, InvokeOptions options) {
@@ -1174,6 +1258,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Image.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1204,6 +1290,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args) {
@@ -1213,6 +1300,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Image.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1243,6 +1332,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args) {
@@ -1252,6 +1342,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Image.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1282,6 +1374,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args, InvokeOptions options) {
@@ -1291,6 +1384,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Image.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1321,6 +1416,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args, InvokeOptions options) {
@@ -1330,6 +1426,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about existing Images within a Resource Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1358,6 +1456,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args) {
@@ -1367,6 +1466,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about existing Images within a Resource Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1395,6 +1496,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args) {
@@ -1404,6 +1506,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about existing Images within a Resource Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1432,6 +1536,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args, InvokeOptions options) {
@@ -1441,6 +1546,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about existing Images within a Resource Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1469,6 +1576,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args, InvokeOptions options) {
@@ -1478,6 +1586,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about existing IP Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1508,6 +1618,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups
@@ -1521,6 +1632,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about existing IP Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1551,6 +1664,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups
@@ -1564,6 +1678,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about existing IP Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1594,6 +1710,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups
@@ -1607,6 +1724,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about existing IP Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1637,6 +1756,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups
@@ -1650,6 +1770,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Managed Disk.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1680,6 +1802,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetManagedDiskResult> getManagedDisk(GetManagedDiskArgs args) {
@@ -1689,6 +1812,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Managed Disk.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1719,6 +1844,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetManagedDiskResult> getManagedDiskPlain(GetManagedDiskPlainArgs args) {
@@ -1728,6 +1854,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Managed Disk.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1758,6 +1886,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetManagedDiskResult> getManagedDisk(GetManagedDiskArgs args, InvokeOptions options) {
@@ -1767,6 +1896,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Managed Disk.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1797,6 +1928,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetManagedDiskResult> getManagedDiskPlain(GetManagedDiskPlainArgs args, InvokeOptions options) {
@@ -1806,6 +1938,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1836,6 +1970,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs args) {
@@ -1845,6 +1980,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1875,6 +2012,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSetPlain(GetOrchestratedVirtualMachineScaleSetPlainArgs args) {
@@ -1884,6 +2022,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1914,6 +2054,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs args, InvokeOptions options) {
@@ -1923,6 +2064,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1953,6 +2096,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSetPlain(GetOrchestratedVirtualMachineScaleSetPlainArgs args, InvokeOptions options) {
@@ -1962,6 +2106,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about a Platform Image.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1994,6 +2140,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPlatformImageResult> getPlatformImage(GetPlatformImageArgs args) {
@@ -2003,6 +2150,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about a Platform Image.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2035,6 +2184,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPlatformImageResult> getPlatformImagePlain(GetPlatformImagePlainArgs args) {
@@ -2044,6 +2194,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about a Platform Image.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2076,6 +2228,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPlatformImageResult> getPlatformImage(GetPlatformImageArgs args, InvokeOptions options) {
@@ -2085,6 +2238,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about a Platform Image.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2117,6 +2272,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPlatformImageResult> getPlatformImagePlain(GetPlatformImagePlainArgs args, InvokeOptions options) {
@@ -2126,6 +2282,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2156,6 +2314,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSharedImageResult> getSharedImage(GetSharedImageArgs args) {
@@ -2165,6 +2324,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2195,6 +2356,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSharedImageResult> getSharedImagePlain(GetSharedImagePlainArgs args) {
@@ -2204,6 +2366,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2234,6 +2398,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSharedImageResult> getSharedImage(GetSharedImageArgs args, InvokeOptions options) {
@@ -2243,6 +2408,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2273,6 +2440,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSharedImageResult> getSharedImagePlain(GetSharedImagePlainArgs args, InvokeOptions options) {
@@ -2282,6 +2450,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2311,6 +2481,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSharedImageGalleryResult> getSharedImageGallery(GetSharedImageGalleryArgs args) {
@@ -2320,6 +2491,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2349,6 +2522,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSharedImageGalleryResult> getSharedImageGalleryPlain(GetSharedImageGalleryPlainArgs args) {
@@ -2358,6 +2532,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2387,6 +2563,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSharedImageGalleryResult> getSharedImageGallery(GetSharedImageGalleryArgs args, InvokeOptions options) {
@@ -2396,6 +2573,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2425,6 +2604,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSharedImageGalleryResult> getSharedImageGalleryPlain(GetSharedImageGalleryPlainArgs args, InvokeOptions options) {
@@ -2434,6 +2614,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2465,6 +2647,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSharedImageVersionResult> getSharedImageVersion(GetSharedImageVersionArgs args) {
@@ -2474,6 +2657,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2505,6 +2690,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSharedImageVersionResult> getSharedImageVersionPlain(GetSharedImageVersionPlainArgs args) {
@@ -2514,6 +2700,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2545,6 +2733,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSharedImageVersionResult> getSharedImageVersion(GetSharedImageVersionArgs args, InvokeOptions options) {
@@ -2554,6 +2743,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2585,6 +2776,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSharedImageVersionResult> getSharedImageVersionPlain(GetSharedImageVersionPlainArgs args, InvokeOptions options) {
@@ -2594,6 +2786,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2624,6 +2818,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSharedImageVersionsResult> getSharedImageVersions(GetSharedImageVersionsArgs args) {
@@ -2633,6 +2828,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2663,6 +2860,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSharedImageVersionsResult> getSharedImageVersionsPlain(GetSharedImageVersionsPlainArgs args) {
@@ -2672,6 +2870,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2702,6 +2902,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSharedImageVersionsResult> getSharedImageVersions(GetSharedImageVersionsArgs args, InvokeOptions options) {
@@ -2711,6 +2912,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2741,6 +2944,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSharedImageVersionsResult> getSharedImageVersionsPlain(GetSharedImageVersionsPlainArgs args, InvokeOptions options) {
@@ -2750,6 +2954,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Snapshot.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2779,6 +2985,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args) {
@@ -2788,6 +2995,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Snapshot.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2817,6 +3026,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args) {
@@ -2826,6 +3036,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Snapshot.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2855,6 +3067,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOptions options) {
@@ -2864,6 +3077,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Snapshot.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2893,6 +3108,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args, InvokeOptions options) {
@@ -2902,6 +3118,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing SSH Public Key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2932,6 +3150,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSshPublicKeyResult> getSshPublicKey(GetSshPublicKeyArgs args) {
@@ -2941,6 +3160,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing SSH Public Key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2971,6 +3192,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSshPublicKeyResult> getSshPublicKeyPlain(GetSshPublicKeyPlainArgs args) {
@@ -2980,6 +3202,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing SSH Public Key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3010,6 +3234,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSshPublicKeyResult> getSshPublicKey(GetSshPublicKeyArgs args, InvokeOptions options) {
@@ -3019,6 +3244,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing SSH Public Key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3049,6 +3276,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSshPublicKeyResult> getSshPublicKeyPlain(GetSshPublicKeyPlainArgs args, InvokeOptions options) {
@@ -3058,6 +3286,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Virtual Machine.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3088,6 +3318,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualMachineResult> getVirtualMachine(GetVirtualMachineArgs args) {
@@ -3097,6 +3328,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Virtual Machine.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3127,6 +3360,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualMachineResult> getVirtualMachinePlain(GetVirtualMachinePlainArgs args) {
@@ -3136,6 +3370,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Virtual Machine.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3166,6 +3402,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualMachineResult> getVirtualMachine(GetVirtualMachineArgs args, InvokeOptions options) {
@@ -3175,6 +3412,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Virtual Machine.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3205,6 +3444,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualMachineResult> getVirtualMachinePlain(GetVirtualMachinePlainArgs args, InvokeOptions options) {
@@ -3214,6 +3454,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Virtual Machine Scale Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3244,6 +3486,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs args) {
@@ -3253,6 +3496,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Virtual Machine Scale Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3283,6 +3528,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSetPlain(GetVirtualMachineScaleSetPlainArgs args) {
@@ -3292,6 +3538,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Virtual Machine Scale Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3322,6 +3570,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs args, InvokeOptions options) {
@@ -3331,6 +3580,8 @@ public final class ComputeFunctions {
      * Use this data source to access information about an existing Virtual Machine Scale Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3361,6 +3612,7 @@ public final class ComputeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSetPlain(GetVirtualMachineScaleSetPlainArgs args, InvokeOptions options) {

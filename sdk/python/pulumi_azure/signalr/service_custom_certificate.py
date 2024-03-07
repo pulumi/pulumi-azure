@@ -167,6 +167,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -233,6 +234,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
             signalr_service_id=example_service.id,
             custom_certificate_id=example_certificate.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -263,6 +265,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -329,6 +332,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
             signalr_service_id=example_service.id,
             custom_certificate_id=example_certificate.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

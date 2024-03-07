@@ -15,6 +15,7 @@ namespace Pulumi.Azure.CustomIp
     /// ## Example Usage
     /// 
     /// *IPv4 custom prefix*
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,8 +53,10 @@ namespace Pulumi.Azure.CustomIp
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// *IPv6 custom prefix*
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -99,6 +102,7 @@ namespace Pulumi.Azure.CustomIp
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

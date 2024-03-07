@@ -408,6 +408,7 @@ class Workbook(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -437,6 +438,7 @@ class Workbook(pulumi.CustomResource):
                 "ENV": "Test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -473,6 +475,7 @@ class Workbook(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -502,6 +505,7 @@ class Workbook(pulumi.CustomResource):
                 "ENV": "Test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

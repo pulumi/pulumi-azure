@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Deprecated: azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
 func GetServiceBusNamespace(ctx *pulumi.Context, args *GetServiceBusNamespaceArgs, opts ...pulumi.InvokeOption) (*GetServiceBusNamespaceResult, error) {

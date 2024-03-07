@@ -16,6 +16,7 @@ namespace Pulumi.Azure.ChaosStudio
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,6 +58,7 @@ namespace Pulumi.Azure.ChaosStudio
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -66,9 +68,9 @@ namespace Pulumi.Azure.ChaosStudio
     /// $ pulumi import azure:chaosstudio/target:Target example /{scope}/providers/Microsoft.Chaos/targets/{targetName}
     /// ```
     /// 
-    ///  * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
+    /// * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
     /// 
-    ///  * Where `{targetName}` is the name of the Target. For example `targetValue`.
+    /// * Where `{targetName}` is the name of the Target. For example `targetValue`.
     /// </summary>
     [AzureResourceType("azure:chaosstudio/target:Target")]
     public partial class Target : global::Pulumi.CustomResource

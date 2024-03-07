@@ -182,7 +182,9 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         Manages SingleSignOn on the datadog Monitor.
 
         ## Example Usage
+
         ### Enabling SSO on monitor
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -211,6 +213,7 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
             single_sign_on_enabled="Enable",
             enterprise_application_id="XXXX")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -237,7 +240,9 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         Manages SingleSignOn on the datadog Monitor.
 
         ## Example Usage
+
         ### Enabling SSO on monitor
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -266,6 +271,7 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
             single_sign_on_enabled="Enable",
             enterprise_application_id="XXXX")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

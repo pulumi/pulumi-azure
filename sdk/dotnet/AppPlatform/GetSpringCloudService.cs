@@ -14,10 +14,9 @@ namespace Pulumi.Azure.AppPlatform
         /// <summary>
         /// Use this data source to access information about an existing Spring Cloud Service.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Azure.AppPlatform
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSpringCloudServiceResult> InvokeAsync(GetSpringCloudServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpringCloudServiceResult>("azure:appplatform/getSpringCloudService:getSpringCloudService", args ?? new GetSpringCloudServiceArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Azure.AppPlatform
         /// <summary>
         /// Use this data source to access information about an existing Spring Cloud Service.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Azure.AppPlatform
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSpringCloudServiceResult> Invoke(GetSpringCloudServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpringCloudServiceResult>("azure:appplatform/getSpringCloudService:getSpringCloudService", args ?? new GetSpringCloudServiceInvokeArgs(), options.WithDefaults());

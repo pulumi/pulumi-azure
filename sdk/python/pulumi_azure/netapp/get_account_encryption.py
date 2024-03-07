@@ -90,6 +90,7 @@ def get_account_encryption(encryption_key: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -97,6 +98,7 @@ def get_account_encryption(encryption_key: Optional[str] = None,
     example = azure.netapp.get_account_encryption(netapp_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str encryption_key: The key vault encryption key.
@@ -131,6 +133,7 @@ def get_account_encryption_output(encryption_key: Optional[pulumi.Input[Optional
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -138,6 +141,7 @@ def get_account_encryption_output(encryption_key: Optional[pulumi.Input[Optional
     example = azure.netapp.get_account_encryption(netapp_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str encryption_key: The key vault encryption key.

@@ -27,6 +27,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IotHub Device Provisioning Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -56,6 +58,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDpsResult> getDps(GetDpsArgs args) {
@@ -65,6 +68,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IotHub Device Provisioning Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -94,6 +99,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDpsResult> getDpsPlain(GetDpsPlainArgs args) {
@@ -103,6 +109,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IotHub Device Provisioning Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDpsResult> getDps(GetDpsArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IotHub Device Provisioning Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -170,6 +181,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDpsResult> getDpsPlain(GetDpsPlainArgs args, InvokeOptions options) {
@@ -179,6 +191,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -209,6 +223,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDpsSharedAccessPolicyResult> getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs args) {
@@ -218,6 +233,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -248,6 +265,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDpsSharedAccessPolicyResult> getDpsSharedAccessPolicyPlain(GetDpsSharedAccessPolicyPlainArgs args) {
@@ -257,6 +275,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -287,6 +307,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDpsSharedAccessPolicyResult> getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs args, InvokeOptions options) {
@@ -296,6 +317,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -326,6 +349,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDpsSharedAccessPolicyResult> getDpsSharedAccessPolicyPlain(GetDpsSharedAccessPolicyPlainArgs args, InvokeOptions options) {
@@ -335,6 +359,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IoTHub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -365,6 +391,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIotHubResult> getIotHub(GetIotHubArgs args) {
@@ -374,6 +401,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IoTHub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -404,6 +433,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIotHubResult> getIotHubPlain(GetIotHubPlainArgs args) {
@@ -413,6 +443,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IoTHub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -443,6 +475,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIotHubResult> getIotHub(GetIotHubArgs args, InvokeOptions options) {
@@ -452,6 +485,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IoTHub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -482,6 +517,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIotHubResult> getIotHubPlain(GetIotHubPlainArgs args, InvokeOptions options) {
@@ -491,6 +527,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IotHub Shared Access Policy
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -521,6 +559,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSharedAccessPolicyResult> getSharedAccessPolicy(GetSharedAccessPolicyArgs args) {
@@ -530,6 +569,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IotHub Shared Access Policy
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -560,6 +601,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSharedAccessPolicyResult> getSharedAccessPolicyPlain(GetSharedAccessPolicyPlainArgs args) {
@@ -569,6 +611,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IotHub Shared Access Policy
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -599,6 +643,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSharedAccessPolicyResult> getSharedAccessPolicy(GetSharedAccessPolicyArgs args, InvokeOptions options) {
@@ -608,6 +653,8 @@ public final class IotFunctions {
      * Use this data source to access information about an existing IotHub Shared Access Policy
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -638,6 +685,7 @@ public final class IotFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSharedAccessPolicyResult> getSharedAccessPolicyPlain(GetSharedAccessPolicyPlainArgs args, InvokeOptions options) {

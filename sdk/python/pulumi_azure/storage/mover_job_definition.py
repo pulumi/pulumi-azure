@@ -331,6 +331,7 @@ class MoverJobDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -381,6 +382,7 @@ class MoverJobDefinition(pulumi.CustomResource):
             target_sub_path="/",
             description="Example Job Definition Description")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -413,6 +415,7 @@ class MoverJobDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -463,6 +466,7 @@ class MoverJobDefinition(pulumi.CustomResource):
             target_sub_path="/",
             description="Example Job Definition Description")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

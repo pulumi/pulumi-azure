@@ -21,6 +21,8 @@ public final class AppplatformFunctions {
      * Use this data source to access information about an existing Spring Cloud Application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -52,6 +54,7 @@ public final class AppplatformFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSpringCloudAppResult> getSpringCloudApp(GetSpringCloudAppArgs args) {
@@ -61,6 +64,8 @@ public final class AppplatformFunctions {
      * Use this data source to access information about an existing Spring Cloud Application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -92,6 +97,7 @@ public final class AppplatformFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSpringCloudAppResult> getSpringCloudAppPlain(GetSpringCloudAppPlainArgs args) {
@@ -101,6 +107,8 @@ public final class AppplatformFunctions {
      * Use this data source to access information about an existing Spring Cloud Application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class AppplatformFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSpringCloudAppResult> getSpringCloudApp(GetSpringCloudAppArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class AppplatformFunctions {
      * Use this data source to access information about an existing Spring Cloud Application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -172,6 +183,7 @@ public final class AppplatformFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSpringCloudAppResult> getSpringCloudAppPlain(GetSpringCloudAppPlainArgs args, InvokeOptions options) {
@@ -181,6 +193,8 @@ public final class AppplatformFunctions {
      * Use this data source to access information about an existing Spring Cloud Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -211,6 +225,7 @@ public final class AppplatformFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSpringCloudServiceResult> getSpringCloudService(GetSpringCloudServiceArgs args) {
@@ -220,6 +235,8 @@ public final class AppplatformFunctions {
      * Use this data source to access information about an existing Spring Cloud Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -250,6 +267,7 @@ public final class AppplatformFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSpringCloudServiceResult> getSpringCloudServicePlain(GetSpringCloudServicePlainArgs args) {
@@ -259,6 +277,8 @@ public final class AppplatformFunctions {
      * Use this data source to access information about an existing Spring Cloud Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -289,6 +309,7 @@ public final class AppplatformFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSpringCloudServiceResult> getSpringCloudService(GetSpringCloudServiceArgs args, InvokeOptions options) {
@@ -298,6 +319,8 @@ public final class AppplatformFunctions {
      * Use this data source to access information about an existing Spring Cloud Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -328,6 +351,7 @@ public final class AppplatformFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSpringCloudServiceResult> getSpringCloudServicePlain(GetSpringCloudServicePlainArgs args, InvokeOptions options) {

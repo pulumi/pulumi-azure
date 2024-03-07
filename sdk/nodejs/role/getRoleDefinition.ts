@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -35,6 +36,7 @@ import * as utilities from "../utilities";
  * export const customRoleDefinitionId = custom.apply(custom => custom.id);
  * export const contributorRoleDefinitionId = builtin.then(builtin => builtin.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 /** @deprecated azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
@@ -104,6 +106,7 @@ export interface GetRoleDefinitionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -128,6 +131,7 @@ export interface GetRoleDefinitionResult {
  * export const customRoleDefinitionId = custom.apply(custom => custom.id);
  * export const contributorRoleDefinitionId = builtin.then(builtin => builtin.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 /** @deprecated azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition */
 export function getRoleDefinitionOutput(args?: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {

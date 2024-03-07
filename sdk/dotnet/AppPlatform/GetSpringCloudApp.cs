@@ -14,10 +14,9 @@ namespace Pulumi.Azure.AppPlatform
         /// <summary>
         /// Use this data source to access information about an existing Spring Cloud Application.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.Azure.AppPlatform
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSpringCloudAppResult> InvokeAsync(GetSpringCloudAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpringCloudAppResult>("azure:appplatform/getSpringCloudApp:getSpringCloudApp", args ?? new GetSpringCloudAppArgs(), options.WithDefaults());
@@ -48,10 +46,9 @@ namespace Pulumi.Azure.AppPlatform
         /// <summary>
         /// Use this data source to access information about an existing Spring Cloud Application.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.Azure.AppPlatform
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSpringCloudAppResult> Invoke(GetSpringCloudAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpringCloudAppResult>("azure:appplatform/getSpringCloudApp:getSpringCloudApp", args ?? new GetSpringCloudAppInvokeArgs(), options.WithDefaults());

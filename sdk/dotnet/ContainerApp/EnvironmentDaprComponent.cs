@@ -14,6 +14,7 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,6 +56,7 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -106,7 +108,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// A list of scopes to which this component applies.
         /// 
-        /// &gt; **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+        /// &gt; **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%!C(MISSING)yaml#component-scopes
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
@@ -221,7 +223,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// A list of scopes to which this component applies.
         /// 
-        /// &gt; **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+        /// &gt; **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%!C(MISSING)yaml#component-scopes
         /// </summary>
         public InputList<string> Scopes
         {
@@ -307,7 +309,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// A list of scopes to which this component applies.
         /// 
-        /// &gt; **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+        /// &gt; **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%!C(MISSING)yaml#component-scopes
         /// </summary>
         public InputList<string> Scopes
         {

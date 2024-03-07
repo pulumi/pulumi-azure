@@ -213,7 +213,7 @@ class PortalDashboard(pulumi.CustomResource):
         $ pulumi import azure:portal/portalDashboard:PortalDashboard my-board /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Portal/dashboards/00000000-0000-0000-0000-000000000000
         ```
 
-         Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
+        Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,7 +240,7 @@ class PortalDashboard(pulumi.CustomResource):
         $ pulumi import azure:portal/portalDashboard:PortalDashboard my-board /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Portal/dashboards/00000000-0000-0000-0000-000000000000
         ```
 
-         Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
+        Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
 
         :param str resource_name: The name of the resource.
         :param PortalDashboardArgs args: The arguments to use to populate this resource's properties.

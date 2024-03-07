@@ -199,6 +199,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -285,6 +286,7 @@ class Certificate(pulumi.CustomResource):
             certificate_virtual_path="/src/cert/server.cert",
             key_vault_secret_id=example_certificate.secret_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -313,6 +315,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -399,6 +402,7 @@ class Certificate(pulumi.CustomResource):
             certificate_virtual_path="/src/cert/server.cert",
             key_vault_secret_id=example_certificate.secret_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

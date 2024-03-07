@@ -168,6 +168,7 @@ class ObjectReplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -214,6 +215,7 @@ class ObjectReplication(pulumi.CustomResource):
                 destination_container_name=dst_container.name,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -240,6 +242,7 @@ class ObjectReplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -286,6 +289,7 @@ class ObjectReplication(pulumi.CustomResource):
                 destination_container_name=dst_container.name,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

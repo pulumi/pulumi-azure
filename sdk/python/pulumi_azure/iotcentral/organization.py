@@ -167,6 +167,7 @@ class Organization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -195,6 +196,7 @@ class Organization(pulumi.CustomResource):
             display_name="Org example",
             parent_organization_id=example_parent.organization_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -222,6 +224,7 @@ class Organization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -250,6 +253,7 @@ class Organization(pulumi.CustomResource):
             display_name="Org example",
             parent_organization_id=example_parent.organization_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -1101,6 +1101,7 @@ class Service(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1116,6 +1117,7 @@ class Service(pulumi.CustomResource):
             publisher_email="company@exmaple.com",
             sku_name="Developer_1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1176,6 +1178,7 @@ class Service(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1191,6 +1194,7 @@ class Service(pulumi.CustomResource):
             publisher_email="company@exmaple.com",
             sku_name="Developer_1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

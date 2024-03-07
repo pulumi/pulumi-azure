@@ -165,6 +165,7 @@ def get_service(location: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -174,6 +175,7 @@ def get_service(location: Optional[str] = None,
         location="westus2")
     pulumi.export("healthcareServiceId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str location: The Azure Region where the Service is located.
@@ -211,6 +213,7 @@ def get_service_output(location: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -220,6 +223,7 @@ def get_service_output(location: Optional[pulumi.Input[str]] = None,
         location="westus2")
     pulumi.export("healthcareServiceId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str location: The Azure Region where the Service is located.

@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,6 +45,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetComputeMachine(ctx *pulumi.Context, args *GetComputeMachineArgs, opts ...pulumi.InvokeOption) (*GetComputeMachineResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetComputeMachineResult

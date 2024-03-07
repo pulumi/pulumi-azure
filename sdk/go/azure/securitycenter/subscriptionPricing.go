@@ -17,8 +17,10 @@ import (
 // > **NOTE:** Deletion of this resource will reset the pricing tier to `Free`
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,8 +45,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using Extensions with Defender CSPM
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,6 +91,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

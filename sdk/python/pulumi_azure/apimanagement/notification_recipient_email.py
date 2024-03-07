@@ -134,6 +134,7 @@ class NotificationRecipientEmail(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -153,6 +154,7 @@ class NotificationRecipientEmail(pulumi.CustomResource):
             notification_type="AccountClosedPublisher",
             email="foo@bar.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -179,6 +181,7 @@ class NotificationRecipientEmail(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -198,6 +201,7 @@ class NotificationRecipientEmail(pulumi.CustomResource):
             notification_type="AccountClosedPublisher",
             email="foo@bar.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

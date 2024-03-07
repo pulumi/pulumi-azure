@@ -14,6 +14,7 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,6 +50,7 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AzureResourceType("azure:paloalto/localRulestackOutboundTrustCertificateAssociation:LocalRulestackOutboundTrustCertificateAssociation")]
     public partial class LocalRulestackOutboundTrustCertificateAssociation : global::Pulumi.CustomResource

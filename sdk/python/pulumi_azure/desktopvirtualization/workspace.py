@@ -268,6 +268,7 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -282,6 +283,7 @@ class Workspace(pulumi.CustomResource):
             friendly_name="FriendlyName",
             description="A description of my workspace")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -312,6 +314,7 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -326,6 +329,7 @@ class Workspace(pulumi.CustomResource):
             friendly_name="FriendlyName",
             description="A description of my workspace")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

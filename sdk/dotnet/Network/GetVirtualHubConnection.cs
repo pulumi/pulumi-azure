@@ -16,6 +16,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// ## Virtual Hub Connection Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,6 +38,7 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVirtualHubConnectionResult> InvokeAsync(GetVirtualHubConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubConnectionResult>("azure:network/getVirtualHubConnection:getVirtualHubConnection", args ?? new GetVirtualHubConnectionArgs(), options.WithDefaults());
@@ -46,6 +48,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// ## Virtual Hub Connection Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,6 +70,7 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVirtualHubConnectionResult> Invoke(GetVirtualHubConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubConnectionResult>("azure:network/getVirtualHubConnection:getVirtualHubConnection", args ?? new GetVirtualHubConnectionInvokeArgs(), options.WithDefaults());

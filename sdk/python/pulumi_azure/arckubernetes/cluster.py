@@ -349,6 +349,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -369,6 +370,7 @@ class Cluster(pulumi.CustomResource):
                 "ENV": "Test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** An extensive example on connecting the `arckubernetes.Cluster` to an external kubernetes cluster can be found in the `./examples/arckubernetes` directory within the GitHub Repository.
 
@@ -402,6 +404,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -422,6 +425,7 @@ class Cluster(pulumi.CustomResource):
                 "ENV": "Test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** An extensive example on connecting the `arckubernetes.Cluster` to an external kubernetes cluster can be found in the `./examples/arckubernetes` directory within the GitHub Repository.
 

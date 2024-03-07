@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRestorableDatabaseAccounts(ctx *pulumi.Context, args *GetRestorableDatabaseAccountsArgs, opts ...pulumi.InvokeOption) (*GetRestorableDatabaseAccountsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRestorableDatabaseAccountsResult

@@ -362,6 +362,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -408,6 +409,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                 value="FabrikamDC",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -441,6 +443,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -487,6 +490,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                 value="FabrikamDC",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

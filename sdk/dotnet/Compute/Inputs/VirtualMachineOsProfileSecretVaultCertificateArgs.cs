@@ -21,6 +21,13 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
         /// 
+        /// ```json
+        /// {
+        /// "data":"&lt;Base64-encoded-certificate&gt;",
+        /// "dataType":"pfx",
+        /// "password":"&lt;pfx-file-password&gt;"
+        /// }
+        /// ```
         /// 
         /// &gt; **NOTE:** If your certificate is stored in Azure Key Vault - this can be sourced from the `secret_id` property on the `azure.keyvault.Certificate` resource.
         /// </summary>

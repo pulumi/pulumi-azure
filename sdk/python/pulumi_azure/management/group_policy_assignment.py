@@ -508,6 +508,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -536,6 +537,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
             policy_definition_id=example_definition.id,
             management_group_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -575,6 +577,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -603,6 +606,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
             policy_definition_id=example_definition.id,
             management_group_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

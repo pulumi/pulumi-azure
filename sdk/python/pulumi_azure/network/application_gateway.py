@@ -1142,6 +1142,7 @@ class ApplicationGateway(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1218,6 +1219,7 @@ class ApplicationGateway(pulumi.CustomResource):
                 backend_http_settings_name=http_setting_name,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1274,6 +1276,7 @@ class ApplicationGateway(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1350,6 +1353,7 @@ class ApplicationGateway(pulumi.CustomResource):
                 backend_http_settings_name=http_setting_name,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

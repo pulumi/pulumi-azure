@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,6 +54,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -74,7 +76,7 @@ type PublicIpPrefix struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+	// > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](<https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address>)
 	PrefixLength pulumi.IntPtrOutput `pulumi:"prefixLength"`
 	// The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -133,7 +135,7 @@ type publicIpPrefixState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+	// > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](<https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address>)
 	PrefixLength *int `pulumi:"prefixLength"`
 	// The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -160,7 +162,7 @@ type PublicIpPrefixState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+	// > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](<https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address>)
 	PrefixLength pulumi.IntPtrInput
 	// The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -189,7 +191,7 @@ type publicIpPrefixArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+	// > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](<https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address>)
 	PrefixLength *int `pulumi:"prefixLength"`
 	// The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -215,7 +217,7 @@ type PublicIpPrefixArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+	// > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](<https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address>)
 	PrefixLength pulumi.IntPtrInput
 	// The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -340,7 +342,7 @@ func (o PublicIpPrefixOutput) Name() pulumi.StringOutput {
 
 // Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 //
-// > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+// > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](<https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address>)
 func (o PublicIpPrefixOutput) PrefixLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PublicIpPrefix) pulumi.IntPtrOutput { return v.PrefixLength }).(pulumi.IntPtrOutput)
 }

@@ -246,6 +246,7 @@ class PtrRecord(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -263,6 +264,7 @@ class PtrRecord(pulumi.CustomResource):
             ttl=300,
             records=["yourdomain.com"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -290,6 +292,7 @@ class PtrRecord(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -307,6 +310,7 @@ class PtrRecord(pulumi.CustomResource):
             ttl=300,
             records=["yourdomain.com"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

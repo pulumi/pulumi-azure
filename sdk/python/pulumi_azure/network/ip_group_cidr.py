@@ -102,6 +102,7 @@ class IPGroupCIDR(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -117,12 +118,13 @@ class IPGroupCIDR(pulumi.CustomResource):
             ip_group_id=example_ip_group.id,
             cidr="10.10.10.0/24")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         IP Group CIDRs can be imported using the `resource id` of the IP Group and
 
-         the CIDR value (`/` characters have to be replaced by `_`), e.g.
+        the CIDR value (`/` characters have to be replaced by `_`), e.g.
 
         ```sh
         $ pulumi import azure:network/iPGroupCIDR:IPGroupCIDR example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/ipGroups/test-ipgroup/cidrs/10.1.0.0_24
@@ -148,6 +150,7 @@ class IPGroupCIDR(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -163,12 +166,13 @@ class IPGroupCIDR(pulumi.CustomResource):
             ip_group_id=example_ip_group.id,
             cidr="10.10.10.0/24")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         IP Group CIDRs can be imported using the `resource id` of the IP Group and
 
-         the CIDR value (`/` characters have to be replaced by `_`), e.g.
+        the CIDR value (`/` characters have to be replaced by `_`), e.g.
 
         ```sh
         $ pulumi import azure:network/iPGroupCIDR:IPGroupCIDR example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/ipGroups/test-ipgroup/cidrs/10.1.0.0_24

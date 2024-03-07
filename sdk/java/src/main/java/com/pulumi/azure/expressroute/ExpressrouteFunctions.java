@@ -18,8 +18,10 @@ public final class ExpressrouteFunctions {
      * Manages an ExpressRoute Circuit Peering.
      * 
      * ## Example Usage
+     * 
      * ### Creating A Microsoft Peering)
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -50,6 +52,7 @@ public final class ExpressrouteFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCircuitPeeringResult> getCircuitPeering(GetCircuitPeeringArgs args) {
@@ -59,8 +62,10 @@ public final class ExpressrouteFunctions {
      * Manages an ExpressRoute Circuit Peering.
      * 
      * ## Example Usage
+     * 
      * ### Creating A Microsoft Peering)
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -91,6 +96,7 @@ public final class ExpressrouteFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCircuitPeeringResult> getCircuitPeeringPlain(GetCircuitPeeringPlainArgs args) {
@@ -100,8 +106,10 @@ public final class ExpressrouteFunctions {
      * Manages an ExpressRoute Circuit Peering.
      * 
      * ## Example Usage
+     * 
      * ### Creating A Microsoft Peering)
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class ExpressrouteFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCircuitPeeringResult> getCircuitPeering(GetCircuitPeeringArgs args, InvokeOptions options) {
@@ -141,8 +150,10 @@ public final class ExpressrouteFunctions {
      * Manages an ExpressRoute Circuit Peering.
      * 
      * ## Example Usage
+     * 
      * ### Creating A Microsoft Peering)
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -173,6 +184,7 @@ public final class ExpressrouteFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCircuitPeeringResult> getCircuitPeeringPlain(GetCircuitPeeringPlainArgs args, InvokeOptions options) {

@@ -18,6 +18,8 @@ public final class ConnectionsFunctions {
      * Uses this data source to access information about an existing Managed API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -48,6 +50,7 @@ public final class ConnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetManagedApiResult> getManagedApi(GetManagedApiArgs args) {
@@ -57,6 +60,8 @@ public final class ConnectionsFunctions {
      * Uses this data source to access information about an existing Managed API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -87,6 +92,7 @@ public final class ConnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetManagedApiResult> getManagedApiPlain(GetManagedApiPlainArgs args) {
@@ -96,6 +102,8 @@ public final class ConnectionsFunctions {
      * Uses this data source to access information about an existing Managed API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +134,7 @@ public final class ConnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetManagedApiResult> getManagedApi(GetManagedApiArgs args, InvokeOptions options) {
@@ -135,6 +144,8 @@ public final class ConnectionsFunctions {
      * Uses this data source to access information about an existing Managed API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -165,6 +176,7 @@ public final class ConnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetManagedApiResult> getManagedApiPlain(GetManagedApiPlainArgs args, InvokeOptions options) {

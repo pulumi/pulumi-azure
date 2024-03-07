@@ -1306,6 +1306,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1334,6 +1335,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
             service_plan_id=example_service_plan.id,
             site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1400,6 +1402,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1428,6 +1431,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
             service_plan_id=example_service_plan.id,
             site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -300,6 +300,7 @@ class LinkedServiceMysql(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -316,6 +317,7 @@ class LinkedServiceMysql(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -347,6 +349,7 @@ class LinkedServiceMysql(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -363,6 +366,7 @@ class LinkedServiceMysql(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

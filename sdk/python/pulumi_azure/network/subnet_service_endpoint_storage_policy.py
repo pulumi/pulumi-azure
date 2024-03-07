@@ -204,6 +204,7 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -235,6 +236,7 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="GRS")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -263,6 +265,7 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -294,6 +297,7 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="GRS")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

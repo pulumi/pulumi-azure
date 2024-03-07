@@ -15,8 +15,10 @@ import (
 // Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
 //
 // ## Example Usage
+//
 // ### With Managed Identity & New Cluster
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -103,8 +105,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Access Token & Existing Cluster
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -165,6 +170,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

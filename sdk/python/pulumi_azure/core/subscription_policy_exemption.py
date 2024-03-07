@@ -332,6 +332,7 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -352,6 +353,7 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
             policy_assignment_id=example_subscription_policy_assignment.id,
             exemption_category="Mitigated")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -384,6 +386,7 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -404,6 +407,7 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
             policy_assignment_id=example_subscription_policy_assignment.id,
             exemption_category="Mitigated")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

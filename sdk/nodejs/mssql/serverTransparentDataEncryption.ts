@@ -14,8 +14,10 @@ import * as utilities from "../utilities";
  * > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
  *
  * ## Example Usage
+ *
  * ### With Service Managed Key
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -42,8 +44,11 @@ import * as utilities from "../utilities";
  * });
  * const exampleServerTransparentDataEncryption = new azure.mssql.ServerTransparentDataEncryption("example", {serverId: exampleServer.id});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Customer Managed Key
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -123,6 +128,7 @@ import * as utilities from "../utilities";
  *     keyVaultKeyId: exampleKey.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

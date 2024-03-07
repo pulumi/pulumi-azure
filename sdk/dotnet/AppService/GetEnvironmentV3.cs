@@ -14,10 +14,9 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Azure.AppService
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEnvironmentV3Result> InvokeAsync(GetEnvironmentV3Args args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentV3Result>("azure:appservice/getEnvironmentV3:getEnvironmentV3", args ?? new GetEnvironmentV3Args(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Azure.AppService
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEnvironmentV3Result> Invoke(GetEnvironmentV3InvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentV3Result>("azure:appservice/getEnvironmentV3:getEnvironmentV3", args ?? new GetEnvironmentV3InvokeArgs(), options.WithDefaults());

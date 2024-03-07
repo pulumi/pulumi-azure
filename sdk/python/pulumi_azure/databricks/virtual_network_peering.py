@@ -383,6 +383,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -414,6 +415,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             remote_virtual_network_id=example_virtual_network_peering.virtual_network_id,
             allow_virtual_network_access=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -450,6 +452,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -481,6 +484,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             remote_virtual_network_id=example_virtual_network_peering.virtual_network_id,
             allow_virtual_network_access=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

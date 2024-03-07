@@ -23,8 +23,23 @@ namespace Pulumi.Azure.KeyVault.Outputs
         /// &gt; **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
         /// 
         /// To convert a private key to pkcs8 format with openssl use:
+        /// ```shell
+        /// openssl pkcs8 -topk8 -nocrypt -in private_key.pem &gt; private_key_pk8.pem
+        /// ```
         /// 
         /// The PEM content should look something like:
+        /// ```text
+        /// -----BEGIN CERTIFICATE-----
+        /// aGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8K
+        /// :
+        /// aGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8K
+        /// -----END CERTIFICATE-----
+        /// -----BEGIN PRIVATE KEY-----
+        /// d29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQK
+        /// :
+        /// d29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQK
+        /// -----END PRIVATE KEY-----
+        /// ```
         /// </summary>
         public readonly string? Password;
 

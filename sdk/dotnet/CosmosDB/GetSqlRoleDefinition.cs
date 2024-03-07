@@ -14,10 +14,9 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Use this data source to access information about an existing Cosmos DB SQL Role Definition.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Azure.CosmosDB
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSqlRoleDefinitionResult> InvokeAsync(GetSqlRoleDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlRoleDefinitionResult>("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args ?? new GetSqlRoleDefinitionArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Use this data source to access information about an existing Cosmos DB SQL Role Definition.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Azure.CosmosDB
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSqlRoleDefinitionResult> Invoke(GetSqlRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlRoleDefinitionResult>("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args ?? new GetSqlRoleDefinitionInvokeArgs(), options.WithDefaults());

@@ -14,10 +14,9 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Use this data source to access information about an existing Key Vault Managed Hardware Security Module.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Azure.KeyVault
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetManagedHardwareSecurityModuleResult> InvokeAsync(GetManagedHardwareSecurityModuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedHardwareSecurityModuleResult>("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", args ?? new GetManagedHardwareSecurityModuleArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Use this data source to access information about an existing Key Vault Managed Hardware Security Module.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Azure.KeyVault
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetManagedHardwareSecurityModuleResult> Invoke(GetManagedHardwareSecurityModuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedHardwareSecurityModuleResult>("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", args ?? new GetManagedHardwareSecurityModuleInvokeArgs(), options.WithDefaults());

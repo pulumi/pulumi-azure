@@ -234,6 +234,7 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -259,6 +260,7 @@ class Application(pulumi.CustomResource):
             resource_group_name=example.name,
             account_name=example_account2.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -288,6 +290,7 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -313,6 +316,7 @@ class Application(pulumi.CustomResource):
             resource_group_name=example.name,
             account_name=example_account2.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

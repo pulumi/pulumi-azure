@@ -884,6 +884,8 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      * Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
      * 
      * &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -947,6 +949,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="privateClusterPublicFqdnEnabled")
@@ -956,6 +959,8 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      * @return Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
      * 
      * &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1019,6 +1024,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<Boolean>> privateClusterPublicFqdnEnabled() {
@@ -2575,6 +2581,8 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          * @param privateClusterPublicFqdnEnabled Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
          * 
          * &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -2638,6 +2646,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -2651,6 +2660,8 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          * @param privateClusterPublicFqdnEnabled Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
          * 
          * &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -2714,6 +2725,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

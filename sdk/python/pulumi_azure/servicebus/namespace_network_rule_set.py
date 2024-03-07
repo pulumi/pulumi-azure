@@ -249,6 +249,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -287,6 +288,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             )],
             ip_rules=["1.1.1.1"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -322,6 +324,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -360,6 +363,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             )],
             ip_rules=["1.1.1.1"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

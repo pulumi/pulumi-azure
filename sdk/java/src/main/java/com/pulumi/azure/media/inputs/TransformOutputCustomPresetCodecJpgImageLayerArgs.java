@@ -17,14 +17,14 @@ public final class TransformOutputCustomPresetCodecJpgImageLayerArgs extends com
     public static final TransformOutputCustomPresetCodecJpgImageLayerArgs Empty = new TransformOutputCustomPresetCodecJpgImageLayerArgs();
 
     /**
-     * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+     * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
      * 
      */
     @Import(name="height")
     private @Nullable Output<String> height;
 
     /**
-     * @return The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+     * @return The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
      * 
      */
     public Optional<Output<String>> height() {
@@ -62,14 +62,14 @@ public final class TransformOutputCustomPresetCodecJpgImageLayerArgs extends com
     }
 
     /**
-     * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+     * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
      * 
      */
     @Import(name="width")
     private @Nullable Output<String> width;
 
     /**
-     * @return The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+     * @return The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
      * 
      */
     public Optional<Output<String>> width() {
@@ -104,7 +104,7 @@ public final class TransformOutputCustomPresetCodecJpgImageLayerArgs extends com
         }
 
         /**
-         * @param height The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+         * @param height The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class TransformOutputCustomPresetCodecJpgImageLayerArgs extends com
         }
 
         /**
-         * @param height The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+         * @param height The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class TransformOutputCustomPresetCodecJpgImageLayerArgs extends com
         }
 
         /**
-         * @param width The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+         * @param width The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class TransformOutputCustomPresetCodecJpgImageLayerArgs extends com
         }
 
         /**
-         * @param width The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+         * @param width The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
          * 
          * @return builder
          * 

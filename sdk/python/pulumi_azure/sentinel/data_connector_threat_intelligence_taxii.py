@@ -372,6 +372,7 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -392,6 +393,7 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
             api_root_url="https://foo/taxii2/api2/",
             collection_id="someid")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -427,6 +429,7 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -447,6 +450,7 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
             api_root_url="https://foo/taxii2/api2/",
             collection_id="someid")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

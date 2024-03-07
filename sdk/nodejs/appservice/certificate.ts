@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * This example provisions an App Service Certificate from a Local File.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -30,6 +31,7 @@ import * as utilities from "../utilities";
  *     password: "password123!",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

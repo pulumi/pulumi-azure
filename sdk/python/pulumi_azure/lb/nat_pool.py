@@ -410,6 +410,7 @@ class NatPool(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -440,6 +441,7 @@ class NatPool(pulumi.CustomResource):
             backend_port=8080,
             frontend_ip_configuration_name="PublicIPAddress")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -478,6 +480,7 @@ class NatPool(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -508,6 +511,7 @@ class NatPool(pulumi.CustomResource):
             backend_port=8080,
             frontend_ip_configuration_name="PublicIPAddress")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

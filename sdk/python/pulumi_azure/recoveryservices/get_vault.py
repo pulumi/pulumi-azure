@@ -106,6 +106,7 @@ def get_vault(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -113,6 +114,7 @@ def get_vault(name: Optional[str] = None,
     vault = azure.recoveryservices.get_vault(name="tfex-recovery_vault",
         resource_group_name="tfex-resource_group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Recovery Services Vault.
@@ -142,6 +144,7 @@ def get_vault_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -149,6 +152,7 @@ def get_vault_output(name: Optional[pulumi.Input[str]] = None,
     vault = azure.recoveryservices.get_vault(name="tfex-recovery_vault",
         resource_group_name="tfex-resource_group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Recovery Services Vault.

@@ -168,6 +168,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -204,6 +205,7 @@ class User(pulumi.CustomResource):
             lab_id=example_lab.id,
             email="terraform-acctest@example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -231,6 +233,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -267,6 +270,7 @@ class User(pulumi.CustomResource):
             lab_id=example_lab.id,
             email="terraform-acctest@example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

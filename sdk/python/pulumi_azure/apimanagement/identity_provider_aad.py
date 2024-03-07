@@ -231,6 +231,7 @@ class IdentityProviderAad(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -252,6 +253,7 @@ class IdentityProviderAad(pulumi.CustomResource):
             client_secret="00000000000000000000000000000000",
             allowed_tenants=["00000000-0000-0000-0000-000000000000"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -281,6 +283,7 @@ class IdentityProviderAad(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -302,6 +305,7 @@ class IdentityProviderAad(pulumi.CustomResource):
             client_secret="00000000000000000000000000000000",
             allowed_tenants=["00000000-0000-0000-0000-000000000000"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

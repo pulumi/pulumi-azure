@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const ledgerEndpoint = current.then(current => current.ledgerEndpoint);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConfidentialLedger(args: GetConfidentialLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetConfidentialLedgerResult> {
 
@@ -83,6 +85,7 @@ export interface GetConfidentialLedgerResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -93,6 +96,7 @@ export interface GetConfidentialLedgerResult {
  * });
  * export const ledgerEndpoint = current.then(current => current.ledgerEndpoint);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConfidentialLedgerOutput(args: GetConfidentialLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfidentialLedgerResult> {
     return pulumi.output(args).apply((a: any) => getConfidentialLedger(a, opts))

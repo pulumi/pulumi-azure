@@ -79,6 +79,7 @@ def get_managed_api(location: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -87,6 +88,7 @@ def get_managed_api(location: Optional[str] = None,
         location="West Europe")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str location: The Azure location for this Managed API.
@@ -114,6 +116,7 @@ def get_managed_api_output(location: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -122,6 +125,7 @@ def get_managed_api_output(location: Optional[pulumi.Input[str]] = None,
         location="West Europe")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str location: The Azure location for this Managed API.

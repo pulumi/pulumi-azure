@@ -103,6 +103,7 @@ class ApiTag(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -124,6 +125,7 @@ class ApiTag(pulumi.CustomResource):
             api_id=example_api.id,
             name=example_tag.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -149,6 +151,7 @@ class ApiTag(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -170,6 +173,7 @@ class ApiTag(pulumi.CustomResource):
             api_id=example_api.id,
             name=example_tag.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

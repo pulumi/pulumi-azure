@@ -106,6 +106,7 @@ def get_profile(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -114,6 +115,7 @@ def get_profile(name: Optional[str] = None,
         resource_group_name="example-resources")
     pulumi.export("cdnProfileId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the CDN Profile.
@@ -143,6 +145,7 @@ def get_profile_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -151,6 +154,7 @@ def get_profile_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="example-resources")
     pulumi.export("cdnProfileId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the CDN Profile.

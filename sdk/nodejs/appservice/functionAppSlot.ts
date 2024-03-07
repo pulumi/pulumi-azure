@@ -12,8 +12,10 @@ import * as utilities from "../utilities";
  * !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.appservice.LinuxFunctionAppSlot` resources instead.
  *
  * ## Example Usage
+ *
  * ### With App Service Plan)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -56,6 +58,7 @@ import * as utilities from "../utilities";
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

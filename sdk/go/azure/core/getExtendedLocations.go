@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetExtendedLocations(ctx *pulumi.Context, args *GetExtendedLocationsArgs, opts ...pulumi.InvokeOption) (*GetExtendedLocationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExtendedLocationsResult

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const azurermHealthcareDicomService = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDicomService(args: GetDicomServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDicomServiceResult> {
 
@@ -79,6 +81,7 @@ export interface GetDicomServiceResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -89,6 +92,7 @@ export interface GetDicomServiceResult {
  * });
  * export const azurermHealthcareDicomService = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDicomServiceResult> {
     return pulumi.output(args).apply((a: any) => getDicomService(a, opts))

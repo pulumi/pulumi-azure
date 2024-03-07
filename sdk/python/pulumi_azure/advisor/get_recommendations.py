@@ -83,6 +83,7 @@ def get_recommendations(filter_by_categories: Optional[Sequence[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -94,6 +95,7 @@ def get_recommendations(filter_by_categories: Optional[Sequence[str]] = None,
         filter_by_resource_groups=["example-resgroups"])
     pulumi.export("recommendations", example.recommendations)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] filter_by_categories: Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.
@@ -121,6 +123,7 @@ def get_recommendations_output(filter_by_categories: Optional[pulumi.Input[Optio
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -132,6 +135,7 @@ def get_recommendations_output(filter_by_categories: Optional[pulumi.Input[Optio
         filter_by_resource_groups=["example-resgroups"])
     pulumi.export("recommendations", example.recommendations)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] filter_by_categories: Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.

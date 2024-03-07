@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
 
 /**
  * Manages an Azure Container Registry scope map.  Scope Maps are a preview feature only available in Premium SKU Container registries.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,6 +77,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

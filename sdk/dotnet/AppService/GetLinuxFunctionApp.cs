@@ -14,10 +14,9 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Use this data source to access information about an existing Linux Function App.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Azure.AppService
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLinuxFunctionAppResult> InvokeAsync(GetLinuxFunctionAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinuxFunctionAppResult>("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", args ?? new GetLinuxFunctionAppArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Use this data source to access information about an existing Linux Function App.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Azure.AppService
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLinuxFunctionAppResult> Invoke(GetLinuxFunctionAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinuxFunctionAppResult>("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", args ?? new GetLinuxFunctionAppInvokeArgs(), options.WithDefaults());

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: testAzurermResourceGroup.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConsumeGroup(args: GetConsumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumeGroupResult> {
 
@@ -76,6 +78,7 @@ export interface GetConsumeGroupResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -87,6 +90,7 @@ export interface GetConsumeGroupResult {
  *     resourceGroupName: testAzurermResourceGroup.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConsumeGroupOutput(args: GetConsumeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsumeGroupResult> {
     return pulumi.output(args).apply((a: any) => getConsumeGroup(a, opts))

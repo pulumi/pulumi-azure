@@ -455,6 +455,7 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -506,6 +507,7 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
             primary_key=example_account.primary_key,
             secondary_key=example_account.secondary_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -549,6 +551,7 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -600,6 +603,7 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
             primary_key=example_account.primary_key,
             secondary_key=example_account.secondary_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

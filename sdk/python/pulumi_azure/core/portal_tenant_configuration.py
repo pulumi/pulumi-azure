@@ -86,12 +86,14 @@ class PortalTenantConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
 
         example = azure.core.PortalTenantConfiguration("example", private_markdown_storage_enforced=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -126,12 +128,14 @@ class PortalTenantConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
 
         example = azure.core.PortalTenantConfiguration("example", private_markdown_storage_enforced=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

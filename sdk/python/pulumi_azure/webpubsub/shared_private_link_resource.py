@@ -232,6 +232,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -266,6 +267,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             subresource_name="vault",
             target_resource_id=example_key_vault.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -298,6 +300,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -332,6 +335,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             subresource_name="vault",
             target_resource_id=example_key_vault.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

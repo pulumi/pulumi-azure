@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -18,6 +19,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resourcegroup-name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResolver(args: GetResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverResult> {
 
@@ -70,6 +72,7 @@ export interface GetResolverResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -79,6 +82,7 @@ export interface GetResolverResult {
  *     resourceGroupName: "example-resourcegroup-name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResolverOutput(args: GetResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverResult> {
     return pulumi.output(args).apply((a: any) => getResolver(a, opts))

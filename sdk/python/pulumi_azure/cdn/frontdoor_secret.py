@@ -151,8 +151,19 @@ class FrontdoorSecret(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Secret.
 
+        ```New-AzADServicePrincipal -ApplicationId "00000000-0000-0000-0000-000000000000"```
+
+        | Object ID                                | Key Permissions | Secret Permissions   | Certificate Permissions                       |
+        |:-----------------------------------------|:---------------:|:--------------------:|:---------------------------------------------:|
+        | `Microsoft.Azure.Cdn` Object ID          | -               | **Get**              | -                                             |
+        | Your Personal AAD Object ID              | -               | **Get** and **List** | **Get**, **List**, **Purge** and **Recover**  |
+        | Terraform Service Principal              | -               | **Get**              | **Get**, **Import**, **Delete** and **Purge** |
+
+        ->**NOTE:** You only need to add the `Access Policy` for your personal AAD Object ID if you are planning to view the `secrets` via the Azure Portal.
+
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -213,6 +224,7 @@ class FrontdoorSecret(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -237,8 +249,19 @@ class FrontdoorSecret(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Secret.
 
+        ```New-AzADServicePrincipal -ApplicationId "00000000-0000-0000-0000-000000000000"```
+
+        | Object ID                                | Key Permissions | Secret Permissions   | Certificate Permissions                       |
+        |:-----------------------------------------|:---------------:|:--------------------:|:---------------------------------------------:|
+        | `Microsoft.Azure.Cdn` Object ID          | -               | **Get**              | -                                             |
+        | Your Personal AAD Object ID              | -               | **Get** and **List** | **Get**, **List**, **Purge** and **Recover**  |
+        | Terraform Service Principal              | -               | **Get**              | **Get**, **Import**, **Delete** and **Purge** |
+
+        ->**NOTE:** You only need to add the `Access Policy` for your personal AAD Object ID if you are planning to view the `secrets` via the Azure Portal.
+
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -299,6 +322,7 @@ class FrontdoorSecret(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

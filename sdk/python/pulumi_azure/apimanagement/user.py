@@ -370,6 +370,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -393,6 +394,7 @@ class User(pulumi.CustomResource):
             email="user@example.com",
             state="active")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -428,6 +430,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -451,6 +454,7 @@ class User(pulumi.CustomResource):
             email="user@example.com",
             state="active")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

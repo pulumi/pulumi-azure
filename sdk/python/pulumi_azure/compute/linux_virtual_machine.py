@@ -1878,6 +1878,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         This example provisions a basic Linux Virtual Machine on an internal network.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1927,6 +1928,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                 version="latest",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -2046,6 +2048,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         This example provisions a basic Linux Virtual Machine on an internal network.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -2095,6 +2098,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                 version="latest",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

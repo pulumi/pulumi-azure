@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -30,6 +31,7 @@ import * as utilities from "../utilities";
  *     value: "2019-04-24T21:40:54.074Z",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

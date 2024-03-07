@@ -202,6 +202,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -223,6 +224,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
                 value="AA",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -251,6 +253,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -272,6 +275,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
                 value="AA",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

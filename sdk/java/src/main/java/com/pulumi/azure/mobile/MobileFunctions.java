@@ -48,6 +48,8 @@ public final class MobileFunctions {
      * Get information about an Azure Mobile Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -77,6 +79,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkResult> getNetwork(GetNetworkArgs args) {
@@ -86,6 +89,8 @@ public final class MobileFunctions {
      * Get information about an Azure Mobile Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -115,6 +120,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkResult> getNetworkPlain(GetNetworkPlainArgs args) {
@@ -124,6 +130,8 @@ public final class MobileFunctions {
      * Get information about an Azure Mobile Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -153,6 +161,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkResult> getNetwork(GetNetworkArgs args, InvokeOptions options) {
@@ -162,6 +171,8 @@ public final class MobileFunctions {
      * Get information about an Azure Mobile Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -191,6 +202,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkResult> getNetworkPlain(GetNetworkPlainArgs args, InvokeOptions options) {
@@ -200,6 +212,8 @@ public final class MobileFunctions {
      * Use this data source to access information about an existing Mobile Network Attached Data Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -235,6 +249,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs args) {
@@ -244,6 +259,8 @@ public final class MobileFunctions {
      * Use this data source to access information about an existing Mobile Network Attached Data Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -279,6 +296,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetworkPlain(GetNetworkAttachedDataNetworkPlainArgs args) {
@@ -288,6 +306,8 @@ public final class MobileFunctions {
      * Use this data source to access information about an existing Mobile Network Attached Data Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -323,6 +343,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs args, InvokeOptions options) {
@@ -332,6 +353,8 @@ public final class MobileFunctions {
      * Use this data source to access information about an existing Mobile Network Attached Data Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -367,6 +390,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetworkPlain(GetNetworkAttachedDataNetworkPlainArgs args, InvokeOptions options) {
@@ -376,6 +400,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Data Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -411,6 +437,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkDataNetworkResult> getNetworkDataNetwork(GetNetworkDataNetworkArgs args) {
@@ -420,6 +447,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Data Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -455,6 +484,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkDataNetworkResult> getNetworkDataNetworkPlain(GetNetworkDataNetworkPlainArgs args) {
@@ -464,6 +494,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Data Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -499,6 +531,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkDataNetworkResult> getNetworkDataNetwork(GetNetworkDataNetworkArgs args, InvokeOptions options) {
@@ -508,6 +541,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Data Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -543,6 +578,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkDataNetworkResult> getNetworkDataNetworkPlain(GetNetworkDataNetworkPlainArgs args, InvokeOptions options) {
@@ -552,6 +588,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Packet Core Control Plane.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -581,6 +619,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs args) {
@@ -590,6 +629,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Packet Core Control Plane.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -619,6 +660,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlanePlain(GetNetworkPacketCoreControlPlanePlainArgs args) {
@@ -628,6 +670,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Packet Core Control Plane.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -657,6 +701,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs args, InvokeOptions options) {
@@ -666,6 +711,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Packet Core Control Plane.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -695,6 +742,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlanePlain(GetNetworkPacketCoreControlPlanePlainArgs args, InvokeOptions options) {
@@ -704,6 +752,8 @@ public final class MobileFunctions {
      * Get information a Mobile Network Packet Core Data Plane.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -739,6 +789,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs args) {
@@ -748,6 +799,8 @@ public final class MobileFunctions {
      * Get information a Mobile Network Packet Core Data Plane.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -783,6 +836,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlanePlain(GetNetworkPacketCoreDataPlanePlainArgs args) {
@@ -792,6 +846,8 @@ public final class MobileFunctions {
      * Get information a Mobile Network Packet Core Data Plane.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -827,6 +883,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs args, InvokeOptions options) {
@@ -836,6 +893,8 @@ public final class MobileFunctions {
      * Get information a Mobile Network Packet Core Data Plane.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -871,6 +930,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlanePlain(GetNetworkPacketCoreDataPlanePlainArgs args, InvokeOptions options) {
@@ -880,6 +940,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -916,6 +978,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkServiceResult> getNetworkService(GetNetworkServiceArgs args) {
@@ -925,6 +988,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -961,6 +1026,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkServiceResult> getNetworkServicePlain(GetNetworkServicePlainArgs args) {
@@ -970,6 +1036,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1006,6 +1074,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkServiceResult> getNetworkService(GetNetworkServiceArgs args, InvokeOptions options) {
@@ -1015,6 +1084,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1051,6 +1122,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkServiceResult> getNetworkServicePlain(GetNetworkServicePlainArgs args, InvokeOptions options) {
@@ -1061,6 +1133,7 @@ public final class MobileFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1096,6 +1169,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkSimResult> getNetworkSim(GetNetworkSimArgs args) {
@@ -1106,6 +1180,7 @@ public final class MobileFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1141,6 +1216,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkSimResult> getNetworkSimPlain(GetNetworkSimPlainArgs args) {
@@ -1151,6 +1227,7 @@ public final class MobileFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1186,6 +1263,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkSimResult> getNetworkSim(GetNetworkSimArgs args, InvokeOptions options) {
@@ -1196,6 +1274,7 @@ public final class MobileFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1231,6 +1310,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkSimResult> getNetworkSimPlain(GetNetworkSimPlainArgs args, InvokeOptions options) {
@@ -1240,6 +1320,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Sim Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1275,6 +1357,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkSimGroupResult> getNetworkSimGroup(GetNetworkSimGroupArgs args) {
@@ -1284,6 +1367,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Sim Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1319,6 +1404,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkSimGroupResult> getNetworkSimGroupPlain(GetNetworkSimGroupPlainArgs args) {
@@ -1328,6 +1414,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Sim Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1363,6 +1451,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkSimGroupResult> getNetworkSimGroup(GetNetworkSimGroupArgs args, InvokeOptions options) {
@@ -1372,6 +1461,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Sim Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1407,6 +1498,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkSimGroupResult> getNetworkSimGroupPlain(GetNetworkSimGroupPlainArgs args, InvokeOptions options) {
@@ -1416,6 +1508,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Sim Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1451,6 +1545,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkSimPolicyResult> getNetworkSimPolicy(GetNetworkSimPolicyArgs args) {
@@ -1460,6 +1555,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Sim Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1495,6 +1592,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkSimPolicyResult> getNetworkSimPolicyPlain(GetNetworkSimPolicyPlainArgs args) {
@@ -1504,6 +1602,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Sim Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1539,6 +1639,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkSimPolicyResult> getNetworkSimPolicy(GetNetworkSimPolicyArgs args, InvokeOptions options) {
@@ -1548,6 +1649,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Sim Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1583,6 +1686,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkSimPolicyResult> getNetworkSimPolicyPlain(GetNetworkSimPolicyPlainArgs args, InvokeOptions options) {
@@ -1592,6 +1696,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Site.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1627,6 +1733,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkSiteResult> getNetworkSite(GetNetworkSiteArgs args) {
@@ -1636,6 +1743,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Site.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1671,6 +1780,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkSiteResult> getNetworkSitePlain(GetNetworkSitePlainArgs args) {
@@ -1680,6 +1790,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Site.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1715,6 +1827,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkSiteResult> getNetworkSite(GetNetworkSiteArgs args, InvokeOptions options) {
@@ -1724,6 +1837,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Site.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1759,6 +1874,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkSiteResult> getNetworkSitePlain(GetNetworkSitePlainArgs args, InvokeOptions options) {
@@ -1768,6 +1884,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Slice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1803,6 +1921,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkSliceResult> getNetworkSlice(GetNetworkSliceArgs args) {
@@ -1812,6 +1931,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Slice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1847,6 +1968,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkSliceResult> getNetworkSlicePlain(GetNetworkSlicePlainArgs args) {
@@ -1856,6 +1978,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Slice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1891,6 +2015,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkSliceResult> getNetworkSlice(GetNetworkSliceArgs args, InvokeOptions options) {
@@ -1900,6 +2025,8 @@ public final class MobileFunctions {
      * Get information about a Mobile Network Slice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1935,6 +2062,7 @@ public final class MobileFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkSliceResult> getNetworkSlicePlain(GetNetworkSlicePlainArgs args, InvokeOptions options) {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -59,6 +60,7 @@ import * as utilities from "../utilities";
  *     hostName: pulumi.all([exampleCNameRecord.name, example]).apply(([name, example]) => `${name}.${example.name}`),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

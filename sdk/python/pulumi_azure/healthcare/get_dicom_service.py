@@ -137,6 +137,7 @@ def get_dicom_service(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -145,6 +146,7 @@ def get_dicom_service(name: Optional[str] = None,
         workspace_id=example_azurerm_healthcare_workspace["id"])
     pulumi.export("azurermHealthcareDicomService", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Healthcare DICOM Service
@@ -177,6 +179,7 @@ def get_dicom_service_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -185,6 +188,7 @@ def get_dicom_service_output(name: Optional[pulumi.Input[str]] = None,
         workspace_id=example_azurerm_healthcare_workspace["id"])
     pulumi.export("azurermHealthcareDicomService", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Healthcare DICOM Service

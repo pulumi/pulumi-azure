@@ -14,10 +14,9 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// Gets information about an existing Private DNS Resolver Virtual Network Link.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResolverVirtualNetworkLinkResult> InvokeAsync(GetResolverVirtualNetworkLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverVirtualNetworkLinkResult>("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", args ?? new GetResolverVirtualNetworkLinkArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// Gets information about an existing Private DNS Resolver Virtual Network Link.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResolverVirtualNetworkLinkResult> Invoke(GetResolverVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverVirtualNetworkLinkResult>("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", args ?? new GetResolverVirtualNetworkLinkInvokeArgs(), options.WithDefaults());

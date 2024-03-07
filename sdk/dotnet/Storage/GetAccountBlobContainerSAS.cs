@@ -16,10 +16,9 @@ namespace Pulumi.Azure.Storage
         /// 
         /// Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -80,8 +79,7 @@ namespace Pulumi.Azure.Storage
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAccountBlobContainerSASResult> InvokeAsync(GetAccountBlobContainerSASArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountBlobContainerSASResult>("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args ?? new GetAccountBlobContainerSASArgs(), options.WithDefaults());
@@ -91,10 +89,9 @@ namespace Pulumi.Azure.Storage
         /// 
         /// Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -155,8 +152,7 @@ namespace Pulumi.Azure.Storage
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAccountBlobContainerSASResult> Invoke(GetAccountBlobContainerSASInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountBlobContainerSASResult>("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args ?? new GetAccountBlobContainerSASInvokeArgs(), options.WithDefaults());

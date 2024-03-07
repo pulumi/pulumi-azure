@@ -1031,6 +1031,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1055,6 +1056,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             app_service_id=example_linux_web_app.id,
             site_config=azure.appservice.LinuxWebAppSlotSiteConfigArgs())
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1107,6 +1109,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1131,6 +1134,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             app_service_id=example_linux_web_app.id,
             site_config=azure.appservice.LinuxWebAppSlotSiteConfigArgs())
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

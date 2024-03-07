@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,6 +61,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Blocks Reference
 //
 // ### `identity` Block
@@ -82,11 +85,11 @@ import (
 // $ pulumi import azure:devcenter/devCenter:DevCenter example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}
 // ```
 //
-//   - Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center exists. For example `12345678-1234-9876-4563-123456789012`.
+// * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center exists. For example `12345678-1234-9876-4563-123456789012`.
 //
-//   - Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
+// * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
 //
-//   - Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
+// * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
 type DevCenter struct {
 	pulumi.CustomResourceState
 

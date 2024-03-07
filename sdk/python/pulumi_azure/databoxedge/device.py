@@ -219,6 +219,7 @@ class Device(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -232,6 +233,7 @@ class Device(pulumi.CustomResource):
             location=example.location,
             sku_name="EdgeP_Base-Standard")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -260,6 +262,7 @@ class Device(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -273,6 +276,7 @@ class Device(pulumi.CustomResource):
             location=example.location,
             sku_name="EdgeP_Base-Standard")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  * });
  * export const variableId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getIntVariable(args: GetIntVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetIntVariableResult> {
 
@@ -78,6 +80,7 @@ export interface GetIntVariableResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -89,6 +92,7 @@ export interface GetIntVariableResult {
  * });
  * export const variableId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getIntVariableOutput(args: GetIntVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntVariableResult> {
     return pulumi.output(args).apply((a: any) => getIntVariable(a, opts))

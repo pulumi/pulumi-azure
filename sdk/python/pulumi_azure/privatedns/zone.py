@@ -243,6 +243,7 @@ class Zone(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -254,6 +255,7 @@ class Zone(pulumi.CustomResource):
             name="mydomain.com",
             resource_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -283,6 +285,7 @@ class Zone(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -294,6 +297,7 @@ class Zone(pulumi.CustomResource):
             name="mydomain.com",
             resource_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -142,6 +142,7 @@ def get_environment_certificate(container_app_environment_id: Optional[str] = No
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -151,6 +152,7 @@ def get_environment_certificate(container_app_environment_id: Optional[str] = No
     example_get_environment_certificate = azure.containerapp.get_environment_certificate(name="mycertificate",
         container_app_environment_id=example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str container_app_environment_id: The ID of the Container App Environment to configure this Certificate on. Changing this forces a new resource to be created.
@@ -183,6 +185,7 @@ def get_environment_certificate_output(container_app_environment_id: Optional[pu
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -192,6 +195,7 @@ def get_environment_certificate_output(container_app_environment_id: Optional[pu
     example_get_environment_certificate = azure.containerapp.get_environment_certificate(name="mycertificate",
         container_app_environment_id=example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str container_app_environment_id: The ID of the Container App Environment to configure this Certificate on. Changing this forces a new resource to be created.

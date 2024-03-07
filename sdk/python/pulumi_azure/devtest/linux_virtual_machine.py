@@ -649,6 +649,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -691,6 +692,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                 version="latest",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -737,6 +739,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -779,6 +782,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                 version="latest",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

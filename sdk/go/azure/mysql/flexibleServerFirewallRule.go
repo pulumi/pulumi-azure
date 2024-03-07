@@ -15,8 +15,10 @@ import (
 // Manages a Firewall Rule for a MySQL Flexible Server.
 //
 // ## Example Usage
+//
 // ### Single IP Address)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,8 +62,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### IP Range)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -105,8 +110,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Allow Access To Azure Services)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -150,6 +158,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

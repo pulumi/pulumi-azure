@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const trafficRoutingMethod = example.then(example => example.trafficRoutingMethod);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTrafficManagerProfile(args: GetTrafficManagerProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerProfileResult> {
 
@@ -102,6 +104,7 @@ export interface GetTrafficManagerProfileResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -112,6 +115,7 @@ export interface GetTrafficManagerProfileResult {
  * });
  * export const trafficRoutingMethod = example.then(example => example.trafficRoutingMethod);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTrafficManagerProfileOutput(args: GetTrafficManagerProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficManagerProfileResult> {
     return pulumi.output(args).apply((a: any) => getTrafficManagerProfile(a, opts))
