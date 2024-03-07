@@ -80,22 +80,6 @@ def get_group_template_deployment(management_group_id: Optional[str] = None,
     """
     Use this data source to access information about an existing Management Group Template Deployment.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = azure.management.get_group_template_deployment(name="existing",
-        management_group_id="00000000-0000-0000-000000000000")
-    pulumi.export("id", example.id)
-    pulumi.export("exampleOutput", not_implemented("jsondecode(data.azurerm_management_group_template_deployment.example.output_content)")["exampleOutput"]["value"])
-    ```
-
 
     :param str management_group_id: The ID of the Management Group to which this template was applied.
     :param str name: The name of this Management Group Template Deployment.
@@ -119,22 +103,6 @@ def get_group_template_deployment_output(management_group_id: Optional[pulumi.In
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupTemplateDeploymentResult]:
     """
     Use this data source to access information about an existing Management Group Template Deployment.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = azure.management.get_group_template_deployment(name="existing",
-        management_group_id="00000000-0000-0000-000000000000")
-    pulumi.export("id", example.id)
-    pulumi.export("exampleOutput", not_implemented("jsondecode(data.azurerm_management_group_template_deployment.example.output_content)")["exampleOutput"]["value"])
-    ```
 
 
     :param str management_group_id: The ID of the Management Group to which this template was applied.
