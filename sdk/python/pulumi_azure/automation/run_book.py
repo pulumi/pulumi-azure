@@ -497,6 +497,7 @@ class RunBook(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -522,37 +523,7 @@ class RunBook(pulumi.CustomResource):
                 uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
             ))
         ```
-        ### Custom Content
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_local as local
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="account1",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example = local.get_file(filename=f"{not_implemented('path.module')}/example.ps1")
-        example_run_book = azure.automation.RunBook("example",
-            name="Get-AzureVMTutorial",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is an example runbook",
-            runbook_type="PowerShell",
-            content=example.content)
-        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -591,6 +562,7 @@ class RunBook(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -616,37 +588,7 @@ class RunBook(pulumi.CustomResource):
                 uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
             ))
         ```
-        ### Custom Content
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_local as local
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="account1",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example = local.get_file(filename=f"{not_implemented('path.module')}/example.ps1")
-        example_run_book = azure.automation.RunBook("example",
-            name="Get-AzureVMTutorial",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is an example runbook",
-            runbook_type="PowerShell",
-            content=example.content)
-        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

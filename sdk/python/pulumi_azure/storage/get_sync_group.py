@@ -70,6 +70,7 @@ def get_sync_group(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -78,6 +79,7 @@ def get_sync_group(name: Optional[str] = None,
         storage_sync_id="existing-ss-id")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Storage Sync Group.
@@ -104,6 +106,7 @@ def get_sync_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -112,6 +115,7 @@ def get_sync_group_output(name: Optional[pulumi.Input[str]] = None,
         storage_sync_id="existing-ss-id")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Storage Sync Group.

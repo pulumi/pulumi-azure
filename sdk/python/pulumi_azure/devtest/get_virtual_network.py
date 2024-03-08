@@ -117,6 +117,7 @@ def get_virtual_network(lab_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -126,6 +127,7 @@ def get_virtual_network(lab_name: Optional[str] = None,
         resource_group_name="example-resource")
     pulumi.export("labSubnetName", example.allowed_subnets[0].lab_subnet_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str lab_name: Specifies the name of the Dev Test Lab.
@@ -159,6 +161,7 @@ def get_virtual_network_output(lab_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -168,6 +171,7 @@ def get_virtual_network_output(lab_name: Optional[pulumi.Input[str]] = None,
         resource_group_name="example-resource")
     pulumi.export("labSubnetName", example.allowed_subnets[0].lab_subnet_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str lab_name: Specifies the name of the Dev Test Lab.

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetMariaDbServer(ctx *pulumi.Context, args *GetMariaDbServerArgs, opts ...pulumi.InvokeOption) (*GetMariaDbServerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMariaDbServerResult

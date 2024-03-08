@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const id = existing.then(existing => existing.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
 
@@ -81,6 +83,7 @@ export interface GetDiskEncryptionSetResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -91,6 +94,7 @@ export interface GetDiskEncryptionSetResult {
  * });
  * export const id = existing.then(existing => existing.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskEncryptionSetResult> {
     return pulumi.output(args).apply((a: any) => getDiskEncryptionSet(a, opts))

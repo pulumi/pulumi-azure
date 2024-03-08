@@ -127,6 +127,7 @@ def get_caa_record(name: Optional[str] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -137,6 +138,7 @@ def get_caa_record(name: Optional[str] = None,
         resource_group_name="test-rg")
     pulumi.export("dnsCaaRecordId", example_azurerm_dns_caa_record["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the DNS CAA Record.
@@ -169,6 +171,7 @@ def get_caa_record_output(name: Optional[pulumi.Input[str]] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -179,6 +182,7 @@ def get_caa_record_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="test-rg")
     pulumi.export("dnsCaaRecordId", example_azurerm_dns_caa_record["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the DNS CAA Record.

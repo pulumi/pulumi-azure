@@ -61,8 +61,10 @@ def get_geographical_location(name: Optional[str] = None,
     Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
 
     ## Example Usage
+
     ### World)
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -70,6 +72,7 @@ def get_geographical_location(name: Optional[str] = None,
     example = azure.network.get_traffic_manager(name="World")
     pulumi.export("locationCode", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
@@ -92,8 +95,10 @@ def get_geographical_location_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
 
     ## Example Usage
+
     ### World)
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -101,6 +106,7 @@ def get_geographical_location_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.network.get_traffic_manager(name="World")
     pulumi.export("locationCode", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.

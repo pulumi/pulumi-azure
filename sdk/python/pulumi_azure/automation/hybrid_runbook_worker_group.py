@@ -168,6 +168,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -185,6 +186,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             automation_account_name=example_account.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -212,6 +214,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -229,6 +232,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             automation_account_name=example_account.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

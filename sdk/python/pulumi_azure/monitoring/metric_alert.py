@@ -606,6 +606,7 @@ class MetricAlert(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -648,6 +649,7 @@ class MetricAlert(pulumi.CustomResource):
                 action_group_id=main.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -697,6 +699,7 @@ class MetricAlert(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -739,6 +742,7 @@ class MetricAlert(pulumi.CustomResource):
                 action_group_id=main.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

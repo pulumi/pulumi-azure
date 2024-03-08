@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  * });
  * export const actions = example.then(example => example.actions);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRegistryScopeMap(args: GetRegistryScopeMapArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryScopeMapResult> {
 
@@ -71,6 +73,7 @@ export interface GetRegistryScopeMapResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -82,6 +85,7 @@ export interface GetRegistryScopeMapResult {
  * });
  * export const actions = example.then(example => example.actions);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRegistryScopeMapOutput(args: GetRegistryScopeMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryScopeMapResult> {
     return pulumi.output(args).apply((a: any) => getRegistryScopeMap(a, opts))

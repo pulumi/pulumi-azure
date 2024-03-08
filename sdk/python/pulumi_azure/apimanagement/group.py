@@ -266,6 +266,7 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -287,6 +288,7 @@ class Group(pulumi.CustomResource):
             display_name="Example Group",
             description="This is an example API management group.")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -317,6 +319,7 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -338,6 +341,7 @@ class Group(pulumi.CustomResource):
             display_name="Example Group",
             description="This is an example API management group.")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -303,6 +303,7 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -330,6 +331,7 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
             sampling_percentage=50,
             sampling_requests_per_second=10)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -363,6 +365,7 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -390,6 +393,7 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
             sampling_percentage=50,
             sampling_requests_per_second=10)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

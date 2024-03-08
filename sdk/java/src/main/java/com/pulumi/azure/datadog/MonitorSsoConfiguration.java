@@ -17,7 +17,9 @@ import javax.annotation.Nullable;
  * Manages SingleSignOn on the datadog Monitor.
  * 
  * ## Example Usage
+ * 
  * ### Enabling SSO on monitor
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,6 +80,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

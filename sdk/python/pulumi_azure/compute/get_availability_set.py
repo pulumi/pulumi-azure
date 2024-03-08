@@ -130,6 +130,7 @@ def get_availability_set(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -138,6 +139,7 @@ def get_availability_set(name: Optional[str] = None,
         resource_group_name="my-resource-group")
     pulumi.export("availabilitySetId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Availability Set.
@@ -169,6 +171,7 @@ def get_availability_set_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -177,6 +180,7 @@ def get_availability_set_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="my-resource-group")
     pulumi.export("availabilitySetId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Availability Set.

@@ -21,7 +21,9 @@ import javax.annotation.Nullable;
  * Manages TagRules on the datadog Monitor.
  * 
  * ## Example Usage
+ * 
  * ### Adding TagRules on monitor
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -92,6 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

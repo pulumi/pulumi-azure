@@ -168,6 +168,7 @@ class Fabric(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -189,6 +190,7 @@ class Fabric(pulumi.CustomResource):
             recovery_vault_name=vault.name,
             location=primary.location)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -216,6 +218,7 @@ class Fabric(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -237,6 +240,7 @@ class Fabric(pulumi.CustomResource):
             recovery_vault_name=vault.name,
             location=primary.location)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

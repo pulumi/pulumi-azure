@@ -18,6 +18,7 @@ import (
 //
 // This example provisions a brief Managed Microsoft SQL Virtual Machine.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,6 +61,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

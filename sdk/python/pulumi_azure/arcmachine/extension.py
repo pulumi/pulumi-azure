@@ -422,6 +422,7 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -438,6 +439,7 @@ class Extension(pulumi.CustomResource):
             publisher="Microsoft.Azure.Monitor",
             type="AzureMonitorLinuxAgent")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -478,6 +480,7 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -494,6 +497,7 @@ class Extension(pulumi.CustomResource):
             publisher="Microsoft.Azure.Monitor",
             type="AzureMonitorLinuxAgent")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

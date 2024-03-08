@@ -104,6 +104,7 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -114,6 +115,7 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
             management_group_id=example.id,
             subscription_id=example_get_subscription.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -141,6 +143,7 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -151,6 +154,7 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
             management_group_id=example.id,
             subscription_id=example_get_subscription.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

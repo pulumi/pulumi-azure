@@ -495,6 +495,7 @@ class EventhubDataConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -545,6 +546,7 @@ class EventhubDataConnection(pulumi.CustomResource):
             mapping_rule_name="my-table-mapping",
             data_format="JSON")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -582,6 +584,7 @@ class EventhubDataConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -632,6 +635,7 @@ class EventhubDataConnection(pulumi.CustomResource):
             mapping_rule_name="my-table-mapping",
             data_format="JSON")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

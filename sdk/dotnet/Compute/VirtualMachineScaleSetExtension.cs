@@ -16,6 +16,7 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,6 +83,7 @@ namespace Pulumi.Azure.Compute
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -172,6 +174,10 @@ namespace Pulumi.Azure.Compute
         /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         /// 
         /// &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+        /// 
+        /// ```shell
+        /// az vmss extension image list --location westus -o table
+        /// ```
         /// </summary>
         [Output("typeHandlerVersion")]
         public Output<string> TypeHandlerVersion { get; private set; } = null!;
@@ -328,6 +334,10 @@ namespace Pulumi.Azure.Compute
         /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         /// 
         /// &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+        /// 
+        /// ```shell
+        /// az vmss extension image list --location westus -o table
+        /// ```
         /// </summary>
         [Input("typeHandlerVersion", required: true)]
         public Input<string> TypeHandlerVersion { get; set; } = null!;
@@ -442,6 +452,10 @@ namespace Pulumi.Azure.Compute
         /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         /// 
         /// &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+        /// 
+        /// ```shell
+        /// az vmss extension image list --location westus -o table
+        /// ```
         /// </summary>
         [Input("typeHandlerVersion")]
         public Input<string>? TypeHandlerVersion { get; set; }

@@ -103,6 +103,7 @@ def get_public_i_ps(allocation_type: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -110,6 +111,7 @@ def get_public_i_ps(allocation_type: Optional[str] = None,
     example = azure.network.get_public_i_ps(resource_group_name="pip-test",
         attachment_status="Attached")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
@@ -145,6 +147,7 @@ def get_public_i_ps_output(allocation_type: Optional[pulumi.Input[Optional[str]]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -152,6 +155,7 @@ def get_public_i_ps_output(allocation_type: Optional[pulumi.Input[Optional[str]]
     example = azure.network.get_public_i_ps(resource_group_name="pip-test",
         attachment_status="Attached")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.

@@ -153,6 +153,7 @@ class DiskPoolIscsiTargetLun(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -218,6 +219,7 @@ class DiskPoolIscsiTargetLun(pulumi.CustomResource):
             disk_pool_managed_disk_attachment_id=example_disk_pool_managed_disk_attachment.id,
             name="example-disk")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -246,6 +248,7 @@ class DiskPoolIscsiTargetLun(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -311,6 +314,7 @@ class DiskPoolIscsiTargetLun(pulumi.CustomResource):
             disk_pool_managed_disk_attachment_id=example_disk_pool_managed_disk_attachment.id,
             name="example-disk")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

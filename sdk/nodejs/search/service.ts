@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * Manages a Search Service.
  *
  * ## Example Usage
+ *
  * ### Supporting API Keys)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -27,8 +29,11 @@ import * as utilities from "../utilities";
  *     sku: "standard",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Using Both AzureAD And API Keys)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -46,8 +51,11 @@ import * as utilities from "../utilities";
  *     authenticationFailureMode: "http403",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Supporting Only AzureAD Authentication)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -64,6 +72,7 @@ import * as utilities from "../utilities";
  *     localAuthenticationEnabled: false,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

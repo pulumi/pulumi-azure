@@ -15,6 +15,8 @@ import javax.annotation.Nullable;
 public final class ScaleSetIdentity {
     /**
      * @return Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -64,6 +66,7 @@ public final class ScaleSetIdentity {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     private @Nullable List<String> identityIds;
@@ -77,6 +80,8 @@ public final class ScaleSetIdentity {
     private ScaleSetIdentity() {}
     /**
      * @return Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +131,7 @@ public final class ScaleSetIdentity {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public List<String> identityIds() {

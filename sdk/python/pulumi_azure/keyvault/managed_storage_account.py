@@ -274,6 +274,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -320,8 +321,11 @@ class ManagedStorageAccount(pulumi.CustomResource):
             regenerate_key_automatically=False,
             regeneration_period="P1D")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Automatically Regenerate Storage Account Access Key)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -374,6 +378,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
             regenerate_key_automatically=True,
             regeneration_period="P1D")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -406,6 +411,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -452,8 +458,11 @@ class ManagedStorageAccount(pulumi.CustomResource):
             regenerate_key_automatically=False,
             regeneration_period="P1D")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Automatically Regenerate Storage Account Access Key)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -506,6 +515,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
             regenerate_key_automatically=True,
             regeneration_period="P1D")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

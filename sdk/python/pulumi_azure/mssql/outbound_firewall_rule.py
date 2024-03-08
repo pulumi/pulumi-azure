@@ -103,6 +103,7 @@ class OutboundFirewallRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -122,6 +123,7 @@ class OutboundFirewallRule(pulumi.CustomResource):
             name="sqlexamplefdqn.database.windows.net",
             server_id=example_server.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -147,6 +149,7 @@ class OutboundFirewallRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -166,6 +169,7 @@ class OutboundFirewallRule(pulumi.CustomResource):
             name="sqlexamplefdqn.database.windows.net",
             server_id=example_server.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

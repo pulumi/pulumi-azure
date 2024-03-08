@@ -128,6 +128,7 @@ def get_service_tags(location: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -138,6 +139,7 @@ def get_service_tags(location: Optional[str] = None,
     pulumi.export("addressPrefixes", example.address_prefixes)
     pulumi.export("ipv4Cidrs", example.ipv4_cidrs)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str location: The Azure Region where the Service Tags exists. This value is not used to filter the results but for specifying the region to request. For filtering by region use `location_filter` instead.  More information can be found here: [Service Tags URL parameters](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list#uri-parameters).
@@ -172,6 +174,7 @@ def get_service_tags_output(location: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -182,6 +185,7 @@ def get_service_tags_output(location: Optional[pulumi.Input[str]] = None,
     pulumi.export("addressPrefixes", example.address_prefixes)
     pulumi.export("ipv4Cidrs", example.ipv4_cidrs)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str location: The Azure Region where the Service Tags exists. This value is not used to filter the results but for specifying the region to request. For filtering by region use `location_filter` instead.  More information can be found here: [Service Tags URL parameters](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list#uri-parameters).

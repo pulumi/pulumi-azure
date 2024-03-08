@@ -14,6 +14,7 @@ import (
 
 // Manages a Healthcare Med Tech Service Fhir Destination.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -156,6 +157,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

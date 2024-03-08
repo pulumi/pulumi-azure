@@ -147,6 +147,7 @@ def get_subscription(subscription_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -154,6 +155,7 @@ def get_subscription(subscription_id: Optional[str] = None,
     current = azure.core.get_subscription()
     pulumi.export("currentSubscriptionDisplayName", current.display_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str subscription_id: Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.
@@ -183,6 +185,7 @@ def get_subscription_output(subscription_id: Optional[pulumi.Input[Optional[str]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -190,6 +193,7 @@ def get_subscription_output(subscription_id: Optional[pulumi.Input[Optional[str]
     current = azure.core.get_subscription()
     pulumi.export("currentSubscriptionDisplayName", current.display_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str subscription_id: Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.

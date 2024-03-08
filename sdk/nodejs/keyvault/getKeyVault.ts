@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const vaultUri = example.then(example => example.vaultUri);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getKeyVault(args: GetKeyVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyVaultResult> {
 
@@ -110,6 +112,7 @@ export interface GetKeyVaultResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -120,6 +123,7 @@ export interface GetKeyVaultResult {
  * });
  * export const vaultUri = example.then(example => example.vaultUri);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getKeyVaultOutput(args: GetKeyVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyVaultResult> {
     return pulumi.output(args).apply((a: any) => getKeyVault(a, opts))

@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -183,9 +184,18 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // It is recommended to follow the steps outlined
 // [here](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically#fetch-the-json-representation-of-the-dashboard) to create a Dashboard in the Portal and extract the relevant JSON to use in this resource. From the extracted JSON, the contents of the `properties: {}` object can used. Variables can be injected as needed - see above example.
+//
+// ### Using a `templateFile` data source or the `templatefile` function
+//
+// Since the contents of the dashboard JSON can be quite lengthy, use a template file to improve readability:
+//
+// `dash.tpl`:
+//
+// `main.tf`
 //
 // ## Import
 //
@@ -195,7 +205,7 @@ import (
 // $ pulumi import azure:portal/dashboard:Dashboard my-board /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Portal/dashboards/00000000-0000-0000-0000-000000000000
 // ```
 //
-//	Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
+// Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
 type Dashboard struct {
 	pulumi.CustomResourceState
 

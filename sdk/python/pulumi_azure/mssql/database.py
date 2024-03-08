@@ -1239,6 +1239,7 @@ class Database(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1273,7 +1274,10 @@ class Database(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1361,6 +1365,7 @@ class Database(pulumi.CustomResource):
             ),
             transparent_data_encryption_key_vault_key_id=example_key.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1436,6 +1441,7 @@ class Database(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1470,7 +1476,10 @@ class Database(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1558,6 +1567,7 @@ class Database(pulumi.CustomResource):
             ),
             transparent_data_encryption_key_vault_key_id=example_key.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

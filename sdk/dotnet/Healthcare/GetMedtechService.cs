@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Healthcare
         /// <summary>
         /// Use this data source to access information about an existing Healthcare Med Tech Service
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Azure.Healthcare
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetMedtechServiceResult> InvokeAsync(GetMedtechServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMedtechServiceResult>("azure:healthcare/getMedtechService:getMedtechService", args ?? new GetMedtechServiceArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Azure.Healthcare
         /// <summary>
         /// Use this data source to access information about an existing Healthcare Med Tech Service
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Azure.Healthcare
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetMedtechServiceResult> Invoke(GetMedtechServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMedtechServiceResult>("azure:healthcare/getMedtechService:getMedtechService", args ?? new GetMedtechServiceInvokeArgs(), options.WithDefaults());

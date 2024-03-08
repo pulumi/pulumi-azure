@@ -234,6 +234,7 @@ class IntVariable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -252,6 +253,7 @@ class IntVariable(pulumi.CustomResource):
             automation_account_name=example_account.name,
             value=1234)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -281,6 +283,7 @@ class IntVariable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -299,6 +302,7 @@ class IntVariable(pulumi.CustomResource):
             automation_account_name=example_account.name,
             value=1234)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

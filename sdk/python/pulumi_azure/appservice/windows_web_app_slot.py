@@ -1015,6 +1015,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1039,6 +1040,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
             app_service_id=example_windows_web_app.id,
             site_config=azure.appservice.WindowsWebAppSlotSiteConfigArgs())
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1091,6 +1093,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1115,6 +1118,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
             app_service_id=example_windows_web_app.id,
             site_config=azure.appservice.WindowsWebAppSlotSiteConfigArgs())
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

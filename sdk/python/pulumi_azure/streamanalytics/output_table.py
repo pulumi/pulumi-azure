@@ -360,6 +360,7 @@ class OutputTable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -389,6 +390,7 @@ class OutputTable(pulumi.CustomResource):
             row_key="bar",
             batch_size=100)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -422,6 +424,7 @@ class OutputTable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -451,6 +454,7 @@ class OutputTable(pulumi.CustomResource):
             row_key="bar",
             batch_size=100)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

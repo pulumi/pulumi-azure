@@ -134,6 +134,7 @@ def get_network_service(mobile_network_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -144,6 +145,7 @@ def get_network_service(mobile_network_id: Optional[str] = None,
         name="example-mns",
         mobile_network_id=example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str mobile_network_id: Specifies the ID of the Mobile Network Service.
@@ -175,6 +177,7 @@ def get_network_service_output(mobile_network_id: Optional[pulumi.Input[str]] = 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -185,6 +188,7 @@ def get_network_service_output(mobile_network_id: Optional[pulumi.Input[str]] = 
         name="example-mns",
         mobile_network_id=example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str mobile_network_id: Specifies the ID of the Mobile Network Service.

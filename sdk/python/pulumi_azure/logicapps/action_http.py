@@ -309,6 +309,7 @@ class ActionHttp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -326,6 +327,7 @@ class ActionHttp(pulumi.CustomResource):
             method="GET",
             uri="http://example.com/some-webhook")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -359,6 +361,7 @@ class ActionHttp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -376,6 +379,7 @@ class ActionHttp(pulumi.CustomResource):
             method="GET",
             uri="http://example.com/some-webhook")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

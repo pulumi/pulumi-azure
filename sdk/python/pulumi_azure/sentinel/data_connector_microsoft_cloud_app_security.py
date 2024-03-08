@@ -220,6 +220,7 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -237,6 +238,7 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
             name="example",
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -271,6 +273,7 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -288,6 +291,7 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
             name="example",
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

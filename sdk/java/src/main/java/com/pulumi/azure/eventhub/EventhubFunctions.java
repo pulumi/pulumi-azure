@@ -42,6 +42,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -73,6 +75,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizationRuleResult> getAuthorizationRule(GetAuthorizationRuleArgs args) {
@@ -82,6 +85,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -113,6 +118,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizationRuleResult> getAuthorizationRulePlain(GetAuthorizationRulePlainArgs args) {
@@ -122,6 +128,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -153,6 +161,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizationRuleResult> getAuthorizationRule(GetAuthorizationRuleArgs args, InvokeOptions options) {
@@ -162,6 +171,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -193,6 +204,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizationRuleResult> getAuthorizationRulePlain(GetAuthorizationRulePlainArgs args, InvokeOptions options) {
@@ -202,6 +214,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -232,6 +246,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
@@ -241,6 +256,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -271,6 +288,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -280,6 +298,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -310,6 +330,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
@@ -319,6 +340,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -349,6 +372,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
@@ -358,6 +382,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -389,6 +415,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConsumeGroupResult> getConsumeGroup(GetConsumeGroupArgs args) {
@@ -398,6 +425,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -429,6 +458,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConsumeGroupResult> getConsumeGroupPlain(GetConsumeGroupPlainArgs args) {
@@ -438,6 +468,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -469,6 +501,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConsumeGroupResult> getConsumeGroup(GetConsumeGroupArgs args, InvokeOptions options) {
@@ -478,6 +511,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -509,6 +544,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConsumeGroupResult> getConsumeGroupPlain(GetConsumeGroupPlainArgs args, InvokeOptions options) {
@@ -518,6 +554,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -549,6 +587,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventHubResult> getEventHub(GetEventHubArgs args) {
@@ -558,6 +597,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -589,6 +630,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventHubResult> getEventHubPlain(GetEventHubPlainArgs args) {
@@ -598,6 +640,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -629,6 +673,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventHubResult> getEventHub(GetEventHubArgs args, InvokeOptions options) {
@@ -638,6 +683,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -669,6 +716,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventHubResult> getEventHubPlain(GetEventHubPlainArgs args, InvokeOptions options) {
@@ -678,6 +726,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -708,6 +758,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
@@ -721,6 +772,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -751,6 +804,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
@@ -764,6 +818,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -794,6 +850,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
@@ -807,6 +864,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -837,6 +896,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
@@ -850,6 +910,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -880,6 +942,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args) {
@@ -889,6 +952,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -919,6 +984,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args) {
@@ -928,6 +994,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -958,6 +1026,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOptions options) {
@@ -967,6 +1036,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing EventHub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -997,6 +1068,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args, InvokeOptions options) {
@@ -1006,6 +1078,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1037,6 +1111,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args) {
@@ -1046,6 +1121,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1077,6 +1154,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRulePlain(GetNamespaceAuthorizationRulePlainArgs args) {
@@ -1086,6 +1164,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1117,6 +1197,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args, InvokeOptions options) {
@@ -1126,6 +1207,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1157,6 +1240,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRulePlain(GetNamespaceAuthorizationRulePlainArgs args, InvokeOptions options) {
@@ -1166,6 +1250,8 @@ public final class EventhubFunctions {
      * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1241,6 +1327,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSasResult> getSas(GetSasArgs args) {
@@ -1250,6 +1337,8 @@ public final class EventhubFunctions {
      * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1325,6 +1414,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSasResult> getSasPlain(GetSasPlainArgs args) {
@@ -1334,6 +1424,8 @@ public final class EventhubFunctions {
      * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1409,6 +1501,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSasResult> getSas(GetSasArgs args, InvokeOptions options) {
@@ -1418,6 +1511,8 @@ public final class EventhubFunctions {
      * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1493,6 +1588,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSasResult> getSasPlain(GetSasPlainArgs args, InvokeOptions options) {
@@ -1502,6 +1598,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing ServiceBus Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1532,6 +1630,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
@@ -1545,6 +1644,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing ServiceBus Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1575,6 +1676,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
@@ -1588,6 +1690,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing ServiceBus Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1618,6 +1722,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
@@ -1631,6 +1736,8 @@ public final class EventhubFunctions {
      * Use this data source to access information about an existing ServiceBus Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1661,6 +1768,7 @@ public final class EventhubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace

@@ -298,6 +298,7 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -325,6 +326,7 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
             cognitive_service_location=example_account.location,
             cognitive_service_access_key=example_account.primary_access_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -356,6 +358,7 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -383,6 +386,7 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
             cognitive_service_location=example_account.location,
             cognitive_service_access_key=example_account.primary_access_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

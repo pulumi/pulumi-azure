@@ -296,6 +296,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -319,6 +320,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
             subscription_id=example.subscription_id,
             certificate_thumbprint=std.file(input="automation_certificate_test.thumb").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -350,6 +352,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -373,6 +376,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
             subscription_id=example.subscription_id,
             certificate_thumbprint=std.file(input="automation_certificate_test.thumb").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

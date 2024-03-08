@@ -367,6 +367,7 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -382,8 +383,11 @@ class Pipeline(pulumi.CustomResource):
             name="example",
             data_factory_id=example_factory.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Activities
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -408,6 +412,7 @@ class Pipeline(pulumi.CustomResource):
         ]
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -441,6 +446,7 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -456,8 +462,11 @@ class Pipeline(pulumi.CustomResource):
             name="example",
             data_factory_id=example_factory.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Activities
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -482,6 +491,7 @@ class Pipeline(pulumi.CustomResource):
         ]
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

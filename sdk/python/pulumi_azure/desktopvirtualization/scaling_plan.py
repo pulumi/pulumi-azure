@@ -373,6 +373,7 @@ class ScalingPlan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -459,6 +460,7 @@ class ScalingPlan(pulumi.CustomResource):
                 scaling_plan_enabled=True,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -498,6 +500,7 @@ class ScalingPlan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -584,6 +587,7 @@ class ScalingPlan(pulumi.CustomResource):
                 scaling_plan_enabled=True,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

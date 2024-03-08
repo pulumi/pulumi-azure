@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupVolumeGroupSapHana(ctx *pulumi.Context, args *LookupVolumeGroupSapHanaArgs, opts ...pulumi.InvokeOption) (*LookupVolumeGroupSapHanaResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVolumeGroupSapHanaResult

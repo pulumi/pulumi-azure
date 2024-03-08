@@ -367,6 +367,7 @@ class DataFlow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -506,6 +507,7 @@ class DataFlow(pulumi.CustomResource):
           skipDuplicateMapOutputs: true) ~> sink1
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -539,6 +541,7 @@ class DataFlow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -678,6 +681,7 @@ class DataFlow(pulumi.CustomResource):
           skipDuplicateMapOutputs: true) ~> sink1
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -228,6 +228,7 @@ class WorkspaceTable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -247,6 +248,7 @@ class WorkspaceTable(pulumi.CustomResource):
             retention_in_days=60,
             total_retention_in_days=180)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -275,6 +277,7 @@ class WorkspaceTable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -294,6 +297,7 @@ class WorkspaceTable(pulumi.CustomResource):
             retention_in_days=60,
             total_retention_in_days=180)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param WorkspaceTableArgs args: The arguments to use to populate this resource's properties.

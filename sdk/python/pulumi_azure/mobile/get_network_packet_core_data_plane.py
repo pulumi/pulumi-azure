@@ -142,6 +142,7 @@ def get_network_packet_core_data_plane(mobile_network_packet_core_control_plane_
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -151,6 +152,7 @@ def get_network_packet_core_data_plane(mobile_network_packet_core_control_plane_
     example_get_network_packet_core_data_plane = azure.mobile.get_network_packet_core_data_plane(name="example-mnpcdp",
         mobile_network_packet_core_control_plane_id=example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str mobile_network_packet_core_control_plane_id: The ID of the Mobile Network Packet Core Data Plane.
@@ -183,6 +185,7 @@ def get_network_packet_core_data_plane_output(mobile_network_packet_core_control
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -192,6 +195,7 @@ def get_network_packet_core_data_plane_output(mobile_network_packet_core_control
     example_get_network_packet_core_data_plane = azure.mobile.get_network_packet_core_data_plane(name="example-mnpcdp",
         mobile_network_packet_core_control_plane_id=example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str mobile_network_packet_core_control_plane_id: The ID of the Mobile Network Packet Core Data Plane.

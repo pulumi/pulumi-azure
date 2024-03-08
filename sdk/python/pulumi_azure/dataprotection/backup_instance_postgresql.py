@@ -235,6 +235,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -338,6 +339,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             backup_policy_id=example_backup_policy_postgresql.id,
             database_credential_key_vault_secret_id=example_secret.versionless_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -369,6 +371,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -472,6 +475,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             backup_policy_id=example_backup_policy_postgresql.id,
             database_credential_key_vault_secret_id=example_secret.versionless_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

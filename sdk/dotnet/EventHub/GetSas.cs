@@ -14,10 +14,9 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -76,8 +75,7 @@ namespace Pulumi.Azure.EventHub
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSasResult> InvokeAsync(GetSasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSasResult>("azure:eventhub/getSas:getSas", args ?? new GetSasArgs(), options.WithDefaults());
@@ -85,10 +83,9 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -147,8 +144,7 @@ namespace Pulumi.Azure.EventHub
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSasResult> Invoke(GetSasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSasResult>("azure:eventhub/getSas:getSas", args ?? new GetSasInvokeArgs(), options.WithDefaults());

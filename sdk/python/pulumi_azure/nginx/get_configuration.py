@@ -106,6 +106,7 @@ def get_configuration(nginx_deployment_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -113,6 +114,7 @@ def get_configuration(nginx_deployment_id: Optional[str] = None,
     example = azure.nginx.get_configuration(nginx_deployment_id=example_azurerm_nginx_deployment["id"])
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str nginx_deployment_id: The ID of the Nginx Deployment.
@@ -139,6 +141,7 @@ def get_configuration_output(nginx_deployment_id: Optional[pulumi.Input[str]] = 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -146,6 +149,7 @@ def get_configuration_output(nginx_deployment_id: Optional[pulumi.Input[str]] = 
     example = azure.nginx.get_configuration(nginx_deployment_id=example_azurerm_nginx_deployment["id"])
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str nginx_deployment_id: The ID of the Nginx Deployment.

@@ -200,6 +200,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -219,6 +220,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
             principal_object_id="aGUID",
             roles=["Reader"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -247,6 +249,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -266,6 +269,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
             principal_object_id="aGUID",
             roles=["Reader"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -13,7 +13,9 @@ namespace Pulumi.Azure.Datadog
     /// Manages TagRules on the datadog Monitor.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Adding TagRules on monitor
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,6 +81,7 @@ namespace Pulumi.Azure.Datadog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

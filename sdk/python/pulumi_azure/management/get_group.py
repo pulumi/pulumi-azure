@@ -130,6 +130,7 @@ def get_group(display_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -137,6 +138,7 @@ def get_group(display_name: Optional[str] = None,
     example = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
     pulumi.export("displayName", example.display_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: Specifies the display name of this Management Group.
@@ -170,6 +172,7 @@ def get_group_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -177,6 +180,7 @@ def get_group_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
     example = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
     pulumi.export("displayName", example.display_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: Specifies the display name of this Management Group.

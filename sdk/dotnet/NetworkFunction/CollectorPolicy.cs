@@ -14,6 +14,7 @@ namespace Pulumi.Azure.NetworkFunction
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -101,6 +102,7 @@ namespace Pulumi.Azure.NetworkFunction
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -67,7 +67,7 @@ public final class PublicIpPrefixArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+     * &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](&lt;https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address&gt;)
      * 
      */
     @Import(name="prefixLength")
@@ -76,7 +76,7 @@ public final class PublicIpPrefixArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+     * &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](&lt;https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address&gt;)
      * 
      */
     public Optional<Output<Integer>> prefixLength() {
@@ -248,7 +248,7 @@ public final class PublicIpPrefixArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param prefixLength Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
          * 
-         * &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+         * &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](&lt;https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address&gt;)
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class PublicIpPrefixArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param prefixLength Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
          * 
-         * &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+         * &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](&lt;https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address&gt;)
          * 
          * @return builder
          * 

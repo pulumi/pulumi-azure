@@ -17,8 +17,10 @@ import (
 // !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.ServicePlan` resource instead.
 //
 // ## Example Usage
+//
 // ### Dedicated)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,8 +58,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Shared / Consumption Plan)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,8 +101,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Linux)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -137,8 +145,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Windows Container)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -178,6 +189,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

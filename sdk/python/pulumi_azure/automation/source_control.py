@@ -365,6 +365,7 @@ class SourceControl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -389,6 +390,7 @@ class SourceControl(pulumi.CustomResource):
             source_control_type="GitHub",
             branch="main")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -422,6 +424,7 @@ class SourceControl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -446,6 +449,7 @@ class SourceControl(pulumi.CustomResource):
             source_control_type="GitHub",
             branch="main")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -231,6 +231,7 @@ class GlobalSchema(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -253,6 +254,7 @@ class GlobalSchema(pulumi.CustomResource):
             type="xml",
             value=std.file(input="api_management_api_schema.xml").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -282,6 +284,7 @@ class GlobalSchema(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -304,6 +307,7 @@ class GlobalSchema(pulumi.CustomResource):
             type="xml",
             value=std.file(input="api_management_api_schema.xml").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

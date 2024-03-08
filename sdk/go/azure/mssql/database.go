@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,7 +79,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -212,6 +216,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

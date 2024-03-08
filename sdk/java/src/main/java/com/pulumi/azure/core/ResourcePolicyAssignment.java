@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Manages a Policy Assignment to a Resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -83,6 +85,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -92,7 +95,7 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:core/resourcePolicyAssignment:ResourcePolicyAssignment example &#34;{resource}/providers/Microsoft.Authorization/policyAssignments/assignment1&#34;
  * ```
  * 
- *  where `{resource}` is a Resource ID in the form `/subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/network1`.
+ * where `{resource}` is a Resource ID in the form `/subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/network1`.
  * 
  */
 @ResourceType(type="azure:core/resourcePolicyAssignment:ResourcePolicyAssignment")

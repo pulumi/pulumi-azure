@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Manages a Function App Active Slot.
  *
  * ## Example Usage
+ *
  * ### Windows Function App
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -48,8 +50,11 @@ import * as utilities from "../utilities";
  * });
  * const exampleFunctionAppActiveSlot = new azure.appservice.FunctionAppActiveSlot("example", {slotId: exampleWindowsFunctionAppSlot.id});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Linux Function App
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -88,6 +93,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleFunctionAppActiveSlot = new azure.appservice.FunctionAppActiveSlot("example", {slotId: exampleLinuxFunctionAppSlot.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

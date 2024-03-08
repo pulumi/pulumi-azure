@@ -235,6 +235,7 @@ def get_api(api_management_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -245,6 +246,7 @@ def get_api(api_management_name: Optional[str] = None,
         revision="2")
     pulumi.export("apiManagementApiId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str api_management_name: The name of the API Management Service in which the API Management API exists.
@@ -291,6 +293,7 @@ def get_api_output(api_management_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -301,6 +304,7 @@ def get_api_output(api_management_name: Optional[pulumi.Input[str]] = None,
         revision="2")
     pulumi.export("apiManagementApiId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str api_management_name: The name of the API Management Service in which the API Management API exists.

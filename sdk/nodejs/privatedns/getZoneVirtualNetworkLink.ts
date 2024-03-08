@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  * });
  * export const privateDnsARecordId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getZoneVirtualNetworkLink(args: GetZoneVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneVirtualNetworkLinkResult> {
 
@@ -78,6 +80,7 @@ export interface GetZoneVirtualNetworkLinkResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -89,6 +92,7 @@ export interface GetZoneVirtualNetworkLinkResult {
  * });
  * export const privateDnsARecordId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getZoneVirtualNetworkLinkOutput(args: GetZoneVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneVirtualNetworkLinkResult> {
     return pulumi.output(args).apply((a: any) => getZoneVirtualNetworkLink(a, opts))

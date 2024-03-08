@@ -288,6 +288,7 @@ class CNameRecord(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -305,8 +306,11 @@ class CNameRecord(pulumi.CustomResource):
             ttl=300,
             record="contoso.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Alias Record)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -330,6 +334,7 @@ class CNameRecord(pulumi.CustomResource):
             ttl=300,
             target_resource_id=target.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -360,6 +365,7 @@ class CNameRecord(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -377,8 +383,11 @@ class CNameRecord(pulumi.CustomResource):
             ttl=300,
             record="contoso.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Alias Record)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -402,6 +411,7 @@ class CNameRecord(pulumi.CustomResource):
             ttl=300,
             target_resource_id=target.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -343,6 +343,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -364,6 +365,7 @@ class LoadBalancer(pulumi.CustomResource):
                 public_ip_address_id=example_public_ip.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -397,6 +399,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -418,6 +421,7 @@ class LoadBalancer(pulumi.CustomResource):
                 public_ip_address_id=example_public_ip.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -112,6 +112,7 @@ def get_ip_groups(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -120,6 +121,7 @@ def get_ip_groups(name: Optional[str] = None,
         resource_group_name="existing")
     pulumi.export("ids", example.ids)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: A substring to match some number of IP Groups.
@@ -150,6 +152,7 @@ def get_ip_groups_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -158,6 +161,7 @@ def get_ip_groups_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="existing")
     pulumi.export("ids", example.ids)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: A substring to match some number of IP Groups.

@@ -210,6 +210,7 @@ class SmartDetectionRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -227,6 +228,7 @@ class SmartDetectionRule(pulumi.CustomResource):
             application_insights_id=example_insights.id,
             enabled=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -257,6 +259,7 @@ class SmartDetectionRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -274,6 +277,7 @@ class SmartDetectionRule(pulumi.CustomResource):
             application_insights_id=example_insights.id,
             enabled=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

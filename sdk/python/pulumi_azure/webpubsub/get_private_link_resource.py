@@ -73,6 +73,7 @@ def get_private_link_resource(web_pubsub_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -88,6 +89,7 @@ def get_private_link_resource(web_pubsub_id: Optional[str] = None,
         capacity=1)
     test = azure.webpubsub.get_private_link_resource_output(web_pubsub_id=test_service.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str web_pubsub_id: The ID of an existing Web Pubsub Resource which Private Link Resource should be retrieved for.
@@ -111,6 +113,7 @@ def get_private_link_resource_output(web_pubsub_id: Optional[pulumi.Input[str]] 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -126,6 +129,7 @@ def get_private_link_resource_output(web_pubsub_id: Optional[pulumi.Input[str]] 
         capacity=1)
     test = azure.webpubsub.get_private_link_resource_output(web_pubsub_id=test_service.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str web_pubsub_id: The ID of an existing Web Pubsub Resource which Private Link Resource should be retrieved for.

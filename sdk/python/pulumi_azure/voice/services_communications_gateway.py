@@ -500,6 +500,7 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -547,6 +548,7 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
             },
             microsoft_teams_voicemail_pilot_number="1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -588,6 +590,7 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -635,6 +638,7 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
             },
             microsoft_teams_voicemail_pilot_number="1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

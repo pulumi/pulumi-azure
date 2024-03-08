@@ -175,6 +175,7 @@ class MongoUserDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -212,6 +213,7 @@ class MongoUserDefinition(pulumi.CustomResource):
             username="myUserName",
             password="myPassword")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -241,6 +243,7 @@ class MongoUserDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -278,6 +281,7 @@ class MongoUserDefinition(pulumi.CustomResource):
             username="myUserName",
             password="myPassword")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

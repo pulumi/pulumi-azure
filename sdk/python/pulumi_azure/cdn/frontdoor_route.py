@@ -521,6 +521,7 @@ class FrontdoorRoute(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -626,6 +627,7 @@ class FrontdoorRoute(pulumi.CustomResource):
             cdn_frontdoor_custom_domain_id=fabrikam.id,
             cdn_frontdoor_route_ids=[example_frontdoor_route.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -669,6 +671,7 @@ class FrontdoorRoute(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -774,6 +777,7 @@ class FrontdoorRoute(pulumi.CustomResource):
             cdn_frontdoor_custom_domain_id=fabrikam.id,
             cdn_frontdoor_route_ids=[example_frontdoor_route.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

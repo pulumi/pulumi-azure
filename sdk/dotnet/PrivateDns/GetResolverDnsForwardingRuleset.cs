@@ -14,10 +14,9 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// Gets information about an existing Private DNS Resolver Dns Forwarding Ruleset.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResolverDnsForwardingRulesetResult> InvokeAsync(GetResolverDnsForwardingRulesetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverDnsForwardingRulesetResult>("azure:privatedns/getResolverDnsForwardingRuleset:getResolverDnsForwardingRuleset", args ?? new GetResolverDnsForwardingRulesetArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// Gets information about an existing Private DNS Resolver Dns Forwarding Ruleset.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResolverDnsForwardingRulesetResult> Invoke(GetResolverDnsForwardingRulesetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverDnsForwardingRulesetResult>("azure:privatedns/getResolverDnsForwardingRuleset:getResolverDnsForwardingRuleset", args ?? new GetResolverDnsForwardingRulesetInvokeArgs(), options.WithDefaults());

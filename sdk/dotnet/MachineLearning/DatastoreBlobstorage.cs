@@ -13,8 +13,10 @@ namespace Pulumi.Azure.MachineLearning
     /// Manages a Machine Learning Blob Storage DataStore.
     /// 
     /// ## Example Usage
+    /// 
     /// ### With Azure Blob
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -88,6 +90,7 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

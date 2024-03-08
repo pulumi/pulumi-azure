@@ -827,6 +827,7 @@ class Workspace(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -863,10 +864,13 @@ class Workspace(pulumi.CustomResource):
                 type="SystemAssigned",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Data Encryption
 
         > **NOTE:** The Key Vault must enable purge protection.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -932,10 +936,13 @@ class Workspace(pulumi.CustomResource):
                 key_id=example_key.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With User Assigned Identity And Data Encryption
 
         > **NOTE:** The Key Vault must enable purge protection.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1057,6 +1064,7 @@ class Workspace(pulumi.CustomResource):
                 key_id=example_key.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1106,6 +1114,7 @@ class Workspace(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1142,10 +1151,13 @@ class Workspace(pulumi.CustomResource):
                 type="SystemAssigned",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Data Encryption
 
         > **NOTE:** The Key Vault must enable purge protection.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1211,10 +1223,13 @@ class Workspace(pulumi.CustomResource):
                 key_id=example_key.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With User Assigned Identity And Data Encryption
 
         > **NOTE:** The Key Vault must enable purge protection.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1336,6 +1351,7 @@ class Workspace(pulumi.CustomResource):
                 key_id=example_key.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages a Dataset inside an Azure Data Factory. This is a generic resource that supports all different Dataset Types.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -153,6 +155,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

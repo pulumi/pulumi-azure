@@ -648,6 +648,7 @@ class SpringCloudService(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -681,6 +682,7 @@ class SpringCloudService(pulumi.CustomResource):
                 "Env": "staging",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -721,6 +723,7 @@ class SpringCloudService(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -754,6 +757,7 @@ class SpringCloudService(pulumi.CustomResource):
                 "Env": "staging",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

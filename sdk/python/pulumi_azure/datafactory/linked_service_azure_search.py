@@ -356,6 +356,7 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -384,6 +385,7 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
                 ]).apply(lambda invoke: invoke.result),
             search_service_key=example_service.primary_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -418,6 +420,7 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -446,6 +449,7 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
                 ]).apply(lambda invoke: invoke.result),
             search_service_key=example_service.primary_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

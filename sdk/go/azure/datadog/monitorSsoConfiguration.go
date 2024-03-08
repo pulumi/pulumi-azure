@@ -15,7 +15,9 @@ import (
 // Manages SingleSignOn on the datadog Monitor.
 //
 // ## Example Usage
+//
 // ### Enabling SSO on monitor
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,6 +71,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

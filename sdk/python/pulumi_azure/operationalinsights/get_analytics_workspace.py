@@ -163,6 +163,7 @@ def get_analytics_workspace(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -171,6 +172,7 @@ def get_analytics_workspace(name: Optional[str] = None,
         resource_group_name="acctest")
     pulumi.export("logAnalyticsWorkspaceId", example.workspace_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Log Analytics Workspace.
@@ -205,6 +207,7 @@ def get_analytics_workspace_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -213,6 +216,7 @@ def get_analytics_workspace_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="acctest")
     pulumi.export("logAnalyticsWorkspaceId", example.workspace_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Log Analytics Workspace.

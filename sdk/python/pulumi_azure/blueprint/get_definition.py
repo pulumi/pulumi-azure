@@ -144,6 +144,7 @@ def get_definition(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -153,6 +154,7 @@ def get_definition(name: Optional[str] = None,
     example = azure.blueprint.get_definition(name="exampleManagementGroupBP",
         scope_id=root.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Blueprint.
@@ -187,6 +189,7 @@ def get_definition_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -196,6 +199,7 @@ def get_definition_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.blueprint.get_definition(name="exampleManagementGroupBP",
         scope_id=root.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Blueprint.

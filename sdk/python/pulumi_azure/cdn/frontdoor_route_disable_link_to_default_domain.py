@@ -128,6 +128,7 @@ class FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -139,6 +140,7 @@ class FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
                 fabrikam["id"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -166,6 +168,7 @@ class FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -177,6 +180,7 @@ class FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
                 fabrikam["id"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

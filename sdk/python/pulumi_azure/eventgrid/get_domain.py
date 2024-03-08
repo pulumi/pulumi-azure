@@ -203,6 +203,7 @@ def get_domain(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -211,6 +212,7 @@ def get_domain(name: Optional[str] = None,
         resource_group_name="example-resources")
     pulumi.export("eventgridDomainMappingTopic", example.input_mapping_fields[0].topic)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the EventGrid Domain resource.
@@ -248,6 +250,7 @@ def get_domain_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -256,6 +259,7 @@ def get_domain_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="example-resources")
     pulumi.export("eventgridDomainMappingTopic", example.input_mapping_fields[0].topic)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the EventGrid Domain resource.

@@ -16,6 +16,7 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,6 +40,8 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Blocks Reference
     /// 
     /// ### `hub_profile` Block
@@ -60,11 +63,11 @@ namespace Pulumi.Azure.ContainerService
     /// $ pulumi import azure:containerservice/kubernetesFleetManager:KubernetesFleetManager example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}
     /// ```
     /// 
-    ///  * Where `{subscriptionId}` is the ID of the Azure Subscription where the Kubernetes Fleet Manager exists. For example `12345678-1234-9876-4563-123456789012`.
+    /// * Where `{subscriptionId}` is the ID of the Azure Subscription where the Kubernetes Fleet Manager exists. For example `12345678-1234-9876-4563-123456789012`.
     /// 
-    ///  * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Fleet Manager exists. For example `example-resource-group`.
+    /// * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Fleet Manager exists. For example `example-resource-group`.
     /// 
-    ///  * Where `{fleetName}` is the name of the Fleet. For example `fleetValue`.
+    /// * Where `{fleetName}` is the name of the Fleet. For example `fleetValue`.
     /// </summary>
     [AzureResourceType("azure:containerservice/kubernetesFleetManager:KubernetesFleetManager")]
     public partial class KubernetesFleetManager : global::Pulumi.CustomResource

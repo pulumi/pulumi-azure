@@ -70,6 +70,7 @@ def get_mpa_account_scope(billing_account_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -78,6 +79,7 @@ def get_mpa_account_scope(billing_account_name: Optional[str] = None,
         customer_name="2281f543-7321-4cf9-1e23-edb4Oc31a31c")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str billing_account_name: The Billing Account Name of the MPA account.
@@ -104,6 +106,7 @@ def get_mpa_account_scope_output(billing_account_name: Optional[pulumi.Input[str
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -112,6 +115,7 @@ def get_mpa_account_scope_output(billing_account_name: Optional[pulumi.Input[str
         customer_name="2281f543-7321-4cf9-1e23-edb4Oc31a31c")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str billing_account_name: The Billing Account Name of the MPA account.

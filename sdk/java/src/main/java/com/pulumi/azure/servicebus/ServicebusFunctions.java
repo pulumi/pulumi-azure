@@ -39,6 +39,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -69,6 +71,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args) {
@@ -78,6 +81,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -108,6 +113,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args) {
@@ -117,6 +123,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -147,6 +155,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOptions options) {
@@ -156,6 +165,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -186,6 +197,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args, InvokeOptions options) {
@@ -195,6 +207,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -225,6 +239,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args) {
@@ -234,6 +249,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -264,6 +281,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRulePlain(GetNamespaceAuthorizationRulePlainArgs args) {
@@ -273,6 +291,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -303,6 +323,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args, InvokeOptions options) {
@@ -312,6 +333,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -342,6 +365,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRulePlain(GetNamespaceAuthorizationRulePlainArgs args, InvokeOptions options) {
@@ -363,6 +387,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing Service Bus Queue.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -393,6 +419,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args) {
@@ -402,6 +429,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing Service Bus Queue.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -432,6 +461,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQueueResult> getQueuePlain(GetQueuePlainArgs args) {
@@ -441,6 +471,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing Service Bus Queue.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -471,6 +503,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args, InvokeOptions options) {
@@ -480,6 +513,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing Service Bus Queue.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -510,6 +545,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQueueResult> getQueuePlain(GetQueuePlainArgs args, InvokeOptions options) {
@@ -519,6 +555,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -551,6 +589,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQueueAuthorizationRuleResult> getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs args) {
@@ -560,6 +599,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -592,6 +633,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQueueAuthorizationRuleResult> getQueueAuthorizationRulePlain(GetQueueAuthorizationRulePlainArgs args) {
@@ -601,6 +643,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -633,6 +677,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQueueAuthorizationRuleResult> getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs args, InvokeOptions options) {
@@ -642,6 +687,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -674,6 +721,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQueueAuthorizationRuleResult> getQueueAuthorizationRulePlain(GetQueueAuthorizationRulePlainArgs args, InvokeOptions options) {
@@ -683,6 +731,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Subscription.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -713,6 +763,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args) {
@@ -722,6 +773,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Subscription.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -752,6 +805,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain(GetSubscriptionPlainArgs args) {
@@ -761,6 +815,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Subscription.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -791,6 +847,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args, InvokeOptions options) {
@@ -800,6 +857,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing ServiceBus Subscription.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -830,6 +889,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain(GetSubscriptionPlainArgs args, InvokeOptions options) {
@@ -839,6 +899,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing Service Bus Topic.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -869,6 +931,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args) {
@@ -878,6 +941,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing Service Bus Topic.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -908,6 +973,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args) {
@@ -917,6 +983,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing Service Bus Topic.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -947,6 +1015,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args, InvokeOptions options) {
@@ -956,6 +1025,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about an existing Service Bus Topic.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -986,6 +1057,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args, InvokeOptions options) {
@@ -995,6 +1067,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1027,6 +1101,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTopicAuthorizationRuleResult> getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs args) {
@@ -1036,6 +1111,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1068,6 +1145,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTopicAuthorizationRuleResult> getTopicAuthorizationRulePlain(GetTopicAuthorizationRulePlainArgs args) {
@@ -1077,6 +1155,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1109,6 +1189,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTopicAuthorizationRuleResult> getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs args, InvokeOptions options) {
@@ -1118,6 +1199,8 @@ public final class ServicebusFunctions {
      * Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1150,6 +1233,7 @@ public final class ServicebusFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTopicAuthorizationRuleResult> getTopicAuthorizationRulePlain(GetTopicAuthorizationRulePlainArgs args, InvokeOptions options) {

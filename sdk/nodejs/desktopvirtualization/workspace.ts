@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -25,6 +26,7 @@ import * as utilities from "../utilities";
  *     description: "A description of my workspace",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

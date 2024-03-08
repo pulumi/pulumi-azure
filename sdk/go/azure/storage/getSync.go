@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupSync(ctx *pulumi.Context, args *LookupSyncArgs, opts ...pulumi.InvokeOption) (*LookupSyncResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSyncResult

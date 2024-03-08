@@ -280,6 +280,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * The ID of the Subscription containing the Storage Account.
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -308,6 +309,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="storageAccountSubscriptionId")
@@ -316,6 +318,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * @return The ID of the Subscription containing the Storage Account.
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -344,6 +347,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<String>> storageAccountSubscriptionId() {
@@ -749,6 +753,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param storageAccountSubscriptionId The ID of the Subscription containing the Storage Account.
          * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -777,6 +782,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -789,6 +795,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param storageAccountSubscriptionId The ID of the Subscription containing the Storage Account.
          * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -817,6 +824,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

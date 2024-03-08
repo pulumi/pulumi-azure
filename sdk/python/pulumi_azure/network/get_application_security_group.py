@@ -94,6 +94,7 @@ def get_application_security_group(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -102,6 +103,7 @@ def get_application_security_group(name: Optional[str] = None,
         resource_group_name="my-resource-group")
     pulumi.export("applicationSecurityGroupId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Application Security Group.
@@ -130,6 +132,7 @@ def get_application_security_group_output(name: Optional[pulumi.Input[str]] = No
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -138,6 +141,7 @@ def get_application_security_group_output(name: Optional[pulumi.Input[str]] = No
         resource_group_name="my-resource-group")
     pulumi.export("applicationSecurityGroupId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Application Security Group.

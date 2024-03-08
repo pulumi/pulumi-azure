@@ -231,6 +231,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -250,6 +251,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
             parent_id=example_user_assigned_identity.id,
             subject="foo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -279,6 +281,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -298,6 +301,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
             parent_id=example_user_assigned_identity.id,
             subject="foo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -134,6 +134,7 @@ class SqlDedicatedGateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -159,6 +160,7 @@ class SqlDedicatedGateway(pulumi.CustomResource):
             instance_count=1,
             instance_size="Cosmos.D4s")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -185,6 +187,7 @@ class SqlDedicatedGateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -210,6 +213,7 @@ class SqlDedicatedGateway(pulumi.CustomResource):
             instance_count=1,
             instance_size="Cosmos.D4s")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

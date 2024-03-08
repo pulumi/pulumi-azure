@@ -405,6 +405,7 @@ class ElasticSan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -422,6 +423,7 @@ class ElasticSan(pulumi.CustomResource):
                 name="example-value",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -459,6 +461,7 @@ class ElasticSan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -476,6 +479,7 @@ class ElasticSan(pulumi.CustomResource):
                 name="example-value",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

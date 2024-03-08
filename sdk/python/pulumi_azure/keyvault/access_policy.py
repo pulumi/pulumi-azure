@@ -303,6 +303,7 @@ class AccessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -336,28 +337,29 @@ class AccessPolicy(pulumi.CustomResource):
                 "Decrypt",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Key Vault Access Policies can be imported using the Resource ID of the Key Vault, plus some additional metadata.
 
-         If both an `object_id` and `application_id` are specified, then the Access Policy can be imported using the following code:
+        If both an `object_id` and `application_id` are specified, then the Access Policy can be imported using the following code:
 
         ```sh
         $ pulumi import azure:keyvault/accessPolicy:AccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/test-vault/objectId/11111111-1111-1111-1111-111111111111/applicationId/22222222-2222-2222-2222-222222222222
         ```
 
-         where `11111111-1111-1111-1111-111111111111` is the `object_id` and `22222222-2222-2222-2222-222222222222` is the `application_id`.
+        where `11111111-1111-1111-1111-111111111111` is the `object_id` and `22222222-2222-2222-2222-222222222222` is the `application_id`.
 
-         ***
+        ***
 
-         Access Policies with an `object_id` but no `application_id` can be imported using the following command:
+        Access Policies with an `object_id` but no `application_id` can be imported using the following command:
 
         ```sh
         $ pulumi import azure:keyvault/accessPolicy:AccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/test-vault/objectId/11111111-1111-1111-1111-111111111111
         ```
 
-         where `11111111-1111-1111-1111-111111111111` is the `object_id`.
+        where `11111111-1111-1111-1111-111111111111` is the `object_id`.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -385,6 +387,7 @@ class AccessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -418,28 +421,29 @@ class AccessPolicy(pulumi.CustomResource):
                 "Decrypt",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Key Vault Access Policies can be imported using the Resource ID of the Key Vault, plus some additional metadata.
 
-         If both an `object_id` and `application_id` are specified, then the Access Policy can be imported using the following code:
+        If both an `object_id` and `application_id` are specified, then the Access Policy can be imported using the following code:
 
         ```sh
         $ pulumi import azure:keyvault/accessPolicy:AccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/test-vault/objectId/11111111-1111-1111-1111-111111111111/applicationId/22222222-2222-2222-2222-222222222222
         ```
 
-         where `11111111-1111-1111-1111-111111111111` is the `object_id` and `22222222-2222-2222-2222-222222222222` is the `application_id`.
+        where `11111111-1111-1111-1111-111111111111` is the `object_id` and `22222222-2222-2222-2222-222222222222` is the `application_id`.
 
-         ***
+        ***
 
-         Access Policies with an `object_id` but no `application_id` can be imported using the following command:
+        Access Policies with an `object_id` but no `application_id` can be imported using the following command:
 
         ```sh
         $ pulumi import azure:keyvault/accessPolicy:AccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/test-vault/objectId/11111111-1111-1111-1111-111111111111
         ```
 
-         where `11111111-1111-1111-1111-111111111111` is the `object_id`.
+        where `11111111-1111-1111-1111-111111111111` is the `object_id`.
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.

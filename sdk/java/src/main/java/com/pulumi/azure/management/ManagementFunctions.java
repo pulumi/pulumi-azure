@@ -21,6 +21,8 @@ public final class ManagementFunctions {
      * Use this data source to access information about an existing Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -50,6 +52,7 @@ public final class ManagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup() {
@@ -59,6 +62,8 @@ public final class ManagementFunctions {
      * Use this data source to access information about an existing Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -88,6 +93,7 @@ public final class ManagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain() {
@@ -97,6 +103,8 @@ public final class ManagementFunctions {
      * Use this data source to access information about an existing Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +134,7 @@ public final class ManagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
@@ -135,6 +144,8 @@ public final class ManagementFunctions {
      * Use this data source to access information about an existing Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -164,6 +175,7 @@ public final class ManagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -173,6 +185,8 @@ public final class ManagementFunctions {
      * Use this data source to access information about an existing Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -202,6 +216,7 @@ public final class ManagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
@@ -211,6 +226,8 @@ public final class ManagementFunctions {
      * Use this data source to access information about an existing Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -240,6 +257,7 @@ public final class ManagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
@@ -248,16 +266,12 @@ public final class ManagementFunctions {
     /**
      * Use this data source to access information about an existing Management Group Template Deployment.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetGroupTemplateDeploymentResult> getGroupTemplateDeployment(GetGroupTemplateDeploymentArgs args) {
         return getGroupTemplateDeployment(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Management Group Template Deployment.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetGroupTemplateDeploymentResult> getGroupTemplateDeploymentPlain(GetGroupTemplateDeploymentPlainArgs args) {
@@ -266,16 +280,12 @@ public final class ManagementFunctions {
     /**
      * Use this data source to access information about an existing Management Group Template Deployment.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetGroupTemplateDeploymentResult> getGroupTemplateDeployment(GetGroupTemplateDeploymentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", TypeShape.of(GetGroupTemplateDeploymentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Management Group Template Deployment.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetGroupTemplateDeploymentResult> getGroupTemplateDeploymentPlain(GetGroupTemplateDeploymentPlainArgs args, InvokeOptions options) {

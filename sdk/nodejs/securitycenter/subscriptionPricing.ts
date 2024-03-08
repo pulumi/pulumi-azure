@@ -12,8 +12,10 @@ import * as utilities from "../utilities";
  * > **NOTE:** Deletion of this resource will reset the pricing tier to `Free`
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,8 +25,11 @@ import * as utilities from "../utilities";
  *     resourceType: "VirtualMachines",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Using Extensions with Defender CSPM
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -51,6 +56,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

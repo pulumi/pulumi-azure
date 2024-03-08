@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -83,6 +84,7 @@ import * as utilities from "../utilities";
  *     authorizationKey: "846a1918-b7a2-4917-b43c-8c4cdaee006a",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

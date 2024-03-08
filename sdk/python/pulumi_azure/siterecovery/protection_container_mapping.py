@@ -298,6 +298,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -348,6 +349,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
             recovery_target_protection_container_id=secondary_protection_container.id,
             recovery_replication_policy_id=policy.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -379,6 +381,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -429,6 +432,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
             recovery_target_protection_container_id=secondary_protection_container.id,
             recovery_replication_policy_id=policy.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

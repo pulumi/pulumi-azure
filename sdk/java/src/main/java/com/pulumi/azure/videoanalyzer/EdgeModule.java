@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * !&gt; Video Analyzer (Preview) is now Deprecated and will be Retired on 2022-11-30 - as such the `azure.videoanalyzer.EdgeModule` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -107,6 +109,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

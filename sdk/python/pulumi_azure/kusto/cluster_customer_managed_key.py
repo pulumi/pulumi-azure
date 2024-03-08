@@ -200,6 +200,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -266,6 +267,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             key_name=example_key.name,
             key_version=example_key.version)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -294,6 +296,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -360,6 +363,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             key_name=example_key.name,
             key_version=example_key.version)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

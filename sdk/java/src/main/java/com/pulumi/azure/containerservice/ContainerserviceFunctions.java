@@ -39,6 +39,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Kubernetes Cluster Node Pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -70,6 +72,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args) {
@@ -79,6 +82,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Kubernetes Cluster Node Pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -110,6 +115,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterNodePoolResult> getClusterNodePoolPlain(GetClusterNodePoolPlainArgs args) {
@@ -119,6 +125,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Kubernetes Cluster Node Pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -150,6 +158,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args, InvokeOptions options) {
@@ -159,6 +168,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Kubernetes Cluster Node Pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -190,6 +201,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterNodePoolResult> getClusterNodePoolPlain(GetClusterNodePoolPlainArgs args, InvokeOptions options) {
@@ -199,6 +211,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Group instance.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -231,6 +245,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
@@ -240,6 +255,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Group instance.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -272,6 +289,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -281,6 +299,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Group instance.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -313,6 +333,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
@@ -322,6 +343,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Group instance.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -354,6 +377,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
@@ -363,6 +387,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -392,6 +418,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args) {
@@ -401,6 +428,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -430,6 +459,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKubernetesClusterResult> getKubernetesClusterPlain(GetKubernetesClusterPlainArgs args) {
@@ -439,6 +469,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -468,6 +500,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args, InvokeOptions options) {
@@ -477,6 +510,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -506,6 +541,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKubernetesClusterResult> getKubernetesClusterPlain(GetKubernetesClusterPlainArgs args, InvokeOptions options) {
@@ -515,6 +551,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -544,6 +582,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args) {
@@ -553,6 +592,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -582,6 +623,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshotPlain(GetKubernetesNodePoolSnapshotPlainArgs args) {
@@ -591,6 +633,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -620,6 +664,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args, InvokeOptions options) {
@@ -629,6 +674,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -658,6 +705,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshotPlain(GetKubernetesNodePoolSnapshotPlainArgs args, InvokeOptions options) {
@@ -667,6 +715,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -697,6 +747,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKubernetesServiceVersionsResult> getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs args) {
@@ -706,6 +757,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -736,6 +789,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKubernetesServiceVersionsResult> getKubernetesServiceVersionsPlain(GetKubernetesServiceVersionsPlainArgs args) {
@@ -745,6 +799,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -775,6 +831,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKubernetesServiceVersionsResult> getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs args, InvokeOptions options) {
@@ -784,6 +841,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -814,6 +873,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKubernetesServiceVersionsResult> getKubernetesServiceVersionsPlain(GetKubernetesServiceVersionsPlainArgs args, InvokeOptions options) {
@@ -823,6 +883,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Registry.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -853,6 +915,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args) {
@@ -862,6 +925,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Registry.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -892,6 +957,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegistryResult> getRegistryPlain(GetRegistryPlainArgs args) {
@@ -901,6 +967,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Registry.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -931,6 +999,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args, InvokeOptions options) {
@@ -940,6 +1009,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Registry.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -970,6 +1041,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegistryResult> getRegistryPlain(GetRegistryPlainArgs args, InvokeOptions options) {
@@ -979,6 +1051,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Registry scope map.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1010,6 +1084,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegistryScopeMapResult> getRegistryScopeMap(GetRegistryScopeMapArgs args) {
@@ -1019,6 +1094,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Registry scope map.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1050,6 +1127,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegistryScopeMapResult> getRegistryScopeMapPlain(GetRegistryScopeMapPlainArgs args) {
@@ -1059,6 +1137,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Registry scope map.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1090,6 +1170,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegistryScopeMapResult> getRegistryScopeMap(GetRegistryScopeMapArgs args, InvokeOptions options) {
@@ -1099,6 +1180,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Registry scope map.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1130,6 +1213,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegistryScopeMapResult> getRegistryScopeMapPlain(GetRegistryScopeMapPlainArgs args, InvokeOptions options) {
@@ -1139,6 +1223,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Registry token.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1170,6 +1256,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegistryTokenResult> getRegistryToken(GetRegistryTokenArgs args) {
@@ -1179,6 +1266,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Registry token.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1210,6 +1299,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegistryTokenResult> getRegistryTokenPlain(GetRegistryTokenPlainArgs args) {
@@ -1219,6 +1309,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Registry token.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1250,6 +1342,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegistryTokenResult> getRegistryToken(GetRegistryTokenArgs args, InvokeOptions options) {
@@ -1259,6 +1352,8 @@ public final class ContainerserviceFunctions {
      * Use this data source to access information about an existing Container Registry token.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1290,6 +1385,7 @@ public final class ContainerserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegistryTokenResult> getRegistryTokenPlain(GetRegistryTokenPlainArgs args, InvokeOptions options) {

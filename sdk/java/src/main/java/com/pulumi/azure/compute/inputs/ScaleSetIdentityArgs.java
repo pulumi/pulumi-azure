@@ -19,6 +19,8 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -68,6 +70,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="identityIds")
@@ -75,6 +78,8 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * @return Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -124,6 +129,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -180,6 +186,8 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param identityIds Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -229,6 +237,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -240,6 +249,8 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param identityIds Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -289,6 +300,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -299,6 +311,8 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param identityIds Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -348,6 +362,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

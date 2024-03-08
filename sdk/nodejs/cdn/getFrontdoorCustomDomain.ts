@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleAzurermCdnFrontdoorProfile.resourceGroupName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFrontdoorCustomDomain(args: GetFrontdoorCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorCustomDomainResult> {
 
@@ -88,6 +90,7 @@ export interface GetFrontdoorCustomDomainResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -98,6 +101,7 @@ export interface GetFrontdoorCustomDomainResult {
  *     resourceGroupName: exampleAzurermCdnFrontdoorProfile.resourceGroupName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFrontdoorCustomDomainOutput(args: GetFrontdoorCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getFrontdoorCustomDomain(a, opts))

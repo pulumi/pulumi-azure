@@ -297,6 +297,7 @@ class OutputPowerbi(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -312,6 +313,7 @@ class OutputPowerbi(pulumi.CustomResource):
             group_id="00000000-0000-0000-0000-000000000000",
             group_name="some-group-name")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -343,6 +345,7 @@ class OutputPowerbi(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -358,6 +361,7 @@ class OutputPowerbi(pulumi.CustomResource):
             group_id="00000000-0000-0000-0000-000000000000",
             group_name="some-group-name")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

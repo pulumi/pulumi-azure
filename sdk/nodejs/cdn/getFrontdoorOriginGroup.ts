@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFrontdoorOriginGroup(args: GetFrontdoorOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorOriginGroupResult> {
 
@@ -84,6 +86,7 @@ export interface GetFrontdoorOriginGroupResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -94,6 +97,7 @@ export interface GetFrontdoorOriginGroupResult {
  *     resourceGroupName: "example-resources",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFrontdoorOriginGroupOutput(args: GetFrontdoorOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorOriginGroupResult> {
     return pulumi.output(args).apply((a: any) => getFrontdoorOriginGroup(a, opts))

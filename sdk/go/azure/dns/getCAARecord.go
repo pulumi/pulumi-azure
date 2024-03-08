@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetCAARecord(ctx *pulumi.Context, args *GetCAARecordArgs, opts ...pulumi.InvokeOption) (*GetCAARecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCAARecordResult

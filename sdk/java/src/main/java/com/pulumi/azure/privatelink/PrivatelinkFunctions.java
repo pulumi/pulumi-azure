@@ -24,6 +24,8 @@ public final class PrivatelinkFunctions {
      * Use this data source to access the connection status information about an existing Private Endpoint Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -54,6 +56,7 @@ public final class PrivatelinkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEndpointConnectionResult> getEndpointConnection(GetEndpointConnectionArgs args) {
@@ -63,6 +66,8 @@ public final class PrivatelinkFunctions {
      * Use this data source to access the connection status information about an existing Private Endpoint Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -93,6 +98,7 @@ public final class PrivatelinkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEndpointConnectionResult> getEndpointConnectionPlain(GetEndpointConnectionPlainArgs args) {
@@ -102,6 +108,8 @@ public final class PrivatelinkFunctions {
      * Use this data source to access the connection status information about an existing Private Endpoint Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class PrivatelinkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEndpointConnectionResult> getEndpointConnection(GetEndpointConnectionArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class PrivatelinkFunctions {
      * Use this data source to access the connection status information about an existing Private Endpoint Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -171,6 +182,7 @@ public final class PrivatelinkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEndpointConnectionResult> getEndpointConnectionPlain(GetEndpointConnectionPlainArgs args, InvokeOptions options) {
@@ -180,6 +192,8 @@ public final class PrivatelinkFunctions {
      * Use this data source to access information about an existing Private Link Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -210,6 +224,7 @@ public final class PrivatelinkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -219,6 +234,8 @@ public final class PrivatelinkFunctions {
      * Use this data source to access information about an existing Private Link Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -249,6 +266,7 @@ public final class PrivatelinkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -258,6 +276,8 @@ public final class PrivatelinkFunctions {
      * Use this data source to access information about an existing Private Link Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -288,6 +308,7 @@ public final class PrivatelinkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -297,6 +318,8 @@ public final class PrivatelinkFunctions {
      * Use this data source to access information about an existing Private Link Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -327,6 +350,7 @@ public final class PrivatelinkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
@@ -336,6 +360,8 @@ public final class PrivatelinkFunctions {
      * Use this data source to access endpoint connection information about an existing Private Link Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -366,6 +392,7 @@ public final class PrivatelinkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceEndpointConnectionsResult> getServiceEndpointConnections(GetServiceEndpointConnectionsArgs args) {
@@ -375,6 +402,8 @@ public final class PrivatelinkFunctions {
      * Use this data source to access endpoint connection information about an existing Private Link Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -405,6 +434,7 @@ public final class PrivatelinkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceEndpointConnectionsResult> getServiceEndpointConnectionsPlain(GetServiceEndpointConnectionsPlainArgs args) {
@@ -414,6 +444,8 @@ public final class PrivatelinkFunctions {
      * Use this data source to access endpoint connection information about an existing Private Link Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -444,6 +476,7 @@ public final class PrivatelinkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceEndpointConnectionsResult> getServiceEndpointConnections(GetServiceEndpointConnectionsArgs args, InvokeOptions options) {
@@ -453,6 +486,8 @@ public final class PrivatelinkFunctions {
      * Use this data source to access endpoint connection information about an existing Private Link Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -483,6 +518,7 @@ public final class PrivatelinkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceEndpointConnectionsResult> getServiceEndpointConnectionsPlain(GetServiceEndpointConnectionsPlainArgs args, InvokeOptions options) {

@@ -15,6 +15,7 @@ import (
 //
 // ## Virtual Hub Connection Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupVirtualHubConnection(ctx *pulumi.Context, args *LookupVirtualHubConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualHubConnectionResult

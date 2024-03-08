@@ -14,6 +14,7 @@ import (
 
 // Manages an Azure Container Registry token. Tokens are a preview feature only available in Premium SKU Container registries.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,6 +79,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

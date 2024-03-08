@@ -230,6 +230,7 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
         """
         Manages a Healthcare Med Tech Service Fhir Destination.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -308,6 +309,7 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -335,6 +337,7 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
         """
         Manages a Healthcare Med Tech Service Fhir Destination.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -413,6 +416,7 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

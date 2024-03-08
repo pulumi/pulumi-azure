@@ -458,6 +458,7 @@ class CassandraDatacenter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -497,6 +498,7 @@ class CassandraDatacenter(pulumi.CustomResource):
             sku_name="Standard_DS14_v2",
             availability_zones_enabled=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -536,6 +538,7 @@ class CassandraDatacenter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -575,6 +578,7 @@ class CassandraDatacenter(pulumi.CustomResource):
             sku_name="Standard_DS14_v2",
             availability_zones_enabled=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

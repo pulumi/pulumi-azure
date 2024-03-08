@@ -18,6 +18,8 @@ public final class StackFunctions {
      * Use this data source to access information about an existing Azure Stack HCI Cluster instance.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -50,6 +52,7 @@ public final class StackFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHciClusterResult> getHciCluster(GetHciClusterArgs args) {
@@ -59,6 +62,8 @@ public final class StackFunctions {
      * Use this data source to access information about an existing Azure Stack HCI Cluster instance.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -91,6 +96,7 @@ public final class StackFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHciClusterResult> getHciClusterPlain(GetHciClusterPlainArgs args) {
@@ -100,6 +106,8 @@ public final class StackFunctions {
      * Use this data source to access information about an existing Azure Stack HCI Cluster instance.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class StackFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHciClusterResult> getHciCluster(GetHciClusterArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class StackFunctions {
      * Use this data source to access information about an existing Azure Stack HCI Cluster instance.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -173,6 +184,7 @@ public final class StackFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHciClusterResult> getHciClusterPlain(GetHciClusterPlainArgs args, InvokeOptions options) {

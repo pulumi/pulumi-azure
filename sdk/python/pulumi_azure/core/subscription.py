@@ -264,8 +264,10 @@ class Subscription(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+
         ### Creating A New Alias And Subscription For An Enrollment Account
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -276,8 +278,11 @@ class Subscription(pulumi.CustomResource):
             subscription_name="My Example EA Subscription",
             billing_scope_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Creating A New Alias And Subscription For A Microsoft Customer Account
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -289,8 +294,11 @@ class Subscription(pulumi.CustomResource):
             subscription_name="My Example MCA Subscription",
             billing_scope_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Creating A New Alias And Subscription For A Microsoft Partner Account
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -301,8 +309,11 @@ class Subscription(pulumi.CustomResource):
             subscription_name="My Example MPA Subscription",
             billing_scope_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Adding An Alias To An Existing Subscription
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -312,6 +323,7 @@ class Subscription(pulumi.CustomResource):
             subscription_name="My Example Subscription",
             subscription_id="12345678-12234-5678-9012-123456789012")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -321,7 +333,7 @@ class Subscription(pulumi.CustomResource):
         $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
         ```
 
-         In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
+        In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -344,8 +356,10 @@ class Subscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
         ### Creating A New Alias And Subscription For An Enrollment Account
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -356,8 +370,11 @@ class Subscription(pulumi.CustomResource):
             subscription_name="My Example EA Subscription",
             billing_scope_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Creating A New Alias And Subscription For A Microsoft Customer Account
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -369,8 +386,11 @@ class Subscription(pulumi.CustomResource):
             subscription_name="My Example MCA Subscription",
             billing_scope_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Creating A New Alias And Subscription For A Microsoft Partner Account
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -381,8 +401,11 @@ class Subscription(pulumi.CustomResource):
             subscription_name="My Example MPA Subscription",
             billing_scope_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Adding An Alias To An Existing Subscription
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -392,6 +415,7 @@ class Subscription(pulumi.CustomResource):
             subscription_name="My Example Subscription",
             subscription_id="12345678-12234-5678-9012-123456789012")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -401,7 +425,7 @@ class Subscription(pulumi.CustomResource):
         $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
         ```
 
-         In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
+        In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
 
         :param str resource_name: The name of the resource.
         :param SubscriptionArgs args: The arguments to use to populate this resource's properties.

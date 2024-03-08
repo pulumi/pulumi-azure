@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTriggerSchedule(args: GetTriggerScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerScheduleResult> {
 
@@ -101,6 +103,7 @@ export interface GetTriggerScheduleResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -111,6 +114,7 @@ export interface GetTriggerScheduleResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTriggerScheduleOutput(args: GetTriggerScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerScheduleResult> {
     return pulumi.output(args).apply((a: any) => getTriggerSchedule(a, opts))

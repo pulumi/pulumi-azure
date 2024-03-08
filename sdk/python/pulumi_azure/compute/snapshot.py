@@ -433,6 +433,7 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -454,6 +455,7 @@ class Snapshot(pulumi.CustomResource):
             create_option="Copy",
             source_uri=example_managed_disk.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -492,6 +494,7 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -513,6 +516,7 @@ class Snapshot(pulumi.CustomResource):
             create_option="Copy",
             source_uri=example_managed_disk.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

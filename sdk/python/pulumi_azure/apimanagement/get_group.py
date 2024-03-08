@@ -128,6 +128,7 @@ def get_group(api_management_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -137,6 +138,7 @@ def get_group(api_management_name: Optional[str] = None,
         resource_group_name="search-service")
     pulumi.export("groupType", example.type)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str api_management_name: The Name of the API Management Service in which this Group exists.
@@ -171,6 +173,7 @@ def get_group_output(api_management_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -180,6 +183,7 @@ def get_group_output(api_management_name: Optional[pulumi.Input[str]] = None,
         resource_group_name="search-service")
     pulumi.export("groupType", example.type)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str api_management_name: The Name of the API Management Service in which this Group exists.

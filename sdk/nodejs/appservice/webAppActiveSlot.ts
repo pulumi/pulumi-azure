@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Manages a Web App Active Slot.
  *
  * ## Example Usage
+ *
  * ### Windows Web App
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -39,6 +41,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleWebAppActiveSlot = new azure.appservice.WebAppActiveSlot("example", {slotId: exampleWindowsWebAppSlot.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

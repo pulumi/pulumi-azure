@@ -15,8 +15,10 @@ import (
 // Manages a datadog Monitor.
 //
 // ## Example Usage
+//
 // ### Monitor creation with linking to Datadog organization
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,12 +64,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Role Assignment
 //
 // To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
 //
 // ### Role assignment on the monitor created
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -104,6 +109,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

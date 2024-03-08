@@ -233,6 +233,7 @@ class ManagedCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -286,6 +287,7 @@ class ManagedCertificate(pulumi.CustomResource):
             certificate_id=example_managed_certificate.id,
             ssl_state="SniEnabled")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -313,6 +315,7 @@ class ManagedCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -366,6 +369,7 @@ class ManagedCertificate(pulumi.CustomResource):
             certificate_id=example_managed_certificate.id,
             ssl_state="SniEnabled")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

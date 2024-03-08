@@ -202,6 +202,7 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -219,6 +220,7 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
             workspace_name=example_analytics_workspace.name,
             customer_managed_key_enabled=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -249,6 +251,7 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -266,6 +269,7 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
             workspace_name=example_analytics_workspace.name,
             customer_managed_key_enabled=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

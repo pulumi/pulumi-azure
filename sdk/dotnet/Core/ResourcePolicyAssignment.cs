@@ -14,6 +14,7 @@ namespace Pulumi.Azure.Core
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,6 +58,7 @@ namespace Pulumi.Azure.Core
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -66,7 +68,7 @@ namespace Pulumi.Azure.Core
     /// $ pulumi import azure:core/resourcePolicyAssignment:ResourcePolicyAssignment example "{resource}/providers/Microsoft.Authorization/policyAssignments/assignment1"
     /// ```
     /// 
-    ///  where `{resource}` is a Resource ID in the form `/subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/network1`.
+    /// where `{resource}` is a Resource ID in the form `/subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/network1`.
     /// </summary>
     [AzureResourceType("azure:core/resourcePolicyAssignment:ResourcePolicyAssignment")]
     public partial class ResourcePolicyAssignment : global::Pulumi.CustomResource

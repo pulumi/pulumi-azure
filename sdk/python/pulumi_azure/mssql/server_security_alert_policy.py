@@ -342,6 +342,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -374,6 +375,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
             ],
             retention_days=20)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -410,6 +412,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -442,6 +445,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
             ],
             retention_days=20)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

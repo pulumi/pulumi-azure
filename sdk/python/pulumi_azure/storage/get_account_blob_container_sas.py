@@ -186,6 +186,7 @@ def get_account_blob_container_sas(cache_control: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -224,6 +225,7 @@ def get_account_blob_container_sas(cache_control: Optional[str] = None,
         content_type="application/json")
     pulumi.export("sasUrlQueryString", example.sas)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cache_control: The `Cache-Control` response header that is sent when this SAS token is used.
@@ -295,6 +297,7 @@ def get_account_blob_container_sas_output(cache_control: Optional[pulumi.Input[O
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -333,6 +336,7 @@ def get_account_blob_container_sas_output(cache_control: Optional[pulumi.Input[O
         content_type="application/json")
     pulumi.export("sasUrlQueryString", example.sas)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cache_control: The `Cache-Control` response header that is sent when this SAS token is used.

@@ -30,6 +30,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -60,6 +62,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
@@ -69,6 +72,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -99,6 +104,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -108,6 +114,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -138,6 +146,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
@@ -147,6 +156,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -177,6 +188,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
@@ -186,6 +198,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing Cosmos DB Mongo Database.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -217,6 +231,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMongoDatabaseResult> getMongoDatabase(GetMongoDatabaseArgs args) {
@@ -226,6 +241,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing Cosmos DB Mongo Database.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -257,6 +274,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMongoDatabaseResult> getMongoDatabasePlain(GetMongoDatabasePlainArgs args) {
@@ -266,6 +284,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing Cosmos DB Mongo Database.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -297,6 +317,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMongoDatabaseResult> getMongoDatabase(GetMongoDatabaseArgs args, InvokeOptions options) {
@@ -306,6 +327,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing Cosmos DB Mongo Database.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -337,6 +360,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMongoDatabaseResult> getMongoDatabasePlain(GetMongoDatabasePlainArgs args, InvokeOptions options) {
@@ -346,6 +370,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about Cosmos DB Restorable Database Accounts.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -376,6 +402,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRestorableDatabaseAccountsResult> getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs args) {
@@ -385,6 +412,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about Cosmos DB Restorable Database Accounts.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -415,6 +444,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRestorableDatabaseAccountsResult> getRestorableDatabaseAccountsPlain(GetRestorableDatabaseAccountsPlainArgs args) {
@@ -424,6 +454,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about Cosmos DB Restorable Database Accounts.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -454,6 +486,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRestorableDatabaseAccountsResult> getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs args, InvokeOptions options) {
@@ -463,6 +496,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about Cosmos DB Restorable Database Accounts.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -493,6 +528,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRestorableDatabaseAccountsResult> getRestorableDatabaseAccountsPlain(GetRestorableDatabaseAccountsPlainArgs args, InvokeOptions options) {
@@ -502,6 +538,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing CosmosDB SQL Database.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -532,6 +570,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSqlDatabaseResult> getSqlDatabase(GetSqlDatabaseArgs args) {
@@ -541,6 +580,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing CosmosDB SQL Database.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -571,6 +612,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSqlDatabaseResult> getSqlDatabasePlain(GetSqlDatabasePlainArgs args) {
@@ -580,6 +622,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing CosmosDB SQL Database.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -610,6 +654,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSqlDatabaseResult> getSqlDatabase(GetSqlDatabaseArgs args, InvokeOptions options) {
@@ -619,6 +664,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing CosmosDB SQL Database.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -649,6 +696,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSqlDatabaseResult> getSqlDatabasePlain(GetSqlDatabasePlainArgs args, InvokeOptions options) {
@@ -658,6 +706,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing Cosmos DB SQL Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -688,6 +738,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSqlRoleDefinitionResult> getSqlRoleDefinition(GetSqlRoleDefinitionArgs args) {
@@ -697,6 +748,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing Cosmos DB SQL Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -727,6 +780,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSqlRoleDefinitionResult> getSqlRoleDefinitionPlain(GetSqlRoleDefinitionPlainArgs args) {
@@ -736,6 +790,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing Cosmos DB SQL Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -766,6 +822,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSqlRoleDefinitionResult> getSqlRoleDefinition(GetSqlRoleDefinitionArgs args, InvokeOptions options) {
@@ -775,6 +832,8 @@ public final class CosmosdbFunctions {
      * Use this data source to access information about an existing Cosmos DB SQL Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -805,6 +864,7 @@ public final class CosmosdbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSqlRoleDefinitionResult> getSqlRoleDefinitionPlain(GetSqlRoleDefinitionPlainArgs args, InvokeOptions options) {

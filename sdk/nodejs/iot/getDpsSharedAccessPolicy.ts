@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     iothubDpsName: exampleAzurermIothubDps.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDpsSharedAccessPolicy(args: GetDpsSharedAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsSharedAccessPolicyResult> {
 
@@ -81,6 +83,7 @@ export interface GetDpsSharedAccessPolicyResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -91,6 +94,7 @@ export interface GetDpsSharedAccessPolicyResult {
  *     iothubDpsName: exampleAzurermIothubDps.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDpsSharedAccessPolicyOutput(args: GetDpsSharedAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsSharedAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDpsSharedAccessPolicy(a, opts))

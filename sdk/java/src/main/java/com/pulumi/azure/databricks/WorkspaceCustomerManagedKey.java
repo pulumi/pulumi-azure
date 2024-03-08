@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * !&gt;**IMPORTANT:** This resource has been deprecated and will be removed from the 4.0 Azure provider. Please use the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource instead.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -132,6 +134,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Example HCL Configurations
  * 
  * * Databricks Workspace with Root Databricks File System Customer Managed Keys

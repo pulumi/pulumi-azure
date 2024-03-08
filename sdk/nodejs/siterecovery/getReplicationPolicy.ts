@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "tfex-resource_group",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReplicationPolicy(args: GetReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationPolicyResult> {
 
@@ -73,6 +75,7 @@ export interface GetReplicationPolicyResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -83,6 +86,7 @@ export interface GetReplicationPolicyResult {
  *     resourceGroupName: "tfex-resource_group",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReplicationPolicyOutput(args: GetReplicationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationPolicyResult> {
     return pulumi.output(args).apply((a: any) => getReplicationPolicy(a, opts))

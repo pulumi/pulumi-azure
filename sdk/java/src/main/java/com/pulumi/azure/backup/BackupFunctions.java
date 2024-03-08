@@ -21,6 +21,8 @@ public final class BackupFunctions {
      * Use this data source to access information about an existing File Share Backup Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -51,6 +53,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyFileshareResult> getPolicyFileshare(GetPolicyFileshareArgs args) {
@@ -60,6 +63,8 @@ public final class BackupFunctions {
      * Use this data source to access information about an existing File Share Backup Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -90,6 +95,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyFileshareResult> getPolicyFilesharePlain(GetPolicyFilesharePlainArgs args) {
@@ -99,6 +105,8 @@ public final class BackupFunctions {
      * Use this data source to access information about an existing File Share Backup Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +137,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyFileshareResult> getPolicyFileshare(GetPolicyFileshareArgs args, InvokeOptions options) {
@@ -138,6 +147,8 @@ public final class BackupFunctions {
      * Use this data source to access information about an existing File Share Backup Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -168,6 +179,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyFileshareResult> getPolicyFilesharePlain(GetPolicyFilesharePlainArgs args, InvokeOptions options) {
@@ -177,6 +189,8 @@ public final class BackupFunctions {
      * Use this data source to access information about an existing VM Backup Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -207,6 +221,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyVMResult> getPolicyVM(GetPolicyVMArgs args) {
@@ -216,6 +231,8 @@ public final class BackupFunctions {
      * Use this data source to access information about an existing VM Backup Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -246,6 +263,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyVMResult> getPolicyVMPlain(GetPolicyVMPlainArgs args) {
@@ -255,6 +273,8 @@ public final class BackupFunctions {
      * Use this data source to access information about an existing VM Backup Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -285,6 +305,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyVMResult> getPolicyVM(GetPolicyVMArgs args, InvokeOptions options) {
@@ -294,6 +315,8 @@ public final class BackupFunctions {
      * Use this data source to access information about an existing VM Backup Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -324,6 +347,7 @@ public final class BackupFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyVMResult> getPolicyVMPlain(GetPolicyVMPlainArgs args, InvokeOptions options) {

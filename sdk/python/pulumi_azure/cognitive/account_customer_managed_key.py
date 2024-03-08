@@ -137,6 +137,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -247,6 +248,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             key_vault_key_id=example_key.id,
             identity_client_id=example_user_assigned_identity.client_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -275,6 +277,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -385,6 +388,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             key_vault_key_id=example_key.id,
             identity_client_id=example_user_assigned_identity.client_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

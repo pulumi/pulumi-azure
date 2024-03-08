@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "existing-resources",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFrontdoorEndpoint(args: GetFrontdoorEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorEndpointResult> {
 
@@ -77,6 +79,7 @@ export interface GetFrontdoorEndpointResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -87,6 +90,7 @@ export interface GetFrontdoorEndpointResult {
  *     resourceGroupName: "existing-resources",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFrontdoorEndpointOutput(args: GetFrontdoorEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorEndpointResult> {
     return pulumi.output(args).apply((a: any) => getFrontdoorEndpoint(a, opts))

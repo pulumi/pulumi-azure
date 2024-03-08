@@ -134,6 +134,7 @@ def get_budget_resource_group(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -142,6 +143,7 @@ def get_budget_resource_group(name: Optional[str] = None,
         resource_group_id=example_azurerm_resource_group["id"])
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Consumption Budget.
@@ -173,6 +175,7 @@ def get_budget_resource_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -181,6 +184,7 @@ def get_budget_resource_group_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_id=example_azurerm_resource_group["id"])
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Consumption Budget.

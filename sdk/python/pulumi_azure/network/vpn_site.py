@@ -376,6 +376,7 @@ class VpnSite(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -398,6 +399,7 @@ class VpnSite(pulumi.CustomResource):
                 ip_address="10.0.0.1",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -433,6 +435,7 @@ class VpnSite(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -455,6 +458,7 @@ class VpnSite(pulumi.CustomResource):
                 ip_address="10.0.0.1",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

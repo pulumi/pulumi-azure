@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -64,6 +65,8 @@ import * as utilities from "../utilities";
  *     skuName: "GP_Standard_D4s_v3",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## `storageTier` defaults based on `storageMb`
  *
  * | `storageMb` | GiB   | TiB | Default | Supported `storageTier`'s           | Provisioned `IOPS`  |

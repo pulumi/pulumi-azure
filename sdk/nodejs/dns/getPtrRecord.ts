@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -18,6 +19,7 @@ import * as utilities from "../utilities";
  * });
  * export const dnsPtrRecordId = exampleAzurermDnsPtrRecord.id;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPtrRecord(args: GetPtrRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetPtrRecordResult> {
 
@@ -78,6 +80,7 @@ export interface GetPtrRecordResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -89,6 +92,7 @@ export interface GetPtrRecordResult {
  * });
  * export const dnsPtrRecordId = exampleAzurermDnsPtrRecord.id;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPtrRecordOutput(args: GetPtrRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPtrRecordResult> {
     return pulumi.output(args).apply((a: any) => getPtrRecord(a, opts))

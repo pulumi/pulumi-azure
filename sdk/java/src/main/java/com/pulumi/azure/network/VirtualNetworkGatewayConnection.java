@@ -25,10 +25,13 @@ import javax.annotation.Nullable;
  * Manages a connection in an existing Virtual Network Gateway.
  * 
  * ## Example Usage
+ * 
  * ### Site-to-Site connection
  * 
  * The following example shows a connection between an Azure virtual network
  * and an on-premises VPN device and network.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -126,10 +129,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### VNet-to-VNet connection
  * 
  * The following example shows a connection between two Azure virtual network
  * in different locations/regions.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -265,6 +272,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

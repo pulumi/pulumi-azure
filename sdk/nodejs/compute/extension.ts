@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -86,6 +87,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -175,6 +177,10 @@ export class Extension extends pulumi.CustomResource {
      * The type of extension, available types for a publisher can be found using the Azure CLI.
      *
      * > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+     *
+     * ```shell
+     * az vm extension image list --location westus -o table
+     * ```
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -303,6 +309,10 @@ export interface ExtensionState {
      * The type of extension, available types for a publisher can be found using the Azure CLI.
      *
      * > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+     *
+     * ```shell
+     * az vm extension image list --location westus -o table
+     * ```
      */
     type?: pulumi.Input<string>;
     /**
@@ -371,6 +381,10 @@ export interface ExtensionArgs {
      * The type of extension, available types for a publisher can be found using the Azure CLI.
      *
      * > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+     *
+     * ```shell
+     * az vm extension image list --location westus -o table
+     * ```
      */
     type: pulumi.Input<string>;
     /**

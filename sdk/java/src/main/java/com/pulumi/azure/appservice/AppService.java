@@ -36,6 +36,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * This example provisions a Windows App Service.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -99,6 +101,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

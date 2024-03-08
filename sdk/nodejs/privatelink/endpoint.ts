@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -81,9 +82,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Using a Private Link Service Alias with existing resources:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -113,9 +116,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -170,6 +175,8 @@ import * as utilities from "../utilities";
  *     virtualNetworkId: exampleVirtualNetwork.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Example HCL Configurations
  *
  * * How to conneca `Private Endpoint` to a Application Gateway

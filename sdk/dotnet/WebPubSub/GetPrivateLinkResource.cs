@@ -14,10 +14,9 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -48,8 +47,7 @@ namespace Pulumi.Azure.WebPubSub
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPrivateLinkResourceResult> InvokeAsync(GetPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkResourceResult>("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args ?? new GetPrivateLinkResourceArgs(), options.WithDefaults());
@@ -57,10 +55,9 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -91,8 +88,7 @@ namespace Pulumi.Azure.WebPubSub
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPrivateLinkResourceResult> Invoke(GetPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkResourceResult>("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args ?? new GetPrivateLinkResourceInvokeArgs(), options.WithDefaults());

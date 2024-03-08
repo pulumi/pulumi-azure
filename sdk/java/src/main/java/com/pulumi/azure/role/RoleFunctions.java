@@ -18,6 +18,8 @@ public final class RoleFunctions {
      * Use this data source to access information about an existing Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -70,6 +72,7 @@ public final class RoleFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
@@ -83,6 +86,8 @@ public final class RoleFunctions {
      * Use this data source to access information about an existing Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -135,6 +140,7 @@ public final class RoleFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
@@ -148,6 +154,8 @@ public final class RoleFunctions {
      * Use this data source to access information about an existing Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -200,6 +208,7 @@ public final class RoleFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
@@ -213,6 +222,8 @@ public final class RoleFunctions {
      * Use this data source to access information about an existing Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -265,6 +276,7 @@ public final class RoleFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
@@ -278,6 +290,8 @@ public final class RoleFunctions {
      * Use this data source to access information about an existing Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -330,6 +344,7 @@ public final class RoleFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
@@ -343,6 +358,8 @@ public final class RoleFunctions {
      * Use this data source to access information about an existing Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -395,6 +412,7 @@ public final class RoleFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition

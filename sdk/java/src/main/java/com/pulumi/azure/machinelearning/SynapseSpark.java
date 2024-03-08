@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages the linked service to link an Azure Machine learning workspace to an Azure Synapse workspace.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -144,6 +146,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

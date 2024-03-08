@@ -18,6 +18,8 @@ public final class ManagementgroupsFunctions {
      * Use this data source to access information about an existing Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -47,6 +49,7 @@ public final class ManagementgroupsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
@@ -60,6 +63,8 @@ public final class ManagementgroupsFunctions {
      * Use this data source to access information about an existing Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -89,6 +94,7 @@ public final class ManagementgroupsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
@@ -102,6 +108,8 @@ public final class ManagementgroupsFunctions {
      * Use this data source to access information about an existing Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -131,6 +139,7 @@ public final class ManagementgroupsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
@@ -144,6 +153,8 @@ public final class ManagementgroupsFunctions {
      * Use this data source to access information about an existing Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -173,6 +184,7 @@ public final class ManagementgroupsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
@@ -186,6 +198,8 @@ public final class ManagementgroupsFunctions {
      * Use this data source to access information about an existing Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -215,6 +229,7 @@ public final class ManagementgroupsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
@@ -228,6 +243,8 @@ public final class ManagementgroupsFunctions {
      * Use this data source to access information about an existing Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -257,6 +274,7 @@ public final class ManagementgroupsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup

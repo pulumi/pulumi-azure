@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
  *
  * ## Example Usage
+ *
  * ### With Managed Identity & New Cluster
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -68,8 +70,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Access Token & Existing Cluster
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -100,6 +105,7 @@ import * as utilities from "../utilities";
  *     adbDomain: pulumi.interpolate`https://${exampleWorkspace.workspaceUrl}`,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

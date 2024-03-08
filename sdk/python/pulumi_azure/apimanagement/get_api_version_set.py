@@ -137,6 +137,7 @@ def get_api_version_set(api_management_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -146,6 +147,7 @@ def get_api_version_set(api_management_name: Optional[str] = None,
         name="example-api-version-set")
     pulumi.export("apiManagementApiVersionSetId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str api_management_name: The name of the API Management Service where the API Version Set exists.
@@ -181,6 +183,7 @@ def get_api_version_set_output(api_management_name: Optional[pulumi.Input[str]] 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -190,6 +193,7 @@ def get_api_version_set_output(api_management_name: Optional[pulumi.Input[str]] 
         name="example-api-version-set")
     pulumi.export("apiManagementApiVersionSetId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str api_management_name: The name of the API Management Service where the API Version Set exists.

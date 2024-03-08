@@ -302,6 +302,7 @@ def get_cache(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -311,6 +312,7 @@ def get_cache(name: Optional[str] = None,
     pulumi.export("primaryAccessKey", example.primary_access_key)
     pulumi.export("hostname", example.hostname)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Redis cache
@@ -357,6 +359,7 @@ def get_cache_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -366,6 +369,7 @@ def get_cache_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("primaryAccessKey", example.primary_access_key)
     pulumi.export("hostname", example.hostname)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Redis cache

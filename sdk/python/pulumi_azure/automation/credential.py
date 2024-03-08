@@ -232,6 +232,7 @@ class Credential(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -252,6 +253,7 @@ class Credential(pulumi.CustomResource):
             password="example_pwd",
             description="This is an example credential")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -281,6 +283,7 @@ class Credential(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -301,6 +304,7 @@ class Credential(pulumi.CustomResource):
             password="example_pwd",
             description="This is an example credential")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,10 +14,9 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Use this data source to access information about an existing API Management Gateway Host Configuration.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -51,8 +50,7 @@ namespace Pulumi.Azure.ApiManagement
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetGatewayHostNameConfigurationResult> InvokeAsync(GetGatewayHostNameConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayHostNameConfigurationResult>("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", args ?? new GetGatewayHostNameConfigurationArgs(), options.WithDefaults());
@@ -60,10 +58,9 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Use this data source to access information about an existing API Management Gateway Host Configuration.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -97,8 +94,7 @@ namespace Pulumi.Azure.ApiManagement
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetGatewayHostNameConfigurationResult> Invoke(GetGatewayHostNameConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayHostNameConfigurationResult>("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", args ?? new GetGatewayHostNameConfigurationInvokeArgs(), options.WithDefaults());

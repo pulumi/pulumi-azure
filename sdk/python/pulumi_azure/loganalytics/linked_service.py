@@ -192,6 +192,7 @@ class LinkedService(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -218,6 +219,7 @@ class LinkedService(pulumi.CustomResource):
             workspace_id=example_analytics_workspace.id,
             read_access_id=example_account.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -247,6 +249,7 @@ class LinkedService(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -273,6 +276,7 @@ class LinkedService(pulumi.CustomResource):
             workspace_id=example_analytics_workspace.id,
             read_access_id=example_account.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

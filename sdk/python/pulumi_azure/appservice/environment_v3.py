@@ -522,6 +522,7 @@ class EnvironmentV3(pulumi.CustomResource):
 
         This example provisions an App Service Environment V3. Additional examples of how to use the `appservice.EnvironmentV3` resource can be found in the `./examples/app-service-environment-v3` directory within the GitHub Repository.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -577,6 +578,7 @@ class EnvironmentV3(pulumi.CustomResource):
             sku_name="I1v2",
             app_service_environment_id=example_environment_v3.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -616,6 +618,7 @@ class EnvironmentV3(pulumi.CustomResource):
 
         This example provisions an App Service Environment V3. Additional examples of how to use the `appservice.EnvironmentV3` resource can be found in the `./examples/app-service-environment-v3` directory within the GitHub Repository.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -671,6 +674,7 @@ class EnvironmentV3(pulumi.CustomResource):
             sku_name="I1v2",
             app_service_environment_id=example_environment_v3.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

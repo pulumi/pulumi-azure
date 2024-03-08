@@ -155,8 +155,10 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
 
         ## Example Usage
+
         ### With Service Managed Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -201,8 +203,11 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             ))
         example_managed_instance_transparent_data_encryption = azure.mssql.ManagedInstanceTransparentDataEncryption("example", managed_instance_id=example_managed_instance.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Customer Managed Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -294,6 +299,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             managed_instance_id=example_managed_instance.id,
             key_vault_key_id=example_key.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -327,8 +333,10 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
 
         ## Example Usage
+
         ### With Service Managed Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -373,8 +381,11 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             ))
         example_managed_instance_transparent_data_encryption = azure.mssql.ManagedInstanceTransparentDataEncryption("example", managed_instance_id=example_managed_instance.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Customer Managed Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -466,6 +477,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             managed_instance_id=example_managed_instance.id,
             key_vault_key_id=example_key.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -461,6 +461,7 @@ class IotHubDataConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -519,6 +520,7 @@ class IotHubDataConnection(pulumi.CustomResource):
             mapping_rule_name="my-table-mapping",
             data_format="JSON")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -555,6 +557,7 @@ class IotHubDataConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -613,6 +616,7 @@ class IotHubDataConnection(pulumi.CustomResource):
             mapping_rule_name="my-table-mapping",
             data_format="JSON")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

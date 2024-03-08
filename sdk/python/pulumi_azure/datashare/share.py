@@ -236,6 +236,7 @@ class Share(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -265,6 +266,7 @@ class Share(pulumi.CustomResource):
                 start_time="2020-04-17T04:47:52.9614956Z",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -294,6 +296,7 @@ class Share(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -323,6 +326,7 @@ class Share(pulumi.CustomResource):
                 start_time="2020-04-17T04:47:52.9614956Z",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

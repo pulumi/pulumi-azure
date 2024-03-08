@@ -500,6 +500,7 @@ class BastionHost(pulumi.CustomResource):
 
         This example deploys an Azure Bastion Host Instance to a target virtual network.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -533,6 +534,7 @@ class BastionHost(pulumi.CustomResource):
                 public_ip_address_id=example_public_ip.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -582,6 +584,7 @@ class BastionHost(pulumi.CustomResource):
 
         This example deploys an Azure Bastion Host Instance to a target virtual network.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -615,6 +618,7 @@ class BastionHost(pulumi.CustomResource):
                 public_ip_address_id=example_public_ip.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -82,6 +82,7 @@ def get_network_manager_network_group(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -108,6 +109,7 @@ def get_network_manager_network_group(name: Optional[str] = None,
     example = azure.network.get_network_manager_network_group_output(name=example_network_manager_network_group.name,
         network_manager_id=example_network_manager.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Network Manager Network Group.
@@ -135,6 +137,7 @@ def get_network_manager_network_group_output(name: Optional[pulumi.Input[str]] =
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -161,6 +164,7 @@ def get_network_manager_network_group_output(name: Optional[pulumi.Input[str]] =
     example = azure.network.get_network_manager_network_group_output(name=example_network_manager_network_group.name,
         network_manager_id=example_network_manager.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Network Manager Network Group.

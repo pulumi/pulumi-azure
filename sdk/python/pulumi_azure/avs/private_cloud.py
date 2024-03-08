@@ -520,6 +520,7 @@ class PrivateCloud(pulumi.CustomResource):
 
         > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -540,6 +541,7 @@ class PrivateCloud(pulumi.CustomResource):
             nsxt_password="QazWsx13$Edc",
             vcenter_password="WsxEdc23$Rfv")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -577,6 +579,7 @@ class PrivateCloud(pulumi.CustomResource):
 
         > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -597,6 +600,7 @@ class PrivateCloud(pulumi.CustomResource):
             nsxt_password="QazWsx13$Edc",
             vcenter_password="WsxEdc23$Rfv")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

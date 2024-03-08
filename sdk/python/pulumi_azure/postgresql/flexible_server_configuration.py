@@ -145,6 +145,7 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -166,8 +167,11 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
             server_id=example_flexible_server.id,
             value="on")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Azure Extensions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -189,6 +193,7 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
             server_id=example_flexible_server.id,
             value="CUBE,CITEXT,BTREE_GIST")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -219,6 +224,7 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -240,8 +246,11 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
             server_id=example_flexible_server.id,
             value="on")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Azure Extensions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -263,6 +272,7 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
             server_id=example_flexible_server.id,
             value="CUBE,CITEXT,BTREE_GIST")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

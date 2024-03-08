@@ -24,6 +24,8 @@ public final class DatafactoryFunctions {
      * Use this data source to access information about an existing Azure Data Factory (Version 2).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -54,6 +56,7 @@ public final class DatafactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFactoryResult> getFactory(GetFactoryArgs args) {
@@ -63,6 +66,8 @@ public final class DatafactoryFunctions {
      * Use this data source to access information about an existing Azure Data Factory (Version 2).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -93,6 +98,7 @@ public final class DatafactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFactoryResult> getFactoryPlain(GetFactoryPlainArgs args) {
@@ -102,6 +108,8 @@ public final class DatafactoryFunctions {
      * Use this data source to access information about an existing Azure Data Factory (Version 2).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class DatafactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFactoryResult> getFactory(GetFactoryArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class DatafactoryFunctions {
      * Use this data source to access information about an existing Azure Data Factory (Version 2).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -171,6 +182,7 @@ public final class DatafactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFactoryResult> getFactoryPlain(GetFactoryPlainArgs args, InvokeOptions options) {
@@ -180,6 +192,8 @@ public final class DatafactoryFunctions {
      * Use this data source to access information about a trigger schedule in Azure Data Factory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -210,6 +224,7 @@ public final class DatafactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTriggerScheduleResult> getTriggerSchedule(GetTriggerScheduleArgs args) {
@@ -219,6 +234,8 @@ public final class DatafactoryFunctions {
      * Use this data source to access information about a trigger schedule in Azure Data Factory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -249,6 +266,7 @@ public final class DatafactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTriggerScheduleResult> getTriggerSchedulePlain(GetTriggerSchedulePlainArgs args) {
@@ -258,6 +276,8 @@ public final class DatafactoryFunctions {
      * Use this data source to access information about a trigger schedule in Azure Data Factory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -288,6 +308,7 @@ public final class DatafactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTriggerScheduleResult> getTriggerSchedule(GetTriggerScheduleArgs args, InvokeOptions options) {
@@ -297,6 +318,8 @@ public final class DatafactoryFunctions {
      * Use this data source to access information about a trigger schedule in Azure Data Factory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -327,6 +350,7 @@ public final class DatafactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTriggerScheduleResult> getTriggerSchedulePlain(GetTriggerSchedulePlainArgs args, InvokeOptions options) {
@@ -336,6 +360,8 @@ public final class DatafactoryFunctions {
      * Use this data source to access information about all existing trigger schedules in Azure Data Factory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -365,6 +391,7 @@ public final class DatafactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTriggerSchedulesResult> getTriggerSchedules(GetTriggerSchedulesArgs args) {
@@ -374,6 +401,8 @@ public final class DatafactoryFunctions {
      * Use this data source to access information about all existing trigger schedules in Azure Data Factory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -403,6 +432,7 @@ public final class DatafactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTriggerSchedulesResult> getTriggerSchedulesPlain(GetTriggerSchedulesPlainArgs args) {
@@ -412,6 +442,8 @@ public final class DatafactoryFunctions {
      * Use this data source to access information about all existing trigger schedules in Azure Data Factory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -441,6 +473,7 @@ public final class DatafactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTriggerSchedulesResult> getTriggerSchedules(GetTriggerSchedulesArgs args, InvokeOptions options) {
@@ -450,6 +483,8 @@ public final class DatafactoryFunctions {
      * Use this data source to access information about all existing trigger schedules in Azure Data Factory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -479,6 +514,7 @@ public final class DatafactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTriggerSchedulesResult> getTriggerSchedulesPlain(GetTriggerSchedulesPlainArgs args, InvokeOptions options) {

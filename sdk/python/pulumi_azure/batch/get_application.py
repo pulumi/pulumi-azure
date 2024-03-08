@@ -119,6 +119,7 @@ def get_application(account_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -128,6 +129,7 @@ def get_application(account_name: Optional[str] = None,
         account_name="testbatchaccount")
     pulumi.export("batchApplicationId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the Batch account.
@@ -161,6 +163,7 @@ def get_application_output(account_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -170,6 +173,7 @@ def get_application_output(account_name: Optional[pulumi.Input[str]] = None,
         account_name="testbatchaccount")
     pulumi.export("batchApplicationId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the Batch account.

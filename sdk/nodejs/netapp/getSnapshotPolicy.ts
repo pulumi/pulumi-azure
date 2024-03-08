@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## NetApp Snapshot Policy Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -28,6 +29,7 @@ import * as utilities from "../utilities";
  * export const weeklySchedule = example.then(example => example.weeklySchedules);
  * export const monthlySchedule = example.then(example => example.monthlySchedules);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSnapshotPolicy(args: GetSnapshotPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotPolicyResult> {
 
@@ -108,6 +110,7 @@ export interface GetSnapshotPolicyResult {
  *
  * ## NetApp Snapshot Policy Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -125,6 +128,7 @@ export interface GetSnapshotPolicyResult {
  * export const weeklySchedule = example.then(example => example.weeklySchedules);
  * export const monthlySchedule = example.then(example => example.monthlySchedules);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSnapshotPolicyOutput(args: GetSnapshotPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotPolicyResult> {
     return pulumi.output(args).apply((a: any) => getSnapshotPolicy(a, opts))

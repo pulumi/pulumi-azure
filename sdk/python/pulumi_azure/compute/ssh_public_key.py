@@ -201,6 +201,7 @@ class SshPublicKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -212,6 +213,7 @@ class SshPublicKey(pulumi.CustomResource):
             location="West Europe",
             public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -240,6 +242,7 @@ class SshPublicKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -251,6 +254,7 @@ class SshPublicKey(pulumi.CustomResource):
             location="West Europe",
             public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

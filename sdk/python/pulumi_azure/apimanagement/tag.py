@@ -136,6 +136,7 @@ class Tag(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -154,6 +155,7 @@ class Tag(pulumi.CustomResource):
             api_management_id=example_service.id,
             name="example-Tag")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -180,6 +182,7 @@ class Tag(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -198,6 +201,7 @@ class Tag(pulumi.CustomResource):
             api_management_id=example_service.id,
             name="example-Tag")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

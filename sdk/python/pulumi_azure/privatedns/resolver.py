@@ -201,6 +201,7 @@ class Resolver(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -219,6 +220,7 @@ class Resolver(pulumi.CustomResource):
             location=example.location,
             virtual_network_id=example_virtual_network.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -247,6 +249,7 @@ class Resolver(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -265,6 +268,7 @@ class Resolver(pulumi.CustomResource):
             location=example.location,
             virtual_network_id=example_virtual_network.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

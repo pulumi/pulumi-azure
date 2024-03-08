@@ -267,6 +267,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -280,6 +281,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
             location=example.location,
             platform_fault_domain_count=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -310,6 +312,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -323,6 +326,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
             location=example.location,
             platform_fault_domain_count=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

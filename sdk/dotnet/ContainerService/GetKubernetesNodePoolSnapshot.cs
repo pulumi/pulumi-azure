@@ -14,10 +14,9 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetKubernetesNodePoolSnapshotResult> InvokeAsync(GetKubernetesNodePoolSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesNodePoolSnapshotResult>("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args ?? new GetKubernetesNodePoolSnapshotArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetKubernetesNodePoolSnapshotResult> Invoke(GetKubernetesNodePoolSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesNodePoolSnapshotResult>("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args ?? new GetKubernetesNodePoolSnapshotInvokeArgs(), options.WithDefaults());

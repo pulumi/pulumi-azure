@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     recoveryFabricName: "primary-fabric",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
 
@@ -72,6 +74,7 @@ export interface GetProtectionContainerResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -83,6 +86,7 @@ export interface GetProtectionContainerResult {
  *     recoveryFabricName: "primary-fabric",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getProtectionContainerOutput(args: GetProtectionContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionContainerResult> {
     return pulumi.output(args).apply((a: any) => getProtectionContainer(a, opts))

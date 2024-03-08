@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -24,6 +25,7 @@ import * as utilities from "../utilities";
  *     mobileNetworkId: example.id,
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworkSimPolicy(args: GetNetworkSimPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSimPolicyResult> {
 
@@ -92,6 +94,7 @@ export interface GetNetworkSimPolicyResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -105,6 +108,7 @@ export interface GetNetworkSimPolicyResult {
  *     mobileNetworkId: example.id,
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworkSimPolicyOutput(args: GetNetworkSimPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSimPolicyResult> {
     return pulumi.output(args).apply((a: any) => getNetworkSimPolicy(a, opts))

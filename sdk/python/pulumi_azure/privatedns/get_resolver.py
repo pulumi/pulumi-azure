@@ -106,6 +106,7 @@ def get_resolver(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -113,6 +114,7 @@ def get_resolver(name: Optional[str] = None,
     test = azure.privatedns.get_resolver(name="example",
         resource_group_name="example-resourcegroup-name")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the Private DNS Resolver.
@@ -142,6 +144,7 @@ def get_resolver_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -149,6 +152,7 @@ def get_resolver_output(name: Optional[pulumi.Input[str]] = None,
     test = azure.privatedns.get_resolver(name="example",
         resource_group_name="example-resourcegroup-name")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the Private DNS Resolver.

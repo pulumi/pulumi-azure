@@ -376,6 +376,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -400,6 +401,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
             linked_service_name=example_linked_service_cosmos_db.name,
             collection_name="bar")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -435,6 +437,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -459,6 +462,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
             linked_service_name=example_linked_service_cosmos_db.name,
             collection_name="bar")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -676,6 +676,7 @@ class Queue(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -696,6 +697,7 @@ class Queue(pulumi.CustomResource):
             namespace_id=example_namespace.id,
             enable_partitioning=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -741,6 +743,7 @@ class Queue(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -761,6 +764,7 @@ class Queue(pulumi.CustomResource):
             namespace_id=example_namespace.id,
             enable_partitioning=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

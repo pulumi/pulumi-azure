@@ -27,6 +27,8 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer&#39;s Backend Address Pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -64,6 +66,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBackendAddressPoolResult> getBackendAddressPool(GetBackendAddressPoolArgs args) {
@@ -73,6 +76,8 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer&#39;s Backend Address Pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -110,6 +115,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBackendAddressPoolResult> getBackendAddressPoolPlain(GetBackendAddressPoolPlainArgs args) {
@@ -119,6 +125,8 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer&#39;s Backend Address Pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -156,6 +164,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBackendAddressPoolResult> getBackendAddressPool(GetBackendAddressPoolArgs args, InvokeOptions options) {
@@ -165,6 +174,8 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer&#39;s Backend Address Pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -202,6 +213,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBackendAddressPoolResult> getBackendAddressPoolPlain(GetBackendAddressPoolPlainArgs args, InvokeOptions options) {
@@ -211,6 +223,8 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -241,6 +255,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLBResult> getLB(GetLBArgs args) {
@@ -250,6 +265,8 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -280,6 +297,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLBResult> getLBPlain(GetLBPlainArgs args) {
@@ -289,6 +307,8 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -319,6 +339,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLBResult> getLB(GetLBArgs args, InvokeOptions options) {
@@ -328,6 +349,8 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -358,6 +381,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLBResult> getLBPlain(GetLBPlainArgs args, InvokeOptions options) {
@@ -367,6 +391,8 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer Outbound Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -397,6 +423,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLBOutboundRuleResult> getLBOutboundRule(GetLBOutboundRuleArgs args) {
@@ -406,6 +433,8 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer Outbound Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -436,6 +465,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLBOutboundRuleResult> getLBOutboundRulePlain(GetLBOutboundRulePlainArgs args) {
@@ -445,6 +475,8 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer Outbound Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -475,6 +507,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLBOutboundRuleResult> getLBOutboundRule(GetLBOutboundRuleArgs args, InvokeOptions options) {
@@ -484,6 +517,8 @@ public final class LbFunctions {
      * Use this data source to access information about an existing Load Balancer Outbound Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -514,6 +549,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLBOutboundRuleResult> getLBOutboundRulePlain(GetLBOutboundRulePlainArgs args, InvokeOptions options) {
@@ -524,6 +560,7 @@ public final class LbFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -561,6 +598,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLBRuleResult> getLBRule(GetLBRuleArgs args) {
@@ -571,6 +609,7 @@ public final class LbFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -608,6 +647,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLBRuleResult> getLBRulePlain(GetLBRulePlainArgs args) {
@@ -618,6 +658,7 @@ public final class LbFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -655,6 +696,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLBRuleResult> getLBRule(GetLBRuleArgs args, InvokeOptions options) {
@@ -665,6 +707,7 @@ public final class LbFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -702,6 +745,7 @@ public final class LbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLBRuleResult> getLBRulePlain(GetLBRulePlainArgs args, InvokeOptions options) {

@@ -119,6 +119,7 @@ def get_network_slice(mobile_network_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -128,6 +129,7 @@ def get_network_slice(mobile_network_id: Optional[str] = None,
     example_get_network_slice = azure.mobile.get_network_slice(name="example-mns",
         mobile_network_id=test["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str mobile_network_id: The ID of Mobile Network which the Mobile Network Slice belongs to.
@@ -158,6 +160,7 @@ def get_network_slice_output(mobile_network_id: Optional[pulumi.Input[str]] = No
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -167,6 +170,7 @@ def get_network_slice_output(mobile_network_id: Optional[pulumi.Input[str]] = No
     example_get_network_slice = azure.mobile.get_network_slice(name="example-mns",
         mobile_network_id=test["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str mobile_network_id: The ID of Mobile Network which the Mobile Network Slice belongs to.

@@ -23,8 +23,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
  * 
- * ## Example Usage
- * 
  * ## Import
  * 
  * Scheduled Query Rule Alerts can be imported using the `resource id`, e.g.

@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The `azure.datafactory.IntegrationRuntimeManaged` resource has been superseded by the `azure.datafactory.IntegrationRuntimeSsis` resource. We recommend using the `azure.datafactory.IntegrationRuntimeSsis` resource for new deployments.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -70,6 +72,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

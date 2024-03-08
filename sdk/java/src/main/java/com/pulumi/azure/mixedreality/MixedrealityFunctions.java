@@ -18,6 +18,8 @@ public final class MixedrealityFunctions {
      * Get information about an Azure Spatial Anchors Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -48,6 +50,7 @@ public final class MixedrealityFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSpatialAnchorsAccountResult> getSpatialAnchorsAccount(GetSpatialAnchorsAccountArgs args) {
@@ -57,6 +60,8 @@ public final class MixedrealityFunctions {
      * Get information about an Azure Spatial Anchors Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -87,6 +92,7 @@ public final class MixedrealityFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSpatialAnchorsAccountResult> getSpatialAnchorsAccountPlain(GetSpatialAnchorsAccountPlainArgs args) {
@@ -96,6 +102,8 @@ public final class MixedrealityFunctions {
      * Get information about an Azure Spatial Anchors Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +134,7 @@ public final class MixedrealityFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSpatialAnchorsAccountResult> getSpatialAnchorsAccount(GetSpatialAnchorsAccountArgs args, InvokeOptions options) {
@@ -135,6 +144,8 @@ public final class MixedrealityFunctions {
      * Get information about an Azure Spatial Anchors Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -165,6 +176,7 @@ public final class MixedrealityFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSpatialAnchorsAccountResult> getSpatialAnchorsAccountPlain(GetSpatialAnchorsAccountPlainArgs args, InvokeOptions options) {

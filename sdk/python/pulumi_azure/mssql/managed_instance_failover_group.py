@@ -269,6 +269,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
 
         > **Note:** For a more complete example, see the `./examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -338,6 +339,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                 grace_minutes=60,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -369,6 +371,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
 
         > **Note:** For a more complete example, see the `./examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -438,6 +441,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                 grace_minutes=60,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

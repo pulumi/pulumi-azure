@@ -18,6 +18,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,6 +61,7 @@ namespace Pulumi.Azure.Compute.Inputs
         ///     };
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public InputList<string> IdentityIds
         {
