@@ -119,7 +119,7 @@ import (
 //				LogProgress:           pulumi.Bool(true),
 //				Description:           pulumi.String("This is an example runbook"),
 //				RunbookType:           pulumi.String("PowerShell"),
-//				Content:               *pulumi.String(example.Content),
+//				Content:               pulumi.String(example.Content),
 //			})
 //			if err != nil {
 //				return err

@@ -45,7 +45,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("standard"),
-//				TenantId:          *pulumi.String(current.TenantId),
+//				TenantId:          pulumi.String(current.TenantId),
 //			})
 //			if err != nil {
 //				return err

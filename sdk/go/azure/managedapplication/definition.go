@@ -50,7 +50,7 @@ import (
 //				Description:       pulumi.String("Test Managed Application Definition"),
 //				Authorizations: managedapplication.DefinitionAuthorizationArray{
 //					&managedapplication.DefinitionAuthorizationArgs{
-//						ServicePrincipalId: *pulumi.String(current.ObjectId),
+//						ServicePrincipalId: pulumi.String(current.ObjectId),
 //						RoleDefinitionId:   pulumi.String("a094b430-dad3-424d-ae58-13f72fd72591"),
 //					},
 //				},

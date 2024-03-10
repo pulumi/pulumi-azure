@@ -37,7 +37,7 @@ import (
 //			}
 //			_, err = core.NewSubscription(ctx, "example", &core.SubscriptionArgs{
 //				SubscriptionName: pulumi.String("My Example EA Subscription"),
-//				BillingScopeId:   *pulumi.String(example.Id),
+//				BillingScopeId:   pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -72,7 +72,7 @@ import (
 //			}
 //			_, err = core.NewSubscription(ctx, "example", &core.SubscriptionArgs{
 //				SubscriptionName: pulumi.String("My Example MCA Subscription"),
-//				BillingScopeId:   *pulumi.String(example.Id),
+//				BillingScopeId:   pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -106,7 +106,7 @@ import (
 //			}
 //			_, err = core.NewSubscription(ctx, "example", &core.SubscriptionArgs{
 //				SubscriptionName: pulumi.String("My Example MPA Subscription"),
-//				BillingScopeId:   *pulumi.String(example.Id),
+//				BillingScopeId:   pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err

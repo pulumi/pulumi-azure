@@ -84,12 +84,12 @@ import (
 //				Name:              pulumi.String("example-keyvault"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				TenantId:          *pulumi.String(example.TenantId),
+//				TenantId:          pulumi.String(example.TenantId),
 //				SkuName:           pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: *pulumi.String(example.TenantId),
-//						ObjectId: *pulumi.String(example.ObjectId),
+//						TenantId: pulumi.String(example.TenantId),
+//						ObjectId: pulumi.String(example.ObjectId),
 //						SecretPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //							pulumi.String("Delete"),

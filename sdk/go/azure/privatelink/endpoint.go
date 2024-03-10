@@ -180,9 +180,9 @@ import (
 //			}
 //			_, err = privatelink.NewEndpoint(ctx, "example", &privatelink.EndpointArgs{
 //				Name:              pulumi.String("example-endpoint"),
-//				Location:          *pulumi.String(example.Location),
-//				ResourceGroupName: *pulumi.String(example.Name),
-//				SubnetId:          *pulumi.String(subnet.Id),
+//				Location:          pulumi.String(example.Location),
+//				ResourceGroupName: pulumi.String(example.Name),
+//				SubnetId:          pulumi.String(subnet.Id),
 //				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
 //					Name:                           pulumi.String("example-privateserviceconnection"),
 //					PrivateConnectionResourceAlias: pulumi.String("example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice"),

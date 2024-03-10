@@ -37,8 +37,8 @@ import (
 //			}
 //			_, err = cosmosdb.NewSqlDatabase(ctx, "example", &cosmosdb.SqlDatabaseArgs{
 //				Name:              pulumi.String("tfex-cosmos-sql-db"),
-//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
-//				AccountName:       *pulumi.String(example.Name),
+//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
+//				AccountName:       pulumi.String(example.Name),
 //				Throughput:        pulumi.Int(400),
 //			})
 //			if err != nil {

@@ -55,12 +55,12 @@ import (
 //				Name:              pulumi.String("keyvaultname"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				TenantId:          *pulumi.String(current.TenantId),
+//				TenantId:          pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: *pulumi.String(current.TenantId),
-//						ObjectId: *pulumi.String(current.ObjectId),
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(current.ObjectId),
 //						SecretPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //							pulumi.String("Delete"),
@@ -146,12 +146,12 @@ import (
 //				Name:              pulumi.String("keyvaultname"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				TenantId:          *pulumi.String(current.TenantId),
+//				TenantId:          pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: *pulumi.String(current.TenantId),
-//						ObjectId: *pulumi.String(current.ObjectId),
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(current.ObjectId),
 //						SecretPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //							pulumi.String("Delete"),
@@ -175,7 +175,7 @@ import (
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Account Key Operator Service Role"),
-//				PrincipalId:        *pulumi.String(test.Id),
+//				PrincipalId:        pulumi.String(test.Id),
 //			})
 //			if err != nil {
 //				return err

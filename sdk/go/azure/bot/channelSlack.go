@@ -47,7 +47,7 @@ import (
 //				Location:          pulumi.String("global"),
 //				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("F0"),
-//				MicrosoftAppId:    *pulumi.String(current.ClientId),
+//				MicrosoftAppId:    pulumi.String(current.ClientId),
 //			})
 //			if err != nil {
 //				return err

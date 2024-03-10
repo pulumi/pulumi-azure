@@ -54,7 +54,7 @@ import (
 //			_, err = authorization.NewAssignment(ctx, "appconf_dataowner", &authorization.AssignmentArgs{
 //				Scope:              appconf.ID(),
 //				RoleDefinitionName: pulumi.String("App Configuration Data Owner"),
-//				PrincipalId:        *pulumi.String(current.ObjectId),
+//				PrincipalId:        pulumi.String(current.ObjectId),
 //			})
 //			if err != nil {
 //				return err

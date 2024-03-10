@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewVirtualMachine(ctx, "example", &mssql.VirtualMachineArgs{
-//				VirtualMachineId:              *pulumi.String(example.Id),
+//				VirtualMachineId:              pulumi.String(example.Id),
 //				SqlLicenseType:                pulumi.String("PAYG"),
 //				RServicesEnabled:              pulumi.Bool(true),
 //				SqlConnectivityPort:           pulumi.Int(1433),

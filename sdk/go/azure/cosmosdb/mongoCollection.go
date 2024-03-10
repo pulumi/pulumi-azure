@@ -37,16 +37,16 @@ import (
 //			}
 //			exampleMongoDatabase, err := cosmosdb.NewMongoDatabase(ctx, "example", &cosmosdb.MongoDatabaseArgs{
 //				Name:              pulumi.String("tfex-cosmos-mongo-db"),
-//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
-//				AccountName:       *pulumi.String(example.Name),
+//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
+//				AccountName:       pulumi.String(example.Name),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cosmosdb.NewMongoCollection(ctx, "example", &cosmosdb.MongoCollectionArgs{
 //				Name:              pulumi.String("tfex-cosmos-mongo-db"),
-//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
-//				AccountName:       *pulumi.String(example.Name),
+//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
+//				AccountName:       pulumi.String(example.Name),
 //				DatabaseName:      exampleMongoDatabase.Name,
 //				DefaultTtlSeconds: pulumi.Int(777),
 //				ShardKey:          pulumi.String("uniqueKey"),
