@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = consumption.NewBudgetSubscription(ctx, "example", &consumption.BudgetSubscriptionArgs{
 //				Name:           pulumi.String("example"),
-//				SubscriptionId: *pulumi.String(current.Id),
+//				SubscriptionId: pulumi.String(current.Id),
 //				Amount:         pulumi.Float64(1000),
 //				TimeGrain:      pulumi.String("Monthly"),
 //				TimePeriod: &consumption.BudgetSubscriptionTimePeriodArgs{

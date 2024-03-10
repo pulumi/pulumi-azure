@@ -43,7 +43,7 @@ import (
 //				Authorizations: lighthouse.DefinitionAuthorizationArray{
 //					&lighthouse.DefinitionAuthorizationArgs{
 //						PrincipalId:          pulumi.String("00000000-0000-0000-0000-000000000000"),
-//						RoleDefinitionId:     *pulumi.String(contributor.RoleDefinitionId),
+//						RoleDefinitionId:     pulumi.String(contributor.RoleDefinitionId),
 //						PrincipalDisplayName: pulumi.String("Tier 1 Support"),
 //					},
 //				},

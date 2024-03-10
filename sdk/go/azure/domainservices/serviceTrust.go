@@ -37,7 +37,7 @@ import (
 //			}
 //			_, err = domainservices.NewServiceTrust(ctx, "example", &domainservices.ServiceTrustArgs{
 //				Name:              pulumi.String("example-trust"),
-//				DomainServiceId:   *pulumi.String(example.Id),
+//				DomainServiceId:   pulumi.String(example.Id),
 //				TrustedDomainFqdn: pulumi.String("example.com"),
 //				TrustedDomainDnsIps: pulumi.StringArray{
 //					pulumi.String("10.1.0.3"),

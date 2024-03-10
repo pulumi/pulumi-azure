@@ -72,7 +72,7 @@ import (
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleVirtualNetwork.ID(),
 //				RoleDefinitionName: pulumi.String("Network Contributor"),
-//				PrincipalId:        *pulumi.String(example.ObjectId),
+//				PrincipalId:        pulumi.String(example.ObjectId),
 //			})
 //			if err != nil {
 //				return err

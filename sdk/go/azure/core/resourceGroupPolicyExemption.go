@@ -47,7 +47,7 @@ import (
 //			exampleResourceGroupPolicyAssignment, err := core.NewResourceGroupPolicyAssignment(ctx, "example", &core.ResourceGroupPolicyAssignmentArgs{
 //				Name:               pulumi.String("exampleAssignment"),
 //				ResourceGroupId:    exampleResourceGroup.ID(),
-//				PolicyDefinitionId: *pulumi.String(example.Id),
+//				PolicyDefinitionId: pulumi.String(example.Id),
 //				Parameters: exampleResourceGroup.Location.ApplyT(func(location string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{

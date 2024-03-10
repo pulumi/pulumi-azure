@@ -37,8 +37,8 @@ import (
 //			}
 //			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "example", &cosmosdb.SqlDatabaseArgs{
 //				Name:              pulumi.String("tfex-cosmos-db"),
-//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
-//				AccountName:       *pulumi.String(example.Name),
+//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
+//				AccountName:       pulumi.String(example.Name),
 //				Throughput:        pulumi.Int(400),
 //			})
 //			if err != nil {
@@ -46,8 +46,8 @@ import (
 //			}
 //			exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
 //				Name:              pulumi.String("example-container"),
-//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
-//				AccountName:       *pulumi.String(example.Name),
+//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
+//				AccountName:       pulumi.String(example.Name),
 //				DatabaseName:      exampleSqlDatabase.Name,
 //				PartitionKeyPath:  pulumi.String("/id"),
 //			})

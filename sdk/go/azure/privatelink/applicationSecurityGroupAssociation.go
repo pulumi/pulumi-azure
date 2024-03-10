@@ -108,10 +108,10 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				AutoApprovalSubscriptionIds: pulumi.StringArray{
-//					*pulumi.String(current.SubscriptionId),
+//					pulumi.String(current.SubscriptionId),
 //				},
 //				VisibilitySubscriptionIds: pulumi.StringArray{
-//					*pulumi.String(current.SubscriptionId),
+//					pulumi.String(current.SubscriptionId),
 //				},
 //				NatIpConfigurations: privatedns.LinkServiceNatIpConfigurationArray{
 //					&privatedns.LinkServiceNatIpConfigurationArgs{

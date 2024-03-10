@@ -36,7 +36,7 @@ import (
 //			_, err = core.NewTenantTemplateDeployment(ctx, "example", &core.TenantTemplateDeploymentArgs{
 //				Name:                  pulumi.String("example"),
 //				Location:              pulumi.String("West Europe"),
-//				TemplateSpecVersionId: *pulumi.String(example.Id),
+//				TemplateSpecVersionId: pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err

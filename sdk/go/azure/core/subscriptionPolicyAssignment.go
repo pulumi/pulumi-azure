@@ -59,7 +59,7 @@ import (
 //			_, err = core.NewSubscriptionPolicyAssignment(ctx, "example", &core.SubscriptionPolicyAssignmentArgs{
 //				Name:               pulumi.String("example"),
 //				PolicyDefinitionId: example.ID(),
-//				SubscriptionId:     *pulumi.String(current.Id),
+//				SubscriptionId:     pulumi.String(current.Id),
 //			})
 //			if err != nil {
 //				return err
