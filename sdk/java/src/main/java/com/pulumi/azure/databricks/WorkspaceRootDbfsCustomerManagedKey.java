@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Manages a Customer Managed Key for the Databricks Workspaces root Databricks File System(DBFS)
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -130,6 +132,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Example HCL Configurations
  * 
  * * Databricks Workspace with Root Databricks File System Customer Managed Keys

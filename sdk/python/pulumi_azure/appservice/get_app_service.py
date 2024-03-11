@@ -289,6 +289,7 @@ def get_app_service(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -297,6 +298,7 @@ def get_app_service(name: Optional[str] = None,
         resource_group_name="search-service")
     pulumi.export("appServiceId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the App Service.
@@ -343,6 +345,7 @@ def get_app_service_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -351,6 +354,7 @@ def get_app_service_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="search-service")
     pulumi.export("appServiceId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the App Service.

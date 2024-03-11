@@ -401,6 +401,7 @@ class DatasetSnowflake(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -423,12 +424,11 @@ class DatasetSnowflake(pulumi.CustomResource):
             schema_name="foo_schema",
             table_name="foo_table")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Data Factory Snowflake Datasets can be imported using the `resource id`,
-
-        e.g.
+        Data Factory Snowflake Datasets can be imported using the `resource id`,  e.g.
 
         ```sh
         $ pulumi import azure:datafactory/datasetSnowflake:DatasetSnowflake example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
@@ -459,6 +459,7 @@ class DatasetSnowflake(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -481,12 +482,11 @@ class DatasetSnowflake(pulumi.CustomResource):
             schema_name="foo_schema",
             table_name="foo_table")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Data Factory Snowflake Datasets can be imported using the `resource id`,
-
-        e.g.
+        Data Factory Snowflake Datasets can be imported using the `resource id`,  e.g.
 
         ```sh
         $ pulumi import azure:datafactory/datasetSnowflake:DatasetSnowflake example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example

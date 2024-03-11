@@ -416,6 +416,7 @@ class Monitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -437,6 +438,7 @@ class Monitor(pulumi.CustomResource):
                 phone_number="+12313803556",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -475,6 +477,7 @@ class Monitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -496,6 +499,7 @@ class Monitor(pulumi.CustomResource):
                 phone_number="+12313803556",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

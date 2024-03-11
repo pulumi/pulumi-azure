@@ -134,6 +134,7 @@ def get_route_table(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -141,6 +142,7 @@ def get_route_table(name: Optional[str] = None,
     example = azure.network.get_route_table(name="myroutetable",
         resource_group_name="some-resource-group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Route Table.
@@ -172,6 +174,7 @@ def get_route_table_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -179,6 +182,7 @@ def get_route_table_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.network.get_route_table(name="myroutetable",
         resource_group_name="some-resource-group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Route Table.

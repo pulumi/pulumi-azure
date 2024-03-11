@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** It&#39;s possible to define Key Vault Certificate Contacts both within the `azure.keyvault.KeyVault` resource via the `contact` block and by using the `azure.keyvault.CertificateContacts` resource. However it&#39;s not possible to use both methods to manage Certificate Contacts within a KeyVault, since there&#39;ll be conflicts.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -92,6 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

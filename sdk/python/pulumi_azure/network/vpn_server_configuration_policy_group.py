@@ -203,6 +203,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -231,6 +232,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
                 value="6ad1bd08",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -259,6 +261,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -287,6 +290,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
                 value="6ad1bd08",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

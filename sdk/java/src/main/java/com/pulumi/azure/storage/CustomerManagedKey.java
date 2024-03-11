@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** It&#39;s possible to define a Customer Managed Key both within the `azure.storage.Account` resource via the `customer_managed_key` block and by using the `azure.storage.CustomerManagedKey` resource. However it&#39;s not possible to use both methods to manage a Customer Managed Key for a Storage Account, since there&#39;ll be conflicts.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -137,6 +139,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

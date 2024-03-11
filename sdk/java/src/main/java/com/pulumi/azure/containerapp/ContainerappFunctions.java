@@ -24,6 +24,8 @@ public final class ContainerappFunctions {
      * Use this data source to access information about an existing Container App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -53,6 +55,7 @@ public final class ContainerappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppResult> getApp(GetAppArgs args) {
@@ -62,6 +65,8 @@ public final class ContainerappFunctions {
      * Use this data source to access information about an existing Container App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -91,6 +96,7 @@ public final class ContainerappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppResult> getAppPlain(GetAppPlainArgs args) {
@@ -100,6 +106,8 @@ public final class ContainerappFunctions {
      * Use this data source to access information about an existing Container App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +137,7 @@ public final class ContainerappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppResult> getApp(GetAppArgs args, InvokeOptions options) {
@@ -138,6 +147,8 @@ public final class ContainerappFunctions {
      * Use this data source to access information about an existing Container App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -167,6 +178,7 @@ public final class ContainerappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppResult> getAppPlain(GetAppPlainArgs args, InvokeOptions options) {
@@ -176,6 +188,8 @@ public final class ContainerappFunctions {
      * Use this data source to access information about an existing Container App Environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -205,6 +219,7 @@ public final class ContainerappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args) {
@@ -214,6 +229,8 @@ public final class ContainerappFunctions {
      * Use this data source to access information about an existing Container App Environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -243,6 +260,7 @@ public final class ContainerappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args) {
@@ -252,6 +270,8 @@ public final class ContainerappFunctions {
      * Use this data source to access information about an existing Container App Environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -281,6 +301,7 @@ public final class ContainerappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args, InvokeOptions options) {
@@ -290,6 +311,8 @@ public final class ContainerappFunctions {
      * Use this data source to access information about an existing Container App Environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -319,6 +342,7 @@ public final class ContainerappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args, InvokeOptions options) {
@@ -328,6 +352,8 @@ public final class ContainerappFunctions {
      * Use this data source to access information about an existing Container App Environment Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -363,6 +389,7 @@ public final class ContainerappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnvironmentCertificateResult> getEnvironmentCertificate(GetEnvironmentCertificateArgs args) {
@@ -372,6 +399,8 @@ public final class ContainerappFunctions {
      * Use this data source to access information about an existing Container App Environment Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -407,6 +436,7 @@ public final class ContainerappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnvironmentCertificateResult> getEnvironmentCertificatePlain(GetEnvironmentCertificatePlainArgs args) {
@@ -416,6 +446,8 @@ public final class ContainerappFunctions {
      * Use this data source to access information about an existing Container App Environment Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -451,6 +483,7 @@ public final class ContainerappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnvironmentCertificateResult> getEnvironmentCertificate(GetEnvironmentCertificateArgs args, InvokeOptions options) {
@@ -460,6 +493,8 @@ public final class ContainerappFunctions {
      * Use this data source to access information about an existing Container App Environment Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -495,6 +530,7 @@ public final class ContainerappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnvironmentCertificateResult> getEnvironmentCertificatePlain(GetEnvironmentCertificatePlainArgs args, InvokeOptions options) {

@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
  * 
  * ## Example Usage
+ * 
  * ### With Managed Identity &amp; New Cluster
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -108,7 +111,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Access Token &amp; Existing Cluster
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -166,6 +173,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,6 +65,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetAlertRuleAnomaly(ctx *pulumi.Context, args *GetAlertRuleAnomalyArgs, opts ...pulumi.InvokeOption) (*GetAlertRuleAnomalyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAlertRuleAnomalyResult

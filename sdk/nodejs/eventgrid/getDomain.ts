@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const eventgridDomainMappingTopic = example.then(example => example.inputMappingFields?.[0]?.topic);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
 
@@ -105,6 +107,7 @@ export interface GetDomainResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -115,6 +118,7 @@ export interface GetDomainResult {
  * });
  * export const eventgridDomainMappingTopic = example.then(example => example.inputMappingFields?.[0]?.topic);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply((a: any) => getDomain(a, opts))

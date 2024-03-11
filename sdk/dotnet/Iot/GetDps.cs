@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// Use this data source to access information about an existing IotHub Device Provisioning Service.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Azure.Iot
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDpsResult> InvokeAsync(GetDpsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDpsResult>("azure:iot/getDps:getDps", args ?? new GetDpsArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// Use this data source to access information about an existing IotHub Device Provisioning Service.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Azure.Iot
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDpsResult> Invoke(GetDpsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDpsResult>("azure:iot/getDps:getDps", args ?? new GetDpsInvokeArgs(), options.WithDefaults());

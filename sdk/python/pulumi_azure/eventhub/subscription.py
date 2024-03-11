@@ -546,6 +546,7 @@ class Subscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -570,6 +571,7 @@ class Subscription(pulumi.CustomResource):
             topic_id=example_topic.id,
             max_delivery_count=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -610,6 +612,7 @@ class Subscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -634,6 +637,7 @@ class Subscription(pulumi.CustomResource):
             topic_id=example_topic.id,
             max_delivery_count=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

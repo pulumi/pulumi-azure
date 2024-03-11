@@ -231,6 +231,7 @@ class SqlStoredProcedure(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -256,6 +257,7 @@ class SqlStoredProcedure(pulumi.CustomResource):
             container_name=example_sql_container.name,
             body="   function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\\n")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -285,6 +287,7 @@ class SqlStoredProcedure(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -310,6 +313,7 @@ class SqlStoredProcedure(pulumi.CustomResource):
             container_name=example_sql_container.name,
             body="   function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\\n")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

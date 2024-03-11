@@ -570,6 +570,7 @@ class NetworkInterface(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -597,6 +598,7 @@ class NetworkInterface(pulumi.CustomResource):
                 private_ip_address_allocation="Dynamic",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -642,6 +644,7 @@ class NetworkInterface(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -669,6 +672,7 @@ class NetworkInterface(pulumi.CustomResource):
                 private_ip_address_allocation="Dynamic",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

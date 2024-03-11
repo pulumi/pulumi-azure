@@ -232,6 +232,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -263,6 +264,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
             app_service_name=example_app_service.name,
             resource_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -295,6 +297,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -326,6 +329,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
             app_service_name=example_app_service.name,
             resource_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

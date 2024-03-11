@@ -149,6 +149,7 @@ class KubernetesClusterArgs:
                
                > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_azure as azure
@@ -175,6 +176,7 @@ class KubernetesClusterArgs:
                    private_cluster_enabled=True,
                    private_dns_zone_id=example_zone.id)
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
                
@@ -866,6 +868,7 @@ class KubernetesClusterArgs:
 
         > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -892,6 +895,7 @@ class KubernetesClusterArgs:
             private_cluster_enabled=True,
             private_dns_zone_id=example_zone.id)
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "private_cluster_public_fqdn_enabled")
 
@@ -1239,6 +1243,7 @@ class _KubernetesClusterState:
                
                > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_azure as azure
@@ -1265,6 +1270,7 @@ class _KubernetesClusterState:
                    private_cluster_enabled=True,
                    private_dns_zone_id=example_zone.id)
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
@@ -2090,6 +2096,7 @@ class _KubernetesClusterState:
 
         > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -2116,6 +2123,7 @@ class _KubernetesClusterState:
             private_cluster_enabled=True,
             private_dns_zone_id=example_zone.id)
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "private_cluster_public_fqdn_enabled")
 
@@ -2401,6 +2409,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
         This example provisions a basic Managed Kubernetes Cluster.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -2427,6 +2436,7 @@ class KubernetesCluster(pulumi.CustomResource):
         pulumi.export("clientCertificate", example_kubernetes_cluster.kube_configs[0].client_certificate)
         pulumi.export("kubeConfig", example_kubernetes_cluster.kube_config_raw)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -2511,6 +2521,7 @@ class KubernetesCluster(pulumi.CustomResource):
                
                > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_azure as azure
@@ -2537,6 +2548,7 @@ class KubernetesCluster(pulumi.CustomResource):
                    private_cluster_enabled=True,
                    private_dns_zone_id=example_zone.id)
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
                
@@ -2578,6 +2590,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
         This example provisions a basic Managed Kubernetes Cluster.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -2604,6 +2617,7 @@ class KubernetesCluster(pulumi.CustomResource):
         pulumi.export("clientCertificate", example_kubernetes_cluster.kube_configs[0].client_certificate)
         pulumi.export("kubeConfig", example_kubernetes_cluster.kube_config_raw)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -2936,6 +2950,7 @@ class KubernetesCluster(pulumi.CustomResource):
                
                > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_azure as azure
@@ -2962,6 +2977,7 @@ class KubernetesCluster(pulumi.CustomResource):
                    private_cluster_enabled=True,
                    private_dns_zone_id=example_zone.id)
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
@@ -3511,6 +3527,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
         > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -3537,6 +3554,7 @@ class KubernetesCluster(pulumi.CustomResource):
             private_cluster_enabled=True,
             private_dns_zone_id=example_zone.id)
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "private_cluster_public_fqdn_enabled")
 

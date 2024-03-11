@@ -295,6 +295,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -320,6 +321,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
             principal_type="App",
             role="AllDatabasesAdmin")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -350,6 +352,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -375,6 +378,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
             principal_type="App",
             role="AllDatabasesAdmin")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

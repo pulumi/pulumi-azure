@@ -26,6 +26,8 @@ public final class SqlFunctions {
      * &gt; **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -57,6 +59,7 @@ public final class SqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args) {
@@ -68,6 +71,8 @@ public final class SqlFunctions {
      * &gt; **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -99,6 +104,7 @@ public final class SqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args) {
@@ -110,6 +116,8 @@ public final class SqlFunctions {
      * &gt; **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -141,6 +149,7 @@ public final class SqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOptions options) {
@@ -152,6 +161,8 @@ public final class SqlFunctions {
      * &gt; **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -183,6 +194,7 @@ public final class SqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args, InvokeOptions options) {
@@ -194,6 +206,8 @@ public final class SqlFunctions {
      * &gt; **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -224,6 +238,7 @@ public final class SqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args) {
@@ -235,6 +250,8 @@ public final class SqlFunctions {
      * &gt; **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -265,6 +282,7 @@ public final class SqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args) {
@@ -276,6 +294,8 @@ public final class SqlFunctions {
      * &gt; **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -306,6 +326,7 @@ public final class SqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOptions options) {
@@ -317,6 +338,8 @@ public final class SqlFunctions {
      * &gt; **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -347,6 +370,7 @@ public final class SqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args, InvokeOptions options) {
@@ -358,6 +382,8 @@ public final class SqlFunctions {
      * &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -388,6 +414,7 @@ public final class SqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSqlManagedInstanceResult> getSqlManagedInstance(GetSqlManagedInstanceArgs args) {
@@ -399,6 +426,8 @@ public final class SqlFunctions {
      * &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -429,6 +458,7 @@ public final class SqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSqlManagedInstanceResult> getSqlManagedInstancePlain(GetSqlManagedInstancePlainArgs args) {
@@ -440,6 +470,8 @@ public final class SqlFunctions {
      * &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -470,6 +502,7 @@ public final class SqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSqlManagedInstanceResult> getSqlManagedInstance(GetSqlManagedInstanceArgs args, InvokeOptions options) {
@@ -481,6 +514,8 @@ public final class SqlFunctions {
      * &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -511,6 +546,7 @@ public final class SqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSqlManagedInstanceResult> getSqlManagedInstancePlain(GetSqlManagedInstancePlainArgs args, InvokeOptions options) {

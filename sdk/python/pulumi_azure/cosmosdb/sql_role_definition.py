@@ -275,6 +275,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -306,6 +307,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
                 data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -338,6 +340,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -369,6 +372,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
                 data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

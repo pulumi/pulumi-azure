@@ -261,6 +261,7 @@ class FrontdoorRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -380,6 +381,8 @@ class FrontdoorRule(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Specifying IP Address Ranges
 
         When specifying IP address ranges in the `socket_address_condition` and the `remote_address_condition` `match_values` use the following format:
@@ -533,6 +536,7 @@ class FrontdoorRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -652,6 +656,8 @@ class FrontdoorRule(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Specifying IP Address Ranges
 
         When specifying IP address ranges in the `socket_address_condition` and the `remote_address_condition` `match_values` use the following format:

@@ -6030,6 +6030,7 @@ class ScaleSetIdentityArgs:
         :param pulumi.Input[str] type: Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_azure as azure
@@ -6055,6 +6056,7 @@ class ScaleSetIdentityArgs:
                    )])
                pulumi.export("principalId", example.identity.principal_id)
                ```
+               <!--End PulumiCodeChooser -->
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -6080,6 +6082,7 @@ class ScaleSetIdentityArgs:
         """
         Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -6105,6 +6108,7 @@ class ScaleSetIdentityArgs:
             )])
         pulumi.export("principalId", example.identity.principal_id)
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "identity_ids")
 
@@ -8310,6 +8314,13 @@ class VirtualMachineOsProfileSecretVaultCertificateArgs:
         """
         :param pulumi.Input[str] certificate_url: The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
                
+               ```json
+               {
+               "data":"<Base64-encoded-certificate>",
+               "dataType":"pfx",
+               "password":"<pfx-file-password>"
+               }
+               ```
                
                > **NOTE:** If your certificate is stored in Azure Key Vault - this can be sourced from the `secret_id` property on the `keyvault.Certificate` resource.
         :param pulumi.Input[str] certificate_store: (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
@@ -8324,6 +8335,13 @@ class VirtualMachineOsProfileSecretVaultCertificateArgs:
         """
         The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
 
+        ```json
+        {
+        "data":"<Base64-encoded-certificate>",
+        "dataType":"pfx",
+        "password":"<pfx-file-password>"
+        }
+        ```
 
         > **NOTE:** If your certificate is stored in Azure Key Vault - this can be sourced from the `secret_id` property on the `keyvault.Certificate` resource.
         """

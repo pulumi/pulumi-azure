@@ -28,6 +28,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** It&#39;s possible to define Custom Domains both within the `azure.apimanagement.Service` resource via the `hostname_configurations` block and by using this resource. However it&#39;s not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -142,6 +144,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

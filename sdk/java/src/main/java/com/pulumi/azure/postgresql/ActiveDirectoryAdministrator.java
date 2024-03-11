@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Allows you to set a user or group as the AD administrator for an PostgreSQL server in Azure
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,6 +74,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

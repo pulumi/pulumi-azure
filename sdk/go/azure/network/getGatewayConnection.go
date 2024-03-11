@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetGatewayConnection(ctx *pulumi.Context, args *GetGatewayConnectionArgs, opts ...pulumi.InvokeOption) (*GetGatewayConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGatewayConnectionResult

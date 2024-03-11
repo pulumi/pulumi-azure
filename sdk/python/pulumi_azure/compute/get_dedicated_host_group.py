@@ -130,6 +130,7 @@ def get_dedicated_host_group(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -138,6 +139,7 @@ def get_dedicated_host_group(name: Optional[str] = None,
         resource_group_name="example-rg")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Dedicated Host Group.
@@ -169,6 +171,7 @@ def get_dedicated_host_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -177,6 +180,7 @@ def get_dedicated_host_group_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="example-rg")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Dedicated Host Group.

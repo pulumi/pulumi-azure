@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayResult> {
 
@@ -189,6 +191,7 @@ export interface GetApplicationGatewayResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -199,6 +202,7 @@ export interface GetApplicationGatewayResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
     return pulumi.output(args).apply((a: any) => getApplicationGateway(a, opts))

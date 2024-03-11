@@ -70,21 +70,6 @@ def get_subscription_template_deployment(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Subscription Template Deployment.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = azure.core.get_subscription_template_deployment(name="existing")
-    pulumi.export("id", example.id)
-    pulumi.export("exampleOutput", not_implemented("jsondecode(data.azurerm_subscription_template_deployment.example.output_content)")["exampleOutput"]["value"])
-    ```
-
 
     :param str name: The name of this Subscription Template Deployment.
     """
@@ -104,21 +89,6 @@ def get_subscription_template_deployment_output(name: Optional[pulumi.Input[str]
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionTemplateDeploymentResult]:
     """
     Use this data source to access information about an existing Subscription Template Deployment.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = azure.core.get_subscription_template_deployment(name="existing")
-    pulumi.export("id", example.id)
-    pulumi.export("exampleOutput", not_implemented("jsondecode(data.azurerm_subscription_template_deployment.example.output_content)")["exampleOutput"]["value"])
-    ```
 
 
     :param str name: The name of this Subscription Template Deployment.

@@ -309,6 +309,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -336,8 +337,11 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             storage_account_access_key_is_secondary=False,
             retention_in_days=6)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Storage Account Behind VNet And Firewall
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -412,6 +416,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             log_monitoring_enabled=False,
             storage_account_subscription_id=primary_azurerm_subscription["subscriptionId"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -445,6 +450,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -472,8 +478,11 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             storage_account_access_key_is_secondary=False,
             retention_in_days=6)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Storage Account Behind VNet And Firewall
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -548,6 +557,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             log_monitoring_enabled=False,
             storage_account_subscription_id=primary_azurerm_subscription["subscriptionId"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

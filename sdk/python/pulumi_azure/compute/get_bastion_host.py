@@ -206,6 +206,7 @@ def get_bastion_host(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -214,6 +215,7 @@ def get_bastion_host(name: Optional[str] = None,
         resource_group_name="existing-resources")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Bastion Host.
@@ -251,6 +253,7 @@ def get_bastion_host_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -259,6 +262,7 @@ def get_bastion_host_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="existing-resources")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Bastion Host.

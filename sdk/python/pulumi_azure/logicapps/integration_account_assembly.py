@@ -299,6 +299,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -319,6 +320,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
             assembly_name="TestAssembly",
             content=std.filebase64(input="testdata/log4net.dll").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -350,6 +352,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -370,6 +373,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
             assembly_name="TestAssembly",
             content=std.filebase64(input="testdata/log4net.dll").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

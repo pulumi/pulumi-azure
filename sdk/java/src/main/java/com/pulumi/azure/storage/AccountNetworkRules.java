@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Deleting this resource updates the storage account back to the default values it had when the storage account was created.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -95,6 +97,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

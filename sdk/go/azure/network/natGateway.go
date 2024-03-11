@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,6 +55,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // For more complete examples, please see the network.NatGatewayPublicIpAssociation and network.NatGatewayPublicIpPrefixAssociation resources.
 //

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetKubernetesServiceVersions(ctx *pulumi.Context, args *GetKubernetesServiceVersionsArgs, opts ...pulumi.InvokeOption) (*GetKubernetesServiceVersionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetKubernetesServiceVersionsResult

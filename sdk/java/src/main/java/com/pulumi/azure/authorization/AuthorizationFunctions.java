@@ -21,6 +21,8 @@ public final class AuthorizationFunctions {
      * Use this data source to access information about an existing Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -73,6 +75,7 @@ public final class AuthorizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRoleDefinitionResult> getRoleDefinition() {
@@ -82,6 +85,8 @@ public final class AuthorizationFunctions {
      * Use this data source to access information about an existing Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -134,6 +139,7 @@ public final class AuthorizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain() {
@@ -143,6 +149,8 @@ public final class AuthorizationFunctions {
      * Use this data source to access information about an existing Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -195,6 +203,7 @@ public final class AuthorizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRoleDefinitionResult> getRoleDefinition(GetRoleDefinitionArgs args) {
@@ -204,6 +213,8 @@ public final class AuthorizationFunctions {
      * Use this data source to access information about an existing Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -256,6 +267,7 @@ public final class AuthorizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain(GetRoleDefinitionPlainArgs args) {
@@ -265,6 +277,8 @@ public final class AuthorizationFunctions {
      * Use this data source to access information about an existing Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -317,6 +331,7 @@ public final class AuthorizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRoleDefinitionResult> getRoleDefinition(GetRoleDefinitionArgs args, InvokeOptions options) {
@@ -326,6 +341,8 @@ public final class AuthorizationFunctions {
      * Use this data source to access information about an existing Role Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -378,6 +395,7 @@ public final class AuthorizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain(GetRoleDefinitionPlainArgs args, InvokeOptions options) {
@@ -387,7 +405,10 @@ public final class AuthorizationFunctions {
      * Use this data source to access information about an existing User Assigned Identity.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -420,6 +441,7 @@ public final class AuthorizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args) {
@@ -429,7 +451,10 @@ public final class AuthorizationFunctions {
      * Use this data source to access information about an existing User Assigned Identity.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -462,6 +487,7 @@ public final class AuthorizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserAssignedIdentityResult> getUserAssignedIdentityPlain(GetUserAssignedIdentityPlainArgs args) {
@@ -471,7 +497,10 @@ public final class AuthorizationFunctions {
      * Use this data source to access information about an existing User Assigned Identity.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -504,6 +533,7 @@ public final class AuthorizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOptions options) {
@@ -513,7 +543,10 @@ public final class AuthorizationFunctions {
      * Use this data source to access information about an existing User Assigned Identity.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -546,6 +579,7 @@ public final class AuthorizationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserAssignedIdentityResult> getUserAssignedIdentityPlain(GetUserAssignedIdentityPlainArgs args, InvokeOptions options) {

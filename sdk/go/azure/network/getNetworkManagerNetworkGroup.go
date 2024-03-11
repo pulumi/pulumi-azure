@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,6 +74,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupNetworkManagerNetworkGroup(ctx *pulumi.Context, args *LookupNetworkManagerNetworkGroupArgs, opts ...pulumi.InvokeOption) (*LookupNetworkManagerNetworkGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkManagerNetworkGroupResult

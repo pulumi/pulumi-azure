@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  * });
  * export const privateDnsMxRecordId = exampleAzurermPrivateDnsMxRecord.id;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getMxRecord(args: GetMxRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetMxRecordResult> {
 
@@ -80,6 +82,7 @@ export interface GetMxRecordResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -91,6 +94,7 @@ export interface GetMxRecordResult {
  * });
  * export const privateDnsMxRecordId = exampleAzurermPrivateDnsMxRecord.id;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getMxRecordOutput(args: GetMxRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMxRecordResult> {
     return pulumi.output(args).apply((a: any) => getMxRecord(a, opts))

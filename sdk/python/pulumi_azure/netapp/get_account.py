@@ -103,6 +103,7 @@ def get_account(identity: Optional[pulumi.InputType['GetAccountIdentityArgs']] =
 
     ## NetApp Account Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -111,6 +112,7 @@ def get_account(identity: Optional[pulumi.InputType['GetAccountIdentityArgs']] =
         name="acctestnetappaccount")
     pulumi.export("netappAccountId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the NetApp Account.
@@ -142,6 +144,7 @@ def get_account_output(identity: Optional[pulumi.Input[Optional[pulumi.InputType
 
     ## NetApp Account Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -150,6 +153,7 @@ def get_account_output(identity: Optional[pulumi.Input[Optional[pulumi.InputType
         name="acctestnetappaccount")
     pulumi.export("netappAccountId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the NetApp Account.

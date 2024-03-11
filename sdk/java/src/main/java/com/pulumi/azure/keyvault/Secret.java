@@ -28,6 +28,8 @@ import javax.annotation.Nullable;
  * =======
  * &gt; &gt; &gt; &gt; &gt; &gt; &gt; 8d78c87098 (Update-documentation)
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -93,6 +95,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

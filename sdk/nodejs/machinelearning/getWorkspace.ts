@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const id = existingAzurermMachineLearningWorkspace.id;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
 
@@ -73,6 +75,7 @@ export interface GetWorkspaceResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -83,6 +86,7 @@ export interface GetWorkspaceResult {
  * });
  * export const id = existingAzurermMachineLearningWorkspace.id;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

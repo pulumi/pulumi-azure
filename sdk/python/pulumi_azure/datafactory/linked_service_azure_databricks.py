@@ -499,8 +499,10 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
 
         ## Example Usage
+
         ### With Managed Identity & New Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -553,8 +555,11 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Access Token & Existing Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -581,6 +586,7 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             access_token="SomeDatabricksAccessToken",
             adb_domain=example_workspace.workspace_url.apply(lambda workspace_url: f"https://{workspace_url}"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -617,8 +623,10 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
 
         ## Example Usage
+
         ### With Managed Identity & New Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -671,8 +679,11 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Access Token & Existing Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -699,6 +710,7 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             access_token="SomeDatabricksAccessToken",
             adb_domain=example_workspace.workspace_url.apply(lambda workspace_url: f"https://{workspace_url}"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

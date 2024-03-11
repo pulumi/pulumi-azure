@@ -201,6 +201,7 @@ class ResolverOutboundEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -239,6 +240,7 @@ class ResolverOutboundEndpoint(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -267,6 +269,7 @@ class ResolverOutboundEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -305,6 +308,7 @@ class ResolverOutboundEndpoint(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

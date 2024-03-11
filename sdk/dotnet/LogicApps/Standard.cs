@@ -13,8 +13,10 @@ namespace Pulumi.Azure.LogicApps
     /// Manages a Logic App (Standard / Single Tenant)
     /// 
     /// ## Example Usage
+    /// 
     /// ### With App Service Plan)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,10 +70,13 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### For Container Mode)
     /// 
     /// &gt; **Note:** You must set `azure.appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -131,6 +136,7 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

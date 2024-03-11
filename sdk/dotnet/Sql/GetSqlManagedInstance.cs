@@ -16,10 +16,9 @@ namespace Pulumi.Azure.Sql
         /// 
         /// &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -40,8 +39,7 @@ namespace Pulumi.Azure.Sql
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSqlManagedInstanceResult> InvokeAsync(GetSqlManagedInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlManagedInstanceResult>("azure:sql/getSqlManagedInstance:getSqlManagedInstance", args ?? new GetSqlManagedInstanceArgs(), options.WithDefaults());
@@ -51,10 +49,9 @@ namespace Pulumi.Azure.Sql
         /// 
         /// &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -75,8 +72,7 @@ namespace Pulumi.Azure.Sql
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSqlManagedInstanceResult> Invoke(GetSqlManagedInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlManagedInstanceResult>("azure:sql/getSqlManagedInstance:getSqlManagedInstance", args ?? new GetSqlManagedInstanceInvokeArgs(), options.WithDefaults());

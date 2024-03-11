@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Use this data source to access information about an existing Storage Table Entity.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,8 +35,7 @@ namespace Pulumi.Azure.Storage
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTableEntityResult> InvokeAsync(GetTableEntityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableEntityResult>("azure:storage/getTableEntity:getTableEntity", args ?? new GetTableEntityArgs(), options.WithDefaults());
@@ -45,10 +43,9 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Use this data source to access information about an existing Storage Table Entity.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,8 +64,7 @@ namespace Pulumi.Azure.Storage
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTableEntityResult> Invoke(GetTableEntityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableEntityResult>("azure:storage/getTableEntity:getTableEntity", args ?? new GetTableEntityInvokeArgs(), options.WithDefaults());

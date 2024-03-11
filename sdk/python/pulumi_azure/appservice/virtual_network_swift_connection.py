@@ -122,8 +122,10 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         Multiple apps in the same App Service plan can use the same VNet.
 
         ## Example Usage
+
         ### With App Service)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -165,8 +167,11 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
             app_service_id=example_app_service.id,
             subnet_id=example_subnet.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Function App)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -216,6 +221,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
             app_service_id=example_function_app.id,
             subnet_id=example_subnet.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -261,8 +267,10 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         Multiple apps in the same App Service plan can use the same VNet.
 
         ## Example Usage
+
         ### With App Service)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -304,8 +312,11 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
             app_service_id=example_app_service.id,
             subnet_id=example_subnet.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Function App)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -355,6 +366,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
             app_service_id=example_function_app.id,
             subnet_id=example_subnet.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

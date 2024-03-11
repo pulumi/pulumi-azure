@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const poolAllocationMode = example.then(example => example.poolAllocationMode);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -105,6 +107,7 @@ export interface GetAccountResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -115,6 +118,7 @@ export interface GetAccountResult {
  * });
  * export const poolAllocationMode = example.then(example => example.poolAllocationMode);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

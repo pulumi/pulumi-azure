@@ -489,6 +489,7 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -509,6 +510,7 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
             tenant="11111111-1111-1111-1111-111111111111",
             url="https://datalakestoragegen2")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -551,6 +553,7 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -571,6 +574,7 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
             tenant="11111111-1111-1111-1111-111111111111",
             url="https://datalakestoragegen2")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -154,6 +154,7 @@ def get_data_collection_endpoint(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -162,6 +163,7 @@ def get_data_collection_endpoint(name: Optional[str] = None,
         resource_group_name=example_azurerm_resource_group["name"])
     pulumi.export("endpointId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Data Collection Endpoint.
@@ -195,6 +197,7 @@ def get_data_collection_endpoint_output(name: Optional[pulumi.Input[str]] = None
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -203,6 +206,7 @@ def get_data_collection_endpoint_output(name: Optional[pulumi.Input[str]] = None
         resource_group_name=example_azurerm_resource_group["name"])
     pulumi.export("endpointId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Data Collection Endpoint.

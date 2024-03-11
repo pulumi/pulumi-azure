@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Manages automated startup and shutdown schedules for Azure Dev Test Lab.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -81,6 +83,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

@@ -597,6 +597,7 @@ class Server(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -620,8 +621,11 @@ class Server(pulumi.CustomResource):
                 "environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -697,6 +701,7 @@ class Server(pulumi.CustomResource):
             primary_user_assigned_identity_id=example_user_assigned_identity.id,
             transparent_data_encryption_key_vault_key_id=example_key.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -743,6 +748,7 @@ class Server(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -766,8 +772,11 @@ class Server(pulumi.CustomResource):
                 "environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -843,6 +852,7 @@ class Server(pulumi.CustomResource):
             primary_user_assigned_identity_id=example_user_assigned_identity.id,
             transparent_data_encryption_key_vault_key_id=example_key.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

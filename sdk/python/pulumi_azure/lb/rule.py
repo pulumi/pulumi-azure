@@ -484,6 +484,7 @@ class Rule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -512,6 +513,7 @@ class Rule(pulumi.CustomResource):
             backend_port=3389,
             frontend_ip_configuration_name="PublicIPAddress")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -552,6 +554,7 @@ class Rule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -580,6 +583,7 @@ class Rule(pulumi.CustomResource):
             backend_port=3389,
             frontend_ip_configuration_name="PublicIPAddress")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

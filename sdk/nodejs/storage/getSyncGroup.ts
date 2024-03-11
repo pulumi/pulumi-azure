@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncGroupResult> {
 
@@ -59,6 +61,7 @@ export interface GetSyncGroupResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -69,6 +72,7 @@ export interface GetSyncGroupResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncGroupResult> {
     return pulumi.output(args).apply((a: any) => getSyncGroup(a, opts))

@@ -597,6 +597,7 @@ class ManagedCluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -628,6 +629,7 @@ class ManagedCluster(pulumi.CustomResource):
                 vm_instance_count=5,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -668,6 +670,7 @@ class ManagedCluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -699,6 +702,7 @@ class ManagedCluster(pulumi.CustomResource):
                 vm_instance_count=5,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

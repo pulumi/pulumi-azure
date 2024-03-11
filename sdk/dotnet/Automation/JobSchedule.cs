@@ -16,6 +16,7 @@ namespace Pulumi.Azure.Automation
     /// 
     /// This is an example of just the Job Schedule.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,6 +40,7 @@ namespace Pulumi.Azure.Automation
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

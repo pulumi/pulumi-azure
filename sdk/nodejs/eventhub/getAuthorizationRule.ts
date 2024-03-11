@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: testAzurermResourceGroup.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAuthorizationRule(args: GetAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationRuleResult> {
 
@@ -105,6 +107,7 @@ export interface GetAuthorizationRuleResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -116,6 +119,7 @@ export interface GetAuthorizationRuleResult {
  *     resourceGroupName: testAzurermResourceGroup.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAuthorizationRuleOutput(args: GetAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getAuthorizationRule(a, opts))

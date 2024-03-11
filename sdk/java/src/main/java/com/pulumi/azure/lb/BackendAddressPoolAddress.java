@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Backend Addresses can only be added to a `Standard` SKU Load Balancer.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -90,6 +92,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

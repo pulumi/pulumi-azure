@@ -59,6 +59,8 @@ public final class AppserviceFunctions {
      * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -89,6 +91,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppServiceResult> getAppService(GetAppServiceArgs args) {
@@ -100,6 +103,8 @@ public final class AppserviceFunctions {
      * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -130,6 +135,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppServiceResult> getAppServicePlain(GetAppServicePlainArgs args) {
@@ -141,6 +147,8 @@ public final class AppserviceFunctions {
      * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -171,6 +179,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppServiceResult> getAppService(GetAppServiceArgs args, InvokeOptions options) {
@@ -182,6 +191,8 @@ public final class AppserviceFunctions {
      * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -212,6 +223,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppServiceResult> getAppServicePlain(GetAppServicePlainArgs args, InvokeOptions options) {
@@ -221,6 +233,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing App Service Environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -251,6 +265,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppServiceEnvironmentResult> getAppServiceEnvironment(GetAppServiceEnvironmentArgs args) {
@@ -260,6 +275,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing App Service Environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -290,6 +307,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppServiceEnvironmentResult> getAppServiceEnvironmentPlain(GetAppServiceEnvironmentPlainArgs args) {
@@ -299,6 +317,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing App Service Environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -329,6 +349,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppServiceEnvironmentResult> getAppServiceEnvironment(GetAppServiceEnvironmentArgs args, InvokeOptions options) {
@@ -338,6 +359,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing App Service Environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -368,6 +391,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppServiceEnvironmentResult> getAppServiceEnvironmentPlain(GetAppServiceEnvironmentPlainArgs args, InvokeOptions options) {
@@ -379,6 +403,8 @@ public final class AppserviceFunctions {
      * !&gt; **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -409,6 +435,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppServicePlanResult> getAppServicePlan(GetAppServicePlanArgs args) {
@@ -420,6 +447,8 @@ public final class AppserviceFunctions {
      * !&gt; **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -450,6 +479,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppServicePlanResult> getAppServicePlanPlain(GetAppServicePlanPlainArgs args) {
@@ -461,6 +491,8 @@ public final class AppserviceFunctions {
      * !&gt; **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -491,6 +523,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAppServicePlanResult> getAppServicePlan(GetAppServicePlanArgs args, InvokeOptions options) {
@@ -502,6 +535,8 @@ public final class AppserviceFunctions {
      * !&gt; **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -532,6 +567,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAppServicePlanResult> getAppServicePlanPlain(GetAppServicePlanPlainArgs args, InvokeOptions options) {
@@ -541,6 +577,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an App Service Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -571,6 +609,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args) {
@@ -580,6 +619,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an App Service Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -610,6 +651,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args) {
@@ -619,6 +661,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an App Service Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -649,6 +693,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
@@ -658,6 +703,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an App Service Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -688,6 +735,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {
@@ -697,6 +745,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing App Service Certificate Order.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -727,6 +777,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateOrderResult> getCertificateOrder(GetCertificateOrderArgs args) {
@@ -736,6 +787,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing App Service Certificate Order.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -766,6 +819,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateOrderResult> getCertificateOrderPlain(GetCertificateOrderPlainArgs args) {
@@ -775,6 +829,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing App Service Certificate Order.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -805,6 +861,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateOrderResult> getCertificateOrder(GetCertificateOrderArgs args, InvokeOptions options) {
@@ -814,6 +871,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing App Service Certificate Order.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -844,6 +903,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateOrderResult> getCertificateOrderPlain(GetCertificateOrderPlainArgs args, InvokeOptions options) {
@@ -853,6 +913,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -883,6 +945,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnvironmentV3Result> getEnvironmentV3(GetEnvironmentV3Args args) {
@@ -892,6 +955,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -922,6 +987,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnvironmentV3Result> getEnvironmentV3Plain(GetEnvironmentV3PlainArgs args) {
@@ -931,6 +997,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -961,6 +1029,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnvironmentV3Result> getEnvironmentV3(GetEnvironmentV3Args args, InvokeOptions options) {
@@ -970,6 +1039,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1000,6 +1071,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnvironmentV3Result> getEnvironmentV3Plain(GetEnvironmentV3PlainArgs args, InvokeOptions options) {
@@ -1011,6 +1083,8 @@ public final class AppserviceFunctions {
      * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1040,6 +1114,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionAppResult> getFunctionApp(GetFunctionAppArgs args) {
@@ -1051,6 +1126,8 @@ public final class AppserviceFunctions {
      * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1080,6 +1157,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionAppResult> getFunctionAppPlain(GetFunctionAppPlainArgs args) {
@@ -1091,6 +1169,8 @@ public final class AppserviceFunctions {
      * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1120,6 +1200,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionAppResult> getFunctionApp(GetFunctionAppArgs args, InvokeOptions options) {
@@ -1131,6 +1212,8 @@ public final class AppserviceFunctions {
      * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1160,6 +1243,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionAppResult> getFunctionAppPlain(GetFunctionAppPlainArgs args, InvokeOptions options) {
@@ -1169,6 +1253,8 @@ public final class AppserviceFunctions {
      * Use this data source to fetch the Host Keys of an existing Function App
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1198,6 +1284,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionAppHostKeysResult> getFunctionAppHostKeys(GetFunctionAppHostKeysArgs args) {
@@ -1207,6 +1294,8 @@ public final class AppserviceFunctions {
      * Use this data source to fetch the Host Keys of an existing Function App
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1236,6 +1325,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionAppHostKeysResult> getFunctionAppHostKeysPlain(GetFunctionAppHostKeysPlainArgs args) {
@@ -1245,6 +1335,8 @@ public final class AppserviceFunctions {
      * Use this data source to fetch the Host Keys of an existing Function App
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1274,6 +1366,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionAppHostKeysResult> getFunctionAppHostKeys(GetFunctionAppHostKeysArgs args, InvokeOptions options) {
@@ -1283,6 +1376,8 @@ public final class AppserviceFunctions {
      * Use this data source to fetch the Host Keys of an existing Function App
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1312,6 +1407,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionAppHostKeysResult> getFunctionAppHostKeysPlain(GetFunctionAppHostKeysPlainArgs args, InvokeOptions options) {
@@ -1321,6 +1417,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Linux Function App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1351,6 +1449,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLinuxFunctionAppResult> getLinuxFunctionApp(GetLinuxFunctionAppArgs args) {
@@ -1360,6 +1459,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Linux Function App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1390,6 +1491,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLinuxFunctionAppResult> getLinuxFunctionAppPlain(GetLinuxFunctionAppPlainArgs args) {
@@ -1399,6 +1501,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Linux Function App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1429,6 +1533,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLinuxFunctionAppResult> getLinuxFunctionApp(GetLinuxFunctionAppArgs args, InvokeOptions options) {
@@ -1438,6 +1543,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Linux Function App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1468,6 +1575,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLinuxFunctionAppResult> getLinuxFunctionAppPlain(GetLinuxFunctionAppPlainArgs args, InvokeOptions options) {
@@ -1477,6 +1585,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Linux Web App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1507,6 +1617,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLinuxWebAppResult> getLinuxWebApp(GetLinuxWebAppArgs args) {
@@ -1516,6 +1627,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Linux Web App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1546,6 +1659,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLinuxWebAppResult> getLinuxWebAppPlain(GetLinuxWebAppPlainArgs args) {
@@ -1555,6 +1669,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Linux Web App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1585,6 +1701,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLinuxWebAppResult> getLinuxWebApp(GetLinuxWebAppArgs args, InvokeOptions options) {
@@ -1594,6 +1711,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Linux Web App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1624,6 +1743,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLinuxWebAppResult> getLinuxWebAppPlain(GetLinuxWebAppPlainArgs args, InvokeOptions options) {
@@ -1633,6 +1753,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Service Plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1663,6 +1785,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServicePlanResult> getServicePlan(GetServicePlanArgs args) {
@@ -1672,6 +1795,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Service Plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1702,6 +1827,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServicePlanResult> getServicePlanPlain(GetServicePlanPlainArgs args) {
@@ -1711,6 +1837,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Service Plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1741,6 +1869,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServicePlanResult> getServicePlan(GetServicePlanArgs args, InvokeOptions options) {
@@ -1750,6 +1879,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Service Plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1780,6 +1911,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServicePlanResult> getServicePlanPlain(GetServicePlanPlainArgs args, InvokeOptions options) {
@@ -1787,6 +1919,8 @@ public final class AppserviceFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1816,6 +1950,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSourceControlTokenResult> getSourceControlToken(GetSourceControlTokenArgs args) {
@@ -1823,6 +1958,8 @@ public final class AppserviceFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1852,6 +1989,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSourceControlTokenResult> getSourceControlTokenPlain(GetSourceControlTokenPlainArgs args) {
@@ -1859,6 +1997,8 @@ public final class AppserviceFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1888,6 +2028,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSourceControlTokenResult> getSourceControlToken(GetSourceControlTokenArgs args, InvokeOptions options) {
@@ -1895,6 +2036,8 @@ public final class AppserviceFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1924,6 +2067,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSourceControlTokenResult> getSourceControlTokenPlain(GetSourceControlTokenPlainArgs args, InvokeOptions options) {
@@ -1933,6 +2077,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Windows Function App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1963,6 +2109,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWindowsFunctionAppResult> getWindowsFunctionApp(GetWindowsFunctionAppArgs args) {
@@ -1972,6 +2119,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Windows Function App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2002,6 +2151,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWindowsFunctionAppResult> getWindowsFunctionAppPlain(GetWindowsFunctionAppPlainArgs args) {
@@ -2011,6 +2161,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Windows Function App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2041,6 +2193,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWindowsFunctionAppResult> getWindowsFunctionApp(GetWindowsFunctionAppArgs args, InvokeOptions options) {
@@ -2050,6 +2203,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Windows Function App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2080,6 +2235,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWindowsFunctionAppResult> getWindowsFunctionAppPlain(GetWindowsFunctionAppPlainArgs args, InvokeOptions options) {
@@ -2089,6 +2245,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Windows Web App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2119,6 +2277,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWindowsWebAppResult> getWindowsWebApp(GetWindowsWebAppArgs args) {
@@ -2128,6 +2287,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Windows Web App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2158,6 +2319,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWindowsWebAppResult> getWindowsWebAppPlain(GetWindowsWebAppPlainArgs args) {
@@ -2167,6 +2329,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Windows Web App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2197,6 +2361,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWindowsWebAppResult> getWindowsWebApp(GetWindowsWebAppArgs args, InvokeOptions options) {
@@ -2206,6 +2371,8 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing Windows Web App.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2236,6 +2403,7 @@ public final class AppserviceFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWindowsWebAppResult> getWindowsWebAppPlain(GetWindowsWebAppPlainArgs args, InvokeOptions options) {

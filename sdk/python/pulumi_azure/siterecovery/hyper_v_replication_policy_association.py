@@ -135,6 +135,7 @@ class HyperVReplicationPolicyAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -161,6 +162,7 @@ class HyperVReplicationPolicyAssociation(pulumi.CustomResource):
             hyperv_site_id=example_hyper_v_site.id,
             policy_id=example_hyper_v_replication_policy.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -187,6 +189,7 @@ class HyperVReplicationPolicyAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -213,6 +216,7 @@ class HyperVReplicationPolicyAssociation(pulumi.CustomResource):
             hyperv_site_id=example_hyper_v_site.id,
             policy_id=example_hyper_v_replication_policy.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

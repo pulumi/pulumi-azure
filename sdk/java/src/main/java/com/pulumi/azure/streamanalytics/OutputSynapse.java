@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Manages a Stream Analytics Output to an Azure Synapse Analytics Workspace.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -101,6 +103,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

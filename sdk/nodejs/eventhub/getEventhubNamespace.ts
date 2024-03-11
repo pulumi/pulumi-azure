@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  * });
  * export const eventhubNamespaceId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 /** @deprecated azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace */
 export function getEventhubNamespace(args: GetEventhubNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventhubNamespaceResult> {
@@ -122,6 +124,7 @@ export interface GetEventhubNamespaceResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -132,6 +135,7 @@ export interface GetEventhubNamespaceResult {
  * });
  * export const eventhubNamespaceId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 /** @deprecated azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace */
 export function getEventhubNamespaceOutput(args: GetEventhubNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventhubNamespaceResult> {

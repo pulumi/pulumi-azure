@@ -201,6 +201,7 @@ class HybridConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -223,6 +224,7 @@ class HybridConnection(pulumi.CustomResource):
             requires_client_authorization=False,
             user_metadata="testmetadata")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -251,6 +253,7 @@ class HybridConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -273,6 +276,7 @@ class HybridConnection(pulumi.CustomResource):
             requires_client_authorization=False,
             user_metadata="testmetadata")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

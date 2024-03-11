@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Manages a Firewall Rule for a MySQL Flexible Server.
  *
  * ## Example Usage
+ *
  * ### Single IP Address)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -31,8 +33,11 @@ import * as utilities from "../utilities";
  *     endIpAddress: "40.112.8.12",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### IP Range)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -54,8 +59,11 @@ import * as utilities from "../utilities";
  *     endIpAddress: "40.112.255.255",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Allow Access To Azure Services)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -77,6 +85,7 @@ import * as utilities from "../utilities";
  *     endIpAddress: "0.0.0.0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

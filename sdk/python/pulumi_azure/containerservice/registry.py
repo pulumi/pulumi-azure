@@ -745,6 +745,7 @@ class Registry(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -771,8 +772,11 @@ class Registry(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Encryption)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -801,8 +805,11 @@ class Registry(pulumi.CustomResource):
                 identity_client_id=example_user_assigned_identity.client_id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Attaching A Container Registry To A Kubernetes Cluster)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -837,6 +844,7 @@ class Registry(pulumi.CustomResource):
             scope=example_registry.id,
             skip_service_principal_aad_check=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -887,6 +895,7 @@ class Registry(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -913,8 +922,11 @@ class Registry(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Encryption)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -943,8 +955,11 @@ class Registry(pulumi.CustomResource):
                 identity_client_id=example_user_assigned_identity.client_id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Attaching A Container Registry To A Kubernetes Cluster)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -979,6 +994,7 @@ class Registry(pulumi.CustomResource):
             scope=example_registry.id,
             skip_service_principal_aad_check=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

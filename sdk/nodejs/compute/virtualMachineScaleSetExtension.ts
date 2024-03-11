@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -56,6 +57,7 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -149,6 +151,10 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      *
      * > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+     *
+     * ```shell
+     * az vmss extension image list --location westus -o table
+     * ```
      */
     public readonly typeHandlerVersion!: pulumi.Output<string>;
     /**
@@ -279,6 +285,10 @@ export interface VirtualMachineScaleSetExtensionState {
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      *
      * > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+     *
+     * ```shell
+     * az vmss extension image list --location westus -o table
+     * ```
      */
     typeHandlerVersion?: pulumi.Input<string>;
     /**
@@ -349,6 +359,10 @@ export interface VirtualMachineScaleSetExtensionArgs {
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      *
      * > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+     *
+     * ```shell
+     * az vmss extension image list --location westus -o table
+     * ```
      */
     typeHandlerVersion: pulumi.Input<string>;
     /**

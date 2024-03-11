@@ -52,6 +52,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * This example provisions a basic Managed Kubernetes Cluster.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -103,6 +105,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -889,6 +892,8 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
      * 
      * &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -952,6 +957,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Export(name="privateClusterPublicFqdnEnabled", refs={Boolean.class}, tree="[0]")
@@ -961,6 +967,8 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * @return Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
      * 
      * &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1024,6 +1032,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<Optional<Boolean>> privateClusterPublicFqdnEnabled() {

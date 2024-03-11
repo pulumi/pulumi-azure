@@ -8,7 +8,9 @@ import * as utilities from "../utilities";
  * Manages SingleSignOn on the datadog Monitor.
  *
  * ## Example Usage
+ *
  * ### Enabling SSO on monitor
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -40,6 +42,7 @@ import * as utilities from "../utilities";
  *     enterpriseApplicationId: "XXXX",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

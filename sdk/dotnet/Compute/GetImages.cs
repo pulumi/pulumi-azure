@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Use this data source to access information about existing Images within a Resource Group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetImagesResult> InvokeAsync(GetImagesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImagesResult>("azure:compute/getImages:getImages", args ?? new GetImagesArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Use this data source to access information about existing Images within a Resource Group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetImagesResult> Invoke(GetImagesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagesResult>("azure:compute/getImages:getImages", args ?? new GetImagesInvokeArgs(), options.WithDefaults());

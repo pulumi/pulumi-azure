@@ -103,6 +103,7 @@ class HyperVSite(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -120,6 +121,7 @@ class HyperVSite(pulumi.CustomResource):
             name="example-site",
             recovery_vault_id=example_vault.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -145,6 +147,7 @@ class HyperVSite(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -162,6 +165,7 @@ class HyperVSite(pulumi.CustomResource):
             name="example-site",
             recovery_vault_id=example_vault.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

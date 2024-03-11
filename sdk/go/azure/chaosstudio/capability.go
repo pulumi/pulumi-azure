@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,6 +75,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -83,11 +85,11 @@ import (
 // $ pulumi import azure:chaosstudio/capability:Capability example /{scope}/providers/Microsoft.Chaos/targets/{targetName}/capabilities/{capabilityName}
 // ```
 //
-//   - Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
+// * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
 //
-//   - Where `{targetName}` is the name of the Target. For example `targetValue`.
+// * Where `{targetName}` is the name of the Target. For example `targetValue`.
 //
-//   - Where `{capabilityName}` is the name of the Capability. For example `capabilityName`.
+// * Where `{capabilityName}` is the name of the Capability. For example `capabilityName`.
 type Capability struct {
 	pulumi.CustomResourceState
 

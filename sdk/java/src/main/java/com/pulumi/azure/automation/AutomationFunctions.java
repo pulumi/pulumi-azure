@@ -36,6 +36,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -66,6 +68,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
@@ -75,6 +78,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -105,6 +110,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -114,6 +120,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -144,6 +152,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
@@ -153,6 +162,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -183,6 +194,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
@@ -192,6 +204,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Bool Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -223,6 +237,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBoolVariableResult> getBoolVariable(GetBoolVariableArgs args) {
@@ -232,6 +247,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Bool Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -263,6 +280,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBoolVariableResult> getBoolVariablePlain(GetBoolVariablePlainArgs args) {
@@ -272,6 +290,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Bool Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -303,6 +323,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBoolVariableResult> getBoolVariable(GetBoolVariableArgs args, InvokeOptions options) {
@@ -312,6 +333,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Bool Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -343,6 +366,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBoolVariableResult> getBoolVariablePlain(GetBoolVariablePlainArgs args, InvokeOptions options) {
@@ -352,6 +376,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Datetime Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -383,6 +409,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDateTimeVariableResult> getDateTimeVariable(GetDateTimeVariableArgs args) {
@@ -392,6 +419,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Datetime Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -423,6 +452,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDateTimeVariableResult> getDateTimeVariablePlain(GetDateTimeVariablePlainArgs args) {
@@ -432,6 +462,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Datetime Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -463,6 +495,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDateTimeVariableResult> getDateTimeVariable(GetDateTimeVariableArgs args, InvokeOptions options) {
@@ -472,6 +505,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Datetime Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -503,6 +538,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDateTimeVariableResult> getDateTimeVariablePlain(GetDateTimeVariablePlainArgs args, InvokeOptions options) {
@@ -512,6 +548,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Int Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -543,6 +581,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIntVariableResult> getIntVariable(GetIntVariableArgs args) {
@@ -552,6 +591,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Int Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -583,6 +624,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIntVariableResult> getIntVariablePlain(GetIntVariablePlainArgs args) {
@@ -592,6 +634,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Int Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -623,6 +667,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIntVariableResult> getIntVariable(GetIntVariableArgs args, InvokeOptions options) {
@@ -632,6 +677,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation Int Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -663,6 +710,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIntVariableResult> getIntVariablePlain(GetIntVariablePlainArgs args, InvokeOptions options) {
@@ -672,6 +720,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation String Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -703,6 +753,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStringVariableResult> getStringVariable(GetStringVariableArgs args) {
@@ -712,6 +763,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation String Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -743,6 +796,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStringVariableResult> getStringVariablePlain(GetStringVariablePlainArgs args) {
@@ -752,6 +806,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation String Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -783,6 +839,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStringVariableResult> getStringVariable(GetStringVariableArgs args, InvokeOptions options) {
@@ -792,6 +849,8 @@ public final class AutomationFunctions {
      * Use this data source to access information about an existing Automation String Variable.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -823,6 +882,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStringVariableResult> getStringVariablePlain(GetStringVariablePlainArgs args, InvokeOptions options) {
@@ -831,16 +891,12 @@ public final class AutomationFunctions {
     /**
      * Use this data source to access information about an existing Automation Object Variable.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetVariableObjectResult> getVariableObject(GetVariableObjectArgs args) {
         return getVariableObject(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Automation Object Variable.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVariableObjectResult> getVariableObjectPlain(GetVariableObjectPlainArgs args) {
@@ -849,16 +905,12 @@ public final class AutomationFunctions {
     /**
      * Use this data source to access information about an existing Automation Object Variable.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetVariableObjectResult> getVariableObject(GetVariableObjectArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getVariableObject:getVariableObject", TypeShape.of(GetVariableObjectResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Automation Object Variable.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVariableObjectResult> getVariableObjectPlain(GetVariableObjectPlainArgs args, InvokeOptions options) {
@@ -868,6 +920,8 @@ public final class AutomationFunctions {
      * Use this data source to get all variables in an Automation Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -903,6 +957,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVariablesResult> getVariables(GetVariablesArgs args) {
@@ -912,6 +967,8 @@ public final class AutomationFunctions {
      * Use this data source to get all variables in an Automation Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -947,6 +1004,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVariablesResult> getVariablesPlain(GetVariablesPlainArgs args) {
@@ -956,6 +1014,8 @@ public final class AutomationFunctions {
      * Use this data source to get all variables in an Automation Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -991,6 +1051,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVariablesResult> getVariables(GetVariablesArgs args, InvokeOptions options) {
@@ -1000,6 +1061,8 @@ public final class AutomationFunctions {
      * Use this data source to get all variables in an Automation Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1035,6 +1098,7 @@ public final class AutomationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVariablesResult> getVariablesPlain(GetVariablesPlainArgs args, InvokeOptions options) {

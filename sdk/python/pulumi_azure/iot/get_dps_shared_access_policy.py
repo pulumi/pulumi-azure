@@ -128,6 +128,7 @@ def get_dps_shared_access_policy(iothub_dps_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -136,6 +137,7 @@ def get_dps_shared_access_policy(iothub_dps_name: Optional[str] = None,
         resource_group_name=example_azurerm_resource_group["name"],
         iothub_dps_name=example_azurerm_iothub_dps["name"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str iothub_dps_name: Specifies the name of the IoT Hub Device Provisioning service to which the Shared Access Policy belongs.
@@ -170,6 +172,7 @@ def get_dps_shared_access_policy_output(iothub_dps_name: Optional[pulumi.Input[s
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -178,6 +181,7 @@ def get_dps_shared_access_policy_output(iothub_dps_name: Optional[pulumi.Input[s
         resource_group_name=example_azurerm_resource_group["name"],
         iothub_dps_name=example_azurerm_iothub_dps["name"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str iothub_dps_name: Specifies the name of the IoT Hub Device Provisioning service to which the Shared Access Policy belongs.

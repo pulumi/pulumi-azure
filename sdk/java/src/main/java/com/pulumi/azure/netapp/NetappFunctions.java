@@ -39,6 +39,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Account.
      * 
      * ## NetApp Account Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -69,6 +71,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
@@ -78,6 +81,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Account.
      * 
      * ## NetApp Account Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -108,6 +113,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -117,6 +123,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Account.
      * 
      * ## NetApp Account Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -147,6 +155,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
@@ -156,6 +165,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Account.
      * 
      * ## NetApp Account Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -186,6 +197,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
@@ -195,6 +207,8 @@ public final class NetappFunctions {
      * Use this data source to access information about an existing NetApp Account Encryption Resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -224,6 +238,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountEncryptionResult> getAccountEncryption(GetAccountEncryptionArgs args) {
@@ -233,6 +248,8 @@ public final class NetappFunctions {
      * Use this data source to access information about an existing NetApp Account Encryption Resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -262,6 +279,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountEncryptionResult> getAccountEncryptionPlain(GetAccountEncryptionPlainArgs args) {
@@ -271,6 +289,8 @@ public final class NetappFunctions {
      * Use this data source to access information about an existing NetApp Account Encryption Resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -300,6 +320,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountEncryptionResult> getAccountEncryption(GetAccountEncryptionArgs args, InvokeOptions options) {
@@ -309,6 +330,8 @@ public final class NetappFunctions {
      * Use this data source to access information about an existing NetApp Account Encryption Resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -338,6 +361,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountEncryptionResult> getAccountEncryptionPlain(GetAccountEncryptionPlainArgs args, InvokeOptions options) {
@@ -347,6 +371,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Pool.
      * 
      * ## NetApp Pool Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -378,6 +404,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args) {
@@ -387,6 +414,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Pool.
      * 
      * ## NetApp Pool Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -418,6 +447,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPoolResult> getPoolPlain(GetPoolPlainArgs args) {
@@ -427,6 +457,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Pool.
      * 
      * ## NetApp Pool Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -458,6 +490,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args, InvokeOptions options) {
@@ -467,6 +500,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Pool.
      * 
      * ## NetApp Pool Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -498,6 +533,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPoolResult> getPoolPlain(GetPoolPlainArgs args, InvokeOptions options) {
@@ -507,6 +543,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Snapshot.
      * 
      * ## NetApp Snapshot Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -540,6 +578,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args) {
@@ -549,6 +588,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Snapshot.
      * 
      * ## NetApp Snapshot Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -582,6 +623,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args) {
@@ -591,6 +633,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Snapshot.
      * 
      * ## NetApp Snapshot Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -624,6 +668,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOptions options) {
@@ -633,6 +678,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Snapshot.
      * 
      * ## NetApp Snapshot Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -666,6 +713,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args, InvokeOptions options) {
@@ -675,6 +723,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Snapshot Policy.
      * 
      * ## NetApp Snapshot Policy Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -712,6 +762,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSnapshotPolicyResult> getSnapshotPolicy(GetSnapshotPolicyArgs args) {
@@ -721,6 +772,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Snapshot Policy.
      * 
      * ## NetApp Snapshot Policy Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -758,6 +811,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSnapshotPolicyResult> getSnapshotPolicyPlain(GetSnapshotPolicyPlainArgs args) {
@@ -767,6 +821,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Snapshot Policy.
      * 
      * ## NetApp Snapshot Policy Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -804,6 +860,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSnapshotPolicyResult> getSnapshotPolicy(GetSnapshotPolicyArgs args, InvokeOptions options) {
@@ -813,6 +870,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Snapshot Policy.
      * 
      * ## NetApp Snapshot Policy Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -850,6 +909,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSnapshotPolicyResult> getSnapshotPolicyPlain(GetSnapshotPolicyPlainArgs args, InvokeOptions options) {
@@ -859,6 +919,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Volume.
      * 
      * ## NetApp Volume Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -891,6 +953,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVolumeResult> getVolume(GetVolumeArgs args) {
@@ -900,6 +963,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Volume.
      * 
      * ## NetApp Volume Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -932,6 +997,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVolumeResult> getVolumePlain(GetVolumePlainArgs args) {
@@ -941,6 +1007,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Volume.
      * 
      * ## NetApp Volume Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -973,6 +1041,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVolumeResult> getVolume(GetVolumeArgs args, InvokeOptions options) {
@@ -982,6 +1051,8 @@ public final class NetappFunctions {
      * Uses this data source to access information about an existing NetApp Volume.
      * 
      * ## NetApp Volume Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1014,6 +1085,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVolumeResult> getVolumePlain(GetVolumePlainArgs args, InvokeOptions options) {
@@ -1023,6 +1095,8 @@ public final class NetappFunctions {
      * Use this data source to access information about an existing Application Volume Group for SAP HANA application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1054,6 +1128,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVolumeGroupSapHanaResult> getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs args) {
@@ -1063,6 +1138,8 @@ public final class NetappFunctions {
      * Use this data source to access information about an existing Application Volume Group for SAP HANA application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1094,6 +1171,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVolumeGroupSapHanaResult> getVolumeGroupSapHanaPlain(GetVolumeGroupSapHanaPlainArgs args) {
@@ -1103,6 +1181,8 @@ public final class NetappFunctions {
      * Use this data source to access information about an existing Application Volume Group for SAP HANA application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1134,6 +1214,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVolumeGroupSapHanaResult> getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs args, InvokeOptions options) {
@@ -1143,6 +1224,8 @@ public final class NetappFunctions {
      * Use this data source to access information about an existing Application Volume Group for SAP HANA application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1174,6 +1257,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVolumeGroupSapHanaResult> getVolumeGroupSapHanaPlain(GetVolumeGroupSapHanaPlainArgs args, InvokeOptions options) {
@@ -1183,6 +1267,8 @@ public final class NetappFunctions {
      * Use this data source to access information about an existing Volume Quota Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1213,6 +1299,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVolumeQuotaRuleResult> getVolumeQuotaRule(GetVolumeQuotaRuleArgs args) {
@@ -1222,6 +1309,8 @@ public final class NetappFunctions {
      * Use this data source to access information about an existing Volume Quota Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1252,6 +1341,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVolumeQuotaRuleResult> getVolumeQuotaRulePlain(GetVolumeQuotaRulePlainArgs args) {
@@ -1261,6 +1351,8 @@ public final class NetappFunctions {
      * Use this data source to access information about an existing Volume Quota Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1291,6 +1383,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVolumeQuotaRuleResult> getVolumeQuotaRule(GetVolumeQuotaRuleArgs args, InvokeOptions options) {
@@ -1300,6 +1393,8 @@ public final class NetappFunctions {
      * Use this data source to access information about an existing Volume Quota Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1330,6 +1425,7 @@ public final class NetappFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVolumeQuotaRuleResult> getVolumeQuotaRulePlain(GetVolumeQuotaRulePlainArgs args, InvokeOptions options) {

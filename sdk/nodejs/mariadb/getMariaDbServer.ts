@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const mariadbServerId = exampleAzurermMariadbServer.id;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getMariaDbServer(args: GetMariaDbServerArgs, opts?: pulumi.InvokeOptions): Promise<GetMariaDbServerResult> {
 
@@ -93,6 +95,7 @@ export interface GetMariaDbServerResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -103,6 +106,7 @@ export interface GetMariaDbServerResult {
  * });
  * export const mariadbServerId = exampleAzurermMariadbServer.id;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getMariaDbServerOutput(args: GetMariaDbServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMariaDbServerResult> {
     return pulumi.output(args).apply((a: any) => getMariaDbServer(a, opts))

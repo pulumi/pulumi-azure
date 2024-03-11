@@ -20,6 +20,7 @@ import (
 //
 // This example provisions a Standard Redis Cache.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,6 +61,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Relevant Links
 //
 // * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)

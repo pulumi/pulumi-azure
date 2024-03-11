@@ -231,6 +231,7 @@ class EnvironmentStorage(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -267,6 +268,7 @@ class EnvironmentStorage(pulumi.CustomResource):
             access_key=example_account.primary_access_key,
             access_mode="ReadOnly")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -296,6 +298,7 @@ class EnvironmentStorage(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -332,6 +335,7 @@ class EnvironmentStorage(pulumi.CustomResource):
             access_key=example_account.primary_access_key,
             access_mode="ReadOnly")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

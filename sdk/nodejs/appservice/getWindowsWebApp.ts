@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getWindowsWebApp(args: GetWindowsWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetWindowsWebAppResult> {
 
@@ -192,6 +194,7 @@ export interface GetWindowsWebAppResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -202,6 +205,7 @@ export interface GetWindowsWebAppResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getWindowsWebAppOutput(args: GetWindowsWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWindowsWebAppResult> {
     return pulumi.output(args).apply((a: any) => getWindowsWebApp(a, opts))

@@ -358,6 +358,7 @@ class ShareFile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -380,6 +381,7 @@ class ShareFile(pulumi.CustomResource):
             storage_share_id=example_share.id,
             source="some-local-file.zip")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -414,6 +416,7 @@ class ShareFile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -436,6 +439,7 @@ class ShareFile(pulumi.CustomResource):
             storage_share_id=example_share.id,
             source="some-local-file.zip")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

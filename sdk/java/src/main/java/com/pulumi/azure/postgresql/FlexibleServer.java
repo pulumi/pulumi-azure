@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * Manages a PostgreSQL Flexible Server.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -117,6 +119,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## `storage_tier` defaults based on `storage_mb`
  * 
  * | `storage_mb` | GiB   | TiB | Default | Supported `storage_tier`&#39;s           | Provisioned `IOPS`  |

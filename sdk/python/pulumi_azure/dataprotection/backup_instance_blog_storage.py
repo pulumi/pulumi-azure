@@ -200,6 +200,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -237,6 +238,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             storage_account_id=example_account.id,
             backup_policy_id=example_backup_policy_blob_storage.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -265,6 +267,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -302,6 +305,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             storage_account_id=example_account.id,
             backup_policy_id=example_backup_policy_blob_storage.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Use this data source to access information about an existing Shared Image Gallery.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSharedImageGalleryResult> InvokeAsync(GetSharedImageGalleryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageGalleryResult>("azure:compute/getSharedImageGallery:getSharedImageGallery", args ?? new GetSharedImageGalleryArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Use this data source to access information about an existing Shared Image Gallery.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSharedImageGalleryResult> Invoke(GetSharedImageGalleryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedImageGalleryResult>("azure:compute/getSharedImageGallery:getSharedImageGallery", args ?? new GetSharedImageGalleryInvokeArgs(), options.WithDefaults());

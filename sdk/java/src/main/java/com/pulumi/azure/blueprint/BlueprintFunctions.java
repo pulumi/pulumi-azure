@@ -23,6 +23,8 @@ public final class BlueprintFunctions {
      * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -61,6 +63,7 @@ public final class BlueprintFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDefinitionResult> getDefinition(GetDefinitionArgs args) {
@@ -72,6 +75,8 @@ public final class BlueprintFunctions {
      * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -110,6 +115,7 @@ public final class BlueprintFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDefinitionResult> getDefinitionPlain(GetDefinitionPlainArgs args) {
@@ -121,6 +127,8 @@ public final class BlueprintFunctions {
      * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -159,6 +167,7 @@ public final class BlueprintFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDefinitionResult> getDefinition(GetDefinitionArgs args, InvokeOptions options) {
@@ -170,6 +179,8 @@ public final class BlueprintFunctions {
      * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -208,6 +219,7 @@ public final class BlueprintFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDefinitionResult> getDefinitionPlain(GetDefinitionPlainArgs args, InvokeOptions options) {
@@ -219,6 +231,8 @@ public final class BlueprintFunctions {
      * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -253,6 +267,7 @@ public final class BlueprintFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPublishedVersionResult> getPublishedVersion(GetPublishedVersionArgs args) {
@@ -264,6 +279,8 @@ public final class BlueprintFunctions {
      * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -298,6 +315,7 @@ public final class BlueprintFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPublishedVersionResult> getPublishedVersionPlain(GetPublishedVersionPlainArgs args) {
@@ -309,6 +327,8 @@ public final class BlueprintFunctions {
      * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -343,6 +363,7 @@ public final class BlueprintFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPublishedVersionResult> getPublishedVersion(GetPublishedVersionArgs args, InvokeOptions options) {
@@ -354,6 +375,8 @@ public final class BlueprintFunctions {
      * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -388,6 +411,7 @@ public final class BlueprintFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPublishedVersionResult> getPublishedVersionPlain(GetPublishedVersionPlainArgs args, InvokeOptions options) {

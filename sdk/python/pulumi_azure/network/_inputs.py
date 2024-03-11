@@ -1393,6 +1393,10 @@ class ApplicationGatewayPrivateLinkConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below.
                
                > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+               
+               ```bash
+               az feature register --name AllowApplicationGatewayPrivateLink --namespace Microsoft.Network
+               ```
         :param pulumi.Input[str] name: The name of the private link configuration.
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
         """
@@ -1408,6 +1412,10 @@ class ApplicationGatewayPrivateLinkConfigurationArgs:
         One or more `ip_configuration` blocks as defined below.
 
         > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+
+        ```bash
+        az feature register --name AllowApplicationGatewayPrivateLink --namespace Microsoft.Network
+        ```
         """
         return pulumi.get(self, "ip_configurations")
 

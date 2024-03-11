@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access information about an existing Application Security Group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetApplicationSecurityGroupResult> InvokeAsync(GetApplicationSecurityGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationSecurityGroupResult>("azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup", args ?? new GetApplicationSecurityGroupArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access information about an existing Application Security Group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetApplicationSecurityGroupResult> Invoke(GetApplicationSecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationSecurityGroupResult>("azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup", args ?? new GetApplicationSecurityGroupInvokeArgs(), options.WithDefaults());

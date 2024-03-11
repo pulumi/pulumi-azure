@@ -204,6 +204,7 @@ class LogzTagRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -244,6 +245,7 @@ class LogzTagRule(pulumi.CustomResource):
             send_activity_logs=True,
             send_subscription_logs=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -272,6 +274,7 @@ class LogzTagRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -312,6 +315,7 @@ class LogzTagRule(pulumi.CustomResource):
             send_activity_logs=True,
             send_subscription_logs=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -856,11 +856,13 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         Manages a connection in an existing Virtual Network Gateway.
 
         ## Example Usage
+
         ### Site-to-Site connection
 
         The following example shows a connection between an Azure virtual network
         and an on-premises VPN device and network.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -912,11 +914,14 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             local_network_gateway_id=onpremise.id,
             shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### VNet-to-VNet connection
 
         The following example shows a connection between two Azure virtual network
         in different locations/regions.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -998,6 +1003,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             peer_virtual_network_gateway_id=us_virtual_network_gateway.id,
             shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1051,11 +1057,13 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         Manages a connection in an existing Virtual Network Gateway.
 
         ## Example Usage
+
         ### Site-to-Site connection
 
         The following example shows a connection between an Azure virtual network
         and an on-premises VPN device and network.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1107,11 +1115,14 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             local_network_gateway_id=onpremise.id,
             shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### VNet-to-VNet connection
 
         The following example shows a connection between two Azure virtual network
         in different locations/regions.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1193,6 +1204,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             peer_virtual_network_gateway_id=us_virtual_network_gateway.id,
             shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -44,7 +44,7 @@ class DiagnosticArgs:
         :param pulumi.Input[str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
         :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
-        :param pulumi.Input[float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        :param pulumi.Input[float] sampling_percentage: Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         :param pulumi.Input[str] verbosity: Logging verbosity. Possible values are `verbose`, `information` or `error`.
         """
         pulumi.set(__self__, "api_management_logger_id", api_management_logger_id)
@@ -220,7 +220,7 @@ class DiagnosticArgs:
     @pulumi.getter(name="samplingPercentage")
     def sampling_percentage(self) -> Optional[pulumi.Input[float]]:
         """
-        Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         """
         return pulumi.get(self, "sampling_percentage")
 
@@ -272,7 +272,7 @@ class _DiagnosticState:
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
         :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        :param pulumi.Input[float] sampling_percentage: Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         :param pulumi.Input[str] verbosity: Logging verbosity. Possible values are `verbose`, `information` or `error`.
         """
         if always_log_errors is not None:
@@ -452,7 +452,7 @@ class _DiagnosticState:
     @pulumi.getter(name="samplingPercentage")
     def sampling_percentage(self) -> Optional[pulumi.Input[float]]:
         """
-        Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         """
         return pulumi.get(self, "sampling_percentage")
 
@@ -498,6 +498,7 @@ class Diagnostic(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -567,6 +568,7 @@ class Diagnostic(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -590,7 +592,7 @@ class Diagnostic(pulumi.CustomResource):
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
         :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        :param pulumi.Input[float] sampling_percentage: Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         :param pulumi.Input[str] verbosity: Logging verbosity. Possible values are `verbose`, `information` or `error`.
         """
         ...
@@ -604,6 +606,7 @@ class Diagnostic(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -673,6 +676,7 @@ class Diagnostic(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -785,7 +789,7 @@ class Diagnostic(pulumi.CustomResource):
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
         :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        :param pulumi.Input[float] sampling_percentage: Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         :param pulumi.Input[str] verbosity: Logging verbosity. Possible values are `verbose`, `information` or `error`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -908,7 +912,7 @@ class Diagnostic(pulumi.CustomResource):
     @pulumi.getter(name="samplingPercentage")
     def sampling_percentage(self) -> pulumi.Output[float]:
         """
-        Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         """
         return pulumi.get(self, "sampling_percentage")
 

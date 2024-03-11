@@ -14,10 +14,9 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,8 +35,7 @@ namespace Pulumi.Azure.EventHub
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAuthorizationRuleResult> InvokeAsync(GetAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? new GetAuthorizationRuleArgs(), options.WithDefaults());
@@ -45,10 +43,9 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,8 +64,7 @@ namespace Pulumi.Azure.EventHub
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAuthorizationRuleResult> Invoke(GetAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? new GetAuthorizationRuleInvokeArgs(), options.WithDefaults());

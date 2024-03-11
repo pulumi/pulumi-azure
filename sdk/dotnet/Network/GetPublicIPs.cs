@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access information about a set of existing Public IP Addresses.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPublicIPsResult> InvokeAsync(GetPublicIPsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPsResult>("azure:network/getPublicIPs:getPublicIPs", args ?? new GetPublicIPsArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access information about a set of existing Public IP Addresses.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPublicIPsResult> Invoke(GetPublicIPsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPsResult>("azure:network/getPublicIPs:getPublicIPs", args ?? new GetPublicIPsInvokeArgs(), options.WithDefaults());

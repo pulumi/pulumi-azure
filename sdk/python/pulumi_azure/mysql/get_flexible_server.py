@@ -284,6 +284,7 @@ def get_flexible_server(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -292,6 +293,7 @@ def get_flexible_server(name: Optional[str] = None,
         resource_group_name="existingResGroup")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the MySQL Flexible Server.
@@ -336,6 +338,7 @@ def get_flexible_server_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -344,6 +347,7 @@ def get_flexible_server_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="existingResGroup")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the MySQL Flexible Server.

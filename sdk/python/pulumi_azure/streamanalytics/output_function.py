@@ -297,6 +297,7 @@ class OutputFunction(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -346,6 +347,7 @@ class OutputFunction(pulumi.CustomResource):
             function_name="examplefunctionname",
             api_key="exampleapikey")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -377,6 +379,7 @@ class OutputFunction(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -426,6 +429,7 @@ class OutputFunction(pulumi.CustomResource):
             function_name="examplefunctionname",
             api_key="exampleapikey")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

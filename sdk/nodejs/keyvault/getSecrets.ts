@@ -8,25 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = azure.keyvault.getSecrets({
- *     keyVaultId: existing.id,
- * });
- * const exampleGetSecret = .reduce((__obj, [, ]) => ({ ...__obj, [__key]: azure.keyvault.getSecret({
- *     name: __key,
- *     keyVaultId: existing.id,
- * }) }));
- * ```
  */
 export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretsResult> {
 
@@ -68,25 +49,6 @@ export interface GetSecretsResult {
 }
 /**
  * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = azure.keyvault.getSecrets({
- *     keyVaultId: existing.id,
- * });
- * const exampleGetSecret = .reduce((__obj, [, ]) => ({ ...__obj, [__key]: azure.keyvault.getSecret({
- *     name: __key,
- *     keyVaultId: existing.id,
- * }) }));
- * ```
  */
 export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretsResult> {
     return pulumi.output(args).apply((a: any) => getSecrets(a, opts))

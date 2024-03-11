@@ -15,8 +15,10 @@ import (
 // Manages an Certificate within an API Management Service.
 //
 // ## Example Usage
+//
 // ### With Base64 Certificate)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,8 +71,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Key Vault Certificate)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -184,6 +189,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

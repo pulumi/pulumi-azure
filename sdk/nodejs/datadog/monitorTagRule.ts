@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
  * Manages TagRules on the datadog Monitor.
  *
  * ## Example Usage
+ *
  * ### Adding TagRules on monitor
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -50,6 +52,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

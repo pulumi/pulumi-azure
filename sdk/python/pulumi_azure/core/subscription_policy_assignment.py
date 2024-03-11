@@ -508,6 +508,7 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -535,6 +536,7 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
             policy_definition_id=example.id,
             subscription_id=current.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -574,6 +576,7 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -601,6 +604,7 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
             policy_definition_id=example.id,
             subscription_id=current.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -18,6 +19,7 @@ import * as utilities from "../utilities";
  *     storageAccountName: "example-storage-account-name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getStorageContainer(args: GetStorageContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageContainerResult> {
 
@@ -83,6 +85,7 @@ export interface GetStorageContainerResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -92,6 +95,7 @@ export interface GetStorageContainerResult {
  *     storageAccountName: "example-storage-account-name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getStorageContainerOutput(args: GetStorageContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageContainerResult> {
     return pulumi.output(args).apply((a: any) => getStorageContainer(a, opts))

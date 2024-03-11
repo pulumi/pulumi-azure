@@ -24,6 +24,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// 
         /// &gt; **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -53,6 +54,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public readonly string SubnetName;
 

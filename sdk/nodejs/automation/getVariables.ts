@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -24,6 +25,7 @@ import * as utilities from "../utilities";
  * }));
  * export const stringVars = exampleAzurermAutomationVariableString.string;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVariables(args: GetVariablesArgs, opts?: pulumi.InvokeOptions): Promise<GetVariablesResult> {
 
@@ -83,6 +85,7 @@ export interface GetVariablesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -96,6 +99,7 @@ export interface GetVariablesResult {
  * }));
  * export const stringVars = exampleAzurermAutomationVariableString.string;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVariablesOutput(args: GetVariablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariablesResult> {
     return pulumi.output(args).apply((a: any) => getVariables(a, opts))

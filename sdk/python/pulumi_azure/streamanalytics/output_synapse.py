@@ -295,6 +295,7 @@ class OutputSynapse(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -335,6 +336,7 @@ class OutputSynapse(pulumi.CustomResource):
             database="master",
             table="ExampleTable")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -366,6 +368,7 @@ class OutputSynapse(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -406,6 +409,7 @@ class OutputSynapse(pulumi.CustomResource):
             database="master",
             table="ExampleTable")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

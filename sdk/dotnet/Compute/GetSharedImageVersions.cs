@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSharedImageVersionsResult> InvokeAsync(GetSharedImageVersionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageVersionsResult>("azure:compute/getSharedImageVersions:getSharedImageVersions", args ?? new GetSharedImageVersionsArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSharedImageVersionsResult> Invoke(GetSharedImageVersionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedImageVersionsResult>("azure:compute/getSharedImageVersions:getSharedImageVersions", args ?? new GetSharedImageVersionsInvokeArgs(), options.WithDefaults());

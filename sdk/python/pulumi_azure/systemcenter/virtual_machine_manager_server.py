@@ -334,6 +334,7 @@ class VirtualMachineManagerServer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -350,6 +351,7 @@ class VirtualMachineManagerServer(pulumi.CustomResource):
             username="testUser",
             password="H@Sh1CoR3!")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -386,6 +388,7 @@ class VirtualMachineManagerServer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -402,6 +405,7 @@ class VirtualMachineManagerServer(pulumi.CustomResource):
             username="testUser",
             password="H@Sh1CoR3!")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -102,6 +102,7 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -137,6 +138,7 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
             spring_cloud_app_id=example_spring_cloud_app.id,
             deployment_name=example_spring_cloud_java_deployment.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -162,6 +164,7 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -197,6 +200,7 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
             spring_cloud_app_id=example_spring_cloud_app.id,
             deployment_name=example_spring_cloud_java_deployment.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

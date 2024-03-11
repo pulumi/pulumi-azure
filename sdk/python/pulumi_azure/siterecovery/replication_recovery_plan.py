@@ -378,6 +378,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -544,6 +545,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                 replicated_protected_items=[vm_replication.id],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -584,6 +586,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -750,6 +753,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                 replicated_protected_items=[vm_replication.id],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

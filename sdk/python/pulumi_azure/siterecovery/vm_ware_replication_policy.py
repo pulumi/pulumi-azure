@@ -167,6 +167,7 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -187,6 +188,7 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
             recovery_point_retention_in_minutes=1440,
             application_consistent_snapshot_frequency_in_minutes=240)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -214,6 +216,7 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -234,6 +237,7 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
             recovery_point_retention_in_minutes=1440,
             application_consistent_snapshot_frequency_in_minutes=240)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

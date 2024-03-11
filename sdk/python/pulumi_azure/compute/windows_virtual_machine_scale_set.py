@@ -2097,6 +2097,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
         This example provisions a basic Windows Virtual Machine Scale Set on an internal network.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -2143,6 +2144,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                 )],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -2259,6 +2261,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
         This example provisions a basic Windows Virtual Machine Scale Set on an internal network.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -2305,6 +2308,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                 )],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

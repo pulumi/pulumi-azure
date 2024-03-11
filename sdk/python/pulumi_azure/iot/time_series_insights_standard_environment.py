@@ -299,6 +299,7 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -313,6 +314,7 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
             sku_name="S1_1",
             data_retention_time="P30D")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -344,6 +346,7 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -358,6 +361,7 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
             sku_name="S1_1",
             data_retention_time="P30D")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,6 +56,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupGatewayHostNameConfiguration(ctx *pulumi.Context, args *LookupGatewayHostNameConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupGatewayHostNameConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGatewayHostNameConfigurationResult

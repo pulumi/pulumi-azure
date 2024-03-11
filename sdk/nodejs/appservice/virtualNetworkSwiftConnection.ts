@@ -29,8 +29,10 @@ import * as utilities from "../utilities";
  * Multiple apps in the same App Service plan can use the same VNet.
  *
  * ## Example Usage
+ *
  * ### With App Service)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -78,8 +80,11 @@ import * as utilities from "../utilities";
  *     subnetId: exampleSubnet.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Function App)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -136,6 +141,7 @@ import * as utilities from "../utilities";
  *     subnetId: exampleSubnet.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

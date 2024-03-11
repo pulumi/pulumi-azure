@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from &lt;https://docs.microsoft.com/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore&gt;.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -184,6 +186,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

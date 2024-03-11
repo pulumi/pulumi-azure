@@ -16,6 +16,7 @@ namespace Pulumi.Azure.DataBricks
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -120,6 +121,8 @@ namespace Pulumi.Azure.DataBricks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Example HCL Configurations
     /// 
     /// * Databricks Workspace with Root Databricks File System Customer Managed Keys

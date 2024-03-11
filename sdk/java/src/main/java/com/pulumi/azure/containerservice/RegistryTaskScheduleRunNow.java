@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Runs a Container Registry Task Schedule.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -79,6 +81,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="azure:containerservice/registryTaskScheduleRunNow:RegistryTaskScheduleRunNow")

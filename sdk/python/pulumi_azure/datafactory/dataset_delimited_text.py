@@ -747,6 +747,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -780,6 +781,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
             first_row_as_header=True,
             null_value="NULL")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -828,6 +830,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -861,6 +864,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
             first_row_as_header=True,
             null_value="NULL")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

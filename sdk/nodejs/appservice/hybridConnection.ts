@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -57,6 +58,7 @@ import * as utilities from "../utilities";
  *     sendKeyName: "exampleSharedAccessKey",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

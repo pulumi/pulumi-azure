@@ -51,6 +51,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about the permissions from the Management Key Vault Templates.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -80,6 +82,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccessPolicyResult> getAccessPolicy(GetAccessPolicyArgs args) {
@@ -89,6 +92,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about the permissions from the Management Key Vault Templates.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -118,6 +123,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccessPolicyResult> getAccessPolicyPlain(GetAccessPolicyPlainArgs args) {
@@ -127,6 +133,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about the permissions from the Management Key Vault Templates.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -156,6 +164,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccessPolicyResult> getAccessPolicy(GetAccessPolicyArgs args, InvokeOptions options) {
@@ -165,6 +174,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about the permissions from the Management Key Vault Templates.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -194,6 +205,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccessPolicyResult> getAccessPolicyPlain(GetAccessPolicyPlainArgs args, InvokeOptions options) {
@@ -203,6 +215,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -239,6 +253,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args) {
@@ -248,6 +263,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -284,6 +301,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args) {
@@ -293,6 +311,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -329,6 +349,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
@@ -338,6 +359,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Certificate.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -374,6 +397,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {
@@ -385,6 +409,8 @@ public final class KeyvaultFunctions {
      * &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -421,6 +447,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateDataResult> getCertificateData(GetCertificateDataArgs args) {
@@ -432,6 +459,8 @@ public final class KeyvaultFunctions {
      * &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -468,6 +497,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateDataResult> getCertificateDataPlain(GetCertificateDataPlainArgs args) {
@@ -479,6 +509,8 @@ public final class KeyvaultFunctions {
      * &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -515,6 +547,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateDataResult> getCertificateData(GetCertificateDataArgs args, InvokeOptions options) {
@@ -526,6 +559,8 @@ public final class KeyvaultFunctions {
      * &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -562,6 +597,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateDataResult> getCertificateDataPlain(GetCertificateDataPlainArgs args, InvokeOptions options) {
@@ -571,6 +607,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Certificate Issuer.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -607,6 +645,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateIssuerResult> getCertificateIssuer(GetCertificateIssuerArgs args) {
@@ -616,6 +655,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Certificate Issuer.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -652,6 +693,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateIssuerResult> getCertificateIssuerPlain(GetCertificateIssuerPlainArgs args) {
@@ -661,6 +703,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Certificate Issuer.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -697,6 +741,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateIssuerResult> getCertificateIssuer(GetCertificateIssuerArgs args, InvokeOptions options) {
@@ -706,6 +751,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Certificate Issuer.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -742,6 +789,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateIssuerResult> getCertificateIssuerPlain(GetCertificateIssuerPlainArgs args, InvokeOptions options) {
@@ -750,16 +798,12 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to retrieve a list of certificate names from an existing Key Vault.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetCertificatesResult> getCertificates(GetCertificatesArgs args) {
         return getCertificates(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve a list of certificate names from an existing Key Vault.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetCertificatesResult> getCertificatesPlain(GetCertificatesPlainArgs args) {
@@ -768,16 +812,12 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to retrieve a list of certificate names from an existing Key Vault.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetCertificatesResult> getCertificates(GetCertificatesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve a list of certificate names from an existing Key Vault.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetCertificatesResult> getCertificatesPlain(GetCertificatesPlainArgs args, InvokeOptions options) {
@@ -786,16 +826,12 @@ public final class KeyvaultFunctions {
     /**
      * Encrypts or Decrypts a value using a Key Vault Key.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetEncryptedValueResult> getEncryptedValue(GetEncryptedValueArgs args) {
         return getEncryptedValue(args, InvokeOptions.Empty);
     }
     /**
      * Encrypts or Decrypts a value using a Key Vault Key.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetEncryptedValueResult> getEncryptedValuePlain(GetEncryptedValuePlainArgs args) {
@@ -804,16 +840,12 @@ public final class KeyvaultFunctions {
     /**
      * Encrypts or Decrypts a value using a Key Vault Key.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetEncryptedValueResult> getEncryptedValue(GetEncryptedValueArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getEncryptedValue:getEncryptedValue", TypeShape.of(GetEncryptedValueResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Encrypts or Decrypts a value using a Key Vault Key.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetEncryptedValueResult> getEncryptedValuePlain(GetEncryptedValuePlainArgs args, InvokeOptions options) {
@@ -823,6 +855,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -853,6 +887,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKeyResult> getKey(GetKeyArgs args) {
@@ -862,6 +897,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -892,6 +929,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKeyResult> getKeyPlain(GetKeyPlainArgs args) {
@@ -901,6 +939,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -931,6 +971,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKeyResult> getKey(GetKeyArgs args, InvokeOptions options) {
@@ -940,6 +981,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -970,6 +1013,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKeyResult> getKeyPlain(GetKeyPlainArgs args, InvokeOptions options) {
@@ -979,6 +1023,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1009,6 +1055,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKeyVaultResult> getKeyVault(GetKeyVaultArgs args) {
@@ -1018,6 +1065,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1048,6 +1097,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKeyVaultResult> getKeyVaultPlain(GetKeyVaultPlainArgs args) {
@@ -1057,6 +1107,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1087,6 +1139,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKeyVaultResult> getKeyVault(GetKeyVaultArgs args, InvokeOptions options) {
@@ -1096,6 +1149,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1126,6 +1181,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKeyVaultResult> getKeyVaultPlain(GetKeyVaultPlainArgs args, InvokeOptions options) {
@@ -1135,6 +1191,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Managed Hardware Security Module.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1165,6 +1223,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs args) {
@@ -1174,6 +1233,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Managed Hardware Security Module.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1204,6 +1265,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModulePlain(GetManagedHardwareSecurityModulePlainArgs args) {
@@ -1213,6 +1275,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Managed Hardware Security Module.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1243,6 +1307,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs args, InvokeOptions options) {
@@ -1252,6 +1317,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Managed Hardware Security Module.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1282,6 +1349,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModulePlain(GetManagedHardwareSecurityModulePlainArgs args, InvokeOptions options) {
@@ -1292,6 +1360,7 @@ public final class KeyvaultFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1323,6 +1392,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetManagedHardwareSecurityModuleRoleDefinitionResult> getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs args) {
@@ -1333,6 +1403,7 @@ public final class KeyvaultFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1364,6 +1435,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetManagedHardwareSecurityModuleRoleDefinitionResult> getManagedHardwareSecurityModuleRoleDefinitionPlain(GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs args) {
@@ -1374,6 +1446,7 @@ public final class KeyvaultFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1405,6 +1478,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetManagedHardwareSecurityModuleRoleDefinitionResult> getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs args, InvokeOptions options) {
@@ -1415,6 +1489,7 @@ public final class KeyvaultFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1446,6 +1521,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetManagedHardwareSecurityModuleRoleDefinitionResult> getManagedHardwareSecurityModuleRoleDefinitionPlain(GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs args, InvokeOptions options) {
@@ -1455,6 +1531,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Secret.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1485,6 +1563,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecretResult> getSecret(GetSecretArgs args) {
@@ -1494,6 +1573,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Secret.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1524,6 +1605,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecretResult> getSecretPlain(GetSecretPlainArgs args) {
@@ -1533,6 +1615,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Secret.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1563,6 +1647,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecretResult> getSecret(GetSecretArgs args, InvokeOptions options) {
@@ -1572,6 +1657,8 @@ public final class KeyvaultFunctions {
      * Use this data source to access information about an existing Key Vault Secret.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1602,6 +1689,7 @@ public final class KeyvaultFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecretResult> getSecretPlain(GetSecretPlainArgs args, InvokeOptions options) {
@@ -1610,16 +1698,12 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args) {
         return getSecrets(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args) {
@@ -1628,16 +1712,12 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args, InvokeOptions options) {

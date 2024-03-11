@@ -21,6 +21,8 @@ public final class WebpubsubFunctions {
      * Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -66,6 +68,7 @@ public final class WebpubsubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPrivateLinkResourceResult> getPrivateLinkResource(GetPrivateLinkResourceArgs args) {
@@ -75,6 +78,8 @@ public final class WebpubsubFunctions {
      * Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -120,6 +125,7 @@ public final class WebpubsubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrivateLinkResourceResult> getPrivateLinkResourcePlain(GetPrivateLinkResourcePlainArgs args) {
@@ -129,6 +135,8 @@ public final class WebpubsubFunctions {
      * Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -174,6 +182,7 @@ public final class WebpubsubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPrivateLinkResourceResult> getPrivateLinkResource(GetPrivateLinkResourceArgs args, InvokeOptions options) {
@@ -183,6 +192,8 @@ public final class WebpubsubFunctions {
      * Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -228,6 +239,7 @@ public final class WebpubsubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrivateLinkResourceResult> getPrivateLinkResourcePlain(GetPrivateLinkResourcePlainArgs args, InvokeOptions options) {
@@ -237,6 +249,8 @@ public final class WebpubsubFunctions {
      * Use this data source to access information about an existing Azure Web Pubsub service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -266,6 +280,7 @@ public final class WebpubsubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -275,6 +290,8 @@ public final class WebpubsubFunctions {
      * Use this data source to access information about an existing Azure Web Pubsub service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -304,6 +321,7 @@ public final class WebpubsubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -313,6 +331,8 @@ public final class WebpubsubFunctions {
      * Use this data source to access information about an existing Azure Web Pubsub service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -342,6 +362,7 @@ public final class WebpubsubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -351,6 +372,8 @@ public final class WebpubsubFunctions {
      * Use this data source to access information about an existing Azure Web Pubsub service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -380,6 +403,7 @@ public final class WebpubsubFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {

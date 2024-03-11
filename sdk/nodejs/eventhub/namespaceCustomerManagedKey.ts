@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * !> **Note:** In 2.x versions of the Azure Provider during deletion this resource will **delete and recreate the parent EventHub Namespace which may involve data loss** as it's not possible to remove the Customer Managed Key from the EventHub Namespace once it's been added. Version 3.0 of the Azure Provider will change this so that the Delete operation is a noop, requiring the parent EventHub Namespace is deleted/recreated to remove the Customer Managed Key.
  *
  * ## Example Usage
+ *
  * ### With System Assigned Identity
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -88,8 +90,11 @@ import * as utilities from "../utilities";
  *     keyVaultKeyIds: [exampleKey.id],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With User Assigned Identity
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -173,6 +178,7 @@ import * as utilities from "../utilities";
  *     userAssignedIdentityId: exampleUserAssignedIdentity.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

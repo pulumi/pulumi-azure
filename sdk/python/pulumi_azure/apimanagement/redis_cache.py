@@ -234,6 +234,7 @@ class RedisCache(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -266,6 +267,7 @@ class RedisCache(pulumi.CustomResource):
             redis_cache_id=example_cache.id,
             cache_location="East Us")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -295,6 +297,7 @@ class RedisCache(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -327,6 +330,7 @@ class RedisCache(pulumi.CustomResource):
             redis_cache_id=example_cache.id,
             cache_location="East Us")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

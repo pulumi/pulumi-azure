@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * !&gt; **NOTE:** The `azure.network.NetworkPacketCapture` resource is deprecated and will be removed in favour of `azure.compute.PacketCapture` and `azure.compute.ScaleSetPacketCapture` in version 4.0 of the AzureRM Provider.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -161,6 +163,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `azure.compute.Extension` resource.
  * 

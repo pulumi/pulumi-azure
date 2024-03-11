@@ -14,8 +14,10 @@ import (
 // Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
 //
 // ## Example Usage
+//
 // ### World)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetTrafficManager(ctx *pulumi.Context, args *GetTrafficManagerArgs, opts ...pulumi.InvokeOption) (*GetTrafficManagerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTrafficManagerResult

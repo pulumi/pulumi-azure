@@ -130,6 +130,7 @@ def get_hci_cluster(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -140,6 +141,7 @@ def get_hci_cluster(name: Optional[str] = None,
     pulumi.export("location", example.location)
     pulumi.export("clientId", example.client_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Azure Stack HCI Cluster.
@@ -171,6 +173,7 @@ def get_hci_cluster_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -181,6 +184,7 @@ def get_hci_cluster_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("location", example.location)
     pulumi.export("clientId", example.client_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Azure Stack HCI Cluster.

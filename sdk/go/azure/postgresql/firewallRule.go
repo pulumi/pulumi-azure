@@ -15,8 +15,10 @@ import (
 // Manages a Firewall Rule for a PostgreSQL Server
 //
 // ## Example Usage
+//
 // ### Single IP Address)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,8 +65,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### IP Range)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -104,6 +109,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

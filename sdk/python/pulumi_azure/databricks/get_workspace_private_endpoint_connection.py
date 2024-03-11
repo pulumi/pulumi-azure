@@ -89,6 +89,7 @@ def get_workspace_private_endpoint_connection(private_endpoint_id: Optional[str]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -97,6 +98,7 @@ def get_workspace_private_endpoint_connection(private_endpoint_id: Optional[str]
         private_endpoint_id=example_azurerm_private_endpoint["id"])
     pulumi.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections[0].status)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str private_endpoint_id: The resource ID of the Private Endpoint.
@@ -124,6 +126,7 @@ def get_workspace_private_endpoint_connection_output(private_endpoint_id: Option
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -132,6 +135,7 @@ def get_workspace_private_endpoint_connection_output(private_endpoint_id: Option
         private_endpoint_id=example_azurerm_private_endpoint["id"])
     pulumi.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections[0].status)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str private_endpoint_id: The resource ID of the Private Endpoint.

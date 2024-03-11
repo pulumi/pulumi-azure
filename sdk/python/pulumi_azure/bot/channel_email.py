@@ -235,6 +235,7 @@ class ChannelEmail(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -256,6 +257,7 @@ class ChannelEmail(pulumi.CustomResource):
             email_address="example.com",
             email_password="123456")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -287,6 +289,7 @@ class ChannelEmail(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -308,6 +311,7 @@ class ChannelEmail(pulumi.CustomResource):
             email_address="example.com",
             email_password="123456")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

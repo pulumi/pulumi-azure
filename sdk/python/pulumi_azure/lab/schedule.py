@@ -268,6 +268,7 @@ class Schedule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -305,6 +306,7 @@ class Schedule(pulumi.CustomResource):
             stop_time="2022-11-28T00:00:00Z",
             time_zone="America/Los_Angeles")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -335,6 +337,7 @@ class Schedule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -372,6 +375,7 @@ class Schedule(pulumi.CustomResource):
             stop_time="2022-11-28T00:00:00Z",
             time_zone="America/Los_Angeles")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -17,8 +17,10 @@ import (
 // > **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
 //
 // ## Example Usage
+//
 // ### `Kv` Type
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,8 +76,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### `Vault` Type
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -169,6 +174,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -178,7 +184,7 @@ import (
 // $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test https://appconfname1.azconfig.io/kv/keyName?label=labelName
 // ```
 //
-//	If you wish to import a key with an empty label then simply leave label's name blank:
+// If you wish to import a key with an empty label then simply leave label's name blank:
 //
 // ```sh
 // $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test https://appconfname1.azconfig.io/kv/keyName?label=

@@ -200,6 +200,7 @@ class MoverAgent(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -217,6 +218,7 @@ class MoverAgent(pulumi.CustomResource):
             arc_virtual_machine_uuid="3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
             description="Example Agent Description")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -245,6 +247,7 @@ class MoverAgent(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -262,6 +265,7 @@ class MoverAgent(pulumi.CustomResource):
             arc_virtual_machine_uuid="3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
             description="Example Agent Description")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

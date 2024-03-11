@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,6 +84,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetSas(ctx *pulumi.Context, args *GetSasArgs, opts ...pulumi.InvokeOption) (*GetSasResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSasResult

@@ -869,6 +869,7 @@ class Cache(pulumi.CustomResource):
 
         This example provisions a Standard Redis Cache.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -888,6 +889,8 @@ class Cache(pulumi.CustomResource):
             minimum_tls_version="1.2",
             redis_configuration=azure.redis.CacheRedisConfigurationArgs())
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
@@ -946,6 +949,7 @@ class Cache(pulumi.CustomResource):
 
         This example provisions a Standard Redis Cache.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -965,6 +969,8 @@ class Cache(pulumi.CustomResource):
             minimum_tls_version="1.2",
             redis_configuration=azure.redis.CacheRedisConfigurationArgs())
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Relevant Links
 
         * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)

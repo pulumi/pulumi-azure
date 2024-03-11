@@ -14,10 +14,9 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Use this data source to access information about the permissions from the Management Key Vault Templates.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,8 +36,7 @@ namespace Pulumi.Azure.KeyVault
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure:keyvault/getAccessPolicy:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithDefaults());
@@ -46,10 +44,9 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Use this data source to access information about the permissions from the Management Key Vault Templates.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,8 +66,7 @@ namespace Pulumi.Azure.KeyVault
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure:keyvault/getAccessPolicy:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());

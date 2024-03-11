@@ -112,6 +112,7 @@ class DiskPoolManagedDiskAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -168,6 +169,7 @@ class DiskPoolManagedDiskAttachment(pulumi.CustomResource):
             disk_pool_id=example_disk_pool.id,
             managed_disk_id=example_managed_disk.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -203,6 +205,7 @@ class DiskPoolManagedDiskAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -259,6 +262,7 @@ class DiskPoolManagedDiskAttachment(pulumi.CustomResource):
             disk_pool_id=example_disk_pool.id,
             managed_disk_id=example_managed_disk.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

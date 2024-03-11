@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,6 +24,7 @@ import * as utilities from "../utilities";
  * }));
  * export const id = exampleGetAlertRule.then(exampleGetAlertRule => exampleGetAlertRule.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResult> {
 
@@ -63,6 +65,7 @@ export interface GetAlertRuleResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -77,6 +80,7 @@ export interface GetAlertRuleResult {
  * }));
  * export const id = exampleGetAlertRule.then(exampleGetAlertRule => exampleGetAlertRule.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getAlertRule(a, opts))

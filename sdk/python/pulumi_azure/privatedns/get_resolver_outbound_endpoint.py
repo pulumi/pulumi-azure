@@ -106,6 +106,7 @@ def get_resolver_outbound_endpoint(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -113,6 +114,7 @@ def get_resolver_outbound_endpoint(name: Optional[str] = None,
     example = azure.privatedns.get_resolver_outbound_endpoint(name="example-endpoint",
         private_dns_resolver_id="example-private-dns-resolver-id")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the Private DNS Resolver Outbound Endpoint.
@@ -142,6 +144,7 @@ def get_resolver_outbound_endpoint_output(name: Optional[pulumi.Input[str]] = No
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -149,6 +152,7 @@ def get_resolver_outbound_endpoint_output(name: Optional[pulumi.Input[str]] = No
     example = azure.privatedns.get_resolver_outbound_endpoint(name="example-endpoint",
         private_dns_resolver_id="example-private-dns-resolver-id")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the Private DNS Resolver Outbound Endpoint.

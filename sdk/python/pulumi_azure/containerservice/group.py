@@ -876,6 +876,7 @@ class Group(pulumi.CustomResource):
 
         This example provisions a Basic Container.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -912,6 +913,7 @@ class Group(pulumi.CustomResource):
                 "environment": "testing",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -971,6 +973,7 @@ class Group(pulumi.CustomResource):
 
         This example provisions a Basic Container.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1007,6 +1010,7 @@ class Group(pulumi.CustomResource):
                 "environment": "testing",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

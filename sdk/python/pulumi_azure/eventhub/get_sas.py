@@ -82,6 +82,7 @@ def get_sas(connection_string: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -115,6 +116,7 @@ def get_sas(connection_string: Optional[str] = None,
     example_get_sas = example.apply(lambda example: azure.eventhub.get_sas_output(connection_string=example.primary_connection_string,
         expiry="2023-06-23T00:00:00Z"))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str connection_string: The connection string for the Event Hub to which this SAS applies.
@@ -142,6 +144,7 @@ def get_sas_output(connection_string: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -175,6 +178,7 @@ def get_sas_output(connection_string: Optional[pulumi.Input[str]] = None,
     example_get_sas = example.apply(lambda example: azure.eventhub.get_sas_output(connection_string=example.primary_connection_string,
         expiry="2023-06-23T00:00:00Z"))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str connection_string: The connection string for the Event Hub to which this SAS applies.

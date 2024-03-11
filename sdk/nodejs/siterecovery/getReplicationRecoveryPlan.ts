@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -24,6 +25,7 @@ import * as utilities from "../utilities";
  *     recoveryVaultId: vault.id,
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReplicationRecoveryPlan(args: GetReplicationRecoveryPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryPlanResult> {
 
@@ -82,6 +84,7 @@ export interface GetReplicationRecoveryPlanResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -95,6 +98,7 @@ export interface GetReplicationRecoveryPlanResult {
  *     recoveryVaultId: vault.id,
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReplicationRecoveryPlanOutput(args: GetReplicationRecoveryPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryPlanResult> {
     return pulumi.output(args).apply((a: any) => getReplicationRecoveryPlan(a, opts))

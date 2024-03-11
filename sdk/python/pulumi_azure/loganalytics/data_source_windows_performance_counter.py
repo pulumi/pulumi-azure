@@ -263,6 +263,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -284,6 +285,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
             counter_name="CPU",
             interval_seconds=10)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -314,6 +316,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -335,6 +338,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
             counter_name="CPU",
             interval_seconds=10)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -507,8 +507,10 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         Manages an ExpressRoute Circuit Peering.
 
         ## Example Usage
+
         ### Creating A Microsoft Peering)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -552,8 +554,11 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Creating Azure Private Peering)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -591,6 +596,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -629,8 +635,10 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         Manages an ExpressRoute Circuit Peering.
 
         ## Example Usage
+
         ### Creating A Microsoft Peering)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -674,8 +682,11 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Creating Azure Private Peering)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -713,6 +724,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * &gt; **Note** A bot can only have a single Alexa Channel associated with it.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -70,6 +72,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

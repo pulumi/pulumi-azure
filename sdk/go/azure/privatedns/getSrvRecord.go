@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetSrvRecord(ctx *pulumi.Context, args *GetSrvRecordArgs, opts ...pulumi.InvokeOption) (*GetSrvRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSrvRecordResult

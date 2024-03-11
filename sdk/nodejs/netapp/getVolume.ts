@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## NetApp Volume Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,6 +24,7 @@ import * as utilities from "../utilities";
  * });
  * export const netappVolumeId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
 
@@ -135,6 +137,7 @@ export interface GetVolumeResult {
  *
  * ## NetApp Volume Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -147,6 +150,7 @@ export interface GetVolumeResult {
  * });
  * export const netappVolumeId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
     return pulumi.output(args).apply((a: any) => getVolume(a, opts))

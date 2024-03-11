@@ -140,6 +140,7 @@ def get_system_topic(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -147,6 +148,7 @@ def get_system_topic(name: Optional[str] = None,
     example = azure.eventgrid.get_system_topic(name="eventgrid-system-topic",
         resource_group_name="example-resources")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the EventGrid System Topic resource.
@@ -179,6 +181,7 @@ def get_system_topic_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -186,6 +189,7 @@ def get_system_topic_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.eventgrid.get_system_topic(name="eventgrid-system-topic",
         resource_group_name="example-resources")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the EventGrid System Topic resource.

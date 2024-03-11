@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const virtualMachineId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
 
@@ -86,6 +88,7 @@ export interface GetVirtualMachineResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -96,6 +99,7 @@ export interface GetVirtualMachineResult {
  * });
  * export const virtualMachineId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))

@@ -382,6 +382,7 @@ class ElasticPool(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -407,6 +408,7 @@ class ElasticPool(pulumi.CustomResource):
             db_dtu_max=5,
             pool_size=5000)
         ```
+        <!--End PulumiCodeChooser -->
 
         > **NOTE on `sql.ElasticPool`:** -  The values of `edition`, `dtu`, and `pool_size` must be consistent with the [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). Any inconsistent argument configuration will be rejected.
 
@@ -444,6 +446,7 @@ class ElasticPool(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -469,6 +472,7 @@ class ElasticPool(pulumi.CustomResource):
             db_dtu_max=5,
             pool_size=5000)
         ```
+        <!--End PulumiCodeChooser -->
 
         > **NOTE on `sql.ElasticPool`:** -  The values of `edition`, `dtu`, and `pool_size` must be consistent with the [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). Any inconsistent argument configuration will be rejected.
 

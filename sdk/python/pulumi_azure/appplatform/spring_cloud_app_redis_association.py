@@ -200,6 +200,7 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -230,6 +231,7 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
             redis_access_key=example_cache.primary_access_key,
             ssl_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -258,6 +260,7 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -288,6 +291,7 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
             redis_access_key=example_cache.primary_access_key,
             ssl_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Manages the association between a Network Interface and a Load Balancer&#39;s Backend Address Pool.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -115,6 +117,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -138,6 +139,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -175,7 +177,7 @@ type ApiDiagnostic struct {
 	OperationNameFormat pulumi.StringPtrOutput `pulumi:"operationNameFormat"`
 	// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+	// Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
 	SamplingPercentage pulumi.Float64Output `pulumi:"samplingPercentage"`
 	// Logging verbosity. Possible values are `verbose`, `information` or `error`.
 	Verbosity pulumi.StringOutput `pulumi:"verbosity"`
@@ -252,7 +254,7 @@ type apiDiagnosticState struct {
 	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+	// Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// Logging verbosity. Possible values are `verbose`, `information` or `error`.
 	Verbosity *string `pulumi:"verbosity"`
@@ -285,7 +287,7 @@ type ApiDiagnosticState struct {
 	OperationNameFormat pulumi.StringPtrInput
 	// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+	// Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
 	SamplingPercentage pulumi.Float64PtrInput
 	// Logging verbosity. Possible values are `verbose`, `information` or `error`.
 	Verbosity pulumi.StringPtrInput
@@ -322,7 +324,7 @@ type apiDiagnosticArgs struct {
 	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+	// Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// Logging verbosity. Possible values are `verbose`, `information` or `error`.
 	Verbosity *string `pulumi:"verbosity"`
@@ -356,7 +358,7 @@ type ApiDiagnosticArgs struct {
 	OperationNameFormat pulumi.StringPtrInput
 	// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ResourceGroupName pulumi.StringInput
-	// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+	// Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
 	SamplingPercentage pulumi.Float64PtrInput
 	// Logging verbosity. Possible values are `verbose`, `information` or `error`.
 	Verbosity pulumi.StringPtrInput
@@ -514,7 +516,7 @@ func (o ApiDiagnosticOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiDiagnostic) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+// Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
 func (o ApiDiagnosticOutput) SamplingPercentage() pulumi.Float64Output {
 	return o.ApplyT(func(v *ApiDiagnostic) pulumi.Float64Output { return v.SamplingPercentage }).(pulumi.Float64Output)
 }

@@ -366,6 +366,7 @@ class LinkedService(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -415,6 +416,7 @@ class LinkedService(pulumi.CustomResource):
                 name=example_integration_runtime_azure.name,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -455,6 +457,7 @@ class LinkedService(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -504,6 +507,7 @@ class LinkedService(pulumi.CustomResource):
                 name=example_integration_runtime_azure.name,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

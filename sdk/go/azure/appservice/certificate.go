@@ -18,6 +18,7 @@ import (
 //
 // This example provisions an App Service Certificate from a Local File.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,6 +61,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -248,6 +248,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -272,10 +273,13 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                 minimum_tls_version="TLS12",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example DNS Auth TXT Record Usage
 
         The name of your DNS TXT record should be in the format of `_dnsauth.<your_subdomain>`. So, for example, if we use the `host_name` in the example usage above you would create a DNS TXT record with the name of `_dnsauth.contoso` which contains the value of the Front Door Custom Domains `validation_token` field. See the [product documentation](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-add-custom-domain) for more information.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -294,11 +298,13 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                 value=example_azurerm_cdn_frontdoor_custom_domain["validationToken"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example CNAME Record Usage
 
         !>**IMPORTANT:** You **must** include the `depends_on` meta-argument which references both the `cdn.FrontdoorRoute` and the `cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `depends_on` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -310,6 +316,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             ttl=3600,
             record=example_azurerm_cdn_frontdoor_endpoint["hostName"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -340,6 +347,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -364,10 +372,13 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                 minimum_tls_version="TLS12",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example DNS Auth TXT Record Usage
 
         The name of your DNS TXT record should be in the format of `_dnsauth.<your_subdomain>`. So, for example, if we use the `host_name` in the example usage above you would create a DNS TXT record with the name of `_dnsauth.contoso` which contains the value of the Front Door Custom Domains `validation_token` field. See the [product documentation](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-add-custom-domain) for more information.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -386,11 +397,13 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                 value=example_azurerm_cdn_frontdoor_custom_domain["validationToken"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example CNAME Record Usage
 
         !>**IMPORTANT:** You **must** include the `depends_on` meta-argument which references both the `cdn.FrontdoorRoute` and the `cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `depends_on` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -402,6 +415,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             ttl=3600,
             record=example_azurerm_cdn_frontdoor_endpoint["hostName"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

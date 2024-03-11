@@ -103,6 +103,7 @@ class SyncGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -118,6 +119,7 @@ class SyncGroup(pulumi.CustomResource):
             name="example-ss-group",
             storage_sync_id=example_sync.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -143,6 +145,7 @@ class SyncGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -158,6 +161,7 @@ class SyncGroup(pulumi.CustomResource):
             name="example-ss-group",
             storage_sync_id=example_sync.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

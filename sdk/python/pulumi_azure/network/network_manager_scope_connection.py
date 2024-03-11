@@ -216,6 +216,7 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -241,6 +242,7 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
             target_scope_id=alt.id,
             description="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -269,6 +271,7 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -294,6 +297,7 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
             target_scope_id=alt.id,
             description="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

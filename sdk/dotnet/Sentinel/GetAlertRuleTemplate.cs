@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// Use this data source to access information about an existing Sentinel Alert Rule Template.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Azure.Sentinel
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAlertRuleTemplateResult> InvokeAsync(GetAlertRuleTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleTemplateResult>("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", args ?? new GetAlertRuleTemplateArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// Use this data source to access information about an existing Sentinel Alert Rule Template.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Azure.Sentinel
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAlertRuleTemplateResult> Invoke(GetAlertRuleTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleTemplateResult>("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", args ?? new GetAlertRuleTemplateInvokeArgs(), options.WithDefaults());

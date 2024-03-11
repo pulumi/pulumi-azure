@@ -343,6 +343,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -359,8 +360,11 @@ class LinkedServiceSynapse(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Password In Key Vault
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -392,6 +396,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
                 secret_name="secret",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -426,6 +431,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -442,8 +448,11 @@ class LinkedServiceSynapse(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Password In Key Vault
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -475,6 +484,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
                 secret_name="secret",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

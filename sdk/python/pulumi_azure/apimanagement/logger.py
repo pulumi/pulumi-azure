@@ -302,6 +302,7 @@ class Logger(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -330,6 +331,7 @@ class Logger(pulumi.CustomResource):
                 instrumentation_key=example_insights.instrumentation_key,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -361,6 +363,7 @@ class Logger(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -389,6 +392,7 @@ class Logger(pulumi.CustomResource):
                 instrumentation_key=example_insights.instrumentation_key,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

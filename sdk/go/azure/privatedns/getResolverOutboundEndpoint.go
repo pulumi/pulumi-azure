@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupResolverOutboundEndpoint(ctx *pulumi.Context, args *LookupResolverOutboundEndpointArgs, opts ...pulumi.InvokeOption) (*LookupResolverOutboundEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverOutboundEndpointResult

@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -102,6 +104,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

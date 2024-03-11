@@ -310,6 +310,7 @@ class EndpointEventhub(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -353,6 +354,7 @@ class EndpointEventhub(pulumi.CustomResource):
             name="example",
             connection_string=example_authorization_rule.primary_connection_string)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -388,6 +390,7 @@ class EndpointEventhub(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -431,6 +434,7 @@ class EndpointEventhub(pulumi.CustomResource):
             name="example",
             connection_string=example_authorization_rule.primary_connection_string)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

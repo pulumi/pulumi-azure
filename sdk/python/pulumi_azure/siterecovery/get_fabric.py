@@ -92,6 +92,7 @@ def get_fabric(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -100,6 +101,7 @@ def get_fabric(name: Optional[str] = None,
         recovery_vault_name="tfex-recovery_vault",
         resource_group_name="tfex-resource_group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Site Recovery Replication Fabric.
@@ -131,6 +133,7 @@ def get_fabric_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -139,6 +142,7 @@ def get_fabric_output(name: Optional[pulumi.Input[str]] = None,
         recovery_vault_name="tfex-recovery_vault",
         resource_group_name="tfex-resource_group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Site Recovery Replication Fabric.

@@ -301,6 +301,7 @@ class Definition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -317,6 +318,7 @@ class Definition(pulumi.CustomResource):
                 principal_display_name="Tier 1 Support",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -348,6 +350,7 @@ class Definition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -364,6 +367,7 @@ class Definition(pulumi.CustomResource):
                 principal_display_name="Tier 1 Support",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

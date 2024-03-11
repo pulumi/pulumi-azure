@@ -206,6 +206,7 @@ class KubernetesFleetManager(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -218,6 +219,8 @@ class KubernetesFleetManager(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Blocks Reference
 
         ### `hub_profile` Block
@@ -239,11 +242,11 @@ class KubernetesFleetManager(pulumi.CustomResource):
         $ pulumi import azure:containerservice/kubernetesFleetManager:KubernetesFleetManager example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}
         ```
 
-         * Where `{subscriptionId}` is the ID of the Azure Subscription where the Kubernetes Fleet Manager exists. For example `12345678-1234-9876-4563-123456789012`.
+        * Where `{subscriptionId}` is the ID of the Azure Subscription where the Kubernetes Fleet Manager exists. For example `12345678-1234-9876-4563-123456789012`.
 
-         * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Fleet Manager exists. For example `example-resource-group`.
+        * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Fleet Manager exists. For example `example-resource-group`.
 
-         * Where `{fleetName}` is the name of the Fleet. For example `fleetValue`.
+        * Where `{fleetName}` is the name of the Fleet. For example `fleetValue`.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -266,6 +269,7 @@ class KubernetesFleetManager(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -278,6 +282,8 @@ class KubernetesFleetManager(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Blocks Reference
 
         ### `hub_profile` Block
@@ -299,11 +305,11 @@ class KubernetesFleetManager(pulumi.CustomResource):
         $ pulumi import azure:containerservice/kubernetesFleetManager:KubernetesFleetManager example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}
         ```
 
-         * Where `{subscriptionId}` is the ID of the Azure Subscription where the Kubernetes Fleet Manager exists. For example `12345678-1234-9876-4563-123456789012`.
+        * Where `{subscriptionId}` is the ID of the Azure Subscription where the Kubernetes Fleet Manager exists. For example `12345678-1234-9876-4563-123456789012`.
 
-         * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Fleet Manager exists. For example `example-resource-group`.
+        * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Fleet Manager exists. For example `example-resource-group`.
 
-         * Where `{fleetName}` is the name of the Fleet. For example `fleetValue`.
+        * Where `{fleetName}` is the name of the Fleet. For example `fleetValue`.
 
         :param str resource_name: The name of the resource.
         :param KubernetesFleetManagerArgs args: The arguments to use to populate this resource's properties.

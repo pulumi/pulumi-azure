@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * export const location = example.then(example => example.location);
  * export const clientId = example.then(example => example.clientId);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getHciCluster(args: GetHciClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetHciClusterResult> {
 
@@ -81,6 +83,7 @@ export interface GetHciClusterResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -93,6 +96,7 @@ export interface GetHciClusterResult {
  * export const location = example.then(example => example.location);
  * export const clientId = example.then(example => example.clientId);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getHciClusterOutput(args: GetHciClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHciClusterResult> {
     return pulumi.output(args).apply((a: any) => getHciCluster(a, opts))

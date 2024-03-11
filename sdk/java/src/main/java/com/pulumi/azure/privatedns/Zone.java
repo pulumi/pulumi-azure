@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Enables you to manage Private DNS zones within Azure DNS. These zones are hosted on Azure&#39;s name servers.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,6 +59,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

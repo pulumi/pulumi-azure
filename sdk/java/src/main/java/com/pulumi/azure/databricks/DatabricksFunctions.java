@@ -24,6 +24,8 @@ public final class DatabricksFunctions {
      * Use this data source to access information about an existing Databricks Access Connector.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -54,6 +56,7 @@ public final class DatabricksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccessConnectorResult> getAccessConnector(GetAccessConnectorArgs args) {
@@ -63,6 +66,8 @@ public final class DatabricksFunctions {
      * Use this data source to access information about an existing Databricks Access Connector.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -93,6 +98,7 @@ public final class DatabricksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccessConnectorResult> getAccessConnectorPlain(GetAccessConnectorPlainArgs args) {
@@ -102,6 +108,8 @@ public final class DatabricksFunctions {
      * Use this data source to access information about an existing Databricks Access Connector.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class DatabricksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccessConnectorResult> getAccessConnector(GetAccessConnectorArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class DatabricksFunctions {
      * Use this data source to access information about an existing Databricks Access Connector.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -171,6 +182,7 @@ public final class DatabricksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccessConnectorResult> getAccessConnectorPlain(GetAccessConnectorPlainArgs args, InvokeOptions options) {
@@ -180,6 +192,8 @@ public final class DatabricksFunctions {
      * Use this data source to access information about an existing Databricks workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -210,6 +224,7 @@ public final class DatabricksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
@@ -219,6 +234,8 @@ public final class DatabricksFunctions {
      * Use this data source to access information about an existing Databricks workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -249,6 +266,7 @@ public final class DatabricksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
@@ -258,6 +276,8 @@ public final class DatabricksFunctions {
      * Use this data source to access information about an existing Databricks workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -288,6 +308,7 @@ public final class DatabricksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
@@ -297,6 +318,8 @@ public final class DatabricksFunctions {
      * Use this data source to access information about an existing Databricks workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -327,6 +350,7 @@ public final class DatabricksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {
@@ -336,6 +360,8 @@ public final class DatabricksFunctions {
      * Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -366,6 +392,7 @@ public final class DatabricksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs args) {
@@ -375,6 +402,8 @@ public final class DatabricksFunctions {
      * Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -405,6 +434,7 @@ public final class DatabricksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnectionPlain(GetWorkspacePrivateEndpointConnectionPlainArgs args) {
@@ -414,6 +444,8 @@ public final class DatabricksFunctions {
      * Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -444,6 +476,7 @@ public final class DatabricksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs args, InvokeOptions options) {
@@ -453,6 +486,8 @@ public final class DatabricksFunctions {
      * Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -483,6 +518,7 @@ public final class DatabricksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnectionPlain(GetWorkspacePrivateEndpointConnectionPlainArgs args, InvokeOptions options) {

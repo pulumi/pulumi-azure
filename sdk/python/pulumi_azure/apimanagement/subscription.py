@@ -414,6 +414,7 @@ class Subscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -433,6 +434,7 @@ class Subscription(pulumi.CustomResource):
             product_id=example_get_product.id,
             display_name="Parser API")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -471,6 +473,7 @@ class Subscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -490,6 +493,7 @@ class Subscription(pulumi.CustomResource):
             product_id=example_get_product.id,
             display_name="Parser API")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

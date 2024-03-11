@@ -310,6 +310,7 @@ class EndpointServicebusTopic(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -348,6 +349,7 @@ class EndpointServicebusTopic(pulumi.CustomResource):
             name="example",
             connection_string=example_topic_authorization_rule.primary_connection_string)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -383,6 +385,7 @@ class EndpointServicebusTopic(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -421,6 +424,7 @@ class EndpointServicebusTopic(pulumi.CustomResource):
             name="example",
             connection_string=example_topic_authorization_rule.primary_connection_string)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

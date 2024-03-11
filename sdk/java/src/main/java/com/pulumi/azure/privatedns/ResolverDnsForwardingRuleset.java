@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Manages a Private DNS Resolver Dns Forwarding Ruleset.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -105,6 +107,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

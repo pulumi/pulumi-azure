@@ -775,8 +775,10 @@ class FunctionAppSlot(pulumi.CustomResource):
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.LinuxFunctionAppSlot` resources instead.
 
         ## Example Usage
+
         ### With App Service Plan)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -814,6 +816,7 @@ class FunctionAppSlot(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -865,8 +868,10 @@ class FunctionAppSlot(pulumi.CustomResource):
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.LinuxFunctionAppSlot` resources instead.
 
         ## Example Usage
+
         ### With App Service Plan)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -904,6 +909,7 @@ class FunctionAppSlot(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Backup
         /// <summary>
         /// Use this data source to access information about an existing VM Backup Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Azure.Backup
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPolicyVMResult> InvokeAsync(GetPolicyVMArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? new GetPolicyVMArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.Azure.Backup
         /// <summary>
         /// Use this data source to access information about an existing VM Backup Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Azure.Backup
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPolicyVMResult> Invoke(GetPolicyVMInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? new GetPolicyVMInvokeArgs(), options.WithDefaults());

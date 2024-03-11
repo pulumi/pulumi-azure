@@ -16,6 +16,7 @@ namespace Pulumi.Azure.ArcKubernetes
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,6 +53,7 @@ namespace Pulumi.Azure.ArcKubernetes
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **Note:** An extensive example on connecting the `azure.arckubernetes.Cluster` to an external kubernetes cluster can be found in the `./examples/arckubernetes` directory within the GitHub Repository.
     /// 

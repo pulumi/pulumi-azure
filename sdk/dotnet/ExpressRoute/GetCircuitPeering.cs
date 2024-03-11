@@ -14,9 +14,7 @@ namespace Pulumi.Azure.ExpressRoute
         /// <summary>
         /// Manages an ExpressRoute Circuit Peering.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCircuitPeeringResult> InvokeAsync(GetCircuitPeeringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCircuitPeeringResult>("azure:expressroute/getCircuitPeering:getCircuitPeering", args ?? new GetCircuitPeeringArgs(), options.WithDefaults());
@@ -24,9 +22,7 @@ namespace Pulumi.Azure.ExpressRoute
         /// <summary>
         /// Manages an ExpressRoute Circuit Peering.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCircuitPeeringResult> Invoke(GetCircuitPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCircuitPeeringResult>("azure:expressroute/getCircuitPeering:getCircuitPeering", args ?? new GetCircuitPeeringInvokeArgs(), options.WithDefaults());

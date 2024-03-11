@@ -24,6 +24,8 @@ public final class BillingFunctions {
      * Use this data source to access information about an existing Enrollment Account Billing Scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -54,6 +56,7 @@ public final class BillingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnrollmentAccountScopeResult> getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs args) {
@@ -63,6 +66,8 @@ public final class BillingFunctions {
      * Use this data source to access information about an existing Enrollment Account Billing Scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -93,6 +98,7 @@ public final class BillingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnrollmentAccountScopeResult> getEnrollmentAccountScopePlain(GetEnrollmentAccountScopePlainArgs args) {
@@ -102,6 +108,8 @@ public final class BillingFunctions {
      * Use this data source to access information about an existing Enrollment Account Billing Scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class BillingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnrollmentAccountScopeResult> getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class BillingFunctions {
      * Use this data source to access information about an existing Enrollment Account Billing Scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -171,6 +182,7 @@ public final class BillingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnrollmentAccountScopeResult> getEnrollmentAccountScopePlain(GetEnrollmentAccountScopePlainArgs args, InvokeOptions options) {
@@ -180,6 +192,8 @@ public final class BillingFunctions {
      * Use this data source to access an ID for your MCA Account billing scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -211,6 +225,7 @@ public final class BillingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMcaAccountScopeResult> getMcaAccountScope(GetMcaAccountScopeArgs args) {
@@ -220,6 +235,8 @@ public final class BillingFunctions {
      * Use this data source to access an ID for your MCA Account billing scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -251,6 +268,7 @@ public final class BillingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMcaAccountScopeResult> getMcaAccountScopePlain(GetMcaAccountScopePlainArgs args) {
@@ -260,6 +278,8 @@ public final class BillingFunctions {
      * Use this data source to access an ID for your MCA Account billing scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -291,6 +311,7 @@ public final class BillingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMcaAccountScopeResult> getMcaAccountScope(GetMcaAccountScopeArgs args, InvokeOptions options) {
@@ -300,6 +321,8 @@ public final class BillingFunctions {
      * Use this data source to access an ID for your MCA Account billing scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -331,6 +354,7 @@ public final class BillingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMcaAccountScopeResult> getMcaAccountScopePlain(GetMcaAccountScopePlainArgs args, InvokeOptions options) {
@@ -340,6 +364,8 @@ public final class BillingFunctions {
      * Use this data source to access an ID for your MPA Account billing scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -370,6 +396,7 @@ public final class BillingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMpaAccountScopeResult> getMpaAccountScope(GetMpaAccountScopeArgs args) {
@@ -379,6 +406,8 @@ public final class BillingFunctions {
      * Use this data source to access an ID for your MPA Account billing scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -409,6 +438,7 @@ public final class BillingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMpaAccountScopeResult> getMpaAccountScopePlain(GetMpaAccountScopePlainArgs args) {
@@ -418,6 +448,8 @@ public final class BillingFunctions {
      * Use this data source to access an ID for your MPA Account billing scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -448,6 +480,7 @@ public final class BillingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMpaAccountScopeResult> getMpaAccountScope(GetMpaAccountScopeArgs args, InvokeOptions options) {
@@ -457,6 +490,8 @@ public final class BillingFunctions {
      * Use this data source to access an ID for your MPA Account billing scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -487,6 +522,7 @@ public final class BillingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMpaAccountScopeResult> getMpaAccountScopePlain(GetMpaAccountScopePlainArgs args, InvokeOptions options) {

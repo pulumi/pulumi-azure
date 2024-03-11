@@ -227,6 +227,7 @@ def get_host_pool(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -234,6 +235,7 @@ def get_host_pool(name: Optional[str] = None,
     example = azure.desktopvirtualization.get_host_pool(name="example-pool",
         resource_group_name="example-resources")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Virtual Desktop Host Pool to retrieve.
@@ -273,6 +275,7 @@ def get_host_pool_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -280,6 +283,7 @@ def get_host_pool_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.desktopvirtualization.get_host_pool(name="example-pool",
         resource_group_name="example-resources")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Virtual Desktop Host Pool to retrieve.

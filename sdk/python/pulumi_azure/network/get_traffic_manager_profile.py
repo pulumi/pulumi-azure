@@ -160,6 +160,7 @@ def get_traffic_manager_profile(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -168,6 +169,7 @@ def get_traffic_manager_profile(name: Optional[str] = None,
         resource_group_name="test")
     pulumi.export("trafficRoutingMethod", example.traffic_routing_method)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Traffic Manager Profile.
@@ -207,6 +209,7 @@ def get_traffic_manager_profile_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -215,6 +218,7 @@ def get_traffic_manager_profile_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="test")
     pulumi.export("trafficRoutingMethod", example.traffic_routing_method)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Traffic Manager Profile.

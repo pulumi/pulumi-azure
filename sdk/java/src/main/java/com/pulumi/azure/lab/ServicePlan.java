@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Before using this resource, it&#39;s required to submit the request of registering the provider with Azure CLI `az provider register --namespace Microsoft.LabServices`.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -63,6 +65,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

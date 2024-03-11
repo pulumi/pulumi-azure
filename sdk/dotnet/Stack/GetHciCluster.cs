@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Stack
         /// <summary>
         /// Use this data source to access information about an existing Azure Stack HCI Cluster instance.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -40,8 +39,7 @@ namespace Pulumi.Azure.Stack
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetHciClusterResult> InvokeAsync(GetHciClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHciClusterResult>("azure:stack/getHciCluster:getHciCluster", args ?? new GetHciClusterArgs(), options.WithDefaults());
@@ -49,10 +47,9 @@ namespace Pulumi.Azure.Stack
         /// <summary>
         /// Use this data source to access information about an existing Azure Stack HCI Cluster instance.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -75,8 +72,7 @@ namespace Pulumi.Azure.Stack
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetHciClusterResult> Invoke(GetHciClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHciClusterResult>("azure:stack/getHciCluster:getHciCluster", args ?? new GetHciClusterInvokeArgs(), options.WithDefaults());

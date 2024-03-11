@@ -16,6 +16,7 @@ namespace Pulumi.Azure.DevTest
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -113,6 +114,7 @@ namespace Pulumi.Azure.DevTest
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -122,7 +124,7 @@ namespace Pulumi.Azure.DevTest
     /// $ pulumi import azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-rg/providers/Microsoft.DevTestLab/schedules/shutdown-computevm-SampleVM
     /// ```
     /// 
-    ///  The name of the resource within the `resource id` will always follow the format `shutdown-computevm-&lt;VM Name&gt;` where `&lt;VM Name&gt;` is replaced by the name of the target Virtual Machine
+    /// The name of the resource within the `resource id` will always follow the format `shutdown-computevm-&lt;VM Name&gt;` where `&lt;VM Name&gt;` is replaced by the name of the target Virtual Machine
     /// </summary>
     [AzureResourceType("azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule")]
     public partial class GlobalVMShutdownSchedule : global::Pulumi.CustomResource

@@ -5880,6 +5880,7 @@ type KubernetesClusterAciConnectorLinux struct {
 	//
 	// > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -5910,6 +5911,7 @@ type KubernetesClusterAciConnectorLinux struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	SubnetName string `pulumi:"subnetName"`
 }
 
@@ -5933,6 +5935,7 @@ type KubernetesClusterAciConnectorLinuxArgs struct {
 	//
 	// > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -5963,6 +5966,7 @@ type KubernetesClusterAciConnectorLinuxArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	SubnetName pulumi.StringInput `pulumi:"subnetName"`
 }
 
@@ -6056,6 +6060,7 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ConnectorIdentities() Kubernet
 //
 // > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -6089,6 +6094,7 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ConnectorIdentities() Kubernet
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o KubernetesClusterAciConnectorLinuxOutput) SubnetName() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterAciConnectorLinux) string { return v.SubnetName }).(pulumi.StringOutput)
 }
@@ -6133,6 +6139,7 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) ConnectorIdentities() Kuber
 //
 // > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -6166,6 +6173,7 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) ConnectorIdentities() Kuber
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o KubernetesClusterAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAciConnectorLinux) *string {
 		if v == nil {
@@ -13782,7 +13790,7 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
 	//
-	// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+	// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](<https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature>) for more information.
 	IpVersions []string `pulumi:"ipVersions"`
 	// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`. Changing this forces a new resource to be created.
 	LoadBalancerProfile *KubernetesClusterNetworkProfileLoadBalancerProfile `pulumi:"loadBalancerProfile"`
@@ -13856,7 +13864,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
 	//
-	// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+	// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](<https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature>) for more information.
 	IpVersions pulumi.StringArrayInput `pulumi:"ipVersions"`
 	// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`. Changing this forces a new resource to be created.
 	LoadBalancerProfile KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
@@ -14004,7 +14012,7 @@ func (o KubernetesClusterNetworkProfileOutput) EbpfDataPlane() pulumi.StringPtrO
 //
 // ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
 //
-// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](<https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature>) for more information.
 func (o KubernetesClusterNetworkProfileOutput) IpVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.IpVersions }).(pulumi.StringArrayOutput)
 }
@@ -14155,7 +14163,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) EbpfDataPlane() pulumi.StringP
 //
 // ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
 //
-// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](<https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature>) for more information.
 func (o KubernetesClusterNetworkProfilePtrOutput) IpVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
 		if v == nil {
@@ -14308,7 +14316,7 @@ type KubernetesClusterNetworkProfileLoadBalancerProfile struct {
 	ManagedOutboundIpCount *int `pulumi:"managedOutboundIpCount"`
 	// The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
 	//
-	// > **Note:** `managedOutboundIpv6Count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+	// > **Note:** `managedOutboundIpv6Count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](<https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature>) for more information.
 	ManagedOutboundIpv6Count *int `pulumi:"managedOutboundIpv6Count"`
 	// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
 	//
@@ -14342,7 +14350,7 @@ type KubernetesClusterNetworkProfileLoadBalancerProfileArgs struct {
 	ManagedOutboundIpCount pulumi.IntPtrInput `pulumi:"managedOutboundIpCount"`
 	// The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
 	//
-	// > **Note:** `managedOutboundIpv6Count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+	// > **Note:** `managedOutboundIpv6Count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](<https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature>) for more information.
 	ManagedOutboundIpv6Count pulumi.IntPtrInput `pulumi:"managedOutboundIpv6Count"`
 	// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
 	//
@@ -14450,7 +14458,7 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ManagedOutboun
 
 // The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
 //
-// > **Note:** `managedOutboundIpv6Count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+// > **Note:** `managedOutboundIpv6Count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](<https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature>) for more information.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ManagedOutboundIpv6Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.ManagedOutboundIpv6Count }).(pulumi.IntPtrOutput)
 }
@@ -14530,7 +14538,7 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ManagedOutb
 
 // The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
 //
-// > **Note:** `managedOutboundIpv6Count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+// > **Note:** `managedOutboundIpv6Count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](<https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature>) for more information.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ManagedOutboundIpv6Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfileLoadBalancerProfile) *int {
 		if v == nil {

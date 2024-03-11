@@ -234,6 +234,7 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -287,6 +288,7 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
             next_hop_type="ResourceId",
             next_hop=example_virtual_hub_connection.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -318,6 +320,7 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -371,6 +374,7 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
             next_hop_type="ResourceId",
             next_hop=example_virtual_hub_connection.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

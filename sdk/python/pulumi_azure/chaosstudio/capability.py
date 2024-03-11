@@ -118,6 +118,7 @@ class Capability(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -146,6 +147,7 @@ class Capability(pulumi.CustomResource):
             capability_type="example-value",
             chaos_studio_target_id=example_target.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -155,11 +157,11 @@ class Capability(pulumi.CustomResource):
         $ pulumi import azure:chaosstudio/capability:Capability example /{scope}/providers/Microsoft.Chaos/targets/{targetName}/capabilities/{capabilityName}
         ```
 
-         * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
+        * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
 
-         * Where `{targetName}` is the name of the Target. For example `targetValue`.
+        * Where `{targetName}` is the name of the Target. For example `targetValue`.
 
-         * Where `{capabilityName}` is the name of the Capability. For example `capabilityName`.
+        * Where `{capabilityName}` is the name of the Capability. For example `capabilityName`.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,6 +179,7 @@ class Capability(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -205,6 +208,7 @@ class Capability(pulumi.CustomResource):
             capability_type="example-value",
             chaos_studio_target_id=example_target.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -214,11 +218,11 @@ class Capability(pulumi.CustomResource):
         $ pulumi import azure:chaosstudio/capability:Capability example /{scope}/providers/Microsoft.Chaos/targets/{targetName}/capabilities/{capabilityName}
         ```
 
-         * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
+        * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
 
-         * Where `{targetName}` is the name of the Target. For example `targetValue`.
+        * Where `{targetName}` is the name of the Target. For example `targetValue`.
 
-         * Where `{capabilityName}` is the name of the Capability. For example `capabilityName`.
+        * Where `{capabilityName}` is the name of the Capability. For example `capabilityName`.
 
         :param str resource_name: The name of the resource.
         :param CapabilityArgs args: The arguments to use to populate this resource's properties.

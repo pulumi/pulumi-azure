@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupSharedImageGallery(ctx *pulumi.Context, args *LookupSharedImageGalleryArgs, opts ...pulumi.InvokeOption) (*LookupSharedImageGalleryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSharedImageGalleryResult

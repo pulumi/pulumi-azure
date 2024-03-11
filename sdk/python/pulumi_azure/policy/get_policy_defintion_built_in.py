@@ -176,6 +176,7 @@ def get_policy_defintion_built_in(display_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -183,6 +184,7 @@ def get_policy_defintion_built_in(display_name: Optional[str] = None,
     example = azure.policy.get_policy_defintion_built_in(display_name="Allowed resource types")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: Specifies the display name of the Policy Definition. Conflicts with `name`.
@@ -223,6 +225,7 @@ def get_policy_defintion_built_in_output(display_name: Optional[pulumi.Input[Opt
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -230,6 +233,7 @@ def get_policy_defintion_built_in_output(display_name: Optional[pulumi.Input[Opt
     example = azure.policy.get_policy_defintion_built_in(display_name="Allowed resource types")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: Specifies the display name of the Policy Definition. Conflicts with `name`.

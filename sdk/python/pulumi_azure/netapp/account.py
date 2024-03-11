@@ -239,6 +239,7 @@ class Account(pulumi.CustomResource):
 
         ## NetApp Account Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -268,6 +269,7 @@ class Account(pulumi.CustomResource):
                 identity_ids=[example_user_assigned_identity.id],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -299,6 +301,7 @@ class Account(pulumi.CustomResource):
 
         ## NetApp Account Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -328,6 +331,7 @@ class Account(pulumi.CustomResource):
                 identity_ids=[example_user_assigned_identity.id],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

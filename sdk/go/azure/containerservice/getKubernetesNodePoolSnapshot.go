@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetKubernetesNodePoolSnapshot(ctx *pulumi.Context, args *GetKubernetesNodePoolSnapshotArgs, opts ...pulumi.InvokeOption) (*GetKubernetesNodePoolSnapshotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetKubernetesNodePoolSnapshotResult

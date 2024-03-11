@@ -15,8 +15,10 @@ import (
 // Manages a Pim Active Role Assignment.
 //
 // ## Example Usage
+//
 // ### Subscription)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,8 +78,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Management Group)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -138,6 +143,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

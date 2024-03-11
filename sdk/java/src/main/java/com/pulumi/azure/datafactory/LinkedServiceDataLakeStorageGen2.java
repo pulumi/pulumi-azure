@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,6 +74,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

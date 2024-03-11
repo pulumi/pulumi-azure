@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azure&#39;s name servers to which you can delegate the zone from the parent domain.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,6 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

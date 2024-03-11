@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Media.Inputs
     public sealed class TransformOutputCustomPresetCodecJpgImageLayerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        /// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
         /// </summary>
         [Input("height")]
         public Input<string>? Height { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Media.Inputs
         public Input<int>? Quality { get; set; }
 
         /// <summary>
-        /// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        /// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
         /// </summary>
         [Input("width")]
         public Input<string>? Width { get; set; }

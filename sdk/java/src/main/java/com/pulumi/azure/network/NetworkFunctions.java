@@ -111,6 +111,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Application Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -141,6 +143,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationGatewayResult> getApplicationGateway(GetApplicationGatewayArgs args) {
@@ -150,6 +153,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Application Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -180,6 +185,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationGatewayResult> getApplicationGatewayPlain(GetApplicationGatewayPlainArgs args) {
@@ -189,6 +195,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Application Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -219,6 +227,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationGatewayResult> getApplicationGateway(GetApplicationGatewayArgs args, InvokeOptions options) {
@@ -228,6 +237,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Application Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -258,6 +269,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationGatewayResult> getApplicationGatewayPlain(GetApplicationGatewayPlainArgs args, InvokeOptions options) {
@@ -267,6 +279,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Application Security Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -297,6 +311,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationSecurityGroupResult> getApplicationSecurityGroup(GetApplicationSecurityGroupArgs args) {
@@ -306,6 +321,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Application Security Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -336,6 +353,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationSecurityGroupResult> getApplicationSecurityGroupPlain(GetApplicationSecurityGroupPlainArgs args) {
@@ -345,6 +363,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Application Security Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -375,6 +395,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationSecurityGroupResult> getApplicationSecurityGroup(GetApplicationSecurityGroupArgs args, InvokeOptions options) {
@@ -384,6 +405,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Application Security Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -414,6 +437,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationSecurityGroupResult> getApplicationSecurityGroupPlain(GetApplicationSecurityGroupPlainArgs args, InvokeOptions options) {
@@ -423,6 +447,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing ExpressRoute circuit.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -454,6 +480,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExpressRouteCircuitResult> getExpressRouteCircuit(GetExpressRouteCircuitArgs args) {
@@ -463,6 +490,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing ExpressRoute circuit.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -494,6 +523,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExpressRouteCircuitResult> getExpressRouteCircuitPlain(GetExpressRouteCircuitPlainArgs args) {
@@ -503,6 +533,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing ExpressRoute circuit.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -534,6 +566,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExpressRouteCircuitResult> getExpressRouteCircuit(GetExpressRouteCircuitArgs args, InvokeOptions options) {
@@ -543,6 +576,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing ExpressRoute circuit.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -574,6 +609,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExpressRouteCircuitResult> getExpressRouteCircuitPlain(GetExpressRouteCircuitPlainArgs args, InvokeOptions options) {
@@ -583,6 +619,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Azure Firewall.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -613,6 +651,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFirewallResult> getFirewall(GetFirewallArgs args) {
@@ -622,6 +661,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Azure Firewall.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -652,6 +693,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFirewallResult> getFirewallPlain(GetFirewallPlainArgs args) {
@@ -661,6 +703,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Azure Firewall.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -691,6 +735,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFirewallResult> getFirewall(GetFirewallArgs args, InvokeOptions options) {
@@ -700,6 +745,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Azure Firewall.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -730,6 +777,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFirewallResult> getFirewallPlain(GetFirewallPlainArgs args, InvokeOptions options) {
@@ -739,6 +787,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Firewall Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -769,6 +819,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFirewallPolicyResult> getFirewallPolicy(GetFirewallPolicyArgs args) {
@@ -778,6 +829,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Firewall Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -808,6 +861,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFirewallPolicyResult> getFirewallPolicyPlain(GetFirewallPolicyPlainArgs args) {
@@ -817,6 +871,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Firewall Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -847,6 +903,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFirewallPolicyResult> getFirewallPolicy(GetFirewallPolicyArgs args, InvokeOptions options) {
@@ -856,6 +913,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Firewall Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -886,6 +945,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFirewallPolicyResult> getFirewallPolicyPlain(GetFirewallPolicyPlainArgs args, InvokeOptions options) {
@@ -895,6 +955,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Virtual Network Gateway Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -925,6 +987,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGatewayConnectionResult> getGatewayConnection(GetGatewayConnectionArgs args) {
@@ -934,6 +997,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Virtual Network Gateway Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -964,6 +1029,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGatewayConnectionResult> getGatewayConnectionPlain(GetGatewayConnectionPlainArgs args) {
@@ -973,6 +1039,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Virtual Network Gateway Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1003,6 +1071,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGatewayConnectionResult> getGatewayConnection(GetGatewayConnectionArgs args, InvokeOptions options) {
@@ -1012,6 +1081,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Virtual Network Gateway Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1042,6 +1113,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGatewayConnectionResult> getGatewayConnectionPlain(GetGatewayConnectionPlainArgs args, InvokeOptions options) {
@@ -1051,6 +1123,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing IP Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1081,6 +1155,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpGroupResult> getIpGroup(GetIpGroupArgs args) {
@@ -1090,6 +1165,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing IP Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1120,6 +1197,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpGroupResult> getIpGroupPlain(GetIpGroupPlainArgs args) {
@@ -1129,6 +1207,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing IP Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1159,6 +1239,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpGroupResult> getIpGroup(GetIpGroupArgs args, InvokeOptions options) {
@@ -1168,6 +1249,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing IP Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1198,6 +1281,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpGroupResult> getIpGroupPlain(GetIpGroupPlainArgs args, InvokeOptions options) {
@@ -1207,6 +1291,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about existing IP Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1237,6 +1323,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpGroupsResult> getIpGroups(GetIpGroupsArgs args) {
@@ -1246,6 +1333,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about existing IP Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1276,6 +1365,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpGroupsResult> getIpGroupsPlain(GetIpGroupsPlainArgs args) {
@@ -1285,6 +1375,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about existing IP Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1315,6 +1407,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpGroupsResult> getIpGroups(GetIpGroupsArgs args, InvokeOptions options) {
@@ -1324,6 +1417,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about existing IP Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1354,6 +1449,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpGroupsResult> getIpGroupsPlain(GetIpGroupsPlainArgs args, InvokeOptions options) {
@@ -1363,6 +1459,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Local Network Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1393,6 +1491,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalNetworkGatewayResult> getLocalNetworkGateway(GetLocalNetworkGatewayArgs args) {
@@ -1402,6 +1501,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Local Network Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1432,6 +1533,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalNetworkGatewayResult> getLocalNetworkGatewayPlain(GetLocalNetworkGatewayPlainArgs args) {
@@ -1441,6 +1543,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Local Network Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1471,6 +1575,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalNetworkGatewayResult> getLocalNetworkGateway(GetLocalNetworkGatewayArgs args, InvokeOptions options) {
@@ -1480,6 +1585,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Local Network Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1510,6 +1617,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalNetworkGatewayResult> getLocalNetworkGatewayPlain(GetLocalNetworkGatewayPlainArgs args, InvokeOptions options) {
@@ -1547,6 +1655,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Azure Network DDoS Protection Plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1577,6 +1687,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkDdosProtectionPlanResult> getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs args) {
@@ -1586,6 +1697,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Azure Network DDoS Protection Plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1616,6 +1729,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkDdosProtectionPlanResult> getNetworkDdosProtectionPlanPlain(GetNetworkDdosProtectionPlanPlainArgs args) {
@@ -1625,6 +1739,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Azure Network DDoS Protection Plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1655,6 +1771,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkDdosProtectionPlanResult> getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs args, InvokeOptions options) {
@@ -1664,6 +1781,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Azure Network DDoS Protection Plan.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1694,6 +1813,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkDdosProtectionPlanResult> getNetworkDdosProtectionPlanPlain(GetNetworkDdosProtectionPlanPlainArgs args, InvokeOptions options) {
@@ -1703,6 +1823,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Network Interface.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1733,6 +1855,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkInterfaceResult> getNetworkInterface(GetNetworkInterfaceArgs args) {
@@ -1742,6 +1865,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Network Interface.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1772,6 +1897,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkInterfaceResult> getNetworkInterfacePlain(GetNetworkInterfacePlainArgs args) {
@@ -1781,6 +1907,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Network Interface.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1811,6 +1939,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkInterfaceResult> getNetworkInterface(GetNetworkInterfaceArgs args, InvokeOptions options) {
@@ -1820,6 +1949,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Network Interface.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1850,6 +1981,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkInterfaceResult> getNetworkInterfacePlain(GetNetworkInterfacePlainArgs args, InvokeOptions options) {
@@ -1859,6 +1991,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about a Network Manager.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1915,6 +2049,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkManagerResult> getNetworkManager(GetNetworkManagerArgs args) {
@@ -1924,6 +2059,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about a Network Manager.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1980,6 +2117,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkManagerResult> getNetworkManagerPlain(GetNetworkManagerPlainArgs args) {
@@ -1989,6 +2127,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about a Network Manager.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2045,6 +2185,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkManagerResult> getNetworkManager(GetNetworkManagerArgs args, InvokeOptions options) {
@@ -2054,6 +2195,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about a Network Manager.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2110,6 +2253,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkManagerResult> getNetworkManagerPlain(GetNetworkManagerPlainArgs args, InvokeOptions options) {
@@ -2119,6 +2263,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about a Network Manager Network Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2182,6 +2328,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkManagerNetworkGroupResult> getNetworkManagerNetworkGroup(GetNetworkManagerNetworkGroupArgs args) {
@@ -2191,6 +2338,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about a Network Manager Network Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2254,6 +2403,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkManagerNetworkGroupResult> getNetworkManagerNetworkGroupPlain(GetNetworkManagerNetworkGroupPlainArgs args) {
@@ -2263,6 +2413,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about a Network Manager Network Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2326,6 +2478,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkManagerNetworkGroupResult> getNetworkManagerNetworkGroup(GetNetworkManagerNetworkGroupArgs args, InvokeOptions options) {
@@ -2335,6 +2488,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about a Network Manager Network Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2398,6 +2553,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkManagerNetworkGroupResult> getNetworkManagerNetworkGroupPlain(GetNetworkManagerNetworkGroupPlainArgs args, InvokeOptions options) {
@@ -2407,6 +2563,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Network Security Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2437,6 +2595,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkSecurityGroupResult> getNetworkSecurityGroup(GetNetworkSecurityGroupArgs args) {
@@ -2446,6 +2605,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Network Security Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2476,6 +2637,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkSecurityGroupResult> getNetworkSecurityGroupPlain(GetNetworkSecurityGroupPlainArgs args) {
@@ -2485,6 +2647,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Network Security Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2515,6 +2679,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkSecurityGroupResult> getNetworkSecurityGroup(GetNetworkSecurityGroupArgs args, InvokeOptions options) {
@@ -2524,6 +2689,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Network Security Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2554,6 +2721,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkSecurityGroupResult> getNetworkSecurityGroupPlain(GetNetworkSecurityGroupPlainArgs args, InvokeOptions options) {
@@ -2563,6 +2731,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Network Watcher.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2593,6 +2763,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkWatcherResult> getNetworkWatcher(GetNetworkWatcherArgs args) {
@@ -2602,6 +2773,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Network Watcher.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2632,6 +2805,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkWatcherResult> getNetworkWatcherPlain(GetNetworkWatcherPlainArgs args) {
@@ -2641,6 +2815,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Network Watcher.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2671,6 +2847,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworkWatcherResult> getNetworkWatcher(GetNetworkWatcherArgs args, InvokeOptions options) {
@@ -2680,6 +2857,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Network Watcher.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2710,6 +2889,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworkWatcherResult> getNetworkWatcherPlain(GetNetworkWatcherPlainArgs args, InvokeOptions options) {
@@ -2719,7 +2899,10 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Public IP Address.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2751,7 +2934,11 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieve The Dynamic Public IP Of A New VM)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2843,6 +3030,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPublicIPResult> getPublicIP(GetPublicIPArgs args) {
@@ -2852,7 +3040,10 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Public IP Address.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2884,7 +3075,11 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieve The Dynamic Public IP Of A New VM)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2976,6 +3171,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPublicIPResult> getPublicIPPlain(GetPublicIPPlainArgs args) {
@@ -2985,7 +3181,10 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Public IP Address.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3017,7 +3216,11 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieve The Dynamic Public IP Of A New VM)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3109,6 +3312,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPublicIPResult> getPublicIP(GetPublicIPArgs args, InvokeOptions options) {
@@ -3118,7 +3322,10 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Public IP Address.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3150,7 +3357,11 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieve The Dynamic Public IP Of A New VM)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3242,6 +3453,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPublicIPResult> getPublicIPPlain(GetPublicIPPlainArgs args, InvokeOptions options) {
@@ -3251,6 +3463,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about a set of existing Public IP Addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3280,6 +3494,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPublicIPsResult> getPublicIPs(GetPublicIPsArgs args) {
@@ -3289,6 +3504,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about a set of existing Public IP Addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3318,6 +3535,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPublicIPsResult> getPublicIPsPlain(GetPublicIPsPlainArgs args) {
@@ -3327,6 +3545,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about a set of existing Public IP Addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3356,6 +3576,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPublicIPsResult> getPublicIPs(GetPublicIPsArgs args, InvokeOptions options) {
@@ -3365,6 +3586,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about a set of existing Public IP Addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3394,6 +3617,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPublicIPsResult> getPublicIPsPlain(GetPublicIPsPlainArgs args, InvokeOptions options) {
@@ -3403,7 +3627,10 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Public IP Prefix.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3434,6 +3661,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPublicIpPrefixResult> getPublicIpPrefix(GetPublicIpPrefixArgs args) {
@@ -3443,7 +3671,10 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Public IP Prefix.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3474,6 +3705,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPublicIpPrefixResult> getPublicIpPrefixPlain(GetPublicIpPrefixPlainArgs args) {
@@ -3483,7 +3715,10 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Public IP Prefix.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3514,6 +3749,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPublicIpPrefixResult> getPublicIpPrefix(GetPublicIpPrefixArgs args, InvokeOptions options) {
@@ -3523,7 +3759,10 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Public IP Prefix.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3554,6 +3793,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPublicIpPrefixResult> getPublicIpPrefixPlain(GetPublicIpPrefixPlainArgs args, InvokeOptions options) {
@@ -3563,6 +3803,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Route Filter.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3593,6 +3835,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouteFilterResult> getRouteFilter(GetRouteFilterArgs args) {
@@ -3602,6 +3845,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Route Filter.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3632,6 +3877,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteFilterResult> getRouteFilterPlain(GetRouteFilterPlainArgs args) {
@@ -3641,6 +3887,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Route Filter.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3671,6 +3919,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouteFilterResult> getRouteFilter(GetRouteFilterArgs args, InvokeOptions options) {
@@ -3680,6 +3929,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Route Filter.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3710,6 +3961,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteFilterResult> getRouteFilterPlain(GetRouteFilterPlainArgs args, InvokeOptions options) {
@@ -3719,6 +3971,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Route Table.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3748,6 +4002,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouteTableResult> getRouteTable(GetRouteTableArgs args) {
@@ -3757,6 +4012,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Route Table.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3786,6 +4043,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteTableResult> getRouteTablePlain(GetRouteTablePlainArgs args) {
@@ -3795,6 +4053,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Route Table.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3824,6 +4084,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouteTableResult> getRouteTable(GetRouteTableArgs args, InvokeOptions options) {
@@ -3833,6 +4094,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Route Table.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3862,6 +4125,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteTableResult> getRouteTablePlain(GetRouteTablePlainArgs args, InvokeOptions options) {
@@ -3871,6 +4135,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about Service Tags.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3903,6 +4169,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceTagsResult> getServiceTags(GetServiceTagsArgs args) {
@@ -3912,6 +4179,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about Service Tags.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3944,6 +4213,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceTagsResult> getServiceTagsPlain(GetServiceTagsPlainArgs args) {
@@ -3953,6 +4223,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about Service Tags.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3985,6 +4257,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceTagsResult> getServiceTags(GetServiceTagsArgs args, InvokeOptions options) {
@@ -3994,6 +4267,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about Service Tags.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4026,6 +4301,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceTagsResult> getServiceTagsPlain(GetServiceTagsPlainArgs args, InvokeOptions options) {
@@ -4035,6 +4311,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Subnet within a Virtual Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4066,6 +4344,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubnetResult> getSubnet(GetSubnetArgs args) {
@@ -4075,6 +4354,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Subnet within a Virtual Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4106,6 +4387,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubnetResult> getSubnetPlain(GetSubnetPlainArgs args) {
@@ -4115,6 +4397,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Subnet within a Virtual Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4146,6 +4430,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubnetResult> getSubnet(GetSubnetArgs args, InvokeOptions options) {
@@ -4155,6 +4440,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Subnet within a Virtual Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4186,6 +4473,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubnetResult> getSubnetPlain(GetSubnetPlainArgs args, InvokeOptions options) {
@@ -4195,7 +4483,10 @@ public final class NetworkFunctions {
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
      * ## Example Usage
+     * 
      * ### World)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4225,6 +4516,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrafficManagerResult> getTrafficManager(GetTrafficManagerArgs args) {
@@ -4234,7 +4526,10 @@ public final class NetworkFunctions {
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
      * ## Example Usage
+     * 
      * ### World)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4264,6 +4559,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrafficManagerResult> getTrafficManagerPlain(GetTrafficManagerPlainArgs args) {
@@ -4273,7 +4569,10 @@ public final class NetworkFunctions {
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
      * ## Example Usage
+     * 
      * ### World)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4303,6 +4602,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrafficManagerResult> getTrafficManager(GetTrafficManagerArgs args, InvokeOptions options) {
@@ -4312,7 +4612,10 @@ public final class NetworkFunctions {
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
      * ## Example Usage
+     * 
      * ### World)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4342,6 +4645,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrafficManagerResult> getTrafficManagerPlain(GetTrafficManagerPlainArgs args, InvokeOptions options) {
@@ -4351,6 +4655,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Traffic Manager Profile.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4381,6 +4687,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrafficManagerProfileResult> getTrafficManagerProfile(GetTrafficManagerProfileArgs args) {
@@ -4390,6 +4697,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Traffic Manager Profile.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4420,6 +4729,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrafficManagerProfileResult> getTrafficManagerProfilePlain(GetTrafficManagerProfilePlainArgs args) {
@@ -4429,6 +4739,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Traffic Manager Profile.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4459,6 +4771,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrafficManagerProfileResult> getTrafficManagerProfile(GetTrafficManagerProfileArgs args, InvokeOptions options) {
@@ -4468,6 +4781,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Traffic Manager Profile.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4498,6 +4813,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrafficManagerProfileResult> getTrafficManagerProfilePlain(GetTrafficManagerProfilePlainArgs args, InvokeOptions options) {
@@ -4507,6 +4823,8 @@ public final class NetworkFunctions {
      * Uses this data source to access information about an existing Virtual Hub.
      * 
      * ## Virtual Hub Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4537,6 +4855,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualHubResult> getVirtualHub(GetVirtualHubArgs args) {
@@ -4546,6 +4865,8 @@ public final class NetworkFunctions {
      * Uses this data source to access information about an existing Virtual Hub.
      * 
      * ## Virtual Hub Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4576,6 +4897,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualHubResult> getVirtualHubPlain(GetVirtualHubPlainArgs args) {
@@ -4585,6 +4907,8 @@ public final class NetworkFunctions {
      * Uses this data source to access information about an existing Virtual Hub.
      * 
      * ## Virtual Hub Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4615,6 +4939,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualHubResult> getVirtualHub(GetVirtualHubArgs args, InvokeOptions options) {
@@ -4624,6 +4949,8 @@ public final class NetworkFunctions {
      * Uses this data source to access information about an existing Virtual Hub.
      * 
      * ## Virtual Hub Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4654,6 +4981,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualHubResult> getVirtualHubPlain(GetVirtualHubPlainArgs args, InvokeOptions options) {
@@ -4663,6 +4991,8 @@ public final class NetworkFunctions {
      * Uses this data source to access information about an existing Virtual Hub Connection.
      * 
      * ## Virtual Hub Connection Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4694,6 +5024,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualHubConnectionResult> getVirtualHubConnection(GetVirtualHubConnectionArgs args) {
@@ -4703,6 +5034,8 @@ public final class NetworkFunctions {
      * Uses this data source to access information about an existing Virtual Hub Connection.
      * 
      * ## Virtual Hub Connection Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4734,6 +5067,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualHubConnectionResult> getVirtualHubConnectionPlain(GetVirtualHubConnectionPlainArgs args) {
@@ -4743,6 +5077,8 @@ public final class NetworkFunctions {
      * Uses this data source to access information about an existing Virtual Hub Connection.
      * 
      * ## Virtual Hub Connection Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4774,6 +5110,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualHubConnectionResult> getVirtualHubConnection(GetVirtualHubConnectionArgs args, InvokeOptions options) {
@@ -4783,6 +5120,8 @@ public final class NetworkFunctions {
      * Uses this data source to access information about an existing Virtual Hub Connection.
      * 
      * ## Virtual Hub Connection Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4814,6 +5153,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualHubConnectionResult> getVirtualHubConnectionPlain(GetVirtualHubConnectionPlainArgs args, InvokeOptions options) {
@@ -4823,6 +5163,8 @@ public final class NetworkFunctions {
      * Uses this data source to access information about an existing Virtual Hub Route Table.
      * 
      * ## Virtual Hub Route Table Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4854,6 +5196,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualHubRouteTableResult> getVirtualHubRouteTable(GetVirtualHubRouteTableArgs args) {
@@ -4863,6 +5206,8 @@ public final class NetworkFunctions {
      * Uses this data source to access information about an existing Virtual Hub Route Table.
      * 
      * ## Virtual Hub Route Table Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4894,6 +5239,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualHubRouteTableResult> getVirtualHubRouteTablePlain(GetVirtualHubRouteTablePlainArgs args) {
@@ -4903,6 +5249,8 @@ public final class NetworkFunctions {
      * Uses this data source to access information about an existing Virtual Hub Route Table.
      * 
      * ## Virtual Hub Route Table Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4934,6 +5282,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualHubRouteTableResult> getVirtualHubRouteTable(GetVirtualHubRouteTableArgs args, InvokeOptions options) {
@@ -4943,6 +5292,8 @@ public final class NetworkFunctions {
      * Uses this data source to access information about an existing Virtual Hub Route Table.
      * 
      * ## Virtual Hub Route Table Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4974,6 +5325,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualHubRouteTableResult> getVirtualHubRouteTablePlain(GetVirtualHubRouteTablePlainArgs args, InvokeOptions options) {
@@ -4983,6 +5335,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Virtual Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5013,6 +5367,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args) {
@@ -5022,6 +5377,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Virtual Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5052,6 +5409,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualNetworkResult> getVirtualNetworkPlain(GetVirtualNetworkPlainArgs args) {
@@ -5061,6 +5419,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Virtual Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5091,6 +5451,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args, InvokeOptions options) {
@@ -5100,6 +5461,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Virtual Network.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5130,6 +5493,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualNetworkResult> getVirtualNetworkPlain(GetVirtualNetworkPlainArgs args, InvokeOptions options) {
@@ -5139,6 +5503,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Virtual Network Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5169,6 +5535,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualNetworkGatewayResult> getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs args) {
@@ -5178,6 +5545,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Virtual Network Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5208,6 +5577,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualNetworkGatewayResult> getVirtualNetworkGatewayPlain(GetVirtualNetworkGatewayPlainArgs args) {
@@ -5217,6 +5587,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Virtual Network Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5247,6 +5619,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualNetworkGatewayResult> getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs args, InvokeOptions options) {
@@ -5256,6 +5629,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing Virtual Network Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5286,6 +5661,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualNetworkGatewayResult> getVirtualNetworkGatewayPlain(GetVirtualNetworkGatewayPlainArgs args, InvokeOptions options) {
@@ -5323,6 +5699,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing VPN Gateway within a Virtual Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5353,6 +5731,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpnGatewayResult> getVpnGateway(GetVpnGatewayArgs args) {
@@ -5362,6 +5741,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing VPN Gateway within a Virtual Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5392,6 +5773,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpnGatewayResult> getVpnGatewayPlain(GetVpnGatewayPlainArgs args) {
@@ -5401,6 +5783,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing VPN Gateway within a Virtual Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5431,6 +5815,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpnGatewayResult> getVpnGateway(GetVpnGatewayArgs args, InvokeOptions options) {
@@ -5440,6 +5825,8 @@ public final class NetworkFunctions {
      * Use this data source to access information about an existing VPN Gateway within a Virtual Hub.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5470,6 +5857,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpnGatewayResult> getVpnGatewayPlain(GetVpnGatewayPlainArgs args, InvokeOptions options) {

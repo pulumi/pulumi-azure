@@ -366,6 +366,7 @@ class GalleryApplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -383,6 +384,7 @@ class GalleryApplication(pulumi.CustomResource):
             location=example.location,
             supported_os_type="Linux")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -416,6 +418,7 @@ class GalleryApplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -433,6 +436,7 @@ class GalleryApplication(pulumi.CustomResource):
             location=example.location,
             supported_os_type="Linux")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

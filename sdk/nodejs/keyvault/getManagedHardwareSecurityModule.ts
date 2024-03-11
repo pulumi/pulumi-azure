@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  * });
  * export const hsmUri = example.then(example => example.hsmUri);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getManagedHardwareSecurityModule(args: GetManagedHardwareSecurityModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedHardwareSecurityModuleResult> {
 
@@ -91,6 +93,7 @@ export interface GetManagedHardwareSecurityModuleResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -101,6 +104,7 @@ export interface GetManagedHardwareSecurityModuleResult {
  * });
  * export const hsmUri = example.then(example => example.hsmUri);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getManagedHardwareSecurityModuleOutput(args: GetManagedHardwareSecurityModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedHardwareSecurityModuleResult> {
     return pulumi.output(args).apply((a: any) => getManagedHardwareSecurityModule(a, opts))

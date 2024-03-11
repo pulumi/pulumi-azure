@@ -406,6 +406,7 @@ class GroupPolicyRemediation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -427,6 +428,7 @@ class GroupPolicyRemediation(pulumi.CustomResource):
             management_group_id=example_group.id,
             policy_assignment_id=example_group_policy_assignment.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -464,6 +466,7 @@ class GroupPolicyRemediation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -485,6 +488,7 @@ class GroupPolicyRemediation(pulumi.CustomResource):
             management_group_id=example_group.id,
             policy_assignment_id=example_group_policy_assignment.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

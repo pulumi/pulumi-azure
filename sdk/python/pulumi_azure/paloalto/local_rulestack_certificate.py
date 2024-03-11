@@ -243,6 +243,7 @@ class LocalRulestackCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -259,6 +260,7 @@ class LocalRulestackCertificate(pulumi.CustomResource):
             rulestack_id=example_local_rulestack.id,
             self_signed=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -290,6 +292,7 @@ class LocalRulestackCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -306,6 +309,7 @@ class LocalRulestackCertificate(pulumi.CustomResource):
             rulestack_id=example_local_rulestack.id,
             self_signed=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

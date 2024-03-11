@@ -275,6 +275,7 @@ class JobSchedule(pulumi.CustomResource):
 
         This is an example of just the Job Schedule.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -289,6 +290,7 @@ class JobSchedule(pulumi.CustomResource):
                 "vmname": "TF-VM-01",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -323,6 +325,7 @@ class JobSchedule(pulumi.CustomResource):
 
         This is an example of just the Job Schedule.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -337,6 +340,7 @@ class JobSchedule(pulumi.CustomResource):
                 "vmname": "TF-VM-01",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

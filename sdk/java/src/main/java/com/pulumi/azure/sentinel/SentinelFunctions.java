@@ -24,6 +24,8 @@ public final class SentinelFunctions {
      * Use this data source to access information about an existing Sentinel Alert Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -61,6 +63,7 @@ public final class SentinelFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAlertRuleResult> getAlertRule(GetAlertRuleArgs args) {
@@ -70,6 +73,8 @@ public final class SentinelFunctions {
      * Use this data source to access information about an existing Sentinel Alert Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -107,6 +112,7 @@ public final class SentinelFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAlertRuleResult> getAlertRulePlain(GetAlertRulePlainArgs args) {
@@ -116,6 +122,8 @@ public final class SentinelFunctions {
      * Use this data source to access information about an existing Sentinel Alert Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -153,6 +161,7 @@ public final class SentinelFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAlertRuleResult> getAlertRule(GetAlertRuleArgs args, InvokeOptions options) {
@@ -162,6 +171,8 @@ public final class SentinelFunctions {
      * Use this data source to access information about an existing Sentinel Alert Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -199,6 +210,7 @@ public final class SentinelFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAlertRuleResult> getAlertRulePlain(GetAlertRulePlainArgs args, InvokeOptions options) {
@@ -208,6 +220,8 @@ public final class SentinelFunctions {
      * Use this data source to access information about an existing Anomaly Alert Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -261,6 +275,7 @@ public final class SentinelFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAlertRuleAnomalyResult> getAlertRuleAnomaly(GetAlertRuleAnomalyArgs args) {
@@ -270,6 +285,8 @@ public final class SentinelFunctions {
      * Use this data source to access information about an existing Anomaly Alert Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -323,6 +340,7 @@ public final class SentinelFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAlertRuleAnomalyResult> getAlertRuleAnomalyPlain(GetAlertRuleAnomalyPlainArgs args) {
@@ -332,6 +350,8 @@ public final class SentinelFunctions {
      * Use this data source to access information about an existing Anomaly Alert Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -385,6 +405,7 @@ public final class SentinelFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAlertRuleAnomalyResult> getAlertRuleAnomaly(GetAlertRuleAnomalyArgs args, InvokeOptions options) {
@@ -394,6 +415,8 @@ public final class SentinelFunctions {
      * Use this data source to access information about an existing Anomaly Alert Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -447,6 +470,7 @@ public final class SentinelFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAlertRuleAnomalyResult> getAlertRuleAnomalyPlain(GetAlertRuleAnomalyPlainArgs args, InvokeOptions options) {
@@ -456,6 +480,8 @@ public final class SentinelFunctions {
      * Use this data source to access information about an existing Sentinel Alert Rule Template.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -486,6 +512,7 @@ public final class SentinelFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAlertRuleTemplateResult> getAlertRuleTemplate(GetAlertRuleTemplateArgs args) {
@@ -495,6 +522,8 @@ public final class SentinelFunctions {
      * Use this data source to access information about an existing Sentinel Alert Rule Template.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -525,6 +554,7 @@ public final class SentinelFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAlertRuleTemplateResult> getAlertRuleTemplatePlain(GetAlertRuleTemplatePlainArgs args) {
@@ -534,6 +564,8 @@ public final class SentinelFunctions {
      * Use this data source to access information about an existing Sentinel Alert Rule Template.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -564,6 +596,7 @@ public final class SentinelFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAlertRuleTemplateResult> getAlertRuleTemplate(GetAlertRuleTemplateArgs args, InvokeOptions options) {
@@ -573,6 +606,8 @@ public final class SentinelFunctions {
      * Use this data source to access information about an existing Sentinel Alert Rule Template.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -603,6 +638,7 @@ public final class SentinelFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAlertRuleTemplateResult> getAlertRuleTemplatePlain(GetAlertRuleTemplatePlainArgs args, InvokeOptions options) {

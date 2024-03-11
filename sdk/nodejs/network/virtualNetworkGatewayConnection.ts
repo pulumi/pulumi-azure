@@ -10,11 +10,13 @@ import * as utilities from "../utilities";
  * Manages a connection in an existing Virtual Network Gateway.
  *
  * ## Example Usage
+ *
  * ### Site-to-Site connection
  *
  * The following example shows a connection between an Azure virtual network
  * and an on-premises VPN device and network.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -73,11 +75,14 @@ import * as utilities from "../utilities";
  *     sharedKey: "4-v3ry-53cr37-1p53c-5h4r3d-k3y",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### VNet-to-VNet connection
  *
  * The following example shows a connection between two Azure virtual network
  * in different locations/regions.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -171,6 +176,7 @@ import * as utilities from "../utilities";
  *     sharedKey: "4-v3ry-53cr37-1p53c-5h4r3d-k3y",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

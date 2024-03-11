@@ -447,6 +447,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -462,6 +463,7 @@ class ExpressRoutePort(pulumi.CustomResource):
             bandwidth_in_gbps=10,
             encapsulation="Dot1Q")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -496,6 +498,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -511,6 +514,7 @@ class ExpressRoutePort(pulumi.CustomResource):
             bandwidth_in_gbps=10,
             encapsulation="Dot1Q")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

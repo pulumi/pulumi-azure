@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,6 +43,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetAppServicePlan(ctx *pulumi.Context, args *GetAppServicePlanArgs, opts ...pulumi.InvokeOption) (*GetAppServicePlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAppServicePlanResult

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupSpringCloudApp(ctx *pulumi.Context, args *LookupSpringCloudAppArgs, opts ...pulumi.InvokeOption) (*LookupSpringCloudAppResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSpringCloudAppResult

@@ -14,6 +14,7 @@ namespace Pulumi.Azure.DigitalTwins
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,6 +54,7 @@ namespace Pulumi.Azure.DigitalTwins
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

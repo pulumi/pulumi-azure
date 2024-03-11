@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -38,7 +39,10 @@ import * as utilities from "../utilities";
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Storage Account Behind VNet And Firewall
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -121,6 +125,7 @@ import * as utilities from "../utilities";
  *     storageAccountSubscriptionId: primaryAzurermSubscription.subscriptionId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

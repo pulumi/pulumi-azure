@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupDateTimeVariable(ctx *pulumi.Context, args *LookupDateTimeVariableArgs, opts ...pulumi.InvokeOption) (*LookupDateTimeVariableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDateTimeVariableResult

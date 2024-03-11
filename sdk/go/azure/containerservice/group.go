@@ -20,6 +20,7 @@ import (
 //
 // This example provisions a Basic Container.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -79,6 +80,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

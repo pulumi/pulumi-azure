@@ -116,6 +116,7 @@ def get_int_variable(automation_account_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -125,6 +126,7 @@ def get_int_variable(automation_account_name: Optional[str] = None,
         automation_account_name="tfex-example-account")
     pulumi.export("variableId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str automation_account_name: The name of the automation account in which the Automation Variable exists.
@@ -158,6 +160,7 @@ def get_int_variable_output(automation_account_name: Optional[pulumi.Input[str]]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -167,6 +170,7 @@ def get_int_variable_output(automation_account_name: Optional[pulumi.Input[str]]
         automation_account_name="tfex-example-account")
     pulumi.export("variableId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str automation_account_name: The name of the automation account in which the Automation Variable exists.

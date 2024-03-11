@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,6 +85,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetAccountBlobContainerSAS(ctx *pulumi.Context, args *GetAccountBlobContainerSASArgs, opts ...pulumi.InvokeOption) (*GetAccountBlobContainerSASResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAccountBlobContainerSASResult

@@ -169,6 +169,7 @@ class ChannelAlexa(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -189,6 +190,7 @@ class ChannelAlexa(pulumi.CustomResource):
             resource_group_name=example.name,
             skill_id="amzn1.ask.skill.00000000-0000-0000-0000-000000000000")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -218,6 +220,7 @@ class ChannelAlexa(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -238,6 +241,7 @@ class ChannelAlexa(pulumi.CustomResource):
             resource_group_name=example.name,
             skill_id="amzn1.ask.skill.00000000-0000-0000-0000-000000000000")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

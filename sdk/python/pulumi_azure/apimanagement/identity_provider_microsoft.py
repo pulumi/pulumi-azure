@@ -166,6 +166,7 @@ class IdentityProviderMicrosoft(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -186,6 +187,7 @@ class IdentityProviderMicrosoft(pulumi.CustomResource):
             client_id="00000000-0000-0000-0000-000000000000",
             client_secret="00000000000000000000000000000000")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -213,6 +215,7 @@ class IdentityProviderMicrosoft(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -233,6 +236,7 @@ class IdentityProviderMicrosoft(pulumi.CustomResource):
             client_id="00000000-0000-0000-0000-000000000000",
             client_secret="00000000000000000000000000000000")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

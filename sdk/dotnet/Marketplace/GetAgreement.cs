@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Marketplace
         /// <summary>
         /// Uses this data source to access information about an existing Marketplace Agreement.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.Azure.Marketplace
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAgreementResult> InvokeAsync(GetAgreementArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAgreementResult>("azure:marketplace/getAgreement:getAgreement", args ?? new GetAgreementArgs(), options.WithDefaults());
@@ -48,10 +46,9 @@ namespace Pulumi.Azure.Marketplace
         /// <summary>
         /// Uses this data source to access information about an existing Marketplace Agreement.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.Azure.Marketplace
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAgreementResult> Invoke(GetAgreementInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgreementResult>("azure:marketplace/getAgreement:getAgreement", args ?? new GetAgreementInvokeArgs(), options.WithDefaults());

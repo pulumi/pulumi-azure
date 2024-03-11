@@ -408,6 +408,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -428,6 +429,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
             account_key=example.primary_key,
             database="foo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -464,6 +466,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -484,6 +487,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
             account_key=example.primary_key,
             database="foo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

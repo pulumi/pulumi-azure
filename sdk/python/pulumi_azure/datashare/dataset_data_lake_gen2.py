@@ -249,6 +249,7 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -290,6 +291,7 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
             file_system_name=example_data_lake_gen2_filesystem.name,
             file_path="myfile.txt")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -319,6 +321,7 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -360,6 +363,7 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
             file_system_name=example_data_lake_gen2_filesystem.name,
             file_path="myfile.txt")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -35,6 +35,10 @@ class ExtensionArgs:
         :param pulumi.Input[str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+               
+               ```shell
+               az vm extension image list --location westus -o table
+               ```
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
         :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
@@ -97,6 +101,10 @@ class ExtensionArgs:
         The type of extension, available types for a publisher can be found using the Azure CLI.
 
         > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+
+        ```shell
+        az vm extension image list --location westus -o table
+        ```
         """
         return pulumi.get(self, "type")
 
@@ -284,6 +292,10 @@ class _ExtensionState:
         :param pulumi.Input[str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+               
+               ```shell
+               az vm extension image list --location westus -o table
+               ```
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
         """
@@ -449,6 +461,10 @@ class _ExtensionState:
         The type of extension, available types for a publisher can be found using the Azure CLI.
 
         > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+
+        ```shell
+        az vm extension image list --location westus -o table
+        ```
         """
         return pulumi.get(self, "type")
 
@@ -510,6 +526,7 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -572,6 +589,7 @@ class Extension(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -604,6 +622,10 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+               
+               ```shell
+               az vm extension image list --location westus -o table
+               ```
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
         """
@@ -623,6 +645,7 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -685,6 +708,7 @@ class Extension(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -805,6 +829,10 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+               
+               ```shell
+               az vm extension image list --location westus -o table
+               ```
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
         """
@@ -922,6 +950,10 @@ class Extension(pulumi.CustomResource):
         The type of extension, available types for a publisher can be found using the Azure CLI.
 
         > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+
+        ```shell
+        az vm extension image list --location westus -o table
+        ```
         """
         return pulumi.get(self, "type")
 
