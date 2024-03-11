@@ -70,7 +70,7 @@ import (
 //				ResourceGroupName:         exampleResourceGroup.Name,
 //				AutomationAccountName:     exampleAccount.Name,
 //				AutomationCertificateName: exampleCertificate.Name,
-//				SubscriptionId:            *pulumi.String(example.SubscriptionId),
+//				SubscriptionId:            pulumi.String(example.SubscriptionId),
 //			})
 //			if err != nil {
 //				return err

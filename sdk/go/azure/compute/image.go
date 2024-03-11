@@ -39,9 +39,9 @@ import (
 //			}
 //			_, err = compute.NewImage(ctx, "example", &compute.ImageArgs{
 //				Name:                   pulumi.String("exampleimage"),
-//				Location:               *pulumi.String(example.Location),
-//				ResourceGroupName:      *pulumi.String(example.Name),
-//				SourceVirtualMachineId: *pulumi.String(example.Id),
+//				Location:               pulumi.String(example.Location),
+//				ResourceGroupName:      pulumi.String(example.Name),
+//				SourceVirtualMachineId: pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err

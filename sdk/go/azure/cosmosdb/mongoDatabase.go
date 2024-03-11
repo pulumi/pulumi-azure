@@ -37,8 +37,8 @@ import (
 //			}
 //			_, err = cosmosdb.NewMongoDatabase(ctx, "example", &cosmosdb.MongoDatabaseArgs{
 //				Name:              pulumi.String("tfex-cosmos-mongo-db"),
-//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
-//				AccountName:       *pulumi.String(example.Name),
+//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
+//				AccountName:       pulumi.String(example.Name),
 //				Throughput:        pulumi.Int(400),
 //			})
 //			if err != nil {

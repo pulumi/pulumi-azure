@@ -123,7 +123,7 @@ import (
 //				Name:                  pulumi.String("example-deploy"),
 //				ResourceGroupName:     pulumi.String("example-group"),
 //				DeploymentMode:        pulumi.String("Incremental"),
-//				TemplateSpecVersionId: *pulumi.String(example.Id),
+//				TemplateSpecVersionId: pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err

@@ -61,7 +61,7 @@ import (
 //			}
 //			exampleCertificate, err := keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
 //				Name:       pulumi.String("example-certificate"),
-//				KeyVaultId: *pulumi.String(example.Id),
+//				KeyVaultId: pulumi.String(example.Id),
 //				CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
 //					IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
 //						Name: pulumi.String("Self"),

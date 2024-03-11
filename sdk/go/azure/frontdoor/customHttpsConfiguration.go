@@ -130,7 +130,7 @@ import (
 //				CustomHttpsConfiguration: &frontdoor.CustomHttpsConfigurationCustomHttpsConfigurationArgs{
 //					CertificateSource:                  pulumi.String("AzureKeyVault"),
 //					AzureKeyVaultCertificateSecretName: pulumi.String("examplefd1"),
-//					AzureKeyVaultCertificateVaultId:    *pulumi.String(vault.Id),
+//					AzureKeyVaultCertificateVaultId:    pulumi.String(vault.Id),
 //				},
 //			})
 //			if err != nil {

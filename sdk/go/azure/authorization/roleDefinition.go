@@ -35,7 +35,7 @@ import (
 //			}
 //			_, err = authorization.NewRoleDefinition(ctx, "example", &authorization.RoleDefinitionArgs{
 //				Name:        pulumi.String("my-custom-role"),
-//				Scope:       *pulumi.String(primary.Id),
+//				Scope:       pulumi.String(primary.Id),
 //				Description: pulumi.String("This is a custom role created"),
 //				Permissions: authorization.RoleDefinitionPermissionArray{
 //					&authorization.RoleDefinitionPermissionArgs{
@@ -46,7 +46,7 @@ import (
 //					},
 //				},
 //				AssignableScopes: pulumi.StringArray{
-//					*pulumi.String(primary.Id),
+//					pulumi.String(primary.Id),
 //				},
 //			})
 //			if err != nil {

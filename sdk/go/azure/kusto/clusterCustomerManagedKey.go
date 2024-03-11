@@ -45,7 +45,7 @@ import (
 //				Name:                   pulumi.String("examplekv"),
 //				Location:               example.Location,
 //				ResourceGroupName:      example.Name,
-//				TenantId:               *pulumi.String(current.TenantId),
+//				TenantId:               pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("standard"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
 //			})
@@ -69,7 +69,7 @@ import (
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "cluster", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   *pulumi.String(current.TenantId),
+//				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId: exampleCluster.Identity.ApplyT(func(identity kusto.ClusterIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput),
@@ -84,8 +84,8 @@ import (
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   *pulumi.String(current.TenantId),
-//				ObjectId:   *pulumi.String(current.ObjectId),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //					pulumi.String("List"),
