@@ -14,10 +14,9 @@ namespace Pulumi.Azure.NetApp
         /// <summary>
         /// Use this data source to access information about an existing Application Volume Group for SAP HANA application.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVolumeGroupSapHanaResult> InvokeAsync(GetVolumeGroupSapHanaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeGroupSapHanaResult>("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", args ?? new GetVolumeGroupSapHanaArgs(), options.WithDefaults());
@@ -48,10 +46,9 @@ namespace Pulumi.Azure.NetApp
         /// <summary>
         /// Use this data source to access information about an existing Application Volume Group for SAP HANA application.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVolumeGroupSapHanaResult> Invoke(GetVolumeGroupSapHanaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupSapHanaResult>("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", args ?? new GetVolumeGroupSapHanaInvokeArgs(), options.WithDefaults());

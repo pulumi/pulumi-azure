@@ -509,6 +509,7 @@ class CassandraCluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -539,6 +540,7 @@ class CassandraCluster(pulumi.CustomResource):
             delegated_management_subnet_id=example_subnet.id,
             default_admin_password="Password1234")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -580,6 +582,7 @@ class CassandraCluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -610,6 +613,7 @@ class CassandraCluster(pulumi.CustomResource):
             delegated_management_subnet_id=example_subnet.id,
             default_admin_password="Password1234")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

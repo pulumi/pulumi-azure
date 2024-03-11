@@ -16,6 +16,7 @@ namespace Pulumi.Azure.PrivateLink
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -126,9 +127,11 @@ namespace Pulumi.Azure.PrivateLink
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Using a Private Link Service Alias with existing resources:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -172,9 +175,11 @@ namespace Pulumi.Azure.PrivateLink
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -262,6 +267,8 @@ namespace Pulumi.Azure.PrivateLink
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Example HCL Configurations
     /// 
     /// * How to conneca `Private Endpoint` to a Application Gateway

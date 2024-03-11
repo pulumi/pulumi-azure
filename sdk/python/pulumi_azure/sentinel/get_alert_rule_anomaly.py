@@ -249,6 +249,7 @@ def get_alert_rule_anomaly(display_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -268,6 +269,7 @@ def get_alert_rule_anomaly(display_name: Optional[str] = None,
         display_name="Potential data staging")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
@@ -314,6 +316,7 @@ def get_alert_rule_anomaly_output(display_name: Optional[pulumi.Input[Optional[s
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -333,6 +336,7 @@ def get_alert_rule_anomaly_output(display_name: Optional[pulumi.Input[Optional[s
         display_name="Potential data staging")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.

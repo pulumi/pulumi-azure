@@ -18,6 +18,8 @@ public final class ManagedapplicationFunctions {
      * Uses this data source to access information about an existing Managed Application Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -48,6 +50,7 @@ public final class ManagedapplicationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDefinitionResult> getDefinition(GetDefinitionArgs args) {
@@ -57,6 +60,8 @@ public final class ManagedapplicationFunctions {
      * Uses this data source to access information about an existing Managed Application Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -87,6 +92,7 @@ public final class ManagedapplicationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDefinitionResult> getDefinitionPlain(GetDefinitionPlainArgs args) {
@@ -96,6 +102,8 @@ public final class ManagedapplicationFunctions {
      * Uses this data source to access information about an existing Managed Application Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +134,7 @@ public final class ManagedapplicationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDefinitionResult> getDefinition(GetDefinitionArgs args, InvokeOptions options) {
@@ -135,6 +144,8 @@ public final class ManagedapplicationFunctions {
      * Uses this data source to access information about an existing Managed Application Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -165,6 +176,7 @@ public final class ManagedapplicationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDefinitionResult> getDefinitionPlain(GetDefinitionPlainArgs args, InvokeOptions options) {

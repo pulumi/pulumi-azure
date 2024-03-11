@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  * });
  * export const variableId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBoolVariable(args: GetBoolVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetBoolVariableResult> {
 
@@ -78,6 +80,7 @@ export interface GetBoolVariableResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -89,6 +92,7 @@ export interface GetBoolVariableResult {
  * });
  * export const variableId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBoolVariableOutput(args: GetBoolVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBoolVariableResult> {
     return pulumi.output(args).apply((a: any) => getBoolVariable(a, opts))

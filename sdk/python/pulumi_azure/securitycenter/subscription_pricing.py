@@ -172,8 +172,10 @@ class SubscriptionPricing(pulumi.CustomResource):
         > **NOTE:** Deletion of this resource will reset the pricing tier to `Free`
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -182,8 +184,11 @@ class SubscriptionPricing(pulumi.CustomResource):
             tier="Standard",
             resource_type="VirtualMachines")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Extensions with Defender CSPM
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -209,6 +214,7 @@ class SubscriptionPricing(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -237,8 +243,10 @@ class SubscriptionPricing(pulumi.CustomResource):
         > **NOTE:** Deletion of this resource will reset the pricing tier to `Free`
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -247,8 +255,11 @@ class SubscriptionPricing(pulumi.CustomResource):
             tier="Standard",
             resource_type="VirtualMachines")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Extensions with Defender CSPM
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -274,6 +285,7 @@ class SubscriptionPricing(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

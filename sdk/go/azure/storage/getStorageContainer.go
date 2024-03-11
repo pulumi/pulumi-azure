@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetStorageContainer(ctx *pulumi.Context, args *GetStorageContainerArgs, opts ...pulumi.InvokeOption) (*GetStorageContainerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStorageContainerResult

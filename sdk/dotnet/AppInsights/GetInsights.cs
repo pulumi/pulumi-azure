@@ -14,10 +14,9 @@ namespace Pulumi.Azure.AppInsights
         /// <summary>
         /// Use this data source to access information about an existing Application Insights component.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Azure.AppInsights
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetInsightsResult> InvokeAsync(GetInsightsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args ?? new GetInsightsArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Azure.AppInsights
         /// <summary>
         /// Use this data source to access information about an existing Application Insights component.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Azure.AppInsights
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetInsightsResult> Invoke(GetInsightsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args ?? new GetInsightsInvokeArgs(), options.WithDefaults());

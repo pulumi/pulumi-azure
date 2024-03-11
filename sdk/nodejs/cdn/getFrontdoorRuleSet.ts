@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "existing-resources",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFrontdoorRuleSet(args: GetFrontdoorRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorRuleSetResult> {
 
@@ -69,6 +71,7 @@ export interface GetFrontdoorRuleSetResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -79,6 +82,7 @@ export interface GetFrontdoorRuleSetResult {
  *     resourceGroupName: "existing-resources",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFrontdoorRuleSetOutput(args: GetFrontdoorRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorRuleSetResult> {
     return pulumi.output(args).apply((a: any) => getFrontdoorRuleSet(a, opts))

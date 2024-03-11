@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Allows you to set a user, group or service principal as the AAD Administrator for an Azure SQL Managed Instance.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -119,6 +121,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

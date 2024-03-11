@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -35,6 +36,7 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.apply(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAlertRuleAnomaly(args: GetAlertRuleAnomalyArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleAnomalyResult> {
 
@@ -139,6 +141,7 @@ export interface GetAlertRuleAnomalyResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -163,6 +166,7 @@ export interface GetAlertRuleAnomalyResult {
  * });
  * export const id = example.apply(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAlertRuleAnomalyOutput(args: GetAlertRuleAnomalyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleAnomalyResult> {
     return pulumi.output(args).apply((a: any) => getAlertRuleAnomaly(a, opts))

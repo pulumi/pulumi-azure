@@ -13,8 +13,10 @@ namespace Pulumi.Azure.EventHub
     /// Manages a ServiceBus Subscription Rule.
     /// 
     /// ## Example Usage
+    /// 
     /// ### SQL Filter)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,8 +67,11 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Correlation Filter)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -125,6 +130,7 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

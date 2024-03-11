@@ -199,6 +199,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -226,6 +227,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             target_resource_id=example_account.id,
             subresource_name="blob")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -254,6 +256,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -281,6 +284,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             target_resource_id=example_account.id,
             subresource_name="blob")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Azure.Cdn
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFrontdoorOriginGroupResult> InvokeAsync(GetFrontdoorOriginGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorOriginGroupResult>("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args ?? new GetFrontdoorOriginGroupArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Azure.Cdn
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFrontdoorOriginGroupResult> Invoke(GetFrontdoorOriginGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorOriginGroupResult>("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args ?? new GetFrontdoorOriginGroupInvokeArgs(), options.WithDefaults());

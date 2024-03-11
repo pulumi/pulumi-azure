@@ -18,7 +18,10 @@ public final class TrafficmanagerFunctions {
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
      * ## Example Usage
+     * 
      * ### World)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -48,6 +51,7 @@ public final class TrafficmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
@@ -61,7 +65,10 @@ public final class TrafficmanagerFunctions {
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
      * ## Example Usage
+     * 
      * ### World)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -91,6 +98,7 @@ public final class TrafficmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
@@ -104,7 +112,10 @@ public final class TrafficmanagerFunctions {
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
      * ## Example Usage
+     * 
      * ### World)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -134,6 +145,7 @@ public final class TrafficmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
@@ -147,7 +159,10 @@ public final class TrafficmanagerFunctions {
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
      * ## Example Usage
+     * 
      * ### World)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -177,6 +192,7 @@ public final class TrafficmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager

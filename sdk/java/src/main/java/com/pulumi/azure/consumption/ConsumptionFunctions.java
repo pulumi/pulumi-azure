@@ -21,6 +21,8 @@ public final class ConsumptionFunctions {
      * Use this data source to access information about an existing Consumption Budget for a specific resource group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -51,6 +53,7 @@ public final class ConsumptionFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBudgetResourceGroupResult> getBudgetResourceGroup(GetBudgetResourceGroupArgs args) {
@@ -60,6 +63,8 @@ public final class ConsumptionFunctions {
      * Use this data source to access information about an existing Consumption Budget for a specific resource group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -90,6 +95,7 @@ public final class ConsumptionFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBudgetResourceGroupResult> getBudgetResourceGroupPlain(GetBudgetResourceGroupPlainArgs args) {
@@ -99,6 +105,8 @@ public final class ConsumptionFunctions {
      * Use this data source to access information about an existing Consumption Budget for a specific resource group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +137,7 @@ public final class ConsumptionFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBudgetResourceGroupResult> getBudgetResourceGroup(GetBudgetResourceGroupArgs args, InvokeOptions options) {
@@ -138,6 +147,8 @@ public final class ConsumptionFunctions {
      * Use this data source to access information about an existing Consumption Budget for a specific resource group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -168,6 +179,7 @@ public final class ConsumptionFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBudgetResourceGroupResult> getBudgetResourceGroupPlain(GetBudgetResourceGroupPlainArgs args, InvokeOptions options) {
@@ -177,6 +189,8 @@ public final class ConsumptionFunctions {
      * Use this data source to access information about an existing Consumption Budget for a specific subscription.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -207,6 +221,7 @@ public final class ConsumptionFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBudgetSubscriptionResult> getBudgetSubscription(GetBudgetSubscriptionArgs args) {
@@ -216,6 +231,8 @@ public final class ConsumptionFunctions {
      * Use this data source to access information about an existing Consumption Budget for a specific subscription.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -246,6 +263,7 @@ public final class ConsumptionFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBudgetSubscriptionResult> getBudgetSubscriptionPlain(GetBudgetSubscriptionPlainArgs args) {
@@ -255,6 +273,8 @@ public final class ConsumptionFunctions {
      * Use this data source to access information about an existing Consumption Budget for a specific subscription.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -285,6 +305,7 @@ public final class ConsumptionFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBudgetSubscriptionResult> getBudgetSubscription(GetBudgetSubscriptionArgs args, InvokeOptions options) {
@@ -294,6 +315,8 @@ public final class ConsumptionFunctions {
      * Use this data source to access information about an existing Consumption Budget for a specific subscription.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -324,6 +347,7 @@ public final class ConsumptionFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBudgetSubscriptionResult> getBudgetSubscriptionPlain(GetBudgetSubscriptionPlainArgs args, InvokeOptions options) {

@@ -120,6 +120,7 @@ def get_virtual_hub_route_table(name: Optional[str] = None,
 
     ## Virtual Hub Route Table Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -129,6 +130,7 @@ def get_virtual_hub_route_table(name: Optional[str] = None,
         virtual_hub_name="example-hub-name")
     pulumi.export("virtualHubRouteTableId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Virtual Hub Route Table.
@@ -162,6 +164,7 @@ def get_virtual_hub_route_table_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Virtual Hub Route Table Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -171,6 +174,7 @@ def get_virtual_hub_route_table_output(name: Optional[pulumi.Input[str]] = None,
         virtual_hub_name="example-hub-name")
     pulumi.export("virtualHubRouteTableId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Virtual Hub Route Table.

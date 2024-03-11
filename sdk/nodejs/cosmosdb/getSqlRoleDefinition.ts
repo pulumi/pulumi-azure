@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSqlRoleDefinition(args: GetSqlRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlRoleDefinitionResult> {
 
@@ -83,6 +85,7 @@ export interface GetSqlRoleDefinitionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -93,6 +96,7 @@ export interface GetSqlRoleDefinitionResult {
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSqlRoleDefinitionOutput(args: GetSqlRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlRoleDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getSqlRoleDefinition(a, opts))

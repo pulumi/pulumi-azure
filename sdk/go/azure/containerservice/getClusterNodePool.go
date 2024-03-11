@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetClusterNodePool(ctx *pulumi.Context, args *GetClusterNodePoolArgs, opts ...pulumi.InvokeOption) (*GetClusterNodePoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClusterNodePoolResult

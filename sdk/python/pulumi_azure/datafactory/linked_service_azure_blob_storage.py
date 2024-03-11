@@ -649,6 +649,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -667,6 +668,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string=example.primary_connection_string)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -712,6 +714,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -730,6 +733,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string=example.primary_connection_string)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

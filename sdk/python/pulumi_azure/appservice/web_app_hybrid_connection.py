@@ -279,6 +279,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -313,6 +314,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
             hostname="myhostname.example",
             port=8081)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -341,6 +343,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -375,6 +378,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
             hostname="myhostname.example",
             port=8081)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

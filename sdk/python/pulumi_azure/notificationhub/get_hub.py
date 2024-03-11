@@ -129,6 +129,7 @@ def get_hub(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -138,6 +139,7 @@ def get_hub(name: Optional[str] = None,
         resource_group_name="resource-group-name")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the Name of the Notification Hub.
@@ -172,6 +174,7 @@ def get_hub_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -181,6 +184,7 @@ def get_hub_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="resource-group-name")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the Name of the Notification Hub.

@@ -142,6 +142,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -165,6 +166,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
             recovery_vault_name=vault.name,
             storage_account_id=sa.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -174,7 +176,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
         $ pulumi import azure:backup/containerStorageAccount:ContainerStorageAccount mycontainer "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/backupFabrics/Azure/protectionContainers/StorageContainer;storage;storage-rg-name;storage-account"
         ```
 
-         Note the ID requires quoting as there are semicolons
+        Note the ID requires quoting as there are semicolons
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,6 +197,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -218,6 +221,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
             recovery_vault_name=vault.name,
             storage_account_id=sa.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -227,7 +231,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
         $ pulumi import azure:backup/containerStorageAccount:ContainerStorageAccount mycontainer "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/backupFabrics/Azure/protectionContainers/StorageContainer;storage;storage-rg-name;storage-account"
         ```
 
-         Note the ID requires quoting as there are semicolons
+        Note the ID requires quoting as there are semicolons
 
         :param str resource_name: The name of the resource.
         :param ContainerStorageAccountArgs args: The arguments to use to populate this resource's properties.

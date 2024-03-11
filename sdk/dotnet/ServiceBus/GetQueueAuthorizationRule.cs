@@ -14,10 +14,9 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -40,8 +39,7 @@ namespace Pulumi.Azure.ServiceBus
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetQueueAuthorizationRuleResult> InvokeAsync(GetQueueAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueAuthorizationRuleResult>("azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleArgs(), options.WithDefaults());
@@ -49,10 +47,9 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -75,8 +72,7 @@ namespace Pulumi.Azure.ServiceBus
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetQueueAuthorizationRuleResult> Invoke(GetQueueAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueAuthorizationRuleResult>("azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleInvokeArgs(), options.WithDefaults());

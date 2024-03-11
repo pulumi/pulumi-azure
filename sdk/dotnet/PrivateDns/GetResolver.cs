@@ -14,10 +14,9 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// Gets information about an existing Private DNS Resolver.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResolverResult> InvokeAsync(GetResolverArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverResult>("azure:privatedns/getResolver:getResolver", args ?? new GetResolverArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// Gets information about an existing Private DNS Resolver.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResolverResult> Invoke(GetResolverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverResult>("azure:privatedns/getResolver:getResolver", args ?? new GetResolverInvokeArgs(), options.WithDefaults());

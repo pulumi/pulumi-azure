@@ -298,6 +298,7 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -330,6 +331,7 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
                 time_frame="WeekToDate",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -361,6 +363,7 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -393,6 +396,7 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
                 time_frame="WeekToDate",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

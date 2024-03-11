@@ -447,6 +447,7 @@ class Certificate(pulumi.CustomResource):
 
         This example provisions an App Service Certificate from a Local File.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -462,6 +463,7 @@ class Certificate(pulumi.CustomResource):
             pfx_blob=std.filebase64(input="certificate.pfx").result,
             password="password123!")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -499,6 +501,7 @@ class Certificate(pulumi.CustomResource):
 
         This example provisions an App Service Certificate from a Local File.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -514,6 +517,7 @@ class Certificate(pulumi.CustomResource):
             pfx_blob=std.filebase64(input="certificate.pfx").result,
             password="password123!")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

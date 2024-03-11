@@ -106,6 +106,7 @@ public final class CacheRedisConfiguration {
     /**
      * @return The ID of the Subscription containing the Storage Account.
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -134,6 +135,7 @@ public final class CacheRedisConfiguration {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     private @Nullable String storageAccountSubscriptionId;
@@ -264,6 +266,7 @@ public final class CacheRedisConfiguration {
     /**
      * @return The ID of the Subscription containing the Storage Account.
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -292,6 +295,7 @@ public final class CacheRedisConfiguration {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<String> storageAccountSubscriptionId() {

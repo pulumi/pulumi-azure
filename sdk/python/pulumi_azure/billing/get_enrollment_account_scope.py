@@ -70,6 +70,7 @@ def get_enrollment_account_scope(billing_account_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -78,6 +79,7 @@ def get_enrollment_account_scope(billing_account_name: Optional[str] = None,
         enrollment_account_name="existing")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str billing_account_name: The Billing Account Name of the Enterprise Account.
@@ -104,6 +106,7 @@ def get_enrollment_account_scope_output(billing_account_name: Optional[pulumi.In
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -112,6 +115,7 @@ def get_enrollment_account_scope_output(billing_account_name: Optional[pulumi.In
         enrollment_account_name="existing")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str billing_account_name: The Billing Account Name of the Enterprise Account.

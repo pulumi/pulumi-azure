@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,6 +38,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupSourceControlToken(ctx *pulumi.Context, args *LookupSourceControlTokenArgs, opts ...pulumi.InvokeOption) (*LookupSourceControlTokenResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSourceControlTokenResult

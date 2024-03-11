@@ -336,6 +336,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -363,6 +364,7 @@ class PolicySetDefinition(pulumi.CustomResource):
         \"\"\",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -372,7 +374,7 @@ class PolicySetDefinition(pulumi.CustomResource):
         $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
         ```
 
-         or
+        or
 
         ```sh
         $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
@@ -403,6 +405,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -430,6 +433,7 @@ class PolicySetDefinition(pulumi.CustomResource):
         \"\"\",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -439,7 +443,7 @@ class PolicySetDefinition(pulumi.CustomResource):
         $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
         ```
 
-         or
+        or
 
         ```sh
         $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet

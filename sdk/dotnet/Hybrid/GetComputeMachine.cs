@@ -18,10 +18,9 @@ namespace Pulumi.Azure.Hybrid
         /// 
         /// &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,8 +41,7 @@ namespace Pulumi.Azure.Hybrid
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetComputeMachineResult> InvokeAsync(GetComputeMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComputeMachineResult>("azure:hybrid/getComputeMachine:getComputeMachine", args ?? new GetComputeMachineArgs(), options.WithDefaults());
@@ -55,10 +53,9 @@ namespace Pulumi.Azure.Hybrid
         /// 
         /// &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -79,8 +76,7 @@ namespace Pulumi.Azure.Hybrid
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetComputeMachineResult> Invoke(GetComputeMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputeMachineResult>("azure:hybrid/getComputeMachine:getComputeMachine", args ?? new GetComputeMachineInvokeArgs(), options.WithDefaults());

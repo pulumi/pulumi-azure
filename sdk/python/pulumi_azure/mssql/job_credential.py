@@ -167,6 +167,7 @@ class JobCredential(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -196,6 +197,7 @@ class JobCredential(pulumi.CustomResource):
             username="my-username",
             password="MyP4ssw0rd!!!")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -223,6 +225,7 @@ class JobCredential(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -252,6 +255,7 @@ class JobCredential(pulumi.CustomResource):
             username="my-username",
             password="MyP4ssw0rd!!!")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -21,6 +21,8 @@ public final class MysqlFunctions {
      * Use this data source to access information about an existing MySQL Flexible Server.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -51,6 +53,7 @@ public final class MysqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args) {
@@ -60,6 +63,8 @@ public final class MysqlFunctions {
      * Use this data source to access information about an existing MySQL Flexible Server.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -90,6 +95,7 @@ public final class MysqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFlexibleServerResult> getFlexibleServerPlain(GetFlexibleServerPlainArgs args) {
@@ -99,6 +105,8 @@ public final class MysqlFunctions {
      * Use this data source to access information about an existing MySQL Flexible Server.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +137,7 @@ public final class MysqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args, InvokeOptions options) {
@@ -138,6 +147,8 @@ public final class MysqlFunctions {
      * Use this data source to access information about an existing MySQL Flexible Server.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -168,6 +179,7 @@ public final class MysqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFlexibleServerResult> getFlexibleServerPlain(GetFlexibleServerPlainArgs args, InvokeOptions options) {
@@ -177,6 +189,8 @@ public final class MysqlFunctions {
      * Use this data source to access information about an existing MySQL Server.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -207,6 +221,7 @@ public final class MysqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args) {
@@ -216,6 +231,8 @@ public final class MysqlFunctions {
      * Use this data source to access information about an existing MySQL Server.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -246,6 +263,7 @@ public final class MysqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args) {
@@ -255,6 +273,8 @@ public final class MysqlFunctions {
      * Use this data source to access information about an existing MySQL Server.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -285,6 +305,7 @@ public final class MysqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOptions options) {
@@ -294,6 +315,8 @@ public final class MysqlFunctions {
      * Use this data source to access information about an existing MySQL Server.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -324,6 +347,7 @@ public final class MysqlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args, InvokeOptions options) {

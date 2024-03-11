@@ -204,6 +204,7 @@ class RouteFilter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -219,6 +220,7 @@ class RouteFilter(pulumi.CustomResource):
                 communities=["12076:52004"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -247,6 +249,7 @@ class RouteFilter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -262,6 +265,7 @@ class RouteFilter(pulumi.CustomResource):
                 communities=["12076:52004"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

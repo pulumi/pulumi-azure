@@ -14,10 +14,9 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// Use this data source to access information about an existing Site Recovery Replication Fabric.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFabricResult> InvokeAsync(GetFabricArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFabricResult>("azure:siterecovery/getFabric:getFabric", args ?? new GetFabricArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// Use this data source to access information about an existing Site Recovery Replication Fabric.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFabricResult> Invoke(GetFabricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFabricResult>("azure:siterecovery/getFabric:getFabric", args ?? new GetFabricInvokeArgs(), options.WithDefaults());

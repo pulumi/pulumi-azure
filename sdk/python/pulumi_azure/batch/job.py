@@ -235,6 +235,7 @@ class Job(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -265,6 +266,7 @@ class Job(pulumi.CustomResource):
             name="examplejob",
             batch_pool_id=example_pool.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -294,6 +296,7 @@ class Job(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -324,6 +327,7 @@ class Job(pulumi.CustomResource):
             name="examplejob",
             batch_pool_id=example_pool.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

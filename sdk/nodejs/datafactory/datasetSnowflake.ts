@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -37,12 +38,11 @@ import * as utilities from "../utilities";
  *     tableName: "foo_table",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Data Factory Snowflake Datasets can be imported using the `resource id`,
- *
- * e.g.
+ * Data Factory Snowflake Datasets can be imported using the `resource id`,  e.g.
  *
  * ```sh
  * $ pulumi import azure:datafactory/datasetSnowflake:DatasetSnowflake example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example

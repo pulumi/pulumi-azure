@@ -416,6 +416,7 @@ class IotHubDps(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -433,6 +434,7 @@ class IotHubDps(pulumi.CustomResource):
                 capacity=1,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -466,6 +468,7 @@ class IotHubDps(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -483,6 +486,7 @@ class IotHubDps(pulumi.CustomResource):
                 capacity=1,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

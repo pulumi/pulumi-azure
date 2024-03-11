@@ -104,6 +104,7 @@ def get_template_spec_version(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -113,6 +114,7 @@ def get_template_spec_version(name: Optional[str] = None,
         version="v1.0.4")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Template Spec.
@@ -145,6 +147,7 @@ def get_template_spec_version_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -154,6 +157,7 @@ def get_template_spec_version_output(name: Optional[pulumi.Input[str]] = None,
         version="v1.0.4")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Template Spec.

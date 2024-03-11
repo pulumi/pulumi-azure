@@ -14,10 +14,9 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// Use this data source to access information about a trigger schedule in Azure Data Factory.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Azure.DataFactory
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTriggerScheduleResult> InvokeAsync(GetTriggerScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTriggerScheduleResult>("azure:datafactory/getTriggerSchedule:getTriggerSchedule", args ?? new GetTriggerScheduleArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// Use this data source to access information about a trigger schedule in Azure Data Factory.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Azure.DataFactory
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTriggerScheduleResult> Invoke(GetTriggerScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTriggerScheduleResult>("azure:datafactory/getTriggerSchedule:getTriggerSchedule", args ?? new GetTriggerScheduleInvokeArgs(), options.WithDefaults());

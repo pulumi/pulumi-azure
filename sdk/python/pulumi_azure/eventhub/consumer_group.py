@@ -200,6 +200,7 @@ class ConsumerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -229,6 +230,7 @@ class ConsumerGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             user_metadata="some-meta-data")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -257,6 +259,7 @@ class ConsumerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -286,6 +289,7 @@ class ConsumerGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             user_metadata="some-meta-data")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

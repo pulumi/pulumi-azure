@@ -98,6 +98,7 @@ def get_agreement(offer: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -107,6 +108,7 @@ def get_agreement(offer: Optional[str] = None,
         plan="hourly")
     pulumi.export("azurermMarketplaceAgreementId", id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str offer: The Offer of the Marketplace Image.
@@ -139,6 +141,7 @@ def get_agreement_output(offer: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -148,6 +151,7 @@ def get_agreement_output(offer: Optional[pulumi.Input[str]] = None,
         plan="hourly")
     pulumi.export("azurermMarketplaceAgreementId", id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str offer: The Offer of the Marketplace Image.

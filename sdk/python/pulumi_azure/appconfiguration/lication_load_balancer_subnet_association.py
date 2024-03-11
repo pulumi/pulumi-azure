@@ -176,6 +176,7 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -209,6 +210,7 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
             application_load_balancer_id=example_lication_load_balancer.id,
             subnet_id=example_subnet.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -238,6 +240,7 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -271,6 +274,7 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
             application_load_balancer_id=example_lication_load_balancer.id,
             subnet_id=example_subnet.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

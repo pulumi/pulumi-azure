@@ -279,6 +279,7 @@ class ProtectedVM(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -310,6 +311,7 @@ class ProtectedVM(pulumi.CustomResource):
             source_vm_id=example.id,
             backup_policy_id=example_policy_vm.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -319,7 +321,7 @@ class ProtectedVM(pulumi.CustomResource):
         $ pulumi import azure:backup/protectedVM:ProtectedVM item1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;group1;vm1/protectedItems/vm;iaasvmcontainerv2;group1;vm1"
         ```
 
-         Note the ID requires quoting as there are semicolons
+        Note the ID requires quoting as there are semicolons
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -345,6 +347,7 @@ class ProtectedVM(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -376,6 +379,7 @@ class ProtectedVM(pulumi.CustomResource):
             source_vm_id=example.id,
             backup_policy_id=example_policy_vm.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -385,7 +389,7 @@ class ProtectedVM(pulumi.CustomResource):
         $ pulumi import azure:backup/protectedVM:ProtectedVM item1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;group1;vm1/protectedItems/vm;iaasvmcontainerv2;group1;vm1"
         ```
 
-         Note the ID requires quoting as there are semicolons
+        Note the ID requires quoting as there are semicolons
 
         :param str resource_name: The name of the resource.
         :param ProtectedVMArgs args: The arguments to use to populate this resource's properties.

@@ -102,6 +102,7 @@ class SubnetNatGatewayAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -127,6 +128,7 @@ class SubnetNatGatewayAssociation(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             nat_gateway_id=example_nat_gateway.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -152,6 +154,7 @@ class SubnetNatGatewayAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -177,6 +180,7 @@ class SubnetNatGatewayAssociation(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             nat_gateway_id=example_nat_gateway.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

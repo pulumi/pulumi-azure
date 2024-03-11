@@ -816,6 +816,7 @@ class AppService(pulumi.CustomResource):
 
         This example provisions a Windows App Service.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -849,6 +850,7 @@ class AppService(pulumi.CustomResource):
                 value="Server=some-server.mydomain.com;Integrated Security=SSPI",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -898,6 +900,7 @@ class AppService(pulumi.CustomResource):
 
         This example provisions a Windows App Service.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -931,6 +934,7 @@ class AppService(pulumi.CustomResource):
                 value="Server=some-server.mydomain.com;Integrated Security=SSPI",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -357,6 +357,7 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -366,6 +367,7 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[str] = None,
         resource_group_name="existing-resource-group")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str kubernetes_cluster_name: The Name of the Kubernetes Cluster where this Node Pool is located.
@@ -419,6 +421,7 @@ def get_cluster_node_pool_output(kubernetes_cluster_name: Optional[pulumi.Input[
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -428,6 +431,7 @@ def get_cluster_node_pool_output(kubernetes_cluster_name: Optional[pulumi.Input[
         resource_group_name="existing-resource-group")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str kubernetes_cluster_name: The Name of the Kubernetes Cluster where this Node Pool is located.

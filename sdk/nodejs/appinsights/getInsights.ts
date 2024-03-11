@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  * });
  * export const applicationInsightsInstrumentationKey = example.then(example => example.instrumentationKey);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getInsights(args: GetInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetInsightsResult> {
 
@@ -91,6 +93,7 @@ export interface GetInsightsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -101,6 +104,7 @@ export interface GetInsightsResult {
  * });
  * export const applicationInsightsInstrumentationKey = example.then(example => example.instrumentationKey);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getInsightsOutput(args: GetInsightsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInsightsResult> {
     return pulumi.output(args).apply((a: any) => getInsights(a, opts))

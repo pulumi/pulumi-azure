@@ -16,6 +16,7 @@ namespace Pulumi.Azure.Policy
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,6 +63,7 @@ namespace Pulumi.Azure.Policy
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -71,7 +73,7 @@ namespace Pulumi.Azure.Policy
     /// $ pulumi import azure:policy/definition:Definition examplePolicy /subscriptions/&lt;SUBSCRIPTION_ID&gt;/providers/Microsoft.Authorization/policyDefinitions/&lt;POLICY_NAME&gt;
     /// ```
     /// 
-    ///  or
+    /// or
     /// 
     /// ```sh
     /// $ pulumi import azure:policy/definition:Definition examplePolicy /providers/Microsoft.Management/managementgroups/&lt;MANGAGEMENT_GROUP_ID&gt;/providers/Microsoft.Authorization/policyDefinitions/&lt;POLICY_NAME&gt;

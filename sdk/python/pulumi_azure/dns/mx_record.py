@@ -248,6 +248,7 @@ class MxRecord(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -277,6 +278,7 @@ class MxRecord(pulumi.CustomResource):
                 "Environment": "Production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -304,6 +306,7 @@ class MxRecord(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -333,6 +336,7 @@ class MxRecord(pulumi.CustomResource):
                 "Environment": "Production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

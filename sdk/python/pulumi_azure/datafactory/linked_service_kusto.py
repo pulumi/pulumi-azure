@@ -488,6 +488,7 @@ class LinkedServiceKusto(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -531,6 +532,7 @@ class LinkedServiceKusto(pulumi.CustomResource):
             principal_type="App",
             role="Viewer")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -573,6 +575,7 @@ class LinkedServiceKusto(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -616,6 +619,7 @@ class LinkedServiceKusto(pulumi.CustomResource):
             principal_type="App",
             role="Viewer")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

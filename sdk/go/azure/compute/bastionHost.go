@@ -18,6 +18,7 @@ import (
 //
 // This example deploys an Azure Bastion Host Instance to a target virtual network.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -89,6 +90,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

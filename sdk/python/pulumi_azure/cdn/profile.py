@@ -203,6 +203,7 @@ class Profile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -220,6 +221,7 @@ class Profile(pulumi.CustomResource):
                 "cost_center": "MSFT",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -250,6 +252,7 @@ class Profile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -267,6 +270,7 @@ class Profile(pulumi.CustomResource):
                 "cost_center": "MSFT",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

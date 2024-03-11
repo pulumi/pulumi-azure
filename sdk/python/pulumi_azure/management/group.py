@@ -180,6 +180,7 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -193,6 +194,7 @@ class Group(pulumi.CustomResource):
             parent_management_group_id=example_parent.id,
             subscription_ids=[current.subscription_id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -224,6 +226,7 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -237,6 +240,7 @@ class Group(pulumi.CustomResource):
             parent_management_group_id=example_parent.id,
             subscription_ids=[current.subscription_id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

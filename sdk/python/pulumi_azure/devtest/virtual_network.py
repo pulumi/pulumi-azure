@@ -252,6 +252,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -275,6 +276,7 @@ class VirtualNetwork(pulumi.CustomResource):
                 use_in_virtual_machine_creation="Allow",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -304,6 +306,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -327,6 +330,7 @@ class VirtualNetwork(pulumi.CustomResource):
                 use_in_virtual_machine_creation="Allow",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

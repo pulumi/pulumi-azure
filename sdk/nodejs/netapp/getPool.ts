@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## NetApp Pool Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  * });
  * export const netappPoolId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
 
@@ -82,6 +84,7 @@ export interface GetPoolResult {
  *
  * ## NetApp Pool Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -93,6 +96,7 @@ export interface GetPoolResult {
  * });
  * export const netappPoolId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
     return pulumi.output(args).apply((a: any) => getPool(a, opts))

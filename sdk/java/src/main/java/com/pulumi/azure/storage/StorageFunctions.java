@@ -54,6 +54,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -84,6 +86,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
@@ -93,6 +96,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -123,6 +128,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -132,6 +138,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -162,6 +170,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
@@ -171,6 +180,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -201,6 +212,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
@@ -212,6 +224,8 @@ public final class StorageFunctions {
      * Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -285,6 +299,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountBlobContainerSASResult> getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs args) {
@@ -296,6 +311,8 @@ public final class StorageFunctions {
      * Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -369,6 +386,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountBlobContainerSASResult> getAccountBlobContainerSASPlain(GetAccountBlobContainerSASPlainArgs args) {
@@ -380,6 +398,8 @@ public final class StorageFunctions {
      * Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -453,6 +473,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountBlobContainerSASResult> getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs args, InvokeOptions options) {
@@ -464,6 +485,8 @@ public final class StorageFunctions {
      * Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -537,6 +560,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountBlobContainerSASResult> getAccountBlobContainerSASPlain(GetAccountBlobContainerSASPlainArgs args, InvokeOptions options) {
@@ -551,6 +575,8 @@ public final class StorageFunctions {
      * and *not* a [Service SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -628,6 +654,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountSASResult> getAccountSAS(GetAccountSASArgs args) {
@@ -642,6 +669,8 @@ public final class StorageFunctions {
      * and *not* a [Service SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -719,6 +748,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountSASResult> getAccountSASPlain(GetAccountSASPlainArgs args) {
@@ -733,6 +763,8 @@ public final class StorageFunctions {
      * and *not* a [Service SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -810,6 +842,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountSASResult> getAccountSAS(GetAccountSASArgs args, InvokeOptions options) {
@@ -824,6 +857,8 @@ public final class StorageFunctions {
      * and *not* a [Service SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -901,6 +936,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountSASResult> getAccountSASPlain(GetAccountSASPlainArgs args, InvokeOptions options) {
@@ -910,6 +946,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Blob.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -940,6 +978,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBlobResult> getBlob(GetBlobArgs args) {
@@ -949,6 +988,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Blob.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -979,6 +1020,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBlobResult> getBlobPlain(GetBlobPlainArgs args) {
@@ -988,6 +1030,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Blob.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1018,6 +1062,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBlobResult> getBlob(GetBlobArgs args, InvokeOptions options) {
@@ -1027,6 +1072,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Blob.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1057,6 +1104,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBlobResult> getBlobPlain(GetBlobPlainArgs args, InvokeOptions options) {
@@ -1066,6 +1114,8 @@ public final class StorageFunctions {
      * Use this data source to access information about the existing Storage Containers within a Storage Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1095,6 +1145,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContainersResult> getContainers(GetContainersArgs args) {
@@ -1104,6 +1155,8 @@ public final class StorageFunctions {
      * Use this data source to access information about the existing Storage Containers within a Storage Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1133,6 +1186,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContainersResult> getContainersPlain(GetContainersPlainArgs args) {
@@ -1142,6 +1196,8 @@ public final class StorageFunctions {
      * Use this data source to access information about the existing Storage Containers within a Storage Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1171,6 +1227,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContainersResult> getContainers(GetContainersArgs args, InvokeOptions options) {
@@ -1180,6 +1237,8 @@ public final class StorageFunctions {
      * Use this data source to access information about the existing Storage Containers within a Storage Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1209,6 +1268,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContainersResult> getContainersPlain(GetContainersPlainArgs args, InvokeOptions options) {
@@ -1218,6 +1278,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Encryption Scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1254,6 +1316,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEncryptionScopeResult> getEncryptionScope(GetEncryptionScopeArgs args) {
@@ -1263,6 +1326,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Encryption Scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1299,6 +1364,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEncryptionScopeResult> getEncryptionScopePlain(GetEncryptionScopePlainArgs args) {
@@ -1308,6 +1374,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Encryption Scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1344,6 +1412,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEncryptionScopeResult> getEncryptionScope(GetEncryptionScopeArgs args, InvokeOptions options) {
@@ -1353,6 +1422,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Encryption Scope.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1389,6 +1460,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEncryptionScopeResult> getEncryptionScopePlain(GetEncryptionScopePlainArgs args, InvokeOptions options) {
@@ -1398,6 +1470,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Management Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1432,6 +1506,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args) {
@@ -1441,6 +1516,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Management Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1475,6 +1552,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args) {
@@ -1484,6 +1562,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Management Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1518,6 +1598,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOptions options) {
@@ -1527,6 +1608,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Management Policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1561,6 +1644,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args, InvokeOptions options) {
@@ -1570,6 +1654,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing File Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1600,6 +1686,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args) {
@@ -1609,6 +1696,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing File Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1639,6 +1728,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetShareResult> getSharePlain(GetSharePlainArgs args) {
@@ -1648,6 +1738,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing File Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1678,6 +1770,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args, InvokeOptions options) {
@@ -1687,6 +1780,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing File Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1717,6 +1812,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetShareResult> getSharePlain(GetSharePlainArgs args, InvokeOptions options) {
@@ -1726,6 +1822,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Container.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1755,6 +1853,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStorageContainerResult> getStorageContainer(GetStorageContainerArgs args) {
@@ -1764,6 +1863,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Container.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1793,6 +1894,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStorageContainerResult> getStorageContainerPlain(GetStorageContainerPlainArgs args) {
@@ -1802,6 +1904,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Container.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1831,6 +1935,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStorageContainerResult> getStorageContainer(GetStorageContainerArgs args, InvokeOptions options) {
@@ -1840,6 +1945,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Container.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1869,6 +1976,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStorageContainerResult> getStorageContainerPlain(GetStorageContainerPlainArgs args, InvokeOptions options) {
@@ -1878,6 +1986,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Sync.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1908,6 +2018,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSyncResult> getSync(GetSyncArgs args) {
@@ -1917,6 +2028,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Sync.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1947,6 +2060,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSyncResult> getSyncPlain(GetSyncPlainArgs args) {
@@ -1956,6 +2070,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Sync.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1986,6 +2102,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSyncResult> getSync(GetSyncArgs args, InvokeOptions options) {
@@ -1995,6 +2112,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Sync.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2025,6 +2144,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSyncResult> getSyncPlain(GetSyncPlainArgs args, InvokeOptions options) {
@@ -2034,6 +2154,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Sync Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2064,6 +2186,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSyncGroupResult> getSyncGroup(GetSyncGroupArgs args) {
@@ -2073,6 +2196,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Sync Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2103,6 +2228,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSyncGroupResult> getSyncGroupPlain(GetSyncGroupPlainArgs args) {
@@ -2112,6 +2238,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Sync Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2142,6 +2270,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSyncGroupResult> getSyncGroup(GetSyncGroupArgs args, InvokeOptions options) {
@@ -2151,6 +2280,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Sync Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2181,6 +2312,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSyncGroupResult> getSyncGroupPlain(GetSyncGroupPlainArgs args, InvokeOptions options) {
@@ -2190,6 +2322,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Table Entity.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2220,6 +2354,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTableEntitiesResult> getTableEntities(GetTableEntitiesArgs args) {
@@ -2229,6 +2364,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Table Entity.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2259,6 +2396,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTableEntitiesResult> getTableEntitiesPlain(GetTableEntitiesPlainArgs args) {
@@ -2268,6 +2406,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Table Entity.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2298,6 +2438,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTableEntitiesResult> getTableEntities(GetTableEntitiesArgs args, InvokeOptions options) {
@@ -2307,6 +2448,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Table Entity.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2337,6 +2480,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTableEntitiesResult> getTableEntitiesPlain(GetTableEntitiesPlainArgs args, InvokeOptions options) {
@@ -2346,6 +2490,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Table Entity.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2377,6 +2523,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTableEntityResult> getTableEntity(GetTableEntityArgs args) {
@@ -2386,6 +2533,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Table Entity.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2417,6 +2566,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTableEntityResult> getTableEntityPlain(GetTableEntityPlainArgs args) {
@@ -2426,6 +2576,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Table Entity.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2457,6 +2609,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTableEntityResult> getTableEntity(GetTableEntityArgs args, InvokeOptions options) {
@@ -2466,6 +2619,8 @@ public final class StorageFunctions {
      * Use this data source to access information about an existing Storage Table Entity.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2497,6 +2652,7 @@ public final class StorageFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTableEntityResult> getTableEntityPlain(GetTableEntityPlainArgs args, InvokeOptions options) {

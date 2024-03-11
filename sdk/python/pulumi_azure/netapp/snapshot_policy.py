@@ -367,6 +367,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
         ## NetApp Snapshot Policy Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -414,6 +415,7 @@ class SnapshotPolicy(pulumi.CustomResource):
                 minute=45,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -447,6 +449,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
         ## NetApp Snapshot Policy Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -494,6 +497,7 @@ class SnapshotPolicy(pulumi.CustomResource):
                 minute=45,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

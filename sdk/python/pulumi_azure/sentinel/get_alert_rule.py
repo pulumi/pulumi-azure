@@ -70,6 +70,7 @@ def get_alert_rule(log_analytics_workspace_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -80,6 +81,7 @@ def get_alert_rule(log_analytics_workspace_id: Optional[str] = None,
         log_analytics_workspace_id=example.id)
     pulumi.export("id", example_get_alert_rule.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Alert Rule belongs to.
@@ -106,6 +108,7 @@ def get_alert_rule_output(log_analytics_workspace_id: Optional[pulumi.Input[str]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -116,6 +119,7 @@ def get_alert_rule_output(log_analytics_workspace_id: Optional[pulumi.Input[str]
         log_analytics_workspace_id=example.id)
     pulumi.export("id", example_get_alert_rule.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Alert Rule belongs to.

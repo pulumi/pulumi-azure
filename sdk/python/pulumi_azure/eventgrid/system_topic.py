@@ -300,6 +300,7 @@ class SystemTopic(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -323,6 +324,7 @@ class SystemTopic(pulumi.CustomResource):
             source_arm_resource_id=example_account.id,
             topic_type="Microsoft.Storage.StorageAccounts")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -357,6 +359,7 @@ class SystemTopic(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -380,6 +383,7 @@ class SystemTopic(pulumi.CustomResource):
             source_arm_resource_id=example_account.id,
             topic_type="Microsoft.Storage.StorageAccounts")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

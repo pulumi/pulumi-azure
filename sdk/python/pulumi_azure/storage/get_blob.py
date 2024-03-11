@@ -153,6 +153,7 @@ def get_blob(metadata: Optional[Mapping[str, str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -161,6 +162,7 @@ def get_blob(metadata: Optional[Mapping[str, str]] = None,
         storage_account_name="example-storage-account-name",
         storage_container_name="example-storage-container-name")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] metadata: A map of custom blob metadata.
@@ -200,6 +202,7 @@ def get_blob_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -208,6 +211,7 @@ def get_blob_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]]
         storage_account_name="example-storage-account-name",
         storage_container_name="example-storage-container-name")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] metadata: A map of custom blob metadata.

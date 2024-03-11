@@ -202,6 +202,7 @@ class ManagedDatabase(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -234,6 +235,7 @@ class ManagedDatabase(pulumi.CustomResource):
             name="example",
             managed_instance_id=example_managed_instance.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -260,6 +262,7 @@ class ManagedDatabase(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -292,6 +295,7 @@ class ManagedDatabase(pulumi.CustomResource):
             name="example",
             managed_instance_id=example_managed_instance.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

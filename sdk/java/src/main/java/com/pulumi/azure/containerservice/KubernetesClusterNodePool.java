@@ -32,6 +32,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * This example provisions a basic Kubernetes Node Pool.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -91,6 +93,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

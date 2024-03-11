@@ -361,6 +361,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -433,6 +434,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
             kusto_database_name=example_database.name,
             kusto_table_name="exampleTable")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -466,6 +468,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -538,6 +541,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
             kusto_database_name=example_database.name,
             kusto_table_name="exampleTable")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

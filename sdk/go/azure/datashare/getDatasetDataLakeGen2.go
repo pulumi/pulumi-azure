@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupDatasetDataLakeGen2(ctx *pulumi.Context, args *LookupDatasetDataLakeGen2Args, opts ...pulumi.InvokeOption) (*LookupDatasetDataLakeGen2Result, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatasetDataLakeGen2Result

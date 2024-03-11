@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE** Virtual Hub IP only supports Standard Virtual Hub without Virtual Wan.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -97,6 +99,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

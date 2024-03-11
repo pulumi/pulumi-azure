@@ -791,8 +791,10 @@ class Standard(pulumi.CustomResource):
         Manages a Logic App (Standard / Single Tenant)
 
         ## Example Usage
+
         ### With App Service Plan)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -827,10 +829,13 @@ class Standard(pulumi.CustomResource):
                 "WEBSITE_NODE_DEFAULT_VERSION": "~18",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### For Container Mode)
 
         > **Note:** You must set `appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -870,6 +875,7 @@ class Standard(pulumi.CustomResource):
                 "DOCKER_REGISTRY_SERVER_PASSWORD": "password",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -914,8 +920,10 @@ class Standard(pulumi.CustomResource):
         Manages a Logic App (Standard / Single Tenant)
 
         ## Example Usage
+
         ### With App Service Plan)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -950,10 +958,13 @@ class Standard(pulumi.CustomResource):
                 "WEBSITE_NODE_DEFAULT_VERSION": "~18",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### For Container Mode)
 
         > **Note:** You must set `appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -993,6 +1004,7 @@ class Standard(pulumi.CustomResource):
                 "DOCKER_REGISTRY_SERVER_PASSWORD": "password",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

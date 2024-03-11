@@ -13,8 +13,10 @@ namespace Pulumi.Azure.Search
     /// Manages a Search Service.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Supporting API Keys)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,8 +41,11 @@ namespace Pulumi.Azure.Search
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Using Both AzureAD And API Keys)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,8 +72,11 @@ namespace Pulumi.Azure.Search
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Supporting Only AzureAD Authentication)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -94,6 +102,7 @@ namespace Pulumi.Azure.Search
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

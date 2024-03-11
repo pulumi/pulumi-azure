@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Manages an AlertingAction Scheduled Query Rules Version 2 resource within Azure Monitor
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -123,6 +125,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

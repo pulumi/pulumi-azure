@@ -236,6 +236,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -313,6 +314,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                 )],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -342,6 +344,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -419,6 +422,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                 )],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

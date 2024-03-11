@@ -564,6 +564,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -592,8 +593,11 @@ class StreamingEndpoint(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             scale_units=2)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Access Control
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -646,6 +650,7 @@ class StreamingEndpoint(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -684,6 +689,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -712,8 +718,11 @@ class StreamingEndpoint(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             scale_units=2)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Access Control
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -766,6 +775,7 @@ class StreamingEndpoint(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

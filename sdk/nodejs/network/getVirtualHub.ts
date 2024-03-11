@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Virtual Hub Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  * });
  * export const virtualHubId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubResult> {
 
@@ -87,6 +89,7 @@ export interface GetVirtualHubResult {
  *
  * ## Virtual Hub Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -97,6 +100,7 @@ export interface GetVirtualHubResult {
  * });
  * export const virtualHubId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualHubOutput(args: GetVirtualHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubResult> {
     return pulumi.output(args).apply((a: any) => getVirtualHub(a, opts))

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * > **NOTE :** For Azure VMware private cloud, normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -135,6 +136,7 @@ import * as utilities from "../utilities";
  *     vmwareClusterId: testCluster.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -334,6 +334,7 @@ class WorkbookTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -400,6 +401,7 @@ class WorkbookTemplate(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -432,6 +434,7 @@ class WorkbookTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -498,6 +501,7 @@ class WorkbookTemplate(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

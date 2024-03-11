@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  *
  * This example provisions a Standard Redis Cache.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -36,6 +37,8 @@ import * as utilities from "../utilities";
  *     redisConfiguration: {},
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Relevant Links
  *
  * * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)

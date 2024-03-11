@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// Use this data source to access information about an existing Automation Datetime Variable.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.Azure.Automation
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDateTimeVariableResult> InvokeAsync(GetDateTimeVariableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDateTimeVariableResult>("azure:automation/getDateTimeVariable:getDateTimeVariable", args ?? new GetDateTimeVariableArgs(), options.WithDefaults());
@@ -48,10 +46,9 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// Use this data source to access information about an existing Automation Datetime Variable.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.Azure.Automation
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDateTimeVariableResult> Invoke(GetDateTimeVariableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDateTimeVariableResult>("azure:automation/getDateTimeVariable:getDateTimeVariable", args ?? new GetDateTimeVariableInvokeArgs(), options.WithDefaults());

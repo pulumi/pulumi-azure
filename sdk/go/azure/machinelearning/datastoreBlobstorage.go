@@ -15,8 +15,10 @@ import (
 // Manages a Machine Learning Blob Storage DataStore.
 //
 // ## Example Usage
+//
 // ### With Azure Blob
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -109,6 +111,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

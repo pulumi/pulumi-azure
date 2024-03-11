@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -33,6 +34,7 @@ import * as utilities from "../utilities";
  * });
  * export const databaseId = example.apply(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
 
@@ -133,6 +135,7 @@ export interface GetDatabaseResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -155,6 +158,7 @@ export interface GetDatabaseResult {
  * });
  * export const databaseId = example.apply(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getDatabase(a, opts))

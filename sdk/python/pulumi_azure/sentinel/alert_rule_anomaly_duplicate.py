@@ -500,6 +500,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -528,6 +529,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
                 value="0.6",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -562,6 +564,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -590,6 +593,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
                 value="0.6",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

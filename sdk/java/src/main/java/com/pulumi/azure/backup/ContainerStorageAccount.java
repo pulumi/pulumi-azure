@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Manages registration of a storage account with Azure Backup. Storage accounts must be registered with an Azure Recovery Vault in order to backup file shares within the storage account. Registering a storage account with a vault creates what is known as a protection container within Azure Recovery Services. Once the container is created, Azure file shares within the storage account can be backed up using the `azure.backup.ProtectedFileShare` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -73,6 +75,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -82,7 +85,7 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:backup/containerStorageAccount:ContainerStorageAccount mycontainer &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/backupFabrics/Azure/protectionContainers/StorageContainer;storage;storage-rg-name;storage-account&#34;
  * ```
  * 
- *  Note the ID requires quoting as there are semicolons
+ * Note the ID requires quoting as there are semicolons
  * 
  */
 @ResourceType(type="azure:backup/containerStorageAccount:ContainerStorageAccount")

@@ -14,6 +14,7 @@ namespace Pulumi.Azure.DevCenter
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,6 +67,7 @@ namespace Pulumi.Azure.DevCenter
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -75,13 +77,13 @@ namespace Pulumi.Azure.DevCenter
     /// $ pulumi import azure:devcenter/gallery:Gallery example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}/galleries/{galleryName}
     /// ```
     /// 
-    ///  * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center Gallery exists. For example `12345678-1234-9876-4563-123456789012`.
+    /// * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center Gallery exists. For example `12345678-1234-9876-4563-123456789012`.
     /// 
-    ///  * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center Gallery exists. For example `example-resource-group`.
+    /// * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center Gallery exists. For example `example-resource-group`.
     /// 
-    ///  * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
+    /// * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
     /// 
-    ///  * Where `{galleryName}` is the name of the Gallery. For example `galleryValue`.
+    /// * Where `{galleryName}` is the name of the Gallery. For example `galleryValue`.
     /// </summary>
     [AzureResourceType("azure:devcenter/gallery:Gallery")]
     public partial class Gallery : global::Pulumi.CustomResource

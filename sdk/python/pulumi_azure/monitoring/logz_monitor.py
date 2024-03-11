@@ -374,6 +374,7 @@ class LogzMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -397,6 +398,7 @@ class LogzMonitor(pulumi.CustomResource):
                 phone_number="+12313803556",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -431,6 +433,7 @@ class LogzMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -454,6 +457,7 @@ class LogzMonitor(pulumi.CustomResource):
                 phone_number="+12313803556",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -32,6 +33,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Blocks Reference
  *
  * ### `identity` Block
@@ -54,11 +57,11 @@ import * as utilities from "../utilities";
  * $ pulumi import azure:loadtest/loadTest:LoadTest example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/loadTests/{loadTestName}
  * ```
  *
- *  * Where `{subscriptionId}` is the ID of the Azure Subscription where the Load Test exists. For example `12345678-1234-9876-4563-123456789012`.
+ * * Where `{subscriptionId}` is the ID of the Azure Subscription where the Load Test exists. For example `12345678-1234-9876-4563-123456789012`.
  *
- *  * Where `{resourceGroupName}` is the name of Resource Group where this Load Test exists. For example `example-resource-group`.
+ * * Where `{resourceGroupName}` is the name of Resource Group where this Load Test exists. For example `example-resource-group`.
  *
- *  * Where `{loadTestName}` is the name of the Load Test. For example `loadTestValue`.
+ * * Where `{loadTestName}` is the name of the Load Test. For example `loadTestValue`.
  */
 export class LoadTest extends pulumi.CustomResource {
     /**

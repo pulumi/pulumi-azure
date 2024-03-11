@@ -128,6 +128,7 @@ def get_certificate(account_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -137,6 +138,7 @@ def get_certificate(account_name: Optional[str] = None,
         resource_group_name="example")
     pulumi.export("thumbprint", example.thumbprint)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the Batch account.
@@ -171,6 +173,7 @@ def get_certificate_output(account_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -180,6 +183,7 @@ def get_certificate_output(account_name: Optional[pulumi.Input[str]] = None,
         resource_group_name="example")
     pulumi.export("thumbprint", example.thumbprint)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the Batch account.

@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,8 +75,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Private Link
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -154,8 +158,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Private Link Service
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -299,6 +306,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Example HCL Configurations
 //
 // * Private Link Origin with Storage Account Blob

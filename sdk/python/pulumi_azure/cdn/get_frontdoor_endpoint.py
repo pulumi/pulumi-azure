@@ -116,6 +116,7 @@ def get_frontdoor_endpoint(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -124,6 +125,7 @@ def get_frontdoor_endpoint(name: Optional[str] = None,
         profile_name="existing-cdn-profile",
         resource_group_name="existing-resources")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Front Door Endpoint.
@@ -157,6 +159,7 @@ def get_frontdoor_endpoint_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -165,6 +168,7 @@ def get_frontdoor_endpoint_output(name: Optional[pulumi.Input[str]] = None,
         profile_name="existing-cdn-profile",
         resource_group_name="existing-resources")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Front Door Endpoint.

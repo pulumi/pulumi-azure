@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupWindowsFunctionApp(ctx *pulumi.Context, args *LookupWindowsFunctionAppArgs, opts ...pulumi.InvokeOption) (*LookupWindowsFunctionAppResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWindowsFunctionAppResult

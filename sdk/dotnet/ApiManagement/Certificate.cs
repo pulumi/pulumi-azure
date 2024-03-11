@@ -13,8 +13,10 @@ namespace Pulumi.Azure.ApiManagement
     /// Manages an Certificate within an API Management Service.
     /// 
     /// ## Example Usage
+    /// 
     /// ### With Base64 Certificate)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,8 +55,11 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Key Vault Certificate)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -152,6 +157,7 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

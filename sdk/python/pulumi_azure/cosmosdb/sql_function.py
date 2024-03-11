@@ -135,6 +135,7 @@ class SqlFunction(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -157,6 +158,7 @@ class SqlFunction(pulumi.CustomResource):
             container_id=example_sql_container.id,
             body="function trigger(){}")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -183,6 +185,7 @@ class SqlFunction(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -205,6 +208,7 @@ class SqlFunction(pulumi.CustomResource):
             container_id=example_sql_container.id,
             body="function trigger(){}")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

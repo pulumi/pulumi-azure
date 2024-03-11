@@ -203,6 +203,7 @@ class LogzSubAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -235,6 +236,7 @@ class LogzSubAccount(pulumi.CustomResource):
                 phone_number=example_logz_monitor.user.phone_number,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -263,6 +265,7 @@ class LogzSubAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -295,6 +298,7 @@ class LogzSubAccount(pulumi.CustomResource):
                 phone_number=example_logz_monitor.user.phone_number,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

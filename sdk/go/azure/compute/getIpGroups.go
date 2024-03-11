@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Deprecated: azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups
 func GetIpGroups(ctx *pulumi.Context, args *GetIpGroupsArgs, opts ...pulumi.InvokeOption) (*GetIpGroupsResult, error) {

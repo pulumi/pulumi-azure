@@ -298,6 +298,7 @@ class SavedSearch(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -318,6 +319,7 @@ class SavedSearch(pulumi.CustomResource):
             display_name="exampleDisplayName",
             query="exampleQuery")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -349,6 +351,7 @@ class SavedSearch(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -369,6 +372,7 @@ class SavedSearch(pulumi.CustomResource):
             display_name="exampleDisplayName",
             query="exampleQuery")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  * export const versions = current.then(current => current.versions);
  * export const latestVersion = current.then(current => current.latestVersion);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getKubernetesServiceVersions(args: GetKubernetesServiceVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesServiceVersionsResult> {
 
@@ -73,6 +75,7 @@ export interface GetKubernetesServiceVersionsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -83,6 +86,7 @@ export interface GetKubernetesServiceVersionsResult {
  * export const versions = current.then(current => current.versions);
  * export const latestVersion = current.then(current => current.latestVersion);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getKubernetesServiceVersionsOutput(args: GetKubernetesServiceVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesServiceVersionsResult> {
     return pulumi.output(args).apply((a: any) => getKubernetesServiceVersions(a, opts))

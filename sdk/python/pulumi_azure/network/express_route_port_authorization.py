@@ -167,6 +167,7 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -186,6 +187,7 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
             express_route_port_name=example_express_route_port.name,
             resource_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -212,6 +214,7 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -231,6 +234,7 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
             express_route_port_name=example_express_route_port.name,
             resource_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -98,6 +98,7 @@ def get_gateway(api_management_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -107,6 +108,7 @@ def get_gateway(api_management_id: Optional[str] = None,
     example_get_gateway = azure.apimanagement.get_gateway(name="example-api-gateway",
         api_management_id=example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str api_management_id: The ID of the API Management Service in which the Gateway exists.
@@ -135,6 +137,7 @@ def get_gateway_output(api_management_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -144,6 +147,7 @@ def get_gateway_output(api_management_id: Optional[pulumi.Input[str]] = None,
     example_get_gateway = azure.apimanagement.get_gateway(name="example-api-gateway",
         api_management_id=example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str api_management_id: The ID of the API Management Service in which the Gateway exists.

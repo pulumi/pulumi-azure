@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TransformOutputCustomPresetFilterFadeIn {
     /**
-     * @return The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+     * @return The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
      * 
      */
     private String duration;
@@ -23,14 +23,14 @@ public final class TransformOutputCustomPresetFilterFadeIn {
      */
     private String fadeColor;
     /**
-     * @return The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+     * @return The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
      * 
      */
     private @Nullable String start;
 
     private TransformOutputCustomPresetFilterFadeIn() {}
     /**
-     * @return The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+     * @return The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
      * 
      */
     public String duration() {
@@ -44,7 +44,7 @@ public final class TransformOutputCustomPresetFilterFadeIn {
         return this.fadeColor;
     }
     /**
-     * @return The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+     * @return The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
      * 
      */
     public Optional<String> start() {

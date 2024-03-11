@@ -401,6 +401,7 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -434,6 +435,7 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
             weight=100,
             target="www.example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -468,6 +470,7 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -501,6 +504,7 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
             weight=100,
             target="www.example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

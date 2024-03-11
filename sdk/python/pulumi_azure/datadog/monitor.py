@@ -348,8 +348,10 @@ class Monitor(pulumi.CustomResource):
         Manages a datadog Monitor.
 
         ## Example Usage
+
         ### Monitor creation with linking to Datadog organization
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -374,12 +376,15 @@ class Monitor(pulumi.CustomResource):
                 type="SystemAssigned",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Role Assignment
 
         To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
 
         ### Role assignment on the monitor created
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -391,6 +396,7 @@ class Monitor(pulumi.CustomResource):
             role_definition_id=monitoring_reader.role_definition_id,
             principal_id=example_azurerm_datadog_monitor["identity"][0]["principalId"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -422,8 +428,10 @@ class Monitor(pulumi.CustomResource):
         Manages a datadog Monitor.
 
         ## Example Usage
+
         ### Monitor creation with linking to Datadog organization
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -448,12 +456,15 @@ class Monitor(pulumi.CustomResource):
                 type="SystemAssigned",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Role Assignment
 
         To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
 
         ### Role assignment on the monitor created
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -465,6 +476,7 @@ class Monitor(pulumi.CustomResource):
             role_definition_id=monitoring_reader.role_definition_id,
             principal_id=example_azurerm_datadog_monitor["identity"][0]["principalId"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

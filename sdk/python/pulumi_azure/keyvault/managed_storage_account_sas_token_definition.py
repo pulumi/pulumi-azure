@@ -248,6 +248,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -327,6 +328,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             sas_template_uri=example_get_account_sas.sas,
             sas_type="account")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -356,6 +358,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -435,6 +438,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             sas_template_uri=example_get_account_sas.sas,
             sas_type="account")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

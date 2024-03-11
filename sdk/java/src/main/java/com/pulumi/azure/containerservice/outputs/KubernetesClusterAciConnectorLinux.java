@@ -24,6 +24,8 @@ public final class KubernetesClusterAciConnectorLinux {
      * &gt; **Note:** At this time ACI Connectors are not supported in Azure China.
      * 
      * &gt; **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -60,6 +62,7 @@ public final class KubernetesClusterAciConnectorLinux {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     private String subnetName;
@@ -78,6 +81,8 @@ public final class KubernetesClusterAciConnectorLinux {
      * &gt; **Note:** At this time ACI Connectors are not supported in Azure China.
      * 
      * &gt; **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -114,6 +119,7 @@ public final class KubernetesClusterAciConnectorLinux {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public String subnetName() {

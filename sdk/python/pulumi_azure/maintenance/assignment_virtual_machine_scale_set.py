@@ -135,6 +135,7 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -259,6 +260,7 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
             maintenance_configuration_id=example_configuration.id,
             virtual_machine_scale_set_id=example_linux_virtual_machine.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -285,6 +287,7 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -409,6 +412,7 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
             maintenance_configuration_id=example_configuration.id,
             virtual_machine_scale_set_id=example_linux_virtual_machine.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

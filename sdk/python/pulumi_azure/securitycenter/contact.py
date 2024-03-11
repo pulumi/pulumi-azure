@@ -202,6 +202,7 @@ class Contact(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -213,6 +214,7 @@ class Contact(pulumi.CustomResource):
             alert_notifications=True,
             alerts_to_admins=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -243,6 +245,7 @@ class Contact(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -254,6 +257,7 @@ class Contact(pulumi.CustomResource):
             alert_notifications=True,
             alerts_to_admins=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

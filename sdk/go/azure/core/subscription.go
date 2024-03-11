@@ -13,8 +13,10 @@ import (
 )
 
 // ## Example Usage
+//
 // ### Creating A New Alias And Subscription For An Enrollment Account
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,8 +49,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Creating A New Alias And Subscription For A Microsoft Customer Account
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,8 +87,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Creating A New Alias And Subscription For A Microsoft Partner Account
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -116,8 +124,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Adding An Alias To An Existing Subscription
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -143,6 +154,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -152,7 +164,7 @@ import (
 // $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
 // ```
 //
-//	In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
+// In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
 type Subscription struct {
 	pulumi.CustomResourceState
 

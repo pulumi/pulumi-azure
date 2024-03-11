@@ -15,8 +15,10 @@ import (
 // Manages a Search Service.
 //
 // ## Example Usage
+//
 // ### Supporting API Keys)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,8 +53,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using Both AzureAD And API Keys)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -89,8 +94,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Supporting Only AzureAD Authentication)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -126,6 +134,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

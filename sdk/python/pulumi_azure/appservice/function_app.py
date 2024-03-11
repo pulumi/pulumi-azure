@@ -861,8 +861,10 @@ class FunctionApp(pulumi.CustomResource):
         For an example, check the `appservice.VirtualNetworkSwiftConnection` documentation.
 
         ## Example Usage
+
         ### With App Service Plan)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -892,8 +894,11 @@ class FunctionApp(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### In A Consumption Plan)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -924,8 +929,11 @@ class FunctionApp(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Linux)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -959,6 +967,7 @@ class FunctionApp(pulumi.CustomResource):
             os_type="linux",
             version="~3")
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
 
@@ -1017,8 +1026,10 @@ class FunctionApp(pulumi.CustomResource):
         For an example, check the `appservice.VirtualNetworkSwiftConnection` documentation.
 
         ## Example Usage
+
         ### With App Service Plan)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1048,8 +1059,11 @@ class FunctionApp(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### In A Consumption Plan)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1080,8 +1094,11 @@ class FunctionApp(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Linux)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1115,6 +1132,7 @@ class FunctionApp(pulumi.CustomResource):
             os_type="linux",
             version="~3")
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
 

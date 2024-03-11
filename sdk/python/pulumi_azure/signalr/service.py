@@ -821,6 +821,7 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -853,6 +854,7 @@ class Service(pulumi.CustomResource):
                 url_template="http://foo.com",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -899,6 +901,7 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -931,6 +934,7 @@ class Service(pulumi.CustomResource):
                 url_template="http://foo.com",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

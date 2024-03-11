@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetTemplateSpecVersion(ctx *pulumi.Context, args *GetTemplateSpecVersionArgs, opts ...pulumi.InvokeOption) (*GetTemplateSpecVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTemplateSpecVersionResult

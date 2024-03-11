@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,6 +23,7 @@ import * as utilities from "../utilities";
  * });
  * export const springCloudAppId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSpringCloudApp(args: GetSpringCloudAppArgs, opts?: pulumi.InvokeOptions): Promise<GetSpringCloudAppResult> {
 
@@ -96,6 +98,7 @@ export interface GetSpringCloudAppResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -107,6 +110,7 @@ export interface GetSpringCloudAppResult {
  * });
  * export const springCloudAppId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSpringCloudAppOutput(args: GetSpringCloudAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpringCloudAppResult> {
     return pulumi.output(args).apply((a: any) => getSpringCloudApp(a, opts))

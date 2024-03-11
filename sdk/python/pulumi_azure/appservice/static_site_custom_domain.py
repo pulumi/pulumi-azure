@@ -148,8 +148,10 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+
         ### CNAME validation
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -172,8 +174,11 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
             domain_name=pulumi.Output.all(example_c_name_record.name, example_c_name_record.zone_name).apply(lambda name, zone_name: f"{name}.{zone_name}"),
             validation_type="cname-delegation")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### TXT validation
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -198,6 +203,7 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
                 value=example_static_site_custom_domain.validation_token,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -221,8 +227,10 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
         ### CNAME validation
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -245,8 +253,11 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
             domain_name=pulumi.Output.all(example_c_name_record.name, example_c_name_record.zone_name).apply(lambda name, zone_name: f"{name}.{zone_name}"),
             validation_type="cname-delegation")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### TXT validation
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -271,6 +282,7 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
                 value=example_static_site_custom_domain.validation_token,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

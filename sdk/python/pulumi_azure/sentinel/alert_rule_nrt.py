@@ -679,6 +679,7 @@ class AlertRuleNrt(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -703,6 +704,7 @@ class AlertRuleNrt(pulumi.CustomResource):
           make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -749,6 +751,7 @@ class AlertRuleNrt(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -773,6 +776,7 @@ class AlertRuleNrt(pulumi.CustomResource):
           make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

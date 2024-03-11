@@ -242,6 +242,7 @@ class CacheBlobTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -292,6 +293,7 @@ class CacheBlobTarget(pulumi.CustomResource):
             storage_container_id=example_container.resource_manager_id,
             namespace_path="/blob_storage")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -325,6 +327,7 @@ class CacheBlobTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -375,6 +378,7 @@ class CacheBlobTarget(pulumi.CustomResource):
             storage_container_id=example_container.resource_manager_id,
             namespace_path="/blob_storage")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

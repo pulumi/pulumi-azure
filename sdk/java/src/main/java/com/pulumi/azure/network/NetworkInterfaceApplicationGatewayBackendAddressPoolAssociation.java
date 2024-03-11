@@ -16,8 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Manages the association between a Network Interface and a Application Gateway&#39;s Backend Address Pool.
  * 
- * ## Example Usage
- * 
  * ## Import
  * 
  * Associations between Network Interfaces and Application Gateway Backend Address Pools can be imported using the `resource id`, e.g.

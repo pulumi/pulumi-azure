@@ -267,6 +267,7 @@ class Asset(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -294,6 +295,7 @@ class Asset(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             description="Asset description")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -324,6 +326,7 @@ class Asset(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -351,6 +354,7 @@ class Asset(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             description="Asset description")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

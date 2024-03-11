@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Manages a Chaos Studio Target.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,6 +77,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -84,9 +87,9 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:chaosstudio/target:Target example /{scope}/providers/Microsoft.Chaos/targets/{targetName}
  * ```
  * 
- *  * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
+ * * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
  * 
- *  * Where `{targetName}` is the name of the Target. For example `targetValue`.
+ * * Where `{targetName}` is the name of the Target. For example `targetValue`.
  * 
  */
 @ResourceType(type="azure:chaosstudio/target:Target")

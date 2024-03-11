@@ -18,6 +18,7 @@ namespace Pulumi.Azure.Redis
     /// 
     /// This example provisions a Standard Redis Cache.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,6 +49,8 @@ namespace Pulumi.Azure.Redis
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Relevant Links
     /// 
     /// * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)

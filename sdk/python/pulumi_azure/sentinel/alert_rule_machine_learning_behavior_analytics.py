@@ -168,6 +168,7 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -186,6 +187,7 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
             log_analytics_workspace_id=example_analytics_workspace.id,
             alert_rule_template_guid="737a2ce1-70a3-4968-9e90-3e6aca836abf")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -213,6 +215,7 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -231,6 +234,7 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
             log_analytics_workspace_id=example_analytics_workspace.id,
             alert_rule_template_guid="737a2ce1-70a3-4968-9e90-3e6aca836abf")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

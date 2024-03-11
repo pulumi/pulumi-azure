@@ -15,10 +15,9 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Use this data source to access information about an existing EventHub Namespace.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.Azure.EventHub
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEventhubNamespaceResult> InvokeAsync(GetEventhubNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventhubNamespaceResult>("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args ?? new GetEventhubNamespaceArgs(), options.WithDefaults());
@@ -48,10 +46,9 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Use this data source to access information about an existing EventHub Namespace.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -72,8 +69,7 @@ namespace Pulumi.Azure.EventHub
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEventhubNamespaceResult> Invoke(GetEventhubNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventhubNamespaceResult>("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args ?? new GetEventhubNamespaceInvokeArgs(), options.WithDefaults());

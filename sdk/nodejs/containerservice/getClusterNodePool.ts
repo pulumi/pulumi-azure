@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,6 +23,7 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getClusterNodePool(args: GetClusterNodePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterNodePoolResult> {
 
@@ -160,6 +162,7 @@ export interface GetClusterNodePoolResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -171,6 +174,7 @@ export interface GetClusterNodePoolResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getClusterNodePoolOutput(args: GetClusterNodePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterNodePoolResult> {
     return pulumi.output(args).apply((a: any) => getClusterNodePool(a, opts))

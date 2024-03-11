@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -18,6 +19,7 @@ import * as utilities from "../utilities";
  * });
  * export const items = example.then(example => example.items);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTriggerSchedules(args: GetTriggerSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerSchedulesResult> {
 
@@ -56,6 +58,7 @@ export interface GetTriggerSchedulesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -65,6 +68,7 @@ export interface GetTriggerSchedulesResult {
  * });
  * export const items = example.then(example => example.items);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTriggerSchedulesOutput(args: GetTriggerSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerSchedulesResult> {
     return pulumi.output(args).apply((a: any) => getTriggerSchedules(a, opts))

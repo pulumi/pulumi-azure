@@ -408,6 +408,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -441,6 +442,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
                 address_space="10.4.0.0/26",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -478,6 +480,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -511,6 +514,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
                 address_space="10.4.0.0/26",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

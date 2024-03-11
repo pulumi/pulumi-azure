@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -24,6 +25,7 @@ import * as utilities from "../utilities";
  *     mobileNetworkId: test.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworkSlice(args: GetNetworkSliceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSliceResult> {
 
@@ -80,6 +82,7 @@ export interface GetNetworkSliceResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -93,6 +96,7 @@ export interface GetNetworkSliceResult {
  *     mobileNetworkId: test.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworkSliceOutput(args: GetNetworkSliceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSliceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkSlice(a, opts))

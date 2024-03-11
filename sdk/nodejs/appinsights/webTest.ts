@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -46,6 +47,7 @@ import * as utilities from "../utilities";
  * export const webtestId = exampleWebTest.id;
  * export const webtestsSyntheticId = exampleWebTest.syntheticMonitorId;
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

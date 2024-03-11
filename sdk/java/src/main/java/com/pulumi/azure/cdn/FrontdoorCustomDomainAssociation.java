@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -153,6 +155,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

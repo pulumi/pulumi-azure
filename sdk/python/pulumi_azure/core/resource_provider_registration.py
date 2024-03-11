@@ -104,14 +104,18 @@ class ResourceProviderRegistration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
 
         example = azure.core.ResourceProviderRegistration("example", name="Microsoft.PolicyInsights")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Registering A Preview Feature)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -123,6 +127,7 @@ class ResourceProviderRegistration(pulumi.CustomResource):
                 registered=True,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -153,14 +158,18 @@ class ResourceProviderRegistration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
 
         example = azure.core.ResourceProviderRegistration("example", name="Microsoft.PolicyInsights")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Registering A Preview Feature)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -172,6 +181,7 @@ class ResourceProviderRegistration(pulumi.CustomResource):
                 registered=True,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

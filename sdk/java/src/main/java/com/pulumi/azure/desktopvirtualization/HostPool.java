@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Manages a Virtual Desktop Host Pool.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,12 +77,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Virtual Desktop Host Pools can be imported using the `resource id`, e.g.
  * 
- *  text
+ * text
  * 
  * ```sh
  * $ pulumi import azure:desktopvirtualization/hostPool:HostPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/hostPools/myhostpool

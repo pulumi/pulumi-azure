@@ -637,6 +637,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -654,6 +655,7 @@ class EventHubNamespace(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -694,6 +696,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -711,6 +714,7 @@ class EventHubNamespace(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

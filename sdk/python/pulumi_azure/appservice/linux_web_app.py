@@ -1072,6 +1072,7 @@ class LinuxWebApp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1092,6 +1093,7 @@ class LinuxWebApp(pulumi.CustomResource):
             service_plan_id=example_service_plan.id,
             site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1144,6 +1146,7 @@ class LinuxWebApp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1164,6 +1167,7 @@ class LinuxWebApp(pulumi.CustomResource):
             service_plan_id=example_service_plan.id,
             site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

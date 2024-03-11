@@ -300,6 +300,7 @@ class LinkedServiceKeyVault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -323,6 +324,7 @@ class LinkedServiceKeyVault(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             key_vault_id=example_key_vault.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -354,6 +356,7 @@ class LinkedServiceKeyVault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -377,6 +380,7 @@ class LinkedServiceKeyVault(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             key_vault_id=example_key_vault.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

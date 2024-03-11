@@ -27,6 +27,8 @@ public final class SiterecoveryFunctions {
      * Use this data source to access information about an existing Site Recovery Replication Fabric.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -57,6 +59,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFabricResult> getFabric(GetFabricArgs args) {
@@ -66,6 +69,8 @@ public final class SiterecoveryFunctions {
      * Use this data source to access information about an existing Site Recovery Replication Fabric.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -96,6 +101,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFabricResult> getFabricPlain(GetFabricPlainArgs args) {
@@ -105,6 +111,8 @@ public final class SiterecoveryFunctions {
      * Use this data source to access information about an existing Site Recovery Replication Fabric.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -135,6 +143,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFabricResult> getFabric(GetFabricArgs args, InvokeOptions options) {
@@ -144,6 +153,8 @@ public final class SiterecoveryFunctions {
      * Use this data source to access information about an existing Site Recovery Replication Fabric.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -174,6 +185,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFabricResult> getFabricPlain(GetFabricPlainArgs args, InvokeOptions options) {
@@ -183,6 +195,8 @@ public final class SiterecoveryFunctions {
      * Use this data source to access information about an existing site recovery services protection container.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -214,6 +228,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProtectionContainerResult> getProtectionContainer(GetProtectionContainerArgs args) {
@@ -223,6 +238,8 @@ public final class SiterecoveryFunctions {
      * Use this data source to access information about an existing site recovery services protection container.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -254,6 +271,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProtectionContainerResult> getProtectionContainerPlain(GetProtectionContainerPlainArgs args) {
@@ -263,6 +281,8 @@ public final class SiterecoveryFunctions {
      * Use this data source to access information about an existing site recovery services protection container.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -294,6 +314,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProtectionContainerResult> getProtectionContainer(GetProtectionContainerArgs args, InvokeOptions options) {
@@ -303,6 +324,8 @@ public final class SiterecoveryFunctions {
      * Use this data source to access information about an existing site recovery services protection container.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -334,6 +357,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProtectionContainerResult> getProtectionContainerPlain(GetProtectionContainerPlainArgs args, InvokeOptions options) {
@@ -343,6 +367,8 @@ public final class SiterecoveryFunctions {
      * Use this data source to access information about an existing Azure Site Recovery replication policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -373,6 +399,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReplicationPolicyResult> getReplicationPolicy(GetReplicationPolicyArgs args) {
@@ -382,6 +409,8 @@ public final class SiterecoveryFunctions {
      * Use this data source to access information about an existing Azure Site Recovery replication policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -412,6 +441,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReplicationPolicyResult> getReplicationPolicyPlain(GetReplicationPolicyPlainArgs args) {
@@ -421,6 +451,8 @@ public final class SiterecoveryFunctions {
      * Use this data source to access information about an existing Azure Site Recovery replication policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -451,6 +483,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReplicationPolicyResult> getReplicationPolicy(GetReplicationPolicyArgs args, InvokeOptions options) {
@@ -460,6 +493,8 @@ public final class SiterecoveryFunctions {
      * Use this data source to access information about an existing Azure Site Recovery replication policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -490,6 +525,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReplicationPolicyResult> getReplicationPolicyPlain(GetReplicationPolicyPlainArgs args, InvokeOptions options) {
@@ -499,6 +535,8 @@ public final class SiterecoveryFunctions {
      * Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -535,6 +573,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs args) {
@@ -544,6 +583,8 @@ public final class SiterecoveryFunctions {
      * Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -580,6 +621,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlanPlain(GetReplicationRecoveryPlanPlainArgs args) {
@@ -589,6 +631,8 @@ public final class SiterecoveryFunctions {
      * Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -625,6 +669,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs args, InvokeOptions options) {
@@ -634,6 +679,8 @@ public final class SiterecoveryFunctions {
      * Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -670,6 +717,7 @@ public final class SiterecoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlanPlain(GetReplicationRecoveryPlanPlainArgs args, InvokeOptions options) {

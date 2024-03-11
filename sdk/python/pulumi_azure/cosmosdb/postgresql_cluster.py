@@ -821,6 +821,7 @@ class PostgresqlCluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -837,6 +838,7 @@ class PostgresqlCluster(pulumi.CustomResource):
             coordinator_vcore_count=2,
             node_count=0)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -885,6 +887,7 @@ class PostgresqlCluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -901,6 +904,7 @@ class PostgresqlCluster(pulumi.CustomResource):
             coordinator_vcore_count=2,
             node_count=0)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

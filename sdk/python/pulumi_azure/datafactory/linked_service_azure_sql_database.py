@@ -501,6 +501,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -517,6 +518,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -554,6 +556,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -570,6 +573,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

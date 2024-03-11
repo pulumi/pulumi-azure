@@ -134,6 +134,7 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -181,6 +182,7 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
             ip_configuration_name="testconfiguration1",
             backend_address_pool_id=example_backend_address_pool.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -207,6 +209,7 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -254,6 +257,7 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
             ip_configuration_name="testconfiguration1",
             backend_address_pool_id=example_backend_address_pool.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * });
  * export const privateEndpointStatus = example.then(example => example.privateServiceConnections?.[0]?.status);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEndpointConnection(args: GetEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointConnectionResult> {
 
@@ -70,6 +72,7 @@ export interface GetEndpointConnectionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -80,6 +83,7 @@ export interface GetEndpointConnectionResult {
  * });
  * export const privateEndpointStatus = example.then(example => example.privateServiceConnections?.[0]?.status);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEndpointConnectionOutput(args: GetEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getEndpointConnection(a, opts))

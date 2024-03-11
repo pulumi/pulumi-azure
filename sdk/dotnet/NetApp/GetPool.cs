@@ -16,6 +16,7 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// ## NetApp Pool Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,6 +38,7 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:netapp/getPool:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
@@ -46,6 +48,7 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// ## NetApp Pool Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,6 +70,7 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure:netapp/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());

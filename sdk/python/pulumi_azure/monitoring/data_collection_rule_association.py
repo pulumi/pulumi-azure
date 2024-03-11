@@ -218,6 +218,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -292,6 +293,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
             data_collection_endpoint_id=example_data_collection_endpoint.id,
             description="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -324,6 +326,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -398,6 +401,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
             data_collection_endpoint_id=example_data_collection_endpoint.id,
             description="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

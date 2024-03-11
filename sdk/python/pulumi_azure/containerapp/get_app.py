@@ -239,6 +239,7 @@ def get_app(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -246,6 +247,7 @@ def get_app(name: Optional[str] = None,
     example = azure.containerapp.get_app(name="example-app",
         resource_group_name="example-resources")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Container App.
@@ -287,6 +289,7 @@ def get_app_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -294,6 +297,7 @@ def get_app_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.containerapp.get_app(name="example-app",
         resource_group_name="example-resources")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Container App.

@@ -365,6 +365,7 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -405,6 +406,7 @@ class Application(pulumi.CustomResource):
             icon_path="C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
             icon_index=0)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -438,6 +440,7 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -478,6 +481,7 @@ class Application(pulumi.CustomResource):
             icon_path="C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
             icon_index=0)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

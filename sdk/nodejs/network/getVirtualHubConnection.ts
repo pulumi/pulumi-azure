@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Virtual Hub Connection Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,6 +23,7 @@ import * as utilities from "../utilities";
  * });
  * export const virtualHubConnectionId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualHubConnection(args: GetVirtualHubConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubConnectionResult> {
 
@@ -87,6 +89,7 @@ export interface GetVirtualHubConnectionResult {
  *
  * ## Virtual Hub Connection Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -98,6 +101,7 @@ export interface GetVirtualHubConnectionResult {
  * });
  * export const virtualHubConnectionId = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualHubConnectionOutput(args: GetVirtualHubConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualHubConnection(a, opts))

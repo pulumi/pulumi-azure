@@ -6,24 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Automation Object Variable.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = azure.automation.getVariableObject({
- *     name: "tfex-example-var",
- *     resourceGroupName: "tfex-example-rg",
- *     automationAccountName: "tfex-example-account",
- * });
- * export const variable = notImplemented("jsondecode(data.azurerm_automation_variable_object.example.value)");
- * ```
  */
 export function getVariableObject(args: GetVariableObjectArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableObjectResult> {
 
@@ -79,24 +61,6 @@ export interface GetVariableObjectResult {
 }
 /**
  * Use this data source to access information about an existing Automation Object Variable.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = azure.automation.getVariableObject({
- *     name: "tfex-example-var",
- *     resourceGroupName: "tfex-example-rg",
- *     automationAccountName: "tfex-example-account",
- * });
- * export const variable = notImplemented("jsondecode(data.azurerm_automation_variable_object.example.value)");
- * ```
  */
 export function getVariableObjectOutput(args: GetVariableObjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableObjectResult> {
     return pulumi.output(args).apply((a: any) => getVariableObject(a, opts))

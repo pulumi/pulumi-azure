@@ -102,6 +102,7 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -138,6 +139,7 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -163,6 +165,7 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -199,6 +202,7 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

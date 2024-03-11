@@ -50,6 +50,8 @@ public final class CoreFunctions {
      * Use this data source to access the configuration of the AzureRM provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -76,6 +78,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClientConfigResult> getClientConfig() {
@@ -85,6 +88,8 @@ public final class CoreFunctions {
      * Use this data source to access the configuration of the AzureRM provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -111,6 +116,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClientConfigResult> getClientConfigPlain() {
@@ -120,6 +126,8 @@ public final class CoreFunctions {
      * Use this data source to access the configuration of the AzureRM provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -146,6 +154,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClientConfigResult> getClientConfig(InvokeArgs args) {
@@ -155,6 +164,8 @@ public final class CoreFunctions {
      * Use this data source to access the configuration of the AzureRM provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -181,6 +192,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClientConfigResult> getClientConfigPlain(InvokeArgs args) {
@@ -190,6 +202,8 @@ public final class CoreFunctions {
      * Use this data source to access the configuration of the AzureRM provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -216,6 +230,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClientConfigResult> getClientConfig(InvokeArgs args, InvokeOptions options) {
@@ -225,6 +240,8 @@ public final class CoreFunctions {
      * Use this data source to access the configuration of the AzureRM provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -251,6 +268,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClientConfigResult> getClientConfigPlain(InvokeArgs args, InvokeOptions options) {
@@ -260,6 +278,8 @@ public final class CoreFunctions {
      * This data source return the available Extended Locations for a specific Azure Region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -288,6 +308,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExtendedLocationsResult> getExtendedLocations(GetExtendedLocationsArgs args) {
@@ -297,6 +318,8 @@ public final class CoreFunctions {
      * This data source return the available Extended Locations for a specific Azure Region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -325,6 +348,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExtendedLocationsResult> getExtendedLocationsPlain(GetExtendedLocationsPlainArgs args) {
@@ -334,6 +358,8 @@ public final class CoreFunctions {
      * This data source return the available Extended Locations for a specific Azure Region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -362,6 +388,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExtendedLocationsResult> getExtendedLocations(GetExtendedLocationsArgs args, InvokeOptions options) {
@@ -371,6 +398,8 @@ public final class CoreFunctions {
      * This data source return the available Extended Locations for a specific Azure Region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -399,6 +428,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExtendedLocationsResult> getExtendedLocationsPlain(GetExtendedLocationsPlainArgs args, InvokeOptions options) {
@@ -408,6 +438,8 @@ public final class CoreFunctions {
      * Use this data source to access information of a specific physical location.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -436,6 +468,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocationResult> getLocation(GetLocationArgs args) {
@@ -445,6 +478,8 @@ public final class CoreFunctions {
      * Use this data source to access information of a specific physical location.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -473,6 +508,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocationResult> getLocationPlain(GetLocationPlainArgs args) {
@@ -482,6 +518,8 @@ public final class CoreFunctions {
      * Use this data source to access information of a specific physical location.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -510,6 +548,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocationResult> getLocation(GetLocationArgs args, InvokeOptions options) {
@@ -519,6 +558,8 @@ public final class CoreFunctions {
      * Use this data source to access information of a specific physical location.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -547,6 +588,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocationResult> getLocationPlain(GetLocationPlainArgs args, InvokeOptions options) {
@@ -556,6 +598,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Resource Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -585,6 +629,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourceGroupResult> getResourceGroup(GetResourceGroupArgs args) {
@@ -594,6 +639,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Resource Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -623,6 +670,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourceGroupResult> getResourceGroupPlain(GetResourceGroupPlainArgs args) {
@@ -632,6 +680,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Resource Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -661,6 +711,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourceGroupResult> getResourceGroup(GetResourceGroupArgs args, InvokeOptions options) {
@@ -670,6 +721,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Resource Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -699,6 +752,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourceGroupResult> getResourceGroupPlain(GetResourceGroupPlainArgs args, InvokeOptions options) {
@@ -707,16 +761,12 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about an existing Resource Group Template Deployment.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetResourceGroupTemplateDeploymentResult> getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs args) {
         return getResourceGroupTemplateDeployment(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Resource Group Template Deployment.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetResourceGroupTemplateDeploymentResult> getResourceGroupTemplateDeploymentPlain(GetResourceGroupTemplateDeploymentPlainArgs args) {
@@ -725,16 +775,12 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about an existing Resource Group Template Deployment.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetResourceGroupTemplateDeploymentResult> getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", TypeShape.of(GetResourceGroupTemplateDeploymentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Resource Group Template Deployment.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetResourceGroupTemplateDeploymentResult> getResourceGroupTemplateDeploymentPlain(GetResourceGroupTemplateDeploymentPlainArgs args, InvokeOptions options) {
@@ -786,6 +832,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Subscription.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -813,6 +861,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubscriptionResult> getSubscription() {
@@ -822,6 +871,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Subscription.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -849,6 +900,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain() {
@@ -858,6 +910,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Subscription.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -885,6 +939,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args) {
@@ -894,6 +949,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Subscription.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -921,6 +978,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain(GetSubscriptionPlainArgs args) {
@@ -930,6 +988,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Subscription.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -957,6 +1017,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args, InvokeOptions options) {
@@ -966,6 +1027,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Subscription.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -993,6 +1056,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain(GetSubscriptionPlainArgs args, InvokeOptions options) {
@@ -1001,16 +1065,12 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about an existing Subscription Template Deployment.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetSubscriptionTemplateDeploymentResult> getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs args) {
         return getSubscriptionTemplateDeployment(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Subscription Template Deployment.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetSubscriptionTemplateDeploymentResult> getSubscriptionTemplateDeploymentPlain(GetSubscriptionTemplateDeploymentPlainArgs args) {
@@ -1019,16 +1079,12 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about an existing Subscription Template Deployment.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetSubscriptionTemplateDeploymentResult> getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", TypeShape.of(GetSubscriptionTemplateDeploymentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Subscription Template Deployment.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetSubscriptionTemplateDeploymentResult> getSubscriptionTemplateDeploymentPlain(GetSubscriptionTemplateDeploymentPlainArgs args, InvokeOptions options) {
@@ -1038,6 +1094,8 @@ public final class CoreFunctions {
      * Use this data source to access information about all the Subscriptions currently available.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1066,6 +1124,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubscriptionsResult> getSubscriptions() {
@@ -1075,6 +1134,8 @@ public final class CoreFunctions {
      * Use this data source to access information about all the Subscriptions currently available.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1103,6 +1164,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubscriptionsResult> getSubscriptionsPlain() {
@@ -1112,6 +1174,8 @@ public final class CoreFunctions {
      * Use this data source to access information about all the Subscriptions currently available.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1140,6 +1204,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubscriptionsResult> getSubscriptions(GetSubscriptionsArgs args) {
@@ -1149,6 +1214,8 @@ public final class CoreFunctions {
      * Use this data source to access information about all the Subscriptions currently available.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1177,6 +1244,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubscriptionsResult> getSubscriptionsPlain(GetSubscriptionsPlainArgs args) {
@@ -1186,6 +1254,8 @@ public final class CoreFunctions {
      * Use this data source to access information about all the Subscriptions currently available.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1214,6 +1284,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubscriptionsResult> getSubscriptions(GetSubscriptionsArgs args, InvokeOptions options) {
@@ -1223,6 +1294,8 @@ public final class CoreFunctions {
      * Use this data source to access information about all the Subscriptions currently available.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1251,6 +1324,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubscriptionsResult> getSubscriptionsPlain(GetSubscriptionsPlainArgs args, InvokeOptions options) {
@@ -1260,6 +1334,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Template Spec Version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1291,6 +1367,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTemplateSpecVersionResult> getTemplateSpecVersion(GetTemplateSpecVersionArgs args) {
@@ -1300,6 +1377,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Template Spec Version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1331,6 +1410,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTemplateSpecVersionResult> getTemplateSpecVersionPlain(GetTemplateSpecVersionPlainArgs args) {
@@ -1340,6 +1420,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Template Spec Version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1371,6 +1453,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTemplateSpecVersionResult> getTemplateSpecVersion(GetTemplateSpecVersionArgs args, InvokeOptions options) {
@@ -1380,6 +1463,8 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing Template Spec Version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1411,6 +1496,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTemplateSpecVersionResult> getTemplateSpecVersionPlain(GetTemplateSpecVersionPlainArgs args, InvokeOptions options) {
@@ -1419,16 +1505,12 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about an existing Tenant Template Deployment.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetTenantTemplateDeploymentResult> getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs args) {
         return getTenantTemplateDeployment(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Tenant Template Deployment.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetTenantTemplateDeploymentResult> getTenantTemplateDeploymentPlain(GetTenantTemplateDeploymentPlainArgs args) {
@@ -1437,16 +1519,12 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about an existing Tenant Template Deployment.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetTenantTemplateDeploymentResult> getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", TypeShape.of(GetTenantTemplateDeploymentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Tenant Template Deployment.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetTenantTemplateDeploymentResult> getTenantTemplateDeploymentPlain(GetTenantTemplateDeploymentPlainArgs args, InvokeOptions options) {
@@ -1456,7 +1534,10 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing User Assigned Identity.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1489,6 +1570,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
@@ -1502,7 +1584,10 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing User Assigned Identity.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1535,6 +1620,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
@@ -1548,7 +1634,10 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing User Assigned Identity.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1581,6 +1670,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
@@ -1594,7 +1684,10 @@ public final class CoreFunctions {
      * Use this data source to access information about an existing User Assigned Identity.
      * 
      * ## Example Usage
+     * 
      * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1627,6 +1720,7 @@ public final class CoreFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
      * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity

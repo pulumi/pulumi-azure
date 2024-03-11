@@ -16,6 +16,7 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,19 +58,20 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// App Configuration Features can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    /// $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test https://appconfname1.azconfig.io/kv/.appconfig.featureflag%2FkeyName?label=labelName
+    /// $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test https://appconfname1.azconfig.io/kv/.appconfig.featureflag%!F(MISSING)keyName?label=labelName
     /// ```
     /// 
-    ///  If you wish to import with an empty label then simply leave the label's name blank:
+    /// If you wish to import with an empty label then simply leave the label's name blank:
     /// 
     /// ```sh
-    /// $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test https://appconfname1.azconfig.io/kv/.appconfig.featureflag%2FkeyName?label=
+    /// $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test https://appconfname1.azconfig.io/kv/.appconfig.featureflag%!F(MISSING)keyName?label=
     /// ```
     /// </summary>
     [AzureResourceType("azure:appconfiguration/configurationFeature:ConfigurationFeature")]

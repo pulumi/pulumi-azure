@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Manages a Front Door (standard/premium) Profile which contains a collection of endpoints and origin groups.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,6 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

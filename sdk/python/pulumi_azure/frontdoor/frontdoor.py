@@ -539,6 +539,7 @@ class Frontdoor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -584,6 +585,7 @@ class Frontdoor(pulumi.CustomResource):
                 host_name="example-FrontDoor.azurefd.net",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -630,6 +632,7 @@ class Frontdoor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -675,6 +678,7 @@ class Frontdoor(pulumi.CustomResource):
                 host_name="example-FrontDoor.azurefd.net",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,6 +14,7 @@ namespace Pulumi.Azure.Backup
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,6 +55,7 @@ namespace Pulumi.Azure.Backup
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -63,7 +65,7 @@ namespace Pulumi.Azure.Backup
     /// $ pulumi import azure:backup/containerStorageAccount:ContainerStorageAccount mycontainer "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/backupFabrics/Azure/protectionContainers/StorageContainer;storage;storage-rg-name;storage-account"
     /// ```
     /// 
-    ///  Note the ID requires quoting as there are semicolons
+    /// Note the ID requires quoting as there are semicolons
     /// </summary>
     [AzureResourceType("azure:backup/containerStorageAccount:ContainerStorageAccount")]
     public partial class ContainerStorageAccount : global::Pulumi.CustomResource

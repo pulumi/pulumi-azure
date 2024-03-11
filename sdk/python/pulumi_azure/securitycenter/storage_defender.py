@@ -202,6 +202,7 @@ class StorageDefender(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -217,6 +218,7 @@ class StorageDefender(pulumi.CustomResource):
             account_replication_type="LRS")
         example_storage_defender = azure.securitycenter.StorageDefender("example", storage_account_id=example_account.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -245,6 +247,7 @@ class StorageDefender(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -260,6 +263,7 @@ class StorageDefender(pulumi.CustomResource):
             account_replication_type="LRS")
         example_storage_defender = azure.securitycenter.StorageDefender("example", storage_account_id=example_account.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

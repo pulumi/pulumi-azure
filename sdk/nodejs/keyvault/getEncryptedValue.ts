@@ -6,41 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Encrypts or Decrypts a value using a Key Vault Key.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = azure.keyvault.getKeyVault({
- *     name: "mykeyvault",
- *     resourceGroupName: "some-resource-group",
- * });
- * const exampleGetKey = example.then(example => azure.keyvault.getKey({
- *     name: "some-key",
- *     keyVaultId: example.id,
- * }));
- * const encrypted = std.base64encode({
- *     input: "some-encrypted-value",
- * }).then(invoke => azure.keyvault.getEncryptedValue({
- *     keyVaultKeyId: test.id,
- *     algorithm: "RSA1_5",
- *     plainTextValue: invoke.result,
- * }));
- * const decrypted = encrypted.then(encrypted => azure.keyvault.getEncryptedValue({
- *     keyVaultKeyId: test.id,
- *     algorithm: "RSA1_5",
- *     encryptedData: encrypted.encryptedData,
- * }));
- * export const id = exampleAzurermKeyVaultEncryptedValue.encryptedData;
- * export const decryptedText = notImplemented("nonsensitive(data.azurerm_key_vault_encrypted_value.decrypted.decoded_plain_text_value)");
- * ```
  */
 export function getEncryptedValue(args: GetEncryptedValueArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptedValueResult> {
 
@@ -96,41 +61,6 @@ export interface GetEncryptedValueResult {
 }
 /**
  * Encrypts or Decrypts a value using a Key Vault Key.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = azure.keyvault.getKeyVault({
- *     name: "mykeyvault",
- *     resourceGroupName: "some-resource-group",
- * });
- * const exampleGetKey = example.then(example => azure.keyvault.getKey({
- *     name: "some-key",
- *     keyVaultId: example.id,
- * }));
- * const encrypted = std.base64encode({
- *     input: "some-encrypted-value",
- * }).then(invoke => azure.keyvault.getEncryptedValue({
- *     keyVaultKeyId: test.id,
- *     algorithm: "RSA1_5",
- *     plainTextValue: invoke.result,
- * }));
- * const decrypted = encrypted.then(encrypted => azure.keyvault.getEncryptedValue({
- *     keyVaultKeyId: test.id,
- *     algorithm: "RSA1_5",
- *     encryptedData: encrypted.encryptedData,
- * }));
- * export const id = exampleAzurermKeyVaultEncryptedValue.encryptedData;
- * export const decryptedText = notImplemented("nonsensitive(data.azurerm_key_vault_encrypted_value.decrypted.decoded_plain_text_value)");
- * ```
  */
 export function getEncryptedValueOutput(args: GetEncryptedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptedValueResult> {
     return pulumi.output(args).apply((a: any) => getEncryptedValue(a, opts))

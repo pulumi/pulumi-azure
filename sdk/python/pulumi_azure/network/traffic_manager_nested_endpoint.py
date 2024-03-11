@@ -474,6 +474,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -527,6 +528,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
             minimum_child_endpoints=9,
             weight=5)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -565,6 +567,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -618,6 +621,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
             minimum_child_endpoints=9,
             weight=5)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

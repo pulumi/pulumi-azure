@@ -736,6 +736,7 @@ class Database(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -768,6 +769,7 @@ class Database(pulumi.CustomResource):
                 "environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -809,6 +811,7 @@ class Database(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -841,6 +844,7 @@ class Database(pulumi.CustomResource):
                 "environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

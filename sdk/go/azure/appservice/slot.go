@@ -19,8 +19,10 @@ import (
 // > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
 //
 // ## Example Usage
+//
 // ### NET 4.X)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -113,8 +115,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Java 1.8)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -191,6 +196,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

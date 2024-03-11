@@ -492,6 +492,7 @@ class ScheduledAction(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -508,6 +509,7 @@ class ScheduledAction(pulumi.CustomResource):
             start_date="2023-01-02T00:00:00Z",
             end_date="2023-02-02T00:00:00Z")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -545,6 +547,7 @@ class ScheduledAction(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -561,6 +564,7 @@ class ScheduledAction(pulumi.CustomResource):
             start_date="2023-01-02T00:00:00Z",
             end_date="2023-02-02T00:00:00Z")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

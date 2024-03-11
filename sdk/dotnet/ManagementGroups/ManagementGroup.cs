@@ -16,6 +16,7 @@ namespace Pulumi.Azure.ManagementGroups
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,6 +48,7 @@ namespace Pulumi.Azure.ManagementGroups
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

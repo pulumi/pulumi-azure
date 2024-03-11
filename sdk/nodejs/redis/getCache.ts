@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,6 +23,7 @@ import * as utilities from "../utilities";
  * export const primaryAccessKey = example.then(example => example.primaryAccessKey);
  * export const hostname = example.then(example => example.hostname);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
 
@@ -133,6 +135,7 @@ export interface GetCacheResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -144,6 +147,7 @@ export interface GetCacheResult {
  * export const primaryAccessKey = example.then(example => example.primaryAccessKey);
  * export const hostname = example.then(example => example.hostname);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheResult> {
     return pulumi.output(args).apply((a: any) => getCache(a, opts))

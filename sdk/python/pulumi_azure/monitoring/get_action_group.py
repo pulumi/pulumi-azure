@@ -230,6 +230,7 @@ def get_action_group(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -238,6 +239,7 @@ def get_action_group(name: Optional[str] = None,
         name="tfex-actiongroup")
     pulumi.export("actionGroupId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Action Group.
@@ -277,6 +279,7 @@ def get_action_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -285,6 +288,7 @@ def get_action_group_output(name: Optional[pulumi.Input[str]] = None,
         name="tfex-actiongroup")
     pulumi.export("actionGroupId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Action Group.

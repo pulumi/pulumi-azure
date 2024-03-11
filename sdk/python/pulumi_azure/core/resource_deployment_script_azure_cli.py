@@ -614,6 +614,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -644,6 +645,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -684,6 +686,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -714,6 +717,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

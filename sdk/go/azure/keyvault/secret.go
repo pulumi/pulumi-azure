@@ -24,6 +24,7 @@ import (
 // > > > > > > > 8d78c87098 (Update-documentation)
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -89,6 +90,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

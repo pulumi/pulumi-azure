@@ -168,6 +168,7 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -199,6 +200,7 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
             security_admin_configuration_id=example_network_manager_security_admin_configuration.id,
             network_group_ids=[example_network_manager_network_group.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -226,6 +228,7 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -257,6 +260,7 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
             security_admin_configuration_id=example_network_manager_security_admin_configuration.id,
             network_group_ids=[example_network_manager_network_group.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

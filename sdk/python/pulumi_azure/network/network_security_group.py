@@ -216,6 +216,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -242,6 +243,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -276,6 +278,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -302,6 +305,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

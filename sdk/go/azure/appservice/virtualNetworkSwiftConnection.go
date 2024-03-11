@@ -36,8 +36,10 @@ import (
 // Multiple apps in the same App Service plan can use the same VNet.
 //
 // ## Example Usage
+//
 // ### With App Service)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -125,8 +127,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Function App)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -227,6 +232,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

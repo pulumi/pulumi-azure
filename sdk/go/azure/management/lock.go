@@ -15,8 +15,10 @@ import (
 // Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
 //
 // ## Example Usage
+//
 // ### Subscription Level Lock)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,8 +50,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Resource Group Level Lock)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,8 +89,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Resource Level Lock)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -131,6 +139,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

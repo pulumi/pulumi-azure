@@ -307,6 +307,7 @@ class EventHub(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -330,6 +331,7 @@ class EventHub(pulumi.CustomResource):
             partition_count=2,
             message_retention=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -366,6 +368,7 @@ class EventHub(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -389,6 +392,7 @@ class EventHub(pulumi.CustomResource):
             partition_count=2,
             message_retention=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

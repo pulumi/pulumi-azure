@@ -310,6 +310,7 @@ class EndpointServicebusQueue(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -349,12 +350,13 @@ class EndpointServicebusQueue(pulumi.CustomResource):
             name="example",
             connection_string=example_queue_authorization_rule.primary_connection_string)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         IoTHub ServiceBus Queue Endpoint can be imported using the `resource id`, e.g.
 
-         g
+        g
 
         ```sh
         $ pulumi import azure:iot/endpointServicebusQueue:EndpointServicebusQueue servicebus_queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/servicebusqueue_endpoint1
@@ -386,6 +388,7 @@ class EndpointServicebusQueue(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -425,12 +428,13 @@ class EndpointServicebusQueue(pulumi.CustomResource):
             name="example",
             connection_string=example_queue_authorization_rule.primary_connection_string)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         IoTHub ServiceBus Queue Endpoint can be imported using the `resource id`, e.g.
 
-         g
+        g
 
         ```sh
         $ pulumi import azure:iot/endpointServicebusQueue:EndpointServicebusQueue servicebus_queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/servicebusqueue_endpoint1

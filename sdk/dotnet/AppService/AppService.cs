@@ -20,6 +20,7 @@ namespace Pulumi.Azure.AppService
     /// 
     /// This example provisions a Windows App Service.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,6 +75,7 @@ namespace Pulumi.Azure.AppService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

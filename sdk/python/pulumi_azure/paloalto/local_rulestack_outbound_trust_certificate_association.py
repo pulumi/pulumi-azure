@@ -70,6 +70,7 @@ class LocalRulestackOutboundTrustCertificateAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -87,6 +88,7 @@ class LocalRulestackOutboundTrustCertificateAssociation(pulumi.CustomResource):
             self_signed=True)
         example_local_rulestack_outbound_trust_certificate_association = azure.paloalto.LocalRulestackOutboundTrustCertificateAssociation("example", certificate_id=example_local_rulestack_certificate.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,6 +105,7 @@ class LocalRulestackOutboundTrustCertificateAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -120,6 +123,7 @@ class LocalRulestackOutboundTrustCertificateAssociation(pulumi.CustomResource):
             self_signed=True)
         example_local_rulestack_outbound_trust_certificate_association = azure.paloalto.LocalRulestackOutboundTrustCertificateAssociation("example", certificate_id=example_local_rulestack_certificate.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param LocalRulestackOutboundTrustCertificateAssociationArgs args: The arguments to use to populate this resource's properties.

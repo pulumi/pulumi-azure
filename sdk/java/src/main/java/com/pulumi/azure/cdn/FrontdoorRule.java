@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * !&gt;**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup`.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -186,6 +188,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Specifying IP Address Ranges
  * 
  * When specifying IP address ranges in the `socket_address_condition` and the `remote_address_condition` `match_values` use the following format:

@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetPtrRecord(ctx *pulumi.Context, args *GetPtrRecordArgs, opts ...pulumi.InvokeOption) (*GetPtrRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPtrRecordResult

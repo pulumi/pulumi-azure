@@ -116,6 +116,7 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -189,6 +190,8 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
                 "Sign",
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example HCL Configurations
 
         * Databricks Workspace with Root Databricks File System Customer Managed Keys
@@ -221,6 +224,7 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -294,6 +298,8 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
                 "Sign",
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example HCL Configurations
 
         * Databricks Workspace with Root Databricks File System Customer Managed Keys

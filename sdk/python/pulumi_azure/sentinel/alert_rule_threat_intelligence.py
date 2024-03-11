@@ -168,6 +168,7 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -197,6 +198,7 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
             alert_rule_template_guid=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -224,6 +226,7 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -253,6 +256,7 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
             alert_rule_template_guid=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

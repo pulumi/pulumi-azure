@@ -392,6 +392,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -422,6 +423,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
             signin_policy="B2C_1_Login",
             signup_policy="B2C_1_Signup")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -456,6 +458,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -486,6 +489,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
             signin_policy="B2C_1_Login",
             signup_policy="B2C_1_Signup")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

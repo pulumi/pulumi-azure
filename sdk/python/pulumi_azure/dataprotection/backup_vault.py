@@ -358,6 +358,7 @@ class BackupVault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -372,6 +373,7 @@ class BackupVault(pulumi.CustomResource):
             datastore_type="VaultStore",
             redundancy="LocallyRedundant")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -410,6 +412,7 @@ class BackupVault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -424,6 +427,7 @@ class BackupVault(pulumi.CustomResource):
             datastore_type="VaultStore",
             redundancy="LocallyRedundant")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Advisor
         /// <summary>
         /// Use this data source to access information about an existing Advisor Recommendations.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -45,8 +44,7 @@ namespace Pulumi.Azure.Advisor
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRecommendationsResult> InvokeAsync(GetRecommendationsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRecommendationsResult>("azure:advisor/getRecommendations:getRecommendations", args ?? new GetRecommendationsArgs(), options.WithDefaults());
@@ -54,10 +52,9 @@ namespace Pulumi.Azure.Advisor
         /// <summary>
         /// Use this data source to access information about an existing Advisor Recommendations.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -85,8 +82,7 @@ namespace Pulumi.Azure.Advisor
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRecommendationsResult> Invoke(GetRecommendationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRecommendationsResult>("azure:advisor/getRecommendations:getRecommendations", args ?? new GetRecommendationsInvokeArgs(), options.WithDefaults());

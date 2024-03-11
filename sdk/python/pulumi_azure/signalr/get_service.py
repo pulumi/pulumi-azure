@@ -247,6 +247,7 @@ def get_service(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -254,6 +255,7 @@ def get_service(name: Optional[str] = None,
     example = azure.signalr.get_service(name="test-signalr",
         resource_group_name="signalr-resource-group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the SignalR service.
@@ -295,6 +297,7 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -302,6 +305,7 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.signalr.get_service(name="test-signalr",
         resource_group_name="signalr-resource-group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the SignalR service.

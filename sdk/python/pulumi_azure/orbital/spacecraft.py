@@ -299,6 +299,7 @@ class Spacecraft(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -327,6 +328,7 @@ class Spacecraft(pulumi.CustomResource):
                 "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -358,6 +360,7 @@ class Spacecraft(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -386,6 +389,7 @@ class Spacecraft(pulumi.CustomResource):
                 "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

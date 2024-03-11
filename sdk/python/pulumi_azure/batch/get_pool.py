@@ -354,6 +354,7 @@ def get_pool(account_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -362,6 +363,7 @@ def get_pool(account_name: Optional[str] = None,
         account_name="testbatchaccount",
         resource_group_name="test")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The Azure Storage Account name.
@@ -414,6 +416,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -422,6 +425,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
         account_name="testbatchaccount",
         resource_group_name="test")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The Azure Storage Account name.

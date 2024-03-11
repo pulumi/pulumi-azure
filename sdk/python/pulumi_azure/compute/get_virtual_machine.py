@@ -152,6 +152,7 @@ def get_virtual_machine(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -160,6 +161,7 @@ def get_virtual_machine(name: Optional[str] = None,
         resource_group_name="networking")
     pulumi.export("virtualMachineId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Virtual Machine.
@@ -193,6 +195,7 @@ def get_virtual_machine_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -201,6 +204,7 @@ def get_virtual_machine_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="networking")
     pulumi.export("virtualMachineId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Virtual Machine.

@@ -204,6 +204,7 @@ def get_elastic_pool(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -213,6 +214,7 @@ def get_elastic_pool(name: Optional[str] = None,
         server_name="example-sql-server")
     pulumi.export("elasticpoolId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the elastic pool.
@@ -253,6 +255,7 @@ def get_elastic_pool_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -262,6 +265,7 @@ def get_elastic_pool_output(name: Optional[pulumi.Input[str]] = None,
         server_name="example-sql-server")
     pulumi.export("elasticpoolId", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the elastic pool.

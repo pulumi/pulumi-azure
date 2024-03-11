@@ -14,10 +14,9 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// Gets information about an existing Private DNS Resolver Inbound Endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResolverInboundEndpointResult> InvokeAsync(GetResolverInboundEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverInboundEndpointResult>("azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint", args ?? new GetResolverInboundEndpointArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// Gets information about an existing Private DNS Resolver Inbound Endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResolverInboundEndpointResult> Invoke(GetResolverInboundEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverInboundEndpointResult>("azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint", args ?? new GetResolverInboundEndpointInvokeArgs(), options.WithDefaults());

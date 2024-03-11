@@ -30,6 +30,7 @@ import (
 //
 // This example provisions a basic Windows Virtual Machine on an internal network.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -117,6 +118,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

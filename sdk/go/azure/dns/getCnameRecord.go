@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetCnameRecord(ctx *pulumi.Context, args *GetCnameRecordArgs, opts ...pulumi.InvokeOption) (*GetCnameRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCnameRecordResult

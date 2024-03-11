@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -186,8 +187,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Repeating On Weekends)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -353,8 +357,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### For Fixed Dates)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -517,6 +524,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

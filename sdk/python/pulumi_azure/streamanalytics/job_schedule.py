@@ -159,6 +159,7 @@ class JobSchedule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -233,6 +234,7 @@ class JobSchedule(pulumi.CustomResource):
             start_mode="CustomTime",
             start_time="2022-09-21T00:00:00Z")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -261,6 +263,7 @@ class JobSchedule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -335,6 +338,7 @@ class JobSchedule(pulumi.CustomResource):
             start_mode="CustomTime",
             start_time="2022-09-21T00:00:00Z")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

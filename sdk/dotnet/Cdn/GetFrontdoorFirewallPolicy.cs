@@ -14,10 +14,9 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Azure.Cdn
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFrontdoorFirewallPolicyResult> InvokeAsync(GetFrontdoorFirewallPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorFirewallPolicyResult>("azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy", args ?? new GetFrontdoorFirewallPolicyArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Azure.Cdn
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFrontdoorFirewallPolicyResult> Invoke(GetFrontdoorFirewallPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorFirewallPolicyResult>("azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy", args ?? new GetFrontdoorFirewallPolicyInvokeArgs(), options.WithDefaults());

@@ -33,6 +33,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -63,6 +65,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
@@ -72,6 +75,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -102,6 +107,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -111,6 +117,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -141,6 +149,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
@@ -150,6 +159,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -180,6 +191,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
@@ -189,6 +201,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Blob Storage Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -219,6 +233,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatasetBlobStorageResult> getDatasetBlobStorage(GetDatasetBlobStorageArgs args) {
@@ -228,6 +243,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Blob Storage Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -258,6 +275,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatasetBlobStorageResult> getDatasetBlobStoragePlain(GetDatasetBlobStoragePlainArgs args) {
@@ -267,6 +285,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Blob Storage Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -297,6 +317,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatasetBlobStorageResult> getDatasetBlobStorage(GetDatasetBlobStorageArgs args, InvokeOptions options) {
@@ -306,6 +327,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Blob Storage Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -336,6 +359,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatasetBlobStorageResult> getDatasetBlobStoragePlain(GetDatasetBlobStoragePlainArgs args, InvokeOptions options) {
@@ -345,6 +369,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -375,6 +401,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args args) {
@@ -384,6 +411,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -414,6 +443,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2Plain(GetDatasetDataLakeGen2PlainArgs args) {
@@ -423,6 +453,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -453,6 +485,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args args, InvokeOptions options) {
@@ -462,6 +495,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -492,6 +527,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2Plain(GetDatasetDataLakeGen2PlainArgs args, InvokeOptions options) {
@@ -501,6 +537,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Kusto Cluster Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -531,6 +569,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatasetKustoClusterResult> getDatasetKustoCluster(GetDatasetKustoClusterArgs args) {
@@ -540,6 +579,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Kusto Cluster Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -570,6 +611,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatasetKustoClusterResult> getDatasetKustoClusterPlain(GetDatasetKustoClusterPlainArgs args) {
@@ -579,6 +621,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Kusto Cluster Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -609,6 +653,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatasetKustoClusterResult> getDatasetKustoCluster(GetDatasetKustoClusterArgs args, InvokeOptions options) {
@@ -618,6 +663,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Kusto Cluster Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -648,6 +695,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatasetKustoClusterResult> getDatasetKustoClusterPlain(GetDatasetKustoClusterPlainArgs args, InvokeOptions options) {
@@ -657,6 +705,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Kusto Database Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -687,6 +737,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatasetKustoDatabaseResult> getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs args) {
@@ -696,6 +747,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Kusto Database Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -726,6 +779,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatasetKustoDatabaseResult> getDatasetKustoDatabasePlain(GetDatasetKustoDatabasePlainArgs args) {
@@ -735,6 +789,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Kusto Database Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -765,6 +821,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatasetKustoDatabaseResult> getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs args, InvokeOptions options) {
@@ -774,6 +831,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share Kusto Database Dataset.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -804,6 +863,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatasetKustoDatabaseResult> getDatasetKustoDatabasePlain(GetDatasetKustoDatabasePlainArgs args, InvokeOptions options) {
@@ -813,6 +873,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -849,6 +911,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args) {
@@ -858,6 +921,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -894,6 +959,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetShareResult> getSharePlain(GetSharePlainArgs args) {
@@ -903,6 +969,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -939,6 +1007,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args, InvokeOptions options) {
@@ -948,6 +1017,8 @@ public final class DatashareFunctions {
      * Use this data source to access information about an existing Data Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -984,6 +1055,7 @@ public final class DatashareFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetShareResult> getSharePlain(GetSharePlainArgs args, InvokeOptions options) {

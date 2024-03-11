@@ -170,7 +170,9 @@ class MonitorTagRule(pulumi.CustomResource):
         Manages TagRules on the datadog Monitor.
 
         ## Example Usage
+
         ### Adding TagRules on monitor
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -207,6 +209,7 @@ class MonitorTagRule(pulumi.CustomResource):
                 )],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -233,7 +236,9 @@ class MonitorTagRule(pulumi.CustomResource):
         Manages TagRules on the datadog Monitor.
 
         ## Example Usage
+
         ### Adding TagRules on monitor
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -270,6 +275,7 @@ class MonitorTagRule(pulumi.CustomResource):
                 )],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

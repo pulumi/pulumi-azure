@@ -16,6 +16,7 @@ namespace Pulumi.Azure.DevCenter
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,6 +47,8 @@ namespace Pulumi.Azure.DevCenter
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Blocks Reference
     /// 
     /// ### `identity` Block
@@ -68,11 +71,11 @@ namespace Pulumi.Azure.DevCenter
     /// $ pulumi import azure:devcenter/devCenter:DevCenter example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}
     /// ```
     /// 
-    ///  * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center exists. For example `12345678-1234-9876-4563-123456789012`.
+    /// * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center exists. For example `12345678-1234-9876-4563-123456789012`.
     /// 
-    ///  * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
+    /// * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
     /// 
-    ///  * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
+    /// * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
     /// </summary>
     [AzureResourceType("azure:devcenter/devCenter:DevCenter")]
     public partial class DevCenter : global::Pulumi.CustomResource

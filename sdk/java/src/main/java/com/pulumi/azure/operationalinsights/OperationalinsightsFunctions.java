@@ -18,6 +18,8 @@ public final class OperationalinsightsFunctions {
      * Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -48,6 +50,7 @@ public final class OperationalinsightsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAnalyticsWorkspaceResult> getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs args) {
@@ -57,6 +60,8 @@ public final class OperationalinsightsFunctions {
      * Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -87,6 +92,7 @@ public final class OperationalinsightsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAnalyticsWorkspaceResult> getAnalyticsWorkspacePlain(GetAnalyticsWorkspacePlainArgs args) {
@@ -96,6 +102,8 @@ public final class OperationalinsightsFunctions {
      * Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +134,7 @@ public final class OperationalinsightsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAnalyticsWorkspaceResult> getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs args, InvokeOptions options) {
@@ -135,6 +144,8 @@ public final class OperationalinsightsFunctions {
      * Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -165,6 +176,7 @@ public final class OperationalinsightsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAnalyticsWorkspaceResult> getAnalyticsWorkspacePlain(GetAnalyticsWorkspacePlainArgs args, InvokeOptions options) {

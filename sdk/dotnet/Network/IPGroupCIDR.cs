@@ -18,6 +18,7 @@ namespace Pulumi.Azure.Network
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,12 +48,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// IP Group CIDRs can be imported using the `resource id` of the IP Group and
     /// 
-    ///  the CIDR value (`/` characters have to be replaced by `_`), e.g.
+    /// the CIDR value (`/` characters have to be replaced by `_`), e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:network/iPGroupCIDR:IPGroupCIDR example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/ipGroups/test-ipgroup/cidrs/10.1.0.0_24

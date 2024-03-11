@@ -15,8 +15,10 @@ import * as utilities from "../utilities";
  * For an example, check the `azure.appservice.VirtualNetworkSwiftConnection` documentation.
  *
  * ## Example Usage
+ *
  * ### With App Service Plan)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -50,8 +52,11 @@ import * as utilities from "../utilities";
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### In A Consumption Plan)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -86,8 +91,11 @@ import * as utilities from "../utilities";
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Linux)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -125,6 +133,7 @@ import * as utilities from "../utilities";
  *     version: "~3",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
  *

@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * Manages a ServiceBus Subscription Rule.
  *
  * ## Example Usage
+ *
  * ### SQL Filter)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -46,8 +48,11 @@ import * as utilities from "../utilities";
  *     sqlFilter: "colour = 'red'",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Correlation Filter)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -88,6 +93,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

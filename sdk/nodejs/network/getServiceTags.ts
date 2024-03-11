@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  * export const addressPrefixes = example.then(example => example.addressPrefixes);
  * export const ipv4Cidrs = example.then(example => example.ipv4Cidrs);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceTags(args: GetServiceTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTagsResult> {
 
@@ -83,6 +85,7 @@ export interface GetServiceTagsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -95,6 +98,7 @@ export interface GetServiceTagsResult {
  * export const addressPrefixes = example.then(example => example.addressPrefixes);
  * export const ipv4Cidrs = example.then(example => example.ipv4Cidrs);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceTagsOutput(args: GetServiceTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceTagsResult> {
     return pulumi.output(args).apply((a: any) => getServiceTags(a, opts))

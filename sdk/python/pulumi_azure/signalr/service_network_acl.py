@@ -169,6 +169,7 @@ class ServiceNetworkAcl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -217,6 +218,7 @@ class ServiceNetworkAcl(pulumi.CustomResource):
                 allowed_request_types=["ServerConnection"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -244,6 +246,7 @@ class ServiceNetworkAcl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -292,6 +295,7 @@ class ServiceNetworkAcl(pulumi.CustomResource):
                 allowed_request_types=["ServerConnection"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

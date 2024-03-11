@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * Manages a datadog Monitor.
  *
  * ## Example Usage
+ *
  * ### Monitor creation with linking to Datadog organization
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -38,12 +40,15 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Role Assignment
  *
  * To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
  *
  * ### Role assignment on the monitor created
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -58,6 +63,7 @@ import * as utilities from "../utilities";
  *     principalId: exampleAzurermDatadogMonitor.identity[0].principalId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

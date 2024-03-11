@@ -28,6 +28,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** at this time EventGrid Topic&#39;s are only available in a limited number of regions.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,6 +68,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

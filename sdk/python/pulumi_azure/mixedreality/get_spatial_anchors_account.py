@@ -115,6 +115,7 @@ def get_spatial_anchors_account(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -123,6 +124,7 @@ def get_spatial_anchors_account(name: Optional[str] = None,
         resource_group_name=example_azurerm_resource_group["name"])
     pulumi.export("accountDomain", account_domain_azurerm_spatial_anchors_account)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
@@ -153,6 +155,7 @@ def get_spatial_anchors_account_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -161,6 +164,7 @@ def get_spatial_anchors_account_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name=example_azurerm_resource_group["name"])
     pulumi.export("accountDomain", account_domain_azurerm_spatial_anchors_account)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.

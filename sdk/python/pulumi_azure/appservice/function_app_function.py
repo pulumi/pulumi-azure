@@ -388,8 +388,10 @@ class FunctionAppFunction(pulumi.CustomResource):
         Manages a Function App Function.
 
         ## Example Usage
+
         ### Basic HTTP Trigger
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -449,8 +451,11 @@ class FunctionAppFunction(pulumi.CustomResource):
                 ],
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### HTTP Trigger With Code Upload
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -515,6 +520,7 @@ class FunctionAppFunction(pulumi.CustomResource):
                 ],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -546,8 +552,10 @@ class FunctionAppFunction(pulumi.CustomResource):
         Manages a Function App Function.
 
         ## Example Usage
+
         ### Basic HTTP Trigger
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -607,8 +615,11 @@ class FunctionAppFunction(pulumi.CustomResource):
                 ],
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### HTTP Trigger With Code Upload
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -673,6 +684,7 @@ class FunctionAppFunction(pulumi.CustomResource):
                 ],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -214,6 +214,7 @@ class PublicCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -242,6 +243,7 @@ class PublicCertificate(pulumi.CustomResource):
             certificate_location="Unknown",
             blob=std.filebase64(input="app_service_public_certificate.cer").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -270,6 +272,7 @@ class PublicCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -298,6 +301,7 @@ class PublicCertificate(pulumi.CustomResource):
             certificate_location="Unknown",
             blob=std.filebase64(input="app_service_public_certificate.cer").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

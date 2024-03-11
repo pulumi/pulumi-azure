@@ -145,6 +145,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
 
         !> **Be Aware:** Azure is rolling out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue as the necessary changes are identified.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -209,6 +210,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
                 azure_key_vault_certificate_vault_id=vault.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -243,6 +245,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
 
         !> **Be Aware:** Azure is rolling out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue as the necessary changes are identified.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -307,6 +310,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
                 azure_key_vault_certificate_vault_id=vault.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

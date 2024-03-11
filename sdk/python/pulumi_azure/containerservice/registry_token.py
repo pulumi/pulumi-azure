@@ -198,6 +198,7 @@ class RegistryToken(pulumi.CustomResource):
         """
         Manages an Azure Container Registry token. Tokens are a preview feature only available in Premium SKU Container registries.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -233,6 +234,7 @@ class RegistryToken(pulumi.CustomResource):
             resource_group_name=example.name,
             scope_map_id=example_registry_scope_map.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -259,6 +261,7 @@ class RegistryToken(pulumi.CustomResource):
         """
         Manages an Azure Container Registry token. Tokens are a preview feature only available in Premium SKU Container registries.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -294,6 +297,7 @@ class RegistryToken(pulumi.CustomResource):
             resource_group_name=example.name,
             scope_map_id=example_registry_scope_map.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

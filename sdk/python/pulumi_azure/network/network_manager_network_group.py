@@ -136,6 +136,7 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -160,6 +161,7 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
             name="example-group",
             network_manager_id=example_network_manager.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -186,6 +188,7 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -210,6 +213,7 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
             name="example-group",
             network_manager_id=example_network_manager.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

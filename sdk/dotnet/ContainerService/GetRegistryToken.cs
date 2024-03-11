@@ -14,10 +14,9 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Use this data source to access information about an existing Container Registry token.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.Azure.ContainerService
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRegistryTokenResult> InvokeAsync(GetRegistryTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryTokenResult>("azure:containerservice/getRegistryToken:getRegistryToken", args ?? new GetRegistryTokenArgs(), options.WithDefaults());
@@ -48,10 +46,9 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Use this data source to access information about an existing Container Registry token.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.Azure.ContainerService
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRegistryTokenResult> Invoke(GetRegistryTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryTokenResult>("azure:containerservice/getRegistryToken:getRegistryToken", args ?? new GetRegistryTokenInvokeArgs(), options.WithDefaults());

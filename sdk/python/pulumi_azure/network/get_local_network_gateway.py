@@ -143,6 +143,7 @@ def get_local_network_gateway(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -151,6 +152,7 @@ def get_local_network_gateway(name: Optional[str] = None,
         resource_group_name="existing-resources")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Local Network Gateway.
@@ -183,6 +185,7 @@ def get_local_network_gateway_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -191,6 +194,7 @@ def get_local_network_gateway_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="existing-resources")
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Local Network Gateway.

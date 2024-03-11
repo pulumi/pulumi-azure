@@ -137,6 +137,7 @@ class Target(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -162,6 +163,7 @@ class Target(pulumi.CustomResource):
             target_resource_id=example.id,
             target_type="example-value")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -171,9 +173,9 @@ class Target(pulumi.CustomResource):
         $ pulumi import azure:chaosstudio/target:Target example /{scope}/providers/Microsoft.Chaos/targets/{targetName}
         ```
 
-         * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
+        * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
 
-         * Where `{targetName}` is the name of the Target. For example `targetValue`.
+        * Where `{targetName}` is the name of the Target. For example `targetValue`.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,6 +196,7 @@ class Target(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -219,6 +222,7 @@ class Target(pulumi.CustomResource):
             target_resource_id=example.id,
             target_type="example-value")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -228,9 +232,9 @@ class Target(pulumi.CustomResource):
         $ pulumi import azure:chaosstudio/target:Target example /{scope}/providers/Microsoft.Chaos/targets/{targetName}
         ```
 
-         * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
+        * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
 
-         * Where `{targetName}` is the name of the Target. For example `targetValue`.
+        * Where `{targetName}` is the name of the Target. For example `targetValue`.
 
         :param str resource_name: The name of the resource.
         :param TargetArgs args: The arguments to use to populate this resource's properties.

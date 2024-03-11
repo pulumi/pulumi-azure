@@ -14,10 +14,9 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Azure.ContainerService
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetKubernetesServiceVersionsResult> InvokeAsync(GetKubernetesServiceVersionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesServiceVersionsResult>("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", args ?? new GetKubernetesServiceVersionsArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Azure.ContainerService
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetKubernetesServiceVersionsResult> Invoke(GetKubernetesServiceVersionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesServiceVersionsResult>("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", args ?? new GetKubernetesServiceVersionsInvokeArgs(), options.WithDefaults());

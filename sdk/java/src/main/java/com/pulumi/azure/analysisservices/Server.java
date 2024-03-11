@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Manages an Analysis Services Server.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,6 +71,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
  * 

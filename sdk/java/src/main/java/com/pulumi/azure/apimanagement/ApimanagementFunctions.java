@@ -39,6 +39,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -71,6 +73,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApiResult> getApi(GetApiArgs args) {
@@ -80,6 +83,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -112,6 +117,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApiResult> getApiPlain(GetApiPlainArgs args) {
@@ -121,6 +127,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -153,6 +161,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApiResult> getApi(GetApiArgs args, InvokeOptions options) {
@@ -162,6 +171,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management API.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -194,6 +205,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApiResult> getApiPlain(GetApiPlainArgs args, InvokeOptions options) {
@@ -203,6 +215,8 @@ public final class ApimanagementFunctions {
      * Uses this data source to access information about an API Version Set within an API Management Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -234,6 +248,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApiVersionSetResult> getApiVersionSet(GetApiVersionSetArgs args) {
@@ -243,6 +258,8 @@ public final class ApimanagementFunctions {
      * Uses this data source to access information about an API Version Set within an API Management Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -274,6 +291,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApiVersionSetResult> getApiVersionSetPlain(GetApiVersionSetPlainArgs args) {
@@ -283,6 +301,8 @@ public final class ApimanagementFunctions {
      * Uses this data source to access information about an API Version Set within an API Management Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -314,6 +334,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApiVersionSetResult> getApiVersionSet(GetApiVersionSetArgs args, InvokeOptions options) {
@@ -323,6 +344,8 @@ public final class ApimanagementFunctions {
      * Uses this data source to access information about an API Version Set within an API Management Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -354,6 +377,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApiVersionSetResult> getApiVersionSetPlain(GetApiVersionSetPlainArgs args, InvokeOptions options) {
@@ -363,6 +387,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -398,6 +424,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGatewayResult> getGateway(GetGatewayArgs args) {
@@ -407,6 +434,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -442,6 +471,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGatewayResult> getGatewayPlain(GetGatewayPlainArgs args) {
@@ -451,6 +481,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -486,6 +518,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGatewayResult> getGateway(GetGatewayArgs args, InvokeOptions options) {
@@ -495,6 +528,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -530,6 +565,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGatewayResult> getGatewayPlain(GetGatewayPlainArgs args, InvokeOptions options) {
@@ -539,6 +575,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Gateway Host Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -582,6 +620,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs args) {
@@ -591,6 +630,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Gateway Host Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -634,6 +675,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfigurationPlain(GetGatewayHostNameConfigurationPlainArgs args) {
@@ -643,6 +685,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Gateway Host Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -686,6 +730,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs args, InvokeOptions options) {
@@ -695,6 +740,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Gateway Host Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -738,6 +785,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfigurationPlain(GetGatewayHostNameConfigurationPlainArgs args, InvokeOptions options) {
@@ -747,6 +795,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -778,6 +828,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
@@ -787,6 +838,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -818,6 +871,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -827,6 +881,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -858,6 +914,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
@@ -867,6 +924,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -898,6 +957,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
@@ -907,6 +967,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Product.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -938,6 +1000,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProductResult> getProduct(GetProductArgs args) {
@@ -947,6 +1010,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Product.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -978,6 +1043,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProductResult> getProductPlain(GetProductPlainArgs args) {
@@ -987,6 +1053,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Product.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1018,6 +1086,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProductResult> getProduct(GetProductArgs args, InvokeOptions options) {
@@ -1027,6 +1096,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Product.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1058,6 +1129,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProductResult> getProductPlain(GetProductPlainArgs args, InvokeOptions options) {
@@ -1067,6 +1139,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1097,6 +1171,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -1106,6 +1181,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1136,6 +1213,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -1145,6 +1223,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1175,6 +1255,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -1184,6 +1265,8 @@ public final class ApimanagementFunctions {
      * Use this data source to access information about an existing API Management Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1214,6 +1297,7 @@ public final class ApimanagementFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {

@@ -364,6 +364,7 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -399,6 +400,7 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
             api_type="table",
             cosmosdb_access_key=example_account.primary_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -432,6 +434,7 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -467,6 +470,7 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
             api_type="table",
             cosmosdb_access_key=example_account.primary_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

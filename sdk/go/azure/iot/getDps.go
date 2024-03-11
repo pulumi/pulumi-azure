@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetDps(ctx *pulumi.Context, args *GetDpsArgs, opts ...pulumi.InvokeOption) (*GetDpsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDpsResult

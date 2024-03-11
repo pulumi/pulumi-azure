@@ -129,8 +129,10 @@ def get_user_assigned_identity(name: Optional[str] = None,
     Use this data source to access information about an existing User Assigned Identity.
 
     ## Example Usage
+
     ### Reference An Existing)
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -141,6 +143,7 @@ def get_user_assigned_identity(name: Optional[str] = None,
     pulumi.export("uaiPrincipalId", example.principal_id)
     pulumi.export("uaiTenantId", example.tenant_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the User Assigned Identity.
@@ -171,8 +174,10 @@ def get_user_assigned_identity_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to access information about an existing User Assigned Identity.
 
     ## Example Usage
+
     ### Reference An Existing)
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -183,6 +188,7 @@ def get_user_assigned_identity_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("uaiPrincipalId", example.principal_id)
     pulumi.export("uaiTenantId", example.tenant_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the User Assigned Identity.

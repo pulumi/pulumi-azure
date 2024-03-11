@@ -167,6 +167,7 @@ class ConsumerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -191,6 +192,7 @@ class ConsumerGroup(pulumi.CustomResource):
             eventhub_endpoint_name="events",
             resource_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -218,6 +220,7 @@ class ConsumerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -242,6 +245,7 @@ class ConsumerGroup(pulumi.CustomResource):
             eventhub_endpoint_name="events",
             resource_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

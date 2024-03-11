@@ -14,8 +14,10 @@ import (
 // Use this data source to access information about an existing User Assigned Identity.
 //
 // ## Example Usage
+//
 // ### Reference An Existing)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,6 +45,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupUserAssignedIdentity(ctx *pulumi.Context, args *LookupUserAssignedIdentityArgs, opts ...pulumi.InvokeOption) (*LookupUserAssignedIdentityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserAssignedIdentityResult

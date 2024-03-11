@@ -232,6 +232,7 @@ class Snapshot(pulumi.CustomResource):
 
         ## NetApp Snapshot Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -288,6 +289,7 @@ class Snapshot(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -317,6 +319,7 @@ class Snapshot(pulumi.CustomResource):
 
         ## NetApp Snapshot Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -373,6 +376,7 @@ class Snapshot(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

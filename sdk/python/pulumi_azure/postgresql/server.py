@@ -769,6 +769,7 @@ class Server(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -792,6 +793,7 @@ class Server(pulumi.CustomResource):
             ssl_enforcement_enabled=True,
             ssl_minimal_tls_version_enforced="TLS1_2")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -842,6 +844,7 @@ class Server(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -865,6 +868,7 @@ class Server(pulumi.CustomResource):
             ssl_enforcement_enabled=True,
             ssl_minimal_tls_version_enforced="TLS1_2")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

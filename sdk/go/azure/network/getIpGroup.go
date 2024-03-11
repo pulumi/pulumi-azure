@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetIpGroup(ctx *pulumi.Context, args *GetIpGroupArgs, opts ...pulumi.InvokeOption) (*GetIpGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIpGroupResult

@@ -217,6 +217,7 @@ class Container(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -238,6 +239,7 @@ class Container(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -265,6 +267,7 @@ class Container(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -286,6 +289,7 @@ class Container(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

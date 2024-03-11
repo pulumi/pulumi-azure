@@ -39,6 +39,8 @@ public final class MonitoringFunctions {
      * Use this data source to access the properties of an Action Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -69,6 +71,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionGroupResult> getActionGroup(GetActionGroupArgs args) {
@@ -78,6 +81,8 @@ public final class MonitoringFunctions {
      * Use this data source to access the properties of an Action Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -108,6 +113,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionGroupResult> getActionGroupPlain(GetActionGroupPlainArgs args) {
@@ -117,6 +123,8 @@ public final class MonitoringFunctions {
      * Use this data source to access the properties of an Action Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -147,6 +155,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActionGroupResult> getActionGroup(GetActionGroupArgs args, InvokeOptions options) {
@@ -156,6 +165,8 @@ public final class MonitoringFunctions {
      * Use this data source to access the properties of an Action Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -186,6 +197,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActionGroupResult> getActionGroupPlain(GetActionGroupPlainArgs args, InvokeOptions options) {
@@ -195,6 +207,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about an existing Data Collection Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -225,6 +239,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataCollectionEndpointResult> getDataCollectionEndpoint(GetDataCollectionEndpointArgs args) {
@@ -234,6 +249,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about an existing Data Collection Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -264,6 +281,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataCollectionEndpointResult> getDataCollectionEndpointPlain(GetDataCollectionEndpointPlainArgs args) {
@@ -273,6 +291,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about an existing Data Collection Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -303,6 +323,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataCollectionEndpointResult> getDataCollectionEndpoint(GetDataCollectionEndpointArgs args, InvokeOptions options) {
@@ -312,6 +333,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about an existing Data Collection Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -342,6 +365,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataCollectionEndpointResult> getDataCollectionEndpointPlain(GetDataCollectionEndpointPlainArgs args, InvokeOptions options) {
@@ -351,6 +375,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about an existing Data Collection Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -381,6 +407,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataCollectionRuleResult> getDataCollectionRule(GetDataCollectionRuleArgs args) {
@@ -390,6 +417,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about an existing Data Collection Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -420,6 +449,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataCollectionRuleResult> getDataCollectionRulePlain(GetDataCollectionRulePlainArgs args) {
@@ -429,6 +459,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about an existing Data Collection Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -459,6 +491,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataCollectionRuleResult> getDataCollectionRule(GetDataCollectionRuleArgs args, InvokeOptions options) {
@@ -468,6 +501,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about an existing Data Collection Rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -498,6 +533,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataCollectionRuleResult> getDataCollectionRulePlain(GetDataCollectionRulePlainArgs args, InvokeOptions options) {
@@ -507,6 +543,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -542,6 +580,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDiagnosticCategoriesResult> getDiagnosticCategories(GetDiagnosticCategoriesArgs args) {
@@ -551,6 +590,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -586,6 +627,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDiagnosticCategoriesResult> getDiagnosticCategoriesPlain(GetDiagnosticCategoriesPlainArgs args) {
@@ -595,6 +637,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -630,6 +674,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDiagnosticCategoriesResult> getDiagnosticCategories(GetDiagnosticCategoriesArgs args, InvokeOptions options) {
@@ -639,6 +684,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -674,6 +721,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDiagnosticCategoriesResult> getDiagnosticCategoriesPlain(GetDiagnosticCategoriesPlainArgs args, InvokeOptions options) {
@@ -685,6 +733,8 @@ public final class MonitoringFunctions {
      * !&gt; **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -714,6 +764,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogProfileResult> getLogProfile(GetLogProfileArgs args) {
@@ -725,6 +776,8 @@ public final class MonitoringFunctions {
      * !&gt; **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -754,6 +807,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogProfileResult> getLogProfilePlain(GetLogProfilePlainArgs args) {
@@ -765,6 +819,8 @@ public final class MonitoringFunctions {
      * !&gt; **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -794,6 +850,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogProfileResult> getLogProfile(GetLogProfileArgs args, InvokeOptions options) {
@@ -805,6 +862,8 @@ public final class MonitoringFunctions {
      * !&gt; **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -834,6 +893,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogProfileResult> getLogProfilePlain(GetLogProfilePlainArgs args, InvokeOptions options) {
@@ -843,6 +903,8 @@ public final class MonitoringFunctions {
      * Use this data source to access the properties of an AlertingAction scheduled query rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -873,6 +935,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs args) {
@@ -882,6 +945,8 @@ public final class MonitoringFunctions {
      * Use this data source to access the properties of an AlertingAction scheduled query rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -912,6 +977,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlertPlain(GetScheduledQueryRulesAlertPlainArgs args) {
@@ -921,6 +987,8 @@ public final class MonitoringFunctions {
      * Use this data source to access the properties of an AlertingAction scheduled query rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -951,6 +1019,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs args, InvokeOptions options) {
@@ -960,6 +1029,8 @@ public final class MonitoringFunctions {
      * Use this data source to access the properties of an AlertingAction scheduled query rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -990,6 +1061,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlertPlain(GetScheduledQueryRulesAlertPlainArgs args, InvokeOptions options) {
@@ -999,6 +1071,8 @@ public final class MonitoringFunctions {
      * Use this data source to access the properties of a LogToMetricAction scheduled query rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1029,6 +1103,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs args) {
@@ -1038,6 +1113,8 @@ public final class MonitoringFunctions {
      * Use this data source to access the properties of a LogToMetricAction scheduled query rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1068,6 +1145,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLogPlain(GetScheduledQueryRulesLogPlainArgs args) {
@@ -1077,6 +1155,8 @@ public final class MonitoringFunctions {
      * Use this data source to access the properties of a LogToMetricAction scheduled query rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1107,6 +1187,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs args, InvokeOptions options) {
@@ -1116,6 +1197,8 @@ public final class MonitoringFunctions {
      * Use this data source to access the properties of a LogToMetricAction scheduled query rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1146,6 +1229,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLogPlain(GetScheduledQueryRulesLogPlainArgs args, InvokeOptions options) {
@@ -1155,6 +1239,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about an existing Workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1185,6 +1271,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
@@ -1194,6 +1281,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about an existing Workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1224,6 +1313,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
@@ -1233,6 +1323,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about an existing Workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1263,6 +1355,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
@@ -1272,6 +1365,8 @@ public final class MonitoringFunctions {
      * Use this data source to access information about an existing Workspace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1302,6 +1397,7 @@ public final class MonitoringFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {

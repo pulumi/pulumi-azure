@@ -14,6 +14,7 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,12 +54,11 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Data Factory Snowflake Datasets can be imported using the `resource id`,
-    /// 
-    /// e.g.
+    /// Data Factory Snowflake Datasets can be imported using the `resource id`,  e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:datafactory/datasetSnowflake:DatasetSnowflake example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example

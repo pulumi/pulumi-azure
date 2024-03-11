@@ -532,6 +532,7 @@ class LiveEvent(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -585,6 +586,7 @@ class LiveEvent(pulumi.CustomResource):
             hostname_prefix="special-event",
             transcription_languages=["en-US"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -623,6 +625,7 @@ class LiveEvent(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -676,6 +679,7 @@ class LiveEvent(pulumi.CustomResource):
             hostname_prefix="special-event",
             transcription_languages=["en-US"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

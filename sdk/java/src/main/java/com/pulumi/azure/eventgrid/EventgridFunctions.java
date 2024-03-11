@@ -27,6 +27,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid Domain
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -57,6 +59,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args) {
@@ -66,6 +69,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid Domain
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -96,6 +101,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args) {
@@ -105,6 +111,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid Domain
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -135,6 +143,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args, InvokeOptions options) {
@@ -144,6 +153,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid Domain
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -174,6 +185,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args, InvokeOptions options) {
@@ -183,6 +195,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid Domain Topic
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -212,6 +226,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDomainTopicResult> getDomainTopic(GetDomainTopicArgs args) {
@@ -221,6 +236,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid Domain Topic
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -250,6 +267,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDomainTopicResult> getDomainTopicPlain(GetDomainTopicPlainArgs args) {
@@ -259,6 +277,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid Domain Topic
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -288,6 +308,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDomainTopicResult> getDomainTopic(GetDomainTopicArgs args, InvokeOptions options) {
@@ -297,6 +318,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid Domain Topic
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -326,6 +349,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDomainTopicResult> getDomainTopicPlain(GetDomainTopicPlainArgs args, InvokeOptions options) {
@@ -335,6 +359,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid System Topic
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -364,6 +390,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSystemTopicResult> getSystemTopic(GetSystemTopicArgs args) {
@@ -373,6 +400,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid System Topic
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -402,6 +431,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSystemTopicResult> getSystemTopicPlain(GetSystemTopicPlainArgs args) {
@@ -411,6 +441,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid System Topic
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -440,6 +472,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSystemTopicResult> getSystemTopic(GetSystemTopicArgs args, InvokeOptions options) {
@@ -449,6 +482,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid System Topic
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -478,6 +513,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSystemTopicResult> getSystemTopicPlain(GetSystemTopicPlainArgs args, InvokeOptions options) {
@@ -487,6 +523,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid Topic
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -516,6 +554,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args) {
@@ -525,6 +564,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid Topic
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -554,6 +595,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args) {
@@ -563,6 +605,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid Topic
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -592,6 +636,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args, InvokeOptions options) {
@@ -601,6 +646,8 @@ public final class EventgridFunctions {
      * Use this data source to access information about an existing EventGrid Topic
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -630,6 +677,7 @@ public final class EventgridFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args, InvokeOptions options) {

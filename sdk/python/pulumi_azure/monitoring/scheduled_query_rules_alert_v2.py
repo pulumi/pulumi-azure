@@ -742,6 +742,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -804,6 +805,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                 "key2": "value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -854,6 +856,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -916,6 +919,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                 "key2": "value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

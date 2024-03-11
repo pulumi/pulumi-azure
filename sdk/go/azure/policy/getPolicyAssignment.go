@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetPolicyAssignment(ctx *pulumi.Context, args *GetPolicyAssignmentArgs, opts ...pulumi.InvokeOption) (*GetPolicyAssignmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPolicyAssignmentResult
