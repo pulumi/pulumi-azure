@@ -66,7 +66,7 @@ import (
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleResourceGroup.ID(),
-//				RoleDefinitionName: *pulumi.String(builtin.Name),
+//				RoleDefinitionName: pulumi.String(builtin.Name),
 //				PrincipalId: exampleCluster.Identity.ApplyT(func(identity kusto.ClusterIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput),

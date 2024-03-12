@@ -74,11 +74,11 @@ import (
 //				Name:             pulumi.String("example-mnsg"),
 //				Location:         exampleResourceGroup.Location,
 //				MobileNetworkId:  exampleNetwork.ID(),
-//				EncryptionKeyUrl: *pulumi.String(exampleGetKey.Id),
+//				EncryptionKeyUrl: pulumi.String(exampleGetKey.Id),
 //				Identity: &mobile.NetworkSimGroupIdentityArgs{
 //					Type: pulumi.String("SystemAssigned, UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						*pulumi.String(example.Id),
+//						pulumi.String(example.Id),
 //					},
 //				},
 //				Tags: pulumi.StringMap{
