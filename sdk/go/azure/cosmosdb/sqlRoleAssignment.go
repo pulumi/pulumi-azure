@@ -84,7 +84,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				AccountName:       exampleAccount.Name,
 //				RoleDefinitionId:  exampleSqlRoleDefinition.ID(),
-//				PrincipalId:       *pulumi.String(current.ObjectId),
+//				PrincipalId:       pulumi.String(current.ObjectId),
 //				Scope:             exampleAccount.ID(),
 //			})
 //			if err != nil {
