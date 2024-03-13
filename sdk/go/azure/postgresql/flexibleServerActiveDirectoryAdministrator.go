@@ -60,7 +60,7 @@ import (
 //				Zone:                  pulumi.String("2"),
 //				Authentication: &postgresql.FlexibleServerAuthenticationArgs{
 //					ActiveDirectoryAuthEnabled: pulumi.Bool(true),
-//					TenantId:                   *pulumi.String(current.TenantId),
+//					TenantId:                   pulumi.String(current.TenantId),
 //				},
 //			})
 //			if err != nil {
@@ -69,9 +69,9 @@ import (
 //			_, err = postgresql.NewFlexibleServerActiveDirectoryAdministrator(ctx, "example", &postgresql.FlexibleServerActiveDirectoryAdministratorArgs{
 //				ServerName:        exampleFlexibleServer.Name,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				TenantId:          *pulumi.String(current.TenantId),
-//				ObjectId:          *pulumi.String(example.ObjectId),
-//				PrincipalName:     *pulumi.String(example.DisplayName),
+//				TenantId:          pulumi.String(current.TenantId),
+//				ObjectId:          pulumi.String(example.ObjectId),
+//				PrincipalName:     pulumi.String(example.DisplayName),
 //				PrincipalType:     pulumi.String("ServicePrincipal"),
 //			})
 //			if err != nil {
