@@ -4048,6 +4048,10 @@
                     }
                 }
             },
+            "azurerm_container_app_custom_domain": {
+                "current": "azure:containerapp/customDomain:CustomDomain",
+                "majorVersion": 5
+            },
             "azurerm_container_app_environment": {
                 "current": "azure:containerapp/environment:Environment",
                 "majorVersion": 5,
@@ -5716,6 +5720,34 @@
             "azurerm_data_protection_backup_instance_disk": {
                 "current": "azure:dataprotection/backupInstanceDisk:BackupInstanceDisk",
                 "majorVersion": 5
+            },
+            "azurerm_data_protection_backup_instance_kubernetes_cluster": {
+                "current": "azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster",
+                "majorVersion": 5,
+                "fields": {
+                    "backup_datasource_parameters": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "excluded_namespaces": {
+                                    "maxItemsOne": false
+                                },
+                                "excluded_resource_types": {
+                                    "maxItemsOne": false
+                                },
+                                "included_namespaces": {
+                                    "maxItemsOne": false
+                                },
+                                "included_resource_types": {
+                                    "maxItemsOne": false
+                                },
+                                "label_selectors": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_data_protection_backup_instance_postgresql": {
                 "current": "azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql",
@@ -19476,6 +19508,29 @@
                 "current": "azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain",
                 "majorVersion": 5
             },
+            "azurerm_static_web_app": {
+                "current": "azure:appservice/staticWebApp:StaticWebApp",
+                "majorVersion": 5,
+                "fields": {
+                    "basic_auth": {
+                        "maxItemsOne": true
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_static_web_app_custom_domain": {
+                "current": "azure:appservice/staticWebAppCustomDomain:StaticWebAppCustomDomain",
+                "majorVersion": 5
+            },
             "azurerm_storage_account": {
                 "current": "azure:storage/account:Account",
                 "majorVersion": 5,
@@ -20471,6 +20526,10 @@
                         }
                     }
                 }
+            },
+            "azurerm_system_center_virtual_machine_manager_availability_set": {
+                "current": "azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet",
+                "majorVersion": 5
             },
             "azurerm_system_center_virtual_machine_manager_server": {
                 "current": "azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer",
@@ -23294,6 +23353,277 @@
                     },
                     "storage_account": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_workloads_sap_single_node_virtual_instance": {
+                "current": "azure:workloadssap/singleNodeVirtualInstance:SingleNodeVirtualInstance",
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "single_server_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "disk_volume_configuration": {
+                                    "maxItemsOne": false
+                                },
+                                "virtual_machine_configuration": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "image": {
+                                                "maxItemsOne": true
+                                            },
+                                            "os_profile": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "virtual_machine_resource_names": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "data_disk": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "names": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "network_interface_names": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_workloads_sap_three_tier_virtual_instance": {
+                "current": "azure:workloadssap/threeTierVirtualInstance:ThreeTierVirtualInstance",
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "three_tier_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "application_server_configuration": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "virtual_machine_configuration": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "image": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "os_profile": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "central_server_configuration": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "virtual_machine_configuration": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "image": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "os_profile": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "database_server_configuration": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "disk_volume_configuration": {
+                                                "maxItemsOne": false
+                                            },
+                                            "virtual_machine_configuration": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "image": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "os_profile": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "resource_names": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "application_server": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "virtual_machine": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "data_disk": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "names": {
+                                                                                    "maxItemsOne": false
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "network_interface_names": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "central_server": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "load_balancer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "backend_pool_names": {
+                                                                        "maxItemsOne": false
+                                                                    },
+                                                                    "frontend_ip_configuration_names": {
+                                                                        "maxItemsOne": false
+                                                                    },
+                                                                    "health_probe_names": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "virtual_machine": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "data_disk": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "names": {
+                                                                                    "maxItemsOne": false
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "network_interface_names": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "database_server": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "load_balancer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "backend_pool_names": {
+                                                                        "maxItemsOne": false
+                                                                    },
+                                                                    "frontend_ip_configuration_names": {
+                                                                        "maxItemsOne": false
+                                                                    },
+                                                                    "health_probe_names": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "virtual_machine": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "data_disk": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "names": {
+                                                                                    "maxItemsOne": false
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "network_interface_names": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "shared_storage": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "transport_create_and_mount": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -28970,6 +29300,25 @@
             "azurerm_stack_hci_cluster": {
                 "current": "azure:stack/getHciCluster:getHciCluster",
                 "majorVersion": 5
+            },
+            "azurerm_static_web_app": {
+                "current": "azure:appservice/getStaticWebApp:getStaticWebApp",
+                "majorVersion": 5,
+                "fields": {
+                    "basic_auth": {
+                        "maxItemsOne": false
+                    },
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_storage_account": {
                 "current": "azure:storage/getAccount:getAccount",
