@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.containerservice.KubernetesFleetManager;
  * import com.pulumi.azure.containerservice.KubernetesFleetManagerArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesFleetManagerHubProfileArgs;
  * import com.pulumi.azure.containerservice.KubernetesCluster;
  * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
  * import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolArgs;
@@ -68,9 +67,6 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .name(&#34;example&#34;)
  *             .resourceGroupName(example.name())
- *             .hubProfile(KubernetesFleetManagerHubProfileArgs.builder()
- *                 .dnsPrefix(&#34;example-dns-prefix&#34;)
- *                 .build())
  *             .build());
  * 
  *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        

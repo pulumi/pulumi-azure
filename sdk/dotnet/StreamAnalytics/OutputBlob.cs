@@ -104,6 +104,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<int?> BatchMinRows { get; private set; } = null!;
 
         /// <summary>
+        /// Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+        /// </summary>
+        [Output("blobWriteMode")]
+        public Output<string?> BlobWriteMode { get; private set; } = null!;
+
+        /// <summary>
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         /// </summary>
         [Output("dateFormat")]
@@ -232,6 +238,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<int>? BatchMinRows { get; set; }
 
         /// <summary>
+        /// Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+        /// </summary>
+        [Input("blobWriteMode")]
+        public Input<string>? BlobWriteMode { get; set; }
+
+        /// <summary>
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         /// </summary>
         [Input("dateFormat", required: true)]
@@ -326,6 +338,12 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("batchMinRows")]
         public Input<int>? BatchMinRows { get; set; }
+
+        /// <summary>
+        /// Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+        /// </summary>
+        [Input("blobWriteMode")]
+        public Input<string>? BlobWriteMode { get; set; }
 
         /// <summary>
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.

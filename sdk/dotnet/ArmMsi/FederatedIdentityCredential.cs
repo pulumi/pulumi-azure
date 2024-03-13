@@ -74,7 +74,7 @@ namespace Pulumi.Azure.ArmMsi
         public Output<string> Issuer { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of this Federated Identity Credential.
+        /// Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.ArmMsi
         public Input<string> Issuer { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of this Federated Identity Credential.
+        /// Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.ArmMsi
         public Input<string>? Issuer { get; set; }
 
         /// <summary>
-        /// Specifies the name of this Federated Identity Credential.
+        /// Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

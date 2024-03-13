@@ -100,6 +100,20 @@ public class IntegrationRuntimeManaged extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.catalogInfo);
     }
     /**
+     * The name of the credential to use for the Managed Integration Runtime.
+     * 
+     */
+    @Export(name="credentialName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> credentialName;
+
+    /**
+     * @return The name of the credential to use for the Managed Integration Runtime.
+     * 
+     */
+    public Output<Optional<String>> credentialName() {
+        return Codegen.optional(this.credentialName);
+    }
+    /**
      * A `custom_setup_script` block as defined below.
      * 
      */

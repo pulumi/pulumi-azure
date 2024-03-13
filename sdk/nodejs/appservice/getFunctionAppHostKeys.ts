@@ -64,6 +64,7 @@ export interface GetFunctionAppHostKeysResult {
      * Function App resource's Event Grid Extension Config system key.
      */
     readonly eventGridExtensionConfigKey: string;
+    readonly eventGridExtensionKey: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */

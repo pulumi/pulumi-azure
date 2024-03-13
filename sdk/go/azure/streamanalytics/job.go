@@ -108,7 +108,6 @@ type Job struct {
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
-	// *
 	StreamingUnits pulumi.IntPtrOutput `pulumi:"streamingUnits"`
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -191,7 +190,6 @@ type jobState struct {
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
-	// *
 	StreamingUnits *int `pulumi:"streamingUnits"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -239,7 +237,6 @@ type JobState struct {
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
-	// *
 	StreamingUnits pulumi.IntPtrInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
@@ -289,7 +286,6 @@ type jobArgs struct {
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
-	// *
 	StreamingUnits *int `pulumi:"streamingUnits"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -336,7 +332,6 @@ type JobArgs struct {
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
-	// *
 	StreamingUnits pulumi.IntPtrInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
@@ -515,7 +510,6 @@ func (o JobOutput) StreamAnalyticsClusterId() pulumi.StringPtrOutput {
 // Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 //
 // > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
-// *
 func (o JobOutput) StreamingUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.IntPtrOutput { return v.StreamingUnits }).(pulumi.IntPtrOutput)
 }

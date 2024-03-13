@@ -15,14 +15,14 @@ public final class BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArg
     public static final BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs Empty = new BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs();
 
     /**
-     * The type of data store. The only possible value is `OperationalStore`.
+     * The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dataStoreType", required=true)
     private Output<String> dataStoreType;
 
     /**
-     * @return The type of data store. The only possible value is `OperationalStore`.
+     * @return The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> dataStoreType() {
@@ -70,7 +70,7 @@ public final class BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArg
         }
 
         /**
-         * @param dataStoreType The type of data store. The only possible value is `OperationalStore`.
+         * @param dataStoreType The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArg
         }
 
         /**
-         * @param dataStoreType The type of data store. The only possible value is `OperationalStore`.
+         * @param dataStoreType The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

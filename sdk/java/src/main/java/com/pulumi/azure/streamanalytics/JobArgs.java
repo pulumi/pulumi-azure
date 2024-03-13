@@ -239,7 +239,6 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      * 
      * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-     * * 
      * 
      */
     @Import(name="streamingUnits")
@@ -249,7 +248,6 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
      * @return Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      * 
      * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-     * * 
      * 
      */
     public Optional<Output<Integer>> streamingUnits() {
@@ -658,7 +656,6 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
          * @param streamingUnits Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
          * 
          * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-         * * 
          * 
          * @return builder
          * 
@@ -672,7 +669,6 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
          * @param streamingUnits Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
          * 
          * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-         * * 
          * 
          * @return builder
          * 

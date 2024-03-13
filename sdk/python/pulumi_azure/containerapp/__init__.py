@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .app import *
+from .custom_domain import *
 from .environment import *
 from .environment_certificate import *
 from .environment_dapr_component import *

@@ -19,6 +19,12 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? Action { get; set; }
 
         /// <summary>
+        /// The Description of this IP Restriction.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// a `headers` block as detailed below.
         /// </summary>
         [Input("headers")]

@@ -515,6 +515,7 @@ class GetCachePatchScheduleResult(dict):
 @pulumi.output_type
 class GetCacheRedisConfigurationResult(dict):
     def __init__(__self__, *,
+                 active_directory_authentication_enabled: bool,
                  aof_backup_enabled: bool,
                  aof_storage_connection_string0: str,
                  aof_storage_connection_string1: str,
@@ -532,6 +533,7 @@ class GetCacheRedisConfigurationResult(dict):
                  rdb_storage_connection_string: str,
                  storage_account_subscription_id: str):
         """
+        :param bool active_directory_authentication_enabled: Specifies if Microsoft Entra (AAD) authentication is enabled.
         :param bool enable_authentication: Specifies if authentication is enabled
         :param int maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation.
         :param int maxmemory_delta: The max-memory delta for this Redis instance.
@@ -543,6 +545,7 @@ class GetCacheRedisConfigurationResult(dict):
         :param str rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKUs.
         :param str storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
         """
+        pulumi.set(__self__, "active_directory_authentication_enabled", active_directory_authentication_enabled)
         pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
         pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
         pulumi.set(__self__, "aof_storage_connection_string1", aof_storage_connection_string1)
@@ -559,6 +562,14 @@ class GetCacheRedisConfigurationResult(dict):
         pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
         pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
         pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
+
+    @property
+    @pulumi.getter(name="activeDirectoryAuthenticationEnabled")
+    def active_directory_authentication_enabled(self) -> bool:
+        """
+        Specifies if Microsoft Entra (AAD) authentication is enabled.
+        """
+        return pulumi.get(self, "active_directory_authentication_enabled")
 
     @property
     @pulumi.getter(name="aofBackupEnabled")

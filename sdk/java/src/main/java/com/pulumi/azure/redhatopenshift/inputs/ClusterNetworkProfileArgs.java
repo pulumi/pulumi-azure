@@ -17,14 +17,14 @@ public final class ClusterNetworkProfileArgs extends com.pulumi.resources.Resour
     public static final ClusterNetworkProfileArgs Empty = new ClusterNetworkProfileArgs();
 
     /**
-     * The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+     * The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="outboundType")
     private @Nullable Output<String> outboundType;
 
     /**
-     * @return The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+     * @return The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> outboundType() {
@@ -88,7 +88,7 @@ public final class ClusterNetworkProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param outboundType The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+         * @param outboundType The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ClusterNetworkProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param outboundType The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+         * @param outboundType The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

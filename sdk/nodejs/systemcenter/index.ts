@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { VirtualMachineManagerAvailabilitySetArgs, VirtualMachineManagerAvailabilitySetState } from "./virtualMachineManagerAvailabilitySet";
+export type VirtualMachineManagerAvailabilitySet = import("./virtualMachineManagerAvailabilitySet").VirtualMachineManagerAvailabilitySet;
+export const VirtualMachineManagerAvailabilitySet: typeof import("./virtualMachineManagerAvailabilitySet").VirtualMachineManagerAvailabilitySet = null as any;
+utilities.lazyLoad(exports, ["VirtualMachineManagerAvailabilitySet"], () => require("./virtualMachineManagerAvailabilitySet"));
+
 export { VirtualMachineManagerServerArgs, VirtualMachineManagerServerState } from "./virtualMachineManagerServer";
 export type VirtualMachineManagerServer = import("./virtualMachineManagerServer").VirtualMachineManagerServer;
 export const VirtualMachineManagerServer: typeof import("./virtualMachineManagerServer").VirtualMachineManagerServer = null as any;
@@ -15,6 +20,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet":
+                return new VirtualMachineManagerAvailabilitySet(name, <any>undefined, { urn })
             case "azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer":
                 return new VirtualMachineManagerServer(name, <any>undefined, { urn })
             default:
@@ -22,4 +29,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "systemcenter/virtualMachineManagerAvailabilitySet", _module)
 pulumi.runtime.registerResourceModule("azure", "systemcenter/virtualMachineManagerServer", _module)

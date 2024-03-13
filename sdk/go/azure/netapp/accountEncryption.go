@@ -16,6 +16,127 @@ import (
 //
 // For more information about Azure NetApp Files Customer-Managed Keys feature, please refer to [Configure customer-managed keys for Azure NetApp Files volume encryption](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-customer-managed-keys)
 //
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				Name:              pulumi.String("anf-user-assigned-identity"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                         pulumi.String("anfcmkakv"),
+//				Location:                     example.Location,
+//				ResourceGroupName:            example.Name,
+//				EnabledForDiskEncryption:     pulumi.Bool(true),
+//				EnabledForDeployment:         pulumi.Bool(true),
+//				EnabledForTemplateDeployment: pulumi.Bool(true),
+//				PurgeProtectionEnabled:       pulumi.Bool(true),
+//				TenantId:                     pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				SkuName:                      pulumi.String("standard"),
+//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//						ObjectId: *pulumi.String(current.ObjectId),
+//						KeyPermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("Create"),
+//							pulumi.String("Delete"),
+//							pulumi.String("WrapKey"),
+//							pulumi.String("UnwrapKey"),
+//							pulumi.String("GetRotationPolicy"),
+//							pulumi.String("SetRotationPolicy"),
+//						},
+//					},
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//						ObjectId: exampleUserAssignedIdentity.PrincipalId,
+//						KeyPermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("Encrypt"),
+//							pulumi.String("Decrypt"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
+//				Name:       pulumi.String("anfencryptionkey"),
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyType:    pulumi.String("RSA"),
+//				KeySize:    pulumi.Int(2048),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("decrypt"),
+//					pulumi.String("encrypt"),
+//					pulumi.String("sign"),
+//					pulumi.String("unwrapKey"),
+//					pulumi.String("verify"),
+//					pulumi.String("wrapKey"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := netapp.NewAccount(ctx, "example", &netapp.AccountArgs{
+//				Name:              pulumi.String("netappaccount"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Identity: &netapp.AccountIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = netapp.NewAccountEncryption(ctx, "example", &netapp.AccountEncryptionArgs{
+//				NetappAccountId:        exampleAccount.ID(),
+//				UserAssignedIdentityId: exampleUserAssignedIdentity.ID(),
+//				EncryptionKey:          exampleKey.VersionlessId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Account Encryption Resources can be imported using the `resource id`, e.g.
@@ -26,7 +147,7 @@ import (
 type AccountEncryption struct {
 	pulumi.CustomResourceState
 
-	// The versionless encryption key url.
+	// Specify the versionless ID of the encryption key.
 	EncryptionKey pulumi.StringOutput `pulumi:"encryptionKey"`
 	// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
 	NetappAccountId pulumi.StringOutput `pulumi:"netappAccountId"`
@@ -72,7 +193,7 @@ func GetAccountEncryption(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountEncryption resources.
 type accountEncryptionState struct {
-	// The versionless encryption key url.
+	// Specify the versionless ID of the encryption key.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
 	NetappAccountId *string `pulumi:"netappAccountId"`
@@ -83,7 +204,7 @@ type accountEncryptionState struct {
 }
 
 type AccountEncryptionState struct {
-	// The versionless encryption key url.
+	// Specify the versionless ID of the encryption key.
 	EncryptionKey pulumi.StringPtrInput
 	// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
 	NetappAccountId pulumi.StringPtrInput
@@ -98,7 +219,7 @@ func (AccountEncryptionState) ElementType() reflect.Type {
 }
 
 type accountEncryptionArgs struct {
-	// The versionless encryption key url.
+	// Specify the versionless ID of the encryption key.
 	EncryptionKey string `pulumi:"encryptionKey"`
 	// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
 	NetappAccountId string `pulumi:"netappAccountId"`
@@ -110,7 +231,7 @@ type accountEncryptionArgs struct {
 
 // The set of arguments for constructing a AccountEncryption resource.
 type AccountEncryptionArgs struct {
-	// The versionless encryption key url.
+	// Specify the versionless ID of the encryption key.
 	EncryptionKey pulumi.StringInput
 	// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
 	NetappAccountId pulumi.StringInput
@@ -207,7 +328,7 @@ func (o AccountEncryptionOutput) ToAccountEncryptionOutputWithContext(ctx contex
 	return o
 }
 
-// The versionless encryption key url.
+// Specify the versionless ID of the encryption key.
 func (o AccountEncryptionOutput) EncryptionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountEncryption) pulumi.StringOutput { return v.EncryptionKey }).(pulumi.StringOutput)
 }

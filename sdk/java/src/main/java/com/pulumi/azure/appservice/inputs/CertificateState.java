@@ -123,7 +123,28 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
+     * 
+     */
+    @Import(name="keyVaultId")
+    private @Nullable Output<String> keyVaultId;
+
+    /**
+     * @return The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
+     * 
+     */
+    public Optional<Output<String>> keyVaultId() {
+        return Optional.ofNullable(this.keyVaultId);
+    }
+
+    /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     @Import(name="keyVaultSecretId")
@@ -131,6 +152,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The ID of the Key Vault secret. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     public Optional<Output<String>> keyVaultSecretId() {
@@ -185,7 +208,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
+     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     @Import(name="pfxBlob")
@@ -194,7 +217,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
+     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     public Optional<Output<String>> pfxBlob() {
@@ -275,6 +298,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         this.hostingEnvironmentProfileId = $.hostingEnvironmentProfileId;
         this.issueDate = $.issueDate;
         this.issuer = $.issuer;
+        this.keyVaultId = $.keyVaultId;
         this.keyVaultSecretId = $.keyVaultSecretId;
         this.location = $.location;
         this.name = $.name;
@@ -462,7 +486,34 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param keyVaultId The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
+            $.keyVaultId = keyVaultId;
+            return this;
+        }
+
+        /**
+         * @param keyVaultId The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultId(String keyVaultId) {
+            return keyVaultId(Output.of(keyVaultId));
+        }
+
+        /**
          * @param keyVaultSecretId The ID of the Key Vault secret. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
          * 
          * @return builder
          * 
@@ -474,6 +525,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param keyVaultSecretId The ID of the Key Vault secret. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
          * 
          * @return builder
          * 
@@ -548,7 +601,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param pfxBlob The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
+         * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
          * 
          * @return builder
          * 
@@ -561,7 +614,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param pfxBlob The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
+         * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
          * 
          * @return builder
          * 

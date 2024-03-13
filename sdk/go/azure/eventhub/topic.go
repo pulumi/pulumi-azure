@@ -101,7 +101,7 @@ type Topic struct {
 	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
 	NamespaceId   pulumi.StringOutput `pulumi:"namespaceId"`
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
-	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
+	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresDuplicateDetection pulumi.BoolPtrOutput `pulumi:"requiresDuplicateDetection"`
 	ResourceGroupName          pulumi.StringOutput  `pulumi:"resourceGroupName"`
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
@@ -166,7 +166,7 @@ type topicState struct {
 	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
 	NamespaceId   *string `pulumi:"namespaceId"`
 	NamespaceName *string `pulumi:"namespaceName"`
-	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
+	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresDuplicateDetection *bool   `pulumi:"requiresDuplicateDetection"`
 	ResourceGroupName          *string `pulumi:"resourceGroupName"`
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
@@ -199,7 +199,7 @@ type TopicState struct {
 	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
 	NamespaceId   pulumi.StringPtrInput
 	NamespaceName pulumi.StringPtrInput
-	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
+	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
 	ResourceGroupName          pulumi.StringPtrInput
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
@@ -235,7 +235,7 @@ type topicArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
 	NamespaceId string `pulumi:"namespaceId"`
-	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
+	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
@@ -267,7 +267,7 @@ type TopicArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
 	NamespaceId pulumi.StringInput
-	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
+	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
@@ -418,7 +418,7 @@ func (o TopicOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.NamespaceName }).(pulumi.StringOutput)
 }
 
-// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
+// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 func (o TopicOutput) RequiresDuplicateDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.RequiresDuplicateDetection }).(pulumi.BoolPtrOutput)
 }

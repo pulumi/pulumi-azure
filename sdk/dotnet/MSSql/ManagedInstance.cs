@@ -390,6 +390,9 @@ namespace Pulumi.Azure.MSSql
         [Output("vcores")]
         public Output<int> Vcores { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+        /// </summary>
         [Output("zoneRedundantEnabled")]
         public Output<bool?> ZoneRedundantEnabled { get; private set; } = null!;
 
@@ -579,6 +582,9 @@ namespace Pulumi.Azure.MSSql
         [Input("vcores", required: true)]
         public Input<int> Vcores { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+        /// </summary>
         [Input("zoneRedundantEnabled")]
         public Input<bool>? ZoneRedundantEnabled { get; set; }
 
@@ -738,6 +744,9 @@ namespace Pulumi.Azure.MSSql
         [Input("vcores")]
         public Input<int>? Vcores { get; set; }
 
+        /// <summary>
+        /// Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+        /// </summary>
         [Input("zoneRedundantEnabled")]
         public Input<bool>? ZoneRedundantEnabled { get; set; }
 

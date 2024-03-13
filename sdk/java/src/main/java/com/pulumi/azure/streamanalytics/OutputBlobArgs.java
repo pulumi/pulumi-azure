@@ -64,6 +64,21 @@ public final class OutputBlobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+     * 
+     */
+    @Import(name="blobWriteMode")
+    private @Nullable Output<String> blobWriteMode;
+
+    /**
+     * @return Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+     * 
+     */
+    public Optional<Output<String>> blobWriteMode() {
+        return Optional.ofNullable(this.blobWriteMode);
+    }
+
+    /**
      * The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
      * 
      */
@@ -219,6 +234,7 @@ public final class OutputBlobArgs extends com.pulumi.resources.ResourceArgs {
         this.authenticationMode = $.authenticationMode;
         this.batchMaxWaitTime = $.batchMaxWaitTime;
         this.batchMinRows = $.batchMinRows;
+        this.blobWriteMode = $.blobWriteMode;
         this.dateFormat = $.dateFormat;
         this.name = $.name;
         this.pathPattern = $.pathPattern;
@@ -310,6 +326,27 @@ public final class OutputBlobArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder batchMinRows(Integer batchMinRows) {
             return batchMinRows(Output.of(batchMinRows));
+        }
+
+        /**
+         * @param blobWriteMode Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blobWriteMode(@Nullable Output<String> blobWriteMode) {
+            $.blobWriteMode = blobWriteMode;
+            return this;
+        }
+
+        /**
+         * @param blobWriteMode Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blobWriteMode(String blobWriteMode) {
+            return blobWriteMode(Output.of(blobWriteMode));
         }
 
         /**

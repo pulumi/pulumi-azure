@@ -13,36 +13,76 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetRoleDefinitionPermission {
     /**
-     * @return a list of actions supported by this role
+     * @return A list of actions supported by this role.
      * 
      */
     private List<String> actions;
+    /**
+     * @return The conditions on this role definition, which limits the resources it can be assigned to.
+     * 
+     */
+    private String condition;
+    /**
+     * @return The version of the condition.
+     * 
+     */
+    private String conditionVersion;
+    /**
+     * @return A list of data actions allowed by this role.
+     * 
+     */
     private @Nullable List<String> dataActions;
     /**
-     * @return a list of actions which are denied by this role
+     * @return A list of actions which are denied by this role.
      * 
      */
     private List<String> notActions;
+    /**
+     * @return A list of data actions which are denied by this role.
+     * 
+     */
     private @Nullable List<String> notDataActions;
 
     private GetRoleDefinitionPermission() {}
     /**
-     * @return a list of actions supported by this role
+     * @return A list of actions supported by this role.
      * 
      */
     public List<String> actions() {
         return this.actions;
     }
+    /**
+     * @return The conditions on this role definition, which limits the resources it can be assigned to.
+     * 
+     */
+    public String condition() {
+        return this.condition;
+    }
+    /**
+     * @return The version of the condition.
+     * 
+     */
+    public String conditionVersion() {
+        return this.conditionVersion;
+    }
+    /**
+     * @return A list of data actions allowed by this role.
+     * 
+     */
     public List<String> dataActions() {
         return this.dataActions == null ? List.of() : this.dataActions;
     }
     /**
-     * @return a list of actions which are denied by this role
+     * @return A list of actions which are denied by this role.
      * 
      */
     public List<String> notActions() {
         return this.notActions;
     }
+    /**
+     * @return A list of data actions which are denied by this role.
+     * 
+     */
     public List<String> notDataActions() {
         return this.notDataActions == null ? List.of() : this.notDataActions;
     }
@@ -57,6 +97,8 @@ public final class GetRoleDefinitionPermission {
     @CustomType.Builder
     public static final class Builder {
         private List<String> actions;
+        private String condition;
+        private String conditionVersion;
         private @Nullable List<String> dataActions;
         private List<String> notActions;
         private @Nullable List<String> notDataActions;
@@ -64,6 +106,8 @@ public final class GetRoleDefinitionPermission {
         public Builder(GetRoleDefinitionPermission defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
+    	      this.condition = defaults.condition;
+    	      this.conditionVersion = defaults.conditionVersion;
     	      this.dataActions = defaults.dataActions;
     	      this.notActions = defaults.notActions;
     	      this.notDataActions = defaults.notDataActions;
@@ -79,6 +123,22 @@ public final class GetRoleDefinitionPermission {
         }
         public Builder actions(String... actions) {
             return actions(List.of(actions));
+        }
+        @CustomType.Setter
+        public Builder condition(String condition) {
+            if (condition == null) {
+              throw new MissingRequiredPropertyException("GetRoleDefinitionPermission", "condition");
+            }
+            this.condition = condition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder conditionVersion(String conditionVersion) {
+            if (conditionVersion == null) {
+              throw new MissingRequiredPropertyException("GetRoleDefinitionPermission", "conditionVersion");
+            }
+            this.conditionVersion = conditionVersion;
+            return this;
         }
         @CustomType.Setter
         public Builder dataActions(@Nullable List<String> dataActions) {
@@ -112,6 +172,8 @@ public final class GetRoleDefinitionPermission {
         public GetRoleDefinitionPermission build() {
             final var _resultValue = new GetRoleDefinitionPermission();
             _resultValue.actions = actions;
+            _resultValue.condition = condition;
+            _resultValue.conditionVersion = conditionVersion;
             _resultValue.dataActions = dataActions;
             _resultValue.notActions = notActions;
             _resultValue.notDataActions = notDataActions;

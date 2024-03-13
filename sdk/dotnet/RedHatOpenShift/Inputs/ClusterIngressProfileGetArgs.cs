@@ -25,7 +25,7 @@ namespace Pulumi.Azure.RedHatOpenShift.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+        /// Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("visibility", required: true)]
         public Input<string> Visibility { get; set; } = null!;

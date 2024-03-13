@@ -31,7 +31,6 @@ namespace Pulumi.Azure.Dashboard.Outputs
         public readonly string Host;
         /// <summary>
         /// Password of SMTP authentication.
-        /// *
         /// </summary>
         public readonly string Password;
         /// <summary>

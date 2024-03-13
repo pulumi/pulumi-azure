@@ -14,19 +14,37 @@ namespace Pulumi.Azure.Role.Outputs
     public sealed class GetRoleDefinitionPermissionResult
     {
         /// <summary>
-        /// a list of actions supported by this role
+        /// A list of actions supported by this role.
         /// </summary>
         public readonly ImmutableArray<string> Actions;
+        /// <summary>
+        /// The conditions on this role definition, which limits the resources it can be assigned to.
+        /// </summary>
+        public readonly string Condition;
+        /// <summary>
+        /// The version of the condition.
+        /// </summary>
+        public readonly string ConditionVersion;
+        /// <summary>
+        /// A list of data actions allowed by this role.
+        /// </summary>
         public readonly ImmutableArray<string> DataActions;
         /// <summary>
-        /// a list of actions which are denied by this role
+        /// A list of actions which are denied by this role.
         /// </summary>
         public readonly ImmutableArray<string> NotActions;
+        /// <summary>
+        /// A list of data actions which are denied by this role.
+        /// </summary>
         public readonly ImmutableArray<string> NotDataActions;
 
         [OutputConstructor]
         private GetRoleDefinitionPermissionResult(
             ImmutableArray<string> actions,
+
+            string condition,
+
+            string conditionVersion,
 
             ImmutableArray<string> dataActions,
 
@@ -35,6 +53,8 @@ namespace Pulumi.Azure.Role.Outputs
             ImmutableArray<string> notDataActions)
         {
             Actions = actions;
+            Condition = condition;
+            ConditionVersion = conditionVersion;
             DataActions = dataActions;
             NotActions = notActions;
             NotDataActions = notDataActions;

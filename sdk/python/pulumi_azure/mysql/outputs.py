@@ -296,6 +296,8 @@ class FlexibleServerStorage(dict):
         :param bool io_scaling_enabled: Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
         :param int iops: The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
         :param int size_gb: The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+               
+               > **Note:** Decreasing `size_gb` forces a new resource to be created.
         """
         if auto_grow_enabled is not None:
             pulumi.set(__self__, "auto_grow_enabled", auto_grow_enabled)
@@ -335,6 +337,8 @@ class FlexibleServerStorage(dict):
     def size_gb(self) -> Optional[int]:
         """
         The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+
+        > **Note:** Decreasing `size_gb` forces a new resource to be created.
         """
         return pulumi.get(self, "size_gb")
 

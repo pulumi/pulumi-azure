@@ -99,16 +99,16 @@ type GetRoleDefinitionArgs struct {
 type GetRoleDefinitionResult struct {
 	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
 	AssignableScopes []string `pulumi:"assignableScopes"`
-	// the Description of the built-in Role.
+	// The Description of the built-in Role.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// a `permissions` block as documented below.
+	// A `permissions` block as documented below.
 	Permissions      []GetRoleDefinitionPermission `pulumi:"permissions"`
 	RoleDefinitionId string                        `pulumi:"roleDefinitionId"`
 	Scope            *string                       `pulumi:"scope"`
-	// the Type of the Role.
+	// The Type of the Role.
 	Type string `pulumi:"type"`
 }
 
@@ -163,7 +163,7 @@ func (o GetRoleDefinitionResultOutput) AssignableScopes() pulumi.StringArrayOutp
 	return o.ApplyT(func(v GetRoleDefinitionResult) []string { return v.AssignableScopes }).(pulumi.StringArrayOutput)
 }
 
-// the Description of the built-in Role.
+// The Description of the built-in Role.
 func (o GetRoleDefinitionResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRoleDefinitionResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -177,7 +177,7 @@ func (o GetRoleDefinitionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRoleDefinitionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// a `permissions` block as documented below.
+// A `permissions` block as documented below.
 func (o GetRoleDefinitionResultOutput) Permissions() GetRoleDefinitionPermissionArrayOutput {
 	return o.ApplyT(func(v GetRoleDefinitionResult) []GetRoleDefinitionPermission { return v.Permissions }).(GetRoleDefinitionPermissionArrayOutput)
 }
@@ -190,7 +190,7 @@ func (o GetRoleDefinitionResultOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetRoleDefinitionResult) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-// the Type of the Role.
+// The Type of the Role.
 func (o GetRoleDefinitionResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRoleDefinitionResult) string { return v.Type }).(pulumi.StringOutput)
 }

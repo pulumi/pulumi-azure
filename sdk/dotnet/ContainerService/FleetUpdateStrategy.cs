@@ -34,10 +34,6 @@ namespace Pulumi.Azure.ContainerService
     ///         Location = example.Location,
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
-    ///         HubProfile = new Azure.ContainerService.Inputs.KubernetesFleetManagerHubProfileArgs
-    ///         {
-    ///             DnsPrefix = "example-dns-prefix",
-    ///         },
     ///     });
     /// 
     ///     var exampleFleetUpdateStrategy = new Azure.ContainerService.FleetUpdateStrategy("example", new()

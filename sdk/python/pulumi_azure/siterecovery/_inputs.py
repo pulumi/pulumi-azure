@@ -1990,8 +1990,8 @@ class VmwareReplicatedVmManagedDiskArgs:
                  log_storage_account_id: Optional[pulumi.Input[str]] = None,
                  target_disk_encryption_set_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] disk_id: The ID of the disk to be replicated. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] target_disk_type: The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        :param pulumi.Input[str] disk_id: The ID of the disk to be replicated.
+        :param pulumi.Input[str] target_disk_type: The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
         :param pulumi.Input[str] log_storage_account_id: The ID of the storage account that should be used for logging during replication.
         :param pulumi.Input[str] target_disk_encryption_set_id: The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
         """
@@ -2006,7 +2006,7 @@ class VmwareReplicatedVmManagedDiskArgs:
     @pulumi.getter(name="diskId")
     def disk_id(self) -> pulumi.Input[str]:
         """
-        The ID of the disk to be replicated. Changing this forces a new resource to be created.
+        The ID of the disk to be replicated.
         """
         return pulumi.get(self, "disk_id")
 
@@ -2018,7 +2018,7 @@ class VmwareReplicatedVmManagedDiskArgs:
     @pulumi.getter(name="targetDiskType")
     def target_disk_type(self) -> pulumi.Input[str]:
         """
-        The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
         """
         return pulumi.get(self, "target_disk_type")
 

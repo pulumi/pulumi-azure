@@ -75,7 +75,7 @@ export class ServicePlan extends pulumi.CustomResource {
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
-     * The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+     * The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -83,7 +83,7 @@ export class ServicePlan extends pulumi.CustomResource {
      */
     public readonly maximumElasticWorkerCount!: pulumi.Output<number>;
     /**
-     * The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+     * The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -99,7 +99,7 @@ export class ServicePlan extends pulumi.CustomResource {
      */
     public /*out*/ readonly reserved!: pulumi.Output<boolean>;
     /**
-     * The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+     * The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -196,7 +196,7 @@ export interface ServicePlanState {
      */
     kind?: pulumi.Input<string>;
     /**
-     * The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+     * The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -204,7 +204,7 @@ export interface ServicePlanState {
      */
     maximumElasticWorkerCount?: pulumi.Input<number>;
     /**
-     * The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+     * The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -220,7 +220,7 @@ export interface ServicePlanState {
      */
     reserved?: pulumi.Input<boolean>;
     /**
-     * The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+     * The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -258,7 +258,7 @@ export interface ServicePlanArgs {
      */
     appServiceEnvironmentId?: pulumi.Input<string>;
     /**
-     * The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+     * The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -266,7 +266,7 @@ export interface ServicePlanArgs {
      */
     maximumElasticWorkerCount?: pulumi.Input<number>;
     /**
-     * The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+     * The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -278,7 +278,7 @@ export interface ServicePlanArgs {
      */
     perSiteScalingEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+     * The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

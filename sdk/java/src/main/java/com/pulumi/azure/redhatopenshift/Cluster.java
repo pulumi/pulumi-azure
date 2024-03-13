@@ -191,28 +191,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:redhatopenshift/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
     /**
-     * An `api_server_profile` block as defined below.
+     * An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="apiServerProfile", refs={ClusterApiServerProfile.class}, tree="[0]")
     private Output<ClusterApiServerProfile> apiServerProfile;
 
     /**
-     * @return An `api_server_profile` block as defined below.
+     * @return An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ClusterApiServerProfile> apiServerProfile() {
         return this.apiServerProfile;
     }
     /**
-     * A `cluster_profile` block as defined below.
+     * A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="clusterProfile", refs={ClusterClusterProfile.class}, tree="[0]")
     private Output<ClusterClusterProfile> clusterProfile;
 
     /**
-     * @return A `cluster_profile` block as defined below.
+     * @return A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ClusterClusterProfile> clusterProfile() {
@@ -233,14 +233,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.consoleUrl;
     }
     /**
-     * An `ingress_profile` block as defined below.
+     * An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="ingressProfile", refs={ClusterIngressProfile.class}, tree="[0]")
     private Output<ClusterIngressProfile> ingressProfile;
 
     /**
-     * @return An `ingress_profile` block as defined below.
+     * @return An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ClusterIngressProfile> ingressProfile() {
@@ -261,14 +261,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A `main_profile` block as defined below.
+     * A `main_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="mainProfile", refs={ClusterMainProfile.class}, tree="[0]")
     private Output<ClusterMainProfile> mainProfile;
 
     /**
-     * @return A `main_profile` block as defined below.
+     * @return A `main_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ClusterMainProfile> mainProfile() {
@@ -289,14 +289,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `network_profile` block as defined below.
+     * A `network_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="networkProfile", refs={ClusterNetworkProfile.class}, tree="[0]")
     private Output<ClusterNetworkProfile> networkProfile;
 
     /**
-     * @return A `network_profile` block as defined below.
+     * @return A `network_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ClusterNetworkProfile> networkProfile() {
@@ -345,14 +345,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A `worker_profile` block as defined below.
+     * A `worker_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="workerProfile", refs={ClusterWorkerProfile.class}, tree="[0]")
     private Output<ClusterWorkerProfile> workerProfile;
 
     /**
-     * @return A `worker_profile` block as defined below.
+     * @return A `worker_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ClusterWorkerProfile> workerProfile() {

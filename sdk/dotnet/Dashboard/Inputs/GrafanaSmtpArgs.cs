@@ -41,7 +41,6 @@ namespace Pulumi.Azure.Dashboard.Inputs
 
         /// <summary>
         /// Password of SMTP authentication.
-        /// *
         /// </summary>
         public Input<string>? Password
         {

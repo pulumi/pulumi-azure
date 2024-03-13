@@ -47,14 +47,14 @@ public final class ClusterIngressProfileArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+     * Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="visibility", required=true)
     private Output<String> visibility;
 
     /**
-     * @return Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+     * @return Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> visibility() {
@@ -130,7 +130,7 @@ public final class ClusterIngressProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param visibility Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+         * @param visibility Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ClusterIngressProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param visibility Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+         * @param visibility Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

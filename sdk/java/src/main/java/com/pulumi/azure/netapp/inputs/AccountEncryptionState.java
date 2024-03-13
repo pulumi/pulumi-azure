@@ -16,14 +16,14 @@ public final class AccountEncryptionState extends com.pulumi.resources.ResourceA
     public static final AccountEncryptionState Empty = new AccountEncryptionState();
 
     /**
-     * The versionless encryption key url.
+     * Specify the versionless ID of the encryption key.
      * 
      */
     @Import(name="encryptionKey")
     private @Nullable Output<String> encryptionKey;
 
     /**
-     * @return The versionless encryption key url.
+     * @return Specify the versionless ID of the encryption key.
      * 
      */
     public Optional<Output<String>> encryptionKey() {
@@ -103,7 +103,7 @@ public final class AccountEncryptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param encryptionKey The versionless encryption key url.
+         * @param encryptionKey Specify the versionless ID of the encryption key.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AccountEncryptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param encryptionKey The versionless encryption key url.
+         * @param encryptionKey Specify the versionless ID of the encryption key.
          * 
          * @return builder
          * 

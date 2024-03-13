@@ -64,7 +64,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly dataProtectionSnapshotPolicy!: pulumi.Output<outputs.netapp.VolumeDataProtectionSnapshotPolicy | undefined>;
     /**
-     * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`.
+     * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
      */
     public readonly encryptionKeySource!: pulumi.Output<string>;
     /**
@@ -72,7 +72,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly exportPolicyRules!: pulumi.Output<outputs.netapp.VolumeExportPolicyRule[] | undefined>;
     /**
-     * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`.
+     * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
      */
     public readonly keyVaultPrivateEndpointId!: pulumi.Output<string>;
     /**
@@ -88,7 +88,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
+     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
      */
     public readonly networkFeatures!: pulumi.Output<string>;
     /**
@@ -269,7 +269,7 @@ export interface VolumeState {
      */
     dataProtectionSnapshotPolicy?: pulumi.Input<inputs.netapp.VolumeDataProtectionSnapshotPolicy>;
     /**
-     * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`.
+     * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
      */
     encryptionKeySource?: pulumi.Input<string>;
     /**
@@ -277,7 +277,7 @@ export interface VolumeState {
      */
     exportPolicyRules?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeExportPolicyRule>[]>;
     /**
-     * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`.
+     * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
      */
     keyVaultPrivateEndpointId?: pulumi.Input<string>;
     /**
@@ -293,7 +293,7 @@ export interface VolumeState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
+     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
      */
     networkFeatures?: pulumi.Input<string>;
     /**
@@ -381,7 +381,7 @@ export interface VolumeArgs {
      */
     dataProtectionSnapshotPolicy?: pulumi.Input<inputs.netapp.VolumeDataProtectionSnapshotPolicy>;
     /**
-     * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`.
+     * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
      */
     encryptionKeySource?: pulumi.Input<string>;
     /**
@@ -389,7 +389,7 @@ export interface VolumeArgs {
      */
     exportPolicyRules?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeExportPolicyRule>[]>;
     /**
-     * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`.
+     * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
      */
     keyVaultPrivateEndpointId?: pulumi.Input<string>;
     /**
@@ -401,7 +401,7 @@ export interface VolumeArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
+     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
      */
     networkFeatures?: pulumi.Input<string>;
     /**

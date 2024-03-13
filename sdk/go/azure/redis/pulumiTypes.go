@@ -1037,10 +1037,12 @@ func (o GetCachePatchScheduleArrayOutput) Index(i pulumi.IntInput) GetCachePatch
 }
 
 type GetCacheRedisConfiguration struct {
-	AofBackupEnabled                    bool   `pulumi:"aofBackupEnabled"`
-	AofStorageConnectionString0         string `pulumi:"aofStorageConnectionString0"`
-	AofStorageConnectionString1         string `pulumi:"aofStorageConnectionString1"`
-	DataPersistenceAuthenticationMethod string `pulumi:"dataPersistenceAuthenticationMethod"`
+	// Specifies if Microsoft Entra (AAD) authentication is enabled.
+	ActiveDirectoryAuthenticationEnabled bool   `pulumi:"activeDirectoryAuthenticationEnabled"`
+	AofBackupEnabled                     bool   `pulumi:"aofBackupEnabled"`
+	AofStorageConnectionString0          string `pulumi:"aofStorageConnectionString0"`
+	AofStorageConnectionString1          string `pulumi:"aofStorageConnectionString1"`
+	DataPersistenceAuthenticationMethod  string `pulumi:"dataPersistenceAuthenticationMethod"`
 	// Specifies if authentication is enabled
 	EnableAuthentication bool `pulumi:"enableAuthentication"`
 	Maxclients           int  `pulumi:"maxclients"`
@@ -1077,10 +1079,12 @@ type GetCacheRedisConfigurationInput interface {
 }
 
 type GetCacheRedisConfigurationArgs struct {
-	AofBackupEnabled                    pulumi.BoolInput   `pulumi:"aofBackupEnabled"`
-	AofStorageConnectionString0         pulumi.StringInput `pulumi:"aofStorageConnectionString0"`
-	AofStorageConnectionString1         pulumi.StringInput `pulumi:"aofStorageConnectionString1"`
-	DataPersistenceAuthenticationMethod pulumi.StringInput `pulumi:"dataPersistenceAuthenticationMethod"`
+	// Specifies if Microsoft Entra (AAD) authentication is enabled.
+	ActiveDirectoryAuthenticationEnabled pulumi.BoolInput   `pulumi:"activeDirectoryAuthenticationEnabled"`
+	AofBackupEnabled                     pulumi.BoolInput   `pulumi:"aofBackupEnabled"`
+	AofStorageConnectionString0          pulumi.StringInput `pulumi:"aofStorageConnectionString0"`
+	AofStorageConnectionString1          pulumi.StringInput `pulumi:"aofStorageConnectionString1"`
+	DataPersistenceAuthenticationMethod  pulumi.StringInput `pulumi:"dataPersistenceAuthenticationMethod"`
 	// Specifies if authentication is enabled
 	EnableAuthentication pulumi.BoolInput `pulumi:"enableAuthentication"`
 	Maxclients           pulumi.IntInput  `pulumi:"maxclients"`
@@ -1154,6 +1158,11 @@ func (o GetCacheRedisConfigurationOutput) ToGetCacheRedisConfigurationOutput() G
 
 func (o GetCacheRedisConfigurationOutput) ToGetCacheRedisConfigurationOutputWithContext(ctx context.Context) GetCacheRedisConfigurationOutput {
 	return o
+}
+
+// Specifies if Microsoft Entra (AAD) authentication is enabled.
+func (o GetCacheRedisConfigurationOutput) ActiveDirectoryAuthenticationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCacheRedisConfiguration) bool { return v.ActiveDirectoryAuthenticationEnabled }).(pulumi.BoolOutput)
 }
 
 func (o GetCacheRedisConfigurationOutput) AofBackupEnabled() pulumi.BoolOutput {

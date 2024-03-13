@@ -20,7 +20,7 @@ public final class GetRoleDefinitionResult {
      */
     private List<String> assignableScopes;
     /**
-     * @return the Description of the built-in Role.
+     * @return The Description of the built-in Role.
      * 
      */
     private String description;
@@ -31,14 +31,14 @@ public final class GetRoleDefinitionResult {
     private String id;
     private String name;
     /**
-     * @return a `permissions` block as documented below.
+     * @return A `permissions` block as documented below.
      * 
      */
     private List<GetRoleDefinitionPermission> permissions;
     private String roleDefinitionId;
     private @Nullable String scope;
     /**
-     * @return the Type of the Role.
+     * @return The Type of the Role.
      * 
      */
     private String type;
@@ -52,7 +52,7 @@ public final class GetRoleDefinitionResult {
         return this.assignableScopes;
     }
     /**
-     * @return the Description of the built-in Role.
+     * @return The Description of the built-in Role.
      * 
      */
     public String description() {
@@ -69,7 +69,7 @@ public final class GetRoleDefinitionResult {
         return this.name;
     }
     /**
-     * @return a `permissions` block as documented below.
+     * @return A `permissions` block as documented below.
      * 
      */
     public List<GetRoleDefinitionPermission> permissions() {
@@ -82,7 +82,7 @@ public final class GetRoleDefinitionResult {
         return Optional.ofNullable(this.scope);
     }
     /**
-     * @return the Type of the Role.
+     * @return The Type of the Role.
      * 
      */
     public String type() {

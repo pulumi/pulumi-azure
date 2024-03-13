@@ -13,6 +13,272 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest struct {
+	// The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+	Count int `pulumi:"count"`
+	// The time interval in the form `hh:mm:ss`.
+	Interval string `pulumi:"interval"`
+	// The path to which this rule status code applies.
+	Path string `pulumi:"path"`
+	// The amount of time that qualifies as slow for this rule.
+	TimeTaken string `pulumi:"timeTaken"`
+}
+
+// GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestInput is an input type that accepts GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs and GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestInput` via:
+//
+//	GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs{...}
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutputWithContext(context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs struct {
+	// The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time interval in the form `hh:mm:ss`.
+	Interval pulumi.StringInput `pulumi:"interval"`
+	// The path to which this rule status code applies.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The amount of time that qualifies as slow for this rule.
+	TimeTaken pulumi.StringInput `pulumi:"timeTaken"`
+}
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput {
+	return i.ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput)
+}
+
+// GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayInput is an input type that accepts GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArray and GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayInput` via:
+//
+//	GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArray{ GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs{...} }
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutputWithContext(context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArray []GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestInput
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArray) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput {
+	return i.ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArray) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput)
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput {
+	return o
+}
+
+// The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time interval in the form `hh:mm:ss`.
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) Interval() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest) string { return v.Interval }).(pulumi.StringOutput)
+}
+
+// The path to which this rule status code applies.
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The amount of time that qualifies as slow for this rule.
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) TimeTaken() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest) string { return v.TimeTaken }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
+		return vs[0].([]GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest)[vs[1].(int)]
+	}).(GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput)
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode struct {
+	// The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+	Count int `pulumi:"count"`
+	// The time interval in the form `hh:mm:ss`.
+	Interval string `pulumi:"interval"`
+	// The path to which this rule status code applies.
+	Path string `pulumi:"path"`
+	// The status code or range for this rule.
+	StatusCodeRange string `pulumi:"statusCodeRange"`
+	// The Request Sub Status of the Status Code.
+	SubStatus int `pulumi:"subStatus"`
+	// The Win32 Status Code of the Request.
+	Win32StatusCode int `pulumi:"win32StatusCode"`
+}
+
+// GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeInput is an input type that accepts GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs and GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeInput` via:
+//
+//	GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs{...}
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutputWithContext(context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs struct {
+	// The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time interval in the form `hh:mm:ss`.
+	Interval pulumi.StringInput `pulumi:"interval"`
+	// The path to which this rule status code applies.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The status code or range for this rule.
+	StatusCodeRange pulumi.StringInput `pulumi:"statusCodeRange"`
+	// The Request Sub Status of the Status Code.
+	SubStatus pulumi.IntInput `pulumi:"subStatus"`
+	// The Win32 Status Code of the Request.
+	Win32StatusCode pulumi.IntInput `pulumi:"win32StatusCode"`
+}
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput {
+	return i.ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput)
+}
+
+// GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayInput is an input type that accepts GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArray and GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayInput` via:
+//
+//	GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArray{ GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs{...} }
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutputWithContext(context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArray []GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeInput
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArray) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput {
+	return i.ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArray) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput)
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput {
+	return o
+}
+
+// The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time interval in the form `hh:mm:ss`.
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) Interval() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode) string { return v.Interval }).(pulumi.StringOutput)
+}
+
+// The path to which this rule status code applies.
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The status code or range for this rule.
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) StatusCodeRange() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode) string { return v.StatusCodeRange }).(pulumi.StringOutput)
+}
+
+// The Request Sub Status of the Status Code.
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) SubStatus() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode) int { return v.SubStatus }).(pulumi.IntOutput)
+}
+
+// The Win32 Status Code of the Request.
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) Win32StatusCode() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode) int { return v.Win32StatusCode }).(pulumi.IntOutput)
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode {
+		return vs[0].([]GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode)[vs[1].(int)]
+	}).(GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput)
+}
+
 type GetLinuxWebAppSiteConfigCor struct {
 	// A list of origins that should be allowed to make cross-origin calls.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
@@ -121,8 +387,10 @@ func (o GetLinuxWebAppSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetLinu
 
 type GetLinuxWebAppSiteConfigIpRestriction struct {
 	// A `action` block as defined above.
-	Action  string                                        `pulumi:"action"`
-	Headers []GetLinuxWebAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
+	Action string `pulumi:"action"`
+	// The description of the ip restriction rule.
+	Description string                                        `pulumi:"description"`
+	Headers     []GetLinuxWebAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
 	IpAddress string `pulumi:"ipAddress"`
 	// The name of this Linux Web App.
@@ -148,8 +416,10 @@ type GetLinuxWebAppSiteConfigIpRestrictionInput interface {
 
 type GetLinuxWebAppSiteConfigIpRestrictionArgs struct {
 	// A `action` block as defined above.
-	Action  pulumi.StringInput                                    `pulumi:"action"`
-	Headers GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	Action pulumi.StringInput `pulumi:"action"`
+	// The description of the ip restriction rule.
+	Description pulumi.StringInput                                    `pulumi:"description"`
+	Headers     GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of this Linux Web App.
@@ -216,6 +486,11 @@ func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) ToGetLinuxWebAppSiteConfigI
 // A `action` block as defined above.
 func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The description of the ip restriction rule.
+func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestriction) string { return v.Description }).(pulumi.StringOutput)
 }
 
 func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) Headers() GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput {
@@ -395,8 +670,10 @@ func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput) Index(i pulumi.I
 
 type GetLinuxWebAppSiteConfigScmIpRestriction struct {
 	// A `action` block as defined above.
-	Action  string                                           `pulumi:"action"`
-	Headers []GetLinuxWebAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
+	Action string `pulumi:"action"`
+	// The description of the ip restriction rule.
+	Description string                                           `pulumi:"description"`
+	Headers     []GetLinuxWebAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
 	IpAddress string `pulumi:"ipAddress"`
 	// The name of this Linux Web App.
@@ -422,8 +699,10 @@ type GetLinuxWebAppSiteConfigScmIpRestrictionInput interface {
 
 type GetLinuxWebAppSiteConfigScmIpRestrictionArgs struct {
 	// A `action` block as defined above.
-	Action  pulumi.StringInput                                       `pulumi:"action"`
-	Headers GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	Action pulumi.StringInput `pulumi:"action"`
+	// The description of the ip restriction rule.
+	Description pulumi.StringInput                                       `pulumi:"description"`
+	Headers     GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of this Linux Web App.
@@ -490,6 +769,11 @@ func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) ToGetLinuxWebAppSiteConf
 // A `action` block as defined above.
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestriction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The description of the ip restriction rule.
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestriction) string { return v.Description }).(pulumi.StringOutput)
 }
 
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) Headers() GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput {
@@ -1019,6 +1303,221 @@ func (o GetLinuxWebAppStorageAccountArrayOutput) Index(i pulumi.IntInput) GetLin
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppStorageAccount {
 		return vs[0].([]GetLinuxWebAppStorageAccount)[vs[1].(int)]
 	}).(GetLinuxWebAppStorageAccountOutput)
+}
+
+type GetStaticWebAppBasicAuth struct {
+	// The Environment types which are configured to use Basic Auth access.
+	Environments string `pulumi:"environments"`
+}
+
+// GetStaticWebAppBasicAuthInput is an input type that accepts GetStaticWebAppBasicAuthArgs and GetStaticWebAppBasicAuthOutput values.
+// You can construct a concrete instance of `GetStaticWebAppBasicAuthInput` via:
+//
+//	GetStaticWebAppBasicAuthArgs{...}
+type GetStaticWebAppBasicAuthInput interface {
+	pulumi.Input
+
+	ToGetStaticWebAppBasicAuthOutput() GetStaticWebAppBasicAuthOutput
+	ToGetStaticWebAppBasicAuthOutputWithContext(context.Context) GetStaticWebAppBasicAuthOutput
+}
+
+type GetStaticWebAppBasicAuthArgs struct {
+	// The Environment types which are configured to use Basic Auth access.
+	Environments pulumi.StringInput `pulumi:"environments"`
+}
+
+func (GetStaticWebAppBasicAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStaticWebAppBasicAuth)(nil)).Elem()
+}
+
+func (i GetStaticWebAppBasicAuthArgs) ToGetStaticWebAppBasicAuthOutput() GetStaticWebAppBasicAuthOutput {
+	return i.ToGetStaticWebAppBasicAuthOutputWithContext(context.Background())
+}
+
+func (i GetStaticWebAppBasicAuthArgs) ToGetStaticWebAppBasicAuthOutputWithContext(ctx context.Context) GetStaticWebAppBasicAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStaticWebAppBasicAuthOutput)
+}
+
+// GetStaticWebAppBasicAuthArrayInput is an input type that accepts GetStaticWebAppBasicAuthArray and GetStaticWebAppBasicAuthArrayOutput values.
+// You can construct a concrete instance of `GetStaticWebAppBasicAuthArrayInput` via:
+//
+//	GetStaticWebAppBasicAuthArray{ GetStaticWebAppBasicAuthArgs{...} }
+type GetStaticWebAppBasicAuthArrayInput interface {
+	pulumi.Input
+
+	ToGetStaticWebAppBasicAuthArrayOutput() GetStaticWebAppBasicAuthArrayOutput
+	ToGetStaticWebAppBasicAuthArrayOutputWithContext(context.Context) GetStaticWebAppBasicAuthArrayOutput
+}
+
+type GetStaticWebAppBasicAuthArray []GetStaticWebAppBasicAuthInput
+
+func (GetStaticWebAppBasicAuthArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStaticWebAppBasicAuth)(nil)).Elem()
+}
+
+func (i GetStaticWebAppBasicAuthArray) ToGetStaticWebAppBasicAuthArrayOutput() GetStaticWebAppBasicAuthArrayOutput {
+	return i.ToGetStaticWebAppBasicAuthArrayOutputWithContext(context.Background())
+}
+
+func (i GetStaticWebAppBasicAuthArray) ToGetStaticWebAppBasicAuthArrayOutputWithContext(ctx context.Context) GetStaticWebAppBasicAuthArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStaticWebAppBasicAuthArrayOutput)
+}
+
+type GetStaticWebAppBasicAuthOutput struct{ *pulumi.OutputState }
+
+func (GetStaticWebAppBasicAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStaticWebAppBasicAuth)(nil)).Elem()
+}
+
+func (o GetStaticWebAppBasicAuthOutput) ToGetStaticWebAppBasicAuthOutput() GetStaticWebAppBasicAuthOutput {
+	return o
+}
+
+func (o GetStaticWebAppBasicAuthOutput) ToGetStaticWebAppBasicAuthOutputWithContext(ctx context.Context) GetStaticWebAppBasicAuthOutput {
+	return o
+}
+
+// The Environment types which are configured to use Basic Auth access.
+func (o GetStaticWebAppBasicAuthOutput) Environments() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStaticWebAppBasicAuth) string { return v.Environments }).(pulumi.StringOutput)
+}
+
+type GetStaticWebAppBasicAuthArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStaticWebAppBasicAuthArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStaticWebAppBasicAuth)(nil)).Elem()
+}
+
+func (o GetStaticWebAppBasicAuthArrayOutput) ToGetStaticWebAppBasicAuthArrayOutput() GetStaticWebAppBasicAuthArrayOutput {
+	return o
+}
+
+func (o GetStaticWebAppBasicAuthArrayOutput) ToGetStaticWebAppBasicAuthArrayOutputWithContext(ctx context.Context) GetStaticWebAppBasicAuthArrayOutput {
+	return o
+}
+
+func (o GetStaticWebAppBasicAuthArrayOutput) Index(i pulumi.IntInput) GetStaticWebAppBasicAuthOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStaticWebAppBasicAuth {
+		return vs[0].([]GetStaticWebAppBasicAuth)[vs[1].(int)]
+	}).(GetStaticWebAppBasicAuthOutput)
+}
+
+type GetStaticWebAppIdentity struct {
+	// The list of Managed Identity IDs which are assigned to this Static Web App resource.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId string   `pulumi:"principalId"`
+	TenantId    string   `pulumi:"tenantId"`
+	// The Type of Managed Identity assigned to this Static Web App resource.
+	Type string `pulumi:"type"`
+}
+
+// GetStaticWebAppIdentityInput is an input type that accepts GetStaticWebAppIdentityArgs and GetStaticWebAppIdentityOutput values.
+// You can construct a concrete instance of `GetStaticWebAppIdentityInput` via:
+//
+//	GetStaticWebAppIdentityArgs{...}
+type GetStaticWebAppIdentityInput interface {
+	pulumi.Input
+
+	ToGetStaticWebAppIdentityOutput() GetStaticWebAppIdentityOutput
+	ToGetStaticWebAppIdentityOutputWithContext(context.Context) GetStaticWebAppIdentityOutput
+}
+
+type GetStaticWebAppIdentityArgs struct {
+	// The list of Managed Identity IDs which are assigned to this Static Web App resource.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringInput      `pulumi:"principalId"`
+	TenantId    pulumi.StringInput      `pulumi:"tenantId"`
+	// The Type of Managed Identity assigned to this Static Web App resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetStaticWebAppIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStaticWebAppIdentity)(nil)).Elem()
+}
+
+func (i GetStaticWebAppIdentityArgs) ToGetStaticWebAppIdentityOutput() GetStaticWebAppIdentityOutput {
+	return i.ToGetStaticWebAppIdentityOutputWithContext(context.Background())
+}
+
+func (i GetStaticWebAppIdentityArgs) ToGetStaticWebAppIdentityOutputWithContext(ctx context.Context) GetStaticWebAppIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStaticWebAppIdentityOutput)
+}
+
+// GetStaticWebAppIdentityArrayInput is an input type that accepts GetStaticWebAppIdentityArray and GetStaticWebAppIdentityArrayOutput values.
+// You can construct a concrete instance of `GetStaticWebAppIdentityArrayInput` via:
+//
+//	GetStaticWebAppIdentityArray{ GetStaticWebAppIdentityArgs{...} }
+type GetStaticWebAppIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetStaticWebAppIdentityArrayOutput() GetStaticWebAppIdentityArrayOutput
+	ToGetStaticWebAppIdentityArrayOutputWithContext(context.Context) GetStaticWebAppIdentityArrayOutput
+}
+
+type GetStaticWebAppIdentityArray []GetStaticWebAppIdentityInput
+
+func (GetStaticWebAppIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStaticWebAppIdentity)(nil)).Elem()
+}
+
+func (i GetStaticWebAppIdentityArray) ToGetStaticWebAppIdentityArrayOutput() GetStaticWebAppIdentityArrayOutput {
+	return i.ToGetStaticWebAppIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetStaticWebAppIdentityArray) ToGetStaticWebAppIdentityArrayOutputWithContext(ctx context.Context) GetStaticWebAppIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStaticWebAppIdentityArrayOutput)
+}
+
+type GetStaticWebAppIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetStaticWebAppIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStaticWebAppIdentity)(nil)).Elem()
+}
+
+func (o GetStaticWebAppIdentityOutput) ToGetStaticWebAppIdentityOutput() GetStaticWebAppIdentityOutput {
+	return o
+}
+
+func (o GetStaticWebAppIdentityOutput) ToGetStaticWebAppIdentityOutputWithContext(ctx context.Context) GetStaticWebAppIdentityOutput {
+	return o
+}
+
+// The list of Managed Identity IDs which are assigned to this Static Web App resource.
+func (o GetStaticWebAppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetStaticWebAppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetStaticWebAppIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStaticWebAppIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o GetStaticWebAppIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStaticWebAppIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The Type of Managed Identity assigned to this Static Web App resource.
+func (o GetStaticWebAppIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStaticWebAppIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetStaticWebAppIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStaticWebAppIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStaticWebAppIdentity)(nil)).Elem()
+}
+
+func (o GetStaticWebAppIdentityArrayOutput) ToGetStaticWebAppIdentityArrayOutput() GetStaticWebAppIdentityArrayOutput {
+	return o
+}
+
+func (o GetStaticWebAppIdentityArrayOutput) ToGetStaticWebAppIdentityArrayOutputWithContext(ctx context.Context) GetStaticWebAppIdentityArrayOutput {
+	return o
+}
+
+func (o GetStaticWebAppIdentityArrayOutput) Index(i pulumi.IntInput) GetStaticWebAppIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStaticWebAppIdentity {
+		return vs[0].([]GetStaticWebAppIdentity)[vs[1].(int)]
+	}).(GetStaticWebAppIdentityOutput)
 }
 
 type GetWindowsFunctionAppAuthSetting struct {
@@ -4212,6 +4711,8 @@ type GetWindowsFunctionAppSiteConfig struct {
 	HealthCheckPath string `pulumi:"healthCheckPath"`
 	// Is the HTTP2 protocol enabled?
 	Http2Enabled bool `pulumi:"http2Enabled"`
+	// The Default action for traffic that does not match any `ipRestriction` rule.
+	IpRestrictionDefaultAction string `pulumi:"ipRestrictionDefaultAction"`
 	// One or more `ipRestriction` blocks as defined above.
 	IpRestrictions []GetWindowsFunctionAppSiteConfigIpRestriction `pulumi:"ipRestrictions"`
 	// The Site load balancing mode.
@@ -4228,6 +4729,8 @@ type GetWindowsFunctionAppSiteConfig struct {
 	RemoteDebuggingVersion string `pulumi:"remoteDebuggingVersion"`
 	// Is Scale Monitoring of the Functions Runtime enabled?
 	RuntimeScaleMonitoringEnabled bool `pulumi:"runtimeScaleMonitoringEnabled"`
+	// The Default action for traffic that does not match any `scmIpRestriction` rule.
+	ScmIpRestrictionDefaultAction string `pulumi:"scmIpRestrictionDefaultAction"`
 	// One or more `scmIpRestriction` blocks as defined above.
 	ScmIpRestrictions []GetWindowsFunctionAppSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
 	// The minimum version of TLS required for SSL requests to the SCM site.
@@ -4294,6 +4797,8 @@ type GetWindowsFunctionAppSiteConfigArgs struct {
 	HealthCheckPath pulumi.StringInput `pulumi:"healthCheckPath"`
 	// Is the HTTP2 protocol enabled?
 	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
+	// The Default action for traffic that does not match any `ipRestriction` rule.
+	IpRestrictionDefaultAction pulumi.StringInput `pulumi:"ipRestrictionDefaultAction"`
 	// One or more `ipRestriction` blocks as defined above.
 	IpRestrictions GetWindowsFunctionAppSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
 	// The Site load balancing mode.
@@ -4310,6 +4815,8 @@ type GetWindowsFunctionAppSiteConfigArgs struct {
 	RemoteDebuggingVersion pulumi.StringInput `pulumi:"remoteDebuggingVersion"`
 	// Is Scale Monitoring of the Functions Runtime enabled?
 	RuntimeScaleMonitoringEnabled pulumi.BoolInput `pulumi:"runtimeScaleMonitoringEnabled"`
+	// The Default action for traffic that does not match any `scmIpRestriction` rule.
+	ScmIpRestrictionDefaultAction pulumi.StringInput `pulumi:"scmIpRestrictionDefaultAction"`
 	// One or more `scmIpRestriction` blocks as defined above.
 	ScmIpRestrictions GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
 	// The minimum version of TLS required for SSL requests to the SCM site.
@@ -4470,6 +4977,11 @@ func (o GetWindowsFunctionAppSiteConfigOutput) Http2Enabled() pulumi.BoolOutput 
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) bool { return v.Http2Enabled }).(pulumi.BoolOutput)
 }
 
+// The Default action for traffic that does not match any `ipRestriction` rule.
+func (o GetWindowsFunctionAppSiteConfigOutput) IpRestrictionDefaultAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.IpRestrictionDefaultAction }).(pulumi.StringOutput)
+}
+
 // One or more `ipRestriction` blocks as defined above.
 func (o GetWindowsFunctionAppSiteConfigOutput) IpRestrictions() GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) []GetWindowsFunctionAppSiteConfigIpRestriction {
@@ -4510,6 +5022,11 @@ func (o GetWindowsFunctionAppSiteConfigOutput) RemoteDebuggingVersion() pulumi.S
 // Is Scale Monitoring of the Functions Runtime enabled?
 func (o GetWindowsFunctionAppSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) bool { return v.RuntimeScaleMonitoringEnabled }).(pulumi.BoolOutput)
+}
+
+// The Default action for traffic that does not match any `scmIpRestriction` rule.
+func (o GetWindowsFunctionAppSiteConfigOutput) ScmIpRestrictionDefaultAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.ScmIpRestrictionDefaultAction }).(pulumi.StringOutput)
 }
 
 // One or more `scmIpRestriction` blocks as defined above.
@@ -4932,8 +5449,10 @@ func (o GetWindowsFunctionAppSiteConfigCorArrayOutput) Index(i pulumi.IntInput) 
 
 type GetWindowsFunctionAppSiteConfigIpRestriction struct {
 	// The action to take.
-	Action  string                                               `pulumi:"action"`
-	Headers []GetWindowsFunctionAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
+	Action string `pulumi:"action"`
+	// The description of the ip restriction rule.
+	Description string                                               `pulumi:"description"`
+	Headers     []GetWindowsFunctionAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
 	IpAddress string `pulumi:"ipAddress"`
 	// The name of this Windows Function App.
@@ -4959,8 +5478,10 @@ type GetWindowsFunctionAppSiteConfigIpRestrictionInput interface {
 
 type GetWindowsFunctionAppSiteConfigIpRestrictionArgs struct {
 	// The action to take.
-	Action  pulumi.StringInput                                           `pulumi:"action"`
-	Headers GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	Action pulumi.StringInput `pulumi:"action"`
+	// The description of the ip restriction rule.
+	Description pulumi.StringInput                                           `pulumi:"description"`
+	Headers     GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of this Windows Function App.
@@ -5027,6 +5548,11 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) ToGetWindowsFunction
 // The action to take.
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The description of the ip restriction rule.
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) string { return v.Description }).(pulumi.StringOutput)
 }
 
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) Headers() GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput {
@@ -5206,8 +5732,10 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput) Index(i p
 
 type GetWindowsFunctionAppSiteConfigScmIpRestriction struct {
 	// The action to take.
-	Action  string                                                  `pulumi:"action"`
-	Headers []GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
+	Action string `pulumi:"action"`
+	// The description of the ip restriction rule.
+	Description string                                                  `pulumi:"description"`
+	Headers     []GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
 	IpAddress string `pulumi:"ipAddress"`
 	// The name of this Windows Function App.
@@ -5233,8 +5761,10 @@ type GetWindowsFunctionAppSiteConfigScmIpRestrictionInput interface {
 
 type GetWindowsFunctionAppSiteConfigScmIpRestrictionArgs struct {
 	// The action to take.
-	Action  pulumi.StringInput                                              `pulumi:"action"`
-	Headers GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	Action pulumi.StringInput `pulumi:"action"`
+	// The description of the ip restriction rule.
+	Description pulumi.StringInput                                              `pulumi:"description"`
+	Headers     GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of this Windows Function App.
@@ -5301,6 +5831,11 @@ func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) ToGetWindowsFunct
 // The action to take.
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The description of the ip restriction rule.
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) string { return v.Description }).(pulumi.StringOutput)
 }
 
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) Headers() GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput {
@@ -9530,6 +10065,8 @@ type GetWindowsWebAppSiteConfig struct {
 	HealthCheckPath string `pulumi:"healthCheckPath"`
 	// Is HTTP2.0 enabled.
 	Http2Enabled bool `pulumi:"http2Enabled"`
+	// The Default action for traffic that does not match any `ipRestriction` rule.
+	IpRestrictionDefaultAction string `pulumi:"ipRestrictionDefaultAction"`
 	// A `ipRestriction` block as defined above.
 	IpRestrictions []GetWindowsWebAppSiteConfigIpRestriction `pulumi:"ipRestrictions"`
 	// The site Load Balancing Mode.
@@ -9543,6 +10080,8 @@ type GetWindowsWebAppSiteConfig struct {
 	RemoteDebuggingEnabled bool   `pulumi:"remoteDebuggingEnabled"`
 	// The Remote Debugging Version.
 	RemoteDebuggingVersion string `pulumi:"remoteDebuggingVersion"`
+	// The Default action for traffic that does not match any `scmIpRestriction` rule.
+	ScmIpRestrictionDefaultAction string `pulumi:"scmIpRestrictionDefaultAction"`
 	// A `scmIpRestriction` block as defined above.
 	ScmIpRestrictions []GetWindowsWebAppSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
 	// The Minimum version of TLS for requests to SCM.
@@ -9609,6 +10148,8 @@ type GetWindowsWebAppSiteConfigArgs struct {
 	HealthCheckPath pulumi.StringInput `pulumi:"healthCheckPath"`
 	// Is HTTP2.0 enabled.
 	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
+	// The Default action for traffic that does not match any `ipRestriction` rule.
+	IpRestrictionDefaultAction pulumi.StringInput `pulumi:"ipRestrictionDefaultAction"`
 	// A `ipRestriction` block as defined above.
 	IpRestrictions GetWindowsWebAppSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
 	// The site Load Balancing Mode.
@@ -9622,6 +10163,8 @@ type GetWindowsWebAppSiteConfigArgs struct {
 	RemoteDebuggingEnabled pulumi.BoolInput   `pulumi:"remoteDebuggingEnabled"`
 	// The Remote Debugging Version.
 	RemoteDebuggingVersion pulumi.StringInput `pulumi:"remoteDebuggingVersion"`
+	// The Default action for traffic that does not match any `scmIpRestriction` rule.
+	ScmIpRestrictionDefaultAction pulumi.StringInput `pulumi:"scmIpRestrictionDefaultAction"`
 	// A `scmIpRestriction` block as defined above.
 	ScmIpRestrictions GetWindowsWebAppSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
 	// The Minimum version of TLS for requests to SCM.
@@ -9779,6 +10322,11 @@ func (o GetWindowsWebAppSiteConfigOutput) Http2Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) bool { return v.Http2Enabled }).(pulumi.BoolOutput)
 }
 
+// The Default action for traffic that does not match any `ipRestriction` rule.
+func (o GetWindowsWebAppSiteConfigOutput) IpRestrictionDefaultAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.IpRestrictionDefaultAction }).(pulumi.StringOutput)
+}
+
 // A `ipRestriction` block as defined above.
 func (o GetWindowsWebAppSiteConfigOutput) IpRestrictions() GetWindowsWebAppSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) []GetWindowsWebAppSiteConfigIpRestriction { return v.IpRestrictions }).(GetWindowsWebAppSiteConfigIpRestrictionArrayOutput)
@@ -9811,6 +10359,11 @@ func (o GetWindowsWebAppSiteConfigOutput) RemoteDebuggingEnabled() pulumi.BoolOu
 // The Remote Debugging Version.
 func (o GetWindowsWebAppSiteConfigOutput) RemoteDebuggingVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.RemoteDebuggingVersion }).(pulumi.StringOutput)
+}
+
+// The Default action for traffic that does not match any `scmIpRestriction` rule.
+func (o GetWindowsWebAppSiteConfigOutput) ScmIpRestrictionDefaultAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.ScmIpRestrictionDefaultAction }).(pulumi.StringOutput)
 }
 
 // A `scmIpRestriction` block as defined above.
@@ -11068,8 +11621,10 @@ func (o GetWindowsWebAppSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetWi
 
 type GetWindowsWebAppSiteConfigIpRestriction struct {
 	// A `action` block as defined above.
-	Action  string                                          `pulumi:"action"`
-	Headers []GetWindowsWebAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
+	Action string `pulumi:"action"`
+	// The description of the ip restriction rule.
+	Description string                                          `pulumi:"description"`
+	Headers     []GetWindowsWebAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
 	IpAddress string `pulumi:"ipAddress"`
 	// The name of this Windows Web App.
@@ -11095,8 +11650,10 @@ type GetWindowsWebAppSiteConfigIpRestrictionInput interface {
 
 type GetWindowsWebAppSiteConfigIpRestrictionArgs struct {
 	// A `action` block as defined above.
-	Action  pulumi.StringInput                                      `pulumi:"action"`
-	Headers GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	Action pulumi.StringInput `pulumi:"action"`
+	// The description of the ip restriction rule.
+	Description pulumi.StringInput                                      `pulumi:"description"`
+	Headers     GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of this Windows Web App.
@@ -11163,6 +11720,11 @@ func (o GetWindowsWebAppSiteConfigIpRestrictionOutput) ToGetWindowsWebAppSiteCon
 // A `action` block as defined above.
 func (o GetWindowsWebAppSiteConfigIpRestrictionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The description of the ip restriction rule.
+func (o GetWindowsWebAppSiteConfigIpRestrictionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfigIpRestriction) string { return v.Description }).(pulumi.StringOutput)
 }
 
 func (o GetWindowsWebAppSiteConfigIpRestrictionOutput) Headers() GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayOutput {
@@ -11342,8 +11904,10 @@ func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayOutput) Index(i pulumi
 
 type GetWindowsWebAppSiteConfigScmIpRestriction struct {
 	// A `action` block as defined above.
-	Action  string                                             `pulumi:"action"`
-	Headers []GetWindowsWebAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
+	Action string `pulumi:"action"`
+	// The description of the ip restriction rule.
+	Description string                                             `pulumi:"description"`
+	Headers     []GetWindowsWebAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
 	IpAddress string `pulumi:"ipAddress"`
 	// The name of this Windows Web App.
@@ -11369,8 +11933,10 @@ type GetWindowsWebAppSiteConfigScmIpRestrictionInput interface {
 
 type GetWindowsWebAppSiteConfigScmIpRestrictionArgs struct {
 	// A `action` block as defined above.
-	Action  pulumi.StringInput                                         `pulumi:"action"`
-	Headers GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	Action pulumi.StringInput `pulumi:"action"`
+	// The description of the ip restriction rule.
+	Description pulumi.StringInput                                         `pulumi:"description"`
+	Headers     GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
 	// The CIDR notation of the IP or IP Range to match.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of this Windows Web App.
@@ -11437,6 +12003,11 @@ func (o GetWindowsWebAppSiteConfigScmIpRestrictionOutput) ToGetWindowsWebAppSite
 // A `action` block as defined above.
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigScmIpRestriction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The description of the ip restriction rule.
+func (o GetWindowsWebAppSiteConfigScmIpRestrictionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfigScmIpRestriction) string { return v.Description }).(pulumi.StringOutput)
 }
 
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionOutput) Headers() GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayOutput {
@@ -12201,6 +12772,10 @@ func (o GetWindowsWebAppStorageAccountArrayOutput) Index(i pulumi.IntInput) GetW
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigCorInput)(nil)).Elem(), GetLinuxWebAppSiteConfigCorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigCorArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigCorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigIpRestrictionInput)(nil)).Elem(), GetLinuxWebAppSiteConfigIpRestrictionArgs{})
@@ -12217,6 +12792,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppStickySettingArrayInput)(nil)).Elem(), GetLinuxWebAppStickySettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppStorageAccountInput)(nil)).Elem(), GetLinuxWebAppStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppStorageAccountArrayInput)(nil)).Elem(), GetLinuxWebAppStorageAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStaticWebAppBasicAuthInput)(nil)).Elem(), GetStaticWebAppBasicAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStaticWebAppBasicAuthArrayInput)(nil)).Elem(), GetStaticWebAppBasicAuthArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStaticWebAppIdentityInput)(nil)).Elem(), GetStaticWebAppIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStaticWebAppIdentityArrayInput)(nil)).Elem(), GetStaticWebAppIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingArrayInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFunctionAppAuthSettingActiveDirectoryInput)(nil)).Elem(), GetWindowsFunctionAppAuthSettingActiveDirectoryArgs{})
@@ -12375,6 +12954,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStickySettingArrayInput)(nil)).Elem(), GetWindowsWebAppStickySettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStorageAccountInput)(nil)).Elem(), GetWindowsWebAppStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStorageAccountArrayInput)(nil)).Elem(), GetWindowsWebAppStorageAccountArray{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigCorOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigCorArrayOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigIpRestrictionOutput{})
@@ -12391,6 +12974,10 @@ func init() {
 	pulumi.RegisterOutputType(GetLinuxWebAppStickySettingArrayOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppStorageAccountOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppStorageAccountArrayOutput{})
+	pulumi.RegisterOutputType(GetStaticWebAppBasicAuthOutput{})
+	pulumi.RegisterOutputType(GetStaticWebAppBasicAuthArrayOutput{})
+	pulumi.RegisterOutputType(GetStaticWebAppIdentityOutput{})
+	pulumi.RegisterOutputType(GetStaticWebAppIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingOutput{})
 	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetWindowsFunctionAppAuthSettingActiveDirectoryOutput{})

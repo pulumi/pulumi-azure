@@ -21,6 +21,8 @@ public final class IoTHubSku {
     /**
      * @return The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
      * 
+     * &gt; **NOTE:** The `F1` sku is on `Free` tier.
+     * 
      */
     private String name;
 
@@ -36,6 +38,8 @@ public final class IoTHubSku {
     }
     /**
      * @return The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+     * 
+     * &gt; **NOTE:** The `F1` sku is on `Free` tier.
      * 
      */
     public String name() {

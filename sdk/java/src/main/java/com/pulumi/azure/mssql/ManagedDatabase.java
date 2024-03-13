@@ -146,14 +146,14 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `point_in_time_restore` block as defined below.
+     * A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="pointInTimeRestore", refs={ManagedDatabasePointInTimeRestore.class}, tree="[0]")
     private Output</* @Nullable */ ManagedDatabasePointInTimeRestore> pointInTimeRestore;
 
     /**
-     * @return A `point_in_time_restore` block as defined below.
+     * @return A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<ManagedDatabasePointInTimeRestore>> pointInTimeRestore() {

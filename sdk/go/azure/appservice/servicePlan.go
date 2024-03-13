@@ -70,11 +70,11 @@ type ServicePlan struct {
 	AppServiceEnvironmentId pulumi.StringPtrOutput `pulumi:"appServiceEnvironmentId"`
 	// A string representing the Kind of Service Plan.
 	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+	// The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
 	MaximumElasticWorkerCount pulumi.IntOutput `pulumi:"maximumElasticWorkerCount"`
-	// The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+	// The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
 	OsType pulumi.StringOutput `pulumi:"osType"`
@@ -82,7 +82,7 @@ type ServicePlan struct {
 	PerSiteScalingEnabled pulumi.BoolPtrOutput `pulumi:"perSiteScalingEnabled"`
 	// Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.
 	Reserved pulumi.BoolOutput `pulumi:"reserved"`
-	// The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+	// The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P0v3`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
 	//
@@ -145,11 +145,11 @@ type servicePlanState struct {
 	AppServiceEnvironmentId *string `pulumi:"appServiceEnvironmentId"`
 	// A string representing the Kind of Service Plan.
 	Kind *string `pulumi:"kind"`
-	// The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+	// The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
 	Location *string `pulumi:"location"`
 	// The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
 	MaximumElasticWorkerCount *int `pulumi:"maximumElasticWorkerCount"`
-	// The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+	// The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
 	Name *string `pulumi:"name"`
 	// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
 	OsType *string `pulumi:"osType"`
@@ -157,7 +157,7 @@ type servicePlanState struct {
 	PerSiteScalingEnabled *bool `pulumi:"perSiteScalingEnabled"`
 	// Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.
 	Reserved *bool `pulumi:"reserved"`
-	// The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+	// The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P0v3`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
 	//
@@ -182,11 +182,11 @@ type ServicePlanState struct {
 	AppServiceEnvironmentId pulumi.StringPtrInput
 	// A string representing the Kind of Service Plan.
 	Kind pulumi.StringPtrInput
-	// The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+	// The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
 	Location pulumi.StringPtrInput
 	// The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
 	MaximumElasticWorkerCount pulumi.IntPtrInput
-	// The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+	// The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
 	Name pulumi.StringPtrInput
 	// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
 	OsType pulumi.StringPtrInput
@@ -194,7 +194,7 @@ type ServicePlanState struct {
 	PerSiteScalingEnabled pulumi.BoolPtrInput
 	// Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.
 	Reserved pulumi.BoolPtrInput
-	// The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+	// The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P0v3`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
 	//
@@ -221,17 +221,17 @@ type servicePlanArgs struct {
 	//
 	// > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
 	AppServiceEnvironmentId *string `pulumi:"appServiceEnvironmentId"`
-	// The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+	// The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
 	Location *string `pulumi:"location"`
 	// The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
 	MaximumElasticWorkerCount *int `pulumi:"maximumElasticWorkerCount"`
-	// The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+	// The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
 	Name *string `pulumi:"name"`
 	// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
 	OsType string `pulumi:"osType"`
 	// Should Per Site Scaling be enabled. Defaults to `false`.
 	PerSiteScalingEnabled *bool `pulumi:"perSiteScalingEnabled"`
-	// The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+	// The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P0v3`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
 	//
@@ -255,17 +255,17 @@ type ServicePlanArgs struct {
 	//
 	// > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
 	AppServiceEnvironmentId pulumi.StringPtrInput
-	// The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+	// The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
 	Location pulumi.StringPtrInput
 	// The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
 	MaximumElasticWorkerCount pulumi.IntPtrInput
-	// The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+	// The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
 	Name pulumi.StringPtrInput
 	// The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
 	OsType pulumi.StringInput
 	// Should Per Site Scaling be enabled. Defaults to `false`.
 	PerSiteScalingEnabled pulumi.BoolPtrInput
-	// The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+	// The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P0v3`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
 	//
@@ -382,7 +382,7 @@ func (o ServicePlanOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }
 
-// The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+// The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
 func (o ServicePlanOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -392,7 +392,7 @@ func (o ServicePlanOutput) MaximumElasticWorkerCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.IntOutput { return v.MaximumElasticWorkerCount }).(pulumi.IntOutput)
 }
 
-// The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+// The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
 func (o ServicePlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -412,7 +412,7 @@ func (o ServicePlanOutput) Reserved() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.BoolOutput { return v.Reserved }).(pulumi.BoolOutput)
 }
 
-// The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+// The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
 func (o ServicePlanOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

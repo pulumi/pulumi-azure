@@ -191,7 +191,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
-     * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+     * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
      *
      * > **NOTE:** If one of `condition` or `conditionVersion` is set both fields must be present.
      */
@@ -300,7 +300,7 @@ export interface AssignmentState {
      */
     principalId?: pulumi.Input<string>;
     /**
-     * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+     * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
      *
      * > **NOTE:** If one of `condition` or `conditionVersion` is set both fields must be present.
      */
@@ -358,7 +358,7 @@ export interface AssignmentArgs {
      */
     principalId: pulumi.Input<string>;
     /**
-     * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+     * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
      *
      * > **NOTE:** If one of `condition` or `conditionVersion` is set both fields must be present.
      */

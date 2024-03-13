@@ -56,7 +56,6 @@ class JobArgs:
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
                
                > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-               *
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
                
@@ -286,7 +285,6 @@ class JobArgs:
         Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 
         > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-        *
         """
         return pulumi.get(self, "streaming_units")
 
@@ -365,7 +363,6 @@ class _JobState:
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
                
                > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-               *
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] transformation_query: Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
@@ -600,7 +597,6 @@ class _JobState:
         Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 
         > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-        *
         """
         return pulumi.get(self, "streaming_units")
 
@@ -734,7 +730,6 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
                
                > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-               *
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] transformation_query: Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
@@ -910,7 +905,6 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
                
                > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-               *
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] transformation_query: Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
@@ -1071,7 +1065,6 @@ class Job(pulumi.CustomResource):
         Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 
         > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-        *
         """
         return pulumi.get(self, "streaming_units")
 

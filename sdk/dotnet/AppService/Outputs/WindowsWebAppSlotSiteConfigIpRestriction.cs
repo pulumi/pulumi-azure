@@ -18,6 +18,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? Action;
         /// <summary>
+        /// The Description of this IP Restriction.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// A `headers` block as defined above.
         /// </summary>
         public readonly Outputs.WindowsWebAppSlotSiteConfigIpRestrictionHeaders? Headers;
@@ -48,6 +52,8 @@ namespace Pulumi.Azure.AppService.Outputs
         private WindowsWebAppSlotSiteConfigIpRestriction(
             string? action,
 
+            string? description,
+
             Outputs.WindowsWebAppSlotSiteConfigIpRestrictionHeaders? headers,
 
             string? ipAddress,
@@ -61,6 +67,7 @@ namespace Pulumi.Azure.AppService.Outputs
             string? virtualNetworkSubnetId)
         {
             Action = action;
+            Description = description;
             Headers = headers;
             IpAddress = ipAddress;
             Name = name;

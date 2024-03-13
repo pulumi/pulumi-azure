@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  *         var exampleAccountEncryption = new AccountEncryption(&#34;exampleAccountEncryption&#34;, AccountEncryptionArgs.builder()        
  *             .netappAccountId(exampleAccount.id())
  *             .userAssignedIdentityId(exampleUserAssignedIdentity.id())
- *             .encryption(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .encryptionKey(exampleKey.versionlessId())
  *             .build());
  * 
  *     }
@@ -149,14 +149,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:netapp/accountEncryption:AccountEncryption")
 public class AccountEncryption extends com.pulumi.resources.CustomResource {
     /**
-     * The versionless encryption key url.
+     * Specify the versionless ID of the encryption key.
      * 
      */
     @Export(name="encryptionKey", refs={String.class}, tree="[0]")
     private Output<String> encryptionKey;
 
     /**
-     * @return The versionless encryption key url.
+     * @return Specify the versionless ID of the encryption key.
      * 
      */
     public Output<String> encryptionKey() {

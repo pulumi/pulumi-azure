@@ -115,14 +115,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.activeDirectory);
     }
     /**
-     * The identity block where it is used when customer managed keys based encryption will be enabled.
+     * The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
      * 
      */
     @Export(name="identity", refs={AccountIdentity.class}, tree="[0]")
     private Output</* @Nullable */ AccountIdentity> identity;
 
     /**
-     * @return The identity block where it is used when customer managed keys based encryption will be enabled.
+     * @return The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
      * 
      */
     public Output<Optional<AccountIdentity>> identity() {

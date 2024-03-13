@@ -10,6 +10,11 @@ export type App = import("./app").App;
 export const App: typeof import("./app").App = null as any;
 utilities.lazyLoad(exports, ["App"], () => require("./app"));
 
+export { CustomDomainArgs, CustomDomainState } from "./customDomain";
+export type CustomDomain = import("./customDomain").CustomDomain;
+export const CustomDomain: typeof import("./customDomain").CustomDomain = null as any;
+utilities.lazyLoad(exports, ["CustomDomain"], () => require("./customDomain"));
+
 export { EnvironmentArgs, EnvironmentState } from "./environment";
 export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
@@ -52,6 +57,8 @@ const _module = {
         switch (type) {
             case "azure:containerapp/app:App":
                 return new App(name, <any>undefined, { urn })
+            case "azure:containerapp/customDomain:CustomDomain":
+                return new CustomDomain(name, <any>undefined, { urn })
             case "azure:containerapp/environment:Environment":
                 return new Environment(name, <any>undefined, { urn })
             case "azure:containerapp/environmentCertificate:EnvironmentCertificate":
@@ -66,6 +73,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "containerapp/app", _module)
+pulumi.runtime.registerResourceModule("azure", "containerapp/customDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "containerapp/environment", _module)
 pulumi.runtime.registerResourceModule("azure", "containerapp/environmentCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "containerapp/environmentDaprComponent", _module)

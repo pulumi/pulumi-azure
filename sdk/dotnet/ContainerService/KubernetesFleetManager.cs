@@ -72,9 +72,6 @@ namespace Pulumi.Azure.ContainerService
     [AzureResourceType("azure:containerservice/kubernetesFleetManager:KubernetesFleetManager")]
     public partial class KubernetesFleetManager : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
-        /// </summary>
         [Output("hubProfile")]
         public Output<Outputs.KubernetesFleetManagerHubProfile?> HubProfile { get; private set; } = null!;
 
@@ -148,9 +145,6 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesFleetManagerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
-        /// </summary>
         [Input("hubProfile")]
         public Input<Inputs.KubernetesFleetManagerHubProfileArgs>? HubProfile { get; set; }
 
@@ -192,9 +186,6 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesFleetManagerState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
-        /// </summary>
         [Input("hubProfile")]
         public Input<Inputs.KubernetesFleetManagerHubProfileGetArgs>? HubProfile { get; set; }
 

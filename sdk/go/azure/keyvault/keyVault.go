@@ -99,6 +99,8 @@ type KeyVault struct {
 	// One or more `contact` block as defined below.
 	//
 	// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+	//
+	// > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
 	Contacts KeyVaultContactArrayOutput `pulumi:"contacts"`
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 	EnableRbacAuthorization pulumi.BoolPtrOutput `pulumi:"enableRbacAuthorization"`
@@ -182,6 +184,8 @@ type keyVaultState struct {
 	// One or more `contact` block as defined below.
 	//
 	// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+	//
+	// > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
 	Contacts []KeyVaultContact `pulumi:"contacts"`
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 	EnableRbacAuthorization *bool `pulumi:"enableRbacAuthorization"`
@@ -227,6 +231,8 @@ type KeyVaultState struct {
 	// One or more `contact` block as defined below.
 	//
 	// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+	//
+	// > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
 	Contacts KeyVaultContactArrayInput
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 	EnableRbacAuthorization pulumi.BoolPtrInput
@@ -276,6 +282,8 @@ type keyVaultArgs struct {
 	// One or more `contact` block as defined below.
 	//
 	// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+	//
+	// > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
 	Contacts []KeyVaultContact `pulumi:"contacts"`
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 	EnableRbacAuthorization *bool `pulumi:"enableRbacAuthorization"`
@@ -320,6 +328,8 @@ type KeyVaultArgs struct {
 	// One or more `contact` block as defined below.
 	//
 	// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+	//
+	// > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
 	Contacts KeyVaultContactArrayInput
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 	EnableRbacAuthorization pulumi.BoolPtrInput
@@ -452,6 +462,8 @@ func (o KeyVaultOutput) AccessPolicies() KeyVaultAccessPolicyArrayOutput {
 // One or more `contact` block as defined below.
 //
 // > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+//
+// > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
 func (o KeyVaultOutput) Contacts() KeyVaultContactArrayOutput {
 	return o.ApplyT(func(v *KeyVault) KeyVaultContactArrayOutput { return v.Contacts }).(KeyVaultContactArrayOutput)
 }

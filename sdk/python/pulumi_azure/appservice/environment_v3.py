@@ -39,6 +39,7 @@ class EnvironmentV3Args:
         :param pulumi.Input[int] dedicated_host_count: This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] remote_debugging_enabled: Whether to enable remote debug. Defaults to `false`.
         :param pulumi.Input[bool] zone_redundant: Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
                
                > **NOTE:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
@@ -153,6 +154,9 @@ class EnvironmentV3Args:
     @property
     @pulumi.getter(name="remoteDebuggingEnabled")
     def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable remote debug. Defaults to `false`.
+        """
         return pulumi.get(self, "remote_debugging_enabled")
 
     @remote_debugging_enabled.setter
@@ -220,6 +224,7 @@ class _EnvironmentV3State:
         :param pulumi.Input[str] location: The location where the App Service Environment exists.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pricing_tier: Pricing tier for the front end instances.
+        :param pulumi.Input[bool] remote_debugging_enabled: Whether to enable remote debug. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
                
@@ -429,6 +434,9 @@ class _EnvironmentV3State:
     @property
     @pulumi.getter(name="remoteDebuggingEnabled")
     def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable remote debug. Defaults to `false`.
+        """
         return pulumi.get(self, "remote_debugging_enabled")
 
     @remote_debugging_enabled.setter
@@ -595,6 +603,7 @@ class EnvironmentV3(pulumi.CustomResource):
         :param pulumi.Input[int] dedicated_host_count: This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] remote_debugging_enabled: Whether to enable remote debug. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
                
@@ -790,6 +799,7 @@ class EnvironmentV3(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location where the App Service Environment exists.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pricing_tier: Pricing tier for the front end instances.
+        :param pulumi.Input[bool] remote_debugging_enabled: Whether to enable remote debug. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
                
@@ -933,6 +943,9 @@ class EnvironmentV3(pulumi.CustomResource):
     @property
     @pulumi.getter(name="remoteDebuggingEnabled")
     def remote_debugging_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to enable remote debug. Defaults to `false`.
+        """
         return pulumi.get(self, "remote_debugging_enabled")
 
     @property

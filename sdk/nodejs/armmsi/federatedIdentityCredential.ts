@@ -79,7 +79,7 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
      */
     public readonly issuer!: pulumi.Output<string>;
     /**
-     * Specifies the name of this Federated Identity Credential.
+     * Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export interface FederatedIdentityCredentialState {
      */
     issuer?: pulumi.Input<string>;
     /**
-     * Specifies the name of this Federated Identity Credential.
+     * Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -186,7 +186,7 @@ export interface FederatedIdentityCredentialArgs {
      */
     issuer: pulumi.Input<string>;
     /**
-     * Specifies the name of this Federated Identity Credential.
+     * Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

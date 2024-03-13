@@ -307,6 +307,9 @@ class AppIngress(dict):
         """
         One or more `custom_domain` block as detailed below.
         """
+        warnings.warn("""This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.""", DeprecationWarning)
+        pulumi.log.warn("""custom_domain is deprecated: This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.""")
+
         return pulumi.get(self, "custom_domain")
 
     @property

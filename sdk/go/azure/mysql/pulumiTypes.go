@@ -714,6 +714,8 @@ type FlexibleServerStorage struct {
 	// The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
 	Iops *int `pulumi:"iops"`
 	// The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+	//
+	// > **Note:** Decreasing `sizeGb` forces a new resource to be created.
 	SizeGb *int `pulumi:"sizeGb"`
 }
 
@@ -736,6 +738,8 @@ type FlexibleServerStorageArgs struct {
 	// The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+	//
+	// > **Note:** Decreasing `sizeGb` forces a new resource to be created.
 	SizeGb pulumi.IntPtrInput `pulumi:"sizeGb"`
 }
 
@@ -832,6 +836,8 @@ func (o FlexibleServerStorageOutput) Iops() pulumi.IntPtrOutput {
 }
 
 // The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+//
+// > **Note:** Decreasing `sizeGb` forces a new resource to be created.
 func (o FlexibleServerStorageOutput) SizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlexibleServerStorage) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
 }
@@ -891,6 +897,8 @@ func (o FlexibleServerStoragePtrOutput) Iops() pulumi.IntPtrOutput {
 }
 
 // The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+//
+// > **Note:** Decreasing `sizeGb` forces a new resource to be created.
 func (o FlexibleServerStoragePtrOutput) SizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerStorage) *int {
 		if v == nil {

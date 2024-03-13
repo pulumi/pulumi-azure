@@ -20,7 +20,7 @@ class AccountEncryptionArgs:
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AccountEncryption resource.
-        :param pulumi.Input[str] encryption_key: The versionless encryption key url.
+        :param pulumi.Input[str] encryption_key: Specify the versionless ID of the encryption key.
         :param pulumi.Input[str] netapp_account_id: The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
         :param pulumi.Input[str] system_assigned_identity_principal_id: The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
@@ -36,7 +36,7 @@ class AccountEncryptionArgs:
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> pulumi.Input[str]:
         """
-        The versionless encryption key url.
+        Specify the versionless ID of the encryption key.
         """
         return pulumi.get(self, "encryption_key")
 
@@ -90,7 +90,7 @@ class _AccountEncryptionState:
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AccountEncryption resources.
-        :param pulumi.Input[str] encryption_key: The versionless encryption key url.
+        :param pulumi.Input[str] encryption_key: Specify the versionless ID of the encryption key.
         :param pulumi.Input[str] netapp_account_id: The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
         :param pulumi.Input[str] system_assigned_identity_principal_id: The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
@@ -108,7 +108,7 @@ class _AccountEncryptionState:
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The versionless encryption key url.
+        Specify the versionless ID of the encryption key.
         """
         return pulumi.get(self, "encryption_key")
 
@@ -168,6 +168,83 @@ class AccountEncryption(pulumi.CustomResource):
 
         For more information about Azure NetApp Files Customer-Managed Keys feature, please refer to [Configure customer-managed keys for Azure NetApp Files volume encryption](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-customer-managed-keys)
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        current = azure.core.get_client_config()
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="anf-user-assigned-identity",
+            location=example.location,
+            resource_group_name=example.name)
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="anfcmkakv",
+            location=example.location,
+            resource_group_name=example.name,
+            enabled_for_disk_encryption=True,
+            enabled_for_deployment=True,
+            enabled_for_template_deployment=True,
+            purge_protection_enabled=True,
+            tenant_id="00000000-0000-0000-0000-000000000000",
+            sku_name="standard",
+            access_policies=[
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id="00000000-0000-0000-0000-000000000000",
+                    object_id=current.object_id,
+                    key_permissions=[
+                        "Get",
+                        "Create",
+                        "Delete",
+                        "WrapKey",
+                        "UnwrapKey",
+                        "GetRotationPolicy",
+                        "SetRotationPolicy",
+                    ],
+                ),
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id="00000000-0000-0000-0000-000000000000",
+                    object_id=example_user_assigned_identity.principal_id,
+                    key_permissions=[
+                        "Get",
+                        "Encrypt",
+                        "Decrypt",
+                    ],
+                ),
+            ])
+        example_key = azure.keyvault.Key("example",
+            name="anfencryptionkey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ])
+        example_account = azure.netapp.Account("example",
+            name="netappaccount",
+            location=example.location,
+            resource_group_name=example.name,
+            identity=azure.netapp.AccountIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
+            ))
+        example_account_encryption = azure.netapp.AccountEncryption("example",
+            netapp_account_id=example_account.id,
+            user_assigned_identity_id=example_user_assigned_identity.id,
+            encryption_key=example_key.versionless_id)
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Account Encryption Resources can be imported using the `resource id`, e.g.
@@ -178,7 +255,7 @@ class AccountEncryption(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] encryption_key: The versionless encryption key url.
+        :param pulumi.Input[str] encryption_key: Specify the versionless ID of the encryption key.
         :param pulumi.Input[str] netapp_account_id: The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
         :param pulumi.Input[str] system_assigned_identity_principal_id: The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
@@ -193,6 +270,83 @@ class AccountEncryption(pulumi.CustomResource):
         Manages a NetApp Account Encryption Resource.
 
         For more information about Azure NetApp Files Customer-Managed Keys feature, please refer to [Configure customer-managed keys for Azure NetApp Files volume encryption](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-customer-managed-keys)
+
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        current = azure.core.get_client_config()
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="anf-user-assigned-identity",
+            location=example.location,
+            resource_group_name=example.name)
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="anfcmkakv",
+            location=example.location,
+            resource_group_name=example.name,
+            enabled_for_disk_encryption=True,
+            enabled_for_deployment=True,
+            enabled_for_template_deployment=True,
+            purge_protection_enabled=True,
+            tenant_id="00000000-0000-0000-0000-000000000000",
+            sku_name="standard",
+            access_policies=[
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id="00000000-0000-0000-0000-000000000000",
+                    object_id=current.object_id,
+                    key_permissions=[
+                        "Get",
+                        "Create",
+                        "Delete",
+                        "WrapKey",
+                        "UnwrapKey",
+                        "GetRotationPolicy",
+                        "SetRotationPolicy",
+                    ],
+                ),
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id="00000000-0000-0000-0000-000000000000",
+                    object_id=example_user_assigned_identity.principal_id,
+                    key_permissions=[
+                        "Get",
+                        "Encrypt",
+                        "Decrypt",
+                    ],
+                ),
+            ])
+        example_key = azure.keyvault.Key("example",
+            name="anfencryptionkey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ])
+        example_account = azure.netapp.Account("example",
+            name="netappaccount",
+            location=example.location,
+            resource_group_name=example.name,
+            identity=azure.netapp.AccountIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
+            ))
+        example_account_encryption = azure.netapp.AccountEncryption("example",
+            netapp_account_id=example_account.id,
+            user_assigned_identity_id=example_user_assigned_identity.id,
+            encryption_key=example_key.versionless_id)
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -259,7 +413,7 @@ class AccountEncryption(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] encryption_key: The versionless encryption key url.
+        :param pulumi.Input[str] encryption_key: Specify the versionless ID of the encryption key.
         :param pulumi.Input[str] netapp_account_id: The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
         :param pulumi.Input[str] system_assigned_identity_principal_id: The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
@@ -278,7 +432,7 @@ class AccountEncryption(pulumi.CustomResource):
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> pulumi.Output[str]:
         """
-        The versionless encryption key url.
+        Specify the versionless ID of the encryption key.
         """
         return pulumi.get(self, "encryption_key")
 

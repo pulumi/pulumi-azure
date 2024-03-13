@@ -1829,6 +1829,8 @@ type IoTHubSku struct {
 	// > **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
 	Capacity int `pulumi:"capacity"`
 	// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+	//
+	// > **NOTE:** The `F1` sku is on `Free` tier.
 	Name string `pulumi:"name"`
 }
 
@@ -1849,6 +1851,8 @@ type IoTHubSkuArgs struct {
 	// > **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+	//
+	// > **NOTE:** The `F1` sku is on `Free` tier.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1937,6 +1941,8 @@ func (o IoTHubSkuOutput) Capacity() pulumi.IntOutput {
 }
 
 // The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+//
+// > **NOTE:** The `F1` sku is on `Free` tier.
 func (o IoTHubSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1978,6 +1984,8 @@ func (o IoTHubSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 }
 
 // The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+//
+// > **NOTE:** The `F1` sku is on `Free` tier.
 func (o IoTHubSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubSku) *string {
 		if v == nil {

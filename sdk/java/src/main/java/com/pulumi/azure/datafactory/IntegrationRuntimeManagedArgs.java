@@ -36,6 +36,21 @@ public final class IntegrationRuntimeManagedArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * The name of the credential to use for the Managed Integration Runtime.
+     * 
+     */
+    @Import(name="credentialName")
+    private @Nullable Output<String> credentialName;
+
+    /**
+     * @return The name of the credential to use for the Managed Integration Runtime.
+     * 
+     */
+    public Optional<Output<String>> credentialName() {
+        return Optional.ofNullable(this.credentialName);
+    }
+
+    /**
      * A `custom_setup_script` block as defined below.
      * 
      */
@@ -204,6 +219,7 @@ public final class IntegrationRuntimeManagedArgs extends com.pulumi.resources.Re
 
     private IntegrationRuntimeManagedArgs(IntegrationRuntimeManagedArgs $) {
         this.catalogInfo = $.catalogInfo;
+        this.credentialName = $.credentialName;
         this.customSetupScript = $.customSetupScript;
         this.dataFactoryId = $.dataFactoryId;
         this.description = $.description;
@@ -254,6 +270,27 @@ public final class IntegrationRuntimeManagedArgs extends com.pulumi.resources.Re
          */
         public Builder catalogInfo(IntegrationRuntimeManagedCatalogInfoArgs catalogInfo) {
             return catalogInfo(Output.of(catalogInfo));
+        }
+
+        /**
+         * @param credentialName The name of the credential to use for the Managed Integration Runtime.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentialName(@Nullable Output<String> credentialName) {
+            $.credentialName = credentialName;
+            return this;
+        }
+
+        /**
+         * @param credentialName The name of the credential to use for the Managed Integration Runtime.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentialName(String credentialName) {
+            return credentialName(Output.of(credentialName));
         }
 
         /**

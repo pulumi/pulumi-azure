@@ -68,6 +68,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<Outputs.IntegrationRuntimeManagedCatalogInfo?> CatalogInfo { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the credential to use for the Managed Integration Runtime.
+        /// </summary>
+        [Output("credentialName")]
+        public Output<string?> CredentialName { get; private set; } = null!;
+
+        /// <summary>
         /// A `custom_setup_script` block as defined below.
         /// </summary>
         [Output("customSetupScript")]
@@ -186,6 +192,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.IntegrationRuntimeManagedCatalogInfoArgs>? CatalogInfo { get; set; }
 
         /// <summary>
+        /// The name of the credential to use for the Managed Integration Runtime.
+        /// </summary>
+        [Input("credentialName")]
+        public Input<string>? CredentialName { get; set; }
+
+        /// <summary>
         /// A `custom_setup_script` block as defined below.
         /// </summary>
         [Input("customSetupScript")]
@@ -264,6 +276,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("catalogInfo")]
         public Input<Inputs.IntegrationRuntimeManagedCatalogInfoGetArgs>? CatalogInfo { get; set; }
+
+        /// <summary>
+        /// The name of the credential to use for the Managed Integration Runtime.
+        /// </summary>
+        [Input("credentialName")]
+        public Input<string>? CredentialName { get; set; }
 
         /// <summary>
         /// A `custom_setup_script` block as defined below.

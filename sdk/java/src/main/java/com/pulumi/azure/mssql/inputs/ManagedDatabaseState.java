@@ -64,14 +64,14 @@ public final class ManagedDatabaseState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A `point_in_time_restore` block as defined below.
+     * A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="pointInTimeRestore")
     private @Nullable Output<ManagedDatabasePointInTimeRestoreArgs> pointInTimeRestore;
 
     /**
-     * @return A `point_in_time_restore` block as defined below.
+     * @return A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<ManagedDatabasePointInTimeRestoreArgs>> pointInTimeRestore() {
@@ -185,7 +185,7 @@ public final class ManagedDatabaseState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param pointInTimeRestore A `point_in_time_restore` block as defined below.
+         * @param pointInTimeRestore A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ManagedDatabaseState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param pointInTimeRestore A `point_in_time_restore` block as defined below.
+         * @param pointInTimeRestore A `point_in_time_restore` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

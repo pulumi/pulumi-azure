@@ -132,7 +132,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> NamespaceName { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
+        /// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("requiresDuplicateDetection")]
         public Output<bool?> RequiresDuplicateDetection { get; private set; } = null!;
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string> NamespaceId { get; set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
+        /// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("requiresDuplicateDetection")]
         public Input<bool>? RequiresDuplicateDetection { get; set; }
@@ -352,7 +352,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
+        /// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("requiresDuplicateDetection")]
         public Input<bool>? RequiresDuplicateDetection { get; set; }

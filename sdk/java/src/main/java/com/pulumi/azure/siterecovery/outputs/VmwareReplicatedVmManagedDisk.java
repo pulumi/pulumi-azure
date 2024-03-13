@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VmwareReplicatedVmManagedDisk {
     /**
-     * @return The ID of the disk to be replicated. Changing this forces a new resource to be created.
+     * @return The ID of the disk to be replicated.
      * 
      */
     private String diskId;
@@ -28,14 +28,14 @@ public final class VmwareReplicatedVmManagedDisk {
      */
     private @Nullable String targetDiskEncryptionSetId;
     /**
-     * @return The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+     * @return The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
      * 
      */
     private String targetDiskType;
 
     private VmwareReplicatedVmManagedDisk() {}
     /**
-     * @return The ID of the disk to be replicated. Changing this forces a new resource to be created.
+     * @return The ID of the disk to be replicated.
      * 
      */
     public String diskId() {
@@ -56,7 +56,7 @@ public final class VmwareReplicatedVmManagedDisk {
         return Optional.ofNullable(this.targetDiskEncryptionSetId);
     }
     /**
-     * @return The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+     * @return The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
      * 
      */
     public String targetDiskType() {

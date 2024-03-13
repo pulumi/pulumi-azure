@@ -268,6 +268,21 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
     }
 
     /**
+     * The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * 
+     */
+    @Import(name="ipRestrictionDefaultAction")
+    private @Nullable Output<String> ipRestrictionDefaultAction;
+
+    /**
+     * @return The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * 
+     */
+    public Optional<Output<String>> ipRestrictionDefaultAction() {
+        return Optional.ofNullable(this.ipRestrictionDefaultAction);
+    }
+
+    /**
      * One or more `ip_restriction` blocks as defined above.
      * 
      */
@@ -370,6 +385,21 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
      */
     public Optional<Output<String>> remoteDebuggingVersion() {
         return Optional.ofNullable(this.remoteDebuggingVersion);
+    }
+
+    /**
+     * The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * 
+     */
+    @Import(name="scmIpRestrictionDefaultAction")
+    private @Nullable Output<String> scmIpRestrictionDefaultAction;
+
+    /**
+     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * 
+     */
+    public Optional<Output<String>> scmIpRestrictionDefaultAction() {
+        return Optional.ofNullable(this.scmIpRestrictionDefaultAction);
     }
 
     /**
@@ -526,6 +556,7 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
         this.healthCheckEvictionTimeInMin = $.healthCheckEvictionTimeInMin;
         this.healthCheckPath = $.healthCheckPath;
         this.http2Enabled = $.http2Enabled;
+        this.ipRestrictionDefaultAction = $.ipRestrictionDefaultAction;
         this.ipRestrictions = $.ipRestrictions;
         this.loadBalancingMode = $.loadBalancingMode;
         this.localMysqlEnabled = $.localMysqlEnabled;
@@ -533,6 +564,7 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
         this.minimumTlsVersion = $.minimumTlsVersion;
         this.remoteDebuggingEnabled = $.remoteDebuggingEnabled;
         this.remoteDebuggingVersion = $.remoteDebuggingVersion;
+        this.scmIpRestrictionDefaultAction = $.scmIpRestrictionDefaultAction;
         this.scmIpRestrictions = $.scmIpRestrictions;
         this.scmMinimumTlsVersion = $.scmMinimumTlsVersion;
         this.scmType = $.scmType;
@@ -911,6 +943,27 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
         }
 
         /**
+         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipRestrictionDefaultAction(@Nullable Output<String> ipRestrictionDefaultAction) {
+            $.ipRestrictionDefaultAction = ipRestrictionDefaultAction;
+            return this;
+        }
+
+        /**
+         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipRestrictionDefaultAction(String ipRestrictionDefaultAction) {
+            return ipRestrictionDefaultAction(Output.of(ipRestrictionDefaultAction));
+        }
+
+        /**
          * @param ipRestrictions One or more `ip_restriction` blocks as defined above.
          * 
          * @return builder
@@ -1065,6 +1118,27 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
          */
         public Builder remoteDebuggingVersion(String remoteDebuggingVersion) {
             return remoteDebuggingVersion(Output.of(remoteDebuggingVersion));
+        }
+
+        /**
+         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scmIpRestrictionDefaultAction(@Nullable Output<String> scmIpRestrictionDefaultAction) {
+            $.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
+            return this;
+        }
+
+        /**
+         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scmIpRestrictionDefaultAction(String scmIpRestrictionDefaultAction) {
+            return scmIpRestrictionDefaultAction(Output.of(scmIpRestrictionDefaultAction));
         }
 
         /**

@@ -78,7 +78,7 @@ type FederatedIdentityCredential struct {
 	Audience pulumi.StringOutput `pulumi:"audience"`
 	// Specifies the issuer of this Federated Identity Credential.
 	Issuer pulumi.StringOutput `pulumi:"issuer"`
-	// Specifies the name of this Federated Identity Credential.
+	// Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
@@ -137,7 +137,7 @@ type federatedIdentityCredentialState struct {
 	Audience *string `pulumi:"audience"`
 	// Specifies the issuer of this Federated Identity Credential.
 	Issuer *string `pulumi:"issuer"`
-	// Specifies the name of this Federated Identity Credential.
+	// Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
 	ParentId *string `pulumi:"parentId"`
@@ -152,7 +152,7 @@ type FederatedIdentityCredentialState struct {
 	Audience pulumi.StringPtrInput
 	// Specifies the issuer of this Federated Identity Credential.
 	Issuer pulumi.StringPtrInput
-	// Specifies the name of this Federated Identity Credential.
+	// Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
 	ParentId pulumi.StringPtrInput
@@ -171,7 +171,7 @@ type federatedIdentityCredentialArgs struct {
 	Audience string `pulumi:"audience"`
 	// Specifies the issuer of this Federated Identity Credential.
 	Issuer string `pulumi:"issuer"`
-	// Specifies the name of this Federated Identity Credential.
+	// Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
 	ParentId string `pulumi:"parentId"`
@@ -187,7 +187,7 @@ type FederatedIdentityCredentialArgs struct {
 	Audience pulumi.StringInput
 	// Specifies the issuer of this Federated Identity Credential.
 	Issuer pulumi.StringInput
-	// Specifies the name of this Federated Identity Credential.
+	// Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
 	ParentId pulumi.StringInput
@@ -294,7 +294,7 @@ func (o FederatedIdentityCredentialOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedIdentityCredential) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// Specifies the name of this Federated Identity Credential.
+// Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
 func (o FederatedIdentityCredentialOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedIdentityCredential) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -18,7 +18,7 @@ type ClusterApiServerProfile struct {
 	IpAddress *string `pulumi:"ipAddress"`
 	// The URL the API Server Profile is associated with.
 	Url *string `pulumi:"url"`
-	// Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+	// Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
 	Visibility string `pulumi:"visibility"`
 }
 
@@ -38,7 +38,7 @@ type ClusterApiServerProfileArgs struct {
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// The URL the API Server Profile is associated with.
 	Url pulumi.StringPtrInput `pulumi:"url"`
-	// Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+	// Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
 	Visibility pulumi.StringInput `pulumi:"visibility"`
 }
 
@@ -129,7 +129,7 @@ func (o ClusterApiServerProfileOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterApiServerProfile) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
-// Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+// Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
 func (o ClusterApiServerProfileOutput) Visibility() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterApiServerProfile) string { return v.Visibility }).(pulumi.StringOutput)
 }
@@ -178,7 +178,7 @@ func (o ClusterApiServerProfilePtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+// Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
 func (o ClusterApiServerProfilePtrOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterApiServerProfile) *string {
 		if v == nil {
@@ -406,7 +406,7 @@ type ClusterIngressProfile struct {
 	IpAddress *string `pulumi:"ipAddress"`
 	// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+	// Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
 	Visibility string `pulumi:"visibility"`
 }
 
@@ -426,7 +426,7 @@ type ClusterIngressProfileArgs struct {
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+	// Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
 	Visibility pulumi.StringInput `pulumi:"visibility"`
 }
 
@@ -517,7 +517,7 @@ func (o ClusterIngressProfileOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterIngressProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+// Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
 func (o ClusterIngressProfileOutput) Visibility() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterIngressProfile) string { return v.Visibility }).(pulumi.StringOutput)
 }
@@ -566,7 +566,7 @@ func (o ClusterIngressProfilePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+// Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
 func (o ClusterIngressProfilePtrOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterIngressProfile) *string {
 		if v == nil {
@@ -581,7 +581,7 @@ type ClusterMainProfile struct {
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 	//
-	// **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+	// > **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// The ID of the subnet where main nodes will be hosted. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
@@ -605,7 +605,7 @@ type ClusterMainProfileArgs struct {
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 	//
-	// **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+	// > **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
 	EncryptionAtHostEnabled pulumi.BoolPtrInput `pulumi:"encryptionAtHostEnabled"`
 	// The ID of the subnet where main nodes will be hosted. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -697,7 +697,7 @@ func (o ClusterMainProfileOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 
 // Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 //
-// **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+// > **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
 func (o ClusterMainProfileOutput) EncryptionAtHostEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterMainProfile) *bool { return v.EncryptionAtHostEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -748,7 +748,7 @@ func (o ClusterMainProfilePtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutpu
 
 // Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 //
-// **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+// > **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
 func (o ClusterMainProfilePtrOutput) EncryptionAtHostEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterMainProfile) *bool {
 		if v == nil {
@@ -779,7 +779,7 @@ func (o ClusterMainProfilePtrOutput) VmSize() pulumi.StringPtrOutput {
 }
 
 type ClusterNetworkProfile struct {
-	// The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+	// The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
 	OutboundType *string `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. Changing this forces a new resource to be created.
 	PodCidr string `pulumi:"podCidr"`
@@ -799,7 +799,7 @@ type ClusterNetworkProfileInput interface {
 }
 
 type ClusterNetworkProfileArgs struct {
-	// The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+	// The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. Changing this forces a new resource to be created.
 	PodCidr pulumi.StringInput `pulumi:"podCidr"`
@@ -884,7 +884,7 @@ func (o ClusterNetworkProfileOutput) ToClusterNetworkProfilePtrOutputWithContext
 	}).(ClusterNetworkProfilePtrOutput)
 }
 
-// The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+// The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
 func (o ClusterNetworkProfileOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNetworkProfile) *string { return v.OutboundType }).(pulumi.StringPtrOutput)
 }
@@ -923,7 +923,7 @@ func (o ClusterNetworkProfilePtrOutput) Elem() ClusterNetworkProfileOutput {
 	}).(ClusterNetworkProfileOutput)
 }
 
-// The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+// The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
 func (o ClusterNetworkProfilePtrOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterNetworkProfile) *string {
 		if v == nil {
@@ -1124,7 +1124,7 @@ type ClusterWorkerProfile struct {
 	DiskSizeGb int `pulumi:"diskSizeGb"`
 	// Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 	//
-	// **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+	// > **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// The initial number of worker nodes which should exist in the cluster. Changing this forces a new resource to be created.
 	NodeCount int `pulumi:"nodeCount"`
@@ -1152,7 +1152,7 @@ type ClusterWorkerProfileArgs struct {
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
 	// Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 	//
-	// **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+	// > **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
 	EncryptionAtHostEnabled pulumi.BoolPtrInput `pulumi:"encryptionAtHostEnabled"`
 	// The initial number of worker nodes which should exist in the cluster. Changing this forces a new resource to be created.
 	NodeCount pulumi.IntInput `pulumi:"nodeCount"`
@@ -1251,7 +1251,7 @@ func (o ClusterWorkerProfileOutput) DiskSizeGb() pulumi.IntOutput {
 
 // Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 //
-// **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+// > **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
 func (o ClusterWorkerProfileOutput) EncryptionAtHostEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterWorkerProfile) *bool { return v.EncryptionAtHostEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1317,7 +1317,7 @@ func (o ClusterWorkerProfilePtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
 
 // Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 //
-// **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+// > **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
 func (o ClusterWorkerProfilePtrOutput) EncryptionAtHostEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterWorkerProfile) *bool {
 		if v == nil {

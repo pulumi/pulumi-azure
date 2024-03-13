@@ -35,14 +35,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identity block where it is used when customer managed keys based encryption will be enabled.
+     * The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
      * 
      */
     @Import(name="identity")
     private @Nullable Output<AccountIdentityArgs> identity;
 
     /**
-     * @return The identity block where it is used when customer managed keys based encryption will be enabled.
+     * @return The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
      * 
      */
     public Optional<Output<AccountIdentityArgs>> identity() {
@@ -160,7 +160,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identity The identity block where it is used when customer managed keys based encryption will be enabled.
+         * @param identity The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identity The identity block where it is used when customer managed keys based encryption will be enabled.
+         * @param identity The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
          * 
          * @return builder
          * 

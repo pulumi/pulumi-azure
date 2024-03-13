@@ -91,7 +91,7 @@ type Probe struct {
 	// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
 	IntervalInSeconds pulumi.IntPtrOutput      `pulumi:"intervalInSeconds"`
 	LoadBalancerRules pulumi.StringArrayOutput `pulumi:"loadBalancerRules"`
-	// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+	// The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
 	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -146,7 +146,7 @@ type probeState struct {
 	// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
 	IntervalInSeconds *int     `pulumi:"intervalInSeconds"`
 	LoadBalancerRules []string `pulumi:"loadBalancerRules"`
-	// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+	// The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
 	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -166,7 +166,7 @@ type ProbeState struct {
 	// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
 	IntervalInSeconds pulumi.IntPtrInput
 	LoadBalancerRules pulumi.StringArrayInput
-	// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+	// The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringPtrInput
 	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -189,7 +189,7 @@ func (ProbeState) ElementType() reflect.Type {
 type probeArgs struct {
 	// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+	// The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
 	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -209,7 +209,7 @@ type probeArgs struct {
 type ProbeArgs struct {
 	// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
 	IntervalInSeconds pulumi.IntPtrInput
-	// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+	// The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringInput
 	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -321,7 +321,7 @@ func (o ProbeOutput) LoadBalancerRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringArrayOutput { return v.LoadBalancerRules }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+// The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
 func (o ProbeOutput) LoadbalancerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.LoadbalancerId }).(pulumi.StringOutput)
 }

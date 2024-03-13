@@ -29,14 +29,14 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input['ClusterApiServerProfileArgs'] api_server_profile: An `api_server_profile` block as defined below.
-        :param pulumi.Input['ClusterClusterProfileArgs'] cluster_profile: A `cluster_profile` block as defined below.
-        :param pulumi.Input['ClusterIngressProfileArgs'] ingress_profile: An `ingress_profile` block as defined below.
-        :param pulumi.Input['ClusterMainProfileArgs'] main_profile: A `main_profile` block as defined below.
-        :param pulumi.Input['ClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input['ClusterApiServerProfileArgs'] api_server_profile: An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ClusterClusterProfileArgs'] cluster_profile: A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ClusterIngressProfileArgs'] ingress_profile: An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ClusterMainProfileArgs'] main_profile: A `main_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterServicePrincipalArgs'] service_principal: A `service_principal` block as defined below.
-        :param pulumi.Input['ClusterWorkerProfileArgs'] worker_profile: A `worker_profile` block as defined below.
+        :param pulumi.Input['ClusterWorkerProfileArgs'] worker_profile: A `worker_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -60,7 +60,7 @@ class ClusterArgs:
     @pulumi.getter(name="apiServerProfile")
     def api_server_profile(self) -> pulumi.Input['ClusterApiServerProfileArgs']:
         """
-        An `api_server_profile` block as defined below.
+        An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_server_profile")
 
@@ -72,7 +72,7 @@ class ClusterArgs:
     @pulumi.getter(name="clusterProfile")
     def cluster_profile(self) -> pulumi.Input['ClusterClusterProfileArgs']:
         """
-        A `cluster_profile` block as defined below.
+        A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_profile")
 
@@ -84,7 +84,7 @@ class ClusterArgs:
     @pulumi.getter(name="ingressProfile")
     def ingress_profile(self) -> pulumi.Input['ClusterIngressProfileArgs']:
         """
-        An `ingress_profile` block as defined below.
+        An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ingress_profile")
 
@@ -96,7 +96,7 @@ class ClusterArgs:
     @pulumi.getter(name="mainProfile")
     def main_profile(self) -> pulumi.Input['ClusterMainProfileArgs']:
         """
-        A `main_profile` block as defined below.
+        A `main_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "main_profile")
 
@@ -108,7 +108,7 @@ class ClusterArgs:
     @pulumi.getter(name="networkProfile")
     def network_profile(self) -> pulumi.Input['ClusterNetworkProfileArgs']:
         """
-        A `network_profile` block as defined below.
+        A `network_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_profile")
 
@@ -144,7 +144,7 @@ class ClusterArgs:
     @pulumi.getter(name="workerProfile")
     def worker_profile(self) -> pulumi.Input['ClusterWorkerProfileArgs']:
         """
-        A `worker_profile` block as defined below.
+        A `worker_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "worker_profile")
 
@@ -206,18 +206,18 @@ class _ClusterState:
                  worker_profile: Optional[pulumi.Input['ClusterWorkerProfileArgs']] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
-        :param pulumi.Input['ClusterApiServerProfileArgs'] api_server_profile: An `api_server_profile` block as defined below.
-        :param pulumi.Input['ClusterClusterProfileArgs'] cluster_profile: A `cluster_profile` block as defined below.
+        :param pulumi.Input['ClusterApiServerProfileArgs'] api_server_profile: An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ClusterClusterProfileArgs'] cluster_profile: A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] console_url: The Red Hat OpenShift cluster console URL.
-        :param pulumi.Input['ClusterIngressProfileArgs'] ingress_profile: An `ingress_profile` block as defined below.
+        :param pulumi.Input['ClusterIngressProfileArgs'] ingress_profile: An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input['ClusterMainProfileArgs'] main_profile: A `main_profile` block as defined below.
+        :param pulumi.Input['ClusterMainProfileArgs'] main_profile: A `main_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
-        :param pulumi.Input['ClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input['ClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterServicePrincipalArgs'] service_principal: A `service_principal` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['ClusterWorkerProfileArgs'] worker_profile: A `worker_profile` block as defined below.
+        :param pulumi.Input['ClusterWorkerProfileArgs'] worker_profile: A `worker_profile` block as defined below. Changing this forces a new resource to be created.
         """
         if api_server_profile is not None:
             pulumi.set(__self__, "api_server_profile", api_server_profile)
@@ -248,7 +248,7 @@ class _ClusterState:
     @pulumi.getter(name="apiServerProfile")
     def api_server_profile(self) -> Optional[pulumi.Input['ClusterApiServerProfileArgs']]:
         """
-        An `api_server_profile` block as defined below.
+        An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_server_profile")
 
@@ -260,7 +260,7 @@ class _ClusterState:
     @pulumi.getter(name="clusterProfile")
     def cluster_profile(self) -> Optional[pulumi.Input['ClusterClusterProfileArgs']]:
         """
-        A `cluster_profile` block as defined below.
+        A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_profile")
 
@@ -284,7 +284,7 @@ class _ClusterState:
     @pulumi.getter(name="ingressProfile")
     def ingress_profile(self) -> Optional[pulumi.Input['ClusterIngressProfileArgs']]:
         """
-        An `ingress_profile` block as defined below.
+        An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ingress_profile")
 
@@ -308,7 +308,7 @@ class _ClusterState:
     @pulumi.getter(name="mainProfile")
     def main_profile(self) -> Optional[pulumi.Input['ClusterMainProfileArgs']]:
         """
-        A `main_profile` block as defined below.
+        A `main_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "main_profile")
 
@@ -332,7 +332,7 @@ class _ClusterState:
     @pulumi.getter(name="networkProfile")
     def network_profile(self) -> Optional[pulumi.Input['ClusterNetworkProfileArgs']]:
         """
-        A `network_profile` block as defined below.
+        A `network_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_profile")
 
@@ -380,7 +380,7 @@ class _ClusterState:
     @pulumi.getter(name="workerProfile")
     def worker_profile(self) -> Optional[pulumi.Input['ClusterWorkerProfileArgs']]:
         """
-        A `worker_profile` block as defined below.
+        A `worker_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "worker_profile")
 
@@ -421,17 +421,17 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ClusterApiServerProfileArgs']] api_server_profile: An `api_server_profile` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ClusterClusterProfileArgs']] cluster_profile: A `cluster_profile` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ClusterIngressProfileArgs']] ingress_profile: An `ingress_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ClusterApiServerProfileArgs']] api_server_profile: An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ClusterClusterProfileArgs']] cluster_profile: A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ClusterIngressProfileArgs']] ingress_profile: An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ClusterMainProfileArgs']] main_profile: A `main_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ClusterMainProfileArgs']] main_profile: A `main_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterServicePrincipalArgs']] service_principal: A `service_principal` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['ClusterWorkerProfileArgs']] worker_profile: A `worker_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ClusterWorkerProfileArgs']] worker_profile: A `worker_profile` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -544,18 +544,18 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ClusterApiServerProfileArgs']] api_server_profile: An `api_server_profile` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ClusterClusterProfileArgs']] cluster_profile: A `cluster_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ClusterApiServerProfileArgs']] api_server_profile: An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ClusterClusterProfileArgs']] cluster_profile: A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] console_url: The Red Hat OpenShift cluster console URL.
-        :param pulumi.Input[pulumi.InputType['ClusterIngressProfileArgs']] ingress_profile: An `ingress_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ClusterIngressProfileArgs']] ingress_profile: An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ClusterMainProfileArgs']] main_profile: A `main_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ClusterMainProfileArgs']] main_profile: A `main_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterServicePrincipalArgs']] service_principal: A `service_principal` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['ClusterWorkerProfileArgs']] worker_profile: A `worker_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ClusterWorkerProfileArgs']] worker_profile: A `worker_profile` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -579,7 +579,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="apiServerProfile")
     def api_server_profile(self) -> pulumi.Output['outputs.ClusterApiServerProfile']:
         """
-        An `api_server_profile` block as defined below.
+        An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_server_profile")
 
@@ -587,7 +587,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterProfile")
     def cluster_profile(self) -> pulumi.Output['outputs.ClusterClusterProfile']:
         """
-        A `cluster_profile` block as defined below.
+        A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_profile")
 
@@ -603,7 +603,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="ingressProfile")
     def ingress_profile(self) -> pulumi.Output['outputs.ClusterIngressProfile']:
         """
-        An `ingress_profile` block as defined below.
+        An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ingress_profile")
 
@@ -619,7 +619,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="mainProfile")
     def main_profile(self) -> pulumi.Output['outputs.ClusterMainProfile']:
         """
-        A `main_profile` block as defined below.
+        A `main_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "main_profile")
 
@@ -635,7 +635,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="networkProfile")
     def network_profile(self) -> pulumi.Output['outputs.ClusterNetworkProfile']:
         """
-        A `network_profile` block as defined below.
+        A `network_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_profile")
 
@@ -667,7 +667,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="workerProfile")
     def worker_profile(self) -> pulumi.Output['outputs.ClusterWorkerProfile']:
         """
-        A `worker_profile` block as defined below.
+        A `worker_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "worker_profile")
 

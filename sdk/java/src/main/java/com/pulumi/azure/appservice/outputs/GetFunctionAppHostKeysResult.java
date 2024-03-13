@@ -30,6 +30,7 @@ public final class GetFunctionAppHostKeysResult {
      * 
      */
     private String eventGridExtensionConfigKey;
+    private String eventGridExtensionKey;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -82,6 +83,9 @@ public final class GetFunctionAppHostKeysResult {
     public String eventGridExtensionConfigKey() {
         return this.eventGridExtensionConfigKey;
     }
+    public String eventGridExtensionKey() {
+        return this.eventGridExtensionKey;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -130,6 +134,7 @@ public final class GetFunctionAppHostKeysResult {
         private String defaultFunctionKey;
         private String durabletaskExtensionKey;
         private String eventGridExtensionConfigKey;
+        private String eventGridExtensionKey;
         private String id;
         private String name;
         private String primaryKey;
@@ -143,6 +148,7 @@ public final class GetFunctionAppHostKeysResult {
     	      this.defaultFunctionKey = defaults.defaultFunctionKey;
     	      this.durabletaskExtensionKey = defaults.durabletaskExtensionKey;
     	      this.eventGridExtensionConfigKey = defaults.eventGridExtensionConfigKey;
+    	      this.eventGridExtensionKey = defaults.eventGridExtensionKey;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.primaryKey = defaults.primaryKey;
@@ -181,6 +187,14 @@ public final class GetFunctionAppHostKeysResult {
               throw new MissingRequiredPropertyException("GetFunctionAppHostKeysResult", "eventGridExtensionConfigKey");
             }
             this.eventGridExtensionConfigKey = eventGridExtensionConfigKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder eventGridExtensionKey(String eventGridExtensionKey) {
+            if (eventGridExtensionKey == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppHostKeysResult", "eventGridExtensionKey");
+            }
+            this.eventGridExtensionKey = eventGridExtensionKey;
             return this;
         }
         @CustomType.Setter
@@ -237,6 +251,7 @@ public final class GetFunctionAppHostKeysResult {
             _resultValue.defaultFunctionKey = defaultFunctionKey;
             _resultValue.durabletaskExtensionKey = durabletaskExtensionKey;
             _resultValue.eventGridExtensionConfigKey = eventGridExtensionConfigKey;
+            _resultValue.eventGridExtensionKey = eventGridExtensionKey;
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.primaryKey = primaryKey;

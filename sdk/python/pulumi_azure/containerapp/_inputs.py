@@ -191,6 +191,9 @@ class AppIngressArgs:
         if allow_insecure_connections is not None:
             pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
         if custom_domain is not None:
+            warnings.warn("""This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.""", DeprecationWarning)
+            pulumi.log.warn("""custom_domain is deprecated: This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.""")
+        if custom_domain is not None:
             pulumi.set(__self__, "custom_domain", custom_domain)
         if exposed_port is not None:
             pulumi.set(__self__, "exposed_port", exposed_port)
@@ -245,6 +248,9 @@ class AppIngressArgs:
         """
         One or more `custom_domain` block as detailed below.
         """
+        warnings.warn("""This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.""", DeprecationWarning)
+        pulumi.log.warn("""custom_domain is deprecated: This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.""")
+
         return pulumi.get(self, "custom_domain")
 
     @custom_domain.setter

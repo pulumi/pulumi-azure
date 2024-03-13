@@ -87,6 +87,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &StaticSite{}
 	case "azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain":
 		r = &StaticSiteCustomDomain{}
+	case "azure:appservice/staticWebApp:StaticWebApp":
+		r = &StaticWebApp{}
+	case "azure:appservice/staticWebAppCustomDomain:StaticWebAppCustomDomain":
+		r = &StaticWebAppCustomDomain{}
 	case "azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection":
 		r = &VirtualNetworkSwiftConnection{}
 	case "azure:appservice/webAppActiveSlot:WebAppActiveSlot":
@@ -277,6 +281,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appservice/staticSiteCustomDomain",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/staticWebApp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/staticWebAppCustomDomain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

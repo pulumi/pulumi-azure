@@ -46,6 +46,8 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** This field can only be set once user has `managecontacts` certificate permission.
      * 
+     * &gt; **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you&#39;ll need to import the `azure.keyvault.CertificateContacts` manually.
+     * 
      */
     @Import(name="contacts")
     private @Nullable Output<List<KeyVaultContactArgs>> contacts;
@@ -54,6 +56,8 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
      * @return One or more `contact` block as defined below.
      * 
      * &gt; **Note:** This field can only be set once user has `managecontacts` certificate permission.
+     * 
+     * &gt; **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you&#39;ll need to import the `azure.keyvault.CertificateContacts` manually.
      * 
      */
     public Optional<Output<List<KeyVaultContactArgs>>> contacts() {
@@ -375,6 +379,8 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **Note:** This field can only be set once user has `managecontacts` certificate permission.
          * 
+         * &gt; **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you&#39;ll need to import the `azure.keyvault.CertificateContacts` manually.
+         * 
          * @return builder
          * 
          */
@@ -388,6 +394,8 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **Note:** This field can only be set once user has `managecontacts` certificate permission.
          * 
+         * &gt; **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you&#39;ll need to import the `azure.keyvault.CertificateContacts` manually.
+         * 
          * @return builder
          * 
          */
@@ -399,6 +407,8 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
          * @param contacts One or more `contact` block as defined below.
          * 
          * &gt; **Note:** This field can only be set once user has `managecontacts` certificate permission.
+         * 
+         * &gt; **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you&#39;ll need to import the `azure.keyvault.CertificateContacts` manually.
          * 
          * @return builder
          * 

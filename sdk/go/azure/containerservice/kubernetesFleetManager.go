@@ -83,7 +83,7 @@ import (
 type KubernetesFleetManager struct {
 	pulumi.CustomResourceState
 
-	// A `hubProfile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
+	// Deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
 	HubProfile KubernetesFleetManagerHubProfilePtrOutput `pulumi:"hubProfile"`
 	// The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -128,7 +128,7 @@ func GetKubernetesFleetManager(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KubernetesFleetManager resources.
 type kubernetesFleetManagerState struct {
-	// A `hubProfile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
+	// Deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
 	HubProfile *KubernetesFleetManagerHubProfile `pulumi:"hubProfile"`
 	// The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
 	Location *string `pulumi:"location"`
@@ -141,7 +141,7 @@ type kubernetesFleetManagerState struct {
 }
 
 type KubernetesFleetManagerState struct {
-	// A `hubProfile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
+	// Deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
 	HubProfile KubernetesFleetManagerHubProfilePtrInput
 	// The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
 	Location pulumi.StringPtrInput
@@ -158,7 +158,7 @@ func (KubernetesFleetManagerState) ElementType() reflect.Type {
 }
 
 type kubernetesFleetManagerArgs struct {
-	// A `hubProfile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
+	// Deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
 	HubProfile *KubernetesFleetManagerHubProfile `pulumi:"hubProfile"`
 	// The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
 	Location *string `pulumi:"location"`
@@ -172,7 +172,7 @@ type kubernetesFleetManagerArgs struct {
 
 // The set of arguments for constructing a KubernetesFleetManager resource.
 type KubernetesFleetManagerArgs struct {
-	// A `hubProfile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
+	// Deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
 	HubProfile KubernetesFleetManagerHubProfilePtrInput
 	// The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
 	Location pulumi.StringPtrInput
@@ -271,7 +271,7 @@ func (o KubernetesFleetManagerOutput) ToKubernetesFleetManagerOutputWithContext(
 	return o
 }
 
-// A `hubProfile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
+// Deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
 func (o KubernetesFleetManagerOutput) HubProfile() KubernetesFleetManagerHubProfilePtrOutput {
 	return o.ApplyT(func(v *KubernetesFleetManager) KubernetesFleetManagerHubProfilePtrOutput { return v.HubProfile }).(KubernetesFleetManagerHubProfilePtrOutput)
 }

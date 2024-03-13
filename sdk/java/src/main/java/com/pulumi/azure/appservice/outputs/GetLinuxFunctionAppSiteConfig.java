@@ -15,6 +15,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLinuxFunctionAppSiteConfig {
@@ -110,6 +112,11 @@ public final class GetLinuxFunctionAppSiteConfig {
      */
     private Boolean http2Enabled;
     /**
+     * @return The Default action for traffic that does not match any `ip_restriction` rule.
+     * 
+     */
+    private String ipRestrictionDefaultAction;
+    /**
      * @return One or more `ip_restriction` blocks as defined above.
      * 
      */
@@ -150,6 +157,11 @@ public final class GetLinuxFunctionAppSiteConfig {
      * 
      */
     private Boolean runtimeScaleMonitoringEnabled;
+    /**
+     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule.
+     * 
+     */
+    private @Nullable String scmIpRestrictionDefaultAction;
     /**
      * @return One or more `scm_ip_restriction` blocks as defined above.
      * 
@@ -318,6 +330,13 @@ public final class GetLinuxFunctionAppSiteConfig {
         return this.http2Enabled;
     }
     /**
+     * @return The Default action for traffic that does not match any `ip_restriction` rule.
+     * 
+     */
+    public String ipRestrictionDefaultAction() {
+        return this.ipRestrictionDefaultAction;
+    }
+    /**
      * @return One or more `ip_restriction` blocks as defined above.
      * 
      */
@@ -375,6 +394,13 @@ public final class GetLinuxFunctionAppSiteConfig {
      */
     public Boolean runtimeScaleMonitoringEnabled() {
         return this.runtimeScaleMonitoringEnabled;
+    }
+    /**
+     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule.
+     * 
+     */
+    public Optional<String> scmIpRestrictionDefaultAction() {
+        return Optional.ofNullable(this.scmIpRestrictionDefaultAction);
     }
     /**
      * @return One or more `scm_ip_restriction` blocks as defined above.
@@ -457,6 +483,7 @@ public final class GetLinuxFunctionAppSiteConfig {
         private Integer healthCheckEvictionTimeInMin;
         private String healthCheckPath;
         private Boolean http2Enabled;
+        private String ipRestrictionDefaultAction;
         private List<GetLinuxFunctionAppSiteConfigIpRestriction> ipRestrictions;
         private String linuxFxVersion;
         private String loadBalancingMode;
@@ -466,6 +493,7 @@ public final class GetLinuxFunctionAppSiteConfig {
         private Boolean remoteDebuggingEnabled;
         private String remoteDebuggingVersion;
         private Boolean runtimeScaleMonitoringEnabled;
+        private @Nullable String scmIpRestrictionDefaultAction;
         private List<GetLinuxFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
         private String scmMinimumTlsVersion;
         private String scmType;
@@ -496,6 +524,7 @@ public final class GetLinuxFunctionAppSiteConfig {
     	      this.healthCheckEvictionTimeInMin = defaults.healthCheckEvictionTimeInMin;
     	      this.healthCheckPath = defaults.healthCheckPath;
     	      this.http2Enabled = defaults.http2Enabled;
+    	      this.ipRestrictionDefaultAction = defaults.ipRestrictionDefaultAction;
     	      this.ipRestrictions = defaults.ipRestrictions;
     	      this.linuxFxVersion = defaults.linuxFxVersion;
     	      this.loadBalancingMode = defaults.loadBalancingMode;
@@ -505,6 +534,7 @@ public final class GetLinuxFunctionAppSiteConfig {
     	      this.remoteDebuggingEnabled = defaults.remoteDebuggingEnabled;
     	      this.remoteDebuggingVersion = defaults.remoteDebuggingVersion;
     	      this.runtimeScaleMonitoringEnabled = defaults.runtimeScaleMonitoringEnabled;
+    	      this.scmIpRestrictionDefaultAction = defaults.scmIpRestrictionDefaultAction;
     	      this.scmIpRestrictions = defaults.scmIpRestrictions;
     	      this.scmMinimumTlsVersion = defaults.scmMinimumTlsVersion;
     	      this.scmType = defaults.scmType;
@@ -680,6 +710,14 @@ public final class GetLinuxFunctionAppSiteConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder ipRestrictionDefaultAction(String ipRestrictionDefaultAction) {
+            if (ipRestrictionDefaultAction == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfig", "ipRestrictionDefaultAction");
+            }
+            this.ipRestrictionDefaultAction = ipRestrictionDefaultAction;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ipRestrictions(List<GetLinuxFunctionAppSiteConfigIpRestriction> ipRestrictions) {
             if (ipRestrictions == null) {
               throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfig", "ipRestrictions");
@@ -752,6 +790,12 @@ public final class GetLinuxFunctionAppSiteConfig {
               throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfig", "runtimeScaleMonitoringEnabled");
             }
             this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scmIpRestrictionDefaultAction(@Nullable String scmIpRestrictionDefaultAction) {
+
+            this.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             return this;
         }
         @CustomType.Setter
@@ -842,6 +886,7 @@ public final class GetLinuxFunctionAppSiteConfig {
             _resultValue.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
             _resultValue.healthCheckPath = healthCheckPath;
             _resultValue.http2Enabled = http2Enabled;
+            _resultValue.ipRestrictionDefaultAction = ipRestrictionDefaultAction;
             _resultValue.ipRestrictions = ipRestrictions;
             _resultValue.linuxFxVersion = linuxFxVersion;
             _resultValue.loadBalancingMode = loadBalancingMode;
@@ -851,6 +896,7 @@ public final class GetLinuxFunctionAppSiteConfig {
             _resultValue.remoteDebuggingEnabled = remoteDebuggingEnabled;
             _resultValue.remoteDebuggingVersion = remoteDebuggingVersion;
             _resultValue.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            _resultValue.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             _resultValue.scmIpRestrictions = scmIpRestrictions;
             _resultValue.scmMinimumTlsVersion = scmMinimumTlsVersion;
             _resultValue.scmType = scmType;

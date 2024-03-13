@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'BackupInstanceKubernetesClusterBackupDatasourceParametersArgs',
     'BackupPolicyDiskRetentionRuleArgs',
     'BackupPolicyDiskRetentionRuleCriteriaArgs',
     'BackupPolicyKubernetesClusterDefaultRetentionRuleArgs',
@@ -21,6 +22,125 @@ __all__ = [
     'BackupPolicyPostgresqlRetentionRuleCriteriaArgs',
     'BackupVaultIdentityArgs',
 ]
+
+@pulumi.input_type
+class BackupInstanceKubernetesClusterBackupDatasourceParametersArgs:
+    def __init__(__self__, *,
+                 cluster_scoped_resources_enabled: Optional[pulumi.Input[bool]] = None,
+                 excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 excluded_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 included_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 included_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 label_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 volume_snapshot_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] cluster_scoped_resources_enabled: Whether to include cluster scope resources during backup. Default to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_namespaces: Specifies the namespaces to be excluded during backup. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_resource_types: Specifies the resource types to be excluded during backup. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_namespaces: Specifies the namespaces to be included during backup. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_resource_types: Specifies the resource types to be included during backup. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] label_selectors: Specifies the resources with such label selectors to be included during backup. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] volume_snapshot_enabled: Whether to take volume snapshots during backup. Default to `false`. Changing this forces a new resource to be created.
+        """
+        if cluster_scoped_resources_enabled is not None:
+            pulumi.set(__self__, "cluster_scoped_resources_enabled", cluster_scoped_resources_enabled)
+        if excluded_namespaces is not None:
+            pulumi.set(__self__, "excluded_namespaces", excluded_namespaces)
+        if excluded_resource_types is not None:
+            pulumi.set(__self__, "excluded_resource_types", excluded_resource_types)
+        if included_namespaces is not None:
+            pulumi.set(__self__, "included_namespaces", included_namespaces)
+        if included_resource_types is not None:
+            pulumi.set(__self__, "included_resource_types", included_resource_types)
+        if label_selectors is not None:
+            pulumi.set(__self__, "label_selectors", label_selectors)
+        if volume_snapshot_enabled is not None:
+            pulumi.set(__self__, "volume_snapshot_enabled", volume_snapshot_enabled)
+
+    @property
+    @pulumi.getter(name="clusterScopedResourcesEnabled")
+    def cluster_scoped_resources_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to include cluster scope resources during backup. Default to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_scoped_resources_enabled")
+
+    @cluster_scoped_resources_enabled.setter
+    def cluster_scoped_resources_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cluster_scoped_resources_enabled", value)
+
+    @property
+    @pulumi.getter(name="excludedNamespaces")
+    def excluded_namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the namespaces to be excluded during backup. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "excluded_namespaces")
+
+    @excluded_namespaces.setter
+    def excluded_namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_namespaces", value)
+
+    @property
+    @pulumi.getter(name="excludedResourceTypes")
+    def excluded_resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the resource types to be excluded during backup. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "excluded_resource_types")
+
+    @excluded_resource_types.setter
+    def excluded_resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_resource_types", value)
+
+    @property
+    @pulumi.getter(name="includedNamespaces")
+    def included_namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the namespaces to be included during backup. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "included_namespaces")
+
+    @included_namespaces.setter
+    def included_namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "included_namespaces", value)
+
+    @property
+    @pulumi.getter(name="includedResourceTypes")
+    def included_resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the resource types to be included during backup. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "included_resource_types")
+
+    @included_resource_types.setter
+    def included_resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "included_resource_types", value)
+
+    @property
+    @pulumi.getter(name="labelSelectors")
+    def label_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the resources with such label selectors to be included during backup. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "label_selectors")
+
+    @label_selectors.setter
+    def label_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "label_selectors", value)
+
+    @property
+    @pulumi.getter(name="volumeSnapshotEnabled")
+    def volume_snapshot_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to take volume snapshots during backup. Default to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "volume_snapshot_enabled")
+
+    @volume_snapshot_enabled.setter
+    def volume_snapshot_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "volume_snapshot_enabled", value)
+
 
 @pulumi.input_type
 class BackupPolicyDiskRetentionRuleArgs:
@@ -140,7 +260,7 @@ class BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs:
                  data_store_type: pulumi.Input[str],
                  duration: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] data_store_type: The type of data store. The only possible value is `OperationalStore`.
+        :param pulumi.Input[str] data_store_type: The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] duration: The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "data_store_type", data_store_type)
@@ -150,7 +270,7 @@ class BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs:
     @pulumi.getter(name="dataStoreType")
     def data_store_type(self) -> pulumi.Input[str]:
         """
-        The type of data store. The only possible value is `OperationalStore`.
+        The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_store_type")
 
@@ -331,7 +451,7 @@ class BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs:
                  data_store_type: pulumi.Input[str],
                  duration: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] data_store_type: The type of data store. The only possible value is `OperationalStore`.
+        :param pulumi.Input[str] data_store_type: The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] duration: The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "data_store_type", data_store_type)
@@ -341,7 +461,7 @@ class BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs:
     @pulumi.getter(name="dataStoreType")
     def data_store_type(self) -> pulumi.Input[str]:
         """
-        The type of data store. The only possible value is `OperationalStore`.
+        The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_store_type")
 

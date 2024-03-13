@@ -202,6 +202,9 @@ namespace Pulumi.Azure.AppService
         [Output("pricingTier")]
         public Output<string> PricingTier { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to enable remote debug. Defaults to `false`.
+        /// </summary>
         [Output("remoteDebuggingEnabled")]
         public Output<bool?> RemoteDebuggingEnabled { get; private set; } = null!;
 
@@ -320,6 +323,9 @@ namespace Pulumi.Azure.AppService
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether to enable remote debug. Defaults to `false`.
+        /// </summary>
         [Input("remoteDebuggingEnabled")]
         public Input<bool>? RemoteDebuggingEnabled { get; set; }
 
@@ -471,6 +477,9 @@ namespace Pulumi.Azure.AppService
         [Input("pricingTier")]
         public Input<string>? PricingTier { get; set; }
 
+        /// <summary>
+        /// Whether to enable remote debug. Defaults to `false`.
+        /// </summary>
         [Input("remoteDebuggingEnabled")]
         public Input<bool>? RemoteDebuggingEnabled { get; set; }
 

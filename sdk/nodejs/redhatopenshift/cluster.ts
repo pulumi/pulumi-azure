@@ -48,11 +48,11 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
-     * An `apiServerProfile` block as defined below.
+     * An `apiServerProfile` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly apiServerProfile!: pulumi.Output<outputs.redhatopenshift.ClusterApiServerProfile>;
     /**
-     * A `clusterProfile` block as defined below.
+     * A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly clusterProfile!: pulumi.Output<outputs.redhatopenshift.ClusterClusterProfile>;
     /**
@@ -60,7 +60,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly consoleUrl!: pulumi.Output<string>;
     /**
-     * An `ingressProfile` block as defined below.
+     * An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly ingressProfile!: pulumi.Output<outputs.redhatopenshift.ClusterIngressProfile>;
     /**
@@ -68,7 +68,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * A `mainProfile` block as defined below.
+     * A `mainProfile` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly mainProfile!: pulumi.Output<outputs.redhatopenshift.ClusterMainProfile>;
     /**
@@ -76,7 +76,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `networkProfile` block as defined below.
+     * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly networkProfile!: pulumi.Output<outputs.redhatopenshift.ClusterNetworkProfile>;
     /**
@@ -92,7 +92,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A `workerProfile` block as defined below.
+     * A `workerProfile` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly workerProfile!: pulumi.Output<outputs.redhatopenshift.ClusterWorkerProfile>;
 
@@ -170,11 +170,11 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterState {
     /**
-     * An `apiServerProfile` block as defined below.
+     * An `apiServerProfile` block as defined below. Changing this forces a new resource to be created.
      */
     apiServerProfile?: pulumi.Input<inputs.redhatopenshift.ClusterApiServerProfile>;
     /**
-     * A `clusterProfile` block as defined below.
+     * A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
      */
     clusterProfile?: pulumi.Input<inputs.redhatopenshift.ClusterClusterProfile>;
     /**
@@ -182,7 +182,7 @@ export interface ClusterState {
      */
     consoleUrl?: pulumi.Input<string>;
     /**
-     * An `ingressProfile` block as defined below.
+     * An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
      */
     ingressProfile?: pulumi.Input<inputs.redhatopenshift.ClusterIngressProfile>;
     /**
@@ -190,7 +190,7 @@ export interface ClusterState {
      */
     location?: pulumi.Input<string>;
     /**
-     * A `mainProfile` block as defined below.
+     * A `mainProfile` block as defined below. Changing this forces a new resource to be created.
      */
     mainProfile?: pulumi.Input<inputs.redhatopenshift.ClusterMainProfile>;
     /**
@@ -198,7 +198,7 @@ export interface ClusterState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `networkProfile` block as defined below.
+     * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      */
     networkProfile?: pulumi.Input<inputs.redhatopenshift.ClusterNetworkProfile>;
     /**
@@ -214,7 +214,7 @@ export interface ClusterState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `workerProfile` block as defined below.
+     * A `workerProfile` block as defined below. Changing this forces a new resource to be created.
      */
     workerProfile?: pulumi.Input<inputs.redhatopenshift.ClusterWorkerProfile>;
 }
@@ -224,15 +224,15 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * An `apiServerProfile` block as defined below.
+     * An `apiServerProfile` block as defined below. Changing this forces a new resource to be created.
      */
     apiServerProfile: pulumi.Input<inputs.redhatopenshift.ClusterApiServerProfile>;
     /**
-     * A `clusterProfile` block as defined below.
+     * A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
      */
     clusterProfile: pulumi.Input<inputs.redhatopenshift.ClusterClusterProfile>;
     /**
-     * An `ingressProfile` block as defined below.
+     * An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
      */
     ingressProfile: pulumi.Input<inputs.redhatopenshift.ClusterIngressProfile>;
     /**
@@ -240,7 +240,7 @@ export interface ClusterArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * A `mainProfile` block as defined below.
+     * A `mainProfile` block as defined below. Changing this forces a new resource to be created.
      */
     mainProfile: pulumi.Input<inputs.redhatopenshift.ClusterMainProfile>;
     /**
@@ -248,7 +248,7 @@ export interface ClusterArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `networkProfile` block as defined below.
+     * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      */
     networkProfile: pulumi.Input<inputs.redhatopenshift.ClusterNetworkProfile>;
     /**
@@ -264,7 +264,7 @@ export interface ClusterArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `workerProfile` block as defined below.
+     * A `workerProfile` block as defined below. Changing this forces a new resource to be created.
      */
     workerProfile: pulumi.Input<inputs.redhatopenshift.ClusterWorkerProfile>;
 }

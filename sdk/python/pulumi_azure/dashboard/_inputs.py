@@ -123,7 +123,6 @@ class GrafanaSmtpArgs:
         :param pulumi.Input[str] from_address: Address used when sending emails.
         :param pulumi.Input[str] host: SMTP server hostname with port, e.g. test.email.net:587
         :param pulumi.Input[str] password: Password of SMTP authentication.
-               *
         :param pulumi.Input[str] start_tls_policy: Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
         :param pulumi.Input[str] user: User of SMTP authentication.
         :param pulumi.Input[bool] enabled: Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
@@ -171,7 +170,6 @@ class GrafanaSmtpArgs:
     def password(self) -> pulumi.Input[str]:
         """
         Password of SMTP authentication.
-        *
         """
         return pulumi.get(self, "password")
 

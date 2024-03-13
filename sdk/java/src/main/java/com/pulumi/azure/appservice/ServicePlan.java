@@ -108,14 +108,14 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
         return this.kind;
     }
     /**
-     * The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+     * The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+     * @return The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      * 
      */
     public Output<String> location() {
@@ -136,14 +136,14 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
         return this.maximumElasticWorkerCount;
     }
     /**
-     * The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+     * The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+     * @return The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
      * 
      */
     public Output<String> name() {
@@ -192,14 +192,14 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
         return this.reserved;
     }
     /**
-     * The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+     * The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+     * @return The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      * 
      */
     public Output<String> resourceGroupName() {

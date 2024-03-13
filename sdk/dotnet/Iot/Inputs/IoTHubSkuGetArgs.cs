@@ -22,6 +22,8 @@ namespace Pulumi.Azure.Iot.Inputs
 
         /// <summary>
         /// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+        /// 
+        /// &gt; **NOTE:** The `F1` sku is on `Free` tier.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

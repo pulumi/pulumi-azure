@@ -13,6 +13,269 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type BackupInstanceKubernetesClusterBackupDatasourceParameters struct {
+	// Whether to include cluster scope resources during backup. Default to `false`. Changing this forces a new resource to be created.
+	ClusterScopedResourcesEnabled *bool `pulumi:"clusterScopedResourcesEnabled"`
+	// Specifies the namespaces to be excluded during backup. Changing this forces a new resource to be created.
+	ExcludedNamespaces []string `pulumi:"excludedNamespaces"`
+	// Specifies the resource types to be excluded during backup. Changing this forces a new resource to be created.
+	ExcludedResourceTypes []string `pulumi:"excludedResourceTypes"`
+	// Specifies the namespaces to be included during backup. Changing this forces a new resource to be created.
+	IncludedNamespaces []string `pulumi:"includedNamespaces"`
+	// Specifies the resource types to be included during backup. Changing this forces a new resource to be created.
+	IncludedResourceTypes []string `pulumi:"includedResourceTypes"`
+	// Specifies the resources with such label selectors to be included during backup. Changing this forces a new resource to be created.
+	LabelSelectors []string `pulumi:"labelSelectors"`
+	// Whether to take volume snapshots during backup. Default to `false`. Changing this forces a new resource to be created.
+	VolumeSnapshotEnabled *bool `pulumi:"volumeSnapshotEnabled"`
+}
+
+// BackupInstanceKubernetesClusterBackupDatasourceParametersInput is an input type that accepts BackupInstanceKubernetesClusterBackupDatasourceParametersArgs and BackupInstanceKubernetesClusterBackupDatasourceParametersOutput values.
+// You can construct a concrete instance of `BackupInstanceKubernetesClusterBackupDatasourceParametersInput` via:
+//
+//	BackupInstanceKubernetesClusterBackupDatasourceParametersArgs{...}
+type BackupInstanceKubernetesClusterBackupDatasourceParametersInput interface {
+	pulumi.Input
+
+	ToBackupInstanceKubernetesClusterBackupDatasourceParametersOutput() BackupInstanceKubernetesClusterBackupDatasourceParametersOutput
+	ToBackupInstanceKubernetesClusterBackupDatasourceParametersOutputWithContext(context.Context) BackupInstanceKubernetesClusterBackupDatasourceParametersOutput
+}
+
+type BackupInstanceKubernetesClusterBackupDatasourceParametersArgs struct {
+	// Whether to include cluster scope resources during backup. Default to `false`. Changing this forces a new resource to be created.
+	ClusterScopedResourcesEnabled pulumi.BoolPtrInput `pulumi:"clusterScopedResourcesEnabled"`
+	// Specifies the namespaces to be excluded during backup. Changing this forces a new resource to be created.
+	ExcludedNamespaces pulumi.StringArrayInput `pulumi:"excludedNamespaces"`
+	// Specifies the resource types to be excluded during backup. Changing this forces a new resource to be created.
+	ExcludedResourceTypes pulumi.StringArrayInput `pulumi:"excludedResourceTypes"`
+	// Specifies the namespaces to be included during backup. Changing this forces a new resource to be created.
+	IncludedNamespaces pulumi.StringArrayInput `pulumi:"includedNamespaces"`
+	// Specifies the resource types to be included during backup. Changing this forces a new resource to be created.
+	IncludedResourceTypes pulumi.StringArrayInput `pulumi:"includedResourceTypes"`
+	// Specifies the resources with such label selectors to be included during backup. Changing this forces a new resource to be created.
+	LabelSelectors pulumi.StringArrayInput `pulumi:"labelSelectors"`
+	// Whether to take volume snapshots during backup. Default to `false`. Changing this forces a new resource to be created.
+	VolumeSnapshotEnabled pulumi.BoolPtrInput `pulumi:"volumeSnapshotEnabled"`
+}
+
+func (BackupInstanceKubernetesClusterBackupDatasourceParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupInstanceKubernetesClusterBackupDatasourceParameters)(nil)).Elem()
+}
+
+func (i BackupInstanceKubernetesClusterBackupDatasourceParametersArgs) ToBackupInstanceKubernetesClusterBackupDatasourceParametersOutput() BackupInstanceKubernetesClusterBackupDatasourceParametersOutput {
+	return i.ToBackupInstanceKubernetesClusterBackupDatasourceParametersOutputWithContext(context.Background())
+}
+
+func (i BackupInstanceKubernetesClusterBackupDatasourceParametersArgs) ToBackupInstanceKubernetesClusterBackupDatasourceParametersOutputWithContext(ctx context.Context) BackupInstanceKubernetesClusterBackupDatasourceParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceKubernetesClusterBackupDatasourceParametersOutput)
+}
+
+func (i BackupInstanceKubernetesClusterBackupDatasourceParametersArgs) ToBackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput() BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput {
+	return i.ToBackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (i BackupInstanceKubernetesClusterBackupDatasourceParametersArgs) ToBackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutputWithContext(ctx context.Context) BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceKubernetesClusterBackupDatasourceParametersOutput).ToBackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutputWithContext(ctx)
+}
+
+// BackupInstanceKubernetesClusterBackupDatasourceParametersPtrInput is an input type that accepts BackupInstanceKubernetesClusterBackupDatasourceParametersArgs, BackupInstanceKubernetesClusterBackupDatasourceParametersPtr and BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput values.
+// You can construct a concrete instance of `BackupInstanceKubernetesClusterBackupDatasourceParametersPtrInput` via:
+//
+//	        BackupInstanceKubernetesClusterBackupDatasourceParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type BackupInstanceKubernetesClusterBackupDatasourceParametersPtrInput interface {
+	pulumi.Input
+
+	ToBackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput() BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput
+	ToBackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutputWithContext(context.Context) BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput
+}
+
+type backupInstanceKubernetesClusterBackupDatasourceParametersPtrType BackupInstanceKubernetesClusterBackupDatasourceParametersArgs
+
+func BackupInstanceKubernetesClusterBackupDatasourceParametersPtr(v *BackupInstanceKubernetesClusterBackupDatasourceParametersArgs) BackupInstanceKubernetesClusterBackupDatasourceParametersPtrInput {
+	return (*backupInstanceKubernetesClusterBackupDatasourceParametersPtrType)(v)
+}
+
+func (*backupInstanceKubernetesClusterBackupDatasourceParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupInstanceKubernetesClusterBackupDatasourceParameters)(nil)).Elem()
+}
+
+func (i *backupInstanceKubernetesClusterBackupDatasourceParametersPtrType) ToBackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput() BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput {
+	return i.ToBackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *backupInstanceKubernetesClusterBackupDatasourceParametersPtrType) ToBackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutputWithContext(ctx context.Context) BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput)
+}
+
+type BackupInstanceKubernetesClusterBackupDatasourceParametersOutput struct{ *pulumi.OutputState }
+
+func (BackupInstanceKubernetesClusterBackupDatasourceParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupInstanceKubernetesClusterBackupDatasourceParameters)(nil)).Elem()
+}
+
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersOutput) ToBackupInstanceKubernetesClusterBackupDatasourceParametersOutput() BackupInstanceKubernetesClusterBackupDatasourceParametersOutput {
+	return o
+}
+
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersOutput) ToBackupInstanceKubernetesClusterBackupDatasourceParametersOutputWithContext(ctx context.Context) BackupInstanceKubernetesClusterBackupDatasourceParametersOutput {
+	return o
+}
+
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersOutput) ToBackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput() BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput {
+	return o.ToBackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersOutput) ToBackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutputWithContext(ctx context.Context) BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupInstanceKubernetesClusterBackupDatasourceParameters) *BackupInstanceKubernetesClusterBackupDatasourceParameters {
+		return &v
+	}).(BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput)
+}
+
+// Whether to include cluster scope resources during backup. Default to `false`. Changing this forces a new resource to be created.
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersOutput) ClusterScopedResourcesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BackupInstanceKubernetesClusterBackupDatasourceParameters) *bool {
+		return v.ClusterScopedResourcesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the namespaces to be excluded during backup. Changing this forces a new resource to be created.
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersOutput) ExcludedNamespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupInstanceKubernetesClusterBackupDatasourceParameters) []string {
+		return v.ExcludedNamespaces
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the resource types to be excluded during backup. Changing this forces a new resource to be created.
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersOutput) ExcludedResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupInstanceKubernetesClusterBackupDatasourceParameters) []string {
+		return v.ExcludedResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the namespaces to be included during backup. Changing this forces a new resource to be created.
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersOutput) IncludedNamespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupInstanceKubernetesClusterBackupDatasourceParameters) []string {
+		return v.IncludedNamespaces
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the resource types to be included during backup. Changing this forces a new resource to be created.
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersOutput) IncludedResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupInstanceKubernetesClusterBackupDatasourceParameters) []string {
+		return v.IncludedResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the resources with such label selectors to be included during backup. Changing this forces a new resource to be created.
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersOutput) LabelSelectors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupInstanceKubernetesClusterBackupDatasourceParameters) []string { return v.LabelSelectors }).(pulumi.StringArrayOutput)
+}
+
+// Whether to take volume snapshots during backup. Default to `false`. Changing this forces a new resource to be created.
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersOutput) VolumeSnapshotEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BackupInstanceKubernetesClusterBackupDatasourceParameters) *bool {
+		return v.VolumeSnapshotEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupInstanceKubernetesClusterBackupDatasourceParameters)(nil)).Elem()
+}
+
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput) ToBackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput() BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput {
+	return o
+}
+
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput) ToBackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutputWithContext(ctx context.Context) BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput {
+	return o
+}
+
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput) Elem() BackupInstanceKubernetesClusterBackupDatasourceParametersOutput {
+	return o.ApplyT(func(v *BackupInstanceKubernetesClusterBackupDatasourceParameters) BackupInstanceKubernetesClusterBackupDatasourceParameters {
+		if v != nil {
+			return *v
+		}
+		var ret BackupInstanceKubernetesClusterBackupDatasourceParameters
+		return ret
+	}).(BackupInstanceKubernetesClusterBackupDatasourceParametersOutput)
+}
+
+// Whether to include cluster scope resources during backup. Default to `false`. Changing this forces a new resource to be created.
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput) ClusterScopedResourcesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BackupInstanceKubernetesClusterBackupDatasourceParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterScopedResourcesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the namespaces to be excluded during backup. Changing this forces a new resource to be created.
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput) ExcludedNamespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackupInstanceKubernetesClusterBackupDatasourceParameters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedNamespaces
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the resource types to be excluded during backup. Changing this forces a new resource to be created.
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput) ExcludedResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackupInstanceKubernetesClusterBackupDatasourceParameters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the namespaces to be included during backup. Changing this forces a new resource to be created.
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput) IncludedNamespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackupInstanceKubernetesClusterBackupDatasourceParameters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedNamespaces
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the resource types to be included during backup. Changing this forces a new resource to be created.
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput) IncludedResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackupInstanceKubernetesClusterBackupDatasourceParameters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the resources with such label selectors to be included during backup. Changing this forces a new resource to be created.
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput) LabelSelectors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackupInstanceKubernetesClusterBackupDatasourceParameters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LabelSelectors
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether to take volume snapshots during backup. Default to `false`. Changing this forces a new resource to be created.
+func (o BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput) VolumeSnapshotEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BackupInstanceKubernetesClusterBackupDatasourceParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSnapshotEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type BackupPolicyDiskRetentionRule struct {
 	// A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
 	Criteria BackupPolicyDiskRetentionRuleCriteria `pulumi:"criteria"`
@@ -329,7 +592,7 @@ func (o BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput) LifeCycles()
 }
 
 type BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle struct {
-	// The type of data store. The only possible value is `OperationalStore`.
+	// The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
 	DataStoreType string `pulumi:"dataStoreType"`
 	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
 	Duration string `pulumi:"duration"`
@@ -347,7 +610,7 @@ type BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleInput interface {
 }
 
 type BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs struct {
-	// The type of data store. The only possible value is `OperationalStore`.
+	// The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
 	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
 	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
 	Duration pulumi.StringInput `pulumi:"duration"`
@@ -404,7 +667,7 @@ func (o BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput) ToBack
 	return o
 }
 
-// The type of data store. The only possible value is `OperationalStore`.
+// The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
 func (o BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput) DataStoreType() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle) string { return v.DataStoreType }).(pulumi.StringOutput)
 }
@@ -651,7 +914,7 @@ func (o BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput) WeeksOfMonths(
 }
 
 type BackupPolicyKubernetesClusterRetentionRuleLifeCycle struct {
-	// The type of data store. The only possible value is `OperationalStore`.
+	// The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
 	DataStoreType string `pulumi:"dataStoreType"`
 	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
 	Duration string `pulumi:"duration"`
@@ -669,7 +932,7 @@ type BackupPolicyKubernetesClusterRetentionRuleLifeCycleInput interface {
 }
 
 type BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs struct {
-	// The type of data store. The only possible value is `OperationalStore`.
+	// The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
 	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
 	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
 	Duration pulumi.StringInput `pulumi:"duration"`
@@ -726,7 +989,7 @@ func (o BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput) ToBackupPolic
 	return o
 }
 
-// The type of data store. The only possible value is `OperationalStore`.
+// The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
 func (o BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput) DataStoreType() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPolicyKubernetesClusterRetentionRuleLifeCycle) string { return v.DataStoreType }).(pulumi.StringOutput)
 }
@@ -1261,6 +1524,8 @@ func (o GetBackupVaultIdentityArrayOutput) Index(i pulumi.IntInput) GetBackupVau
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstanceKubernetesClusterBackupDatasourceParametersInput)(nil)).Elem(), BackupInstanceKubernetesClusterBackupDatasourceParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstanceKubernetesClusterBackupDatasourceParametersPtrInput)(nil)).Elem(), BackupInstanceKubernetesClusterBackupDatasourceParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleCriteriaArgs{})
@@ -1280,6 +1545,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupVaultIdentityPtrInput)(nil)).Elem(), BackupVaultIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBackupVaultIdentityInput)(nil)).Elem(), GetBackupVaultIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBackupVaultIdentityArrayInput)(nil)).Elem(), GetBackupVaultIdentityArray{})
+	pulumi.RegisterOutputType(BackupInstanceKubernetesClusterBackupDatasourceParametersOutput{})
+	pulumi.RegisterOutputType(BackupInstanceKubernetesClusterBackupDatasourceParametersPtrOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleCriteriaOutput{})

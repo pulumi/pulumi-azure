@@ -23,7 +23,7 @@ public final class ClusterApiServerProfile {
      */
     private @Nullable String url;
     /**
-     * @return Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+     * @return Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
      * 
      */
     private String visibility;
@@ -44,7 +44,7 @@ public final class ClusterApiServerProfile {
         return Optional.ofNullable(this.url);
     }
     /**
-     * @return Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+     * @return Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
      * 
      */
     public String visibility() {

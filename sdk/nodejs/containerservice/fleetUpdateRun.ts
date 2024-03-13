@@ -24,9 +24,6 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     name: "example",
  *     resourceGroupName: example.name,
- *     hubProfile: {
- *         dnsPrefix: "example-dns-prefix",
- *     },
  * });
  * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
  *     name: "example",

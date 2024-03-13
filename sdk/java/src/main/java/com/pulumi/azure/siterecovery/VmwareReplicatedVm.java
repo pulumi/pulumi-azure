@@ -161,13 +161,13 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the stroage account that should be used for logging during replication.
      * 
-     * **Note:** Only standard types of storage accounts are allowed.
+     * &gt; **Note:** Only standard types of storage accounts are allowed.
      * 
-     * **Note:** Only one of `default_log_storage_account_id` or `managed_disk` must be specified.
+     * &gt; **Note:** Only one of `default_log_storage_account_id` or `managed_disk` must be specified.
      * 
-     * **Note:** Changing `default_log_storage_account_id` forces a new resource to be created. But removing it does not.
+     * &gt; **Note:** Changing `default_log_storage_account_id` forces a new resource to be created. But removing it does not.
      * 
-     * **Note:** When `default_log_storage_account_id` co-exist with `managed_disk`, the value of `default_log_storage_account_id` must be as same as `log_storage_account_id` of every `managed_disk` or it forces a new resource to be created.
+     * &gt; **Note:** When `default_log_storage_account_id` co-exist with `managed_disk`, the value of `default_log_storage_account_id` must be as same as `log_storage_account_id` of every `managed_disk` or it forces a new resource to be created.
      * 
      */
     @Export(name="defaultLogStorageAccountId", refs={String.class}, tree="[0]")
@@ -176,39 +176,39 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the stroage account that should be used for logging during replication.
      * 
-     * **Note:** Only standard types of storage accounts are allowed.
+     * &gt; **Note:** Only standard types of storage accounts are allowed.
      * 
-     * **Note:** Only one of `default_log_storage_account_id` or `managed_disk` must be specified.
+     * &gt; **Note:** Only one of `default_log_storage_account_id` or `managed_disk` must be specified.
      * 
-     * **Note:** Changing `default_log_storage_account_id` forces a new resource to be created. But removing it does not.
+     * &gt; **Note:** Changing `default_log_storage_account_id` forces a new resource to be created. But removing it does not.
      * 
-     * **Note:** When `default_log_storage_account_id` co-exist with `managed_disk`, the value of `default_log_storage_account_id` must be as same as `log_storage_account_id` of every `managed_disk` or it forces a new resource to be created.
+     * &gt; **Note:** When `default_log_storage_account_id` co-exist with `managed_disk`, the value of `default_log_storage_account_id` must be as same as `log_storage_account_id` of every `managed_disk` or it forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> defaultLogStorageAccountId() {
         return Codegen.optional(this.defaultLogStorageAccountId);
     }
     /**
-     * The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+     * The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
      * 
-     * **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
+     * &gt; **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
      * 
-     * **Note:** Changing `default_recovery_disk_type` forces a new resource to be created. But removing it does not.
+     * &gt; **Note:** Changing `default_recovery_disk_type` forces a new resource to be created. But removing it does not.
      * 
-     * **Note:** When `default_recovery_disk_type` co-exist with `managed_disk`, the value of `default_recovery_disk_type` must be as same as `target_disk_type` of every `managed_disk` or it forces a new resource to be created.
+     * &gt; **Note:** When `default_recovery_disk_type` co-exist with `managed_disk`, the value of `default_recovery_disk_type` must be as same as `target_disk_type` of every `managed_disk` or it forces a new resource to be created.
      * 
      */
     @Export(name="defaultRecoveryDiskType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultRecoveryDiskType;
 
     /**
-     * @return The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+     * @return The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
      * 
-     * **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
+     * &gt; **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
      * 
-     * **Note:** Changing `default_recovery_disk_type` forces a new resource to be created. But removing it does not.
+     * &gt; **Note:** Changing `default_recovery_disk_type` forces a new resource to be created. But removing it does not.
      * 
-     * **Note:** When `default_recovery_disk_type` co-exist with `managed_disk`, the value of `default_recovery_disk_type` must be as same as `target_disk_type` of every `managed_disk` or it forces a new resource to be created.
+     * &gt; **Note:** When `default_recovery_disk_type` co-exist with `managed_disk`, the value of `default_recovery_disk_type` must be as same as `target_disk_type` of every `managed_disk` or it forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> defaultRecoveryDiskType() {
@@ -217,9 +217,9 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
      * 
-     * **Note:** Changing `default_target_disk_encryption_set_id` forces a new resource to be created. But removing it does not.
+     * &gt; **Note:** Changing `default_target_disk_encryption_set_id` forces a new resource to be created. But removing it does not.
      * 
-     * **Note:** When `default_target_disk_encryption_set_id` co-exist with `managed_disk`, the value of `default_target_disk_encryption_set_id` must be as same as `target_disk_encryption_set_id` of every `managed_disk` or it forces a new resource to be created.
+     * &gt; **Note:** When `default_target_disk_encryption_set_id` co-exist with `managed_disk`, the value of `default_target_disk_encryption_set_id` must be as same as `target_disk_encryption_set_id` of every `managed_disk` or it forces a new resource to be created.
      * 
      */
     @Export(name="defaultTargetDiskEncryptionSetId", refs={String.class}, tree="[0]")
@@ -228,9 +228,9 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
      * 
-     * **Note:** Changing `default_target_disk_encryption_set_id` forces a new resource to be created. But removing it does not.
+     * &gt; **Note:** Changing `default_target_disk_encryption_set_id` forces a new resource to be created. But removing it does not.
      * 
-     * **Note:** When `default_target_disk_encryption_set_id` co-exist with `managed_disk`, the value of `default_target_disk_encryption_set_id` must be as same as `target_disk_encryption_set_id` of every `managed_disk` or it forces a new resource to be created.
+     * &gt; **Note:** When `default_target_disk_encryption_set_id` co-exist with `managed_disk`, the value of `default_target_disk_encryption_set_id` must be as same as `target_disk_encryption_set_id` of every `managed_disk` or it forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> defaultTargetDiskEncryptionSetId() {
@@ -253,7 +253,7 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
     /**
      * One or more `managed_disk` block as defined below. It&#39;s available only if mobility service is already installed on the source VM.
      * 
-     * **Note:** A replicated VM could be created without `managed_disk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+     * &gt; **Note:** A replicated VM could be created without `managed_disk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
      * 
      */
     @Export(name="managedDisks", refs={List.class,VmwareReplicatedVmManagedDisk.class}, tree="[0,1]")
@@ -262,21 +262,21 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
     /**
      * @return One or more `managed_disk` block as defined below. It&#39;s available only if mobility service is already installed on the source VM.
      * 
-     * **Note:** A replicated VM could be created without `managed_disk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+     * &gt; **Note:** A replicated VM could be created without `managed_disk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
      * 
      */
     public Output<Optional<List<VmwareReplicatedVmManagedDisk>>> managedDisks() {
         return Codegen.optional(this.managedDisks);
     }
     /**
-     * Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over. Changing this forces a new resource to be created.
+     * Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
      * 
      */
     @Export(name="multiVmGroupName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> multiVmGroupName;
 
     /**
-     * @return Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over. Changing this forces a new resource to be created.
+     * @return Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
      * 
      */
     public Output<Optional<String>> multiVmGroupName() {
@@ -325,28 +325,28 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
         return this.physicalServerCredentialName;
     }
     /**
-     * The ID of the policy to use for this replicated VM. Changing this forces a new resource to be created.
+     * The ID of the policy to use for this replicated VM.
      * 
      */
     @Export(name="recoveryReplicationPolicyId", refs={String.class}, tree="[0]")
     private Output<String> recoveryReplicationPolicyId;
 
     /**
-     * @return The ID of the policy to use for this replicated VM. Changing this forces a new resource to be created.
+     * @return The ID of the policy to use for this replicated VM.
      * 
      */
     public Output<String> recoveryReplicationPolicyId() {
         return this.recoveryReplicationPolicyId;
     }
     /**
-     * The ID of the Recovery Services Vault where the replicated VM is created. Changing this forces a new resource to be created.
+     * The ID of the Recovery Services Vault where the replicated VM is created.
      * 
      */
     @Export(name="recoveryVaultId", refs={String.class}, tree="[0]")
     private Output<String> recoveryVaultId;
 
     /**
-     * @return The ID of the Recovery Services Vault where the replicated VM is created. Changing this forces a new resource to be created.
+     * @return The ID of the Recovery Services Vault where the replicated VM is created.
      * 
      */
     public Output<String> recoveryVaultId() {
@@ -367,14 +367,14 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
         return this.sourceVmName;
     }
     /**
-     * The ID of availability set that the new VM should belong to when a failover is done. Changing this forces a new resource to be created.
+     * The ID of availability set that the new VM should belong to when a failover is done.
      * 
      */
     @Export(name="targetAvailabilitySetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetAvailabilitySetId;
 
     /**
-     * @return The ID of availability set that the new VM should belong to when a failover is done. Changing this forces a new resource to be created.
+     * @return The ID of availability set that the new VM should belong to when a failover is done.
      * 
      */
     public Output<Optional<String>> targetAvailabilitySetId() {
@@ -397,7 +397,7 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
     /**
      * The ID of network to use when a failover is done.
      * 
-     * **Note:** `target_network_id` is required when `network_interface` is specified.
+     * &gt; **Note:** `target_network_id` is required when `network_interface` is specified.
      * 
      */
     @Export(name="targetNetworkId", refs={String.class}, tree="[0]")
@@ -406,7 +406,7 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of network to use when a failover is done.
      * 
-     * **Note:** `target_network_id` is required when `network_interface` is specified.
+     * &gt; **Note:** `target_network_id` is required when `network_interface` is specified.
      * 
      */
     public Output<Optional<String>> targetNetworkId() {
@@ -415,7 +415,7 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
     /**
      * The ID of Proximity Placement Group the new VM should belong to when a failover is done.
      * 
-     * **Note:** Only one of `target_availability_set_id` or `target_zone` can be specified.
+     * &gt; **Note:** Only one of `target_availability_set_id` or `target_zone` can be specified.
      * 
      */
     @Export(name="targetProximityPlacementGroupId", refs={String.class}, tree="[0]")
@@ -424,21 +424,21 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of Proximity Placement Group the new VM should belong to when a failover is done.
      * 
-     * **Note:** Only one of `target_availability_set_id` or `target_zone` can be specified.
+     * &gt; **Note:** Only one of `target_availability_set_id` or `target_zone` can be specified.
      * 
      */
     public Output<Optional<String>> targetProximityPlacementGroupId() {
         return Codegen.optional(this.targetProximityPlacementGroupId);
     }
     /**
-     * The ID of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
+     * The ID of resource group where the VM should be created when a failover is done.
      * 
      */
     @Export(name="targetResourceGroupId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceGroupId;
 
     /**
-     * @return The ID of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
+     * @return The ID of resource group where the VM should be created when a failover is done.
      * 
      */
     public Output<String> targetResourceGroupId() {

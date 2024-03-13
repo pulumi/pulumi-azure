@@ -60,9 +60,6 @@ import (
 //				Name:              pulumi.String("example"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				HubProfile: &containerservice.KubernetesFleetManagerHubProfileArgs{
-//					DnsPrefix: pulumi.String("val-example"),
-//				},
 //			})
 //			if err != nil {
 //				return err

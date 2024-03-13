@@ -21,7 +21,7 @@ class GetFunctionAppHostKeysResult:
     """
     A collection of values returned by getFunctionAppHostKeys.
     """
-    def __init__(__self__, blobs_extension_key=None, default_function_key=None, durabletask_extension_key=None, event_grid_extension_config_key=None, id=None, name=None, primary_key=None, resource_group_name=None, signalr_extension_key=None, webpubsub_extension_key=None):
+    def __init__(__self__, blobs_extension_key=None, default_function_key=None, durabletask_extension_key=None, event_grid_extension_config_key=None, event_grid_extension_key=None, id=None, name=None, primary_key=None, resource_group_name=None, signalr_extension_key=None, webpubsub_extension_key=None):
         if blobs_extension_key and not isinstance(blobs_extension_key, str):
             raise TypeError("Expected argument 'blobs_extension_key' to be a str")
         pulumi.set(__self__, "blobs_extension_key", blobs_extension_key)
@@ -34,6 +34,9 @@ class GetFunctionAppHostKeysResult:
         if event_grid_extension_config_key and not isinstance(event_grid_extension_config_key, str):
             raise TypeError("Expected argument 'event_grid_extension_config_key' to be a str")
         pulumi.set(__self__, "event_grid_extension_config_key", event_grid_extension_config_key)
+        if event_grid_extension_key and not isinstance(event_grid_extension_key, str):
+            raise TypeError("Expected argument 'event_grid_extension_key' to be a str")
+        pulumi.set(__self__, "event_grid_extension_key", event_grid_extension_key)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -84,6 +87,11 @@ class GetFunctionAppHostKeysResult:
         Function App resource's Event Grid Extension Config system key.
         """
         return pulumi.get(self, "event_grid_extension_config_key")
+
+    @property
+    @pulumi.getter(name="eventGridExtensionKey")
+    def event_grid_extension_key(self) -> str:
+        return pulumi.get(self, "event_grid_extension_key")
 
     @property
     @pulumi.getter
@@ -138,6 +146,7 @@ class AwaitableGetFunctionAppHostKeysResult(GetFunctionAppHostKeysResult):
             default_function_key=self.default_function_key,
             durabletask_extension_key=self.durabletask_extension_key,
             event_grid_extension_config_key=self.event_grid_extension_config_key,
+            event_grid_extension_key=self.event_grid_extension_key,
             id=self.id,
             name=self.name,
             primary_key=self.primary_key,
@@ -179,6 +188,7 @@ def get_function_app_host_keys(name: Optional[str] = None,
         default_function_key=pulumi.get(__ret__, 'default_function_key'),
         durabletask_extension_key=pulumi.get(__ret__, 'durabletask_extension_key'),
         event_grid_extension_config_key=pulumi.get(__ret__, 'event_grid_extension_config_key'),
+        event_grid_extension_key=pulumi.get(__ret__, 'event_grid_extension_key'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         primary_key=pulumi.get(__ret__, 'primary_key'),

@@ -109,14 +109,14 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
         return this.issuer;
     }
     /**
-     * Specifies the name of this Federated Identity Credential.
+     * Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of this Federated Identity Credential.
+     * @return Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

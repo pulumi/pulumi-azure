@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerservice.inputs.KubernetesClusterIdentityArgs;
  * import com.pulumi.azure.containerservice.KubernetesFleetManager;
  * import com.pulumi.azure.containerservice.KubernetesFleetManagerArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesFleetManagerHubProfileArgs;
  * import com.pulumi.azure.containerservice.FleetMember;
  * import com.pulumi.azure.containerservice.FleetMemberArgs;
  * import java.util.List;
@@ -76,9 +75,6 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .hubProfile(KubernetesFleetManagerHubProfileArgs.builder()
- *                 .dnsPrefix(&#34;val-example&#34;)
- *                 .build())
  *             .build());
  * 
  *         var exampleFleetMember = new FleetMember(&#34;exampleFleetMember&#34;, FleetMemberArgs.builder()        
