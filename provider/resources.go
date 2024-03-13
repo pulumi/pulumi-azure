@@ -179,6 +179,7 @@ const (
 	azureVoice                 = "Voice"                 // Voice
 	azureWaf                   = "Waf"                   // WAF
 	azureWebPubSub             = "WebPubSub"             // Web PubSub
+	azureWorkloadsSAP          = "WorkloadsSAP"          // Workloads SAP
 
 	// Legacy Module Names
 	azureLegacyRole             = "Role"               // Azure Role (Legacy)
@@ -344,6 +345,7 @@ var moduleMap = map[string]string{
 	"voice":                    azureVoice,
 	"web_application_firewall": azureWaf,
 	"web_pubsub":               azureWebPubSub,
+	"workloads_sap":            azureWorkloadsSAP,
 	"network_function":         azureNetworkFunction,
 	"chaos_studio":             azureChaosStudio,
 	"redhat_openshift":         azureRedHatOpenShift,
@@ -788,6 +790,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_service_environment_v3":               {Tok: azureResource(azureAppService, "EnvironmentV3")},
 			"azurerm_static_site":                              {Tok: azureResource(azureAppService, "StaticSite")},
 			"azurerm_static_site_custom_domain":                {Tok: azureResource(azureAppService, "StaticSiteCustomDomain")},
+			"azurerm_static_web_app":                           {Tok: azureResource(azureAppService, "StaticWebApp")},
+			"azurerm_static_web_app_custom_domain":             {Tok: azureResource(azureAppService, "StaticWebAppCustomDomain")},
 			"azurerm_app_service_public_certificate":           {Tok: azureResource(azureAppService, "PublicCertificate")},
 			"azurerm_app_service_slot_custom_hostname_binding": {Tok: azureResource(azureAppService, "SlotCustomHostnameBinding")},
 			"azurerm_app_service_source_control":               {Tok: azureResource(azureAppService, "SourceControl")},
@@ -2898,8 +2902,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_shared_image_versions":    {Tok: azureDataSource(azureCompute, "getSharedImageVersions")},
 			"azurerm_backup_policy_vm":         {Tok: azureDataSource(azureBackup, "getPolicyVM")},
 			"azurerm_backup_policy_file_share": {Tok: azureDataSource(azureBackup, "getPolicyFileshare")},
-			"azurerm_storage_account":          {Tok: azureDataSource(azureStorage, "getAccount")},
-			"azurerm_storage_account_sas":      {Tok: azureDataSource(azureStorage, "getAccountSAS")},
+
+			"azurerm_static_web_app": {Tok: azureDataSource(azureAppService, "getStaticWebApp")},
+
+			"azurerm_storage_account":     {Tok: azureDataSource(azureStorage, "getAccount")},
+			"azurerm_storage_account_sas": {Tok: azureDataSource(azureStorage, "getAccountSAS")},
 			"azurerm_storage_account_blob_container_sas": {
 				Tok: azureDataSource(azureStorage, "getAccountBlobContainerSAS"),
 			},
