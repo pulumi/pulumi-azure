@@ -52,10 +52,10 @@ index 40c52aa5bd..dab70b9c5c 100644
  
  			"backup_blob_container_uri": {
 diff --git a/internal/services/appservice/helpers/function_app_schema.go b/internal/services/appservice/helpers/function_app_schema.go
-index 0e19ebeeef..27e35b99ba 100644
+index 5ebae00fca..fdeaf47804 100644
 --- a/internal/services/appservice/helpers/function_app_schema.go
 +++ b/internal/services/appservice/helpers/function_app_schema.go
-@@ -1005,10 +1005,11 @@ func linuxFunctionAppStackSchema() *pluginsdk.Schema {
+@@ -1059,10 +1059,11 @@ func linuxFunctionAppStackSchema() *pluginsdk.Schema {
  					Description: "The version of .Net. Possible values are `3.1`, `6.0` and `7.0`",
  				},
  
@@ -69,10 +69,10 @@ index 0e19ebeeef..27e35b99ba 100644
  						"site_config.0.application_stack.0.python_version",
  						"site_config.0.application_stack.0.java_version",
 diff --git a/internal/services/appservice/linux_function_app_slot_resource_test.go b/internal/services/appservice/linux_function_app_slot_resource_test.go
-index c22589ff52..dd6c1aaa4d 100644
+index 7f0051904e..de06d7eda3 100644
 --- a/internal/services/appservice/linux_function_app_slot_resource_test.go
 +++ b/internal/services/appservice/linux_function_app_slot_resource_test.go
-@@ -993,11 +993,21 @@ func TestAccLinuxFunctionAppSlot_identityKeyVaultIdentity(t *testing.T) {
+@@ -1089,11 +1089,21 @@ func TestAccLinuxFunctionAppSlot_identityKeyVaultIdentity(t *testing.T) {
  
  	data.ResourceTest(t, r, []acceptance.TestStep{
  		{
@@ -95,7 +95,7 @@ index c22589ff52..dd6c1aaa4d 100644
  	})
  }
  
-@@ -1042,7 +1052,6 @@ func TestAccLinuxFunctionAppSlot_storageAccountKeyVaultSecret(t *testing.T) {
+@@ -1138,7 +1148,6 @@ func TestAccLinuxFunctionAppSlot_storageAccountKeyVaultSecret(t *testing.T) {
  			Config: r.storageAccountKVSecret(data, SkuStandardPlan),
  			Check: acceptance.ComposeTestCheckFunc(
  				check.That(data.ResourceName).ExistsInAzure(r),
@@ -433,7 +433,7 @@ index d3a87501ae..7294b71876 100644
  
  			"dns_name_label": {
 diff --git a/internal/services/containers/container_registry_resource.go b/internal/services/containers/container_registry_resource.go
-index a506d9b4e3..bf48597849 100644
+index 46644dc374..1a8604d4a8 100644
 --- a/internal/services/containers/container_registry_resource.go
 +++ b/internal/services/containers/container_registry_resource.go
 @@ -7,7 +7,6 @@ import (
@@ -444,7 +444,7 @@ index a506d9b4e3..bf48597849 100644
  	"strings"
  	"time"
  
-@@ -620,11 +619,6 @@ func resourceContainerRegistryRead(d *pluginsdk.ResourceData, meta interface{})
+@@ -607,11 +606,6 @@ func resourceContainerRegistryRead(d *pluginsdk.ResourceData, meta interface{})
  		}
  	}
  
@@ -645,7 +645,7 @@ index b3cb1e5f84..7cb1c42d70 100644
  						"interval_in_seconds": {
  							Type:         pluginsdk.TypeInt,
 diff --git a/internal/services/firewall/firewall_policy_resource.go b/internal/services/firewall/firewall_policy_resource.go
-index 31a7e5d33f..e3cef43845 100644
+index 29d42ef784..f2f9d678ab 100644
 --- a/internal/services/firewall/firewall_policy_resource.go
 +++ b/internal/services/firewall/firewall_policy_resource.go
 @@ -8,6 +8,8 @@ import (
@@ -929,7 +929,7 @@ index 2301102093..b9721d0755 100644
  					},
  				},
 diff --git a/internal/services/loadbalancer/loadbalancer_resource.go b/internal/services/loadbalancer/loadbalancer_resource.go
-index 0b56225df8..b77f4b035c 100644
+index 88ad72fb9d..f9c43c1458 100644
 --- a/internal/services/loadbalancer/loadbalancer_resource.go
 +++ b/internal/services/loadbalancer/loadbalancer_resource.go
 @@ -6,6 +6,7 @@ package loadbalancer
@@ -951,7 +951,7 @@ index 0b56225df8..b77f4b035c 100644
  
  		"sku_tier": {
 diff --git a/internal/services/loadbalancer/nat_pool_resource.go b/internal/services/loadbalancer/nat_pool_resource.go
-index 4cb2090275..45009871bc 100644
+index d07fec653a..2c55900279 100644
 --- a/internal/services/loadbalancer/nat_pool_resource.go
 +++ b/internal/services/loadbalancer/nat_pool_resource.go
 @@ -5,6 +5,7 @@ package loadbalancer
@@ -972,7 +972,7 @@ index 4cb2090275..45009871bc 100644
  
  			"frontend_port_start": {
 diff --git a/internal/services/loadbalancer/nat_rule_resource.go b/internal/services/loadbalancer/nat_rule_resource.go
-index f5e7302547..498a6a8379 100644
+index 773f12d0c5..a3b8822324 100644
 --- a/internal/services/loadbalancer/nat_rule_resource.go
 +++ b/internal/services/loadbalancer/nat_rule_resource.go
 @@ -5,6 +5,7 @@ package loadbalancer
@@ -993,7 +993,7 @@ index f5e7302547..498a6a8379 100644
  
  			"frontend_port": {
 diff --git a/internal/services/loadbalancer/probe_resource.go b/internal/services/loadbalancer/probe_resource.go
-index ea0a79b9a6..addfe7d710 100644
+index 5b4376f28d..ea4551f9ab 100644
 --- a/internal/services/loadbalancer/probe_resource.go
 +++ b/internal/services/loadbalancer/probe_resource.go
 @@ -5,6 +5,7 @@ package loadbalancer
@@ -1014,7 +1014,7 @@ index ea0a79b9a6..addfe7d710 100644
  
  			"port": {
 diff --git a/internal/services/loadbalancer/rule_resource.go b/internal/services/loadbalancer/rule_resource.go
-index 5d3a526959..efecebe015 100644
+index 1ae1e82215..dd88209bf6 100644
 --- a/internal/services/loadbalancer/rule_resource.go
 +++ b/internal/services/loadbalancer/rule_resource.go
 @@ -5,6 +5,7 @@ package loadbalancer
@@ -1264,7 +1264,7 @@ index 2766565528..b7af892e01 100644
  									},
  									"hours": {
 diff --git a/internal/services/mssql/mssql_database_resource.go b/internal/services/mssql/mssql_database_resource.go
-index 2b93ab80aa..eed5cf97f2 100644
+index 6e880faf79..2f8dbd1493 100644
 --- a/internal/services/mssql/mssql_database_resource.go
 +++ b/internal/services/mssql/mssql_database_resource.go
 @@ -6,6 +6,7 @@ package mssql
@@ -1395,7 +1395,7 @@ index 99b9550833..80cfadc5d3 100644
  		},
  
 diff --git a/internal/services/network/application_gateway_resource.go b/internal/services/network/application_gateway_resource.go
-index 0003f0247c..00530893f6 100644
+index f5b8bb0e57..4768418a78 100644
 --- a/internal/services/network/application_gateway_resource.go
 +++ b/internal/services/network/application_gateway_resource.go
 @@ -7,6 +7,8 @@ import (
@@ -1570,11 +1570,11 @@ index 668ca0a8d1..a5531c00ba 100644
  					},
  				},
 diff --git a/internal/services/network/network_security_rule_resource.go b/internal/services/network/network_security_rule_resource.go
-index e9a770c241..4191df28bf 100644
+index d1af54365a..3fb960d1bb 100644
 --- a/internal/services/network/network_security_rule_resource.go
 +++ b/internal/services/network/network_security_rule_resource.go
 @@ -14,7 +14,9 @@ import (
- 	"github.com/hashicorp/go-azure-sdk/resource-manager/network/2023-06-01/securityrules"
+ 	"github.com/hashicorp/go-azure-sdk/resource-manager/network/2023-09-01/securityrules"
  	"github.com/hashicorp/terraform-provider-azurerm/helpers/tf"
  	"github.com/hashicorp/terraform-provider-azurerm/internal/clients"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
@@ -1666,7 +1666,7 @@ index f0f001ff61..d909b00794 100644
  
  			"zones": commonschema.ZonesMultipleOptionalForceNew(),
 diff --git a/internal/services/network/public_ip_resource.go b/internal/services/network/public_ip_resource.go
-index 1722882bf8..a557269a6e 100644
+index de8f303fea..29ece43f39 100644
 --- a/internal/services/network/public_ip_resource.go
 +++ b/internal/services/network/public_ip_resource.go
 @@ -5,6 +5,8 @@ package network
@@ -1709,7 +1709,7 @@ index 1722882bf8..a557269a6e 100644
  
  			"sku_tier": {
 diff --git a/internal/services/network/route_resource.go b/internal/services/network/route_resource.go
-index 73074a0b44..b9cb038d7b 100644
+index 2676be7944..865bfbb836 100644
 --- a/internal/services/network/route_resource.go
 +++ b/internal/services/network/route_resource.go
 @@ -5,6 +5,8 @@ package network
@@ -1732,7 +1732,7 @@ index 73074a0b44..b9cb038d7b 100644
  
  			"next_hop_in_ip_address": {
 diff --git a/internal/services/network/route_table_resource.go b/internal/services/network/route_table_resource.go
-index 0a66c4b7c8..6a6c2912a2 100644
+index 72be88cc09..fa4cfce350 100644
 --- a/internal/services/network/route_table_resource.go
 +++ b/internal/services/network/route_table_resource.go
 @@ -5,6 +5,8 @@ package network
@@ -2036,7 +2036,7 @@ index d68d5963fa..5da4ee2bdc 100644
  
  			"administrator_login": {
 diff --git a/internal/services/recoveryservices/recovery_services_vault_resource.go b/internal/services/recoveryservices/recovery_services_vault_resource.go
-index 29bc9d2710..5ae5f25686 100644
+index 2e968cb727..91ee3db17d 100644
 --- a/internal/services/recoveryservices/recovery_services_vault_resource.go
 +++ b/internal/services/recoveryservices/recovery_services_vault_resource.go
 @@ -10,6 +10,8 @@ import (
@@ -2526,7 +2526,7 @@ index b215edff58..af572b05db 100644
  	if !ok {
  		return fmt.Errorf("could not determine Storage domain suffix for environment %q", meta.(*clients.Client).Account.Environment.Name)
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index b83c2a837e..eab0631cc1 100644
+index cb95fc31c2..26440e1408 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
 @@ -6,6 +6,8 @@ package storage
