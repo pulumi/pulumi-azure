@@ -102,7 +102,7 @@ import (
 //			_, err = authorization.NewAssignment(ctx, "example_storage_account_contrib", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Account Contributor"),
-//				PrincipalId:        *pulumi.String(example.ObjectId),
+//				PrincipalId:        pulumi.String(example.ObjectId),
 //			})
 //			if err != nil {
 //				return err
@@ -110,7 +110,7 @@ import (
 //			_, err = authorization.NewAssignment(ctx, "example_storage_blob_data_contrib", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
-//				PrincipalId:        *pulumi.String(example.ObjectId),
+//				PrincipalId:        pulumi.String(example.ObjectId),
 //			})
 //			if err != nil {
 //				return err

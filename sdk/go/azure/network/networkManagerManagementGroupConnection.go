@@ -44,7 +44,7 @@ import (
 //			}
 //			_, err = management.NewGroupSubscriptionAssociation(ctx, "example", &management.GroupSubscriptionAssociationArgs{
 //				ManagementGroupId: example.ID(),
-//				SubscriptionId:    *pulumi.String(alt.Id),
+//				SubscriptionId:    pulumi.String(alt.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -60,7 +60,7 @@ import (
 //			_, err = authorization.NewAssignment(ctx, "network_contributor", &authorization.AssignmentArgs{
 //				Scope:              example.ID(),
 //				RoleDefinitionName: pulumi.String("Network Contributor"),
-//				PrincipalId:        *pulumi.String(currentGetClientConfig.ObjectId),
+//				PrincipalId:        pulumi.String(currentGetClientConfig.ObjectId),
 //			})
 //			if err != nil {
 //				return err
@@ -78,7 +78,7 @@ import (
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Scope: &network.NetworkManagerScopeArgs{
 //					SubscriptionIds: pulumi.StringArray{
-//						*pulumi.String(current.Id),
+//						pulumi.String(current.Id),
 //					},
 //				},
 //				ScopeAccesses: pulumi.StringArray{
