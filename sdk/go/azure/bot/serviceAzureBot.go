@@ -69,7 +69,7 @@ import (
 //				Name:                              pulumi.String("exampleazurebot"),
 //				ResourceGroupName:                 example.Name,
 //				Location:                          pulumi.String("global"),
-//				MicrosoftAppId:                    *pulumi.String(current.ClientId),
+//				MicrosoftAppId:                    pulumi.String(current.ClientId),
 //				Sku:                               pulumi.String("F0"),
 //				Endpoint:                          pulumi.String("https://example.com"),
 //				DeveloperAppInsightsApiKey:        exampleApiKey.ApiKey,

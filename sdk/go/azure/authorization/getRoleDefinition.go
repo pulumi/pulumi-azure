@@ -36,7 +36,7 @@ import (
 //			customRoleDefinition, err := authorization.NewRoleDefinition(ctx, "custom", &authorization.RoleDefinitionArgs{
 //				RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				Name:             pulumi.String("CustomRoleDef"),
-//				Scope:            *pulumi.String(primary.Id),
+//				Scope:            pulumi.String(primary.Id),
 //			})
 //			if err != nil {
 //				return err

@@ -57,7 +57,7 @@ import (
 //				Name:                    pulumi.String("examplekeyvault"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				TenantId:                *pulumi.String(current.TenantId),
+//				TenantId:                pulumi.String(current.TenantId),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
 //				PurgeProtectionEnabled:  pulumi.Bool(false),
 //				SkuName:                 pulumi.String("standard"),
