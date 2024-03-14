@@ -63,7 +63,7 @@ import (
 //			}
 //			_, err = core.NewResourcePolicyAssignment(ctx, "example", &core.ResourcePolicyAssignmentArgs{
 //				Name:               pulumi.String("example-policy-assignment"),
-//				ResourceId:         *pulumi.String(example.Id),
+//				ResourceId:         pulumi.String(example.Id),
 //				PolicyDefinitionId: exampleDefinition.ID(),
 //			})
 //			if err != nil {
