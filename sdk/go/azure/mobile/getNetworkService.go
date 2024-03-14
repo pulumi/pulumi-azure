@@ -37,7 +37,7 @@ import (
 //			}
 //			_, err = mobile.NewNetworkService(ctx, "example", &mobile.NetworkServiceArgs{
 //				Name:            pulumi.String("example-mns"),
-//				MobileNetworkId: *pulumi.String(example.Id),
+//				MobileNetworkId: pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err
