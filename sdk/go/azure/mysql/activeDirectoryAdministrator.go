@@ -59,8 +59,8 @@ import (
 //				ServerName:        exampleServer.Name,
 //				ResourceGroupName: example.Name,
 //				Login:             pulumi.String("sqladmin"),
-//				TenantId:          *pulumi.String(current.TenantId),
-//				ObjectId:          *pulumi.String(current.ObjectId),
+//				TenantId:          pulumi.String(current.TenantId),
+//				ObjectId:          pulumi.String(current.ObjectId),
 //			})
 //			if err != nil {
 //				return err

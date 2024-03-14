@@ -39,9 +39,9 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewApiPolicy(ctx, "example", &apimanagement.ApiPolicyArgs{
-//				ApiName:           *pulumi.String(example.Name),
-//				ApiManagementName: *pulumi.String(example.ApiManagementName),
-//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
+//				ApiName:           pulumi.String(example.Name),
+//				ApiManagementName: pulumi.String(example.ApiManagementName),
+//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
 //				XmlContent: pulumi.String(`<policies>
 //	  <inbound>
 //	    <find-and-replace from="xyz" to="abc" />

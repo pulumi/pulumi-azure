@@ -57,8 +57,8 @@ import (
 //				Type:                  pulumi.String("AzureServicePrincipal"),
 //				Values: pulumi.StringMap{
 //					"ApplicationId":         pulumi.String("00000000-0000-0000-0000-000000000000"),
-//					"TenantId":              *pulumi.String(example.TenantId),
-//					"SubscriptionId":        *pulumi.String(example.SubscriptionId),
+//					"TenantId":              pulumi.String(example.TenantId),
+//					"SubscriptionId":        pulumi.String(example.SubscriptionId),
 //					"CertificateThumbprint": pulumi.String("sample-certificate-thumbprint"),
 //				},
 //			})
