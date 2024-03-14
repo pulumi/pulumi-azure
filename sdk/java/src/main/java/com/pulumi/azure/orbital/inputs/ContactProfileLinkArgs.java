@@ -17,14 +17,14 @@ public final class ContactProfileLinkArgs extends com.pulumi.resources.ResourceA
     public static final ContactProfileLinkArgs Empty = new ContactProfileLinkArgs();
 
     /**
-     * A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
+     * A list of contact profile link channels. A `channels` block as defined below.
      * 
      */
     @Import(name="channels", required=true)
     private Output<List<ContactProfileLinkChannelArgs>> channels;
 
     /**
-     * @return A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
+     * @return A list of contact profile link channels. A `channels` block as defined below.
      * 
      */
     public Output<List<ContactProfileLinkChannelArgs>> channels() {
@@ -104,7 +104,7 @@ public final class ContactProfileLinkArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param channels A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
+         * @param channels A list of contact profile link channels. A `channels` block as defined below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ContactProfileLinkArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param channels A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
+         * @param channels A list of contact profile link channels. A `channels` block as defined below.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ContactProfileLinkArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param channels A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
+         * @param channels A list of contact profile link channels. A `channels` block as defined below.
          * 
          * @return builder
          * 

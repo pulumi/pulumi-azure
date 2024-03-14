@@ -77,6 +77,10 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
      */
     public readonly catalogInfo!: pulumi.Output<outputs.datafactory.IntegrationRuntimeManagedCatalogInfo | undefined>;
     /**
+     * The name of the credential to use for the Managed Integration Runtime.
+     */
+    public readonly credentialName!: pulumi.Output<string | undefined>;
+    /**
      * A `customSetupScript` block as defined below.
      */
     public readonly customSetupScript!: pulumi.Output<outputs.datafactory.IntegrationRuntimeManagedCustomSetupScript | undefined>;
@@ -135,6 +139,7 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as IntegrationRuntimeManagedState | undefined;
             resourceInputs["catalogInfo"] = state ? state.catalogInfo : undefined;
+            resourceInputs["credentialName"] = state ? state.credentialName : undefined;
             resourceInputs["customSetupScript"] = state ? state.customSetupScript : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -155,6 +160,7 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
                 throw new Error("Missing required property 'nodeSize'");
             }
             resourceInputs["catalogInfo"] = args ? args.catalogInfo : undefined;
+            resourceInputs["credentialName"] = args ? args.credentialName : undefined;
             resourceInputs["customSetupScript"] = args ? args.customSetupScript : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -180,6 +186,10 @@ export interface IntegrationRuntimeManagedState {
      * A `catalogInfo` block as defined below.
      */
     catalogInfo?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedCatalogInfo>;
+    /**
+     * The name of the credential to use for the Managed Integration Runtime.
+     */
+    credentialName?: pulumi.Input<string>;
     /**
      * A `customSetupScript` block as defined below.
      */
@@ -234,6 +244,10 @@ export interface IntegrationRuntimeManagedArgs {
      * A `catalogInfo` block as defined below.
      */
     catalogInfo?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedCatalogInfo>;
+    /**
+     * The name of the credential to use for the Managed Integration Runtime.
+     */
+    credentialName?: pulumi.Input<string>;
     /**
      * A `customSetupScript` block as defined below.
      */

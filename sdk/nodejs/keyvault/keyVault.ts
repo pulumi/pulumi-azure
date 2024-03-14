@@ -93,6 +93,8 @@ export class KeyVault extends pulumi.CustomResource {
      * One or more `contact` block as defined below.
      *
      * > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+     *
+     * > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you'll need to import the `azure.keyvault.CertificateContacts` manually.
      */
     public readonly contacts!: pulumi.Output<outputs.keyvault.KeyVaultContact[] | undefined>;
     /**
@@ -238,6 +240,8 @@ export interface KeyVaultState {
      * One or more `contact` block as defined below.
      *
      * > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+     *
+     * > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you'll need to import the `azure.keyvault.CertificateContacts` manually.
      */
     contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
     /**
@@ -320,6 +324,8 @@ export interface KeyVaultArgs {
      * One or more `contact` block as defined below.
      *
      * > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+     *
+     * > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you'll need to import the `azure.keyvault.CertificateContacts` manually.
      */
     contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
     /**

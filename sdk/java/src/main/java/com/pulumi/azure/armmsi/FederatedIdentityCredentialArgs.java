@@ -47,14 +47,14 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the name of this Federated Identity Credential.
+     * Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of this Federated Identity Credential.
+     * @return Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -178,7 +178,7 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name Specifies the name of this Federated Identity Credential.
+         * @param name Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name Specifies the name of this Federated Identity Credential.
+         * @param name Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

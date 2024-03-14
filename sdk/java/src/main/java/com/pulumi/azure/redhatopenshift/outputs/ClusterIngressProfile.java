@@ -23,7 +23,7 @@ public final class ClusterIngressProfile {
      */
     private @Nullable String name;
     /**
-     * @return Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+     * @return Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
      * 
      */
     private String visibility;
@@ -44,7 +44,7 @@ public final class ClusterIngressProfile {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+     * @return Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
      * 
      */
     public String visibility() {

@@ -24,12 +24,14 @@ class KubernetesFleetManagerArgs:
         """
         The set of arguments for constructing a KubernetesFleetManager resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
-        :param pulumi.Input['KubernetesFleetManagerHubProfileArgs'] hub_profile: A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] location: The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] name: Specifies the name of this Kubernetes Fleet Manager. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Kubernetes Fleet Manager.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if hub_profile is not None:
+            warnings.warn("""The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""", DeprecationWarning)
+            pulumi.log.warn("""hub_profile is deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""")
         if hub_profile is not None:
             pulumi.set(__self__, "hub_profile", hub_profile)
         if location is not None:
@@ -54,9 +56,9 @@ class KubernetesFleetManagerArgs:
     @property
     @pulumi.getter(name="hubProfile")
     def hub_profile(self) -> Optional[pulumi.Input['KubernetesFleetManagerHubProfileArgs']]:
-        """
-        A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
-        """
+        warnings.warn("""The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""", DeprecationWarning)
+        pulumi.log.warn("""hub_profile is deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""")
+
         return pulumi.get(self, "hub_profile")
 
     @hub_profile.setter
@@ -110,12 +112,14 @@ class _KubernetesFleetManagerState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering KubernetesFleetManager resources.
-        :param pulumi.Input['KubernetesFleetManagerHubProfileArgs'] hub_profile: A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] location: The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] name: Specifies the name of this Kubernetes Fleet Manager. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Kubernetes Fleet Manager.
         """
+        if hub_profile is not None:
+            warnings.warn("""The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""", DeprecationWarning)
+            pulumi.log.warn("""hub_profile is deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""")
         if hub_profile is not None:
             pulumi.set(__self__, "hub_profile", hub_profile)
         if location is not None:
@@ -130,9 +134,9 @@ class _KubernetesFleetManagerState:
     @property
     @pulumi.getter(name="hubProfile")
     def hub_profile(self) -> Optional[pulumi.Input['KubernetesFleetManagerHubProfileArgs']]:
-        """
-        A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
-        """
+        warnings.warn("""The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""", DeprecationWarning)
+        pulumi.log.warn("""hub_profile is deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""")
+
         return pulumi.get(self, "hub_profile")
 
     @hub_profile.setter
@@ -250,7 +254,6 @@ class KubernetesFleetManager(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KubernetesFleetManagerHubProfileArgs']] hub_profile: A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] location: The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] name: Specifies the name of this Kubernetes Fleet Manager. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
@@ -369,7 +372,6 @@ class KubernetesFleetManager(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KubernetesFleetManagerHubProfileArgs']] hub_profile: A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] location: The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] name: Specifies the name of this Kubernetes Fleet Manager. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
@@ -389,9 +391,9 @@ class KubernetesFleetManager(pulumi.CustomResource):
     @property
     @pulumi.getter(name="hubProfile")
     def hub_profile(self) -> pulumi.Output[Optional['outputs.KubernetesFleetManagerHubProfile']]:
-        """
-        A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
-        """
+        warnings.warn("""The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""", DeprecationWarning)
+        pulumi.log.warn("""hub_profile is deprecated: The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview""")
+
         return pulumi.get(self, "hub_profile")
 
     @property

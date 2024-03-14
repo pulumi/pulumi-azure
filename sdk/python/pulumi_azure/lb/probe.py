@@ -24,7 +24,7 @@ class ProbeArgs:
                  request_path: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Probe resource.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         :param pulumi.Input[int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         :param pulumi.Input[str] name: Specifies the name of the Probe. Changing this forces a new resource to be created.
@@ -52,7 +52,7 @@ class ProbeArgs:
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> pulumi.Input[str]:
         """
-        The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -160,7 +160,7 @@ class _ProbeState:
         """
         Input properties used for looking up and filtering Probe resources.
         :param pulumi.Input[int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[int] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         :param pulumi.Input[int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
@@ -212,7 +212,7 @@ class _ProbeState:
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -353,7 +353,7 @@ class Probe(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[int] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         :param pulumi.Input[int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
@@ -482,7 +482,7 @@ class Probe(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[int] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         :param pulumi.Input[int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
@@ -522,7 +522,7 @@ class Probe(pulumi.CustomResource):
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> pulumi.Output[str]:
         """
-        The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 

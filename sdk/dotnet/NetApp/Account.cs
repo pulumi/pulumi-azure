@@ -89,7 +89,7 @@ namespace Pulumi.Azure.NetApp
         public Output<Outputs.AccountActiveDirectory?> ActiveDirectory { get; private set; } = null!;
 
         /// <summary>
-        /// The identity block where it is used when customer managed keys based encryption will be enabled.
+        /// The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.NetApp
         public Input<Inputs.AccountActiveDirectoryArgs>? ActiveDirectory { get; set; }
 
         /// <summary>
-        /// The identity block where it is used when customer managed keys based encryption will be enabled.
+        /// The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.NetApp
         public Input<Inputs.AccountActiveDirectoryGetArgs>? ActiveDirectory { get; set; }
 
         /// <summary>
-        /// The identity block where it is used when customer managed keys based encryption will be enabled.
+        /// The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }

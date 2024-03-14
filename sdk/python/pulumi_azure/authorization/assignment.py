@@ -38,7 +38,7 @@ class AssignmentArgs:
                > **NOTE:** this field is only used in cross tenant scenario.
         :param pulumi.Input[str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
                
                > **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         :param pulumi.Input[str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
@@ -160,7 +160,7 @@ class AssignmentArgs:
     @pulumi.getter(name="principalType")
     def principal_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+        The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
 
         > **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         """
@@ -235,7 +235,7 @@ class _AssignmentState:
         :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
                > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
-        :param pulumi.Input[str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
                
                > **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         :param pulumi.Input[str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
@@ -348,7 +348,7 @@ class _AssignmentState:
     @pulumi.getter(name="principalType")
     def principal_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+        The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
 
         > **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         """
@@ -556,7 +556,7 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
                > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
-        :param pulumi.Input[str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
                
                > **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         :param pulumi.Input[str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
@@ -780,7 +780,7 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
                > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
-        :param pulumi.Input[str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
                
                > **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         :param pulumi.Input[str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
@@ -863,7 +863,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter(name="principalType")
     def principal_type(self) -> pulumi.Output[str]:
         """
-        The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+        The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
 
         > **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         """

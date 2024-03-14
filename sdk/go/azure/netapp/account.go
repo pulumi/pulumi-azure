@@ -95,7 +95,7 @@ type Account struct {
 
 	// A `activeDirectory` block as defined below.
 	ActiveDirectory AccountActiveDirectoryPtrOutput `pulumi:"activeDirectory"`
-	// The identity block where it is used when customer managed keys based encryption will be enabled.
+	// The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -142,7 +142,7 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// A `activeDirectory` block as defined below.
 	ActiveDirectory *AccountActiveDirectory `pulumi:"activeDirectory"`
-	// The identity block where it is used when customer managed keys based encryption will be enabled.
+	// The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -157,7 +157,7 @@ type accountState struct {
 type AccountState struct {
 	// A `activeDirectory` block as defined below.
 	ActiveDirectory AccountActiveDirectoryPtrInput
-	// The identity block where it is used when customer managed keys based encryption will be enabled.
+	// The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
 	Identity AccountIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -176,7 +176,7 @@ func (AccountState) ElementType() reflect.Type {
 type accountArgs struct {
 	// A `activeDirectory` block as defined below.
 	ActiveDirectory *AccountActiveDirectory `pulumi:"activeDirectory"`
-	// The identity block where it is used when customer managed keys based encryption will be enabled.
+	// The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -192,7 +192,7 @@ type accountArgs struct {
 type AccountArgs struct {
 	// A `activeDirectory` block as defined below.
 	ActiveDirectory AccountActiveDirectoryPtrInput
-	// The identity block where it is used when customer managed keys based encryption will be enabled.
+	// The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
 	Identity AccountIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -296,7 +296,7 @@ func (o AccountOutput) ActiveDirectory() AccountActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v *Account) AccountActiveDirectoryPtrOutput { return v.ActiveDirectory }).(AccountActiveDirectoryPtrOutput)
 }
 
-// The identity block where it is used when customer managed keys based encryption will be enabled.
+// The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
 func (o AccountOutput) Identity() AccountIdentityPtrOutput {
 	return o.ApplyT(func(v *Account) AccountIdentityPtrOutput { return v.Identity }).(AccountIdentityPtrOutput)
 }

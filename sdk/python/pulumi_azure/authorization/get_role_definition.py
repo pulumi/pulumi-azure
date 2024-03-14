@@ -60,7 +60,7 @@ class GetRoleDefinitionResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        the Description of the built-in Role.
+        The Description of the built-in Role.
         """
         return pulumi.get(self, "description")
 
@@ -81,7 +81,7 @@ class GetRoleDefinitionResult:
     @pulumi.getter
     def permissions(self) -> Sequence['outputs.GetRoleDefinitionPermissionResult']:
         """
-        a `permissions` block as documented below.
+        A `permissions` block as documented below.
         """
         return pulumi.get(self, "permissions")
 
@@ -99,7 +99,7 @@ class GetRoleDefinitionResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        the Type of the Role.
+        The Type of the Role.
         """
         return pulumi.get(self, "type")
 

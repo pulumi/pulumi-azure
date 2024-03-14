@@ -1015,6 +1015,8 @@ class IoTHubSku(dict):
                
                > **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
         :param str name: The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+               
+               > **NOTE:** The `F1` sku is on `Free` tier.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "name", name)
@@ -1034,6 +1036,8 @@ class IoTHubSku(dict):
     def name(self) -> str:
         """
         The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+
+        > **NOTE:** The `F1` sku is on `Free` tier.
         """
         return pulumi.get(self, "name")
 

@@ -276,6 +276,8 @@ if typing.TYPE_CHECKING:
     waf = __waf
     import pulumi_azure.webpubsub as __webpubsub
     webpubsub = __webpubsub
+    import pulumi_azure.workloadssap as __workloadssap
+    workloadssap = __workloadssap
 else:
     aadb2c = _utilities.lazy_import('pulumi_azure.aadb2c')
     advisor = _utilities.lazy_import('pulumi_azure.advisor')
@@ -410,6 +412,7 @@ else:
     voice = _utilities.lazy_import('pulumi_azure.voice')
     waf = _utilities.lazy_import('pulumi_azure.waf')
     webpubsub = _utilities.lazy_import('pulumi_azure.webpubsub')
+    workloadssap = _utilities.lazy_import('pulumi_azure.workloadssap')
 
 _utilities.register(
     resource_modules="""
@@ -1412,6 +1415,22 @@ _utilities.register(
   "fqn": "pulumi_azure.appservice",
   "classes": {
    "azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain": "StaticSiteCustomDomain"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appservice/staticWebApp",
+  "fqn": "pulumi_azure.appservice",
+  "classes": {
+   "azure:appservice/staticWebApp:StaticWebApp": "StaticWebApp"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appservice/staticWebAppCustomDomain",
+  "fqn": "pulumi_azure.appservice",
+  "classes": {
+   "azure:appservice/staticWebAppCustomDomain:StaticWebAppCustomDomain": "StaticWebAppCustomDomain"
   }
  },
  {
@@ -2560,6 +2579,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "containerapp/customDomain",
+  "fqn": "pulumi_azure.containerapp",
+  "classes": {
+   "azure:containerapp/customDomain:CustomDomain": "CustomDomain"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "containerapp/environment",
   "fqn": "pulumi_azure.containerapp",
   "classes": {
@@ -3692,6 +3719,14 @@ _utilities.register(
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
    "azure:dataprotection/backupInstanceDisk:BackupInstanceDisk": "BackupInstanceDisk"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "dataprotection/backupInstanceKubernetesCluster",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster": "BackupInstanceKubernetesCluster"
   }
  },
  {
@@ -9032,6 +9067,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "systemcenter/virtualMachineManagerAvailabilitySet",
+  "fqn": "pulumi_azure.systemcenter",
+  "classes": {
+   "azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet": "VirtualMachineManagerAvailabilitySet"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "systemcenter/virtualMachineManagerServer",
   "fqn": "pulumi_azure.systemcenter",
   "classes": {
@@ -9132,6 +9175,22 @@ _utilities.register(
   "fqn": "pulumi_azure.webpubsub",
   "classes": {
    "azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource": "SharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "workloadssap/singleNodeVirtualInstance",
+  "fqn": "pulumi_azure.workloadssap",
+  "classes": {
+   "azure:workloadssap/singleNodeVirtualInstance:SingleNodeVirtualInstance": "SingleNodeVirtualInstance"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "workloadssap/threeTierVirtualInstance",
+  "fqn": "pulumi_azure.workloadssap",
+  "classes": {
+   "azure:workloadssap/threeTierVirtualInstance:ThreeTierVirtualInstance": "ThreeTierVirtualInstance"
   }
  }
 ]

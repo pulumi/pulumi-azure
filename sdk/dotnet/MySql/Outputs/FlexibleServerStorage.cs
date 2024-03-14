@@ -27,6 +27,8 @@ namespace Pulumi.Azure.MySql.Outputs
         public readonly int? Iops;
         /// <summary>
         /// The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+        /// 
+        /// &gt; **Note:** Decreasing `size_gb` forces a new resource to be created.
         /// </summary>
         public readonly int? SizeGb;
 

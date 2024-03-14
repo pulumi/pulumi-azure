@@ -38,9 +38,6 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     hubProfile: {
- *         dnsPrefix: "val-example",
- *     },
  * });
  * const exampleFleetMember = new azure.containerservice.FleetMember("example", {
  *     kubernetesClusterId: example.id,

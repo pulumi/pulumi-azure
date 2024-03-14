@@ -144,6 +144,12 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("http2Enabled")]
         public Input<bool>? Http2Enabled { get; set; }
 
+        /// <summary>
+        /// The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        /// </summary>
+        [Input("ipRestrictionDefaultAction")]
+        public Input<string>? IpRestrictionDefaultAction { get; set; }
+
         [Input("ipRestrictions")]
         private InputList<Inputs.WindowsFunctionAppSiteConfigIpRestrictionArgs>? _ipRestrictions;
 
@@ -199,6 +205,12 @@ namespace Pulumi.Azure.AppService.Inputs
         /// </summary>
         [Input("runtimeScaleMonitoringEnabled")]
         public Input<bool>? RuntimeScaleMonitoringEnabled { get; set; }
+
+        /// <summary>
+        /// The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        /// </summary>
+        [Input("scmIpRestrictionDefaultAction")]
+        public Input<string>? ScmIpRestrictionDefaultAction { get; set; }
 
         [Input("scmIpRestrictions")]
         private InputList<Inputs.WindowsFunctionAppSiteConfigScmIpRestrictionArgs>? _scmIpRestrictions;

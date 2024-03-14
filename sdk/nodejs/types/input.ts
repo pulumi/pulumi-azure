@@ -5301,6 +5301,10 @@ export namespace appservice {
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: pulumi.Input<string>;
+        /**
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigIpRestriction>[]>;
@@ -5338,6 +5342,10 @@ export namespace appservice {
          * > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
          */
         runtimeScaleMonitoringEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: pulumi.Input<string>;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -5464,6 +5472,10 @@ export namespace appservice {
          */
         action?: pulumi.Input<string>;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
+        /**
          * A `headers` block as defined above.
          */
         headers?: pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigIpRestrictionHeaders>;
@@ -5515,6 +5527,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: pulumi.Input<string>;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
         /**
          * A `headers` block as defined above.
          */
@@ -6277,6 +6293,10 @@ export namespace appservice {
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: pulumi.Input<string>;
+        /**
          * an `ipRestriction` block as detailed below.
          */
         ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSlotSiteConfigIpRestriction>[]>;
@@ -6314,6 +6334,10 @@ export namespace appservice {
          * > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
          */
         runtimeScaleMonitoringEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: pulumi.Input<string>;
         /**
          * a `scmIpRestriction` block as detailed below.
          */
@@ -6440,6 +6464,10 @@ export namespace appservice {
          */
         action?: pulumi.Input<string>;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
+        /**
          * a `headers` block as detailed below.
          */
         headers?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotSiteConfigIpRestrictionHeaders>;
@@ -6491,6 +6519,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: pulumi.Input<string>;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
         /**
          * a `headers` block as detailed below.
          */
@@ -7376,6 +7408,10 @@ export namespace appservice {
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: pulumi.Input<string>;
+        /**
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigIpRestriction>[]>;
@@ -7404,6 +7440,10 @@ export namespace appservice {
          * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: pulumi.Input<string>;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -7619,6 +7659,10 @@ export namespace appservice {
          */
         action?: pulumi.Input<string>;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
+        /**
          * A `headers` block as defined above.
          */
         headers?: pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigIpRestrictionHeaders>;
@@ -7670,6 +7714,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: pulumi.Input<string>;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
         /**
          * A `headers` block as defined above.
          */
@@ -8494,6 +8542,10 @@ export namespace appservice {
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: pulumi.Input<string>;
+        /**
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigIpRestriction>[]>;
@@ -8522,6 +8574,10 @@ export namespace appservice {
          * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: pulumi.Input<string>;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -8737,6 +8793,10 @@ export namespace appservice {
          */
         action?: pulumi.Input<string>;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
+        /**
          * A `headers` block as defined above.
          */
         headers?: pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigIpRestrictionHeaders>;
@@ -8788,6 +8848,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: pulumi.Input<string>;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
         /**
          * A `headers` block as defined above.
          */
@@ -9581,6 +9645,30 @@ export namespace appservice {
         type: pulumi.Input<string>;
     }
 
+    export interface StaticWebAppBasicAuth {
+        /**
+         * The Environment types to use the Basic Auth for access. Possible values include `AllEnvironments` and `StagingEnvironments`.
+         */
+        environments: pulumi.Input<string>;
+        /**
+         * The password for the basic authentication access.
+         */
+        password: pulumi.Input<string>;
+    }
+
+    export interface StaticWebAppIdentity {
+        /**
+         * A list of Managed Identity IDs which should be assigned to this Static Web App resource.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface WindowsFunctionAppAuthSettings {
         /**
          * An `activeDirectory` block as defined above.
@@ -10277,6 +10365,10 @@ export namespace appservice {
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: pulumi.Input<string>;
+        /**
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsFunctionAppSiteConfigIpRestriction>[]>;
@@ -10310,6 +10402,10 @@ export namespace appservice {
          * > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
          */
         runtimeScaleMonitoringEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: pulumi.Input<string>;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -10407,6 +10503,10 @@ export namespace appservice {
          */
         action?: pulumi.Input<string>;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
+        /**
          * A `headers` block as defined above.
          */
         headers?: pulumi.Input<inputs.appservice.WindowsFunctionAppSiteConfigIpRestrictionHeaders>;
@@ -10458,6 +10558,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: pulumi.Input<string>;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
         /**
          * A `headers` block as defined above.
          */
@@ -11212,6 +11316,10 @@ export namespace appservice {
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: pulumi.Input<string>;
+        /**
          * an `ipRestriction` block as detailed below.
          */
         ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsFunctionAppSlotSiteConfigIpRestriction>[]>;
@@ -11245,6 +11353,10 @@ export namespace appservice {
          * > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
          */
         runtimeScaleMonitoringEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: pulumi.Input<string>;
         /**
          * a `scmIpRestriction` block as detailed below.
          */
@@ -11340,6 +11452,10 @@ export namespace appservice {
          */
         action?: pulumi.Input<string>;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
+        /**
          * a `headers` block as detailed below.
          */
         headers?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders>;
@@ -11391,6 +11507,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: pulumi.Input<string>;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
         /**
          * a `headers` block as detailed below.
          */
@@ -12276,6 +12396,10 @@ export namespace appservice {
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: pulumi.Input<string>;
+        /**
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigIpRestriction>[]>;
@@ -12304,6 +12428,10 @@ export namespace appservice {
          * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: pulumi.Input<string>;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -12572,6 +12700,10 @@ export namespace appservice {
          */
         action?: pulumi.Input<string>;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
+        /**
          * A `headers` block as defined above.
          */
         headers?: pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigIpRestrictionHeaders>;
@@ -12623,6 +12755,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: pulumi.Input<string>;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
         /**
          * A `headers` block as defined above.
          */
@@ -13477,6 +13613,10 @@ export namespace appservice {
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: pulumi.Input<string>;
+        /**
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigIpRestriction>[]>;
@@ -13504,6 +13644,10 @@ export namespace appservice {
          * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: pulumi.Input<string>;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -13761,6 +13905,10 @@ export namespace appservice {
          */
         action?: pulumi.Input<string>;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
+        /**
          * A `headers` block as defined above.
          */
         headers?: pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigIpRestrictionHeaders>;
@@ -13812,6 +13960,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: pulumi.Input<string>;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
         /**
          * A `headers` block as defined above.
          */
@@ -21454,6 +21606,8 @@ export namespace containerapp {
         allowInsecureConnections?: pulumi.Input<boolean>;
         /**
          * One or more `customDomain` block as detailed below.
+         *
+         * @deprecated This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.
          */
         customDomain?: pulumi.Input<inputs.containerapp.AppIngressCustomDomain>;
         /**
@@ -25980,7 +26134,6 @@ export namespace dashboard {
         host: pulumi.Input<string>;
         /**
          * Password of SMTP authentication.
-         * *
          */
         password: pulumi.Input<string>;
         /**
@@ -28000,6 +28153,37 @@ export namespace datafactory {
 }
 
 export namespace dataprotection {
+    export interface BackupInstanceKubernetesClusterBackupDatasourceParameters {
+        /**
+         * Whether to include cluster scope resources during backup. Default to `false`. Changing this forces a new resource to be created.
+         */
+        clusterScopedResourcesEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the namespaces to be excluded during backup. Changing this forces a new resource to be created.
+         */
+        excludedNamespaces?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the resource types to be excluded during backup. Changing this forces a new resource to be created.
+         */
+        excludedResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the namespaces to be included during backup. Changing this forces a new resource to be created.
+         */
+        includedNamespaces?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the resource types to be included during backup. Changing this forces a new resource to be created.
+         */
+        includedResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the resources with such label selectors to be included during backup. Changing this forces a new resource to be created.
+         */
+        labelSelectors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether to take volume snapshots during backup. Default to `false`. Changing this forces a new resource to be created.
+         */
+        volumeSnapshotEnabled?: pulumi.Input<boolean>;
+    }
+
     export interface BackupPolicyDiskRetentionRule {
         /**
          * A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
@@ -28035,7 +28219,7 @@ export namespace dataprotection {
 
     export interface BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle {
         /**
-         * The type of data store. The only possible value is `OperationalStore`.
+         * The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
          */
         dataStoreType: pulumi.Input<string>;
         /**
@@ -28088,7 +28272,7 @@ export namespace dataprotection {
 
     export interface BackupPolicyKubernetesClusterRetentionRuleLifeCycle {
         /**
-         * The type of data store. The only possible value is `OperationalStore`.
+         * The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
          */
         dataStoreType: pulumi.Input<string>;
         /**
@@ -34426,6 +34610,8 @@ export namespace iot {
         capacity: pulumi.Input<number>;
         /**
          * The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+         *
+         * > **NOTE:** The `F1` sku is on `Free` tier.
          */
         name: pulumi.Input<string>;
     }
@@ -42303,6 +42489,8 @@ export namespace mysql {
         iops?: pulumi.Input<number>;
         /**
          * The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+         *
+         * > **Note:** Decreasing `sizeGb` forces a new resource to be created.
          */
         sizeGb?: pulumi.Input<number>;
     }
@@ -46399,7 +46587,7 @@ export namespace operationalinsights {
 export namespace orbital {
     export interface ContactProfileLink {
         /**
-         * A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
+         * A list of contact profile link channels. A `channels` block as defined below.
          */
         channels: pulumi.Input<pulumi.Input<inputs.orbital.ContactProfileLinkChannel>[]>;
         /**
@@ -47501,7 +47689,7 @@ export namespace redhatopenshift {
          */
         url?: pulumi.Input<string>;
         /**
-         * Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+         * Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
          */
         visibility: pulumi.Input<string>;
     }
@@ -47539,7 +47727,7 @@ export namespace redhatopenshift {
          */
         name?: pulumi.Input<string>;
         /**
-         * Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+         * Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
          */
         visibility: pulumi.Input<string>;
     }
@@ -47552,7 +47740,7 @@ export namespace redhatopenshift {
         /**
          * Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
          *
-         * **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+         * > **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
          */
         encryptionAtHostEnabled?: pulumi.Input<boolean>;
         /**
@@ -47567,7 +47755,7 @@ export namespace redhatopenshift {
 
     export interface ClusterNetworkProfile {
         /**
-         * The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+         * The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
          */
         outboundType?: pulumi.Input<string>;
         /**
@@ -47605,7 +47793,7 @@ export namespace redhatopenshift {
         /**
          * Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
          *
-         * **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+         * > **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
          */
         encryptionAtHostEnabled?: pulumi.Input<boolean>;
         /**
@@ -49879,7 +50067,7 @@ export namespace siterecovery {
 
     export interface VmwareReplicatedVmManagedDisk {
         /**
-         * The ID of the disk to be replicated. Changing this forces a new resource to be created.
+         * The ID of the disk to be replicated.
          */
         diskId: pulumi.Input<string>;
         /**
@@ -49891,7 +50079,7 @@ export namespace siterecovery {
          */
         targetDiskEncryptionSetId?: pulumi.Input<string>;
         /**
-         * The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+         * The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
          */
         targetDiskType: pulumi.Input<string>;
     }
@@ -52202,5 +52390,648 @@ export namespace webpubsub {
          * Whether the log category `MessagingLogs` is enabled? Defaults to `true`
          */
         messagingLogsEnabled?: pulumi.Input<boolean>;
+    }
+}
+
+export namespace workloadssap {
+    export interface SingleNodeVirtualInstanceIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this SAP Single Node Virtual Instance.
+         */
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of Managed Service Identity that should be configured on this SAP Single Node Virtual Instance. The only possible value is `UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface SingleNodeVirtualInstanceSingleServerConfiguration {
+        appResourceGroupName: pulumi.Input<string>;
+        /**
+         * The supported SAP database type. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
+         */
+        databaseType?: pulumi.Input<string>;
+        /**
+         * One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        diskVolumeConfigurations?: pulumi.Input<pulumi.Input<inputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfiguration>[]>;
+        /**
+         * Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        secondaryIpEnabled?: pulumi.Input<boolean>;
+        /**
+         * The resource ID of the Subnet for the SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
+         */
+        subnetId: pulumi.Input<string>;
+        /**
+         * A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachineConfiguration: pulumi.Input<inputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfiguration>;
+        /**
+         * A `virtualMachineResourceNames` block as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachineResourceNames?: pulumi.Input<inputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNames>;
+    }
+
+    export interface SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfiguration {
+        /**
+         * The total number of disks required for the concerned volume. Possible values are at least `1`. Changing this forces a new resource to be created.
+         */
+        numberOfDisks: pulumi.Input<number>;
+        /**
+         * The size of the Disk in GB. Changing this forces a new resource to be created.
+         */
+        sizeInGb: pulumi.Input<number>;
+        /**
+         * The name of the Disk SKU. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+         */
+        skuName: pulumi.Input<string>;
+        /**
+         * Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+         */
+        volumeName: pulumi.Input<string>;
+    }
+
+    export interface SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfiguration {
+        /**
+         * An `image` block as defined below. Changing this forces a new resource to be created.
+         */
+        image: pulumi.Input<inputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImage>;
+        /**
+         * An `osProfile` block as defined below. Changing this forces a new resource to be created.
+         */
+        osProfile: pulumi.Input<inputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfile>;
+        /**
+         * The size of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        virtualMachineSize: pulumi.Input<string>;
+    }
+
+    export interface SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImage {
+        /**
+         * Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        offer: pulumi.Input<string>;
+        /**
+         * The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
+         */
+        publisher: pulumi.Input<string>;
+        /**
+         * The SKU of the Image. Changing this forces a new resource to be created.
+         */
+        sku: pulumi.Input<string>;
+        /**
+         * Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        version: pulumi.Input<string>;
+    }
+
+    export interface SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfile {
+        /**
+         * The name of the administrator account. Changing this forces a new resource to be created.
+         */
+        adminUsername: pulumi.Input<string>;
+        /**
+         * The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPrivateKey: pulumi.Input<string>;
+        /**
+         * The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPublicKey: pulumi.Input<string>;
+    }
+
+    export interface SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNames {
+        /**
+         * (Optional) One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        dataDisks?: pulumi.Input<pulumi.Input<inputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDisk>[]>;
+        /**
+         * The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        hostName?: pulumi.Input<string>;
+        /**
+         * A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        networkInterfaceNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        osDiskName?: pulumi.Input<string>;
+        /**
+         * The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
+         */
+        virtualMachineName?: pulumi.Input<string>;
+    }
+
+    export interface SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDisk {
+        /**
+         * A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
+         */
+        names: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the Volume. The only possible value is `default`. Changing this forces a new resource to be created.
+         */
+        volumeName: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this SAP Three Tier Virtual Instance.
+         */
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of Managed Service Identity that should be configured on this SAP Three Tier Virtual Instance. Only possible value is `UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfiguration {
+        appResourceGroupName: pulumi.Input<string>;
+        /**
+         * An `applicationServerConfiguration` block as defined below. Changing this forces a new resource to be created.
+         */
+        applicationServerConfiguration: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfiguration>;
+        /**
+         * A `centralServerConfiguration` block as defined below. Changing this forces a new resource to be created.
+         */
+        centralServerConfiguration: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfiguration>;
+        /**
+         * A `databaseServerConfiguration` block as defined below. Changing this forces a new resource to be created.
+         */
+        databaseServerConfiguration: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfiguration>;
+        /**
+         * The high availability type for the three tier configuration. Possible values are `AvailabilitySet` and `AvailabilityZone`. Changing this forces a new resource to be created.
+         */
+        highAvailabilityType?: pulumi.Input<string>;
+        /**
+         * A `resourceNames` block as defined below. Changing this forces a new resource to be created.
+         */
+        resourceNames?: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNames>;
+        /**
+         * Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        secondaryIpEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `transportCreateAndMount` block as defined below. Changing this forces a new resource to be created.
+         *
+         * > **Note:** The file share configuration uses `skip` by default when `transportCreateAndMount` isn't set.
+         *
+         * > **Note:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/25209) where the Storage File Share Id is not defined correctly, it is not currently possible to support using Transport Mount.
+         */
+        transportCreateAndMount?: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMount>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfiguration {
+        /**
+         * The number of instances for the Application Server. Possible values are at least `1`. Changing this forces a new resource to be created.
+         */
+        instanceCount: pulumi.Input<number>;
+        /**
+         * The resource ID of the Subnet for the Application Server. Changing this forces a new resource to be created.
+         */
+        subnetId: pulumi.Input<string>;
+        /**
+         * A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachineConfiguration: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfiguration>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfiguration {
+        /**
+         * An `image` block as defined below. Changing this forces a new resource to be created.
+         */
+        image: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImage>;
+        /**
+         * An `osProfile` block as defined below. Changing this forces a new resource to be created.
+         */
+        osProfile: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfile>;
+        /**
+         * The size of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        virtualMachineSize: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImage {
+        /**
+         * Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        offer: pulumi.Input<string>;
+        /**
+         * The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
+         */
+        publisher: pulumi.Input<string>;
+        /**
+         * The SKU of the Image. Changing this forces a new resource to be created.
+         */
+        sku: pulumi.Input<string>;
+        /**
+         * Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        version: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfile {
+        /**
+         * The name of the administrator account. Changing this forces a new resource to be created.
+         */
+        adminUsername: pulumi.Input<string>;
+        /**
+         * The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPrivateKey: pulumi.Input<string>;
+        /**
+         * The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPublicKey: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfiguration {
+        /**
+         * The number of instances for the Central Server. Possible values are at least `1`. Changing this forces a new resource to be created.
+         */
+        instanceCount: pulumi.Input<number>;
+        /**
+         * The resource ID of the Subnet for the Central Server. Changing this forces a new resource to be created.
+         */
+        subnetId: pulumi.Input<string>;
+        /**
+         * A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachineConfiguration: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfiguration>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfiguration {
+        /**
+         * An `image` block as defined below. Changing this forces a new resource to be created.
+         */
+        image: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImage>;
+        /**
+         * An `osProfile` block as defined below. Changing this forces a new resource to be created.
+         */
+        osProfile: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfile>;
+        /**
+         * The size of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        virtualMachineSize: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImage {
+        /**
+         * Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        offer: pulumi.Input<string>;
+        /**
+         * The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
+         */
+        publisher: pulumi.Input<string>;
+        /**
+         * The SKU of the Image. Changing this forces a new resource to be created.
+         */
+        sku: pulumi.Input<string>;
+        /**
+         * Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        version: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfile {
+        /**
+         * The name of the administrator account. Changing this forces a new resource to be created.
+         */
+        adminUsername: pulumi.Input<string>;
+        /**
+         * The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPrivateKey: pulumi.Input<string>;
+        /**
+         * The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPublicKey: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfiguration {
+        /**
+         * The database type for the Database Server. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
+         */
+        databaseType?: pulumi.Input<string>;
+        /**
+         * One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        diskVolumeConfigurations?: pulumi.Input<pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfiguration>[]>;
+        /**
+         * The number of instances for the Database Server. Possible values are at least `1`. Changing this forces a new resource to be created.
+         */
+        instanceCount: pulumi.Input<number>;
+        /**
+         * The resource ID of the Subnet for the Database Server. Changing this forces a new resource to be created.
+         */
+        subnetId: pulumi.Input<string>;
+        /**
+         * A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachineConfiguration: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfiguration>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfiguration {
+        /**
+         * The total number of disks required for the concerned volume. Possible values are at least `1`. Changing this forces a new resource to be created.
+         */
+        numberOfDisks: pulumi.Input<number>;
+        /**
+         * The size of the Disk in GB. Changing this forces a new resource to be created.
+         */
+        sizeInGb: pulumi.Input<number>;
+        /**
+         * The name of the Disk SKU. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+         */
+        skuName: pulumi.Input<string>;
+        /**
+         * Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+         */
+        volumeName: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfiguration {
+        /**
+         * An `image` block as defined below. Changing this forces a new resource to be created.
+         */
+        image: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImage>;
+        /**
+         * An `osProfile` block as defined below. Changing this forces a new resource to be created.
+         */
+        osProfile: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfile>;
+        /**
+         * The size of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        virtualMachineSize: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImage {
+        /**
+         * Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        offer: pulumi.Input<string>;
+        /**
+         * The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
+         */
+        publisher: pulumi.Input<string>;
+        /**
+         * The SKU of the Image. Changing this forces a new resource to be created.
+         */
+        sku: pulumi.Input<string>;
+        /**
+         * Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        version: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfile {
+        /**
+         * The name of the administrator account. Changing this forces a new resource to be created.
+         */
+        adminUsername: pulumi.Input<string>;
+        /**
+         * The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPrivateKey: pulumi.Input<string>;
+        /**
+         * The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPublicKey: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNames {
+        /**
+         * An `applicationServer` block as defined below. Changing this forces a new resource to be created.
+         */
+        applicationServer?: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServer>;
+        /**
+         * A `centralServer` block as defined below. Changing this forces a new resource to be created.
+         */
+        centralServer?: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServer>;
+        /**
+         * A `databaseServer` block as defined below. Changing this forces a new resource to be created.
+         */
+        databaseServer?: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServer>;
+        /**
+         * A `sharedStorage` block as defined below. Changing this forces a new resource to be created.
+         */
+        sharedStorage?: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorage>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServer {
+        /**
+         * The full name for the availability set. Changing this forces a new resource to be created.
+         */
+        availabilitySetName?: pulumi.Input<string>;
+        /**
+         * One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachines?: pulumi.Input<pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachine>[]>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachine {
+        /**
+         * One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        dataDisks?: pulumi.Input<pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDisk>[]>;
+        /**
+         * The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        hostName?: pulumi.Input<string>;
+        /**
+         * A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        networkInterfaceNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        osDiskName?: pulumi.Input<string>;
+        /**
+         * The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
+         */
+        virtualMachineName?: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDisk {
+        /**
+         * A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
+         */
+        names: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the Volume. Changing this forces a new resource to be created.
+         *
+         * > **Note:** Possible value for Application Server and Central Server is `default`.
+         *
+         * > **Note:** Possible values for Database Server are `hanaData`, `hanaLog`, `hanaShared` and `usrSap`.
+         */
+        volumeName: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServer {
+        /**
+         * The full name for the availability set. Changing this forces a new resource to be created.
+         */
+        availabilitySetName?: pulumi.Input<string>;
+        /**
+         * A `loadBalancer` block as defined below. Changing this forces a new resource to be created.
+         */
+        loadBalancer?: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancer>;
+        /**
+         * One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachines?: pulumi.Input<pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachine>[]>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancer {
+        /**
+         * A list of Backend Pool names for the Load Balancer. Changing this forces a new resource to be created.
+         */
+        backendPoolNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of Frontend IP Configuration names. Changing this forces a new resource to be created.
+         */
+        frontendIpConfigurationNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of Health Probe names. Changing this forces a new resource to be created.
+         */
+        healthProbeNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The full resource name of the Load Balancer. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachine {
+        /**
+         * One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        dataDisks?: pulumi.Input<pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDisk>[]>;
+        /**
+         * The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        hostName?: pulumi.Input<string>;
+        /**
+         * A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        networkInterfaceNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        osDiskName?: pulumi.Input<string>;
+        /**
+         * The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
+         */
+        virtualMachineName?: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDisk {
+        /**
+         * A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
+         */
+        names: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the Volume. Changing this forces a new resource to be created.
+         *
+         * > **Note:** Possible value for Application Server and Central Server is `default`.
+         *
+         * > **Note:** Possible values for Database Server are `hanaData`, `hanaLog`, `hanaShared` and `usrSap`.
+         */
+        volumeName: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServer {
+        /**
+         * The full name for the availability set. Changing this forces a new resource to be created.
+         */
+        availabilitySetName?: pulumi.Input<string>;
+        /**
+         * A `loadBalancer` block as defined below. Changing this forces a new resource to be created.
+         */
+        loadBalancer?: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancer>;
+        /**
+         * One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachines?: pulumi.Input<pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachine>[]>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancer {
+        /**
+         * A list of Backend Pool names for the Load Balancer. Changing this forces a new resource to be created.
+         */
+        backendPoolNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of Frontend IP Configuration names. Changing this forces a new resource to be created.
+         */
+        frontendIpConfigurationNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of Health Probe names. Changing this forces a new resource to be created.
+         */
+        healthProbeNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The full resource name of the Load Balancer. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachine {
+        /**
+         * One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        dataDisks?: pulumi.Input<pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDisk>[]>;
+        /**
+         * The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        hostName?: pulumi.Input<string>;
+        /**
+         * A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        networkInterfaceNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        osDiskName?: pulumi.Input<string>;
+        /**
+         * The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
+         */
+        virtualMachineName?: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDisk {
+        /**
+         * A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
+         */
+        names: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the Volume. Changing this forces a new resource to be created.
+         *
+         * > **Note:** Possible value for Application Server and Central Server is `default`.
+         *
+         * > **Note:** Possible values for Database Server are `hanaData`, `hanaLog`, `hanaShared` and `usrSap`.
+         */
+        volumeName: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorage {
+        /**
+         * The full name of the Shared Storage Account. Changing this forces a new resource to be created.
+         */
+        accountName?: pulumi.Input<string>;
+        /**
+         * The full name of Private Endpoint for the Shared Storage Account. Changing this forces a new resource to be created.
+         */
+        privateEndpointName?: pulumi.Input<string>;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMount {
+        /**
+         * The ID of the Resource Group of the transport File Share. Changing this forces a new resource to be created.
+         */
+        resourceGroupId?: pulumi.Input<string>;
+        /**
+         * The name of the Storage Account of the File Share. Changing this forces a new resource to be created.
+         */
+        storageAccountName?: pulumi.Input<string>;
     }
 }

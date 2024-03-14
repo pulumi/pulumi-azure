@@ -314,7 +314,6 @@ type GrafanaSmtp struct {
 	// SMTP server hostname with port, e.g. test.email.net:587
 	Host string `pulumi:"host"`
 	// Password of SMTP authentication.
-	// *
 	Password string `pulumi:"password"`
 	// Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
 	StartTlsPolicy string `pulumi:"startTlsPolicy"`
@@ -345,7 +344,6 @@ type GrafanaSmtpArgs struct {
 	// SMTP server hostname with port, e.g. test.email.net:587
 	Host pulumi.StringInput `pulumi:"host"`
 	// Password of SMTP authentication.
-	// *
 	Password pulumi.StringInput `pulumi:"password"`
 	// Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
 	StartTlsPolicy pulumi.StringInput `pulumi:"startTlsPolicy"`
@@ -453,7 +451,6 @@ func (o GrafanaSmtpOutput) Host() pulumi.StringOutput {
 }
 
 // Password of SMTP authentication.
-// *
 func (o GrafanaSmtpOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GrafanaSmtp) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -538,7 +535,6 @@ func (o GrafanaSmtpPtrOutput) Host() pulumi.StringPtrOutput {
 }
 
 // Password of SMTP authentication.
-// *
 func (o GrafanaSmtpPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrafanaSmtp) *string {
 		if v == nil {

@@ -103,7 +103,7 @@ type ManagedDatabase struct {
 	ManagedInstanceId pulumi.StringOutput `pulumi:"managedInstanceId"`
 	// The name of the Managed Database to create. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `pointInTimeRestore` block as defined below.
+	// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
 	PointInTimeRestore ManagedDatabasePointInTimeRestorePtrOutput `pulumi:"pointInTimeRestore"`
 	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 	ShortTermRetentionDays pulumi.IntPtrOutput `pulumi:"shortTermRetentionDays"`
@@ -148,7 +148,7 @@ type managedDatabaseState struct {
 	ManagedInstanceId *string `pulumi:"managedInstanceId"`
 	// The name of the Managed Database to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `pointInTimeRestore` block as defined below.
+	// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
 	PointInTimeRestore *ManagedDatabasePointInTimeRestore `pulumi:"pointInTimeRestore"`
 	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 	ShortTermRetentionDays *int `pulumi:"shortTermRetentionDays"`
@@ -161,7 +161,7 @@ type ManagedDatabaseState struct {
 	ManagedInstanceId pulumi.StringPtrInput
 	// The name of the Managed Database to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `pointInTimeRestore` block as defined below.
+	// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
 	PointInTimeRestore ManagedDatabasePointInTimeRestorePtrInput
 	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 	ShortTermRetentionDays pulumi.IntPtrInput
@@ -178,7 +178,7 @@ type managedDatabaseArgs struct {
 	ManagedInstanceId string `pulumi:"managedInstanceId"`
 	// The name of the Managed Database to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `pointInTimeRestore` block as defined below.
+	// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
 	PointInTimeRestore *ManagedDatabasePointInTimeRestore `pulumi:"pointInTimeRestore"`
 	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 	ShortTermRetentionDays *int `pulumi:"shortTermRetentionDays"`
@@ -192,7 +192,7 @@ type ManagedDatabaseArgs struct {
 	ManagedInstanceId pulumi.StringInput
 	// The name of the Managed Database to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `pointInTimeRestore` block as defined below.
+	// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
 	PointInTimeRestore ManagedDatabasePointInTimeRestorePtrInput
 	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 	ShortTermRetentionDays pulumi.IntPtrInput
@@ -302,7 +302,7 @@ func (o ManagedDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `pointInTimeRestore` block as defined below.
+// A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
 func (o ManagedDatabaseOutput) PointInTimeRestore() ManagedDatabasePointInTimeRestorePtrOutput {
 	return o.ApplyT(func(v *ManagedDatabase) ManagedDatabasePointInTimeRestorePtrOutput { return v.PointInTimeRestore }).(ManagedDatabasePointInTimeRestorePtrOutput)
 }

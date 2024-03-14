@@ -35,7 +35,6 @@ public final class GrafanaSmtp {
     private String host;
     /**
      * @return Password of SMTP authentication.
-     * *
      * 
      */
     private String password;
@@ -86,7 +85,6 @@ public final class GrafanaSmtp {
     }
     /**
      * @return Password of SMTP authentication.
-     * *
      * 
      */
     public String password() {

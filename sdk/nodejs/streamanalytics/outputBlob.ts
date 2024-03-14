@@ -104,6 +104,10 @@ export class OutputBlob extends pulumi.CustomResource {
      */
     public readonly batchMinRows!: pulumi.Output<number | undefined>;
     /**
+     * Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+     */
+    public readonly blobWriteMode!: pulumi.Output<string | undefined>;
+    /**
      * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */
     public readonly dateFormat!: pulumi.Output<string>;
@@ -160,6 +164,7 @@ export class OutputBlob extends pulumi.CustomResource {
             resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
             resourceInputs["batchMaxWaitTime"] = state ? state.batchMaxWaitTime : undefined;
             resourceInputs["batchMinRows"] = state ? state.batchMinRows : undefined;
+            resourceInputs["blobWriteMode"] = state ? state.blobWriteMode : undefined;
             resourceInputs["dateFormat"] = state ? state.dateFormat : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["pathPattern"] = state ? state.pathPattern : undefined;
@@ -199,6 +204,7 @@ export class OutputBlob extends pulumi.CustomResource {
             resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
             resourceInputs["batchMaxWaitTime"] = args ? args.batchMaxWaitTime : undefined;
             resourceInputs["batchMinRows"] = args ? args.batchMinRows : undefined;
+            resourceInputs["blobWriteMode"] = args ? args.blobWriteMode : undefined;
             resourceInputs["dateFormat"] = args ? args.dateFormat : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pathPattern"] = args ? args.pathPattern : undefined;
@@ -233,6 +239,10 @@ export interface OutputBlobState {
      * The minimum number of rows per batch (must be between `0` and `1000000`).
      */
     batchMinRows?: pulumi.Input<number>;
+    /**
+     * Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+     */
+    blobWriteMode?: pulumi.Input<string>;
     /**
      * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */
@@ -291,6 +301,10 @@ export interface OutputBlobArgs {
      * The minimum number of rows per batch (must be between `0` and `1000000`).
      */
     batchMinRows?: pulumi.Input<number>;
+    /**
+     * Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+     */
+    blobWriteMode?: pulumi.Input<string>;
     /**
      * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */

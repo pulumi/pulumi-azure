@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Lb
         public Output<ImmutableArray<string>> LoadBalancerRules { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        /// The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         /// </summary>
         [Output("loadbalancerId")]
         public Output<string> LoadbalancerId { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Lb
         public Input<int>? IntervalInSeconds { get; set; }
 
         /// <summary>
-        /// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        /// The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         /// </summary>
         [Input("loadbalancerId", required: true)]
         public Input<string> LoadbalancerId { get; set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.Lb
         }
 
         /// <summary>
-        /// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        /// The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         /// </summary>
         [Input("loadbalancerId")]
         public Input<string>? LoadbalancerId { get; set; }

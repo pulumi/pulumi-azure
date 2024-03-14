@@ -153,6 +153,20 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.batchMinRows);
     }
     /**
+     * Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+     * 
+     */
+    @Export(name="blobWriteMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> blobWriteMode;
+
+    /**
+     * @return Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+     * 
+     */
+    public Output<Optional<String>> blobWriteMode() {
+        return Codegen.optional(this.blobWriteMode);
+    }
+    /**
      * The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
      * 
      */

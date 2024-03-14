@@ -18,6 +18,11 @@ public final class GetWindowsFunctionAppSiteConfigScmIpRestriction {
      * 
      */
     private String action;
+    /**
+     * @return The description of the ip restriction rule.
+     * 
+     */
+    private String description;
     private List<GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader> headers;
     /**
      * @return The CIDR notation of the IP or IP Range to match.
@@ -52,6 +57,13 @@ public final class GetWindowsFunctionAppSiteConfigScmIpRestriction {
      */
     public String action() {
         return this.action;
+    }
+    /**
+     * @return The description of the ip restriction rule.
+     * 
+     */
+    public String description() {
+        return this.description;
     }
     public List<GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader> headers() {
         return this.headers;
@@ -102,6 +114,7 @@ public final class GetWindowsFunctionAppSiteConfigScmIpRestriction {
     @CustomType.Builder
     public static final class Builder {
         private String action;
+        private String description;
         private List<GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader> headers;
         private String ipAddress;
         private String name;
@@ -112,6 +125,7 @@ public final class GetWindowsFunctionAppSiteConfigScmIpRestriction {
         public Builder(GetWindowsFunctionAppSiteConfigScmIpRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
+    	      this.description = defaults.description;
     	      this.headers = defaults.headers;
     	      this.ipAddress = defaults.ipAddress;
     	      this.name = defaults.name;
@@ -126,6 +140,14 @@ public final class GetWindowsFunctionAppSiteConfigScmIpRestriction {
               throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfigScmIpRestriction", "action");
             }
             this.action = action;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(String description) {
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfigScmIpRestriction", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -182,6 +204,7 @@ public final class GetWindowsFunctionAppSiteConfigScmIpRestriction {
         public GetWindowsFunctionAppSiteConfigScmIpRestriction build() {
             final var _resultValue = new GetWindowsFunctionAppSiteConfigScmIpRestriction();
             _resultValue.action = action;
+            _resultValue.description = description;
             _resultValue.headers = headers;
             _resultValue.ipAddress = ipAddress;
             _resultValue.name = name;

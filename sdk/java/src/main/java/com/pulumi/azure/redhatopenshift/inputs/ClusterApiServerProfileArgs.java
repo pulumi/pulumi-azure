@@ -47,14 +47,14 @@ public final class ClusterApiServerProfileArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+     * Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="visibility", required=true)
     private Output<String> visibility;
 
     /**
-     * @return Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+     * @return Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> visibility() {
@@ -130,7 +130,7 @@ public final class ClusterApiServerProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param visibility Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+         * @param visibility Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ClusterApiServerProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param visibility Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+         * @param visibility Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

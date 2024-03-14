@@ -12,6 +12,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCacheRedisConfiguration {
+    /**
+     * @return Specifies if Microsoft Entra (AAD) authentication is enabled.
+     * 
+     */
+    private Boolean activeDirectoryAuthenticationEnabled;
     private Boolean aofBackupEnabled;
     private String aofStorageConnectionString0;
     private String aofStorageConnectionString1;
@@ -70,6 +75,13 @@ public final class GetCacheRedisConfiguration {
     private String storageAccountSubscriptionId;
 
     private GetCacheRedisConfiguration() {}
+    /**
+     * @return Specifies if Microsoft Entra (AAD) authentication is enabled.
+     * 
+     */
+    public Boolean activeDirectoryAuthenticationEnabled() {
+        return this.activeDirectoryAuthenticationEnabled;
+    }
     public Boolean aofBackupEnabled() {
         return this.aofBackupEnabled;
     }
@@ -168,6 +180,7 @@ public final class GetCacheRedisConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean activeDirectoryAuthenticationEnabled;
         private Boolean aofBackupEnabled;
         private String aofStorageConnectionString0;
         private String aofStorageConnectionString1;
@@ -187,6 +200,7 @@ public final class GetCacheRedisConfiguration {
         public Builder() {}
         public Builder(GetCacheRedisConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.activeDirectoryAuthenticationEnabled = defaults.activeDirectoryAuthenticationEnabled;
     	      this.aofBackupEnabled = defaults.aofBackupEnabled;
     	      this.aofStorageConnectionString0 = defaults.aofStorageConnectionString0;
     	      this.aofStorageConnectionString1 = defaults.aofStorageConnectionString1;
@@ -205,6 +219,14 @@ public final class GetCacheRedisConfiguration {
     	      this.storageAccountSubscriptionId = defaults.storageAccountSubscriptionId;
         }
 
+        @CustomType.Setter
+        public Builder activeDirectoryAuthenticationEnabled(Boolean activeDirectoryAuthenticationEnabled) {
+            if (activeDirectoryAuthenticationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "activeDirectoryAuthenticationEnabled");
+            }
+            this.activeDirectoryAuthenticationEnabled = activeDirectoryAuthenticationEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder aofBackupEnabled(Boolean aofBackupEnabled) {
             if (aofBackupEnabled == null) {
@@ -335,6 +357,7 @@ public final class GetCacheRedisConfiguration {
         }
         public GetCacheRedisConfiguration build() {
             final var _resultValue = new GetCacheRedisConfiguration();
+            _resultValue.activeDirectoryAuthenticationEnabled = activeDirectoryAuthenticationEnabled;
             _resultValue.aofBackupEnabled = aofBackupEnabled;
             _resultValue.aofStorageConnectionString0 = aofStorageConnectionString0;
             _resultValue.aofStorageConnectionString1 = aofStorageConnectionString1;

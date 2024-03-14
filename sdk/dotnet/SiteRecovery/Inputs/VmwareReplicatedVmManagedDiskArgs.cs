@@ -13,7 +13,7 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
     public sealed class VmwareReplicatedVmManagedDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the disk to be replicated. Changing this forces a new resource to be created.
+        /// The ID of the disk to be replicated.
         /// </summary>
         [Input("diskId", required: true)]
         public Input<string> DiskId { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         public Input<string>? TargetDiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        /// The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
         /// </summary>
         [Input("targetDiskType", required: true)]
         public Input<string> TargetDiskType { get; set; } = null!;

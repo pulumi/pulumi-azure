@@ -86,7 +86,7 @@ export class KubernetesFleetManager extends pulumi.CustomResource {
     }
 
     /**
-     * A `hubProfile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
+     * @deprecated The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
      */
     public readonly hubProfile!: pulumi.Output<outputs.containerservice.KubernetesFleetManagerHubProfile | undefined>;
     /**
@@ -145,7 +145,7 @@ export class KubernetesFleetManager extends pulumi.CustomResource {
  */
 export interface KubernetesFleetManagerState {
     /**
-     * A `hubProfile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
+     * @deprecated The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
      */
     hubProfile?: pulumi.Input<inputs.containerservice.KubernetesFleetManagerHubProfile>;
     /**
@@ -171,7 +171,7 @@ export interface KubernetesFleetManagerState {
  */
 export interface KubernetesFleetManagerArgs {
     /**
-     * A `hubProfile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
+     * @deprecated The service team has indicated this field is now deprecated and not to be used, as such we are marking it as such and no longer sending it to the API, please see url: https://learn.microsoft.com/en-us/azure/kubernetes-fleet/architectural-overview
      */
     hubProfile?: pulumi.Input<inputs.containerservice.KubernetesFleetManagerHubProfile>;
     /**

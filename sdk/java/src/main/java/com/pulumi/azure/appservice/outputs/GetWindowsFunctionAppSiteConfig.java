@@ -104,6 +104,11 @@ public final class GetWindowsFunctionAppSiteConfig {
      */
     private Boolean http2Enabled;
     /**
+     * @return The Default action for traffic that does not match any `ip_restriction` rule.
+     * 
+     */
+    private String ipRestrictionDefaultAction;
+    /**
      * @return One or more `ip_restriction` blocks as defined above.
      * 
      */
@@ -143,6 +148,11 @@ public final class GetWindowsFunctionAppSiteConfig {
      * 
      */
     private Boolean runtimeScaleMonitoringEnabled;
+    /**
+     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule.
+     * 
+     */
+    private String scmIpRestrictionDefaultAction;
     /**
      * @return One or more `scm_ip_restriction` blocks as defined above.
      * 
@@ -310,6 +320,13 @@ public final class GetWindowsFunctionAppSiteConfig {
         return this.http2Enabled;
     }
     /**
+     * @return The Default action for traffic that does not match any `ip_restriction` rule.
+     * 
+     */
+    public String ipRestrictionDefaultAction() {
+        return this.ipRestrictionDefaultAction;
+    }
+    /**
      * @return One or more `ip_restriction` blocks as defined above.
      * 
      */
@@ -364,6 +381,13 @@ public final class GetWindowsFunctionAppSiteConfig {
      */
     public Boolean runtimeScaleMonitoringEnabled() {
         return this.runtimeScaleMonitoringEnabled;
+    }
+    /**
+     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule.
+     * 
+     */
+    public String scmIpRestrictionDefaultAction() {
+        return this.scmIpRestrictionDefaultAction;
     }
     /**
      * @return One or more `scm_ip_restriction` blocks as defined above.
@@ -455,6 +479,7 @@ public final class GetWindowsFunctionAppSiteConfig {
         private Integer healthCheckEvictionTimeInMin;
         private String healthCheckPath;
         private Boolean http2Enabled;
+        private String ipRestrictionDefaultAction;
         private List<GetWindowsFunctionAppSiteConfigIpRestriction> ipRestrictions;
         private String loadBalancingMode;
         private String managedPipelineMode;
@@ -463,6 +488,7 @@ public final class GetWindowsFunctionAppSiteConfig {
         private Boolean remoteDebuggingEnabled;
         private String remoteDebuggingVersion;
         private Boolean runtimeScaleMonitoringEnabled;
+        private String scmIpRestrictionDefaultAction;
         private List<GetWindowsFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
         private String scmMinimumTlsVersion;
         private String scmType;
@@ -492,6 +518,7 @@ public final class GetWindowsFunctionAppSiteConfig {
     	      this.healthCheckEvictionTimeInMin = defaults.healthCheckEvictionTimeInMin;
     	      this.healthCheckPath = defaults.healthCheckPath;
     	      this.http2Enabled = defaults.http2Enabled;
+    	      this.ipRestrictionDefaultAction = defaults.ipRestrictionDefaultAction;
     	      this.ipRestrictions = defaults.ipRestrictions;
     	      this.loadBalancingMode = defaults.loadBalancingMode;
     	      this.managedPipelineMode = defaults.managedPipelineMode;
@@ -500,6 +527,7 @@ public final class GetWindowsFunctionAppSiteConfig {
     	      this.remoteDebuggingEnabled = defaults.remoteDebuggingEnabled;
     	      this.remoteDebuggingVersion = defaults.remoteDebuggingVersion;
     	      this.runtimeScaleMonitoringEnabled = defaults.runtimeScaleMonitoringEnabled;
+    	      this.scmIpRestrictionDefaultAction = defaults.scmIpRestrictionDefaultAction;
     	      this.scmIpRestrictions = defaults.scmIpRestrictions;
     	      this.scmMinimumTlsVersion = defaults.scmMinimumTlsVersion;
     	      this.scmType = defaults.scmType;
@@ -660,6 +688,14 @@ public final class GetWindowsFunctionAppSiteConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder ipRestrictionDefaultAction(String ipRestrictionDefaultAction) {
+            if (ipRestrictionDefaultAction == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfig", "ipRestrictionDefaultAction");
+            }
+            this.ipRestrictionDefaultAction = ipRestrictionDefaultAction;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ipRestrictions(List<GetWindowsFunctionAppSiteConfigIpRestriction> ipRestrictions) {
             if (ipRestrictions == null) {
               throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfig", "ipRestrictions");
@@ -724,6 +760,14 @@ public final class GetWindowsFunctionAppSiteConfig {
               throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfig", "runtimeScaleMonitoringEnabled");
             }
             this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scmIpRestrictionDefaultAction(String scmIpRestrictionDefaultAction) {
+            if (scmIpRestrictionDefaultAction == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfig", "scmIpRestrictionDefaultAction");
+            }
+            this.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             return this;
         }
         @CustomType.Setter
@@ -820,6 +864,7 @@ public final class GetWindowsFunctionAppSiteConfig {
             _resultValue.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
             _resultValue.healthCheckPath = healthCheckPath;
             _resultValue.http2Enabled = http2Enabled;
+            _resultValue.ipRestrictionDefaultAction = ipRestrictionDefaultAction;
             _resultValue.ipRestrictions = ipRestrictions;
             _resultValue.loadBalancingMode = loadBalancingMode;
             _resultValue.managedPipelineMode = managedPipelineMode;
@@ -828,6 +873,7 @@ public final class GetWindowsFunctionAppSiteConfig {
             _resultValue.remoteDebuggingEnabled = remoteDebuggingEnabled;
             _resultValue.remoteDebuggingVersion = remoteDebuggingVersion;
             _resultValue.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            _resultValue.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             _resultValue.scmIpRestrictions = scmIpRestrictions;
             _resultValue.scmMinimumTlsVersion = scmMinimumTlsVersion;
             _resultValue.scmType = scmType;

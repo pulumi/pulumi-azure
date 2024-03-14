@@ -59,6 +59,7 @@ class ManagedInstanceArgs:
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. Defaults to `GRS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] zone_redundant_enabled: Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
         """
         pulumi.set(__self__, "administrator_login", administrator_login)
         pulumi.set(__self__, "administrator_login_password", administrator_login_password)
@@ -338,6 +339,9 @@ class ManagedInstanceArgs:
     @property
     @pulumi.getter(name="zoneRedundantEnabled")
     def zone_redundant_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+        """
         return pulumi.get(self, "zone_redundant_enabled")
 
     @zone_redundant_enabled.setter
@@ -395,6 +399,7 @@ class _ManagedInstanceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vcores: Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
+        :param pulumi.Input[bool] zone_redundant_enabled: Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
         """
         if administrator_login is not None:
             pulumi.set(__self__, "administrator_login", administrator_login)
@@ -710,6 +715,9 @@ class _ManagedInstanceState:
     @property
     @pulumi.getter(name="zoneRedundantEnabled")
     def zone_redundant_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+        """
         return pulumi.get(self, "zone_redundant_enabled")
 
     @zone_redundant_enabled.setter
@@ -945,6 +953,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vcores: Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
+        :param pulumi.Input[bool] zone_redundant_enabled: Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
         """
         ...
     @overload
@@ -1279,6 +1288,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vcores: Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
+        :param pulumi.Input[bool] zone_redundant_enabled: Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1488,5 +1498,8 @@ class ManagedInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="zoneRedundantEnabled")
     def zone_redundant_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+        """
         return pulumi.get(self, "zone_redundant_enabled")
 

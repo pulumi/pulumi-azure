@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:containerapp/app:App":
 		r = &App{}
+	case "azure:containerapp/customDomain:CustomDomain":
+		r = &CustomDomain{}
 	case "azure:containerapp/environment:Environment":
 		r = &Environment{}
 	case "azure:containerapp/environmentCertificate:EnvironmentCertificate":
@@ -47,6 +49,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"containerapp/app",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"containerapp/customDomain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

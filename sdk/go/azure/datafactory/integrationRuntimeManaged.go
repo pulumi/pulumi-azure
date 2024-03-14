@@ -75,6 +75,8 @@ type IntegrationRuntimeManaged struct {
 
 	// A `catalogInfo` block as defined below.
 	CatalogInfo IntegrationRuntimeManagedCatalogInfoPtrOutput `pulumi:"catalogInfo"`
+	// The name of the credential to use for the Managed Integration Runtime.
+	CredentialName pulumi.StringPtrOutput `pulumi:"credentialName"`
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeManagedCustomSetupScriptPtrOutput `pulumi:"customSetupScript"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -137,6 +139,8 @@ func GetIntegrationRuntimeManaged(ctx *pulumi.Context,
 type integrationRuntimeManagedState struct {
 	// A `catalogInfo` block as defined below.
 	CatalogInfo *IntegrationRuntimeManagedCatalogInfo `pulumi:"catalogInfo"`
+	// The name of the credential to use for the Managed Integration Runtime.
+	CredentialName *string `pulumi:"credentialName"`
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript *IntegrationRuntimeManagedCustomSetupScript `pulumi:"customSetupScript"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -164,6 +168,8 @@ type integrationRuntimeManagedState struct {
 type IntegrationRuntimeManagedState struct {
 	// A `catalogInfo` block as defined below.
 	CatalogInfo IntegrationRuntimeManagedCatalogInfoPtrInput
+	// The name of the credential to use for the Managed Integration Runtime.
+	CredentialName pulumi.StringPtrInput
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeManagedCustomSetupScriptPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -195,6 +201,8 @@ func (IntegrationRuntimeManagedState) ElementType() reflect.Type {
 type integrationRuntimeManagedArgs struct {
 	// A `catalogInfo` block as defined below.
 	CatalogInfo *IntegrationRuntimeManagedCatalogInfo `pulumi:"catalogInfo"`
+	// The name of the credential to use for the Managed Integration Runtime.
+	CredentialName *string `pulumi:"credentialName"`
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript *IntegrationRuntimeManagedCustomSetupScript `pulumi:"customSetupScript"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -223,6 +231,8 @@ type integrationRuntimeManagedArgs struct {
 type IntegrationRuntimeManagedArgs struct {
 	// A `catalogInfo` block as defined below.
 	CatalogInfo IntegrationRuntimeManagedCatalogInfoPtrInput
+	// The name of the credential to use for the Managed Integration Runtime.
+	CredentialName pulumi.StringPtrInput
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeManagedCustomSetupScriptPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -337,6 +347,11 @@ func (o IntegrationRuntimeManagedOutput) ToIntegrationRuntimeManagedOutputWithCo
 // A `catalogInfo` block as defined below.
 func (o IntegrationRuntimeManagedOutput) CatalogInfo() IntegrationRuntimeManagedCatalogInfoPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeManaged) IntegrationRuntimeManagedCatalogInfoPtrOutput { return v.CatalogInfo }).(IntegrationRuntimeManagedCatalogInfoPtrOutput)
+}
+
+// The name of the credential to use for the Managed Integration Runtime.
+func (o IntegrationRuntimeManagedOutput) CredentialName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeManaged) pulumi.StringPtrOutput { return v.CredentialName }).(pulumi.StringPtrOutput)
 }
 
 // A `customSetupScript` block as defined below.

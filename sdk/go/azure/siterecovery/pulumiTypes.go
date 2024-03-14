@@ -3384,13 +3384,13 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrayOutput) Index(
 }
 
 type VmwareReplicatedVmManagedDisk struct {
-	// The ID of the disk to be replicated. Changing this forces a new resource to be created.
+	// The ID of the disk to be replicated.
 	DiskId string `pulumi:"diskId"`
 	// The ID of the storage account that should be used for logging during replication.
 	LogStorageAccountId *string `pulumi:"logStorageAccountId"`
 	// The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
 	TargetDiskEncryptionSetId *string `pulumi:"targetDiskEncryptionSetId"`
-	// The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	// The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
 	TargetDiskType string `pulumi:"targetDiskType"`
 }
 
@@ -3406,13 +3406,13 @@ type VmwareReplicatedVmManagedDiskInput interface {
 }
 
 type VmwareReplicatedVmManagedDiskArgs struct {
-	// The ID of the disk to be replicated. Changing this forces a new resource to be created.
+	// The ID of the disk to be replicated.
 	DiskId pulumi.StringInput `pulumi:"diskId"`
 	// The ID of the storage account that should be used for logging during replication.
 	LogStorageAccountId pulumi.StringPtrInput `pulumi:"logStorageAccountId"`
 	// The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
 	TargetDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"targetDiskEncryptionSetId"`
-	// The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	// The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
 	TargetDiskType pulumi.StringInput `pulumi:"targetDiskType"`
 }
 
@@ -3467,7 +3467,7 @@ func (o VmwareReplicatedVmManagedDiskOutput) ToVmwareReplicatedVmManagedDiskOutp
 	return o
 }
 
-// The ID of the disk to be replicated. Changing this forces a new resource to be created.
+// The ID of the disk to be replicated.
 func (o VmwareReplicatedVmManagedDiskOutput) DiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v VmwareReplicatedVmManagedDisk) string { return v.DiskId }).(pulumi.StringOutput)
 }
@@ -3482,7 +3482,7 @@ func (o VmwareReplicatedVmManagedDiskOutput) TargetDiskEncryptionSetId() pulumi.
 	return o.ApplyT(func(v VmwareReplicatedVmManagedDisk) *string { return v.TargetDiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
-// The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+// The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
 func (o VmwareReplicatedVmManagedDiskOutput) TargetDiskType() pulumi.StringOutput {
 	return o.ApplyT(func(v VmwareReplicatedVmManagedDisk) string { return v.TargetDiskType }).(pulumi.StringOutput)
 }

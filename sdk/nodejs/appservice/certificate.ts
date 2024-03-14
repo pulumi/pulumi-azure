@@ -98,7 +98,15 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly issuer!: pulumi.Output<string>;
     /**
+     * The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
+     */
+    public readonly keyVaultId!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
     public readonly keyVaultSecretId!: pulumi.Output<string | undefined>;
     /**
@@ -116,7 +124,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
+     * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
     public readonly pfxBlob!: pulumi.Output<string | undefined>;
     /**
@@ -158,6 +166,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["hostingEnvironmentProfileId"] = state ? state.hostingEnvironmentProfileId : undefined;
             resourceInputs["issueDate"] = state ? state.issueDate : undefined;
             resourceInputs["issuer"] = state ? state.issuer : undefined;
+            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             resourceInputs["keyVaultSecretId"] = state ? state.keyVaultSecretId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -173,6 +182,7 @@ export class Certificate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
+            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             resourceInputs["keyVaultSecretId"] = args ? args.keyVaultSecretId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -229,7 +239,15 @@ export interface CertificateState {
      */
     issuer?: pulumi.Input<string>;
     /**
+     * The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
+     */
+    keyVaultId?: pulumi.Input<string>;
+    /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
     keyVaultSecretId?: pulumi.Input<string>;
     /**
@@ -247,7 +265,7 @@ export interface CertificateState {
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
+     * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
     pfxBlob?: pulumi.Input<string>;
     /**
@@ -279,7 +297,15 @@ export interface CertificateArgs {
      */
     appServicePlanId?: pulumi.Input<string>;
     /**
+     * The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
+     */
+    keyVaultId?: pulumi.Input<string>;
+    /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
     keyVaultSecretId?: pulumi.Input<string>;
     /**
@@ -297,7 +323,7 @@ export interface CertificateArgs {
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
+     * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
     pfxBlob?: pulumi.Input<string>;
     /**

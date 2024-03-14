@@ -19,6 +19,11 @@ public final class GetLinuxFunctionAppSiteConfigScmIpRestriction {
      */
     private String action;
     /**
+     * @return The description of the ip restriction rule.
+     * 
+     */
+    private String description;
+    /**
      * @return A `headers` block as defined above.
      * 
      */
@@ -56,6 +61,13 @@ public final class GetLinuxFunctionAppSiteConfigScmIpRestriction {
      */
     public String action() {
         return this.action;
+    }
+    /**
+     * @return The description of the ip restriction rule.
+     * 
+     */
+    public String description() {
+        return this.description;
     }
     /**
      * @return A `headers` block as defined above.
@@ -110,6 +122,7 @@ public final class GetLinuxFunctionAppSiteConfigScmIpRestriction {
     @CustomType.Builder
     public static final class Builder {
         private String action;
+        private String description;
         private List<GetLinuxFunctionAppSiteConfigScmIpRestrictionHeader> headers;
         private String ipAddress;
         private String name;
@@ -120,6 +133,7 @@ public final class GetLinuxFunctionAppSiteConfigScmIpRestriction {
         public Builder(GetLinuxFunctionAppSiteConfigScmIpRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
+    	      this.description = defaults.description;
     	      this.headers = defaults.headers;
     	      this.ipAddress = defaults.ipAddress;
     	      this.name = defaults.name;
@@ -134,6 +148,14 @@ public final class GetLinuxFunctionAppSiteConfigScmIpRestriction {
               throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigScmIpRestriction", "action");
             }
             this.action = action;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(String description) {
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigScmIpRestriction", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -190,6 +212,7 @@ public final class GetLinuxFunctionAppSiteConfigScmIpRestriction {
         public GetLinuxFunctionAppSiteConfigScmIpRestriction build() {
             final var _resultValue = new GetLinuxFunctionAppSiteConfigScmIpRestriction();
             _resultValue.action = action;
+            _resultValue.description = description;
             _resultValue.headers = headers;
             _resultValue.ipAddress = ipAddress;
             _resultValue.name = name;

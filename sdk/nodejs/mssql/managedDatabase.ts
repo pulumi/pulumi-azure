@@ -98,7 +98,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `pointInTimeRestore` block as defined below.
+     * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly pointInTimeRestore!: pulumi.Output<outputs.mssql.ManagedDatabasePointInTimeRestore | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface ManagedDatabaseState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `pointInTimeRestore` block as defined below.
+     * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
      */
     pointInTimeRestore?: pulumi.Input<inputs.mssql.ManagedDatabasePointInTimeRestore>;
     /**
@@ -183,7 +183,7 @@ export interface ManagedDatabaseArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `pointInTimeRestore` block as defined below.
+     * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
      */
     pointInTimeRestore?: pulumi.Input<inputs.mssql.ManagedDatabasePointInTimeRestore>;
     /**

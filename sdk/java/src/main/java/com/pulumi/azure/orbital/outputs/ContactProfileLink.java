@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class ContactProfileLink {
     /**
-     * @return A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
+     * @return A list of contact profile link channels. A `channels` block as defined below.
      * 
      */
     private List<ContactProfileLinkChannel> channels;
@@ -35,7 +35,7 @@ public final class ContactProfileLink {
 
     private ContactProfileLink() {}
     /**
-     * @return A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
+     * @return A list of contact profile link channels. A `channels` block as defined below.
      * 
      */
     public List<ContactProfileLinkChannel> channels() {

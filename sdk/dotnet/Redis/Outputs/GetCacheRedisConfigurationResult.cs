@@ -13,6 +13,10 @@ namespace Pulumi.Azure.Redis.Outputs
     [OutputType]
     public sealed class GetCacheRedisConfigurationResult
     {
+        /// <summary>
+        /// Specifies if Microsoft Entra (AAD) authentication is enabled.
+        /// </summary>
+        public readonly bool ActiveDirectoryAuthenticationEnabled;
         public readonly bool AofBackupEnabled;
         public readonly string AofStorageConnectionString0;
         public readonly string AofStorageConnectionString1;
@@ -62,6 +66,8 @@ namespace Pulumi.Azure.Redis.Outputs
 
         [OutputConstructor]
         private GetCacheRedisConfigurationResult(
+            bool activeDirectoryAuthenticationEnabled,
+
             bool aofBackupEnabled,
 
             string aofStorageConnectionString0,
@@ -94,6 +100,7 @@ namespace Pulumi.Azure.Redis.Outputs
 
             string storageAccountSubscriptionId)
         {
+            ActiveDirectoryAuthenticationEnabled = activeDirectoryAuthenticationEnabled;
             AofBackupEnabled = aofBackupEnabled;
             AofStorageConnectionString0 = aofStorageConnectionString0;
             AofStorageConnectionString1 = aofStorageConnectionString1;

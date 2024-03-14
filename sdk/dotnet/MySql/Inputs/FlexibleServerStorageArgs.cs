@@ -32,6 +32,8 @@ namespace Pulumi.Azure.MySql.Inputs
 
         /// <summary>
         /// The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+        /// 
+        /// &gt; **Note:** Decreasing `size_gb` forces a new resource to be created.
         /// </summary>
         [Input("sizeGb")]
         public Input<int>? SizeGb { get; set; }

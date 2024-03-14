@@ -79,7 +79,6 @@ public final class GrafanaSmtpArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Password of SMTP authentication.
-     * *
      * 
      */
     @Import(name="password", required=true)
@@ -87,7 +86,6 @@ public final class GrafanaSmtpArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Password of SMTP authentication.
-     * *
      * 
      */
     public Output<String> password() {
@@ -256,7 +254,6 @@ public final class GrafanaSmtpArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param password Password of SMTP authentication.
-         * *
          * 
          * @return builder
          * 
@@ -268,7 +265,6 @@ public final class GrafanaSmtpArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param password Password of SMTP authentication.
-         * *
          * 
          * @return builder
          * 

@@ -237,14 +237,14 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return this.namespaceName;
     }
     /**
-     * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
+     * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="requiresDuplicateDetection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requiresDuplicateDetection;
 
     /**
-     * @return Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
+     * @return Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> requiresDuplicateDetection() {

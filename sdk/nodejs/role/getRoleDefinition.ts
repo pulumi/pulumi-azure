@@ -82,7 +82,7 @@ export interface GetRoleDefinitionResult {
      */
     readonly assignableScopes: string[];
     /**
-     * the Description of the built-in Role.
+     * The Description of the built-in Role.
      */
     readonly description: string;
     /**
@@ -91,13 +91,13 @@ export interface GetRoleDefinitionResult {
     readonly id: string;
     readonly name: string;
     /**
-     * a `permissions` block as documented below.
+     * A `permissions` block as documented below.
      */
     readonly permissions: outputs.role.GetRoleDefinitionPermission[];
     readonly roleDefinitionId: string;
     readonly scope?: string;
     /**
-     * the Type of the Role.
+     * The Type of the Role.
      */
     readonly type: string;
 }

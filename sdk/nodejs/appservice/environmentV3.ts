@@ -164,6 +164,9 @@ export class EnvironmentV3 extends pulumi.CustomResource {
      * Pricing tier for the front end instances.
      */
     public /*out*/ readonly pricingTier!: pulumi.Output<string>;
+    /**
+     * Whether to enable remote debug. Defaults to `false`.
+     */
     public readonly remoteDebuggingEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
@@ -310,6 +313,9 @@ export interface EnvironmentV3State {
      * Pricing tier for the front end instances.
      */
     pricingTier?: pulumi.Input<string>;
+    /**
+     * Whether to enable remote debug. Defaults to `false`.
+     */
     remoteDebuggingEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
@@ -360,6 +366,9 @@ export interface EnvironmentV3Args {
      * The name of the App Service Environment. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether to enable remote debug. Defaults to `false`.
+     */
     remoteDebuggingEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.

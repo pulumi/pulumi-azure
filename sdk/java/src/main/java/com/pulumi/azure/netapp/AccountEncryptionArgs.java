@@ -17,14 +17,14 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
     public static final AccountEncryptionArgs Empty = new AccountEncryptionArgs();
 
     /**
-     * The versionless encryption key url.
+     * Specify the versionless ID of the encryption key.
      * 
      */
     @Import(name="encryptionKey", required=true)
     private Output<String> encryptionKey;
 
     /**
-     * @return The versionless encryption key url.
+     * @return Specify the versionless ID of the encryption key.
      * 
      */
     public Output<String> encryptionKey() {
@@ -104,7 +104,7 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param encryptionKey The versionless encryption key url.
+         * @param encryptionKey Specify the versionless ID of the encryption key.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param encryptionKey The versionless encryption key url.
+         * @param encryptionKey Specify the versionless ID of the encryption key.
          * 
          * @return builder
          * 

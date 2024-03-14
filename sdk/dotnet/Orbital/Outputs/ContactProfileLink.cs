@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Orbital.Outputs
     public sealed class ContactProfileLink
     {
         /// <summary>
-        /// A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
+        /// A list of contact profile link channels. A `channels` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContactProfileLinkChannel> Channels;
         /// <summary>

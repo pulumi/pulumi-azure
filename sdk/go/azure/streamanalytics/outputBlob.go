@@ -106,6 +106,8 @@ type OutputBlob struct {
 	BatchMaxWaitTime pulumi.StringPtrOutput `pulumi:"batchMaxWaitTime"`
 	// The minimum number of rows per batch (must be between `0` and `1000000`).
 	BatchMinRows pulumi.IntPtrOutput `pulumi:"batchMinRows"`
+	// Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+	BlobWriteMode pulumi.StringPtrOutput `pulumi:"blobWriteMode"`
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat pulumi.StringOutput `pulumi:"dateFormat"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -195,6 +197,8 @@ type outputBlobState struct {
 	BatchMaxWaitTime *string `pulumi:"batchMaxWaitTime"`
 	// The minimum number of rows per batch (must be between `0` and `1000000`).
 	BatchMinRows *int `pulumi:"batchMinRows"`
+	// Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+	BlobWriteMode *string `pulumi:"blobWriteMode"`
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat *string `pulumi:"dateFormat"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -224,6 +228,8 @@ type OutputBlobState struct {
 	BatchMaxWaitTime pulumi.StringPtrInput
 	// The minimum number of rows per batch (must be between `0` and `1000000`).
 	BatchMinRows pulumi.IntPtrInput
+	// Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+	BlobWriteMode pulumi.StringPtrInput
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat pulumi.StringPtrInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -257,6 +263,8 @@ type outputBlobArgs struct {
 	BatchMaxWaitTime *string `pulumi:"batchMaxWaitTime"`
 	// The minimum number of rows per batch (must be between `0` and `1000000`).
 	BatchMinRows *int `pulumi:"batchMinRows"`
+	// Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+	BlobWriteMode *string `pulumi:"blobWriteMode"`
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat string `pulumi:"dateFormat"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -287,6 +295,8 @@ type OutputBlobArgs struct {
 	BatchMaxWaitTime pulumi.StringPtrInput
 	// The minimum number of rows per batch (must be between `0` and `1000000`).
 	BatchMinRows pulumi.IntPtrInput
+	// Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+	BlobWriteMode pulumi.StringPtrInput
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat pulumi.StringInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -409,6 +419,11 @@ func (o OutputBlobOutput) BatchMaxWaitTime() pulumi.StringPtrOutput {
 // The minimum number of rows per batch (must be between `0` and `1000000`).
 func (o OutputBlobOutput) BatchMinRows() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OutputBlob) pulumi.IntPtrOutput { return v.BatchMinRows }).(pulumi.IntPtrOutput)
+}
+
+// Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+func (o OutputBlobOutput) BlobWriteMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputBlob) pulumi.StringPtrOutput { return v.BlobWriteMode }).(pulumi.StringPtrOutput)
 }
 
 // The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.

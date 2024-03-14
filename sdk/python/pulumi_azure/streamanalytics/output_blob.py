@@ -27,6 +27,7 @@ class OutputBlobArgs:
                  authentication_mode: Optional[pulumi.Input[str]] = None,
                  batch_max_wait_time: Optional[pulumi.Input[str]] = None,
                  batch_min_rows: Optional[pulumi.Input[int]] = None,
+                 blob_write_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_account_key: Optional[pulumi.Input[str]] = None):
         """
@@ -42,6 +43,7 @@ class OutputBlobArgs:
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] batch_max_wait_time: The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
         :param pulumi.Input[int] batch_min_rows: The minimum number of rows per batch (must be between `0` and `1000000`).
+        :param pulumi.Input[str] blob_write_mode: Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_key: The Access Key which should be used to connect to this Storage Account.
         """
@@ -59,6 +61,8 @@ class OutputBlobArgs:
             pulumi.set(__self__, "batch_max_wait_time", batch_max_wait_time)
         if batch_min_rows is not None:
             pulumi.set(__self__, "batch_min_rows", batch_min_rows)
+        if blob_write_mode is not None:
+            pulumi.set(__self__, "blob_write_mode", blob_write_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if storage_account_key is not None:
@@ -197,6 +201,18 @@ class OutputBlobArgs:
         pulumi.set(self, "batch_min_rows", value)
 
     @property
+    @pulumi.getter(name="blobWriteMode")
+    def blob_write_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+        """
+        return pulumi.get(self, "blob_write_mode")
+
+    @blob_write_mode.setter
+    def blob_write_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blob_write_mode", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -227,6 +243,7 @@ class _OutputBlobState:
                  authentication_mode: Optional[pulumi.Input[str]] = None,
                  batch_max_wait_time: Optional[pulumi.Input[str]] = None,
                  batch_min_rows: Optional[pulumi.Input[int]] = None,
+                 blob_write_mode: Optional[pulumi.Input[str]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
@@ -242,6 +259,7 @@ class _OutputBlobState:
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] batch_max_wait_time: The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
         :param pulumi.Input[int] batch_min_rows: The minimum number of rows per batch (must be between `0` and `1000000`).
+        :param pulumi.Input[str] blob_write_mode: Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
         :param pulumi.Input[str] date_format: The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
@@ -259,6 +277,8 @@ class _OutputBlobState:
             pulumi.set(__self__, "batch_max_wait_time", batch_max_wait_time)
         if batch_min_rows is not None:
             pulumi.set(__self__, "batch_min_rows", batch_min_rows)
+        if blob_write_mode is not None:
+            pulumi.set(__self__, "blob_write_mode", blob_write_mode)
         if date_format is not None:
             pulumi.set(__self__, "date_format", date_format)
         if name is not None:
@@ -315,6 +335,18 @@ class _OutputBlobState:
     @batch_min_rows.setter
     def batch_min_rows(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "batch_min_rows", value)
+
+    @property
+    @pulumi.getter(name="blobWriteMode")
+    def blob_write_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+        """
+        return pulumi.get(self, "blob_write_mode")
+
+    @blob_write_mode.setter
+    def blob_write_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blob_write_mode", value)
 
     @property
     @pulumi.getter(name="dateFormat")
@@ -445,6 +477,7 @@ class OutputBlob(pulumi.CustomResource):
                  authentication_mode: Optional[pulumi.Input[str]] = None,
                  batch_max_wait_time: Optional[pulumi.Input[str]] = None,
                  batch_min_rows: Optional[pulumi.Input[int]] = None,
+                 blob_write_mode: Optional[pulumi.Input[str]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
@@ -512,6 +545,7 @@ class OutputBlob(pulumi.CustomResource):
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] batch_max_wait_time: The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
         :param pulumi.Input[int] batch_min_rows: The minimum number of rows per batch (must be between `0` and `1000000`).
+        :param pulumi.Input[str] blob_write_mode: Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
         :param pulumi.Input[str] date_format: The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
@@ -598,6 +632,7 @@ class OutputBlob(pulumi.CustomResource):
                  authentication_mode: Optional[pulumi.Input[str]] = None,
                  batch_max_wait_time: Optional[pulumi.Input[str]] = None,
                  batch_min_rows: Optional[pulumi.Input[int]] = None,
+                 blob_write_mode: Optional[pulumi.Input[str]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
@@ -620,6 +655,7 @@ class OutputBlob(pulumi.CustomResource):
             __props__.__dict__["authentication_mode"] = authentication_mode
             __props__.__dict__["batch_max_wait_time"] = batch_max_wait_time
             __props__.__dict__["batch_min_rows"] = batch_min_rows
+            __props__.__dict__["blob_write_mode"] = blob_write_mode
             if date_format is None and not opts.urn:
                 raise TypeError("Missing required property 'date_format'")
             __props__.__dict__["date_format"] = date_format
@@ -661,6 +697,7 @@ class OutputBlob(pulumi.CustomResource):
             authentication_mode: Optional[pulumi.Input[str]] = None,
             batch_max_wait_time: Optional[pulumi.Input[str]] = None,
             batch_min_rows: Optional[pulumi.Input[int]] = None,
+            blob_write_mode: Optional[pulumi.Input[str]] = None,
             date_format: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             path_pattern: Optional[pulumi.Input[str]] = None,
@@ -681,6 +718,7 @@ class OutputBlob(pulumi.CustomResource):
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[str] batch_max_wait_time: The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
         :param pulumi.Input[int] batch_min_rows: The minimum number of rows per batch (must be between `0` and `1000000`).
+        :param pulumi.Input[str] blob_write_mode: Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
         :param pulumi.Input[str] date_format: The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
@@ -699,6 +737,7 @@ class OutputBlob(pulumi.CustomResource):
         __props__.__dict__["authentication_mode"] = authentication_mode
         __props__.__dict__["batch_max_wait_time"] = batch_max_wait_time
         __props__.__dict__["batch_min_rows"] = batch_min_rows
+        __props__.__dict__["blob_write_mode"] = blob_write_mode
         __props__.__dict__["date_format"] = date_format
         __props__.__dict__["name"] = name
         __props__.__dict__["path_pattern"] = path_pattern
@@ -734,6 +773,14 @@ class OutputBlob(pulumi.CustomResource):
         The minimum number of rows per batch (must be between `0` and `1000000`).
         """
         return pulumi.get(self, "batch_min_rows")
+
+    @property
+    @pulumi.getter(name="blobWriteMode")
+    def blob_write_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
+        """
+        return pulumi.get(self, "blob_write_mode")
 
     @property
     @pulumi.getter(name="dateFormat")

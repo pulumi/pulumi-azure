@@ -186,10 +186,10 @@ index 96e5faf55a..8d6316a6e8 100644
  
  * `parameter_values` - The parameter values for the referenced policy rule. This field is a JSON object.
 diff --git a/website/docs/d/redis_cache.html.markdown b/website/docs/d/redis_cache.html.markdown
-index d9f34055f6..df3d50e65f 100644
+index 511a4ef999..8e6ea72f51 100644
 --- a/website/docs/d/redis_cache.html.markdown
 +++ b/website/docs/d/redis_cache.html.markdown
-@@ -106,10 +106,10 @@ A `redis_configuration` block exports the following:
+@@ -108,10 +108,10 @@ A `redis_configuration` block exports the following:
  
  * `rdb_storage_connection_string` - The Connection String to the Storage Account. Only supported for Premium SKUs.
  
@@ -572,7 +572,7 @@ index 25e53059a0..b2f7684482 100644
  
  * `min_tls_version` - (Optional) The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
 diff --git a/website/docs/r/app_service_certificate.html.markdown b/website/docs/r/app_service_certificate.html.markdown
-index 716b583a3f..944b7ec8aa 100644
+index 6cd2598464..c8510b1c99 100644
 --- a/website/docs/r/app_service_certificate.html.markdown
 +++ b/website/docs/r/app_service_certificate.html.markdown
 @@ -13,7 +13,7 @@ Manages an App Service certificate.
@@ -593,12 +593,12 @@ index 716b583a3f..944b7ec8aa 100644
  }
  ```
  
-@@ -52,7 +52,7 @@ The following arguments are supported:
+@@ -54,7 +54,7 @@ The following arguments are supported:
  
- * `key_vault_secret_id` - (Optional) The ID of the Key Vault secret. Changing this forces a new resource to be created.
+ -> **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
  
 --> **NOTE:** If using `key_vault_secret_id`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret -> get' and 'Certificate -> get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use Terraform to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
-+-> **NOTE:** If using `key_vault_secret_id`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret -> get' and 'Certificate -> get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
++-> **NOTE:** If using `key_vault_secret_id`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret -> get' and 'Certificate -> get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provider to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
  
  ```hcl
  data "azuread_service_principal" "MicrosoftWebApp" {
@@ -1255,7 +1255,7 @@ index 3798b59a70..c2978eedbe 100644
    dashboard_properties = templatefile("dash.tpl",
      {
 diff --git a/website/docs/r/data_factory_integration_runtime_managed.html.markdown b/website/docs/r/data_factory_integration_runtime_managed.html.markdown
-index 84ed192318..ec1ae8c598 100644
+index 20581a02c2..392d3276c0 100644
 --- a/website/docs/r/data_factory_integration_runtime_managed.html.markdown
 +++ b/website/docs/r/data_factory_integration_runtime_managed.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -1645,7 +1645,7 @@ index bf47c3b7ca..373f58d791 100644
  
  ---
 diff --git a/website/docs/r/iothub.html.markdown b/website/docs/r/iothub.html.markdown
-index 024a2288d5..d85113feb7 100644
+index 5d11b28af1..80aed3083f 100644
 --- a/website/docs/r/iothub.html.markdown
 +++ b/website/docs/r/iothub.html.markdown
 @@ -161,6 +161,10 @@ The following arguments are supported:
@@ -1659,7 +1659,7 @@ index 024a2288d5..d85113feb7 100644
  * `route` - (Optional) A `route` block as defined below.
  
  * `enrichment` - (Optional) A `enrichment` block as defined below.
-@@ -249,6 +253,26 @@ A `ip_rule` block supports the following:
+@@ -251,6 +255,26 @@ A `ip_rule` block supports the following:
  
  ---
  
@@ -1700,7 +1700,7 @@ index d9c71a1023..c1c041691e 100644
    eventhub_endpoint_name = "events"
    resource_group_name    = azurerm_resource_group.example.name
 diff --git a/website/docs/r/key_vault.html.markdown b/website/docs/r/key_vault.html.markdown
-index 65204e9ba3..3bb018c43a 100644
+index 9413715a49..1b5b764080 100644
 --- a/website/docs/r/key_vault.html.markdown
 +++ b/website/docs/r/key_vault.html.markdown
 @@ -12,11 +12,9 @@ Manages a Key Vault.
@@ -1799,7 +1799,7 @@ index c6387f8e37..10ac1d0ad4 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index f7534ac9d8..6f6e8ab542 100644
+index 242667b00f..e6dfc6efef 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1876,7 +1876,7 @@ index f7534ac9d8..6f6e8ab542 100644
  
  The `ingress_application_gateway` block exports the following:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index 0332c256cc..15836121d0 100644
+index fdfd41a556..a2c1af2326 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,13 +10,11 @@ description: |-
@@ -2672,7 +2672,7 @@ index 6d9c021a59..194133d93b 100644
  }
  
 diff --git a/website/docs/r/servicebus_topic.html.markdown b/website/docs/r/servicebus_topic.html.markdown
-index bba0acba5e..28e07f7e10 100644
+index bc2d0ee559..09479a7627 100644
 --- a/website/docs/r/servicebus_topic.html.markdown
 +++ b/website/docs/r/servicebus_topic.html.markdown
 @@ -27,7 +27,7 @@ resource "azurerm_servicebus_namespace" "example" {

@@ -89,7 +89,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly activeDirectory!: pulumi.Output<outputs.netapp.AccountActiveDirectory | undefined>;
     /**
-     * The identity block where it is used when customer managed keys based encryption will be enabled.
+     * The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.netapp.AccountIdentity | undefined>;
     /**
@@ -154,7 +154,7 @@ export interface AccountState {
      */
     activeDirectory?: pulumi.Input<inputs.netapp.AccountActiveDirectory>;
     /**
-     * The identity block where it is used when customer managed keys based encryption will be enabled.
+     * The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
      */
     identity?: pulumi.Input<inputs.netapp.AccountIdentity>;
     /**
@@ -184,7 +184,7 @@ export interface AccountArgs {
      */
     activeDirectory?: pulumi.Input<inputs.netapp.AccountActiveDirectory>;
     /**
-     * The identity block where it is used when customer managed keys based encryption will be enabled.
+     * The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
      */
     identity?: pulumi.Input<inputs.netapp.AccountIdentity>;
     /**

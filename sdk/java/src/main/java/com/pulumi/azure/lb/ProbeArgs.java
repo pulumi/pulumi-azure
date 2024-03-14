@@ -33,14 +33,14 @@ public final class ProbeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+     * The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="loadbalancerId", required=true)
     private Output<String> loadbalancerId;
 
     /**
-     * @return The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+     * @return The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> loadbalancerId() {
@@ -190,7 +190,7 @@ public final class ProbeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadbalancerId The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+         * @param loadbalancerId The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ProbeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadbalancerId The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+         * @param loadbalancerId The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

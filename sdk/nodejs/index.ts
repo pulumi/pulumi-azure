@@ -148,6 +148,7 @@ import * as videoanalyzer from "./videoanalyzer";
 import * as voice from "./voice";
 import * as waf from "./waf";
 import * as webpubsub from "./webpubsub";
+import * as workloadssap from "./workloadssap";
 
 export {
     aadb2c,
@@ -284,6 +285,7 @@ export {
     voice,
     waf,
     webpubsub,
+    workloadssap,
 };
 pulumi.runtime.registerResourcePackage("azure", {
     version: utilities.getVersion(),

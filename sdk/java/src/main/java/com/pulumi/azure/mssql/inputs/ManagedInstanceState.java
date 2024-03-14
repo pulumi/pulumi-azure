@@ -349,9 +349,17 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.vcores);
     }
 
+    /**
+     * Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+     * 
+     */
     @Import(name="zoneRedundantEnabled")
     private @Nullable Output<Boolean> zoneRedundantEnabled;
 
+    /**
+     * @return Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> zoneRedundantEnabled() {
         return Optional.ofNullable(this.zoneRedundantEnabled);
     }
@@ -864,11 +872,23 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
             return vcores(Output.of(vcores));
         }
 
+        /**
+         * @param zoneRedundantEnabled Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zoneRedundantEnabled(@Nullable Output<Boolean> zoneRedundantEnabled) {
             $.zoneRedundantEnabled = zoneRedundantEnabled;
             return this;
         }
 
+        /**
+         * @param zoneRedundantEnabled Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zoneRedundantEnabled(Boolean zoneRedundantEnabled) {
             return zoneRedundantEnabled(Output.of(zoneRedundantEnabled));
         }

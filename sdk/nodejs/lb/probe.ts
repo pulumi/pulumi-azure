@@ -85,7 +85,7 @@ export class Probe extends pulumi.CustomResource {
     public readonly intervalInSeconds!: pulumi.Output<number | undefined>;
     public /*out*/ readonly loadBalancerRules!: pulumi.Output<string[]>;
     /**
-     * The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+     * The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
      */
     public readonly loadbalancerId!: pulumi.Output<string>;
     /**
@@ -168,7 +168,7 @@ export interface ProbeState {
     intervalInSeconds?: pulumi.Input<number>;
     loadBalancerRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+     * The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
      */
     loadbalancerId?: pulumi.Input<string>;
     /**
@@ -206,7 +206,7 @@ export interface ProbeArgs {
      */
     intervalInSeconds?: pulumi.Input<number>;
     /**
-     * The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+     * The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
      */
     loadbalancerId: pulumi.Input<string>;
     /**

@@ -96,9 +96,17 @@ public final class EnvironmentV3Args extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Whether to enable remote debug. Defaults to `false`.
+     * 
+     */
     @Import(name="remoteDebuggingEnabled")
     private @Nullable Output<Boolean> remoteDebuggingEnabled;
 
+    /**
+     * @return Whether to enable remote debug. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> remoteDebuggingEnabled() {
         return Optional.ofNullable(this.remoteDebuggingEnabled);
     }
@@ -315,11 +323,23 @@ public final class EnvironmentV3Args extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param remoteDebuggingEnabled Whether to enable remote debug. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remoteDebuggingEnabled(@Nullable Output<Boolean> remoteDebuggingEnabled) {
             $.remoteDebuggingEnabled = remoteDebuggingEnabled;
             return this;
         }
 
+        /**
+         * @param remoteDebuggingEnabled Whether to enable remote debug. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remoteDebuggingEnabled(Boolean remoteDebuggingEnabled) {
             return remoteDebuggingEnabled(Output.of(remoteDebuggingEnabled));
         }

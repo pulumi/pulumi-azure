@@ -14,6 +14,117 @@ namespace Pulumi.Azure.NetApp
     /// 
     /// For more information about Azure NetApp Files Customer-Managed Keys feature, please refer to [Configure customer-managed keys for Azure NetApp Files volume encryption](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-customer-managed-keys)
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     {
+    ///         Name = "anf-user-assigned-identity",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
+    ///     {
+    ///         Name = "anfcmkakv",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         EnabledForDiskEncryption = true,
+    ///         EnabledForDeployment = true,
+    ///         EnabledForTemplateDeployment = true,
+    ///         PurgeProtectionEnabled = true,
+    ///         TenantId = "00000000-0000-0000-0000-000000000000",
+    ///         SkuName = "standard",
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = "00000000-0000-0000-0000-000000000000",
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "Create",
+    ///                     "Delete",
+    ///                     "WrapKey",
+    ///                     "UnwrapKey",
+    ///                     "GetRotationPolicy",
+    ///                     "SetRotationPolicy",
+    ///                 },
+    ///             },
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = "00000000-0000-0000-0000-000000000000",
+    ///                 ObjectId = exampleUserAssignedIdentity.PrincipalId,
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "Encrypt",
+    ///                     "Decrypt",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
+    ///     {
+    ///         Name = "anfencryptionkey",
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "decrypt",
+    ///             "encrypt",
+    ///             "sign",
+    ///             "unwrapKey",
+    ///             "verify",
+    ///             "wrapKey",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.NetApp.Account("example", new()
+    ///     {
+    ///         Name = "netappaccount",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Identity = new Azure.NetApp.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccountEncryption = new Azure.NetApp.AccountEncryption("example", new()
+    ///     {
+    ///         NetappAccountId = exampleAccount.Id,
+    ///         UserAssignedIdentityId = exampleUserAssignedIdentity.Id,
+    ///         EncryptionKey = exampleKey.VersionlessId,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Account Encryption Resources can be imported using the `resource id`, e.g.
@@ -26,7 +137,7 @@ namespace Pulumi.Azure.NetApp
     public partial class AccountEncryption : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The versionless encryption key url.
+        /// Specify the versionless ID of the encryption key.
         /// </summary>
         [Output("encryptionKey")]
         public Output<string> EncryptionKey { get; private set; } = null!;
@@ -96,7 +207,7 @@ namespace Pulumi.Azure.NetApp
     public sealed class AccountEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The versionless encryption key url.
+        /// Specify the versionless ID of the encryption key.
         /// </summary>
         [Input("encryptionKey", required: true)]
         public Input<string> EncryptionKey { get; set; } = null!;
@@ -128,7 +239,7 @@ namespace Pulumi.Azure.NetApp
     public sealed class AccountEncryptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The versionless encryption key url.
+        /// Specify the versionless ID of the encryption key.
         /// </summary>
         [Input("encryptionKey")]
         public Input<string>? EncryptionKey { get; set; }

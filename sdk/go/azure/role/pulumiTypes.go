@@ -138,11 +138,17 @@ func (o DefinitionPermissionArrayOutput) Index(i pulumi.IntInput) DefinitionPerm
 }
 
 type GetRoleDefinitionPermission struct {
-	// a list of actions supported by this role
-	Actions     []string `pulumi:"actions"`
+	// A list of actions supported by this role.
+	Actions []string `pulumi:"actions"`
+	// The conditions on this role definition, which limits the resources it can be assigned to.
+	Condition string `pulumi:"condition"`
+	// The version of the condition.
+	ConditionVersion string `pulumi:"conditionVersion"`
+	// A list of data actions allowed by this role.
 	DataActions []string `pulumi:"dataActions"`
-	// a list of actions which are denied by this role
-	NotActions     []string `pulumi:"notActions"`
+	// A list of actions which are denied by this role.
+	NotActions []string `pulumi:"notActions"`
+	// A list of data actions which are denied by this role.
 	NotDataActions []string `pulumi:"notDataActions"`
 }
 
@@ -158,11 +164,17 @@ type GetRoleDefinitionPermissionInput interface {
 }
 
 type GetRoleDefinitionPermissionArgs struct {
-	// a list of actions supported by this role
-	Actions     pulumi.StringArrayInput `pulumi:"actions"`
+	// A list of actions supported by this role.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// The conditions on this role definition, which limits the resources it can be assigned to.
+	Condition pulumi.StringInput `pulumi:"condition"`
+	// The version of the condition.
+	ConditionVersion pulumi.StringInput `pulumi:"conditionVersion"`
+	// A list of data actions allowed by this role.
 	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
-	// a list of actions which are denied by this role
-	NotActions     pulumi.StringArrayInput `pulumi:"notActions"`
+	// A list of actions which are denied by this role.
+	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
+	// A list of data actions which are denied by this role.
 	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
 }
 
@@ -217,20 +229,32 @@ func (o GetRoleDefinitionPermissionOutput) ToGetRoleDefinitionPermissionOutputWi
 	return o
 }
 
-// a list of actions supported by this role
+// A list of actions supported by this role.
 func (o GetRoleDefinitionPermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRoleDefinitionPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
+// The conditions on this role definition, which limits the resources it can be assigned to.
+func (o GetRoleDefinitionPermissionOutput) Condition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleDefinitionPermission) string { return v.Condition }).(pulumi.StringOutput)
+}
+
+// The version of the condition.
+func (o GetRoleDefinitionPermissionOutput) ConditionVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleDefinitionPermission) string { return v.ConditionVersion }).(pulumi.StringOutput)
+}
+
+// A list of data actions allowed by this role.
 func (o GetRoleDefinitionPermissionOutput) DataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRoleDefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
 }
 
-// a list of actions which are denied by this role
+// A list of actions which are denied by this role.
 func (o GetRoleDefinitionPermissionOutput) NotActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRoleDefinitionPermission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }
 
+// A list of data actions which are denied by this role.
 func (o GetRoleDefinitionPermissionOutput) NotDataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRoleDefinitionPermission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
 }

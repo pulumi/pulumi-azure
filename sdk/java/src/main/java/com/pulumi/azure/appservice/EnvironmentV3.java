@@ -317,9 +317,17 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
     public Output<String> pricingTier() {
         return this.pricingTier;
     }
+    /**
+     * Whether to enable remote debug. Defaults to `false`.
+     * 
+     */
     @Export(name="remoteDebuggingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> remoteDebuggingEnabled;
 
+    /**
+     * @return Whether to enable remote debug. Defaults to `false`.
+     * 
+     */
     public Output<Optional<Boolean>> remoteDebuggingEnabled() {
         return Codegen.optional(this.remoteDebuggingEnabled);
     }

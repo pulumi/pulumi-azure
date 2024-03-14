@@ -259,6 +259,8 @@ __all__ = [
     'SourceControlSlotGithubActionConfigurationCodeConfigurationArgs',
     'SourceControlSlotGithubActionConfigurationContainerConfigurationArgs',
     'StaticSiteIdentityArgs',
+    'StaticWebAppBasicAuthArgs',
+    'StaticWebAppIdentityArgs',
     'WindowsFunctionAppAuthSettingsArgs',
     'WindowsFunctionAppAuthSettingsActiveDirectoryArgs',
     'WindowsFunctionAppAuthSettingsFacebookArgs',
@@ -8419,6 +8421,7 @@ class LinuxFunctionAppSiteConfigArgs:
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgs']]]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
@@ -8428,6 +8431,7 @@ class LinuxFunctionAppSiteConfigArgs:
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
                  runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 scm_ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
@@ -8460,6 +8464,7 @@ class LinuxFunctionAppSiteConfigArgs:
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to be checked for this function app health.
         :param pulumi.Input[bool] http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[str] ip_restriction_default_action: The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param pulumi.Input[str] linux_fx_version: The Linux FX Version
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
@@ -8471,6 +8476,7 @@ class LinuxFunctionAppSiteConfigArgs:
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+        :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[str] scm_type: The SCM Type in use by the Linux Function App.
@@ -8518,6 +8524,8 @@ class LinuxFunctionAppSiteConfigArgs:
             pulumi.set(__self__, "health_check_path", health_check_path)
         if http2_enabled is not None:
             pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restriction_default_action is not None:
+            pulumi.set(__self__, "ip_restriction_default_action", ip_restriction_default_action)
         if ip_restrictions is not None:
             pulumi.set(__self__, "ip_restrictions", ip_restrictions)
         if linux_fx_version is not None:
@@ -8536,6 +8544,8 @@ class LinuxFunctionAppSiteConfigArgs:
             pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
         if runtime_scale_monitoring_enabled is not None:
             pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+        if scm_ip_restriction_default_action is not None:
+            pulumi.set(__self__, "scm_ip_restriction_default_action", scm_ip_restriction_default_action)
         if scm_ip_restrictions is not None:
             pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
         if scm_minimum_tls_version is not None:
@@ -8786,6 +8796,18 @@ class LinuxFunctionAppSiteConfigArgs:
         pulumi.set(self, "http2_enabled", value)
 
     @property
+    @pulumi.getter(name="ipRestrictionDefaultAction")
+    def ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "ip_restriction_default_action")
+
+    @ip_restriction_default_action.setter
+    def ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_restriction_default_action", value)
+
+    @property
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgs']]]]:
         """
@@ -8894,6 +8916,18 @@ class LinuxFunctionAppSiteConfigArgs:
     @runtime_scale_monitoring_enabled.setter
     def runtime_scale_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "runtime_scale_monitoring_enabled", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictionDefaultAction")
+    def scm_ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "scm_ip_restriction_default_action")
+
+    @scm_ip_restriction_default_action.setter
+    def scm_ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_ip_restriction_default_action", value)
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
@@ -9305,6 +9339,7 @@ class LinuxFunctionAppSiteConfigCorsArgs:
 class LinuxFunctionAppSiteConfigIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -9313,6 +9348,7 @@ class LinuxFunctionAppSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -9324,6 +9360,8 @@ class LinuxFunctionAppSiteConfigIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -9348,6 +9386,18 @@ class LinuxFunctionAppSiteConfigIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -9499,6 +9549,7 @@ class LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs:
 class LinuxFunctionAppSiteConfigScmIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -9507,6 +9558,7 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -9518,6 +9570,8 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -9542,6 +9596,18 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -12038,6 +12104,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs']]]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
@@ -12047,6 +12114,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
                  runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 scm_ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
@@ -12076,6 +12144,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to be checked for this function app health.
         :param pulumi.Input[bool] http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[str] ip_restriction_default_action: The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: an `ip_restriction` block as detailed below.
         :param pulumi.Input[str] linux_fx_version: The Linux FX Version
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
@@ -12087,6 +12156,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Functions Runtime Scale Monitoring be enabled.
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+        :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
         :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[str] scm_type: The SCM Type in use by the Linux Function App.
@@ -12136,6 +12206,8 @@ class LinuxFunctionAppSlotSiteConfigArgs:
             pulumi.set(__self__, "health_check_path", health_check_path)
         if http2_enabled is not None:
             pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restriction_default_action is not None:
+            pulumi.set(__self__, "ip_restriction_default_action", ip_restriction_default_action)
         if ip_restrictions is not None:
             pulumi.set(__self__, "ip_restrictions", ip_restrictions)
         if linux_fx_version is not None:
@@ -12154,6 +12226,8 @@ class LinuxFunctionAppSlotSiteConfigArgs:
             pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
         if runtime_scale_monitoring_enabled is not None:
             pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+        if scm_ip_restriction_default_action is not None:
+            pulumi.set(__self__, "scm_ip_restriction_default_action", scm_ip_restriction_default_action)
         if scm_ip_restrictions is not None:
             pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
         if scm_minimum_tls_version is not None:
@@ -12412,6 +12486,18 @@ class LinuxFunctionAppSlotSiteConfigArgs:
         pulumi.set(self, "http2_enabled", value)
 
     @property
+    @pulumi.getter(name="ipRestrictionDefaultAction")
+    def ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "ip_restriction_default_action")
+
+    @ip_restriction_default_action.setter
+    def ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_restriction_default_action", value)
+
+    @property
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs']]]]:
         """
@@ -12520,6 +12606,18 @@ class LinuxFunctionAppSlotSiteConfigArgs:
     @runtime_scale_monitoring_enabled.setter
     def runtime_scale_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "runtime_scale_monitoring_enabled", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictionDefaultAction")
+    def scm_ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "scm_ip_restriction_default_action")
+
+    @scm_ip_restriction_default_action.setter
+    def scm_ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_ip_restriction_default_action", value)
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
@@ -12931,6 +13029,7 @@ class LinuxFunctionAppSlotSiteConfigCorsArgs:
 class LinuxFunctionAppSlotSiteConfigIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -12939,6 +13038,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs'] headers: a `headers` block as detailed below.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -12950,6 +13050,8 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -12974,6 +13076,18 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -13125,6 +13239,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
 class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -13133,6 +13248,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs'] headers: a `headers` block as detailed below.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -13144,6 +13260,8 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -13168,6 +13286,18 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -16170,6 +16300,7 @@ class LinuxWebAppSiteConfigArgs:
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArgs']]]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
@@ -16178,6 +16309,7 @@ class LinuxWebAppSiteConfigArgs:
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
+                 scm_ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
@@ -16203,6 +16335,7 @@ class LinuxWebAppSiteConfigArgs:
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to the Health Check.
         :param pulumi.Input[bool] http2_enabled: Should the HTTP2 be enabled?
+        :param pulumi.Input[str] ip_restriction_default_action: The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
@@ -16210,6 +16343,7 @@ class LinuxWebAppSiteConfigArgs:
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
+        :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
@@ -16250,6 +16384,8 @@ class LinuxWebAppSiteConfigArgs:
             pulumi.set(__self__, "health_check_path", health_check_path)
         if http2_enabled is not None:
             pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restriction_default_action is not None:
+            pulumi.set(__self__, "ip_restriction_default_action", ip_restriction_default_action)
         if ip_restrictions is not None:
             pulumi.set(__self__, "ip_restrictions", ip_restrictions)
         if linux_fx_version is not None:
@@ -16266,6 +16402,8 @@ class LinuxWebAppSiteConfigArgs:
             pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
         if remote_debugging_version is not None:
             pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+        if scm_ip_restriction_default_action is not None:
+            pulumi.set(__self__, "scm_ip_restriction_default_action", scm_ip_restriction_default_action)
         if scm_ip_restrictions is not None:
             pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
         if scm_minimum_tls_version is not None:
@@ -16472,6 +16610,18 @@ class LinuxWebAppSiteConfigArgs:
         pulumi.set(self, "http2_enabled", value)
 
     @property
+    @pulumi.getter(name="ipRestrictionDefaultAction")
+    def ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "ip_restriction_default_action")
+
+    @ip_restriction_default_action.setter
+    def ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_restriction_default_action", value)
+
+    @property
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArgs']]]]:
         """
@@ -16563,6 +16713,18 @@ class LinuxWebAppSiteConfigArgs:
     @remote_debugging_version.setter
     def remote_debugging_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "remote_debugging_version", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictionDefaultAction")
+    def scm_ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "scm_ip_restriction_default_action")
+
+    @scm_ip_restriction_default_action.setter
+    def scm_ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_ip_restriction_default_action", value)
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
@@ -17309,6 +17471,7 @@ class LinuxWebAppSiteConfigCorsArgs:
 class LinuxWebAppSiteConfigIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -17317,6 +17480,7 @@ class LinuxWebAppSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['LinuxWebAppSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -17328,6 +17492,8 @@ class LinuxWebAppSiteConfigIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -17352,6 +17518,18 @@ class LinuxWebAppSiteConfigIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -17503,6 +17681,7 @@ class LinuxWebAppSiteConfigIpRestrictionHeadersArgs:
 class LinuxWebAppSiteConfigScmIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -17511,6 +17690,7 @@ class LinuxWebAppSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -17522,6 +17702,8 @@ class LinuxWebAppSiteConfigScmIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -17546,6 +17728,18 @@ class LinuxWebAppSiteConfigScmIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -20314,6 +20508,7 @@ class LinuxWebAppSlotSiteConfigArgs:
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArgs']]]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
@@ -20322,6 +20517,7 @@ class LinuxWebAppSlotSiteConfigArgs:
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
+                 scm_ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
@@ -20348,6 +20544,7 @@ class LinuxWebAppSlotSiteConfigArgs:
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to the Health Check.
         :param pulumi.Input[bool] http2_enabled: Should the HTTP2 be enabled?
+        :param pulumi.Input[str] ip_restriction_default_action: The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
@@ -20355,6 +20552,7 @@ class LinuxWebAppSlotSiteConfigArgs:
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
@@ -20397,6 +20595,8 @@ class LinuxWebAppSlotSiteConfigArgs:
             pulumi.set(__self__, "health_check_path", health_check_path)
         if http2_enabled is not None:
             pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restriction_default_action is not None:
+            pulumi.set(__self__, "ip_restriction_default_action", ip_restriction_default_action)
         if ip_restrictions is not None:
             pulumi.set(__self__, "ip_restrictions", ip_restrictions)
         if linux_fx_version is not None:
@@ -20413,6 +20613,8 @@ class LinuxWebAppSlotSiteConfigArgs:
             pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
         if remote_debugging_version is not None:
             pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+        if scm_ip_restriction_default_action is not None:
+            pulumi.set(__self__, "scm_ip_restriction_default_action", scm_ip_restriction_default_action)
         if scm_ip_restrictions is not None:
             pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
         if scm_minimum_tls_version is not None:
@@ -20631,6 +20833,18 @@ class LinuxWebAppSlotSiteConfigArgs:
         pulumi.set(self, "http2_enabled", value)
 
     @property
+    @pulumi.getter(name="ipRestrictionDefaultAction")
+    def ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "ip_restriction_default_action")
+
+    @ip_restriction_default_action.setter
+    def ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_restriction_default_action", value)
+
+    @property
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArgs']]]]:
         """
@@ -20722,6 +20936,18 @@ class LinuxWebAppSlotSiteConfigArgs:
     @remote_debugging_version.setter
     def remote_debugging_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "remote_debugging_version", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictionDefaultAction")
+    def scm_ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "scm_ip_restriction_default_action")
+
+    @scm_ip_restriction_default_action.setter
+    def scm_ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_ip_restriction_default_action", value)
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
@@ -21468,6 +21694,7 @@ class LinuxWebAppSlotSiteConfigCorsArgs:
 class LinuxWebAppSlotSiteConfigIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -21476,6 +21703,7 @@ class LinuxWebAppSlotSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -21487,6 +21715,8 @@ class LinuxWebAppSlotSiteConfigIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -21511,6 +21741,18 @@ class LinuxWebAppSlotSiteConfigIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -21662,6 +21904,7 @@ class LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs:
 class LinuxWebAppSlotSiteConfigScmIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -21670,6 +21913,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -21681,6 +21925,8 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -21705,6 +21951,18 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -24583,6 +24841,105 @@ class StaticSiteIdentityArgs:
 
 
 @pulumi.input_type
+class StaticWebAppBasicAuthArgs:
+    def __init__(__self__, *,
+                 environments: pulumi.Input[str],
+                 password: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] environments: The Environment types to use the Basic Auth for access. Possible values include `AllEnvironments` and `StagingEnvironments`.
+        :param pulumi.Input[str] password: The password for the basic authentication access.
+        """
+        pulumi.set(__self__, "environments", environments)
+        pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter
+    def environments(self) -> pulumi.Input[str]:
+        """
+        The Environment types to use the Basic Auth for access. Possible values include `AllEnvironments` and `StagingEnvironments`.
+        """
+        return pulumi.get(self, "environments")
+
+    @environments.setter
+    def environments(self, value: pulumi.Input[str]):
+        pulumi.set(self, "environments", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        The password for the basic authentication access.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+
+@pulumi.input_type
+class StaticWebAppIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of Managed Identity IDs which should be assigned to this Static Web App resource.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Managed Identity IDs which should be assigned to this Static Web App resource.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
 class WindowsFunctionAppAuthSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
@@ -26889,6 +27246,7 @@ class WindowsFunctionAppSiteConfigArgs:
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgs']]]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
@@ -26897,6 +27255,7 @@ class WindowsFunctionAppSiteConfigArgs:
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
                  runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 scm_ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
@@ -26928,6 +27287,7 @@ class WindowsFunctionAppSiteConfigArgs:
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to be checked for this Windows Function App health.
         :param pulumi.Input[bool] http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[str] ip_restriction_default_action: The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
@@ -26938,6 +27298,7 @@ class WindowsFunctionAppSiteConfigArgs:
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+        :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[str] scm_type: The SCM Type in use by the Windows Function App.
@@ -26982,6 +27343,8 @@ class WindowsFunctionAppSiteConfigArgs:
             pulumi.set(__self__, "health_check_path", health_check_path)
         if http2_enabled is not None:
             pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restriction_default_action is not None:
+            pulumi.set(__self__, "ip_restriction_default_action", ip_restriction_default_action)
         if ip_restrictions is not None:
             pulumi.set(__self__, "ip_restrictions", ip_restrictions)
         if load_balancing_mode is not None:
@@ -26998,6 +27361,8 @@ class WindowsFunctionAppSiteConfigArgs:
             pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
         if runtime_scale_monitoring_enabled is not None:
             pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+        if scm_ip_restriction_default_action is not None:
+            pulumi.set(__self__, "scm_ip_restriction_default_action", scm_ip_restriction_default_action)
         if scm_ip_restrictions is not None:
             pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
         if scm_minimum_tls_version is not None:
@@ -27226,6 +27591,18 @@ class WindowsFunctionAppSiteConfigArgs:
         pulumi.set(self, "http2_enabled", value)
 
     @property
+    @pulumi.getter(name="ipRestrictionDefaultAction")
+    def ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "ip_restriction_default_action")
+
+    @ip_restriction_default_action.setter
+    def ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_restriction_default_action", value)
+
+    @property
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgs']]]]:
         """
@@ -27322,6 +27699,18 @@ class WindowsFunctionAppSiteConfigArgs:
     @runtime_scale_monitoring_enabled.setter
     def runtime_scale_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "runtime_scale_monitoring_enabled", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictionDefaultAction")
+    def scm_ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "scm_ip_restriction_default_action")
+
+    @scm_ip_restriction_default_action.setter
+    def scm_ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_ip_restriction_default_action", value)
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
@@ -27625,6 +28014,7 @@ class WindowsFunctionAppSiteConfigCorsArgs:
 class WindowsFunctionAppSiteConfigIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -27633,6 +28023,7 @@ class WindowsFunctionAppSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -27644,6 +28035,8 @@ class WindowsFunctionAppSiteConfigIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -27668,6 +28061,18 @@ class WindowsFunctionAppSiteConfigIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -27819,6 +28224,7 @@ class WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs:
 class WindowsFunctionAppSiteConfigScmIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -27827,6 +28233,7 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -27838,6 +28245,8 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -27862,6 +28271,18 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -30356,6 +30777,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
@@ -30364,6 +30786,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
                  runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 scm_ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
@@ -30392,6 +30815,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to be checked for this function app health.
         :param pulumi.Input[bool] http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[str] ip_restriction_default_action: The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: an `ip_restriction` block as detailed below.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[str] managed_pipeline_mode: The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
@@ -30402,6 +30826,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+        :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
         :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[str] scm_type: The SCM Type in use by the Windows Function App.
@@ -30448,6 +30873,8 @@ class WindowsFunctionAppSlotSiteConfigArgs:
             pulumi.set(__self__, "health_check_path", health_check_path)
         if http2_enabled is not None:
             pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restriction_default_action is not None:
+            pulumi.set(__self__, "ip_restriction_default_action", ip_restriction_default_action)
         if ip_restrictions is not None:
             pulumi.set(__self__, "ip_restrictions", ip_restrictions)
         if load_balancing_mode is not None:
@@ -30464,6 +30891,8 @@ class WindowsFunctionAppSlotSiteConfigArgs:
             pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
         if runtime_scale_monitoring_enabled is not None:
             pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+        if scm_ip_restriction_default_action is not None:
+            pulumi.set(__self__, "scm_ip_restriction_default_action", scm_ip_restriction_default_action)
         if scm_ip_restrictions is not None:
             pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
         if scm_minimum_tls_version is not None:
@@ -30700,6 +31129,18 @@ class WindowsFunctionAppSlotSiteConfigArgs:
         pulumi.set(self, "http2_enabled", value)
 
     @property
+    @pulumi.getter(name="ipRestrictionDefaultAction")
+    def ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "ip_restriction_default_action")
+
+    @ip_restriction_default_action.setter
+    def ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_restriction_default_action", value)
+
+    @property
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]]]:
         """
@@ -30796,6 +31237,18 @@ class WindowsFunctionAppSlotSiteConfigArgs:
     @runtime_scale_monitoring_enabled.setter
     def runtime_scale_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "runtime_scale_monitoring_enabled", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictionDefaultAction")
+    def scm_ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "scm_ip_restriction_default_action")
+
+    @scm_ip_restriction_default_action.setter
+    def scm_ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_ip_restriction_default_action", value)
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
@@ -31095,6 +31548,7 @@ class WindowsFunctionAppSlotSiteConfigCorsArgs:
 class WindowsFunctionAppSlotSiteConfigIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -31103,6 +31557,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs'] headers: a `headers` block as detailed below.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -31114,6 +31569,8 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -31138,6 +31595,18 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -31289,6 +31758,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
 class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -31297,6 +31767,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs'] headers: a `headers` block as detailed below.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -31308,6 +31779,8 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -31332,6 +31805,18 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -34334,6 +34819,7 @@ class WindowsWebAppSiteConfigArgs:
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArgs']]]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
@@ -34342,6 +34828,7 @@ class WindowsWebAppSiteConfigArgs:
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
+                 scm_ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
@@ -34369,6 +34856,7 @@ class WindowsWebAppSiteConfigArgs:
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to the Health Check.
         :param pulumi.Input[bool] http2_enabled: Should the HTTP2 be enabled?
+        :param pulumi.Input[str] ip_restriction_default_action: The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
@@ -34376,6 +34864,7 @@ class WindowsWebAppSiteConfigArgs:
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
+        :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Windows Web App `ip_restriction` configuration be used for the SCM also.
@@ -34417,6 +34906,8 @@ class WindowsWebAppSiteConfigArgs:
             pulumi.set(__self__, "health_check_path", health_check_path)
         if http2_enabled is not None:
             pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restriction_default_action is not None:
+            pulumi.set(__self__, "ip_restriction_default_action", ip_restriction_default_action)
         if ip_restrictions is not None:
             pulumi.set(__self__, "ip_restrictions", ip_restrictions)
         if linux_fx_version is not None:
@@ -34433,6 +34924,8 @@ class WindowsWebAppSiteConfigArgs:
             pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
         if remote_debugging_version is not None:
             pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+        if scm_ip_restriction_default_action is not None:
+            pulumi.set(__self__, "scm_ip_restriction_default_action", scm_ip_restriction_default_action)
         if scm_ip_restrictions is not None:
             pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
         if scm_minimum_tls_version is not None:
@@ -34643,6 +35136,18 @@ class WindowsWebAppSiteConfigArgs:
         pulumi.set(self, "http2_enabled", value)
 
     @property
+    @pulumi.getter(name="ipRestrictionDefaultAction")
+    def ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "ip_restriction_default_action")
+
+    @ip_restriction_default_action.setter
+    def ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_restriction_default_action", value)
+
+    @property
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArgs']]]]:
         """
@@ -34734,6 +35239,18 @@ class WindowsWebAppSiteConfigArgs:
     @remote_debugging_version.setter
     def remote_debugging_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "remote_debugging_version", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictionDefaultAction")
+    def scm_ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "scm_ip_restriction_default_action")
+
+    @scm_ip_restriction_default_action.setter
+    def scm_ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_ip_restriction_default_action", value)
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
@@ -35663,6 +36180,7 @@ class WindowsWebAppSiteConfigCorsArgs:
 class WindowsWebAppSiteConfigIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -35671,6 +36189,7 @@ class WindowsWebAppSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['WindowsWebAppSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -35682,6 +36201,8 @@ class WindowsWebAppSiteConfigIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -35706,6 +36227,18 @@ class WindowsWebAppSiteConfigIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -35857,6 +36390,7 @@ class WindowsWebAppSiteConfigIpRestrictionHeadersArgs:
 class WindowsWebAppSiteConfigScmIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -35865,6 +36399,7 @@ class WindowsWebAppSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -35876,6 +36411,8 @@ class WindowsWebAppSiteConfigScmIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -35900,6 +36437,18 @@ class WindowsWebAppSiteConfigScmIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -38775,6 +39324,7 @@ class WindowsWebAppSlotSiteConfigArgs:
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArgs']]]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  local_mysql_enabled: Optional[pulumi.Input[bool]] = None,
@@ -38782,6 +39332,7 @@ class WindowsWebAppSlotSiteConfigArgs:
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
+                 scm_ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
                  scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
@@ -38810,6 +39361,7 @@ class WindowsWebAppSlotSiteConfigArgs:
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to the Health Check.
         :param pulumi.Input[bool] http2_enabled: Should the HTTP2 be enabled?
+        :param pulumi.Input[str] ip_restriction_default_action: The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
@@ -38817,6 +39369,7 @@ class WindowsWebAppSlotSiteConfigArgs:
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Windows Web App Slot `ip_restriction` configuration be used for the SCM also.
@@ -38860,6 +39413,8 @@ class WindowsWebAppSlotSiteConfigArgs:
             pulumi.set(__self__, "health_check_path", health_check_path)
         if http2_enabled is not None:
             pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restriction_default_action is not None:
+            pulumi.set(__self__, "ip_restriction_default_action", ip_restriction_default_action)
         if ip_restrictions is not None:
             pulumi.set(__self__, "ip_restrictions", ip_restrictions)
         if load_balancing_mode is not None:
@@ -38874,6 +39429,8 @@ class WindowsWebAppSlotSiteConfigArgs:
             pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
         if remote_debugging_version is not None:
             pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+        if scm_ip_restriction_default_action is not None:
+            pulumi.set(__self__, "scm_ip_restriction_default_action", scm_ip_restriction_default_action)
         if scm_ip_restrictions is not None:
             pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
         if scm_minimum_tls_version is not None:
@@ -39096,6 +39653,18 @@ class WindowsWebAppSlotSiteConfigArgs:
         pulumi.set(self, "http2_enabled", value)
 
     @property
+    @pulumi.getter(name="ipRestrictionDefaultAction")
+    def ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "ip_restriction_default_action")
+
+    @ip_restriction_default_action.setter
+    def ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_restriction_default_action", value)
+
+    @property
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArgs']]]]:
         """
@@ -39178,6 +39747,18 @@ class WindowsWebAppSlotSiteConfigArgs:
     @remote_debugging_version.setter
     def remote_debugging_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "remote_debugging_version", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictionDefaultAction")
+    def scm_ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "scm_ip_restriction_default_action")
+
+    @scm_ip_restriction_default_action.setter
+    def scm_ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_ip_restriction_default_action", value)
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
@@ -40085,6 +40666,7 @@ class WindowsWebAppSlotSiteConfigCorsArgs:
 class WindowsWebAppSlotSiteConfigIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -40093,6 +40675,7 @@ class WindowsWebAppSlotSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -40104,6 +40687,8 @@ class WindowsWebAppSlotSiteConfigIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -40128,6 +40713,18 @@ class WindowsWebAppSlotSiteConfigIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -40279,6 +40876,7 @@ class WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs:
 class WindowsWebAppSlotSiteConfigScmIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -40287,6 +40885,7 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
         :param pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
@@ -40298,6 +40897,8 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -40322,6 +40923,18 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter

@@ -140,6 +140,11 @@ export const getSourceControlToken: typeof import("./getSourceControlToken").get
 export const getSourceControlTokenOutput: typeof import("./getSourceControlToken").getSourceControlTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getSourceControlToken","getSourceControlTokenOutput"], () => require("./getSourceControlToken"));
 
+export { GetStaticWebAppArgs, GetStaticWebAppResult, GetStaticWebAppOutputArgs } from "./getStaticWebApp";
+export const getStaticWebApp: typeof import("./getStaticWebApp").getStaticWebApp = null as any;
+export const getStaticWebAppOutput: typeof import("./getStaticWebApp").getStaticWebAppOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticWebApp","getStaticWebAppOutput"], () => require("./getStaticWebApp"));
+
 export { GetWindowsFunctionAppArgs, GetWindowsFunctionAppResult, GetWindowsFunctionAppOutputArgs } from "./getWindowsFunctionApp";
 export const getWindowsFunctionApp: typeof import("./getWindowsFunctionApp").getWindowsFunctionApp = null as any;
 export const getWindowsFunctionAppOutput: typeof import("./getWindowsFunctionApp").getWindowsFunctionAppOutput = null as any;
@@ -240,6 +245,16 @@ export { StaticSiteCustomDomainArgs, StaticSiteCustomDomainState } from "./stati
 export type StaticSiteCustomDomain = import("./staticSiteCustomDomain").StaticSiteCustomDomain;
 export const StaticSiteCustomDomain: typeof import("./staticSiteCustomDomain").StaticSiteCustomDomain = null as any;
 utilities.lazyLoad(exports, ["StaticSiteCustomDomain"], () => require("./staticSiteCustomDomain"));
+
+export { StaticWebAppArgs, StaticWebAppState } from "./staticWebApp";
+export type StaticWebApp = import("./staticWebApp").StaticWebApp;
+export const StaticWebApp: typeof import("./staticWebApp").StaticWebApp = null as any;
+utilities.lazyLoad(exports, ["StaticWebApp"], () => require("./staticWebApp"));
+
+export { StaticWebAppCustomDomainArgs, StaticWebAppCustomDomainState } from "./staticWebAppCustomDomain";
+export type StaticWebAppCustomDomain = import("./staticWebAppCustomDomain").StaticWebAppCustomDomain;
+export const StaticWebAppCustomDomain: typeof import("./staticWebAppCustomDomain").StaticWebAppCustomDomain = null as any;
+utilities.lazyLoad(exports, ["StaticWebAppCustomDomain"], () => require("./staticWebAppCustomDomain"));
 
 export { VirtualNetworkSwiftConnectionArgs, VirtualNetworkSwiftConnectionState } from "./virtualNetworkSwiftConnection";
 export type VirtualNetworkSwiftConnection = import("./virtualNetworkSwiftConnection").VirtualNetworkSwiftConnection;
@@ -351,6 +366,10 @@ const _module = {
                 return new StaticSite(name, <any>undefined, { urn })
             case "azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain":
                 return new StaticSiteCustomDomain(name, <any>undefined, { urn })
+            case "azure:appservice/staticWebApp:StaticWebApp":
+                return new StaticWebApp(name, <any>undefined, { urn })
+            case "azure:appservice/staticWebAppCustomDomain:StaticWebAppCustomDomain":
+                return new StaticWebAppCustomDomain(name, <any>undefined, { urn })
             case "azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection":
                 return new VirtualNetworkSwiftConnection(name, <any>undefined, { urn })
             case "azure:appservice/webAppActiveSlot:WebAppActiveSlot":
@@ -403,6 +422,8 @@ pulumi.runtime.registerResourceModule("azure", "appservice/sourceControlSlot", _
 pulumi.runtime.registerResourceModule("azure", "appservice/sourceControlToken", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/staticSite", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/staticSiteCustomDomain", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/staticWebApp", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/staticWebAppCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/virtualNetworkSwiftConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/webAppActiveSlot", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/webAppHybridConnection", _module)

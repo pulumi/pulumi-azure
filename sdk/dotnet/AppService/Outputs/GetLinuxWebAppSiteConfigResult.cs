@@ -66,7 +66,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string FtpsState;
         /// <summary>
-        /// (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        /// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
         /// </summary>
         public readonly int HealthCheckEvictionTimeInMin;
         /// <summary>
@@ -77,6 +77,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Is HTTP2.0 enabled.
         /// </summary>
         public readonly bool Http2Enabled;
+        /// <summary>
+        /// The Default action for traffic that does not match any `ip_restriction` rule.
+        /// </summary>
+        public readonly string IpRestrictionDefaultAction;
         /// <summary>
         /// A `ip_restriction` block as defined above.
         /// </summary>
@@ -109,6 +113,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The Remote Debugging Version.
         /// </summary>
         public readonly string RemoteDebuggingVersion;
+        /// <summary>
+        /// The Default action for traffic that does not match any `scm_ip_restriction` rule.
+        /// </summary>
+        public readonly string ScmIpRestrictionDefaultAction;
         /// <summary>
         /// A `scm_ip_restriction` block as defined above.
         /// </summary>
@@ -176,6 +184,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             bool http2Enabled,
 
+            string ipRestrictionDefaultAction,
+
             ImmutableArray<Outputs.GetLinuxWebAppSiteConfigIpRestrictionResult> ipRestrictions,
 
             string linuxFxVersion,
@@ -191,6 +201,8 @@ namespace Pulumi.Azure.AppService.Outputs
             bool remoteDebuggingEnabled,
 
             string remoteDebuggingVersion,
+
+            string scmIpRestrictionDefaultAction,
 
             ImmutableArray<Outputs.GetLinuxWebAppSiteConfigScmIpRestrictionResult> scmIpRestrictions,
 
@@ -224,6 +236,7 @@ namespace Pulumi.Azure.AppService.Outputs
             HealthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
             HealthCheckPath = healthCheckPath;
             Http2Enabled = http2Enabled;
+            IpRestrictionDefaultAction = ipRestrictionDefaultAction;
             IpRestrictions = ipRestrictions;
             LinuxFxVersion = linuxFxVersion;
             LoadBalancingMode = loadBalancingMode;
@@ -232,6 +245,7 @@ namespace Pulumi.Azure.AppService.Outputs
             MinimumTlsVersion = minimumTlsVersion;
             RemoteDebuggingEnabled = remoteDebuggingEnabled;
             RemoteDebuggingVersion = remoteDebuggingVersion;
+            ScmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             ScmIpRestrictions = scmIpRestrictions;
             ScmMinimumTlsVersion = scmMinimumTlsVersion;
             ScmType = scmType;

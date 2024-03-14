@@ -22,7 +22,7 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
         /// </summary>
         public readonly string? Url;
         /// <summary>
-        /// Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+        /// Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Visibility;
 

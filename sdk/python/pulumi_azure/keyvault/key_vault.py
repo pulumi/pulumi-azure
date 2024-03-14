@@ -43,6 +43,8 @@ class KeyVaultArgs:
         :param pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]] contacts: One or more `contact` block as defined below.
                
                > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+               
+               > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
@@ -146,6 +148,8 @@ class KeyVaultArgs:
         One or more `contact` block as defined below.
 
         > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+
+        > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         """
         return pulumi.get(self, "contacts")
 
@@ -318,6 +322,8 @@ class _KeyVaultState:
         :param pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]] contacts: One or more `contact` block as defined below.
                
                > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+               
+               > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
@@ -394,6 +400,8 @@ class _KeyVaultState:
         One or more `contact` block as defined below.
 
         > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+
+        > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         """
         return pulumi.get(self, "contacts")
 
@@ -663,6 +671,8 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultContactArgs']]]] contacts: One or more `contact` block as defined below.
                
                > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+               
+               > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
@@ -838,6 +848,8 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultContactArgs']]]] contacts: One or more `contact` block as defined below.
                
                > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+               
+               > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
@@ -898,6 +910,8 @@ class KeyVault(pulumi.CustomResource):
         One or more `contact` block as defined below.
 
         > **Note:** This field can only be set once user has `managecontacts` certificate permission.
+
+        > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         """
         return pulumi.get(self, "contacts")
 

@@ -317,6 +317,9 @@ export class ManagedInstance extends pulumi.CustomResource {
      * Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
      */
     public readonly vcores!: pulumi.Output<number>;
+    /**
+     * Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+     */
     public readonly zoneRedundantEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -504,6 +507,9 @@ export interface ManagedInstanceState {
      * Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
      */
     vcores?: pulumi.Input<number>;
+    /**
+     * Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+     */
     zoneRedundantEnabled?: pulumi.Input<boolean>;
 }
 
@@ -591,5 +597,8 @@ export interface ManagedInstanceArgs {
      * Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
      */
     vcores: pulumi.Input<number>;
+    /**
+     * Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+     */
     zoneRedundantEnabled?: pulumi.Input<boolean>;
 }

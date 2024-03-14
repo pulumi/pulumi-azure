@@ -306,7 +306,6 @@ public class Job extends com.pulumi.resources.CustomResource {
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      * 
      * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-     * * 
      * 
      */
     @Export(name="streamingUnits", refs={Integer.class}, tree="[0]")
@@ -316,7 +315,6 @@ public class Job extends com.pulumi.resources.CustomResource {
      * @return Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      * 
      * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-     * * 
      * 
      */
     public Output<Optional<Integer>> streamingUnits() {

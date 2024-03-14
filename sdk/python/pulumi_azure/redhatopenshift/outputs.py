@@ -43,7 +43,7 @@ class ClusterApiServerProfile(dict):
                  ip_address: Optional[str] = None,
                  url: Optional[str] = None):
         """
-        :param str visibility: Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+        :param str visibility: Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
         :param str ip_address: The IP Address the Ingress Profile is associated with.
         :param str url: The URL the API Server Profile is associated with.
         """
@@ -57,7 +57,7 @@ class ClusterApiServerProfile(dict):
     @pulumi.getter
     def visibility(self) -> str:
         """
-        Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+        Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "visibility")
 
@@ -188,7 +188,7 @@ class ClusterIngressProfile(dict):
                  ip_address: Optional[str] = None,
                  name: Optional[str] = None):
         """
-        :param str visibility: Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+        :param str visibility: Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
         :param str ip_address: The IP Address the Ingress Profile is associated with.
         :param str name: The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
         """
@@ -202,7 +202,7 @@ class ClusterIngressProfile(dict):
     @pulumi.getter
     def visibility(self) -> str:
         """
-        Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+        Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "visibility")
 
@@ -259,7 +259,7 @@ class ClusterMainProfile(dict):
         :param str disk_encryption_set_id: The resource ID of an associated disk encryption set. Changing this forces a new resource to be created.
         :param bool encryption_at_host_enabled: Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
                
-               **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+               > **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "vm_size", vm_size)
@@ -298,7 +298,7 @@ class ClusterMainProfile(dict):
         """
         Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 
-        **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+        > **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
         """
         return pulumi.get(self, "encryption_at_host_enabled")
 
@@ -333,7 +333,7 @@ class ClusterNetworkProfile(dict):
         """
         :param str pod_cidr: The CIDR to use for pod IP addresses. Changing this forces a new resource to be created.
         :param str service_cidr: The network range used by the OpenShift service. Changing this forces a new resource to be created.
-        :param str outbound_type: The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+        :param str outbound_type: The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "pod_cidr", pod_cidr)
         pulumi.set(__self__, "service_cidr", service_cidr)
@@ -360,7 +360,7 @@ class ClusterNetworkProfile(dict):
     @pulumi.getter(name="outboundType")
     def outbound_type(self) -> Optional[str]:
         """
-        The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+        The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "outbound_type")
 
@@ -461,7 +461,7 @@ class ClusterWorkerProfile(dict):
         :param str disk_encryption_set_id: The resource ID of an associated disk encryption set. Changing this forces a new resource to be created.
         :param bool encryption_at_host_enabled: Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
                
-               **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+               > **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
         """
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         pulumi.set(__self__, "node_count", node_count)
@@ -518,7 +518,7 @@ class ClusterWorkerProfile(dict):
         """
         Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 
-        **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+        > **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
         """
         return pulumi.get(self, "encryption_at_host_enabled")
 

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterNetworkProfile {
     /**
-     * @return The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+     * @return The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String outboundType;
@@ -30,7 +30,7 @@ public final class ClusterNetworkProfile {
 
     private ClusterNetworkProfile() {}
     /**
-     * @return The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+     * @return The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> outboundType() {

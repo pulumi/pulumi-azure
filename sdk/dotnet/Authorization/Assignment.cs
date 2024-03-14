@@ -254,7 +254,7 @@ namespace Pulumi.Azure.Authorization
         public Output<string> PrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+        /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
         /// 
         /// &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         /// </summary>
@@ -378,7 +378,7 @@ namespace Pulumi.Azure.Authorization
         public Input<string> PrincipalId { get; set; } = null!;
 
         /// <summary>
-        /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+        /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
         /// 
         /// &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         /// </summary>
@@ -460,7 +460,7 @@ namespace Pulumi.Azure.Authorization
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+        /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
         /// 
         /// &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         /// </summary>

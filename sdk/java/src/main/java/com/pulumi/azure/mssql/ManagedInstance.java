@@ -575,9 +575,17 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     public Output<Integer> vcores() {
         return this.vcores;
     }
+    /**
+     * Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+     * 
+     */
     @Export(name="zoneRedundantEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> zoneRedundantEnabled;
 
+    /**
+     * @return Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+     * 
+     */
     public Output<Optional<Boolean>> zoneRedundantEnabled() {
         return Codegen.optional(this.zoneRedundantEnabled);
     }

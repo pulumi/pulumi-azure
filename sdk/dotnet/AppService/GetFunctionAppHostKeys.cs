@@ -127,6 +127,7 @@ namespace Pulumi.Azure.AppService
         /// Function App resource's Event Grid Extension Config system key.
         /// </summary>
         public readonly string EventGridExtensionConfigKey;
+        public readonly string EventGridExtensionKey;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -156,6 +157,8 @@ namespace Pulumi.Azure.AppService
 
             string eventGridExtensionConfigKey,
 
+            string eventGridExtensionKey,
+
             string id,
 
             string name,
@@ -172,6 +175,7 @@ namespace Pulumi.Azure.AppService
             DefaultFunctionKey = defaultFunctionKey;
             DurabletaskExtensionKey = durabletaskExtensionKey;
             EventGridExtensionConfigKey = eventGridExtensionConfigKey;
+            EventGridExtensionKey = eventGridExtensionKey;
             Id = id;
             Name = name;
             PrimaryKey = primaryKey;

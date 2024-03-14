@@ -53,14 +53,14 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+     * The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+     * @return The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -83,14 +83,14 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+     * The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+     * @return The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -143,14 +143,14 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+     * The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+     * @return The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -312,7 +312,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+         * @param location The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+         * @param location The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+         * @param name The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+         * @param name The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+         * @param resourceGroupName The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+         * @param resourceGroupName The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
          * 
          * @return builder
          * 

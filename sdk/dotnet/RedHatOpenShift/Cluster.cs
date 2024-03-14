@@ -26,13 +26,13 @@ namespace Pulumi.Azure.RedHatOpenShift
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `api_server_profile` block as defined below.
+        /// An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("apiServerProfile")]
         public Output<Outputs.ClusterApiServerProfile> ApiServerProfile { get; private set; } = null!;
 
         /// <summary>
-        /// A `cluster_profile` block as defined below.
+        /// A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("clusterProfile")]
         public Output<Outputs.ClusterClusterProfile> ClusterProfile { get; private set; } = null!;
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Output<string> ConsoleUrl { get; private set; } = null!;
 
         /// <summary>
-        /// An `ingress_profile` block as defined below.
+        /// An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ingressProfile")]
         public Output<Outputs.ClusterIngressProfile> IngressProfile { get; private set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `main_profile` block as defined below.
+        /// A `main_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("mainProfile")]
         public Output<Outputs.ClusterMainProfile> MainProfile { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_profile` block as defined below.
+        /// A `network_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("networkProfile")]
         public Output<Outputs.ClusterNetworkProfile> NetworkProfile { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `worker_profile` block as defined below.
+        /// A `worker_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("workerProfile")]
         public Output<Outputs.ClusterWorkerProfile> WorkerProfile { get; private set; } = null!;
@@ -144,19 +144,19 @@ namespace Pulumi.Azure.RedHatOpenShift
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `api_server_profile` block as defined below.
+        /// An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiServerProfile", required: true)]
         public Input<Inputs.ClusterApiServerProfileArgs> ApiServerProfile { get; set; } = null!;
 
         /// <summary>
-        /// A `cluster_profile` block as defined below.
+        /// A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("clusterProfile", required: true)]
         public Input<Inputs.ClusterClusterProfileArgs> ClusterProfile { get; set; } = null!;
 
         /// <summary>
-        /// An `ingress_profile` block as defined below.
+        /// An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ingressProfile", required: true)]
         public Input<Inputs.ClusterIngressProfileArgs> IngressProfile { get; set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `main_profile` block as defined below.
+        /// A `main_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("mainProfile", required: true)]
         public Input<Inputs.ClusterMainProfileArgs> MainProfile { get; set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_profile` block as defined below.
+        /// A `network_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkProfile", required: true)]
         public Input<Inputs.ClusterNetworkProfileArgs> NetworkProfile { get; set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.RedHatOpenShift
         }
 
         /// <summary>
-        /// A `worker_profile` block as defined below.
+        /// A `worker_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("workerProfile", required: true)]
         public Input<Inputs.ClusterWorkerProfileArgs> WorkerProfile { get; set; } = null!;
@@ -224,13 +224,13 @@ namespace Pulumi.Azure.RedHatOpenShift
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `api_server_profile` block as defined below.
+        /// An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiServerProfile")]
         public Input<Inputs.ClusterApiServerProfileGetArgs>? ApiServerProfile { get; set; }
 
         /// <summary>
-        /// A `cluster_profile` block as defined below.
+        /// A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("clusterProfile")]
         public Input<Inputs.ClusterClusterProfileGetArgs>? ClusterProfile { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<string>? ConsoleUrl { get; set; }
 
         /// <summary>
-        /// An `ingress_profile` block as defined below.
+        /// An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ingressProfile")]
         public Input<Inputs.ClusterIngressProfileGetArgs>? IngressProfile { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `main_profile` block as defined below.
+        /// A `main_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("mainProfile")]
         public Input<Inputs.ClusterMainProfileGetArgs>? MainProfile { get; set; }
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_profile` block as defined below.
+        /// A `network_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.ClusterNetworkProfileGetArgs>? NetworkProfile { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.Azure.RedHatOpenShift
         }
 
         /// <summary>
-        /// A `worker_profile` block as defined below.
+        /// A `worker_profile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("workerProfile")]
         public Input<Inputs.ClusterWorkerProfileGetArgs>? WorkerProfile { get; set; }

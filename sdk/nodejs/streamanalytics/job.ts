@@ -144,7 +144,6 @@ export class Job extends pulumi.CustomResource {
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      *
      * > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
-     * *
      */
     public readonly streamingUnits!: pulumi.Output<number | undefined>;
     /**
@@ -297,7 +296,6 @@ export interface JobState {
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      *
      * > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
-     * *
      */
     streamingUnits?: pulumi.Input<number>;
     /**
@@ -382,7 +380,6 @@ export interface JobArgs {
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      *
      * > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
-     * *
      */
     streamingUnits?: pulumi.Input<number>;
     /**

@@ -68,7 +68,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+        /// The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.AppService
         public Output<int> MaximumElasticWorkerCount { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+        /// The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Azure.AppService
         public Output<bool> Reserved { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+        /// The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? AppServiceEnvironmentId { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+        /// The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.AppService
         public Input<int>? MaximumElasticWorkerCount { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+        /// The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? PerSiteScalingEnabled { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+        /// The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
+        /// The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.AppService
         public Input<int>? MaximumElasticWorkerCount { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
+        /// The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? Reserved { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
+        /// The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

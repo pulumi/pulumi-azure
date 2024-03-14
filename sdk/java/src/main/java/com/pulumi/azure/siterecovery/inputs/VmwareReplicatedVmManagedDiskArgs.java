@@ -17,14 +17,14 @@ public final class VmwareReplicatedVmManagedDiskArgs extends com.pulumi.resource
     public static final VmwareReplicatedVmManagedDiskArgs Empty = new VmwareReplicatedVmManagedDiskArgs();
 
     /**
-     * The ID of the disk to be replicated. Changing this forces a new resource to be created.
+     * The ID of the disk to be replicated.
      * 
      */
     @Import(name="diskId", required=true)
     private Output<String> diskId;
 
     /**
-     * @return The ID of the disk to be replicated. Changing this forces a new resource to be created.
+     * @return The ID of the disk to be replicated.
      * 
      */
     public Output<String> diskId() {
@@ -62,14 +62,14 @@ public final class VmwareReplicatedVmManagedDiskArgs extends com.pulumi.resource
     }
 
     /**
-     * The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+     * The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
      * 
      */
     @Import(name="targetDiskType", required=true)
     private Output<String> targetDiskType;
 
     /**
-     * @return The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+     * @return The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
      * 
      */
     public Output<String> targetDiskType() {
@@ -104,7 +104,7 @@ public final class VmwareReplicatedVmManagedDiskArgs extends com.pulumi.resource
         }
 
         /**
-         * @param diskId The ID of the disk to be replicated. Changing this forces a new resource to be created.
+         * @param diskId The ID of the disk to be replicated.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class VmwareReplicatedVmManagedDiskArgs extends com.pulumi.resource
         }
 
         /**
-         * @param diskId The ID of the disk to be replicated. Changing this forces a new resource to be created.
+         * @param diskId The ID of the disk to be replicated.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class VmwareReplicatedVmManagedDiskArgs extends com.pulumi.resource
         }
 
         /**
-         * @param targetDiskType The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+         * @param targetDiskType The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class VmwareReplicatedVmManagedDiskArgs extends com.pulumi.resource
         }
 
         /**
-         * @param targetDiskType The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+         * @param targetDiskType The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
          * 
          * @return builder
          * 

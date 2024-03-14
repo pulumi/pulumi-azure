@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle {
     /**
-     * @return The type of data store. The only possible value is `OperationalStore`.
+     * @return The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
      * 
      */
     private String dataStoreType;
@@ -23,7 +23,7 @@ public final class BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle {
 
     private BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle() {}
     /**
-     * @return The type of data store. The only possible value is `OperationalStore`.
+     * @return The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
      * 
      */
     public String dataStoreType() {

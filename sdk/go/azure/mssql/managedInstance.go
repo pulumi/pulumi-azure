@@ -319,7 +319,8 @@ type ManagedInstance struct {
 	// The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
 	TimezoneId pulumi.StringPtrOutput `pulumi:"timezoneId"`
 	// Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
-	Vcores               pulumi.IntOutput     `pulumi:"vcores"`
+	Vcores pulumi.IntOutput `pulumi:"vcores"`
+	// Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
 	ZoneRedundantEnabled pulumi.BoolPtrOutput `pulumi:"zoneRedundantEnabled"`
 }
 
@@ -427,7 +428,8 @@ type managedInstanceState struct {
 	// The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
 	TimezoneId *string `pulumi:"timezoneId"`
 	// Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
-	Vcores               *int  `pulumi:"vcores"`
+	Vcores *int `pulumi:"vcores"`
+	// Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
 	ZoneRedundantEnabled *bool `pulumi:"zoneRedundantEnabled"`
 }
 
@@ -475,7 +477,8 @@ type ManagedInstanceState struct {
 	// The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
 	TimezoneId pulumi.StringPtrInput
 	// Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
-	Vcores               pulumi.IntPtrInput
+	Vcores pulumi.IntPtrInput
+	// Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
 	ZoneRedundantEnabled pulumi.BoolPtrInput
 }
 
@@ -523,7 +526,8 @@ type managedInstanceArgs struct {
 	// The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
 	TimezoneId *string `pulumi:"timezoneId"`
 	// Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
-	Vcores               int   `pulumi:"vcores"`
+	Vcores int `pulumi:"vcores"`
+	// Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
 	ZoneRedundantEnabled *bool `pulumi:"zoneRedundantEnabled"`
 }
 
@@ -568,7 +572,8 @@ type ManagedInstanceArgs struct {
 	// The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
 	TimezoneId pulumi.StringPtrInput
 	// Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
-	Vcores               pulumi.IntInput
+	Vcores pulumi.IntInput
+	// Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
 	ZoneRedundantEnabled pulumi.BoolPtrInput
 }
 
@@ -769,6 +774,7 @@ func (o ManagedInstanceOutput) Vcores() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.IntOutput { return v.Vcores }).(pulumi.IntOutput)
 }
 
+// Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
 func (o ManagedInstanceOutput) ZoneRedundantEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.BoolPtrOutput { return v.ZoneRedundantEnabled }).(pulumi.BoolPtrOutput)
 }

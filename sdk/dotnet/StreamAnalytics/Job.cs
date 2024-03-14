@@ -162,7 +162,6 @@ namespace Pulumi.Azure.StreamAnalytics
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         /// 
         /// &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-        /// *
         /// </summary>
         [Output("streamingUnits")]
         public Output<int?> StreamingUnits { get; private set; } = null!;
@@ -329,7 +328,6 @@ namespace Pulumi.Azure.StreamAnalytics
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         /// 
         /// &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-        /// *
         /// </summary>
         [Input("streamingUnits")]
         public Input<int>? StreamingUnits { get; set; }
@@ -470,7 +468,6 @@ namespace Pulumi.Azure.StreamAnalytics
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         /// 
         /// &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
-        /// *
         /// </summary>
         [Input("streamingUnits")]
         public Input<int>? StreamingUnits { get; set; }

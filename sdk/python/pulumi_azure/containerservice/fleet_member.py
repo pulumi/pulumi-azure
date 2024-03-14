@@ -194,10 +194,7 @@ class FleetMember(pulumi.CustomResource):
         example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
             name="example",
             location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            hub_profile=azure.containerservice.KubernetesFleetManagerHubProfileArgs(
-                dns_prefix="val-example",
-            ))
+            resource_group_name=example_resource_group.name)
         example_fleet_member = azure.containerservice.FleetMember("example",
             kubernetes_cluster_id=example.id,
             kubernetes_fleet_id=example_kubernetes_fleet_manager.id,
@@ -265,10 +262,7 @@ class FleetMember(pulumi.CustomResource):
         example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
             name="example",
             location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            hub_profile=azure.containerservice.KubernetesFleetManagerHubProfileArgs(
-                dns_prefix="val-example",
-            ))
+            resource_group_name=example_resource_group.name)
         example_fleet_member = azure.containerservice.FleetMember("example",
             kubernetes_cluster_id=example.id,
             kubernetes_fleet_id=example_kubernetes_fleet_manager.id,

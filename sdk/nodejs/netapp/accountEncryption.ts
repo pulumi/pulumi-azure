@@ -9,6 +9,89 @@ import * as utilities from "../utilities";
  *
  * For more information about Azure NetApp Files Customer-Managed Keys feature, please refer to [Configure customer-managed keys for Azure NetApp Files volume encryption](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-customer-managed-keys)
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const current = azure.core.getClientConfig({});
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "anf-user-assigned-identity",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "anfcmkakv",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     enabledForDiskEncryption: true,
+ *     enabledForDeployment: true,
+ *     enabledForTemplateDeployment: true,
+ *     purgeProtectionEnabled: true,
+ *     tenantId: "00000000-0000-0000-0000-000000000000",
+ *     skuName: "standard",
+ *     accessPolicies: [
+ *         {
+ *             tenantId: "00000000-0000-0000-0000-000000000000",
+ *             objectId: current.then(current => current.objectId),
+ *             keyPermissions: [
+ *                 "Get",
+ *                 "Create",
+ *                 "Delete",
+ *                 "WrapKey",
+ *                 "UnwrapKey",
+ *                 "GetRotationPolicy",
+ *                 "SetRotationPolicy",
+ *             ],
+ *         },
+ *         {
+ *             tenantId: "00000000-0000-0000-0000-000000000000",
+ *             objectId: exampleUserAssignedIdentity.principalId,
+ *             keyPermissions: [
+ *                 "Get",
+ *                 "Encrypt",
+ *                 "Decrypt",
+ *             ],
+ *         },
+ *     ],
+ * });
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "anfencryptionkey",
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ * });
+ * const exampleAccount = new azure.netapp.Account("example", {
+ *     name: "netappaccount",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ * });
+ * const exampleAccountEncryption = new azure.netapp.AccountEncryption("example", {
+ *     netappAccountId: exampleAccount.id,
+ *     userAssignedIdentityId: exampleUserAssignedIdentity.id,
+ *     encryptionKey: exampleKey.versionlessId,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Account Encryption Resources can be imported using the `resource id`, e.g.
@@ -46,7 +129,7 @@ export class AccountEncryption extends pulumi.CustomResource {
     }
 
     /**
-     * The versionless encryption key url.
+     * Specify the versionless ID of the encryption key.
      */
     public readonly encryptionKey!: pulumi.Output<string>;
     /**
@@ -102,7 +185,7 @@ export class AccountEncryption extends pulumi.CustomResource {
  */
 export interface AccountEncryptionState {
     /**
-     * The versionless encryption key url.
+     * Specify the versionless ID of the encryption key.
      */
     encryptionKey?: pulumi.Input<string>;
     /**
@@ -124,7 +207,7 @@ export interface AccountEncryptionState {
  */
 export interface AccountEncryptionArgs {
     /**
-     * The versionless encryption key url.
+     * Specify the versionless ID of the encryption key.
      */
     encryptionKey: pulumi.Input<string>;
     /**

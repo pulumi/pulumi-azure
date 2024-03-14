@@ -105,14 +105,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataProtectionSnapshotPolicy);
     }
     /**
-     * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+     * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="encryptionKeySource", refs={String.class}, tree="[0]")
     private Output<String> encryptionKeySource;
 
     /**
-     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> encryptionKeySource() {
@@ -133,14 +133,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.exportPolicyRules);
     }
     /**
-     * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+     * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="keyVaultPrivateEndpointId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultPrivateEndpointId;
 
     /**
-     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> keyVaultPrivateEndpointId() {
@@ -189,14 +189,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
+     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
      * 
      */
     @Export(name="networkFeatures", refs={String.class}, tree="[0]")
     private Output<String> networkFeatures;
 
     /**
-     * @return Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
+     * @return Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
      * 
      */
     public Output<String> networkFeatures() {

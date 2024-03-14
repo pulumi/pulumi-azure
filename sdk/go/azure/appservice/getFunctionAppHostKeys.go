@@ -69,6 +69,7 @@ type GetFunctionAppHostKeysResult struct {
 	DurabletaskExtensionKey string `pulumi:"durabletaskExtensionKey"`
 	// Function App resource's Event Grid Extension Config system key.
 	EventGridExtensionConfigKey string `pulumi:"eventGridExtensionConfigKey"`
+	EventGridExtensionKey       string `pulumi:"eventGridExtensionKey"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
@@ -139,6 +140,10 @@ func (o GetFunctionAppHostKeysResultOutput) DurabletaskExtensionKey() pulumi.Str
 // Function App resource's Event Grid Extension Config system key.
 func (o GetFunctionAppHostKeysResultOutput) EventGridExtensionConfigKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppHostKeysResult) string { return v.EventGridExtensionConfigKey }).(pulumi.StringOutput)
+}
+
+func (o GetFunctionAppHostKeysResultOutput) EventGridExtensionKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppHostKeysResult) string { return v.EventGridExtensionKey }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

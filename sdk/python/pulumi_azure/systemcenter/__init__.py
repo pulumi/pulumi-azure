@@ -5,4 +5,5 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .virtual_machine_manager_availability_set import *
 from .virtual_machine_manager_server import *

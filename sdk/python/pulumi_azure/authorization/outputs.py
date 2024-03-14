@@ -94,14 +94,22 @@ class RoleDefinitionPermission(dict):
 class GetRoleDefinitionPermissionResult(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
+                 condition: str,
+                 condition_version: str,
                  not_actions: Sequence[str],
                  data_actions: Optional[Sequence[str]] = None,
                  not_data_actions: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] actions: a list of actions supported by this role
-        :param Sequence[str] not_actions: a list of actions which are denied by this role
+        :param Sequence[str] actions: A list of actions supported by this role.
+        :param str condition: The conditions on this role definition, which limits the resources it can be assigned to.
+        :param str condition_version: The version of the condition.
+        :param Sequence[str] not_actions: A list of actions which are denied by this role.
+        :param Sequence[str] data_actions: A list of data actions allowed by this role.
+        :param Sequence[str] not_data_actions: A list of data actions which are denied by this role.
         """
         pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "condition_version", condition_version)
         pulumi.set(__self__, "not_actions", not_actions)
         if data_actions is not None:
             pulumi.set(__self__, "data_actions", data_actions)
@@ -112,26 +120,48 @@ class GetRoleDefinitionPermissionResult(dict):
     @pulumi.getter
     def actions(self) -> Sequence[str]:
         """
-        a list of actions supported by this role
+        A list of actions supported by this role.
         """
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def condition(self) -> str:
+        """
+        The conditions on this role definition, which limits the resources it can be assigned to.
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter(name="conditionVersion")
+    def condition_version(self) -> str:
+        """
+        The version of the condition.
+        """
+        return pulumi.get(self, "condition_version")
 
     @property
     @pulumi.getter(name="notActions")
     def not_actions(self) -> Sequence[str]:
         """
-        a list of actions which are denied by this role
+        A list of actions which are denied by this role.
         """
         return pulumi.get(self, "not_actions")
 
     @property
     @pulumi.getter(name="dataActions")
     def data_actions(self) -> Optional[Sequence[str]]:
+        """
+        A list of data actions allowed by this role.
+        """
         return pulumi.get(self, "data_actions")
 
     @property
     @pulumi.getter(name="notDataActions")
     def not_data_actions(self) -> Optional[Sequence[str]]:
+        """
+        A list of data actions which are denied by this role.
+        """
         return pulumi.get(self, "not_data_actions")
 
 

@@ -21,6 +21,8 @@ namespace Pulumi.Azure.Iot.Outputs
         public readonly int Capacity;
         /// <summary>
         /// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+        /// 
+        /// &gt; **NOTE:** The `F1` sku is on `Free` tier.
         /// </summary>
         public readonly string Name;
 

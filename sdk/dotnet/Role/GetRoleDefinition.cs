@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Role
         /// </summary>
         public readonly ImmutableArray<string> AssignableScopes;
         /// <summary>
-        /// the Description of the built-in Role.
+        /// The Description of the built-in Role.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -196,13 +196,13 @@ namespace Pulumi.Azure.Role
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// a `permissions` block as documented below.
+        /// A `permissions` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleDefinitionPermissionResult> Permissions;
         public readonly string RoleDefinitionId;
         public readonly string? Scope;
         /// <summary>
-        /// the Type of the Role.
+        /// The Type of the Role.
         /// </summary>
         public readonly string Type;
 

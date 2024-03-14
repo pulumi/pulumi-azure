@@ -28,6 +28,8 @@ import com.pulumi.azure.appservice.inputs.GetServicePlanArgs;
 import com.pulumi.azure.appservice.inputs.GetServicePlanPlainArgs;
 import com.pulumi.azure.appservice.inputs.GetSourceControlTokenArgs;
 import com.pulumi.azure.appservice.inputs.GetSourceControlTokenPlainArgs;
+import com.pulumi.azure.appservice.inputs.GetStaticWebAppArgs;
+import com.pulumi.azure.appservice.inputs.GetStaticWebAppPlainArgs;
 import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppArgs;
 import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppPlainArgs;
 import com.pulumi.azure.appservice.inputs.GetWindowsWebAppArgs;
@@ -44,6 +46,7 @@ import com.pulumi.azure.appservice.outputs.GetLinuxFunctionAppResult;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppResult;
 import com.pulumi.azure.appservice.outputs.GetServicePlanResult;
 import com.pulumi.azure.appservice.outputs.GetSourceControlTokenResult;
+import com.pulumi.azure.appservice.outputs.GetStaticWebAppResult;
 import com.pulumi.azure.appservice.outputs.GetWindowsFunctionAppResult;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppResult;
 import com.pulumi.core.Output;
@@ -2072,6 +2075,170 @@ public final class AppserviceFunctions {
      */
     public static CompletableFuture<GetSourceControlTokenResult> getSourceControlTokenPlain(GetSourceControlTokenPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getSourceControlToken:getSourceControlToken", TypeShape.of(GetSourceControlTokenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Static Web App.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetStaticWebAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppserviceFunctions.getStaticWebApp(GetStaticWebAppArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetStaticWebAppResult> getStaticWebApp(GetStaticWebAppArgs args) {
+        return getStaticWebApp(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Static Web App.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetStaticWebAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppserviceFunctions.getStaticWebApp(GetStaticWebAppArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetStaticWebAppResult> getStaticWebAppPlain(GetStaticWebAppPlainArgs args) {
+        return getStaticWebAppPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Static Web App.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetStaticWebAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppserviceFunctions.getStaticWebApp(GetStaticWebAppArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetStaticWebAppResult> getStaticWebApp(GetStaticWebAppArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:appservice/getStaticWebApp:getStaticWebApp", TypeShape.of(GetStaticWebAppResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Static Web App.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appservice.AppserviceFunctions;
+     * import com.pulumi.azure.appservice.inputs.GetStaticWebAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppserviceFunctions.getStaticWebApp(GetStaticWebAppArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetStaticWebAppResult> getStaticWebAppPlain(GetStaticWebAppPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:appservice/getStaticWebApp:getStaticWebApp", TypeShape.of(GetStaticWebAppResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Windows Function App.

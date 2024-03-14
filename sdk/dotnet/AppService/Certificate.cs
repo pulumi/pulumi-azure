@@ -102,7 +102,17 @@ namespace Pulumi.Azure.AppService
         public Output<string> Issuer { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
+        /// </summary>
+        [Output("keyVaultId")]
+        public Output<string?> KeyVaultId { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         /// </summary>
         [Output("keyVaultSecretId")]
         public Output<string?> KeyVaultSecretId { get; private set; } = null!;
@@ -128,7 +138,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
+        /// &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         /// </summary>
         [Output("pfxBlob")]
         public Output<string?> PfxBlob { get; private set; } = null!;
@@ -217,7 +227,17 @@ namespace Pulumi.Azure.AppService
         public Input<string>? AppServicePlanId { get; set; }
 
         /// <summary>
+        /// The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
+        /// </summary>
+        [Input("keyVaultId")]
+        public Input<string>? KeyVaultId { get; set; }
+
+        /// <summary>
         /// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         /// </summary>
         [Input("keyVaultSecretId")]
         public Input<string>? KeyVaultSecretId { get; set; }
@@ -256,7 +276,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
+        /// &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         /// </summary>
         public Input<string>? PfxBlob
         {
@@ -345,7 +365,17 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Issuer { get; set; }
 
         /// <summary>
+        /// The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
+        /// </summary>
+        [Input("keyVaultId")]
+        public Input<string>? KeyVaultId { get; set; }
+
+        /// <summary>
         /// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         /// </summary>
         [Input("keyVaultSecretId")]
         public Input<string>? KeyVaultSecretId { get; set; }
@@ -384,7 +414,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
+        /// &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         /// </summary>
         public Input<string>? PfxBlob
         {

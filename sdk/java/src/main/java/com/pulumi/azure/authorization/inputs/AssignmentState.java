@@ -115,7 +115,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+     * The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
      * 
      * &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
      * 
@@ -124,7 +124,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> principalType;
 
     /**
-     * @return The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+     * @return The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
      * 
      * &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
      * 
@@ -366,7 +366,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principalType The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+         * @param principalType The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
          * 
          * &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
          * 
@@ -379,7 +379,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principalType The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+         * @param principalType The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
          * 
          * &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
          * 

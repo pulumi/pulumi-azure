@@ -148,10 +148,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
             location=example.location,
             name="example",
-            resource_group_name=example.name,
-            hub_profile=azure.containerservice.KubernetesFleetManagerHubProfileArgs(
-                dns_prefix="example-dns-prefix",
-            ))
+            resource_group_name=example.name)
         example_fleet_update_strategy = azure.containerservice.FleetUpdateStrategy("example",
             name="example",
             kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id,
@@ -201,10 +198,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
             location=example.location,
             name="example",
-            resource_group_name=example.name,
-            hub_profile=azure.containerservice.KubernetesFleetManagerHubProfileArgs(
-                dns_prefix="example-dns-prefix",
-            ))
+            resource_group_name=example.name)
         example_fleet_update_strategy = azure.containerservice.FleetUpdateStrategy("example",
             name="example",
             kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id,

@@ -95,6 +95,11 @@ public final class WindowsWebAppSiteConfig {
      */
     private @Nullable Boolean http2Enabled;
     /**
+     * @return The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * 
+     */
+    private @Nullable String ipRestrictionDefaultAction;
+    /**
      * @return One or more `ip_restriction` blocks as defined above.
      * 
      */
@@ -130,6 +135,11 @@ public final class WindowsWebAppSiteConfig {
      * 
      */
     private @Nullable String remoteDebuggingVersion;
+    /**
+     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * 
+     */
+    private @Nullable String scmIpRestrictionDefaultAction;
     /**
      * @return One or more `scm_ip_restriction` blocks as defined above.
      * 
@@ -281,6 +291,13 @@ public final class WindowsWebAppSiteConfig {
         return Optional.ofNullable(this.http2Enabled);
     }
     /**
+     * @return The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * 
+     */
+    public Optional<String> ipRestrictionDefaultAction() {
+        return Optional.ofNullable(this.ipRestrictionDefaultAction);
+    }
+    /**
      * @return One or more `ip_restriction` blocks as defined above.
      * 
      */
@@ -331,6 +348,13 @@ public final class WindowsWebAppSiteConfig {
      */
     public Optional<String> remoteDebuggingVersion() {
         return Optional.ofNullable(this.remoteDebuggingVersion);
+    }
+    /**
+     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * 
+     */
+    public Optional<String> scmIpRestrictionDefaultAction() {
+        return Optional.ofNullable(this.scmIpRestrictionDefaultAction);
     }
     /**
      * @return One or more `scm_ip_restriction` blocks as defined above.
@@ -420,6 +444,7 @@ public final class WindowsWebAppSiteConfig {
         private @Nullable Integer healthCheckEvictionTimeInMin;
         private @Nullable String healthCheckPath;
         private @Nullable Boolean http2Enabled;
+        private @Nullable String ipRestrictionDefaultAction;
         private @Nullable List<WindowsWebAppSiteConfigIpRestriction> ipRestrictions;
         private @Nullable String linuxFxVersion;
         private @Nullable String loadBalancingMode;
@@ -428,6 +453,7 @@ public final class WindowsWebAppSiteConfig {
         private @Nullable String minimumTlsVersion;
         private @Nullable Boolean remoteDebuggingEnabled;
         private @Nullable String remoteDebuggingVersion;
+        private @Nullable String scmIpRestrictionDefaultAction;
         private @Nullable List<WindowsWebAppSiteConfigScmIpRestriction> scmIpRestrictions;
         private @Nullable String scmMinimumTlsVersion;
         private @Nullable String scmType;
@@ -457,6 +483,7 @@ public final class WindowsWebAppSiteConfig {
     	      this.healthCheckEvictionTimeInMin = defaults.healthCheckEvictionTimeInMin;
     	      this.healthCheckPath = defaults.healthCheckPath;
     	      this.http2Enabled = defaults.http2Enabled;
+    	      this.ipRestrictionDefaultAction = defaults.ipRestrictionDefaultAction;
     	      this.ipRestrictions = defaults.ipRestrictions;
     	      this.linuxFxVersion = defaults.linuxFxVersion;
     	      this.loadBalancingMode = defaults.loadBalancingMode;
@@ -465,6 +492,7 @@ public final class WindowsWebAppSiteConfig {
     	      this.minimumTlsVersion = defaults.minimumTlsVersion;
     	      this.remoteDebuggingEnabled = defaults.remoteDebuggingEnabled;
     	      this.remoteDebuggingVersion = defaults.remoteDebuggingVersion;
+    	      this.scmIpRestrictionDefaultAction = defaults.scmIpRestrictionDefaultAction;
     	      this.scmIpRestrictions = defaults.scmIpRestrictions;
     	      this.scmMinimumTlsVersion = defaults.scmMinimumTlsVersion;
     	      this.scmType = defaults.scmType;
@@ -577,6 +605,12 @@ public final class WindowsWebAppSiteConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder ipRestrictionDefaultAction(@Nullable String ipRestrictionDefaultAction) {
+
+            this.ipRestrictionDefaultAction = ipRestrictionDefaultAction;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ipRestrictions(@Nullable List<WindowsWebAppSiteConfigIpRestriction> ipRestrictions) {
 
             this.ipRestrictions = ipRestrictions;
@@ -625,6 +659,12 @@ public final class WindowsWebAppSiteConfig {
         public Builder remoteDebuggingVersion(@Nullable String remoteDebuggingVersion) {
 
             this.remoteDebuggingVersion = remoteDebuggingVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scmIpRestrictionDefaultAction(@Nullable String scmIpRestrictionDefaultAction) {
+
+            this.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             return this;
         }
         @CustomType.Setter
@@ -711,6 +751,7 @@ public final class WindowsWebAppSiteConfig {
             _resultValue.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
             _resultValue.healthCheckPath = healthCheckPath;
             _resultValue.http2Enabled = http2Enabled;
+            _resultValue.ipRestrictionDefaultAction = ipRestrictionDefaultAction;
             _resultValue.ipRestrictions = ipRestrictions;
             _resultValue.linuxFxVersion = linuxFxVersion;
             _resultValue.loadBalancingMode = loadBalancingMode;
@@ -719,6 +760,7 @@ public final class WindowsWebAppSiteConfig {
             _resultValue.minimumTlsVersion = minimumTlsVersion;
             _resultValue.remoteDebuggingEnabled = remoteDebuggingEnabled;
             _resultValue.remoteDebuggingVersion = remoteDebuggingVersion;
+            _resultValue.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             _resultValue.scmIpRestrictions = scmIpRestrictions;
             _resultValue.scmMinimumTlsVersion = scmMinimumTlsVersion;
             _resultValue.scmType = scmType;

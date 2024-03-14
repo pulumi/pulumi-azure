@@ -37,12 +37,16 @@ public final class IoTHubSkuArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
      * 
+     * &gt; **NOTE:** The `F1` sku is on `Free` tier.
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
      * @return The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+     * 
+     * &gt; **NOTE:** The `F1` sku is on `Free` tier.
      * 
      */
     public Output<String> name() {
@@ -102,6 +106,8 @@ public final class IoTHubSkuArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
          * 
+         * &gt; **NOTE:** The `F1` sku is on `Free` tier.
+         * 
          * @return builder
          * 
          */
@@ -112,6 +118,8 @@ public final class IoTHubSkuArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+         * 
+         * &gt; **NOTE:** The `F1` sku is on `Free` tier.
          * 
          * @return builder
          * 

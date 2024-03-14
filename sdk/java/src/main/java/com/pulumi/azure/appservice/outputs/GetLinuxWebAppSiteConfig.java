@@ -84,7 +84,7 @@ public final class GetLinuxWebAppSiteConfig {
      */
     private String ftpsState;
     /**
-     * @return (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
      * 
      */
     private Integer healthCheckEvictionTimeInMin;
@@ -98,6 +98,11 @@ public final class GetLinuxWebAppSiteConfig {
      * 
      */
     private Boolean http2Enabled;
+    /**
+     * @return The Default action for traffic that does not match any `ip_restriction` rule.
+     * 
+     */
+    private String ipRestrictionDefaultAction;
     /**
      * @return A `ip_restriction` block as defined above.
      * 
@@ -138,6 +143,11 @@ public final class GetLinuxWebAppSiteConfig {
      * 
      */
     private String remoteDebuggingVersion;
+    /**
+     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule.
+     * 
+     */
+    private String scmIpRestrictionDefaultAction;
     /**
      * @return A `scm_ip_restriction` block as defined above.
      * 
@@ -272,7 +282,7 @@ public final class GetLinuxWebAppSiteConfig {
         return this.ftpsState;
     }
     /**
-     * @return (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
      * 
      */
     public Integer healthCheckEvictionTimeInMin() {
@@ -291,6 +301,13 @@ public final class GetLinuxWebAppSiteConfig {
      */
     public Boolean http2Enabled() {
         return this.http2Enabled;
+    }
+    /**
+     * @return The Default action for traffic that does not match any `ip_restriction` rule.
+     * 
+     */
+    public String ipRestrictionDefaultAction() {
+        return this.ipRestrictionDefaultAction;
     }
     /**
      * @return A `ip_restriction` block as defined above.
@@ -347,6 +364,13 @@ public final class GetLinuxWebAppSiteConfig {
      */
     public String remoteDebuggingVersion() {
         return this.remoteDebuggingVersion;
+    }
+    /**
+     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule.
+     * 
+     */
+    public String scmIpRestrictionDefaultAction() {
+        return this.scmIpRestrictionDefaultAction;
     }
     /**
      * @return A `scm_ip_restriction` block as defined above.
@@ -430,6 +454,7 @@ public final class GetLinuxWebAppSiteConfig {
         private Integer healthCheckEvictionTimeInMin;
         private String healthCheckPath;
         private Boolean http2Enabled;
+        private String ipRestrictionDefaultAction;
         private List<GetLinuxWebAppSiteConfigIpRestriction> ipRestrictions;
         private String linuxFxVersion;
         private String loadBalancingMode;
@@ -438,6 +463,7 @@ public final class GetLinuxWebAppSiteConfig {
         private String minimumTlsVersion;
         private Boolean remoteDebuggingEnabled;
         private String remoteDebuggingVersion;
+        private String scmIpRestrictionDefaultAction;
         private List<GetLinuxWebAppSiteConfigScmIpRestriction> scmIpRestrictions;
         private String scmMinimumTlsVersion;
         private String scmType;
@@ -465,6 +491,7 @@ public final class GetLinuxWebAppSiteConfig {
     	      this.healthCheckEvictionTimeInMin = defaults.healthCheckEvictionTimeInMin;
     	      this.healthCheckPath = defaults.healthCheckPath;
     	      this.http2Enabled = defaults.http2Enabled;
+    	      this.ipRestrictionDefaultAction = defaults.ipRestrictionDefaultAction;
     	      this.ipRestrictions = defaults.ipRestrictions;
     	      this.linuxFxVersion = defaults.linuxFxVersion;
     	      this.loadBalancingMode = defaults.loadBalancingMode;
@@ -473,6 +500,7 @@ public final class GetLinuxWebAppSiteConfig {
     	      this.minimumTlsVersion = defaults.minimumTlsVersion;
     	      this.remoteDebuggingEnabled = defaults.remoteDebuggingEnabled;
     	      this.remoteDebuggingVersion = defaults.remoteDebuggingVersion;
+    	      this.scmIpRestrictionDefaultAction = defaults.scmIpRestrictionDefaultAction;
     	      this.scmIpRestrictions = defaults.scmIpRestrictions;
     	      this.scmMinimumTlsVersion = defaults.scmMinimumTlsVersion;
     	      this.scmType = defaults.scmType;
@@ -624,6 +652,14 @@ public final class GetLinuxWebAppSiteConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder ipRestrictionDefaultAction(String ipRestrictionDefaultAction) {
+            if (ipRestrictionDefaultAction == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "ipRestrictionDefaultAction");
+            }
+            this.ipRestrictionDefaultAction = ipRestrictionDefaultAction;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ipRestrictions(List<GetLinuxWebAppSiteConfigIpRestriction> ipRestrictions) {
             if (ipRestrictions == null) {
               throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "ipRestrictions");
@@ -688,6 +724,14 @@ public final class GetLinuxWebAppSiteConfig {
               throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "remoteDebuggingVersion");
             }
             this.remoteDebuggingVersion = remoteDebuggingVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scmIpRestrictionDefaultAction(String scmIpRestrictionDefaultAction) {
+            if (scmIpRestrictionDefaultAction == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "scmIpRestrictionDefaultAction");
+            }
+            this.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             return this;
         }
         @CustomType.Setter
@@ -775,6 +819,7 @@ public final class GetLinuxWebAppSiteConfig {
             _resultValue.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
             _resultValue.healthCheckPath = healthCheckPath;
             _resultValue.http2Enabled = http2Enabled;
+            _resultValue.ipRestrictionDefaultAction = ipRestrictionDefaultAction;
             _resultValue.ipRestrictions = ipRestrictions;
             _resultValue.linuxFxVersion = linuxFxVersion;
             _resultValue.loadBalancingMode = loadBalancingMode;
@@ -783,6 +828,7 @@ public final class GetLinuxWebAppSiteConfig {
             _resultValue.minimumTlsVersion = minimumTlsVersion;
             _resultValue.remoteDebuggingEnabled = remoteDebuggingEnabled;
             _resultValue.remoteDebuggingVersion = remoteDebuggingVersion;
+            _resultValue.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             _resultValue.scmIpRestrictions = scmIpRestrictions;
             _resultValue.scmMinimumTlsVersion = scmMinimumTlsVersion;
             _resultValue.scmType = scmType;

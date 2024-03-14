@@ -177,7 +177,27 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.issuer;
     }
     /**
+     * The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
+     * 
+     */
+    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> keyVaultId;
+
+    /**
+     * @return The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
+     * 
+     */
+    public Output<Optional<String>> keyVaultId() {
+        return Codegen.optional(this.keyVaultId);
+    }
+    /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     @Export(name="keyVaultSecretId", refs={String.class}, tree="[0]")
@@ -185,6 +205,8 @@ public class Certificate extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The ID of the Key Vault secret. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     public Output<Optional<String>> keyVaultSecretId() {
@@ -235,7 +257,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
+     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     @Export(name="pfxBlob", refs={String.class}, tree="[0]")
@@ -244,7 +266,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * @return The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
+     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     public Output<Optional<String>> pfxBlob() {

@@ -145,35 +145,35 @@ type VmwareReplicatedVm struct {
 	ApplianceName pulumi.StringOutput `pulumi:"applianceName"`
 	// The ID of the stroage account that should be used for logging during replication.
 	//
-	// **Note:** Only standard types of storage accounts are allowed.
+	// > **Note:** Only standard types of storage accounts are allowed.
 	//
-	// **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
+	// > **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
 	//
-	// **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
+	// > **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
 	//
-	// **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
+	// > **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
 	DefaultLogStorageAccountId pulumi.StringPtrOutput `pulumi:"defaultLogStorageAccountId"`
-	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
 	//
-	// **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
+	// > **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
 	//
-	// **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
+	// > **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
 	//
-	// **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
+	// > **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
 	DefaultRecoveryDiskType pulumi.StringPtrOutput `pulumi:"defaultRecoveryDiskType"`
 	// The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
 	//
-	// **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
+	// > **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
 	//
-	// **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
+	// > **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
 	DefaultTargetDiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"defaultTargetDiskEncryptionSetId"`
 	// The license type of the VM. Possible values are `NoLicenseType`, `NotSpecified` and `WindowsServer`. Defaults to `NotSpecified`.
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// One or more `managedDisk` block as defined below. It's available only if mobility service is already installed on the source VM.
 	//
-	// **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+	// > **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
 	ManagedDisks VmwareReplicatedVmManagedDiskArrayOutput `pulumi:"managedDisks"`
-	// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over. Changing this forces a new resource to be created.
+	// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
 	MultiVmGroupName pulumi.StringPtrOutput `pulumi:"multiVmGroupName"`
 	// The name of the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -181,25 +181,25 @@ type VmwareReplicatedVm struct {
 	NetworkInterfaces VmwareReplicatedVmNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
 	PhysicalServerCredentialName pulumi.StringOutput `pulumi:"physicalServerCredentialName"`
-	// The ID of the policy to use for this replicated VM. Changing this forces a new resource to be created.
+	// The ID of the policy to use for this replicated VM.
 	RecoveryReplicationPolicyId pulumi.StringOutput `pulumi:"recoveryReplicationPolicyId"`
-	// The ID of the Recovery Services Vault where the replicated VM is created. Changing this forces a new resource to be created.
+	// The ID of the Recovery Services Vault where the replicated VM is created.
 	RecoveryVaultId pulumi.StringOutput `pulumi:"recoveryVaultId"`
 	// The name of the source VM in VMWare. Changing this forces a new resource to be created.
 	SourceVmName pulumi.StringOutput `pulumi:"sourceVmName"`
-	// The ID of availability set that the new VM should belong to when a failover is done. Changing this forces a new resource to be created.
+	// The ID of availability set that the new VM should belong to when a failover is done.
 	TargetAvailabilitySetId pulumi.StringPtrOutput `pulumi:"targetAvailabilitySetId"`
 	// The ID of the storage account that should be used for boot diagnostics when a failover is done.
 	TargetBootDiagnosticsStorageAccountId pulumi.StringPtrOutput `pulumi:"targetBootDiagnosticsStorageAccountId"`
 	// The ID of network to use when a failover is done.
 	//
-	// **Note:** `targetNetworkId` is required when `networkInterface` is specified.
+	// > **Note:** `targetNetworkId` is required when `networkInterface` is specified.
 	TargetNetworkId pulumi.StringPtrOutput `pulumi:"targetNetworkId"`
 	// The ID of Proximity Placement Group the new VM should belong to when a failover is done.
 	//
-	// **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
+	// > **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
 	TargetProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"targetProximityPlacementGroupId"`
-	// The ID of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
+	// The ID of resource group where the VM should be created when a failover is done.
 	TargetResourceGroupId pulumi.StringOutput `pulumi:"targetResourceGroupId"`
 	// Name of the VM that should be created when a failover is done. Changing this forces a new resource to be created.
 	TargetVmName pulumi.StringOutput `pulumi:"targetVmName"`
@@ -266,35 +266,35 @@ type vmwareReplicatedVmState struct {
 	ApplianceName *string `pulumi:"applianceName"`
 	// The ID of the stroage account that should be used for logging during replication.
 	//
-	// **Note:** Only standard types of storage accounts are allowed.
+	// > **Note:** Only standard types of storage accounts are allowed.
 	//
-	// **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
+	// > **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
 	//
-	// **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
+	// > **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
 	//
-	// **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
+	// > **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
 	DefaultLogStorageAccountId *string `pulumi:"defaultLogStorageAccountId"`
-	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
 	//
-	// **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
+	// > **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
 	//
-	// **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
+	// > **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
 	//
-	// **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
+	// > **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
 	DefaultRecoveryDiskType *string `pulumi:"defaultRecoveryDiskType"`
 	// The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
 	//
-	// **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
+	// > **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
 	//
-	// **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
+	// > **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
 	DefaultTargetDiskEncryptionSetId *string `pulumi:"defaultTargetDiskEncryptionSetId"`
 	// The license type of the VM. Possible values are `NoLicenseType`, `NotSpecified` and `WindowsServer`. Defaults to `NotSpecified`.
 	LicenseType *string `pulumi:"licenseType"`
 	// One or more `managedDisk` block as defined below. It's available only if mobility service is already installed on the source VM.
 	//
-	// **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+	// > **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
 	ManagedDisks []VmwareReplicatedVmManagedDisk `pulumi:"managedDisks"`
-	// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over. Changing this forces a new resource to be created.
+	// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
 	MultiVmGroupName *string `pulumi:"multiVmGroupName"`
 	// The name of the replicated VM. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -302,25 +302,25 @@ type vmwareReplicatedVmState struct {
 	NetworkInterfaces []VmwareReplicatedVmNetworkInterface `pulumi:"networkInterfaces"`
 	// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
 	PhysicalServerCredentialName *string `pulumi:"physicalServerCredentialName"`
-	// The ID of the policy to use for this replicated VM. Changing this forces a new resource to be created.
+	// The ID of the policy to use for this replicated VM.
 	RecoveryReplicationPolicyId *string `pulumi:"recoveryReplicationPolicyId"`
-	// The ID of the Recovery Services Vault where the replicated VM is created. Changing this forces a new resource to be created.
+	// The ID of the Recovery Services Vault where the replicated VM is created.
 	RecoveryVaultId *string `pulumi:"recoveryVaultId"`
 	// The name of the source VM in VMWare. Changing this forces a new resource to be created.
 	SourceVmName *string `pulumi:"sourceVmName"`
-	// The ID of availability set that the new VM should belong to when a failover is done. Changing this forces a new resource to be created.
+	// The ID of availability set that the new VM should belong to when a failover is done.
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
 	// The ID of the storage account that should be used for boot diagnostics when a failover is done.
 	TargetBootDiagnosticsStorageAccountId *string `pulumi:"targetBootDiagnosticsStorageAccountId"`
 	// The ID of network to use when a failover is done.
 	//
-	// **Note:** `targetNetworkId` is required when `networkInterface` is specified.
+	// > **Note:** `targetNetworkId` is required when `networkInterface` is specified.
 	TargetNetworkId *string `pulumi:"targetNetworkId"`
 	// The ID of Proximity Placement Group the new VM should belong to when a failover is done.
 	//
-	// **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
+	// > **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
 	TargetProximityPlacementGroupId *string `pulumi:"targetProximityPlacementGroupId"`
-	// The ID of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
+	// The ID of resource group where the VM should be created when a failover is done.
 	TargetResourceGroupId *string `pulumi:"targetResourceGroupId"`
 	// Name of the VM that should be created when a failover is done. Changing this forces a new resource to be created.
 	TargetVmName *string `pulumi:"targetVmName"`
@@ -337,35 +337,35 @@ type VmwareReplicatedVmState struct {
 	ApplianceName pulumi.StringPtrInput
 	// The ID of the stroage account that should be used for logging during replication.
 	//
-	// **Note:** Only standard types of storage accounts are allowed.
+	// > **Note:** Only standard types of storage accounts are allowed.
 	//
-	// **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
+	// > **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
 	//
-	// **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
+	// > **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
 	//
-	// **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
+	// > **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
 	DefaultLogStorageAccountId pulumi.StringPtrInput
-	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
 	//
-	// **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
+	// > **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
 	//
-	// **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
+	// > **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
 	//
-	// **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
+	// > **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
 	DefaultRecoveryDiskType pulumi.StringPtrInput
 	// The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
 	//
-	// **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
+	// > **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
 	//
-	// **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
+	// > **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
 	DefaultTargetDiskEncryptionSetId pulumi.StringPtrInput
 	// The license type of the VM. Possible values are `NoLicenseType`, `NotSpecified` and `WindowsServer`. Defaults to `NotSpecified`.
 	LicenseType pulumi.StringPtrInput
 	// One or more `managedDisk` block as defined below. It's available only if mobility service is already installed on the source VM.
 	//
-	// **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+	// > **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
 	ManagedDisks VmwareReplicatedVmManagedDiskArrayInput
-	// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over. Changing this forces a new resource to be created.
+	// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
 	MultiVmGroupName pulumi.StringPtrInput
 	// The name of the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -373,25 +373,25 @@ type VmwareReplicatedVmState struct {
 	NetworkInterfaces VmwareReplicatedVmNetworkInterfaceArrayInput
 	// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
 	PhysicalServerCredentialName pulumi.StringPtrInput
-	// The ID of the policy to use for this replicated VM. Changing this forces a new resource to be created.
+	// The ID of the policy to use for this replicated VM.
 	RecoveryReplicationPolicyId pulumi.StringPtrInput
-	// The ID of the Recovery Services Vault where the replicated VM is created. Changing this forces a new resource to be created.
+	// The ID of the Recovery Services Vault where the replicated VM is created.
 	RecoveryVaultId pulumi.StringPtrInput
 	// The name of the source VM in VMWare. Changing this forces a new resource to be created.
 	SourceVmName pulumi.StringPtrInput
-	// The ID of availability set that the new VM should belong to when a failover is done. Changing this forces a new resource to be created.
+	// The ID of availability set that the new VM should belong to when a failover is done.
 	TargetAvailabilitySetId pulumi.StringPtrInput
 	// The ID of the storage account that should be used for boot diagnostics when a failover is done.
 	TargetBootDiagnosticsStorageAccountId pulumi.StringPtrInput
 	// The ID of network to use when a failover is done.
 	//
-	// **Note:** `targetNetworkId` is required when `networkInterface` is specified.
+	// > **Note:** `targetNetworkId` is required when `networkInterface` is specified.
 	TargetNetworkId pulumi.StringPtrInput
 	// The ID of Proximity Placement Group the new VM should belong to when a failover is done.
 	//
-	// **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
+	// > **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
 	TargetProximityPlacementGroupId pulumi.StringPtrInput
-	// The ID of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
+	// The ID of resource group where the VM should be created when a failover is done.
 	TargetResourceGroupId pulumi.StringPtrInput
 	// Name of the VM that should be created when a failover is done. Changing this forces a new resource to be created.
 	TargetVmName pulumi.StringPtrInput
@@ -412,35 +412,35 @@ type vmwareReplicatedVmArgs struct {
 	ApplianceName string `pulumi:"applianceName"`
 	// The ID of the stroage account that should be used for logging during replication.
 	//
-	// **Note:** Only standard types of storage accounts are allowed.
+	// > **Note:** Only standard types of storage accounts are allowed.
 	//
-	// **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
+	// > **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
 	//
-	// **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
+	// > **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
 	//
-	// **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
+	// > **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
 	DefaultLogStorageAccountId *string `pulumi:"defaultLogStorageAccountId"`
-	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
 	//
-	// **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
+	// > **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
 	//
-	// **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
+	// > **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
 	//
-	// **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
+	// > **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
 	DefaultRecoveryDiskType *string `pulumi:"defaultRecoveryDiskType"`
 	// The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
 	//
-	// **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
+	// > **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
 	//
-	// **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
+	// > **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
 	DefaultTargetDiskEncryptionSetId *string `pulumi:"defaultTargetDiskEncryptionSetId"`
 	// The license type of the VM. Possible values are `NoLicenseType`, `NotSpecified` and `WindowsServer`. Defaults to `NotSpecified`.
 	LicenseType *string `pulumi:"licenseType"`
 	// One or more `managedDisk` block as defined below. It's available only if mobility service is already installed on the source VM.
 	//
-	// **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+	// > **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
 	ManagedDisks []VmwareReplicatedVmManagedDisk `pulumi:"managedDisks"`
-	// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over. Changing this forces a new resource to be created.
+	// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
 	MultiVmGroupName *string `pulumi:"multiVmGroupName"`
 	// The name of the replicated VM. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -448,25 +448,25 @@ type vmwareReplicatedVmArgs struct {
 	NetworkInterfaces []VmwareReplicatedVmNetworkInterface `pulumi:"networkInterfaces"`
 	// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
 	PhysicalServerCredentialName string `pulumi:"physicalServerCredentialName"`
-	// The ID of the policy to use for this replicated VM. Changing this forces a new resource to be created.
+	// The ID of the policy to use for this replicated VM.
 	RecoveryReplicationPolicyId string `pulumi:"recoveryReplicationPolicyId"`
-	// The ID of the Recovery Services Vault where the replicated VM is created. Changing this forces a new resource to be created.
+	// The ID of the Recovery Services Vault where the replicated VM is created.
 	RecoveryVaultId string `pulumi:"recoveryVaultId"`
 	// The name of the source VM in VMWare. Changing this forces a new resource to be created.
 	SourceVmName string `pulumi:"sourceVmName"`
-	// The ID of availability set that the new VM should belong to when a failover is done. Changing this forces a new resource to be created.
+	// The ID of availability set that the new VM should belong to when a failover is done.
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
 	// The ID of the storage account that should be used for boot diagnostics when a failover is done.
 	TargetBootDiagnosticsStorageAccountId *string `pulumi:"targetBootDiagnosticsStorageAccountId"`
 	// The ID of network to use when a failover is done.
 	//
-	// **Note:** `targetNetworkId` is required when `networkInterface` is specified.
+	// > **Note:** `targetNetworkId` is required when `networkInterface` is specified.
 	TargetNetworkId *string `pulumi:"targetNetworkId"`
 	// The ID of Proximity Placement Group the new VM should belong to when a failover is done.
 	//
-	// **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
+	// > **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
 	TargetProximityPlacementGroupId *string `pulumi:"targetProximityPlacementGroupId"`
-	// The ID of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
+	// The ID of resource group where the VM should be created when a failover is done.
 	TargetResourceGroupId string `pulumi:"targetResourceGroupId"`
 	// Name of the VM that should be created when a failover is done. Changing this forces a new resource to be created.
 	TargetVmName string `pulumi:"targetVmName"`
@@ -484,35 +484,35 @@ type VmwareReplicatedVmArgs struct {
 	ApplianceName pulumi.StringInput
 	// The ID of the stroage account that should be used for logging during replication.
 	//
-	// **Note:** Only standard types of storage accounts are allowed.
+	// > **Note:** Only standard types of storage accounts are allowed.
 	//
-	// **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
+	// > **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
 	//
-	// **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
+	// > **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
 	//
-	// **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
+	// > **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
 	DefaultLogStorageAccountId pulumi.StringPtrInput
-	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
 	//
-	// **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
+	// > **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
 	//
-	// **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
+	// > **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
 	//
-	// **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
+	// > **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
 	DefaultRecoveryDiskType pulumi.StringPtrInput
 	// The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
 	//
-	// **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
+	// > **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
 	//
-	// **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
+	// > **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
 	DefaultTargetDiskEncryptionSetId pulumi.StringPtrInput
 	// The license type of the VM. Possible values are `NoLicenseType`, `NotSpecified` and `WindowsServer`. Defaults to `NotSpecified`.
 	LicenseType pulumi.StringPtrInput
 	// One or more `managedDisk` block as defined below. It's available only if mobility service is already installed on the source VM.
 	//
-	// **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+	// > **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
 	ManagedDisks VmwareReplicatedVmManagedDiskArrayInput
-	// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over. Changing this forces a new resource to be created.
+	// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
 	MultiVmGroupName pulumi.StringPtrInput
 	// The name of the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -520,25 +520,25 @@ type VmwareReplicatedVmArgs struct {
 	NetworkInterfaces VmwareReplicatedVmNetworkInterfaceArrayInput
 	// The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
 	PhysicalServerCredentialName pulumi.StringInput
-	// The ID of the policy to use for this replicated VM. Changing this forces a new resource to be created.
+	// The ID of the policy to use for this replicated VM.
 	RecoveryReplicationPolicyId pulumi.StringInput
-	// The ID of the Recovery Services Vault where the replicated VM is created. Changing this forces a new resource to be created.
+	// The ID of the Recovery Services Vault where the replicated VM is created.
 	RecoveryVaultId pulumi.StringInput
 	// The name of the source VM in VMWare. Changing this forces a new resource to be created.
 	SourceVmName pulumi.StringInput
-	// The ID of availability set that the new VM should belong to when a failover is done. Changing this forces a new resource to be created.
+	// The ID of availability set that the new VM should belong to when a failover is done.
 	TargetAvailabilitySetId pulumi.StringPtrInput
 	// The ID of the storage account that should be used for boot diagnostics when a failover is done.
 	TargetBootDiagnosticsStorageAccountId pulumi.StringPtrInput
 	// The ID of network to use when a failover is done.
 	//
-	// **Note:** `targetNetworkId` is required when `networkInterface` is specified.
+	// > **Note:** `targetNetworkId` is required when `networkInterface` is specified.
 	TargetNetworkId pulumi.StringPtrInput
 	// The ID of Proximity Placement Group the new VM should belong to when a failover is done.
 	//
-	// **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
+	// > **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
 	TargetProximityPlacementGroupId pulumi.StringPtrInput
-	// The ID of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
+	// The ID of resource group where the VM should be created when a failover is done.
 	TargetResourceGroupId pulumi.StringInput
 	// Name of the VM that should be created when a failover is done. Changing this forces a new resource to be created.
 	TargetVmName pulumi.StringInput
@@ -644,33 +644,33 @@ func (o VmwareReplicatedVmOutput) ApplianceName() pulumi.StringOutput {
 
 // The ID of the stroage account that should be used for logging during replication.
 //
-// **Note:** Only standard types of storage accounts are allowed.
+// > **Note:** Only standard types of storage accounts are allowed.
 //
-// **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
+// > **Note:** Only one of `defaultLogStorageAccountId` or `managedDisk` must be specified.
 //
-// **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
+// > **Note:** Changing `defaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
 //
-// **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
+// > **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
 func (o VmwareReplicatedVmOutput) DefaultLogStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VmwareReplicatedVm) pulumi.StringPtrOutput { return v.DefaultLogStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
 //
-// **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
+// > **Note:** Only one of `defaultRecoveryDiskType` or `managedDisk` must be specified.
 //
-// **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
+// > **Note:** Changing `defaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
 //
-// **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
+// > **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
 func (o VmwareReplicatedVmOutput) DefaultRecoveryDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VmwareReplicatedVm) pulumi.StringPtrOutput { return v.DefaultRecoveryDiskType }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
 //
-// **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
+// > **Note:** Changing `defaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
 //
-// **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
+// > **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
 func (o VmwareReplicatedVmOutput) DefaultTargetDiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VmwareReplicatedVm) pulumi.StringPtrOutput { return v.DefaultTargetDiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -682,12 +682,12 @@ func (o VmwareReplicatedVmOutput) LicenseType() pulumi.StringPtrOutput {
 
 // One or more `managedDisk` block as defined below. It's available only if mobility service is already installed on the source VM.
 //
-// **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+// > **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
 func (o VmwareReplicatedVmOutput) ManagedDisks() VmwareReplicatedVmManagedDiskArrayOutput {
 	return o.ApplyT(func(v *VmwareReplicatedVm) VmwareReplicatedVmManagedDiskArrayOutput { return v.ManagedDisks }).(VmwareReplicatedVmManagedDiskArrayOutput)
 }
 
-// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over. Changing this forces a new resource to be created.
+// Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
 func (o VmwareReplicatedVmOutput) MultiVmGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VmwareReplicatedVm) pulumi.StringPtrOutput { return v.MultiVmGroupName }).(pulumi.StringPtrOutput)
 }
@@ -707,12 +707,12 @@ func (o VmwareReplicatedVmOutput) PhysicalServerCredentialName() pulumi.StringOu
 	return o.ApplyT(func(v *VmwareReplicatedVm) pulumi.StringOutput { return v.PhysicalServerCredentialName }).(pulumi.StringOutput)
 }
 
-// The ID of the policy to use for this replicated VM. Changing this forces a new resource to be created.
+// The ID of the policy to use for this replicated VM.
 func (o VmwareReplicatedVmOutput) RecoveryReplicationPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VmwareReplicatedVm) pulumi.StringOutput { return v.RecoveryReplicationPolicyId }).(pulumi.StringOutput)
 }
 
-// The ID of the Recovery Services Vault where the replicated VM is created. Changing this forces a new resource to be created.
+// The ID of the Recovery Services Vault where the replicated VM is created.
 func (o VmwareReplicatedVmOutput) RecoveryVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VmwareReplicatedVm) pulumi.StringOutput { return v.RecoveryVaultId }).(pulumi.StringOutput)
 }
@@ -722,7 +722,7 @@ func (o VmwareReplicatedVmOutput) SourceVmName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VmwareReplicatedVm) pulumi.StringOutput { return v.SourceVmName }).(pulumi.StringOutput)
 }
 
-// The ID of availability set that the new VM should belong to when a failover is done. Changing this forces a new resource to be created.
+// The ID of availability set that the new VM should belong to when a failover is done.
 func (o VmwareReplicatedVmOutput) TargetAvailabilitySetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VmwareReplicatedVm) pulumi.StringPtrOutput { return v.TargetAvailabilitySetId }).(pulumi.StringPtrOutput)
 }
@@ -734,19 +734,19 @@ func (o VmwareReplicatedVmOutput) TargetBootDiagnosticsStorageAccountId() pulumi
 
 // The ID of network to use when a failover is done.
 //
-// **Note:** `targetNetworkId` is required when `networkInterface` is specified.
+// > **Note:** `targetNetworkId` is required when `networkInterface` is specified.
 func (o VmwareReplicatedVmOutput) TargetNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VmwareReplicatedVm) pulumi.StringPtrOutput { return v.TargetNetworkId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of Proximity Placement Group the new VM should belong to when a failover is done.
 //
-// **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
+// > **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
 func (o VmwareReplicatedVmOutput) TargetProximityPlacementGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VmwareReplicatedVm) pulumi.StringPtrOutput { return v.TargetProximityPlacementGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
+// The ID of resource group where the VM should be created when a failover is done.
 func (o VmwareReplicatedVmOutput) TargetResourceGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VmwareReplicatedVm) pulumi.StringOutput { return v.TargetResourceGroupId }).(pulumi.StringOutput)
 }

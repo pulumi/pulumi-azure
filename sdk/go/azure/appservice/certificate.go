@@ -87,7 +87,13 @@ type Certificate struct {
 	IssueDate pulumi.StringOutput `pulumi:"issueDate"`
 	// The name of the certificate issuer.
 	Issuer pulumi.StringOutput `pulumi:"issuer"`
+	// The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
+	KeyVaultId pulumi.StringPtrOutput `pulumi:"keyVaultId"`
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
 	KeyVaultSecretId pulumi.StringPtrOutput `pulumi:"keyVaultSecretId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -97,7 +103,7 @@ type Certificate struct {
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
+	// > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
 	PfxBlob pulumi.StringPtrOutput `pulumi:"pfxBlob"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	//
@@ -169,7 +175,13 @@ type certificateState struct {
 	IssueDate *string `pulumi:"issueDate"`
 	// The name of the certificate issuer.
 	Issuer *string `pulumi:"issuer"`
+	// The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
+	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -179,7 +191,7 @@ type certificateState struct {
 	Password *string `pulumi:"password"`
 	// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
+	// > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
 	PfxBlob *string `pulumi:"pfxBlob"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	//
@@ -208,7 +220,13 @@ type CertificateState struct {
 	IssueDate pulumi.StringPtrInput
 	// The name of the certificate issuer.
 	Issuer pulumi.StringPtrInput
+	// The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
+	KeyVaultId pulumi.StringPtrInput
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
 	KeyVaultSecretId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -218,7 +236,7 @@ type CertificateState struct {
 	Password pulumi.StringPtrInput
 	// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
+	// > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
 	PfxBlob pulumi.StringPtrInput
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	//
@@ -239,7 +257,13 @@ func (CertificateState) ElementType() reflect.Type {
 type certificateArgs struct {
 	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
 	AppServicePlanId *string `pulumi:"appServicePlanId"`
+	// The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
+	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -249,7 +273,7 @@ type certificateArgs struct {
 	Password *string `pulumi:"password"`
 	// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
+	// > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
 	PfxBlob *string `pulumi:"pfxBlob"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	//
@@ -263,7 +287,13 @@ type certificateArgs struct {
 type CertificateArgs struct {
 	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
 	AppServicePlanId pulumi.StringPtrInput
+	// The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
+	KeyVaultId pulumi.StringPtrInput
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
 	KeyVaultSecretId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -273,7 +303,7 @@ type CertificateArgs struct {
 	Password pulumi.StringPtrInput
 	// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
+	// > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
 	PfxBlob pulumi.StringPtrInput
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	//
@@ -405,7 +435,16 @@ func (o CertificateOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
 }
 
+// The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
+//
+// > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
+func (o CertificateOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the Key Vault secret. Changing this forces a new resource to be created.
+//
+// > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
 func (o CertificateOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
@@ -427,7 +466,7 @@ func (o CertificateOutput) Password() pulumi.StringPtrOutput {
 
 // The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
+// > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
 func (o CertificateOutput) PfxBlob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.PfxBlob }).(pulumi.StringPtrOutput)
 }

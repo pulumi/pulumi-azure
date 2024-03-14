@@ -6238,6 +6238,10 @@ export namespace appservice {
          */
         http2Enabled: boolean;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule.
+         */
+        ipRestrictionDefaultAction: string;
+        /**
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions: outputs.appservice.GetLinuxFunctionAppSiteConfigIpRestriction[];
@@ -6270,6 +6274,10 @@ export namespace appservice {
          * Is Scale Monitoring of the Functions Runtime enabled?
          */
         runtimeScaleMonitoringEnabled: boolean;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule.
+         */
+        scmIpRestrictionDefaultAction?: string;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -6384,6 +6392,10 @@ export namespace appservice {
          */
         action: string;
         /**
+         * The description of the ip restriction rule.
+         */
+        description: string;
+        /**
          * A `headers` block as defined above.
          */
         headers: outputs.appservice.GetLinuxFunctionAppSiteConfigIpRestrictionHeader[];
@@ -6433,6 +6445,10 @@ export namespace appservice {
          * The action taken.
          */
         action: string;
+        /**
+         * The description of the ip restriction rule.
+         */
+        description: string;
         /**
          * A `headers` block as defined above.
          */
@@ -7226,7 +7242,7 @@ export namespace appservice {
          */
         ftpsState: string;
         /**
-         * (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
          */
         healthCheckEvictionTimeInMin: number;
         /**
@@ -7237,6 +7253,10 @@ export namespace appservice {
          * Is HTTP2.0 enabled.
          */
         http2Enabled: boolean;
+        /**
+         * The Default action for traffic that does not match any `ipRestriction` rule.
+         */
+        ipRestrictionDefaultAction: string;
         /**
          * A `ipRestriction` block as defined above.
          */
@@ -7269,6 +7289,10 @@ export namespace appservice {
          * The Remote Debugging Version.
          */
         remoteDebuggingVersion: string;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule.
+         */
+        scmIpRestrictionDefaultAction: string;
         /**
          * A `scmIpRestriction` block as defined above.
          */
@@ -7467,6 +7491,10 @@ export namespace appservice {
          * A `action` block as defined above.
          */
         action: string;
+        /**
+         * The description of the ip restriction rule.
+         */
+        description: string;
         headers: outputs.appservice.GetLinuxWebAppSiteConfigIpRestrictionHeader[];
         /**
          * The CIDR notation of the IP or IP Range to match.
@@ -7514,6 +7542,10 @@ export namespace appservice {
          * A `action` block as defined above.
          */
         action: string;
+        /**
+         * The description of the ip restriction rule.
+         */
+        description: string;
         headers: outputs.appservice.GetLinuxWebAppSiteConfigScmIpRestrictionHeader[];
         /**
          * The CIDR notation of the IP or IP Range to match.
@@ -7601,6 +7633,26 @@ export namespace appservice {
         shareName: string;
         /**
          * The Azure Storage Type.
+         */
+        type: string;
+    }
+
+    export interface GetStaticWebAppBasicAuth {
+        /**
+         * The Environment types which are configured to use Basic Auth access.
+         */
+        environments: string;
+    }
+
+    export interface GetStaticWebAppIdentity {
+        /**
+         * The list of Managed Identity IDs which are assigned to this Static Web App resource.
+         */
+        identityIds: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * The Type of Managed Identity assigned to this Static Web App resource.
          */
         type: string;
     }
@@ -8269,6 +8321,10 @@ export namespace appservice {
          */
         http2Enabled: boolean;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule.
+         */
+        ipRestrictionDefaultAction: string;
+        /**
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions: outputs.appservice.GetWindowsFunctionAppSiteConfigIpRestriction[];
@@ -8300,6 +8356,10 @@ export namespace appservice {
          * Is Scale Monitoring of the Functions Runtime enabled?
          */
         runtimeScaleMonitoringEnabled: boolean;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule.
+         */
+        scmIpRestrictionDefaultAction: string;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -8389,6 +8449,10 @@ export namespace appservice {
          * The action to take.
          */
         action: string;
+        /**
+         * The description of the ip restriction rule.
+         */
+        description: string;
         headers: outputs.appservice.GetWindowsFunctionAppSiteConfigIpRestrictionHeader[];
         /**
          * The CIDR notation of the IP or IP Range to match.
@@ -8436,6 +8500,10 @@ export namespace appservice {
          * The action to take.
          */
         action: string;
+        /**
+         * The description of the ip restriction rule.
+         */
+        description: string;
         headers: outputs.appservice.GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader[];
         /**
          * The CIDR notation of the IP or IP Range to match.
@@ -9238,6 +9306,10 @@ export namespace appservice {
          */
         http2Enabled: boolean;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule.
+         */
+        ipRestrictionDefaultAction: string;
+        /**
          * A `ipRestriction` block as defined above.
          */
         ipRestrictions: outputs.appservice.GetWindowsWebAppSiteConfigIpRestriction[];
@@ -9262,6 +9334,10 @@ export namespace appservice {
          * The Remote Debugging Version.
          */
         remoteDebuggingVersion: string;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule.
+         */
+        scmIpRestrictionDefaultAction: string;
         /**
          * A `scmIpRestriction` block as defined above.
          */
@@ -9491,6 +9567,10 @@ export namespace appservice {
          * A `action` block as defined above.
          */
         action: string;
+        /**
+         * The description of the ip restriction rule.
+         */
+        description: string;
         headers: outputs.appservice.GetWindowsWebAppSiteConfigIpRestrictionHeader[];
         /**
          * The CIDR notation of the IP or IP Range to match.
@@ -9538,6 +9618,10 @@ export namespace appservice {
          * A `action` block as defined above.
          */
         action: string;
+        /**
+         * The description of the ip restriction rule.
+         */
+        description: string;
         headers: outputs.appservice.GetWindowsWebAppSiteConfigScmIpRestrictionHeader[];
         /**
          * The CIDR notation of the IP or IP Range to match.
@@ -10363,6 +10447,10 @@ export namespace appservice {
          */
         http2Enabled?: boolean;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: string;
+        /**
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions?: outputs.appservice.LinuxFunctionAppSiteConfigIpRestriction[];
@@ -10400,6 +10488,10 @@ export namespace appservice {
          * > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
          */
         runtimeScaleMonitoringEnabled?: boolean;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: string;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -10526,6 +10618,10 @@ export namespace appservice {
          */
         action?: string;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
+        /**
          * A `headers` block as defined above.
          */
         headers?: outputs.appservice.LinuxFunctionAppSiteConfigIpRestrictionHeaders;
@@ -10577,6 +10673,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: string;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
         /**
          * A `headers` block as defined above.
          */
@@ -11339,6 +11439,10 @@ export namespace appservice {
          */
         http2Enabled?: boolean;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: string;
+        /**
          * an `ipRestriction` block as detailed below.
          */
         ipRestrictions?: outputs.appservice.LinuxFunctionAppSlotSiteConfigIpRestriction[];
@@ -11376,6 +11480,10 @@ export namespace appservice {
          * > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
          */
         runtimeScaleMonitoringEnabled?: boolean;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: string;
         /**
          * a `scmIpRestriction` block as detailed below.
          */
@@ -11502,6 +11610,10 @@ export namespace appservice {
          */
         action?: string;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
+        /**
          * a `headers` block as detailed below.
          */
         headers?: outputs.appservice.LinuxFunctionAppSlotSiteConfigIpRestrictionHeaders;
@@ -11553,6 +11665,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: string;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
         /**
          * a `headers` block as detailed below.
          */
@@ -12438,6 +12554,10 @@ export namespace appservice {
          */
         http2Enabled?: boolean;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: string;
+        /**
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions?: outputs.appservice.LinuxWebAppSiteConfigIpRestriction[];
@@ -12466,6 +12586,10 @@ export namespace appservice {
          * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
          */
         remoteDebuggingVersion: string;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: string;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -12681,6 +12805,10 @@ export namespace appservice {
          */
         action?: string;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
+        /**
          * A `headers` block as defined above.
          */
         headers?: outputs.appservice.LinuxWebAppSiteConfigIpRestrictionHeaders;
@@ -12732,6 +12860,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: string;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
         /**
          * A `headers` block as defined above.
          */
@@ -13556,6 +13688,10 @@ export namespace appservice {
          */
         http2Enabled?: boolean;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: string;
+        /**
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions?: outputs.appservice.LinuxWebAppSlotSiteConfigIpRestriction[];
@@ -13584,6 +13720,10 @@ export namespace appservice {
          * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
          */
         remoteDebuggingVersion: string;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: string;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -13799,6 +13939,10 @@ export namespace appservice {
          */
         action?: string;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
+        /**
          * A `headers` block as defined above.
          */
         headers?: outputs.appservice.LinuxWebAppSlotSiteConfigIpRestrictionHeaders;
@@ -13850,6 +13994,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: string;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
         /**
          * A `headers` block as defined above.
          */
@@ -14643,6 +14791,30 @@ export namespace appservice {
         type: string;
     }
 
+    export interface StaticWebAppBasicAuth {
+        /**
+         * The Environment types to use the Basic Auth for access. Possible values include `AllEnvironments` and `StagingEnvironments`.
+         */
+        environments: string;
+        /**
+         * The password for the basic authentication access.
+         */
+        password: string;
+    }
+
+    export interface StaticWebAppIdentity {
+        /**
+         * A list of Managed Identity IDs which should be assigned to this Static Web App resource.
+         */
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
+        type: string;
+    }
+
     export interface WindowsFunctionAppAuthSettings {
         /**
          * An `activeDirectory` block as defined above.
@@ -15339,6 +15511,10 @@ export namespace appservice {
          */
         http2Enabled?: boolean;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: string;
+        /**
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions?: outputs.appservice.WindowsFunctionAppSiteConfigIpRestriction[];
@@ -15372,6 +15548,10 @@ export namespace appservice {
          * > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
          */
         runtimeScaleMonitoringEnabled?: boolean;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: string;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -15469,6 +15649,10 @@ export namespace appservice {
          */
         action?: string;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
+        /**
          * A `headers` block as defined above.
          */
         headers?: outputs.appservice.WindowsFunctionAppSiteConfigIpRestrictionHeaders;
@@ -15520,6 +15704,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: string;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
         /**
          * A `headers` block as defined above.
          */
@@ -16274,6 +16462,10 @@ export namespace appservice {
          */
         http2Enabled?: boolean;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: string;
+        /**
          * an `ipRestriction` block as detailed below.
          */
         ipRestrictions?: outputs.appservice.WindowsFunctionAppSlotSiteConfigIpRestriction[];
@@ -16307,6 +16499,10 @@ export namespace appservice {
          * > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
          */
         runtimeScaleMonitoringEnabled?: boolean;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: string;
         /**
          * a `scmIpRestriction` block as detailed below.
          */
@@ -16402,6 +16598,10 @@ export namespace appservice {
          */
         action?: string;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
+        /**
          * a `headers` block as detailed below.
          */
         headers?: outputs.appservice.WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders;
@@ -16453,6 +16653,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: string;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
         /**
          * a `headers` block as detailed below.
          */
@@ -17338,6 +17542,10 @@ export namespace appservice {
          */
         http2Enabled?: boolean;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: string;
+        /**
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions?: outputs.appservice.WindowsWebAppSiteConfigIpRestriction[];
@@ -17366,6 +17574,10 @@ export namespace appservice {
          * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
          */
         remoteDebuggingVersion: string;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: string;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -17634,6 +17846,10 @@ export namespace appservice {
          */
         action?: string;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
+        /**
          * A `headers` block as defined above.
          */
         headers?: outputs.appservice.WindowsWebAppSiteConfigIpRestrictionHeaders;
@@ -17685,6 +17901,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: string;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
         /**
          * A `headers` block as defined above.
          */
@@ -18539,6 +18759,10 @@ export namespace appservice {
          */
         http2Enabled?: boolean;
         /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: string;
+        /**
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions?: outputs.appservice.WindowsWebAppSlotSiteConfigIpRestriction[];
@@ -18566,6 +18790,10 @@ export namespace appservice {
          * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
          */
         remoteDebuggingVersion: string;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: string;
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
@@ -18823,6 +19051,10 @@ export namespace appservice {
          */
         action?: string;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
+        /**
          * A `headers` block as defined above.
          */
         headers?: outputs.appservice.WindowsWebAppSlotSiteConfigIpRestrictionHeaders;
@@ -18874,6 +19106,10 @@ export namespace appservice {
          * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          */
         action?: string;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
         /**
          * A `headers` block as defined above.
          */
@@ -19441,14 +19677,28 @@ export namespace attestation {
 export namespace authorization {
     export interface GetRoleDefinitionPermission {
         /**
-         * a list of actions supported by this role
+         * A list of actions supported by this role.
          */
         actions: string[];
+        /**
+         * The conditions on this role definition, which limits the resources it can be assigned to.
+         */
+        condition: string;
+        /**
+         * The version of the condition.
+         */
+        conditionVersion: string;
+        /**
+         * A list of data actions allowed by this role.
+         */
         dataActions?: string[];
         /**
-         * a list of actions which are denied by this role
+         * A list of actions which are denied by this role.
          */
         notActions: string[];
+        /**
+         * A list of data actions which are denied by this role.
+         */
         notDataActions?: string[];
     }
 
@@ -28548,8 +28798,10 @@ export namespace containerapp {
         allowInsecureConnections?: boolean;
         /**
          * One or more `customDomain` block as detailed below.
+         *
+         * @deprecated This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.
          */
-        customDomain?: outputs.containerapp.AppIngressCustomDomain;
+        customDomain: outputs.containerapp.AppIngressCustomDomain;
         /**
          * The exposed port on the container for the Ingress traffic.
          *
@@ -34253,7 +34505,6 @@ export namespace dashboard {
         host: string;
         /**
          * Password of SMTP authentication.
-         * *
          */
         password: string;
         /**
@@ -36500,6 +36751,37 @@ export namespace datafactory {
 }
 
 export namespace dataprotection {
+    export interface BackupInstanceKubernetesClusterBackupDatasourceParameters {
+        /**
+         * Whether to include cluster scope resources during backup. Default to `false`. Changing this forces a new resource to be created.
+         */
+        clusterScopedResourcesEnabled?: boolean;
+        /**
+         * Specifies the namespaces to be excluded during backup. Changing this forces a new resource to be created.
+         */
+        excludedNamespaces?: string[];
+        /**
+         * Specifies the resource types to be excluded during backup. Changing this forces a new resource to be created.
+         */
+        excludedResourceTypes?: string[];
+        /**
+         * Specifies the namespaces to be included during backup. Changing this forces a new resource to be created.
+         */
+        includedNamespaces?: string[];
+        /**
+         * Specifies the resource types to be included during backup. Changing this forces a new resource to be created.
+         */
+        includedResourceTypes?: string[];
+        /**
+         * Specifies the resources with such label selectors to be included during backup. Changing this forces a new resource to be created.
+         */
+        labelSelectors?: string[];
+        /**
+         * Whether to take volume snapshots during backup. Default to `false`. Changing this forces a new resource to be created.
+         */
+        volumeSnapshotEnabled?: boolean;
+    }
+
     export interface BackupPolicyDiskRetentionRule {
         /**
          * A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
@@ -36535,7 +36817,7 @@ export namespace dataprotection {
 
     export interface BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle {
         /**
-         * The type of data store. The only possible value is `OperationalStore`.
+         * The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
          */
         dataStoreType: string;
         /**
@@ -36588,7 +36870,7 @@ export namespace dataprotection {
 
     export interface BackupPolicyKubernetesClusterRetentionRuleLifeCycle {
         /**
-         * The type of data store. The only possible value is `OperationalStore`.
+         * The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
          */
         dataStoreType: string;
         /**
@@ -43634,6 +43916,8 @@ export namespace iot {
         capacity: number;
         /**
          * The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+         *
+         * > **NOTE:** The `F1` sku is on `Free` tier.
          */
         name: string;
     }
@@ -53121,6 +53405,8 @@ export namespace mysql {
         iops: number;
         /**
          * The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+         *
+         * > **Note:** Decreasing `sizeGb` forces a new resource to be created.
          */
         sizeGb: number;
     }
@@ -59269,7 +59555,7 @@ export namespace operationalinsights {
 export namespace orbital {
     export interface ContactProfileLink {
         /**
-         * A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
+         * A list of contact profile link channels. A `channels` block as defined below.
          */
         channels: outputs.orbital.ContactProfileLinkChannel[];
         /**
@@ -60624,7 +60910,7 @@ export namespace redhatopenshift {
          */
         url: string;
         /**
-         * Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+         * Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
          */
         visibility: string;
     }
@@ -60662,7 +60948,7 @@ export namespace redhatopenshift {
          */
         name: string;
         /**
-         * Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+         * Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
          */
         visibility: string;
     }
@@ -60675,7 +60961,7 @@ export namespace redhatopenshift {
         /**
          * Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
          *
-         * **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+         * > **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
          */
         encryptionAtHostEnabled?: boolean;
         /**
@@ -60690,7 +60976,7 @@ export namespace redhatopenshift {
 
     export interface ClusterNetworkProfile {
         /**
-         * The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+         * The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
          */
         outboundType?: string;
         /**
@@ -60728,7 +61014,7 @@ export namespace redhatopenshift {
         /**
          * Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
          *
-         * **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+         * > **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
          */
         encryptionAtHostEnabled?: boolean;
         /**
@@ -60889,6 +61175,10 @@ export namespace redis {
     }
 
     export interface GetCacheRedisConfiguration {
+        /**
+         * Specifies if Microsoft Entra (AAD) authentication is enabled.
+         */
+        activeDirectoryAuthenticationEnabled: boolean;
         aofBackupEnabled: boolean;
         aofStorageConnectionString0: string;
         aofStorageConnectionString1: string;
@@ -60961,14 +61251,28 @@ export namespace role {
 
     export interface GetRoleDefinitionPermission {
         /**
-         * a list of actions supported by this role
+         * A list of actions supported by this role.
          */
         actions: string[];
+        /**
+         * The conditions on this role definition, which limits the resources it can be assigned to.
+         */
+        condition: string;
+        /**
+         * The version of the condition.
+         */
+        conditionVersion: string;
+        /**
+         * A list of data actions allowed by this role.
+         */
         dataActions?: string[];
         /**
-         * a list of actions which are denied by this role
+         * A list of actions which are denied by this role.
          */
         notActions: string[];
+        /**
+         * A list of data actions which are denied by this role.
+         */
         notDataActions?: string[];
     }
 
@@ -63364,7 +63668,7 @@ export namespace siterecovery {
 
     export interface VmwareReplicatedVmManagedDisk {
         /**
-         * The ID of the disk to be replicated. Changing this forces a new resource to be created.
+         * The ID of the disk to be replicated.
          */
         diskId: string;
         /**
@@ -63376,7 +63680,7 @@ export namespace siterecovery {
          */
         targetDiskEncryptionSetId?: string;
         /**
-         * The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+         * The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
          */
         targetDiskType: string;
     }
@@ -65896,6 +66200,650 @@ export namespace webpubsub {
          * Whether the log category `MessagingLogs` is enabled? Defaults to `true`
          */
         messagingLogsEnabled?: boolean;
+    }
+
+}
+
+export namespace workloadssap {
+    export interface SingleNodeVirtualInstanceIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this SAP Single Node Virtual Instance.
+         */
+        identityIds: string[];
+        /**
+         * The type of Managed Service Identity that should be configured on this SAP Single Node Virtual Instance. The only possible value is `UserAssigned`.
+         */
+        type: string;
+    }
+
+    export interface SingleNodeVirtualInstanceSingleServerConfiguration {
+        appResourceGroupName: string;
+        /**
+         * The supported SAP database type. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
+         */
+        databaseType?: string;
+        /**
+         * One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        diskVolumeConfigurations?: outputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfiguration[];
+        /**
+         * Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        secondaryIpEnabled?: boolean;
+        /**
+         * The resource ID of the Subnet for the SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
+         */
+        subnetId: string;
+        /**
+         * A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachineConfiguration: outputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfiguration;
+        /**
+         * A `virtualMachineResourceNames` block as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachineResourceNames?: outputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNames;
+    }
+
+    export interface SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfiguration {
+        /**
+         * The total number of disks required for the concerned volume. Possible values are at least `1`. Changing this forces a new resource to be created.
+         */
+        numberOfDisks: number;
+        /**
+         * The size of the Disk in GB. Changing this forces a new resource to be created.
+         */
+        sizeInGb: number;
+        /**
+         * The name of the Disk SKU. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+         */
+        skuName: string;
+        /**
+         * Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+         */
+        volumeName: string;
+    }
+
+    export interface SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfiguration {
+        /**
+         * An `image` block as defined below. Changing this forces a new resource to be created.
+         */
+        image: outputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImage;
+        /**
+         * An `osProfile` block as defined below. Changing this forces a new resource to be created.
+         */
+        osProfile: outputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfile;
+        /**
+         * The size of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        virtualMachineSize: string;
+    }
+
+    export interface SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImage {
+        /**
+         * Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        offer: string;
+        /**
+         * The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
+         */
+        publisher: string;
+        /**
+         * The SKU of the Image. Changing this forces a new resource to be created.
+         */
+        sku: string;
+        /**
+         * Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        version: string;
+    }
+
+    export interface SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfile {
+        /**
+         * The name of the administrator account. Changing this forces a new resource to be created.
+         */
+        adminUsername: string;
+        /**
+         * The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPrivateKey: string;
+        /**
+         * The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPublicKey: string;
+    }
+
+    export interface SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNames {
+        /**
+         * (Optional) One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        dataDisks?: outputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDisk[];
+        /**
+         * The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        hostName?: string;
+        /**
+         * A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        networkInterfaceNames?: string[];
+        /**
+         * The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        osDiskName?: string;
+        /**
+         * The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
+         */
+        virtualMachineName?: string;
+    }
+
+    export interface SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDisk {
+        /**
+         * A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
+         */
+        names: string[];
+        /**
+         * The name of the Volume. The only possible value is `default`. Changing this forces a new resource to be created.
+         */
+        volumeName: string;
+    }
+
+    export interface ThreeTierVirtualInstanceIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this SAP Three Tier Virtual Instance.
+         */
+        identityIds: string[];
+        /**
+         * The type of Managed Service Identity that should be configured on this SAP Three Tier Virtual Instance. Only possible value is `UserAssigned`.
+         */
+        type: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfiguration {
+        appResourceGroupName: string;
+        /**
+         * An `applicationServerConfiguration` block as defined below. Changing this forces a new resource to be created.
+         */
+        applicationServerConfiguration: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfiguration;
+        /**
+         * A `centralServerConfiguration` block as defined below. Changing this forces a new resource to be created.
+         */
+        centralServerConfiguration: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfiguration;
+        /**
+         * A `databaseServerConfiguration` block as defined below. Changing this forces a new resource to be created.
+         */
+        databaseServerConfiguration: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfiguration;
+        /**
+         * The high availability type for the three tier configuration. Possible values are `AvailabilitySet` and `AvailabilityZone`. Changing this forces a new resource to be created.
+         */
+        highAvailabilityType?: string;
+        /**
+         * A `resourceNames` block as defined below. Changing this forces a new resource to be created.
+         */
+        resourceNames?: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNames;
+        /**
+         * Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        secondaryIpEnabled?: boolean;
+        /**
+         * A `transportCreateAndMount` block as defined below. Changing this forces a new resource to be created.
+         *
+         * > **Note:** The file share configuration uses `skip` by default when `transportCreateAndMount` isn't set.
+         *
+         * > **Note:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/25209) where the Storage File Share Id is not defined correctly, it is not currently possible to support using Transport Mount.
+         */
+        transportCreateAndMount?: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMount;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfiguration {
+        /**
+         * The number of instances for the Application Server. Possible values are at least `1`. Changing this forces a new resource to be created.
+         */
+        instanceCount: number;
+        /**
+         * The resource ID of the Subnet for the Application Server. Changing this forces a new resource to be created.
+         */
+        subnetId: string;
+        /**
+         * A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachineConfiguration: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfiguration;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfiguration {
+        /**
+         * An `image` block as defined below. Changing this forces a new resource to be created.
+         */
+        image: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImage;
+        /**
+         * An `osProfile` block as defined below. Changing this forces a new resource to be created.
+         */
+        osProfile: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfile;
+        /**
+         * The size of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        virtualMachineSize: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImage {
+        /**
+         * Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        offer: string;
+        /**
+         * The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
+         */
+        publisher: string;
+        /**
+         * The SKU of the Image. Changing this forces a new resource to be created.
+         */
+        sku: string;
+        /**
+         * Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        version: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfile {
+        /**
+         * The name of the administrator account. Changing this forces a new resource to be created.
+         */
+        adminUsername: string;
+        /**
+         * The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPrivateKey: string;
+        /**
+         * The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPublicKey: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfiguration {
+        /**
+         * The number of instances for the Central Server. Possible values are at least `1`. Changing this forces a new resource to be created.
+         */
+        instanceCount: number;
+        /**
+         * The resource ID of the Subnet for the Central Server. Changing this forces a new resource to be created.
+         */
+        subnetId: string;
+        /**
+         * A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachineConfiguration: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfiguration;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfiguration {
+        /**
+         * An `image` block as defined below. Changing this forces a new resource to be created.
+         */
+        image: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImage;
+        /**
+         * An `osProfile` block as defined below. Changing this forces a new resource to be created.
+         */
+        osProfile: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfile;
+        /**
+         * The size of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        virtualMachineSize: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImage {
+        /**
+         * Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        offer: string;
+        /**
+         * The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
+         */
+        publisher: string;
+        /**
+         * The SKU of the Image. Changing this forces a new resource to be created.
+         */
+        sku: string;
+        /**
+         * Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        version: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfile {
+        /**
+         * The name of the administrator account. Changing this forces a new resource to be created.
+         */
+        adminUsername: string;
+        /**
+         * The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPrivateKey: string;
+        /**
+         * The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPublicKey: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfiguration {
+        /**
+         * The database type for the Database Server. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
+         */
+        databaseType?: string;
+        /**
+         * One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        diskVolumeConfigurations?: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfiguration[];
+        /**
+         * The number of instances for the Database Server. Possible values are at least `1`. Changing this forces a new resource to be created.
+         */
+        instanceCount: number;
+        /**
+         * The resource ID of the Subnet for the Database Server. Changing this forces a new resource to be created.
+         */
+        subnetId: string;
+        /**
+         * A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachineConfiguration: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfiguration;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfiguration {
+        /**
+         * The total number of disks required for the concerned volume. Possible values are at least `1`. Changing this forces a new resource to be created.
+         */
+        numberOfDisks: number;
+        /**
+         * The size of the Disk in GB. Changing this forces a new resource to be created.
+         */
+        sizeInGb: number;
+        /**
+         * The name of the Disk SKU. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+         */
+        skuName: string;
+        /**
+         * Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+         */
+        volumeName: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfiguration {
+        /**
+         * An `image` block as defined below. Changing this forces a new resource to be created.
+         */
+        image: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImage;
+        /**
+         * An `osProfile` block as defined below. Changing this forces a new resource to be created.
+         */
+        osProfile: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfile;
+        /**
+         * The size of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        virtualMachineSize: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImage {
+        /**
+         * Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        offer: string;
+        /**
+         * The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
+         */
+        publisher: string;
+        /**
+         * The SKU of the Image. Changing this forces a new resource to be created.
+         */
+        sku: string;
+        /**
+         * Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
+        version: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfile {
+        /**
+         * The name of the administrator account. Changing this forces a new resource to be created.
+         */
+        adminUsername: string;
+        /**
+         * The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPrivateKey: string;
+        /**
+         * The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        sshPublicKey: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNames {
+        /**
+         * An `applicationServer` block as defined below. Changing this forces a new resource to be created.
+         */
+        applicationServer?: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServer;
+        /**
+         * A `centralServer` block as defined below. Changing this forces a new resource to be created.
+         */
+        centralServer?: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServer;
+        /**
+         * A `databaseServer` block as defined below. Changing this forces a new resource to be created.
+         */
+        databaseServer?: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServer;
+        /**
+         * A `sharedStorage` block as defined below. Changing this forces a new resource to be created.
+         */
+        sharedStorage?: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorage;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServer {
+        /**
+         * The full name for the availability set. Changing this forces a new resource to be created.
+         */
+        availabilitySetName?: string;
+        /**
+         * One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachines?: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachine[];
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachine {
+        /**
+         * One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        dataDisks?: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDisk[];
+        /**
+         * The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        hostName?: string;
+        /**
+         * A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        networkInterfaceNames?: string[];
+        /**
+         * The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        osDiskName?: string;
+        /**
+         * The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
+         */
+        virtualMachineName?: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDisk {
+        /**
+         * A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
+         */
+        names: string[];
+        /**
+         * The name of the Volume. Changing this forces a new resource to be created.
+         *
+         * > **Note:** Possible value for Application Server and Central Server is `default`.
+         *
+         * > **Note:** Possible values for Database Server are `hanaData`, `hanaLog`, `hanaShared` and `usrSap`.
+         */
+        volumeName: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServer {
+        /**
+         * The full name for the availability set. Changing this forces a new resource to be created.
+         */
+        availabilitySetName?: string;
+        /**
+         * A `loadBalancer` block as defined below. Changing this forces a new resource to be created.
+         */
+        loadBalancer?: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancer;
+        /**
+         * One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachines?: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachine[];
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancer {
+        /**
+         * A list of Backend Pool names for the Load Balancer. Changing this forces a new resource to be created.
+         */
+        backendPoolNames?: string[];
+        /**
+         * A list of Frontend IP Configuration names. Changing this forces a new resource to be created.
+         */
+        frontendIpConfigurationNames?: string[];
+        /**
+         * A list of Health Probe names. Changing this forces a new resource to be created.
+         */
+        healthProbeNames?: string[];
+        /**
+         * The full resource name of the Load Balancer. Changing this forces a new resource to be created.
+         */
+        name?: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachine {
+        /**
+         * One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        dataDisks?: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDisk[];
+        /**
+         * The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        hostName?: string;
+        /**
+         * A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        networkInterfaceNames?: string[];
+        /**
+         * The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        osDiskName?: string;
+        /**
+         * The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
+         */
+        virtualMachineName?: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDisk {
+        /**
+         * A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
+         */
+        names: string[];
+        /**
+         * The name of the Volume. Changing this forces a new resource to be created.
+         *
+         * > **Note:** Possible value for Application Server and Central Server is `default`.
+         *
+         * > **Note:** Possible values for Database Server are `hanaData`, `hanaLog`, `hanaShared` and `usrSap`.
+         */
+        volumeName: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServer {
+        /**
+         * The full name for the availability set. Changing this forces a new resource to be created.
+         */
+        availabilitySetName?: string;
+        /**
+         * A `loadBalancer` block as defined below. Changing this forces a new resource to be created.
+         */
+        loadBalancer?: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancer;
+        /**
+         * One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        virtualMachines?: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachine[];
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancer {
+        /**
+         * A list of Backend Pool names for the Load Balancer. Changing this forces a new resource to be created.
+         */
+        backendPoolNames?: string[];
+        /**
+         * A list of Frontend IP Configuration names. Changing this forces a new resource to be created.
+         */
+        frontendIpConfigurationNames?: string[];
+        /**
+         * A list of Health Probe names. Changing this forces a new resource to be created.
+         */
+        healthProbeNames?: string[];
+        /**
+         * The full resource name of the Load Balancer. Changing this forces a new resource to be created.
+         */
+        name?: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachine {
+        /**
+         * One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        dataDisks?: outputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDisk[];
+        /**
+         * The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        hostName?: string;
+        /**
+         * A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        networkInterfaceNames?: string[];
+        /**
+         * The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        osDiskName?: string;
+        /**
+         * The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
+         */
+        virtualMachineName?: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDisk {
+        /**
+         * A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
+         */
+        names: string[];
+        /**
+         * The name of the Volume. Changing this forces a new resource to be created.
+         *
+         * > **Note:** Possible value for Application Server and Central Server is `default`.
+         *
+         * > **Note:** Possible values for Database Server are `hanaData`, `hanaLog`, `hanaShared` and `usrSap`.
+         */
+        volumeName: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorage {
+        /**
+         * The full name of the Shared Storage Account. Changing this forces a new resource to be created.
+         */
+        accountName?: string;
+        /**
+         * The full name of Private Endpoint for the Shared Storage Account. Changing this forces a new resource to be created.
+         */
+        privateEndpointName?: string;
+    }
+
+    export interface ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMount {
+        /**
+         * The ID of the Resource Group of the transport File Share. Changing this forces a new resource to be created.
+         */
+        resourceGroupId?: string;
+        /**
+         * The name of the Storage Account of the File Share. Changing this forces a new resource to be created.
+         */
+        storageAccountName?: string;
     }
 
 }

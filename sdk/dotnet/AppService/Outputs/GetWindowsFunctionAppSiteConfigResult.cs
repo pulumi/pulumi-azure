@@ -82,6 +82,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool Http2Enabled;
         /// <summary>
+        /// The Default action for traffic that does not match any `ip_restriction` rule.
+        /// </summary>
+        public readonly string IpRestrictionDefaultAction;
+        /// <summary>
         /// One or more `ip_restriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsFunctionAppSiteConfigIpRestrictionResult> IpRestrictions;
@@ -113,6 +117,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Is Scale Monitoring of the Functions Runtime enabled?
         /// </summary>
         public readonly bool RuntimeScaleMonitoringEnabled;
+        /// <summary>
+        /// The Default action for traffic that does not match any `scm_ip_restriction` rule.
+        /// </summary>
+        public readonly string ScmIpRestrictionDefaultAction;
         /// <summary>
         /// One or more `scm_ip_restriction` blocks as defined above.
         /// </summary>
@@ -186,6 +194,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             bool http2Enabled,
 
+            string ipRestrictionDefaultAction,
+
             ImmutableArray<Outputs.GetWindowsFunctionAppSiteConfigIpRestrictionResult> ipRestrictions,
 
             string loadBalancingMode,
@@ -201,6 +211,8 @@ namespace Pulumi.Azure.AppService.Outputs
             string remoteDebuggingVersion,
 
             bool runtimeScaleMonitoringEnabled,
+
+            string scmIpRestrictionDefaultAction,
 
             ImmutableArray<Outputs.GetWindowsFunctionAppSiteConfigScmIpRestrictionResult> scmIpRestrictions,
 
@@ -237,6 +249,7 @@ namespace Pulumi.Azure.AppService.Outputs
             HealthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
             HealthCheckPath = healthCheckPath;
             Http2Enabled = http2Enabled;
+            IpRestrictionDefaultAction = ipRestrictionDefaultAction;
             IpRestrictions = ipRestrictions;
             LoadBalancingMode = loadBalancingMode;
             ManagedPipelineMode = managedPipelineMode;
@@ -245,6 +258,7 @@ namespace Pulumi.Azure.AppService.Outputs
             RemoteDebuggingEnabled = remoteDebuggingEnabled;
             RemoteDebuggingVersion = remoteDebuggingVersion;
             RuntimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            ScmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             ScmIpRestrictions = scmIpRestrictions;
             ScmMinimumTlsVersion = scmMinimumTlsVersion;
             ScmType = scmType;

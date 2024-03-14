@@ -26,7 +26,7 @@ class AccountArgs:
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below.
-        :param pulumi.Input['AccountIdentityArgs'] identity: The identity block where it is used when customer managed keys based encryption will be enabled.
+        :param pulumi.Input['AccountIdentityArgs'] identity: The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -71,7 +71,7 @@ class AccountArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
         """
-        The identity block where it is used when customer managed keys based encryption will be enabled.
+        The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -128,7 +128,7 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input['AccountActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below.
-        :param pulumi.Input['AccountIdentityArgs'] identity: The identity block where it is used when customer managed keys based encryption will be enabled.
+        :param pulumi.Input['AccountIdentityArgs'] identity: The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
@@ -163,7 +163,7 @@ class _AccountState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
         """
-        The identity block where it is used when customer managed keys based encryption will be enabled.
+        The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -282,7 +282,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AccountActiveDirectoryArgs']] active_directory: A `active_directory` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: The identity block where it is used when customer managed keys based encryption will be enabled.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
@@ -403,7 +403,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AccountActiveDirectoryArgs']] active_directory: A `active_directory` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: The identity block where it is used when customer managed keys based encryption will be enabled.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
@@ -433,7 +433,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.AccountIdentity']]:
         """
-        The identity block where it is used when customer managed keys based encryption will be enabled.
+        The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         """
         return pulumi.get(self, "identity")
 

@@ -32,11 +32,11 @@ type Volume struct {
 	DataProtectionReplication VolumeDataProtectionReplicationPtrOutput `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy VolumeDataProtectionSnapshotPolicyPtrOutput `pulumi:"dataProtectionSnapshotPolicy"`
-	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`.
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
 	EncryptionKeySource pulumi.StringOutput `pulumi:"encryptionKeySource"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayOutput `pulumi:"exportPolicyRules"`
-	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`.
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId pulumi.StringOutput `pulumi:"keyVaultPrivateEndpointId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -44,7 +44,7 @@ type Volume struct {
 	MountIpAddresses pulumi.StringArrayOutput `pulumi:"mountIpAddresses"`
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
 	NetworkFeatures pulumi.StringOutput `pulumi:"networkFeatures"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
@@ -139,11 +139,11 @@ type volumeState struct {
 	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy *VolumeDataProtectionSnapshotPolicy `pulumi:"dataProtectionSnapshotPolicy"`
-	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`.
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
 	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules []VolumeExportPolicyRule `pulumi:"exportPolicyRules"`
-	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`.
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId *string `pulumi:"keyVaultPrivateEndpointId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -151,7 +151,7 @@ type volumeState struct {
 	MountIpAddresses []string `pulumi:"mountIpAddresses"`
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
 	NetworkFeatures *string `pulumi:"networkFeatures"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName *string `pulumi:"poolName"`
@@ -196,11 +196,11 @@ type VolumeState struct {
 	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy VolumeDataProtectionSnapshotPolicyPtrInput
-	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`.
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
 	EncryptionKeySource pulumi.StringPtrInput
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayInput
-	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`.
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -208,7 +208,7 @@ type VolumeState struct {
 	MountIpAddresses pulumi.StringArrayInput
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
 	NetworkFeatures pulumi.StringPtrInput
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName pulumi.StringPtrInput
@@ -257,17 +257,17 @@ type volumeArgs struct {
 	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy *VolumeDataProtectionSnapshotPolicy `pulumi:"dataProtectionSnapshotPolicy"`
-	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`.
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
 	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules []VolumeExportPolicyRule `pulumi:"exportPolicyRules"`
-	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`.
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId *string `pulumi:"keyVaultPrivateEndpointId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
 	NetworkFeatures *string `pulumi:"networkFeatures"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName string `pulumi:"poolName"`
@@ -313,17 +313,17 @@ type VolumeArgs struct {
 	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy VolumeDataProtectionSnapshotPolicyPtrInput
-	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`.
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
 	EncryptionKeySource pulumi.StringPtrInput
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayInput
-	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`.
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
 	NetworkFeatures pulumi.StringPtrInput
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName pulumi.StringInput
@@ -469,7 +469,7 @@ func (o VolumeOutput) DataProtectionSnapshotPolicy() VolumeDataProtectionSnapsho
 	return o.ApplyT(func(v *Volume) VolumeDataProtectionSnapshotPolicyPtrOutput { return v.DataProtectionSnapshotPolicy }).(VolumeDataProtectionSnapshotPolicyPtrOutput)
 }
 
-// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`.
+// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
 func (o VolumeOutput) EncryptionKeySource() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.EncryptionKeySource }).(pulumi.StringOutput)
 }
@@ -479,7 +479,7 @@ func (o VolumeOutput) ExportPolicyRules() VolumeExportPolicyRuleArrayOutput {
 	return o.ApplyT(func(v *Volume) VolumeExportPolicyRuleArrayOutput { return v.ExportPolicyRules }).(VolumeExportPolicyRuleArrayOutput)
 }
 
-// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`.
+// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 func (o VolumeOutput) KeyVaultPrivateEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.KeyVaultPrivateEndpointId }).(pulumi.StringOutput)
 }
@@ -499,7 +499,7 @@ func (o VolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
+// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
 func (o VolumeOutput) NetworkFeatures() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.NetworkFeatures }).(pulumi.StringOutput)
 }

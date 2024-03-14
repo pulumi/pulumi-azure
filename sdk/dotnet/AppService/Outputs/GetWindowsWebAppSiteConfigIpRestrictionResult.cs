@@ -17,6 +17,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// A `action` block as defined above.
         /// </summary>
         public readonly string Action;
+        /// <summary>
+        /// The description of the ip restriction rule.
+        /// </summary>
+        public readonly string Description;
         public readonly ImmutableArray<Outputs.GetWindowsWebAppSiteConfigIpRestrictionHeaderResult> Headers;
         /// <summary>
         /// The CIDR notation of the IP or IP Range to match.
@@ -43,6 +47,8 @@ namespace Pulumi.Azure.AppService.Outputs
         private GetWindowsWebAppSiteConfigIpRestrictionResult(
             string action,
 
+            string description,
+
             ImmutableArray<Outputs.GetWindowsWebAppSiteConfigIpRestrictionHeaderResult> headers,
 
             string ipAddress,
@@ -56,6 +62,7 @@ namespace Pulumi.Azure.AppService.Outputs
             string virtualNetworkSubnetId)
         {
             Action = action;
+            Description = description;
             Headers = headers;
             IpAddress = ipAddress;
             Name = name;

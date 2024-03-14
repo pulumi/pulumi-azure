@@ -117,14 +117,14 @@ public class Probe extends com.pulumi.resources.CustomResource {
         return this.loadBalancerRules;
     }
     /**
-     * The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+     * The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="loadbalancerId", refs={String.class}, tree="[0]")
     private Output<String> loadbalancerId;
 
     /**
-     * @return The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+     * @return The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> loadbalancerId() {

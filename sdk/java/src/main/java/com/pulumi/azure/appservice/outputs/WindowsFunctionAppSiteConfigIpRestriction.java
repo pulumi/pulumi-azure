@@ -19,6 +19,11 @@ public final class WindowsFunctionAppSiteConfigIpRestriction {
      */
     private @Nullable String action;
     /**
+     * @return The Description of this IP Restriction.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return A `headers` block as defined above.
      * 
      */
@@ -58,6 +63,13 @@ public final class WindowsFunctionAppSiteConfigIpRestriction {
      */
     public Optional<String> action() {
         return Optional.ofNullable(this.action);
+    }
+    /**
+     * @return The Description of this IP Restriction.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return A `headers` block as defined above.
@@ -114,6 +126,7 @@ public final class WindowsFunctionAppSiteConfigIpRestriction {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String action;
+        private @Nullable String description;
         private @Nullable WindowsFunctionAppSiteConfigIpRestrictionHeaders headers;
         private @Nullable String ipAddress;
         private @Nullable String name;
@@ -124,6 +137,7 @@ public final class WindowsFunctionAppSiteConfigIpRestriction {
         public Builder(WindowsFunctionAppSiteConfigIpRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
+    	      this.description = defaults.description;
     	      this.headers = defaults.headers;
     	      this.ipAddress = defaults.ipAddress;
     	      this.name = defaults.name;
@@ -136,6 +150,12 @@ public final class WindowsFunctionAppSiteConfigIpRestriction {
         public Builder action(@Nullable String action) {
 
             this.action = action;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -177,6 +197,7 @@ public final class WindowsFunctionAppSiteConfigIpRestriction {
         public WindowsFunctionAppSiteConfigIpRestriction build() {
             final var _resultValue = new WindowsFunctionAppSiteConfigIpRestriction();
             _resultValue.action = action;
+            _resultValue.description = description;
             _resultValue.headers = headers;
             _resultValue.ipAddress = ipAddress;
             _resultValue.name = name;

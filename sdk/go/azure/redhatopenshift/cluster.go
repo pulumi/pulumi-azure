@@ -26,21 +26,21 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// An `apiServerProfile` block as defined below.
+	// An `apiServerProfile` block as defined below. Changing this forces a new resource to be created.
 	ApiServerProfile ClusterApiServerProfileOutput `pulumi:"apiServerProfile"`
-	// A `clusterProfile` block as defined below.
+	// A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
 	ClusterProfile ClusterClusterProfileOutput `pulumi:"clusterProfile"`
 	// The Red Hat OpenShift cluster console URL.
 	ConsoleUrl pulumi.StringOutput `pulumi:"consoleUrl"`
-	// An `ingressProfile` block as defined below.
+	// An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
 	IngressProfile ClusterIngressProfileOutput `pulumi:"ingressProfile"`
 	// The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// A `mainProfile` block as defined below.
+	// A `mainProfile` block as defined below. Changing this forces a new resource to be created.
 	MainProfile ClusterMainProfileOutput `pulumi:"mainProfile"`
 	// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `networkProfile` block as defined below.
+	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
 	NetworkProfile ClusterNetworkProfileOutput `pulumi:"networkProfile"`
 	// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -48,7 +48,7 @@ type Cluster struct {
 	ServicePrincipal ClusterServicePrincipalOutput `pulumi:"servicePrincipal"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A `workerProfile` block as defined below.
+	// A `workerProfile` block as defined below. Changing this forces a new resource to be created.
 	WorkerProfile ClusterWorkerProfileOutput `pulumi:"workerProfile"`
 }
 
@@ -106,21 +106,21 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// An `apiServerProfile` block as defined below.
+	// An `apiServerProfile` block as defined below. Changing this forces a new resource to be created.
 	ApiServerProfile *ClusterApiServerProfile `pulumi:"apiServerProfile"`
-	// A `clusterProfile` block as defined below.
+	// A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
 	ClusterProfile *ClusterClusterProfile `pulumi:"clusterProfile"`
 	// The Red Hat OpenShift cluster console URL.
 	ConsoleUrl *string `pulumi:"consoleUrl"`
-	// An `ingressProfile` block as defined below.
+	// An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
 	IngressProfile *ClusterIngressProfile `pulumi:"ingressProfile"`
 	// The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A `mainProfile` block as defined below.
+	// A `mainProfile` block as defined below. Changing this forces a new resource to be created.
 	MainProfile *ClusterMainProfile `pulumi:"mainProfile"`
 	// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `networkProfile` block as defined below.
+	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
 	NetworkProfile *ClusterNetworkProfile `pulumi:"networkProfile"`
 	// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -128,26 +128,26 @@ type clusterState struct {
 	ServicePrincipal *ClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A `workerProfile` block as defined below.
+	// A `workerProfile` block as defined below. Changing this forces a new resource to be created.
 	WorkerProfile *ClusterWorkerProfile `pulumi:"workerProfile"`
 }
 
 type ClusterState struct {
-	// An `apiServerProfile` block as defined below.
+	// An `apiServerProfile` block as defined below. Changing this forces a new resource to be created.
 	ApiServerProfile ClusterApiServerProfilePtrInput
-	// A `clusterProfile` block as defined below.
+	// A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
 	ClusterProfile ClusterClusterProfilePtrInput
 	// The Red Hat OpenShift cluster console URL.
 	ConsoleUrl pulumi.StringPtrInput
-	// An `ingressProfile` block as defined below.
+	// An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
 	IngressProfile ClusterIngressProfilePtrInput
 	// The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A `mainProfile` block as defined below.
+	// A `mainProfile` block as defined below. Changing this forces a new resource to be created.
 	MainProfile ClusterMainProfilePtrInput
 	// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `networkProfile` block as defined below.
+	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
 	NetworkProfile ClusterNetworkProfilePtrInput
 	// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -155,7 +155,7 @@ type ClusterState struct {
 	ServicePrincipal ClusterServicePrincipalPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A `workerProfile` block as defined below.
+	// A `workerProfile` block as defined below. Changing this forces a new resource to be created.
 	WorkerProfile ClusterWorkerProfilePtrInput
 }
 
@@ -164,19 +164,19 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// An `apiServerProfile` block as defined below.
+	// An `apiServerProfile` block as defined below. Changing this forces a new resource to be created.
 	ApiServerProfile ClusterApiServerProfile `pulumi:"apiServerProfile"`
-	// A `clusterProfile` block as defined below.
+	// A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
 	ClusterProfile ClusterClusterProfile `pulumi:"clusterProfile"`
-	// An `ingressProfile` block as defined below.
+	// An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
 	IngressProfile ClusterIngressProfile `pulumi:"ingressProfile"`
 	// The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A `mainProfile` block as defined below.
+	// A `mainProfile` block as defined below. Changing this forces a new resource to be created.
 	MainProfile ClusterMainProfile `pulumi:"mainProfile"`
 	// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `networkProfile` block as defined below.
+	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
 	NetworkProfile ClusterNetworkProfile `pulumi:"networkProfile"`
 	// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -184,25 +184,25 @@ type clusterArgs struct {
 	ServicePrincipal ClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A `workerProfile` block as defined below.
+	// A `workerProfile` block as defined below. Changing this forces a new resource to be created.
 	WorkerProfile ClusterWorkerProfile `pulumi:"workerProfile"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// An `apiServerProfile` block as defined below.
+	// An `apiServerProfile` block as defined below. Changing this forces a new resource to be created.
 	ApiServerProfile ClusterApiServerProfileInput
-	// A `clusterProfile` block as defined below.
+	// A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
 	ClusterProfile ClusterClusterProfileInput
-	// An `ingressProfile` block as defined below.
+	// An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
 	IngressProfile ClusterIngressProfileInput
 	// The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A `mainProfile` block as defined below.
+	// A `mainProfile` block as defined below. Changing this forces a new resource to be created.
 	MainProfile ClusterMainProfileInput
 	// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `networkProfile` block as defined below.
+	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
 	NetworkProfile ClusterNetworkProfileInput
 	// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -210,7 +210,7 @@ type ClusterArgs struct {
 	ServicePrincipal ClusterServicePrincipalInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A `workerProfile` block as defined below.
+	// A `workerProfile` block as defined below. Changing this forces a new resource to be created.
 	WorkerProfile ClusterWorkerProfileInput
 }
 
@@ -301,12 +301,12 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
-// An `apiServerProfile` block as defined below.
+// An `apiServerProfile` block as defined below. Changing this forces a new resource to be created.
 func (o ClusterOutput) ApiServerProfile() ClusterApiServerProfileOutput {
 	return o.ApplyT(func(v *Cluster) ClusterApiServerProfileOutput { return v.ApiServerProfile }).(ClusterApiServerProfileOutput)
 }
 
-// A `clusterProfile` block as defined below.
+// A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
 func (o ClusterOutput) ClusterProfile() ClusterClusterProfileOutput {
 	return o.ApplyT(func(v *Cluster) ClusterClusterProfileOutput { return v.ClusterProfile }).(ClusterClusterProfileOutput)
 }
@@ -316,7 +316,7 @@ func (o ClusterOutput) ConsoleUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ConsoleUrl }).(pulumi.StringOutput)
 }
 
-// An `ingressProfile` block as defined below.
+// An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
 func (o ClusterOutput) IngressProfile() ClusterIngressProfileOutput {
 	return o.ApplyT(func(v *Cluster) ClusterIngressProfileOutput { return v.IngressProfile }).(ClusterIngressProfileOutput)
 }
@@ -326,7 +326,7 @@ func (o ClusterOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// A `mainProfile` block as defined below.
+// A `mainProfile` block as defined below. Changing this forces a new resource to be created.
 func (o ClusterOutput) MainProfile() ClusterMainProfileOutput {
 	return o.ApplyT(func(v *Cluster) ClusterMainProfileOutput { return v.MainProfile }).(ClusterMainProfileOutput)
 }
@@ -336,7 +336,7 @@ func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `networkProfile` block as defined below.
+// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
 func (o ClusterOutput) NetworkProfile() ClusterNetworkProfileOutput {
 	return o.ApplyT(func(v *Cluster) ClusterNetworkProfileOutput { return v.NetworkProfile }).(ClusterNetworkProfileOutput)
 }
@@ -356,7 +356,7 @@ func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A `workerProfile` block as defined below.
+// A `workerProfile` block as defined below. Changing this forces a new resource to be created.
 func (o ClusterOutput) WorkerProfile() ClusterWorkerProfileOutput {
 	return o.ApplyT(func(v *Cluster) ClusterWorkerProfileOutput { return v.WorkerProfile }).(ClusterWorkerProfileOutput)
 }

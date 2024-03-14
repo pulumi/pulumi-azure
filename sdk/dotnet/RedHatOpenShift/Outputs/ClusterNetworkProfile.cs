@@ -14,7 +14,7 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
     public sealed class ClusterNetworkProfile
     {
         /// <summary>
-        /// The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+        /// The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? OutboundType;
         /// <summary>

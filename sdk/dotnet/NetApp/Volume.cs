@@ -52,7 +52,7 @@ namespace Pulumi.Azure.NetApp
         public Output<Outputs.VolumeDataProtectionSnapshotPolicy?> DataProtectionSnapshotPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("encryptionKeySource")]
         public Output<string> EncryptionKeySource { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.NetApp
         public Output<ImmutableArray<Outputs.VolumeExportPolicyRule>> ExportPolicyRules { get; private set; } = null!;
 
         /// <summary>
-        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("keyVaultPrivateEndpointId")]
         public Output<string> KeyVaultPrivateEndpointId { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
+        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
         /// </summary>
         [Output("networkFeatures")]
         public Output<string> NetworkFeatures { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Azure.NetApp
         public Input<Inputs.VolumeDataProtectionSnapshotPolicyArgs>? DataProtectionSnapshotPolicy { get; set; }
 
         /// <summary>
-        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encryptionKeySource")]
         public Input<string>? EncryptionKeySource { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.Azure.NetApp
         }
 
         /// <summary>
-        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultPrivateEndpointId")]
         public Input<string>? KeyVaultPrivateEndpointId { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
+        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
         /// </summary>
         [Input("networkFeatures")]
         public Input<string>? NetworkFeatures { get; set; }
@@ -434,7 +434,7 @@ namespace Pulumi.Azure.NetApp
         public Input<Inputs.VolumeDataProtectionSnapshotPolicyGetArgs>? DataProtectionSnapshotPolicy { get; set; }
 
         /// <summary>
-        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encryptionKeySource")]
         public Input<string>? EncryptionKeySource { get; set; }
@@ -452,7 +452,7 @@ namespace Pulumi.Azure.NetApp
         }
 
         /// <summary>
-        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultPrivateEndpointId")]
         public Input<string>? KeyVaultPrivateEndpointId { get; set; }
@@ -482,7 +482,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
+        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
         /// </summary>
         [Input("networkFeatures")]
         public Input<string>? NetworkFeatures { get; set; }
