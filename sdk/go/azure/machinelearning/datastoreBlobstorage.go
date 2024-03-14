@@ -59,7 +59,7 @@ import (
 //				Name:              pulumi.String("workspaceexamplekeyvault"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				TenantId:          *pulumi.String(current.TenantId),
+//				TenantId:          pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("premium"),
 //			})
 //			if err != nil {
