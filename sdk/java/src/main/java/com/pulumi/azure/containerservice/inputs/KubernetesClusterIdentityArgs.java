@@ -20,7 +20,7 @@ public final class KubernetesClusterIdentityArgs extends com.pulumi.resources.Re
     /**
      * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
      * 
-     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
      * 
      */
     @Import(name="identityIds")
@@ -29,7 +29,7 @@ public final class KubernetesClusterIdentityArgs extends com.pulumi.resources.Re
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
      * 
-     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -111,7 +111,7 @@ public final class KubernetesClusterIdentityArgs extends com.pulumi.resources.Re
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
          * 
-         * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class KubernetesClusterIdentityArgs extends com.pulumi.resources.Re
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
          * 
-         * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class KubernetesClusterIdentityArgs extends com.pulumi.resources.Re
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
          * 
-         * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
          * 
          * @return builder
          * 

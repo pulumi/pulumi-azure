@@ -70,7 +70,7 @@ public final class GroupContainer {
      */
     private Double memory;
     /**
-     * @return The the upper limit of the memory of the containers in GB.
+     * @return The upper limit of the memory of the containers in GB.
      * 
      */
     private @Nullable Double memoryLimit;
@@ -172,7 +172,7 @@ public final class GroupContainer {
         return this.memory;
     }
     /**
-     * @return The the upper limit of the memory of the containers in GB.
+     * @return The upper limit of the memory of the containers in GB.
      * 
      */
     public Optional<Double> memoryLimit() {

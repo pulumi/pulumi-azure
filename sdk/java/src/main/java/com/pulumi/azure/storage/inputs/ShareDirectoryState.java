@@ -47,33 +47,56 @@ public final class ShareDirectoryState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
+     * @deprecated
+     * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
     @Import(name="shareName")
     private @Nullable Output<String> shareName;
 
     /**
-     * @return The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
+     * @deprecated
+     * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
     public Optional<Output<String>> shareName() {
         return Optional.ofNullable(this.shareName);
     }
 
     /**
-     * The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
+     * @deprecated
+     * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
     @Import(name="storageAccountName")
     private @Nullable Output<String> storageAccountName;
 
     /**
-     * @return The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
+     * @deprecated
+     * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
     public Optional<Output<String>> storageAccountName() {
         return Optional.ofNullable(this.storageAccountName);
+    }
+
+    /**
+     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="storageShareId")
+    private @Nullable Output<String> storageShareId;
+
+    /**
+     * @return The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> storageShareId() {
+        return Optional.ofNullable(this.storageShareId);
     }
 
     private ShareDirectoryState() {}
@@ -83,6 +106,7 @@ public final class ShareDirectoryState extends com.pulumi.resources.ResourceArgs
         this.name = $.name;
         this.shareName = $.shareName;
         this.storageAccountName = $.storageAccountName;
+        this.storageShareId = $.storageShareId;
     }
 
     public static Builder builder() {
@@ -146,45 +170,74 @@ public final class ShareDirectoryState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param shareName The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
         public Builder shareName(@Nullable Output<String> shareName) {
             $.shareName = shareName;
             return this;
         }
 
         /**
-         * @param shareName The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
         public Builder shareName(String shareName) {
             return shareName(Output.of(shareName));
         }
 
         /**
-         * @param storageAccountName The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
         public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;
         }
 
         /**
-         * @param storageAccountName The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
+         * @return builder
+         * 
+         * @deprecated
+         * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
+         * 
+         */
+        @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
+        public Builder storageAccountName(String storageAccountName) {
+            return storageAccountName(Output.of(storageAccountName));
+        }
+
+        /**
+         * @param storageShareId The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder storageAccountName(String storageAccountName) {
-            return storageAccountName(Output.of(storageAccountName));
+        public Builder storageShareId(@Nullable Output<String> storageShareId) {
+            $.storageShareId = storageShareId;
+            return this;
+        }
+
+        /**
+         * @param storageShareId The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageShareId(String storageShareId) {
+            return storageShareId(Output.of(storageShareId));
         }
 
         public ShareDirectoryState build() {

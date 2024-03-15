@@ -44,6 +44,10 @@ namespace Pulumi.Azure.Stack
     ///         Location = exampleResourceGroup.Location,
     ///         ClientId = example.Apply(getApplicationResult =&gt; getApplicationResult.ApplicationId),
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         Identity = new Azure.Stack.Inputs.HciClusterIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///     });
     /// 
     /// });
@@ -74,6 +78,18 @@ namespace Pulumi.Azure.Stack
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
+        /// An immutable UUID for the Azure Stack HCI Cluster.
+        /// </summary>
+        [Output("cloudId")]
+        public Output<string> CloudId { get; private set; } = null!;
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.HciClusterIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -90,6 +106,18 @@ namespace Pulumi.Azure.Stack
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The object ID of the Resource Provider Service Principal.
+        /// </summary>
+        [Output("resourceProviderObjectId")]
+        public Output<string> ResourceProviderObjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+        /// </summary>
+        [Output("serviceEndpoint")]
+        public Output<string> ServiceEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
@@ -164,6 +192,12 @@ namespace Pulumi.Azure.Stack
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.HciClusterIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -222,6 +256,18 @@ namespace Pulumi.Azure.Stack
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
+        /// An immutable UUID for the Azure Stack HCI Cluster.
+        /// </summary>
+        [Input("cloudId")]
+        public Input<string>? CloudId { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.HciClusterIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -238,6 +284,18 @@ namespace Pulumi.Azure.Stack
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The object ID of the Resource Provider Service Principal.
+        /// </summary>
+        [Input("resourceProviderObjectId")]
+        public Input<string>? ResourceProviderObjectId { get; set; }
+
+        /// <summary>
+        /// The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+        /// </summary>
+        [Input("serviceEndpoint")]
+        public Input<string>? ServiceEndpoint { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

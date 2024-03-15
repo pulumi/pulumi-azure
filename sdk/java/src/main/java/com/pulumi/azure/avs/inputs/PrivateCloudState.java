@@ -51,7 +51,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+     * Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
      * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
@@ -59,7 +59,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> internetConnectionEnabled;
 
     /**
-     * @return Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+     * @return Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
      * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
@@ -68,14 +68,14 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+     * The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+     * @return The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -115,14 +115,14 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+     * The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+     * @return The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -130,14 +130,14 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+     * The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Import(name="networkSubnetCidr")
     private @Nullable Output<String> networkSubnetCidr;
 
     /**
-     * @return The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+     * @return The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Optional<Output<String>> networkSubnetCidr() {
@@ -175,14 +175,14 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+     * The password of the NSX-T Manager. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Import(name="nsxtPassword")
     private @Nullable Output<String> nsxtPassword;
 
     /**
-     * @return The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+     * @return The password of the NSX-T Manager. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Optional<Output<String>> nsxtPassword() {
@@ -205,14 +205,14 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+     * The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+     * @return The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -220,14 +220,14 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+     * The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+     * @return The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -235,14 +235,14 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A mapping of tags which should be assigned to the VMware Private Cloud.
+     * A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the VMware Private Cloud.
+     * @return A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -265,14 +265,14 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+     * The password of the vCenter Server admin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Import(name="vcenterPassword")
     private @Nullable Output<String> vcenterPassword;
 
     /**
-     * @return The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+     * @return The password of the vCenter Server admin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Optional<Output<String>> vcenterPassword() {
@@ -404,7 +404,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param internetConnectionEnabled Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+         * @param internetConnectionEnabled Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
          * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
          * 
          * @return builder
@@ -416,7 +416,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param internetConnectionEnabled Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+         * @param internetConnectionEnabled Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
          * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
          * 
          * @return builder
@@ -427,7 +427,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+         * @param location The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+         * @param location The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
          * 
          * @return builder
          * 
@@ -492,7 +492,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+         * @param name The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
          * 
          * @return builder
          * 
@@ -503,7 +503,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+         * @param name The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkSubnetCidr The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+         * @param networkSubnetCidr The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkSubnetCidr The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+         * @param networkSubnetCidr The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
          * 
          * @return builder
          * 
@@ -576,7 +576,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nsxtPassword The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+         * @param nsxtPassword The password of the NSX-T Manager. Changing this forces a new Azure VMware Solution Private Cloud to be created.
          * 
          * @return builder
          * 
@@ -587,7 +587,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nsxtPassword The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+         * @param nsxtPassword The password of the NSX-T Manager. Changing this forces a new Azure VMware Solution Private Cloud to be created.
          * 
          * @return builder
          * 
@@ -618,7 +618,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+         * @param resourceGroupName The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
          * 
          * @return builder
          * 
@@ -629,7 +629,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+         * @param resourceGroupName The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
          * 
          * @return builder
          * 
@@ -639,7 +639,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+         * @param skuName The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
          * 
          * @return builder
          * 
@@ -650,7 +650,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+         * @param skuName The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
          * 
          * @return builder
          * 
@@ -660,7 +660,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the VMware Private Cloud.
+         * @param tags A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
          * 
          * @return builder
          * 
@@ -671,7 +671,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the VMware Private Cloud.
+         * @param tags A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
          * 
          * @return builder
          * 
@@ -702,7 +702,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vcenterPassword The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+         * @param vcenterPassword The password of the vCenter Server admin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
          * 
          * @return builder
          * 
@@ -713,7 +713,7 @@ public final class PrivateCloudState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vcenterPassword The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+         * @param vcenterPassword The password of the vCenter Server admin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
          * 
          * @return builder
          * 

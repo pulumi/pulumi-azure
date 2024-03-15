@@ -166,14 +166,14 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The the upper limit of the memory of the containers in GB.
+     * The upper limit of the memory of the containers in GB.
      * 
      */
     @Import(name="memoryLimit")
     private @Nullable Output<Double> memoryLimit;
 
     /**
-     * @return The the upper limit of the memory of the containers in GB.
+     * @return The upper limit of the memory of the containers in GB.
      * 
      */
     public Optional<Output<Double>> memoryLimit() {
@@ -513,7 +513,7 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param memoryLimit The the upper limit of the memory of the containers in GB.
+         * @param memoryLimit The upper limit of the memory of the containers in GB.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param memoryLimit The the upper limit of the memory of the containers in GB.
+         * @param memoryLimit The upper limit of the memory of the containers in GB.
          * 
          * @return builder
          * 

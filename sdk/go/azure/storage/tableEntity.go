@@ -55,10 +55,9 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewTableEntity(ctx, "example", &storage.TableEntityArgs{
-//				StorageAccountName: exampleAccount.Name,
-//				TableName:          exampleTable.Name,
-//				PartitionKey:       pulumi.String("examplepartition"),
-//				RowKey:             pulumi.String("examplerow"),
+//				StorageTableId: exampleTable.ID(),
+//				PartitionKey:   pulumi.String("examplepartition"),
+//				RowKey:         pulumi.String("examplerow"),
 //				Entity: pulumi.StringMap{
 //					"example": pulumi.String("example"),
 //				},
@@ -85,13 +84,15 @@ type TableEntity struct {
 
 	// A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
 	Entity pulumi.StringMapOutput `pulumi:"entity"`
-	// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+	// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
 	PartitionKey pulumi.StringOutput `pulumi:"partitionKey"`
-	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
 	RowKey pulumi.StringOutput `pulumi:"rowKey"`
-	// Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
+	// Deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
-	// The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
+	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+	StorageTableId pulumi.StringOutput `pulumi:"storageTableId"`
+	// Deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 }
 
@@ -110,12 +111,6 @@ func NewTableEntity(ctx *pulumi.Context,
 	}
 	if args.RowKey == nil {
 		return nil, errors.New("invalid value for required argument 'RowKey'")
-	}
-	if args.StorageAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
-	}
-	if args.TableName == nil {
-		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TableEntity
@@ -142,26 +137,30 @@ func GetTableEntity(ctx *pulumi.Context,
 type tableEntityState struct {
 	// A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
 	Entity map[string]string `pulumi:"entity"`
-	// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+	// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
 	PartitionKey *string `pulumi:"partitionKey"`
-	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
 	RowKey *string `pulumi:"rowKey"`
-	// Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
+	// Deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
 	StorageAccountName *string `pulumi:"storageAccountName"`
-	// The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
+	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+	StorageTableId *string `pulumi:"storageTableId"`
+	// Deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
 	TableName *string `pulumi:"tableName"`
 }
 
 type TableEntityState struct {
 	// A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
 	Entity pulumi.StringMapInput
-	// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+	// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
 	PartitionKey pulumi.StringPtrInput
-	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
 	RowKey pulumi.StringPtrInput
-	// Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
+	// Deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
 	StorageAccountName pulumi.StringPtrInput
-	// The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
+	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+	StorageTableId pulumi.StringPtrInput
+	// Deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
 	TableName pulumi.StringPtrInput
 }
 
@@ -172,28 +171,32 @@ func (TableEntityState) ElementType() reflect.Type {
 type tableEntityArgs struct {
 	// A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
 	Entity map[string]string `pulumi:"entity"`
-	// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+	// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
 	PartitionKey string `pulumi:"partitionKey"`
-	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
 	RowKey string `pulumi:"rowKey"`
-	// Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
-	StorageAccountName string `pulumi:"storageAccountName"`
-	// The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
-	TableName string `pulumi:"tableName"`
+	// Deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+	StorageAccountName *string `pulumi:"storageAccountName"`
+	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+	StorageTableId *string `pulumi:"storageTableId"`
+	// Deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+	TableName *string `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a TableEntity resource.
 type TableEntityArgs struct {
 	// A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
 	Entity pulumi.StringMapInput
-	// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+	// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
 	PartitionKey pulumi.StringInput
-	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
 	RowKey pulumi.StringInput
-	// Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
-	StorageAccountName pulumi.StringInput
-	// The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
-	TableName pulumi.StringInput
+	// Deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+	StorageAccountName pulumi.StringPtrInput
+	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+	StorageTableId pulumi.StringPtrInput
+	// Deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+	TableName pulumi.StringPtrInput
 }
 
 func (TableEntityArgs) ElementType() reflect.Type {
@@ -288,22 +291,27 @@ func (o TableEntityOutput) Entity() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TableEntity) pulumi.StringMapOutput { return v.Entity }).(pulumi.StringMapOutput)
 }
 
-// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
 func (o TableEntityOutput) PartitionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableEntity) pulumi.StringOutput { return v.PartitionKey }).(pulumi.StringOutput)
 }
 
-// The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
 func (o TableEntityOutput) RowKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableEntity) pulumi.StringOutput { return v.RowKey }).(pulumi.StringOutput)
 }
 
-// Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
+// Deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
 func (o TableEntityOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableEntity) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
-// The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
+// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+func (o TableEntityOutput) StorageTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TableEntity) pulumi.StringOutput { return v.StorageTableId }).(pulumi.StringOutput)
+}
+
+// Deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
 func (o TableEntityOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableEntity) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }

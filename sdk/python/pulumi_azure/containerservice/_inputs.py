@@ -1184,7 +1184,7 @@ class GroupContainerArgs:
                > **Note:** Gpu resources are currently only supported in Linux containers.
         :param pulumi.Input['GroupContainerGpuLimitArgs'] gpu_limit: A `gpu_limit` block as defined below.
         :param pulumi.Input['GroupContainerLivenessProbeArgs'] liveness_probe: The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] memory_limit: The the upper limit of the memory of the containers in GB.
+        :param pulumi.Input[float] memory_limit: The upper limit of the memory of the containers in GB.
         :param pulumi.Input[Sequence[pulumi.Input['GroupContainerPortArgs']]] ports: A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
         :param pulumi.Input['GroupContainerReadinessProbeArgs'] readiness_probe: The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secure_environment_variables: A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
@@ -1346,7 +1346,7 @@ class GroupContainerArgs:
     @pulumi.getter(name="memoryLimit")
     def memory_limit(self) -> Optional[pulumi.Input[float]]:
         """
-        The the upper limit of the memory of the containers in GB.
+        The upper limit of the memory of the containers in GB.
         """
         return pulumi.get(self, "memory_limit")
 
@@ -5218,7 +5218,7 @@ class KubernetesClusterIdentityArgs:
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned` or `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
                
-               > **Note:** This is required when `type` is set to `UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         """
@@ -5248,7 +5248,7 @@ class KubernetesClusterIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
 
-        > **Note:** This is required when `type` is set to `UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
         """
         return pulumi.get(self, "identity_ids")
 

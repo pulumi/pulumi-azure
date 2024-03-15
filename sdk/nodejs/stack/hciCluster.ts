@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -29,6 +31,9 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     clientId: example.then(example => example.applicationId),
  *     tenantId: current.then(current => current.tenantId),
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -78,6 +83,14 @@ export class HciCluster extends pulumi.CustomResource {
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
+     * An immutable UUID for the Azure Stack HCI Cluster.
+     */
+    public /*out*/ readonly cloudId!: pulumi.Output<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.stack.HciClusterIdentity | undefined>;
+    /**
      * The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -89,6 +102,14 @@ export class HciCluster extends pulumi.CustomResource {
      * The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The object ID of the Resource Provider Service Principal.
+     */
+    public /*out*/ readonly resourceProviderObjectId!: pulumi.Output<string>;
+    /**
+     * The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+     */
+    public /*out*/ readonly serviceEndpoint!: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
      */
@@ -115,9 +136,13 @@ export class HciCluster extends pulumi.CustomResource {
             const state = argsOrState as HciClusterState | undefined;
             resourceInputs["automanageConfigurationId"] = state ? state.automanageConfigurationId : undefined;
             resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["cloudId"] = state ? state.cloudId : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["resourceProviderObjectId"] = state ? state.resourceProviderObjectId : undefined;
+            resourceInputs["serviceEndpoint"] = state ? state.serviceEndpoint : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
@@ -130,11 +155,15 @@ export class HciCluster extends pulumi.CustomResource {
             }
             resourceInputs["automanageConfigurationId"] = args ? args.automanageConfigurationId : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["cloudId"] = undefined /*out*/;
+            resourceInputs["resourceProviderObjectId"] = undefined /*out*/;
+            resourceInputs["serviceEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HciCluster.__pulumiType, name, resourceInputs, opts);
@@ -154,6 +183,14 @@ export interface HciClusterState {
      */
     clientId?: pulumi.Input<string>;
     /**
+     * An immutable UUID for the Azure Stack HCI Cluster.
+     */
+    cloudId?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.stack.HciClusterIdentity>;
+    /**
      * The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -165,6 +202,14 @@ export interface HciClusterState {
      * The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The object ID of the Resource Provider Service Principal.
+     */
+    resourceProviderObjectId?: pulumi.Input<string>;
+    /**
+     * The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+     */
+    serviceEndpoint?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
      */
@@ -189,6 +234,10 @@ export interface HciClusterArgs {
      * The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      */
     clientId: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.stack.HciClusterIdentity>;
     /**
      * The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
      */

@@ -68,15 +68,23 @@ type LookupHciClusterResult struct {
 	AutomanageConfigurationId string `pulumi:"automanageConfigurationId"`
 	// The Client ID of the Azure Active Directory used by the Azure Stack HCI Cluster.
 	ClientId string `pulumi:"clientId"`
+	// An immutable UUID for the Azure Stack HCI Cluster.
+	CloudId string `pulumi:"cloudId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// An `identity` block as defined below.
+	Identities []GetHciClusterIdentity `pulumi:"identities"`
 	// The Azure Region where the Azure Stack HCI Cluster exists.
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The object ID of the Resource Provider Service Principal.
+	ResourceProviderObjectId string `pulumi:"resourceProviderObjectId"`
+	// The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+	ServiceEndpoint string `pulumi:"serviceEndpoint"`
 	// A mapping of tags assigned to the Azure Stack HCI Cluster.
 	Tags map[string]string `pulumi:"tags"`
-	// The Tenant ID of the Azure Active Directory used by the Azure Stack HCI Cluster.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId string `pulumi:"tenantId"`
 }
 
@@ -130,9 +138,19 @@ func (o LookupHciClusterResultOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHciClusterResult) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// An immutable UUID for the Azure Stack HCI Cluster.
+func (o LookupHciClusterResultOutput) CloudId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHciClusterResult) string { return v.CloudId }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupHciClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHciClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// An `identity` block as defined below.
+func (o LookupHciClusterResultOutput) Identities() GetHciClusterIdentityArrayOutput {
+	return o.ApplyT(func(v LookupHciClusterResult) []GetHciClusterIdentity { return v.Identities }).(GetHciClusterIdentityArrayOutput)
 }
 
 // The Azure Region where the Azure Stack HCI Cluster exists.
@@ -148,12 +166,22 @@ func (o LookupHciClusterResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHciClusterResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// The object ID of the Resource Provider Service Principal.
+func (o LookupHciClusterResultOutput) ResourceProviderObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHciClusterResult) string { return v.ResourceProviderObjectId }).(pulumi.StringOutput)
+}
+
+// The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+func (o LookupHciClusterResultOutput) ServiceEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHciClusterResult) string { return v.ServiceEndpoint }).(pulumi.StringOutput)
+}
+
 // A mapping of tags assigned to the Azure Stack HCI Cluster.
 func (o LookupHciClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupHciClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The Tenant ID of the Azure Active Directory used by the Azure Stack HCI Cluster.
+// The Tenant ID associated with this Managed Service Identity.
 func (o LookupHciClusterResultOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHciClusterResult) string { return v.TenantId }).(pulumi.StringOutput)
 }

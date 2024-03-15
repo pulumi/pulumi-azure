@@ -66,6 +66,8 @@ namespace Pulumi.Azure.Storage
     {
         /// <summary>
         /// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+        /// 
+        /// &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         /// </summary>
         [Output("containerAccessType")]
         public Output<string?> ContainerAccessType { get; private set; } = null!;
@@ -154,6 +156,8 @@ namespace Pulumi.Azure.Storage
     {
         /// <summary>
         /// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+        /// 
+        /// &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         /// </summary>
         [Input("containerAccessType")]
         public Input<string>? ContainerAccessType { get; set; }
@@ -192,6 +196,8 @@ namespace Pulumi.Azure.Storage
     {
         /// <summary>
         /// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+        /// 
+        /// &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         /// </summary>
         [Input("containerAccessType")]
         public Input<string>? ContainerAccessType { get; set; }

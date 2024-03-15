@@ -336,14 +336,18 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
+     * A `virtual_network_configuration` block as defined below.
+     * 
+     * &gt; **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
      * 
      */
     @Import(name="virtualNetworkConfiguration")
     private @Nullable Output<ClusterVirtualNetworkConfigurationArgs> virtualNetworkConfiguration;
 
     /**
-     * @return A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `virtual_network_configuration` block as defined below.
+     * 
+     * &gt; **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
      * 
      */
     public Optional<Output<ClusterVirtualNetworkConfigurationArgs>> virtualNetworkConfiguration() {
@@ -887,7 +891,9 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below.
+         * 
+         * &gt; **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -898,7 +904,9 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below.
+         * 
+         * &gt; **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
          * 
          * @return builder
          * 

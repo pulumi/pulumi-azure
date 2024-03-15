@@ -1653,6 +1653,8 @@ public final class StorageFunctions {
     /**
      * Use this data source to access information about an existing File Share.
      * 
+     * &gt; **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -1694,6 +1696,8 @@ public final class StorageFunctions {
     }
     /**
      * Use this data source to access information about an existing File Share.
+     * 
+     * &gt; **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
      * 
      * ## Example Usage
      * 
@@ -1737,6 +1741,8 @@ public final class StorageFunctions {
     /**
      * Use this data source to access information about an existing File Share.
      * 
+     * &gt; **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -1778,6 +1784,8 @@ public final class StorageFunctions {
     }
     /**
      * Use this data source to access information about an existing File Share.
+     * 
+     * &gt; **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
      * 
      * ## Example Usage
      * 

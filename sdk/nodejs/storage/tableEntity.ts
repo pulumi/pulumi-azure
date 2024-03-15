@@ -30,8 +30,7 @@ import * as utilities from "../utilities";
  *     storageAccountName: exampleAccount.name,
  * });
  * const exampleTableEntity = new azure.storage.TableEntity("example", {
- *     storageAccountName: exampleAccount.name,
- *     tableName: exampleTable.name,
+ *     storageTableId: exampleTable.id,
  *     partitionKey: "examplepartition",
  *     rowKey: "examplerow",
  *     entity: {
@@ -82,19 +81,23 @@ export class TableEntity extends pulumi.CustomResource {
      */
     public readonly entity!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+     * The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
      */
     public readonly partitionKey!: pulumi.Output<string>;
     /**
-     * The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+     * The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
      */
     public readonly rowKey!: pulumi.Output<string>;
     /**
-     * Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
+     * @deprecated the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
      */
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
-     * The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
+     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     */
+    public readonly storageTableId!: pulumi.Output<string>;
+    /**
+     * @deprecated the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
      */
     public readonly tableName!: pulumi.Output<string>;
 
@@ -115,6 +118,7 @@ export class TableEntity extends pulumi.CustomResource {
             resourceInputs["partitionKey"] = state ? state.partitionKey : undefined;
             resourceInputs["rowKey"] = state ? state.rowKey : undefined;
             resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["storageTableId"] = state ? state.storageTableId : undefined;
             resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as TableEntityArgs | undefined;
@@ -127,16 +131,11 @@ export class TableEntity extends pulumi.CustomResource {
             if ((!args || args.rowKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rowKey'");
             }
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountName'");
-            }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'tableName'");
-            }
             resourceInputs["entity"] = args ? args.entity : undefined;
             resourceInputs["partitionKey"] = args ? args.partitionKey : undefined;
             resourceInputs["rowKey"] = args ? args.rowKey : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["storageTableId"] = args ? args.storageTableId : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -153,19 +152,23 @@ export interface TableEntityState {
      */
     entity?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+     * The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
      */
     partitionKey?: pulumi.Input<string>;
     /**
-     * The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+     * The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
      */
     rowKey?: pulumi.Input<string>;
     /**
-     * Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
+     * @deprecated the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
      */
     storageAccountName?: pulumi.Input<string>;
     /**
-     * The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
+     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     */
+    storageTableId?: pulumi.Input<string>;
+    /**
+     * @deprecated the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
      */
     tableName?: pulumi.Input<string>;
 }
@@ -179,19 +182,23 @@ export interface TableEntityArgs {
      */
     entity: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+     * The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
      */
     partitionKey: pulumi.Input<string>;
     /**
-     * The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+     * The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
      */
     rowKey: pulumi.Input<string>;
     /**
-     * Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
+     * @deprecated the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
      */
-    storageAccountName: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
     /**
-     * The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
+     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      */
-    tableName: pulumi.Input<string>;
+    storageTableId?: pulumi.Input<string>;
+    /**
+     * @deprecated the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+     */
+    tableName?: pulumi.Input<string>;
 }

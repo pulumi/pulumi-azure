@@ -49,7 +49,7 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfig
      */
     private List<GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses;
     /**
-     * @return The the identifier of the subnet.
+     * @return The identifier of the subnet.
      * 
      */
     private String subnetId;
@@ -110,7 +110,7 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfig
         return this.publicIpAddresses;
     }
     /**
-     * @return The the identifier of the subnet.
+     * @return The identifier of the subnet.
      * 
      */
     public String subnetId() {

@@ -251,7 +251,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     }
 
     /**
-     * The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
+     * The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
      * 
      * &gt; **NOTE:** This property conflicts with `java_version`.
      * 
@@ -260,7 +260,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     private @Nullable Output<String> nodeVersion;
 
     /**
-     * @return The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
+     * @return The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
      * 
      * &gt; **NOTE:** This property conflicts with `java_version`.
      * 
@@ -702,7 +702,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         }
 
         /**
-         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
+         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
          * 
          * &gt; **NOTE:** This property conflicts with `java_version`.
          * 
@@ -715,7 +715,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         }
 
         /**
-         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
+         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
          * 
          * &gt; **NOTE:** This property conflicts with `java_version`.
          * 

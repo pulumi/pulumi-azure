@@ -18,14 +18,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     public static final ClusterState Empty = new ClusterState();
 
     /**
-     * The count of the VMware Cluster nodes.
+     * The count of the Azure VMware Solution Cluster nodes.
      * 
      */
     @Import(name="clusterNodeCount")
     private @Nullable Output<Integer> clusterNodeCount;
 
     /**
-     * @return The count of the VMware Cluster nodes.
+     * @return The count of the Azure VMware Solution Cluster nodes.
      * 
      */
     public Optional<Output<Integer>> clusterNodeCount() {
@@ -33,14 +33,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A number that identifies this VMware Cluster in its VMware Private Cloud.
+     * A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
      * 
      */
     @Import(name="clusterNumber")
     private @Nullable Output<Integer> clusterNumber;
 
     /**
-     * @return A number that identifies this VMware Cluster in its VMware Private Cloud.
+     * @return A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
      * 
      */
     public Optional<Output<Integer>> clusterNumber() {
@@ -48,14 +48,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of host of the VMware Cluster.
+     * A list of hosts in the Azure VMware Solution Cluster.
      * 
      */
     @Import(name="hosts")
     private @Nullable Output<List<String>> hosts;
 
     /**
-     * @return A list of host of the VMware Cluster.
+     * @return A list of hosts in the Azure VMware Solution Cluster.
      * 
      */
     public Optional<Output<List<String>>> hosts() {
@@ -63,14 +63,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+     * The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+     * @return The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -78,14 +78,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+     * The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+     * @return The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -93,14 +93,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+     * The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
      * 
      */
     @Import(name="vmwareCloudId")
     private @Nullable Output<String> vmwareCloudId;
 
     /**
-     * @return The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+     * @return The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
      * 
      */
     public Optional<Output<String>> vmwareCloudId() {
@@ -137,7 +137,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterNodeCount The count of the VMware Cluster nodes.
+         * @param clusterNodeCount The count of the Azure VMware Solution Cluster nodes.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterNodeCount The count of the VMware Cluster nodes.
+         * @param clusterNodeCount The count of the Azure VMware Solution Cluster nodes.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterNumber A number that identifies this VMware Cluster in its VMware Private Cloud.
+         * @param clusterNumber A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterNumber A number that identifies this VMware Cluster in its VMware Private Cloud.
+         * @param clusterNumber A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hosts A list of host of the VMware Cluster.
+         * @param hosts A list of hosts in the Azure VMware Solution Cluster.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hosts A list of host of the VMware Cluster.
+         * @param hosts A list of hosts in the Azure VMware Solution Cluster.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hosts A list of host of the VMware Cluster.
+         * @param hosts A list of hosts in the Azure VMware Solution Cluster.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+         * @param name The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+         * @param name The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+         * @param skuName The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+         * @param skuName The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vmwareCloudId The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+         * @param vmwareCloudId The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vmwareCloudId The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+         * @param vmwareCloudId The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
          * 
          * @return builder
          * 

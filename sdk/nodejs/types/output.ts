@@ -10553,7 +10553,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
+         * The version of Node to run. Possible values include `12`, `14`, `16`, `18` and `20`.
          */
         nodeVersion?: string;
         /**
@@ -11545,7 +11545,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to use. Possible values include `12`, `14`, `16` and `18`
+         * The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
          */
         nodeVersion?: string;
         /**
@@ -15613,7 +15613,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values include `~12`, `~14`, `~16` and `~18`.
+         * The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
          */
         nodeVersion?: string;
         /**
@@ -16564,7 +16564,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
+         * The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
          */
         nodeVersion?: string;
         /**
@@ -17689,7 +17689,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, and `~18`.
+         * The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
          *
          * > **NOTE:** This property conflicts with `javaVersion`.
          */
@@ -18808,7 +18808,7 @@ export namespace appservice {
          */
         scmUseMainIpRestriction?: boolean;
         /**
-         * Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+         * Should the Windows Web App Slot use a 32-bit worker. The default value varies from different service plans.
          */
         use32BitWorker: boolean;
         /**
@@ -18894,7 +18894,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of node to use when `currentStack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
+         * The version of node to use when `currentStack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
          *
          * > **NOTE:** This property conflicts with `javaVersion`.
          */
@@ -24449,7 +24449,7 @@ export namespace compute {
          */
         publicIpAddresses: outputs.compute.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
         /**
-         * The the identifier of the subnet.
+         * The identifier of the subnet.
          */
         subnetId: string;
         /**
@@ -24753,7 +24753,7 @@ export namespace compute {
          */
         publicIpAddresses: outputs.compute.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
         /**
-         * The the identifier of the subnet.
+         * The identifier of the subnet.
          */
         subnetId: string;
         /**
@@ -30782,7 +30782,7 @@ export namespace containerservice {
          */
         memory: number;
         /**
-         * The the upper limit of the memory of the containers in GB.
+         * The upper limit of the memory of the containers in GB.
          */
         memoryLimit?: number;
         /**
@@ -31851,7 +31851,7 @@ export namespace containerservice {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
          *
-         * > **Note:** This is required when `type` is set to `UserAssigned`.
+         * > **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
          */
         identityIds?: string[];
         /**
@@ -63916,6 +63916,41 @@ export namespace sql {
          * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: string;
+    }
+
+}
+
+export namespace stack {
+    export interface GetHciClusterIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * (Required) The type of Managed Service Identity configured on the Azure Stack HCI Cluster.
+         */
+        type: string;
+    }
+
+    export interface HciClusterIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+         *
+         * > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on the Azure Stack HCI Cluster. Possible value is `SystemAssigned`.
+         */
+        type: string;
     }
 
 }

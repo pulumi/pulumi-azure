@@ -20,12 +20,16 @@ public final class ContainerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
      * 
+     * &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+     * 
      */
     @Import(name="containerAccessType")
     private @Nullable Output<String> containerAccessType;
 
     /**
      * @return The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+     * 
+     * &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      * 
      */
     public Optional<Output<String>> containerAccessType() {
@@ -107,6 +111,8 @@ public final class ContainerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param containerAccessType The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
          * 
+         * &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+         * 
          * @return builder
          * 
          */
@@ -117,6 +123,8 @@ public final class ContainerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param containerAccessType The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+         * 
+         * &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
          * 
          * @return builder
          * 

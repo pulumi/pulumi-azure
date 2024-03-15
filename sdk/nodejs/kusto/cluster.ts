@@ -164,7 +164,9 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly uri!: pulumi.Output<string>;
     /**
-     * A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
+     * A `virtualNetworkConfiguration` block as defined below.
+     *
+     * > **NOTE:** Currently removing `virtualNetworkConfiguration` sets the `virtualNetworkConfiguration` to `Disabled` state. But any changes to `virtualNetworkConfiguration` in `Disabled` state forces a new resource to be created.
      */
     public readonly virtualNetworkConfiguration!: pulumi.Output<outputs.kusto.ClusterVirtualNetworkConfiguration | undefined>;
     /**
@@ -344,7 +346,9 @@ export interface ClusterState {
      */
     uri?: pulumi.Input<string>;
     /**
-     * A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
+     * A `virtualNetworkConfiguration` block as defined below.
+     *
+     * > **NOTE:** Currently removing `virtualNetworkConfiguration` sets the `virtualNetworkConfiguration` to `Disabled` state. But any changes to `virtualNetworkConfiguration` in `Disabled` state forces a new resource to be created.
      */
     virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
     /**
@@ -442,7 +446,9 @@ export interface ClusterArgs {
      */
     trustedExternalTenants?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
+     * A `virtualNetworkConfiguration` block as defined below.
+     *
+     * > **NOTE:** Currently removing `virtualNetworkConfiguration` sets the `virtualNetworkConfiguration` to `Disabled` state. But any changes to `virtualNetworkConfiguration` in `Disabled` state forces a new resource to be created.
      */
     virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
     /**

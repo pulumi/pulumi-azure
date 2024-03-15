@@ -20,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a VMware Private Cloud.
+ * Manages a Azure VMware Solution Private Cloud.
  * 
  * ## Example Usage
  * 
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VMware Private Clouds can be imported using the `resource id`, e.g.
+ * Azure VMware Solution Private Clouds can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:avs/privateCloud:PrivateCloud example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/privateCloud1
@@ -115,7 +115,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
         return this.hcxCloudManagerEndpoint;
     }
     /**
-     * Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+     * Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
      * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
@@ -123,7 +123,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> internetConnectionEnabled;
 
     /**
-     * @return Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+     * @return Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
      * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
@@ -131,14 +131,14 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.internetConnectionEnabled);
     }
     /**
-     * The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+     * The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+     * @return The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Output<String> location() {
@@ -175,28 +175,28 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
         return this.managementSubnetCidr;
     }
     /**
-     * The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+     * The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+     * @return The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+     * The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Export(name="networkSubnetCidr", refs={String.class}, tree="[0]")
     private Output<String> networkSubnetCidr;
 
     /**
-     * @return The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+     * @return The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Output<String> networkSubnetCidr() {
@@ -231,14 +231,14 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
         return this.nsxtManagerEndpoint;
     }
     /**
-     * The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+     * The password of the NSX-T Manager. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Export(name="nsxtPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nsxtPassword;
 
     /**
-     * @return The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+     * @return The password of the NSX-T Manager. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Output<Optional<String>> nsxtPassword() {
@@ -259,42 +259,42 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
         return this.provisioningSubnetCidr;
     }
     /**
-     * The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+     * The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+     * @return The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+     * The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
-     * @return The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+     * @return The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Output<String> skuName() {
         return this.skuName;
     }
     /**
-     * A mapping of tags which should be assigned to the VMware Private Cloud.
+     * A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the VMware Private Cloud.
+     * @return A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -315,14 +315,14 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
         return this.vcenterCertificateThumbprint;
     }
     /**
-     * The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+     * The password of the vCenter Server admin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Export(name="vcenterPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vcenterPassword;
 
     /**
-     * @return The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+     * @return The password of the vCenter Server admin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Output<Optional<String>> vcenterPassword() {

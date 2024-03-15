@@ -52,7 +52,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly double Memory;
         /// <summary>
-        /// The the upper limit of the memory of the containers in GB.
+        /// The upper limit of the memory of the containers in GB.
         /// </summary>
         public readonly double? MemoryLimit;
         /// <summary>

@@ -32,8 +32,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleShareDirectory = new azure.storage.ShareDirectory("example", {
  *     name: "example",
- *     shareName: exampleShare.name,
- *     storageAccountName: exampleAccount.name,
+ *     storageShareId: exampleShare.id,
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -83,13 +82,17 @@ export class ShareDirectory extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
+     * @deprecated the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
      */
     public readonly shareName!: pulumi.Output<string>;
     /**
-     * The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
+     * @deprecated the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
      */
     public readonly storageAccountName!: pulumi.Output<string>;
+    /**
+     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     */
+    public readonly storageShareId!: pulumi.Output<string>;
 
     /**
      * Create a ShareDirectory resource with the given unique name, arguments, and options.
@@ -98,7 +101,7 @@ export class ShareDirectory extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ShareDirectoryArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ShareDirectoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ShareDirectoryArgs | ShareDirectoryState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -108,18 +111,14 @@ export class ShareDirectory extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["shareName"] = state ? state.shareName : undefined;
             resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["storageShareId"] = state ? state.storageShareId : undefined;
         } else {
             const args = argsOrState as ShareDirectoryArgs | undefined;
-            if ((!args || args.shareName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'shareName'");
-            }
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountName'");
-            }
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["shareName"] = args ? args.shareName : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["storageShareId"] = args ? args.storageShareId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ShareDirectory.__pulumiType, name, resourceInputs, opts);
@@ -139,13 +138,17 @@ export interface ShareDirectoryState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
+     * @deprecated the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
      */
     shareName?: pulumi.Input<string>;
     /**
-     * The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
+     * @deprecated the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
      */
     storageAccountName?: pulumi.Input<string>;
+    /**
+     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     */
+    storageShareId?: pulumi.Input<string>;
 }
 
 /**
@@ -161,11 +164,15 @@ export interface ShareDirectoryArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
+     * @deprecated the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
      */
-    shareName: pulumi.Input<string>;
+    shareName?: pulumi.Input<string>;
     /**
-     * The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
+     * @deprecated the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
      */
-    storageAccountName: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
+    /**
+     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     */
+    storageShareId?: pulumi.Input<string>;
 }

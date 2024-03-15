@@ -1237,7 +1237,7 @@ class GroupContainer(dict):
                > **Note:** Gpu resources are currently only supported in Linux containers.
         :param 'GroupContainerGpuLimitArgs' gpu_limit: A `gpu_limit` block as defined below.
         :param 'GroupContainerLivenessProbeArgs' liveness_probe: The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
-        :param float memory_limit: The the upper limit of the memory of the containers in GB.
+        :param float memory_limit: The upper limit of the memory of the containers in GB.
         :param Sequence['GroupContainerPortArgs'] ports: A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
         :param 'GroupContainerReadinessProbeArgs' readiness_probe: The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
         :param Mapping[str, str] secure_environment_variables: A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
@@ -1359,7 +1359,7 @@ class GroupContainer(dict):
     @pulumi.getter(name="memoryLimit")
     def memory_limit(self) -> Optional[float]:
         """
-        The the upper limit of the memory of the containers in GB.
+        The upper limit of the memory of the containers in GB.
         """
         return pulumi.get(self, "memory_limit")
 
@@ -5149,7 +5149,7 @@ class KubernetesClusterIdentity(dict):
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned` or `UserAssigned`.
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
                
-               > **Note:** This is required when `type` is set to `UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         """
@@ -5175,7 +5175,7 @@ class KubernetesClusterIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
 
-        > **Note:** This is required when `type` is set to `UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
         """
         return pulumi.get(self, "identity_ids")
 

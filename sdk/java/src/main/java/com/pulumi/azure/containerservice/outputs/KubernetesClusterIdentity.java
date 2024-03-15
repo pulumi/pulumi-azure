@@ -16,7 +16,7 @@ public final class KubernetesClusterIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
      * 
-     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -40,7 +40,7 @@ public final class KubernetesClusterIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
      * 
-     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
      * 
      */
     public List<String> identityIds() {

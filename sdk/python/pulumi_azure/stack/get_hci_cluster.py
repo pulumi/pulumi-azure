@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetHciClusterResult',
@@ -21,16 +22,22 @@ class GetHciClusterResult:
     """
     A collection of values returned by getHciCluster.
     """
-    def __init__(__self__, automanage_configuration_id=None, client_id=None, id=None, location=None, name=None, resource_group_name=None, tags=None, tenant_id=None):
+    def __init__(__self__, automanage_configuration_id=None, client_id=None, cloud_id=None, id=None, identities=None, location=None, name=None, resource_group_name=None, resource_provider_object_id=None, service_endpoint=None, tags=None, tenant_id=None):
         if automanage_configuration_id and not isinstance(automanage_configuration_id, str):
             raise TypeError("Expected argument 'automanage_configuration_id' to be a str")
         pulumi.set(__self__, "automanage_configuration_id", automanage_configuration_id)
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
         pulumi.set(__self__, "client_id", client_id)
+        if cloud_id and not isinstance(cloud_id, str):
+            raise TypeError("Expected argument 'cloud_id' to be a str")
+        pulumi.set(__self__, "cloud_id", cloud_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -40,6 +47,12 @@ class GetHciClusterResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if resource_provider_object_id and not isinstance(resource_provider_object_id, str):
+            raise TypeError("Expected argument 'resource_provider_object_id' to be a str")
+        pulumi.set(__self__, "resource_provider_object_id", resource_provider_object_id)
+        if service_endpoint and not isinstance(service_endpoint, str):
+            raise TypeError("Expected argument 'service_endpoint' to be a str")
+        pulumi.set(__self__, "service_endpoint", service_endpoint)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -64,12 +77,28 @@ class GetHciClusterResult:
         return pulumi.get(self, "client_id")
 
     @property
+    @pulumi.getter(name="cloudId")
+    def cloud_id(self) -> str:
+        """
+        An immutable UUID for the Azure Stack HCI Cluster.
+        """
+        return pulumi.get(self, "cloud_id")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetHciClusterIdentityResult']:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter
@@ -90,6 +119,22 @@ class GetHciClusterResult:
         return pulumi.get(self, "resource_group_name")
 
     @property
+    @pulumi.getter(name="resourceProviderObjectId")
+    def resource_provider_object_id(self) -> str:
+        """
+        The object ID of the Resource Provider Service Principal.
+        """
+        return pulumi.get(self, "resource_provider_object_id")
+
+    @property
+    @pulumi.getter(name="serviceEndpoint")
+    def service_endpoint(self) -> str:
+        """
+        The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+        """
+        return pulumi.get(self, "service_endpoint")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -101,7 +146,7 @@ class GetHciClusterResult:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The Tenant ID of the Azure Active Directory used by the Azure Stack HCI Cluster.
+        The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -114,10 +159,14 @@ class AwaitableGetHciClusterResult(GetHciClusterResult):
         return GetHciClusterResult(
             automanage_configuration_id=self.automanage_configuration_id,
             client_id=self.client_id,
+            cloud_id=self.cloud_id,
             id=self.id,
+            identities=self.identities,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
+            resource_provider_object_id=self.resource_provider_object_id,
+            service_endpoint=self.service_endpoint,
             tags=self.tags,
             tenant_id=self.tenant_id)
 
@@ -156,10 +205,14 @@ def get_hci_cluster(name: Optional[str] = None,
     return AwaitableGetHciClusterResult(
         automanage_configuration_id=pulumi.get(__ret__, 'automanage_configuration_id'),
         client_id=pulumi.get(__ret__, 'client_id'),
+        cloud_id=pulumi.get(__ret__, 'cloud_id'),
         id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        resource_provider_object_id=pulumi.get(__ret__, 'resource_provider_object_id'),
+        service_endpoint=pulumi.get(__ret__, 'service_endpoint'),
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'))
 

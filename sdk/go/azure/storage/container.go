@@ -76,6 +76,8 @@ type Container struct {
 	pulumi.CustomResourceState
 
 	// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+	//
+	// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 	ContainerAccessType pulumi.StringPtrOutput `pulumi:"containerAccessType"`
 	// Is there an Immutability Policy configured on this Storage Container?
 	HasImmutabilityPolicy pulumi.BoolOutput `pulumi:"hasImmutabilityPolicy"`
@@ -125,6 +127,8 @@ func GetContainer(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Container resources.
 type containerState struct {
 	// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+	//
+	// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 	ContainerAccessType *string `pulumi:"containerAccessType"`
 	// Is there an Immutability Policy configured on this Storage Container?
 	HasImmutabilityPolicy *bool `pulumi:"hasImmutabilityPolicy"`
@@ -142,6 +146,8 @@ type containerState struct {
 
 type ContainerState struct {
 	// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+	//
+	// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 	ContainerAccessType pulumi.StringPtrInput
 	// Is there an Immutability Policy configured on this Storage Container?
 	HasImmutabilityPolicy pulumi.BoolPtrInput
@@ -163,6 +169,8 @@ func (ContainerState) ElementType() reflect.Type {
 
 type containerArgs struct {
 	// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+	//
+	// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 	ContainerAccessType *string `pulumi:"containerAccessType"`
 	// A mapping of MetaData for this Container. All metadata keys should be lowercase.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -175,6 +183,8 @@ type containerArgs struct {
 // The set of arguments for constructing a Container resource.
 type ContainerArgs struct {
 	// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+	//
+	// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 	ContainerAccessType pulumi.StringPtrInput
 	// A mapping of MetaData for this Container. All metadata keys should be lowercase.
 	Metadata pulumi.StringMapInput
@@ -272,6 +282,8 @@ func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) Conta
 }
 
 // The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+//
+// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 func (o ContainerOutput) ContainerAccessType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringPtrOutput { return v.ContainerAccessType }).(pulumi.StringPtrOutput)
 }
