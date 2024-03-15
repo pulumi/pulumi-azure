@@ -66,7 +66,7 @@ import (
 //				Name:                   pulumi.String("example"),
 //				Location:               example.Location,
 //				ResourceGroupName:      example.Name,
-//				TenantId:               *pulumi.String(current.TenantId),
+//				TenantId:               pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("standard"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
 //			})
@@ -75,8 +75,8 @@ import (
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "deployer", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   *pulumi.String(current.TenantId),
-//				ObjectId:   *pulumi.String(current.ObjectId),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Create"),
 //					pulumi.String("Get"),
@@ -121,8 +121,8 @@ import (
 //			_, err = synapse.NewWorkspaceSqlAadAdmin(ctx, "example", &synapse.WorkspaceSqlAadAdminArgs{
 //				SynapseWorkspaceId: exampleWorkspace.ID(),
 //				Login:              pulumi.String("AzureAD Admin"),
-//				ObjectId:           *pulumi.String(current.ObjectId),
-//				TenantId:           *pulumi.String(current.TenantId),
+//				ObjectId:           pulumi.String(current.ObjectId),
+//				TenantId:           pulumi.String(current.TenantId),
 //			})
 //			if err != nil {
 //				return err

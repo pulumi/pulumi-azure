@@ -47,7 +47,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Scope: &network.NetworkManagerScopeArgs{
 //					SubscriptionIds: pulumi.StringArray{
-//						*pulumi.String(current.Id),
+//						pulumi.String(current.Id),
 //					},
 //				},
 //				ScopeAccesses: pulumi.StringArray{
@@ -59,7 +59,7 @@ import (
 //			}
 //			_, err = network.NewNetworkManagerSubscriptionConnection(ctx, "example", &network.NetworkManagerSubscriptionConnectionArgs{
 //				Name:             pulumi.String("example-nsnmc"),
-//				SubscriptionId:   *pulumi.String(current.Id),
+//				SubscriptionId:   pulumi.String(current.Id),
 //				NetworkManagerId: exampleNetworkManager.ID(),
 //				Description:      pulumi.String("example"),
 //			})

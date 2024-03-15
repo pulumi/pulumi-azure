@@ -56,8 +56,8 @@ import (
 //			json0 := string(tmpJSON0)
 //			exampleSubscriptionPolicyAssignment, err := core.NewSubscriptionPolicyAssignment(ctx, "example", &core.SubscriptionPolicyAssignmentArgs{
 //				Name:               pulumi.String("exampleAssignment"),
-//				SubscriptionId:     *pulumi.String(example.Id),
-//				PolicyDefinitionId: *pulumi.String(exampleGetPolicyDefintion.Id),
+//				SubscriptionId:     pulumi.String(example.Id),
+//				PolicyDefinitionId: pulumi.String(exampleGetPolicyDefintion.Id),
 //				Parameters:         pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -65,7 +65,7 @@ import (
 //			}
 //			_, err = core.NewSubscriptionPolicyRemediation(ctx, "example", &core.SubscriptionPolicyRemediationArgs{
 //				Name:               pulumi.String("example"),
-//				SubscriptionId:     *pulumi.String(example.Id),
+//				SubscriptionId:     pulumi.String(example.Id),
 //				PolicyAssignmentId: exampleSubscriptionPolicyAssignment.ID(),
 //			})
 //			if err != nil {

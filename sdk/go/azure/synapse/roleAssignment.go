@@ -87,7 +87,7 @@ import (
 //			_, err = synapse.NewRoleAssignment(ctx, "example", &synapse.RoleAssignmentArgs{
 //				SynapseWorkspaceId: exampleWorkspace.ID(),
 //				RoleName:           pulumi.String("Synapse SQL Administrator"),
-//				PrincipalId:        *pulumi.String(current.ObjectId),
+//				PrincipalId:        pulumi.String(current.ObjectId),
 //			})
 //			if err != nil {
 //				return err
