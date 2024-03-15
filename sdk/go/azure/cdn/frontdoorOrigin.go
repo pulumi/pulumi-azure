@@ -263,7 +263,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				VisibilitySubscriptionIds: pulumi.StringArray{
-//					*pulumi.String(current.SubscriptionId),
+//					pulumi.String(current.SubscriptionId),
 //				},
 //				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
 //					exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
