@@ -52,8 +52,8 @@ import (
 //				Name:              pulumi.String("example-cluster"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
-//				ClientId:          *pulumi.String(example.ApplicationId),
-//				TenantId:          *pulumi.String(current.TenantId),
+//				ClientId:          pulumi.String(example.ApplicationId),
+//				TenantId:          pulumi.String(current.TenantId),
 //			})
 //			if err != nil {
 //				return err
