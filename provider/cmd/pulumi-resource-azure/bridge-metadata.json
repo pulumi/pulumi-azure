@@ -19486,7 +19486,12 @@
             },
             "azurerm_stack_hci_cluster": {
                 "current": "azure:stack/hciCluster:HciCluster",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "azurerm_static_site": {
                 "current": "azure:appservice/staticSite:StaticSite",
@@ -29299,7 +29304,12 @@
             },
             "azurerm_stack_hci_cluster": {
                 "current": "azure:stack/getHciCluster:getHciCluster",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_static_web_app": {
                 "current": "azure:appservice/getStaticWebApp:getStaticWebApp",
