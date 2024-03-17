@@ -53,10 +53,10 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewSubscription(ctx, "example", &apimanagement.SubscriptionArgs{
-//				ApiManagementName: *pulumi.String(example.Name),
-//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
-//				UserId:            *pulumi.String(exampleGetUser.Id),
-//				ProductId:         *pulumi.String(exampleGetProduct.Id),
+//				ApiManagementName: pulumi.String(example.Name),
+//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
+//				UserId:            pulumi.String(exampleGetUser.Id),
+//				ProductId:         pulumi.String(exampleGetProduct.Id),
 //				DisplayName:       pulumi.String("Parser API"),
 //			})
 //			if err != nil {
