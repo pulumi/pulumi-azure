@@ -40,7 +40,7 @@ import (
 //				Location:              pulumi.String("westus2"),
 //				Kind:                  pulumi.String("fhir-R4"),
 //				CosmosdbThroughput:    pulumi.Int(2000),
-//				AccessPolicyObjectIds: *pulumi.String(current.ObjectId),
+//				AccessPolicyObjectIds: pulumi.String(current.ObjectId),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("testenv"),
 //					"purpose":     pulumi.String("AcceptanceTests"),
