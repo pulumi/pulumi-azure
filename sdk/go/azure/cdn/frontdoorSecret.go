@@ -64,7 +64,7 @@ import (
 //				Name:                    pulumi.String("example-keyvault"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				TenantId:                *pulumi.String(current.TenantId),
+//				TenantId:                pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("premium"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
 //				NetworkAcls: &keyvault.KeyVaultNetworkAclsArgs{
@@ -76,15 +76,15 @@ import (
 //				},
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: *pulumi.String(current.TenantId),
-//						ObjectId: *pulumi.String(frontdoor.ObjectId),
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(frontdoor.ObjectId),
 //						SecretPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //						},
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: *pulumi.String(current.TenantId),
-//						ObjectId: *pulumi.String(current.ObjectId),
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(current.ObjectId),
 //						CertificatePermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //							pulumi.String("Import"),
