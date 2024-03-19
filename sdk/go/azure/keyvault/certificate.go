@@ -55,12 +55,12 @@ import (
 //				Name:              pulumi.String("examplekeyvault"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				TenantId:          *pulumi.String(current.TenantId),
+//				TenantId:          pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("premium"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: *pulumi.String(current.TenantId),
-//						ObjectId: *pulumi.String(current.ObjectId),
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(current.ObjectId),
 //						CertificatePermissions: pulumi.StringArray{
 //							pulumi.String("Create"),
 //							pulumi.String("Delete"),
@@ -164,13 +164,13 @@ import (
 //				Name:                    pulumi.String("examplekeyvault"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				TenantId:                *pulumi.String(current.TenantId),
+//				TenantId:                pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("standard"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: *pulumi.String(current.TenantId),
-//						ObjectId: *pulumi.String(current.ObjectId),
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(current.ObjectId),
 //						CertificatePermissions: pulumi.StringArray{
 //							pulumi.String("Create"),
 //							pulumi.String("Delete"),

@@ -38,7 +38,7 @@ import (
 //			}
 //			_, err = management.NewLock(ctx, "subscription-level", &management.LockArgs{
 //				Name:      pulumi.String("subscription-level"),
-//				Scope:     *pulumi.String(current.Id),
+//				Scope:     pulumi.String(current.Id),
 //				LockLevel: pulumi.String("CanNotDelete"),
 //				Notes:     pulumi.String("Items can't be deleted in this subscription!"),
 //			})
