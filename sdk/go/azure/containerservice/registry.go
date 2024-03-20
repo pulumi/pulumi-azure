@@ -119,7 +119,7 @@ import (
 //				},
 //				Encryption: &containerservice.RegistryEncryptionArgs{
 //					Enabled:          pulumi.Bool(true),
-//					KeyVaultKeyId:    *pulumi.String(example.Id),
+//					KeyVaultKeyId:    pulumi.String(example.Id),
 //					IdentityClientId: exampleUserAssignedIdentity.ClientId,
 //				},
 //			})

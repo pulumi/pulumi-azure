@@ -66,7 +66,7 @@ import (
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-//						ObjectId: *pulumi.String(current.ObjectId),
+//						ObjectId: pulumi.String(current.ObjectId),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //							pulumi.String("Create"),

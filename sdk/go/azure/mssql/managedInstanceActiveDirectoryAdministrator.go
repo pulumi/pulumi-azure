@@ -111,7 +111,7 @@ import (
 //				ManagedInstanceId: exampleManagedInstance.ID(),
 //				LoginUsername:     pulumi.String("msadmin"),
 //				ObjectId:          admin.ObjectId,
-//				TenantId:          *pulumi.String(current.TenantId),
+//				TenantId:          pulumi.String(current.TenantId),
 //			})
 //			if err != nil {
 //				return err

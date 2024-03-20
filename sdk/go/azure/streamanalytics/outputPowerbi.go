@@ -45,7 +45,7 @@ import (
 //			}
 //			_, err = streamanalytics.NewOutputPowerbi(ctx, "example", &streamanalytics.OutputPowerbiArgs{
 //				Name:                 pulumi.String("output-to-powerbi"),
-//				StreamAnalyticsJobId: *pulumi.String(exampleGetJob.Id),
+//				StreamAnalyticsJobId: pulumi.String(exampleGetJob.Id),
 //				Dataset:              pulumi.String("example-dataset"),
 //				Table:                pulumi.String("example-table"),
 //				GroupId:              pulumi.String("00000000-0000-0000-0000-000000000000"),
