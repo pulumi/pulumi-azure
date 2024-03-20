@@ -57,7 +57,7 @@ import (
 //				Name:                    pulumi.String("examplekeyvault"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				TenantId:                *pulumi.String(current.TenantId),
+//				TenantId:                pulumi.String(current.TenantId),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
 //				PurgeProtectionEnabled:  pulumi.Bool(false),
 //				SkuName:                 pulumi.String("standard"),
@@ -132,7 +132,7 @@ type DiagnosticSetting struct {
 	//
 	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
 	Logs DiagnosticSettingLogArrayOutput `pulumi:"logs"`
 	// One or more `metric` blocks as defined below.
 	//
@@ -213,7 +213,7 @@ type diagnosticSettingState struct {
 	//
 	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
 	Logs []DiagnosticSettingLog `pulumi:"logs"`
 	// One or more `metric` blocks as defined below.
 	//
@@ -262,7 +262,7 @@ type DiagnosticSettingState struct {
 	//
 	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
 	Logs DiagnosticSettingLogArrayInput
 	// One or more `metric` blocks as defined below.
 	//
@@ -315,7 +315,7 @@ type diagnosticSettingArgs struct {
 	//
 	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
 	Logs []DiagnosticSettingLog `pulumi:"logs"`
 	// One or more `metric` blocks as defined below.
 	//
@@ -365,7 +365,7 @@ type DiagnosticSettingArgs struct {
 	//
 	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
 	Logs DiagnosticSettingLogArrayInput
 	// One or more `metric` blocks as defined below.
 	//
@@ -515,7 +515,7 @@ func (o DiagnosticSettingOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutpu
 //
 // > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
 //
-// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
 func (o DiagnosticSettingOutput) Logs() DiagnosticSettingLogArrayOutput {
 	return o.ApplyT(func(v *DiagnosticSetting) DiagnosticSettingLogArrayOutput { return v.Logs }).(DiagnosticSettingLogArrayOutput)
 }

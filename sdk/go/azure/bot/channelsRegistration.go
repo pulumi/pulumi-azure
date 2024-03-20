@@ -46,7 +46,7 @@ import (
 //				Location:          pulumi.String("global"),
 //				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("F0"),
-//				MicrosoftAppId:    *pulumi.String(current.ClientId),
+//				MicrosoftAppId:    pulumi.String(current.ClientId),
 //			})
 //			if err != nil {
 //				return err
@@ -92,7 +92,7 @@ type ChannelsRegistration struct {
 	//
 	// > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `isolatedNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	IsolatedNetworkEnabled pulumi.BoolOutput `pulumi:"isolatedNetworkEnabled"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -182,7 +182,7 @@ type channelsRegistrationState struct {
 	//
 	// > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `isolatedNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	IsolatedNetworkEnabled *bool `pulumi:"isolatedNetworkEnabled"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -227,7 +227,7 @@ type ChannelsRegistrationState struct {
 	//
 	// > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `isolatedNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	IsolatedNetworkEnabled pulumi.BoolPtrInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -276,7 +276,7 @@ type channelsRegistrationArgs struct {
 	//
 	// > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `isolatedNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	IsolatedNetworkEnabled *bool `pulumi:"isolatedNetworkEnabled"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -322,7 +322,7 @@ type ChannelsRegistrationArgs struct {
 	//
 	// > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `isolatedNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	IsolatedNetworkEnabled pulumi.BoolPtrInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -477,7 +477,7 @@ func (o ChannelsRegistrationOutput) IconUrl() pulumi.StringOutput {
 //
 // > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 //
-// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+// Deprecated: `isolatedNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 func (o ChannelsRegistrationOutput) IsolatedNetworkEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ChannelsRegistration) pulumi.BoolOutput { return v.IsolatedNetworkEnabled }).(pulumi.BoolOutput)
 }

@@ -203,7 +203,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly galleryApplication!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetGalleryApplication[]>;
     /**
-     * @deprecated `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+     * @deprecated `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
      */
     public readonly galleryApplications!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetGalleryApplication[]>;
     /**
@@ -291,7 +291,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly scaleIn!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetScaleIn>;
     /**
-     * @deprecated `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+     * @deprecated `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
      */
     public readonly scaleInPolicy!: pulumi.Output<string>;
     /**
@@ -335,7 +335,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      *
      * > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
      *
-     * @deprecated `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
+     * @deprecated `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
      */
     public readonly terminateNotification!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetTerminateNotification>;
     /**
@@ -633,7 +633,7 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     galleryApplication?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetGalleryApplication>[]>;
     /**
-     * @deprecated `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+     * @deprecated `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
      */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetGalleryApplication>[]>;
     /**
@@ -721,7 +721,7 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     scaleIn?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetScaleIn>;
     /**
-     * @deprecated `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+     * @deprecated `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
      */
     scaleInPolicy?: pulumi.Input<string>;
     /**
@@ -765,7 +765,7 @@ export interface WindowsVirtualMachineScaleSetState {
      *
      * > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
      *
-     * @deprecated `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
+     * @deprecated `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
      */
     terminateNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetTerminateNotification>;
     /**
@@ -902,7 +902,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     galleryApplication?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetGalleryApplication>[]>;
     /**
-     * @deprecated `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+     * @deprecated `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
      */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetGalleryApplication>[]>;
     /**
@@ -990,7 +990,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     scaleIn?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetScaleIn>;
     /**
-     * @deprecated `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+     * @deprecated `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
      */
     scaleInPolicy?: pulumi.Input<string>;
     /**
@@ -1034,7 +1034,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      *
      * > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
      *
-     * @deprecated `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
+     * @deprecated `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
      */
     terminateNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetTerminateNotification>;
     /**

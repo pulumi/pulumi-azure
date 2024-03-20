@@ -101,7 +101,7 @@ export class GroupPolicyRemediation extends pulumi.CustomResource {
      *
      * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
      *
-     * @deprecated `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+     * @deprecated `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
      */
     public readonly policyDefinitionId!: pulumi.Output<string | undefined>;
     /**
@@ -117,7 +117,7 @@ export class GroupPolicyRemediation extends pulumi.CustomResource {
      *
      * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
      *
-     * @deprecated `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+     * @deprecated `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
      */
     public readonly resourceDiscoveryMode!: pulumi.Output<string | undefined>;
 
@@ -201,7 +201,7 @@ export interface GroupPolicyRemediationState {
      *
      * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
      *
-     * @deprecated `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+     * @deprecated `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
      */
     policyDefinitionId?: pulumi.Input<string>;
     /**
@@ -217,7 +217,7 @@ export interface GroupPolicyRemediationState {
      *
      * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
      *
-     * @deprecated `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+     * @deprecated `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
      */
     resourceDiscoveryMode?: pulumi.Input<string>;
 }
@@ -255,7 +255,7 @@ export interface GroupPolicyRemediationArgs {
      *
      * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
      *
-     * @deprecated `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+     * @deprecated `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
      */
     policyDefinitionId?: pulumi.Input<string>;
     /**
@@ -271,7 +271,7 @@ export interface GroupPolicyRemediationArgs {
      *
      * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
      *
-     * @deprecated `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+     * @deprecated `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
      */
     resourceDiscoveryMode?: pulumi.Input<string>;
 }

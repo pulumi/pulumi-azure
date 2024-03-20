@@ -3587,7 +3587,7 @@ func (o SoftwareUpdateConfigurationTargetNonAzureQueryArrayOutput) Index(i pulum
 }
 
 type SoftwareUpdateConfigurationWindows struct {
-	// Deprecated: windows classification can be set as a list, use `classifications_included` instead.
+	// Deprecated: windows classification can be set as a list, use `classificationsIncluded` instead.
 	ClassificationIncluded *string `pulumi:"classificationIncluded"`
 	// Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
 	ClassificationsIncludeds []string `pulumi:"classificationsIncludeds"`
@@ -3611,7 +3611,7 @@ type SoftwareUpdateConfigurationWindowsInput interface {
 }
 
 type SoftwareUpdateConfigurationWindowsArgs struct {
-	// Deprecated: windows classification can be set as a list, use `classifications_included` instead.
+	// Deprecated: windows classification can be set as a list, use `classificationsIncluded` instead.
 	ClassificationIncluded pulumi.StringPtrInput `pulumi:"classificationIncluded"`
 	// Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
 	ClassificationsIncludeds pulumi.StringArrayInput `pulumi:"classificationsIncludeds"`
@@ -3700,7 +3700,7 @@ func (o SoftwareUpdateConfigurationWindowsOutput) ToSoftwareUpdateConfigurationW
 	}).(SoftwareUpdateConfigurationWindowsPtrOutput)
 }
 
-// Deprecated: windows classification can be set as a list, use `classifications_included` instead.
+// Deprecated: windows classification can be set as a list, use `classificationsIncluded` instead.
 func (o SoftwareUpdateConfigurationWindowsOutput) ClassificationIncluded() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationWindows) *string { return v.ClassificationIncluded }).(pulumi.StringPtrOutput)
 }
@@ -3749,7 +3749,7 @@ func (o SoftwareUpdateConfigurationWindowsPtrOutput) Elem() SoftwareUpdateConfig
 	}).(SoftwareUpdateConfigurationWindowsOutput)
 }
 
-// Deprecated: windows classification can be set as a list, use `classifications_included` instead.
+// Deprecated: windows classification can be set as a list, use `classificationsIncluded` instead.
 func (o SoftwareUpdateConfigurationWindowsPtrOutput) ClassificationIncluded() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SoftwareUpdateConfigurationWindows) *string {
 		if v == nil {

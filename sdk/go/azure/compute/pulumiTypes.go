@@ -4367,11 +4367,11 @@ func (o LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutp
 }
 
 type LinuxVirtualMachineScaleSetGalleryApplication struct {
-	// Deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
+	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri *string `pulumi:"configurationReferenceBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
 	Order *int `pulumi:"order"`
-	// Deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
+	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
 	PackageReferenceId string `pulumi:"packageReferenceId"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
 	Tag *string `pulumi:"tag"`
@@ -4389,11 +4389,11 @@ type LinuxVirtualMachineScaleSetGalleryApplicationInput interface {
 }
 
 type LinuxVirtualMachineScaleSetGalleryApplicationArgs struct {
-	// Deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
+	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri pulumi.StringPtrInput `pulumi:"configurationReferenceBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
 	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
+	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
 	PackageReferenceId pulumi.StringInput `pulumi:"packageReferenceId"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
 	Tag pulumi.StringPtrInput `pulumi:"tag"`
@@ -4450,7 +4450,7 @@ func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) ToLinuxVirtualMachi
 	return o
 }
 
-// Deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
+// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
 func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) ConfigurationReferenceBlobUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *string { return v.ConfigurationReferenceBlobUri }).(pulumi.StringPtrOutput)
 }
@@ -4460,7 +4460,7 @@ func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) Order() pulumi.IntP
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// Deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
+// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
 func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) PackageReferenceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) string { return v.PackageReferenceId }).(pulumi.StringOutput)
 }
@@ -7846,7 +7846,7 @@ func (o LinuxVirtualMachineTerminationNotificationPtrOutput) Timeout() pulumi.St
 type ManagedDiskEncryptionSettings struct {
 	// A `diskEncryptionKey` block as defined above.
 	DiskEncryptionKey *ManagedDiskEncryptionSettingsDiskEncryptionKey `pulumi:"diskEncryptionKey"`
-	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
 	Enabled *bool `pulumi:"enabled"`
 	// A `keyEncryptionKey` block as defined below.
 	KeyEncryptionKey *ManagedDiskEncryptionSettingsKeyEncryptionKey `pulumi:"keyEncryptionKey"`
@@ -7866,7 +7866,7 @@ type ManagedDiskEncryptionSettingsInput interface {
 type ManagedDiskEncryptionSettingsArgs struct {
 	// A `diskEncryptionKey` block as defined above.
 	DiskEncryptionKey ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput `pulumi:"diskEncryptionKey"`
-	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// A `keyEncryptionKey` block as defined below.
 	KeyEncryptionKey ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput `pulumi:"keyEncryptionKey"`
@@ -7956,7 +7956,7 @@ func (o ManagedDiskEncryptionSettingsOutput) DiskEncryptionKey() ManagedDiskEncr
 	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
-// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
 func (o ManagedDiskEncryptionSettingsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedDiskEncryptionSettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -8002,7 +8002,7 @@ func (o ManagedDiskEncryptionSettingsPtrOutput) DiskEncryptionKey() ManagedDiskE
 	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
-// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
 func (o ManagedDiskEncryptionSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedDiskEncryptionSettings) *bool {
 		if v == nil {
@@ -19092,7 +19092,7 @@ func (o SharedImageVersionTargetRegionArrayOutput) Index(i pulumi.IntInput) Shar
 type SnapshotEncryptionSettings struct {
 	// A `diskEncryptionKey` block as defined below.
 	DiskEncryptionKey *SnapshotEncryptionSettingsDiskEncryptionKey `pulumi:"diskEncryptionKey"`
-	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
 	Enabled *bool `pulumi:"enabled"`
 	// A `keyEncryptionKey` block as defined below.
 	KeyEncryptionKey *SnapshotEncryptionSettingsKeyEncryptionKey `pulumi:"keyEncryptionKey"`
@@ -19112,7 +19112,7 @@ type SnapshotEncryptionSettingsInput interface {
 type SnapshotEncryptionSettingsArgs struct {
 	// A `diskEncryptionKey` block as defined below.
 	DiskEncryptionKey SnapshotEncryptionSettingsDiskEncryptionKeyPtrInput `pulumi:"diskEncryptionKey"`
-	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// A `keyEncryptionKey` block as defined below.
 	KeyEncryptionKey SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput `pulumi:"keyEncryptionKey"`
@@ -19202,7 +19202,7 @@ func (o SnapshotEncryptionSettingsOutput) DiskEncryptionKey() SnapshotEncryption
 	}).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
-// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
 func (o SnapshotEncryptionSettingsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SnapshotEncryptionSettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -19248,7 +19248,7 @@ func (o SnapshotEncryptionSettingsPtrOutput) DiskEncryptionKey() SnapshotEncrypt
 	}).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
-// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
 func (o SnapshotEncryptionSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SnapshotEncryptionSettings) *bool {
 		if v == nil {
@@ -25130,11 +25130,11 @@ func (o WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOu
 }
 
 type WindowsVirtualMachineScaleSetGalleryApplication struct {
-	// Deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
+	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri *string `pulumi:"configurationReferenceBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
 	Order *int `pulumi:"order"`
-	// Deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
+	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
 	PackageReferenceId string `pulumi:"packageReferenceId"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
 	Tag *string `pulumi:"tag"`
@@ -25152,11 +25152,11 @@ type WindowsVirtualMachineScaleSetGalleryApplicationInput interface {
 }
 
 type WindowsVirtualMachineScaleSetGalleryApplicationArgs struct {
-	// Deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
+	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri pulumi.StringPtrInput `pulumi:"configurationReferenceBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
 	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
+	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
 	PackageReferenceId pulumi.StringInput `pulumi:"packageReferenceId"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
 	Tag pulumi.StringPtrInput `pulumi:"tag"`
@@ -25213,7 +25213,7 @@ func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) ToWindowsVirtualM
 	return o
 }
 
-// Deprecated: `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
+// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
 func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) ConfigurationReferenceBlobUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) *string {
 		return v.ConfigurationReferenceBlobUri
@@ -25225,7 +25225,7 @@ func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) Order() pulumi.In
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// Deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
+// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
 func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) PackageReferenceId() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) string { return v.PackageReferenceId }).(pulumi.StringOutput)
 }

@@ -26,9 +26,9 @@ type LookupNamespaceDisasterRecoveryConfigArgs struct {
 	AliasAuthorizationRuleId *string `pulumi:"aliasAuthorizationRuleId"`
 	Name                     string  `pulumi:"name"`
 	NamespaceId              *string `pulumi:"namespaceId"`
-	// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
-	// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
@@ -41,11 +41,11 @@ type LookupNamespaceDisasterRecoveryConfigResult struct {
 	Id          string  `pulumi:"id"`
 	Name        string  `pulumi:"name"`
 	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	NamespaceName                *string `pulumi:"namespaceName"`
 	PartnerNamespaceId           string  `pulumi:"partnerNamespaceId"`
 	PrimaryConnectionStringAlias string  `pulumi:"primaryConnectionStringAlias"`
-	// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName              *string `pulumi:"resourceGroupName"`
 	SecondaryConnectionStringAlias string  `pulumi:"secondaryConnectionStringAlias"`
 }
@@ -68,9 +68,9 @@ type LookupNamespaceDisasterRecoveryConfigOutputArgs struct {
 	AliasAuthorizationRuleId pulumi.StringPtrInput `pulumi:"aliasAuthorizationRuleId"`
 	Name                     pulumi.StringInput    `pulumi:"name"`
 	NamespaceId              pulumi.StringPtrInput `pulumi:"namespaceId"`
-	// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
-	// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }
 
@@ -118,7 +118,7 @@ func (o LookupNamespaceDisasterRecoveryConfigResultOutput) NamespaceId() pulumi.
 	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) *string { return v.NamespaceId }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 func (o LookupNamespaceDisasterRecoveryConfigResultOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
@@ -131,7 +131,7 @@ func (o LookupNamespaceDisasterRecoveryConfigResultOutput) PrimaryConnectionStri
 	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) string { return v.PrimaryConnectionStringAlias }).(pulumi.StringOutput)
 }
 
-// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 func (o LookupNamespaceDisasterRecoveryConfigResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }

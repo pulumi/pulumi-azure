@@ -27,10 +27,10 @@ public final class AppIngress {
      * @return One or more `custom_domain` block as detailed below.
      * 
      * @deprecated
-     * This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.
+     * This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release.
      * 
      */
-    @Deprecated /* This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release. */
+    @Deprecated /* This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release. */
     private @Nullable AppIngressCustomDomain customDomain;
     /**
      * @return The exposed port on the container for the Ingress traffic.
@@ -82,10 +82,10 @@ public final class AppIngress {
      * @return One or more `custom_domain` block as detailed below.
      * 
      * @deprecated
-     * This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.
+     * This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release.
      * 
      */
-    @Deprecated /* This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release. */
+    @Deprecated /* This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release. */
     public Optional<AppIngressCustomDomain> customDomain() {
         return Optional.ofNullable(this.customDomain);
     }

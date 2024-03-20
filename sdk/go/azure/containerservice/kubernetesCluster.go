@@ -84,7 +84,7 @@ type KubernetesCluster struct {
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrOutput `pulumi:"aciConnectorLinux"`
 	// An `apiServerAccessProfile` block as defined below.
 	ApiServerAccessProfile KubernetesClusterApiServerAccessProfileOutput `pulumi:"apiServerAccessProfile"`
-	// Deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
+	// Deprecated: This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
 	ApiServerAuthorizedIpRanges pulumi.StringArrayOutput `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfileOutput `pulumi:"autoScalerProfile"`
@@ -285,7 +285,7 @@ type KubernetesCluster struct {
 	//
 	// !> **Note:** `publicNetworkAccessEnabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `privateClusterEnabled` and `apiServerAccessProfile`.
 	//
-	// Deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API
+	// Deprecated: `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -372,7 +372,7 @@ type kubernetesClusterState struct {
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
 	// An `apiServerAccessProfile` block as defined below.
 	ApiServerAccessProfile *KubernetesClusterApiServerAccessProfile `pulumi:"apiServerAccessProfile"`
-	// Deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
+	// Deprecated: This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
@@ -573,7 +573,7 @@ type kubernetesClusterState struct {
 	//
 	// !> **Note:** `publicNetworkAccessEnabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `privateClusterEnabled` and `apiServerAccessProfile`.
 	//
-	// Deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API
+	// Deprecated: `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -618,7 +618,7 @@ type KubernetesClusterState struct {
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
 	// An `apiServerAccessProfile` block as defined below.
 	ApiServerAccessProfile KubernetesClusterApiServerAccessProfilePtrInput
-	// Deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
+	// Deprecated: This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
@@ -819,7 +819,7 @@ type KubernetesClusterState struct {
 	//
 	// !> **Note:** `publicNetworkAccessEnabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `privateClusterEnabled` and `apiServerAccessProfile`.
 	//
-	// Deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API
+	// Deprecated: `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -868,7 +868,7 @@ type kubernetesClusterArgs struct {
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
 	// An `apiServerAccessProfile` block as defined below.
 	ApiServerAccessProfile *KubernetesClusterApiServerAccessProfile `pulumi:"apiServerAccessProfile"`
-	// Deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
+	// Deprecated: This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
@@ -1047,7 +1047,7 @@ type kubernetesClusterArgs struct {
 	//
 	// !> **Note:** `publicNetworkAccessEnabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `privateClusterEnabled` and `apiServerAccessProfile`.
 	//
-	// Deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API
+	// Deprecated: `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -1093,7 +1093,7 @@ type KubernetesClusterArgs struct {
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
 	// An `apiServerAccessProfile` block as defined below.
 	ApiServerAccessProfile KubernetesClusterApiServerAccessProfilePtrInput
-	// Deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
+	// Deprecated: This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
@@ -1272,7 +1272,7 @@ type KubernetesClusterArgs struct {
 	//
 	// !> **Note:** `publicNetworkAccessEnabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `privateClusterEnabled` and `apiServerAccessProfile`.
 	//
-	// Deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API
+	// Deprecated: `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -1411,7 +1411,7 @@ func (o KubernetesClusterOutput) ApiServerAccessProfile() KubernetesClusterApiSe
 	}).(KubernetesClusterApiServerAccessProfileOutput)
 }
 
-// Deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
+// Deprecated: This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
 func (o KubernetesClusterOutput) ApiServerAuthorizedIpRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringArrayOutput { return v.ApiServerAuthorizedIpRanges }).(pulumi.StringArrayOutput)
 }
@@ -1785,7 +1785,7 @@ func (o KubernetesClusterOutput) PrivateFqdn() pulumi.StringOutput {
 //
 // !> **Note:** `publicNetworkAccessEnabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `privateClusterEnabled` and `apiServerAccessProfile`.
 //
-// Deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API
+// Deprecated: `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API
 func (o KubernetesClusterOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }

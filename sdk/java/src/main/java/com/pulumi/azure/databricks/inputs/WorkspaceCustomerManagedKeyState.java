@@ -34,10 +34,10 @@ public final class WorkspaceCustomerManagedKeyState extends com.pulumi.resources
      * The ID of the Databricks Workspace..
      * 
      * @deprecated
-     * this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.
+     * this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.
      * 
      */
-    @Deprecated /* this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider. */
+    @Deprecated /* this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider. */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
@@ -45,10 +45,10 @@ public final class WorkspaceCustomerManagedKeyState extends com.pulumi.resources
      * @return The ID of the Databricks Workspace..
      * 
      * @deprecated
-     * this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.
+     * this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.
      * 
      */
-    @Deprecated /* this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider. */
+    @Deprecated /* this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider. */
     public Optional<Output<String>> workspaceId() {
         return Optional.ofNullable(this.workspaceId);
     }
@@ -105,10 +105,10 @@ public final class WorkspaceCustomerManagedKeyState extends com.pulumi.resources
          * @return builder
          * 
          * @deprecated
-         * this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.
+         * this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.
          * 
          */
-        @Deprecated /* this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider. */
+        @Deprecated /* this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider. */
         public Builder workspaceId(@Nullable Output<String> workspaceId) {
             $.workspaceId = workspaceId;
             return this;
@@ -120,10 +120,10 @@ public final class WorkspaceCustomerManagedKeyState extends com.pulumi.resources
          * @return builder
          * 
          * @deprecated
-         * this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.
+         * this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.
          * 
          */
-        @Deprecated /* this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider. */
+        @Deprecated /* this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider. */
         public Builder workspaceId(String workspaceId) {
             return workspaceId(Output.of(workspaceId));
         }

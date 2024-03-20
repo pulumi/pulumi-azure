@@ -85,7 +85,7 @@ export class Provider extends pulumi.CustomResource {
      */
     public readonly openEnclavePolicyBase64!: pulumi.Output<string | undefined>;
     /**
-     * @deprecated This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
+     * @deprecated This field is no longer used and will be removed in v4.0 of the Azure Provider - use `openEnclavePolicyBase64`, `sgxEnclavePolicyBase64`, `tpmPolicyBase64` and `sevSnpPolicyBase64` instead.
      */
     public readonly policies!: pulumi.Output<outputs.attestation.ProviderPolicy[] | undefined>;
     /**
@@ -190,7 +190,7 @@ export interface ProviderState {
      */
     openEnclavePolicyBase64?: pulumi.Input<string>;
     /**
-     * @deprecated This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
+     * @deprecated This field is no longer used and will be removed in v4.0 of the Azure Provider - use `openEnclavePolicyBase64`, `sgxEnclavePolicyBase64`, `tpmPolicyBase64` and `sevSnpPolicyBase64` instead.
      */
     policies?: pulumi.Input<pulumi.Input<inputs.attestation.ProviderPolicy>[]>;
     /**
@@ -244,7 +244,7 @@ export interface ProviderArgs {
      */
     openEnclavePolicyBase64?: pulumi.Input<string>;
     /**
-     * @deprecated This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
+     * @deprecated This field is no longer used and will be removed in v4.0 of the Azure Provider - use `openEnclavePolicyBase64`, `sgxEnclavePolicyBase64`, `tpmPolicyBase64` and `sevSnpPolicyBase64` instead.
      */
     policies?: pulumi.Input<pulumi.Input<inputs.attestation.ProviderPolicy>[]>;
     /**

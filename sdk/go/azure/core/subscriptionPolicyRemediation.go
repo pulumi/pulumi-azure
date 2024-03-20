@@ -56,8 +56,8 @@ import (
 //			json0 := string(tmpJSON0)
 //			exampleSubscriptionPolicyAssignment, err := core.NewSubscriptionPolicyAssignment(ctx, "example", &core.SubscriptionPolicyAssignmentArgs{
 //				Name:               pulumi.String("exampleAssignment"),
-//				SubscriptionId:     *pulumi.String(example.Id),
-//				PolicyDefinitionId: *pulumi.String(exampleGetPolicyDefintion.Id),
+//				SubscriptionId:     pulumi.String(example.Id),
+//				PolicyDefinitionId: pulumi.String(exampleGetPolicyDefintion.Id),
 //				Parameters:         pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -65,7 +65,7 @@ import (
 //			}
 //			_, err = core.NewSubscriptionPolicyRemediation(ctx, "example", &core.SubscriptionPolicyRemediationArgs{
 //				Name:               pulumi.String("example"),
-//				SubscriptionId:     *pulumi.String(example.Id),
+//				SubscriptionId:     pulumi.String(example.Id),
 //				PolicyAssignmentId: exampleSubscriptionPolicyAssignment.ID(),
 //			})
 //			if err != nil {
@@ -102,7 +102,7 @@ type SubscriptionPolicyRemediation struct {
 	//
 	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
 	//
-	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
 	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrOutput `pulumi:"policyDefinitionReferenceId"`
@@ -164,7 +164,7 @@ type subscriptionPolicyRemediationState struct {
 	//
 	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
 	//
-	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
@@ -191,7 +191,7 @@ type SubscriptionPolicyRemediationState struct {
 	//
 	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
 	//
-	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
 	PolicyDefinitionId pulumi.StringPtrInput
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
@@ -222,7 +222,7 @@ type subscriptionPolicyRemediationArgs struct {
 	//
 	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
 	//
-	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
@@ -250,7 +250,7 @@ type SubscriptionPolicyRemediationArgs struct {
 	//
 	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
 	//
-	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
 	PolicyDefinitionId pulumi.StringPtrInput
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
@@ -378,7 +378,7 @@ func (o SubscriptionPolicyRemediationOutput) PolicyAssignmentId() pulumi.StringO
 //
 // > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
 //
-// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
 func (o SubscriptionPolicyRemediationOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
 }

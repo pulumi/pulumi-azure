@@ -381,7 +381,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
      *
-     * @deprecated `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+     * @deprecated `publicAccessBehindVirtualNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
      */
     public readonly publicAccessBehindVirtualNetworkEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -574,7 +574,7 @@ export interface WorkspaceState {
     /**
      * Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
      *
-     * @deprecated `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+     * @deprecated `publicAccessBehindVirtualNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
      */
     publicAccessBehindVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**
@@ -680,7 +680,7 @@ export interface WorkspaceArgs {
     /**
      * Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
      *
-     * @deprecated `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+     * @deprecated `publicAccessBehindVirtualNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
      */
     publicAccessBehindVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**

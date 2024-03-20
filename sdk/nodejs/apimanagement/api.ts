@@ -159,7 +159,7 @@ export class Api extends pulumi.CustomResource {
      *
      * > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
      *
-     * @deprecated `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+     * @deprecated `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
      */
     public readonly soapPassThrough!: pulumi.Output<boolean>;
     /**
@@ -358,7 +358,7 @@ export interface ApiState {
      *
      * > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
      *
-     * @deprecated `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+     * @deprecated `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
      */
     soapPassThrough?: pulumi.Input<boolean>;
     /**
@@ -468,7 +468,7 @@ export interface ApiArgs {
      *
      * > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
      *
-     * @deprecated `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+     * @deprecated `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
      */
     soapPassThrough?: pulumi.Input<boolean>;
     /**

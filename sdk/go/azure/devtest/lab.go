@@ -85,7 +85,7 @@ type Lab struct {
 	//
 	// > **Note:** `storageType` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
 	//
-	// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
+	// Deprecated: `storageType` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -146,7 +146,7 @@ type labState struct {
 	//
 	// > **Note:** `storageType` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
 	//
-	// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
+	// Deprecated: `storageType` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 	StorageType *string `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -175,7 +175,7 @@ type LabState struct {
 	//
 	// > **Note:** `storageType` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
 	//
-	// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
+	// Deprecated: `storageType` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 	StorageType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -198,7 +198,7 @@ type labArgs struct {
 	//
 	// > **Note:** `storageType` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
 	//
-	// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
+	// Deprecated: `storageType` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 	StorageType *string `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -216,7 +216,7 @@ type LabArgs struct {
 	//
 	// > **Note:** `storageType` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
 	//
-	// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
+	// Deprecated: `storageType` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 	StorageType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -353,7 +353,7 @@ func (o LabOutput) ResourceGroupName() pulumi.StringOutput {
 //
 // > **Note:** `storageType` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
 //
-// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
+// Deprecated: `storageType` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 func (o LabOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.StorageType }).(pulumi.StringPtrOutput)
 }

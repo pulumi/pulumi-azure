@@ -262,7 +262,7 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
      *
      * > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
      *
-     * @deprecated the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
+     * @deprecated the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
      */
     public readonly recoveryGroups!: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanRecoveryGroup[]>;
     /**
@@ -361,7 +361,7 @@ export interface ReplicationRecoveryPlanState {
      *
      * > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
      *
-     * @deprecated the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
+     * @deprecated the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
      */
     recoveryGroups?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanRecoveryGroup>[]>;
     /**
@@ -413,7 +413,7 @@ export interface ReplicationRecoveryPlanArgs {
      *
      * > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
      *
-     * @deprecated the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
+     * @deprecated the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
      */
     recoveryGroups?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanRecoveryGroup>[]>;
     /**

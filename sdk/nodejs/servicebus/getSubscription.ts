@@ -45,13 +45,13 @@ export interface GetSubscriptionArgs {
     /**
      * The name of the ServiceBus Namespace.
      *
-     * @deprecated `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: string;
     /**
      * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
      *
-     * @deprecated `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: string;
     /**
@@ -63,7 +63,7 @@ export interface GetSubscriptionArgs {
      *
      * > **Note:** `namespaceName`，`resourceGroupName` and `topicName` has been deprecated and will be removed in version 4.0 of the provider in favour of `topicId`.
      *
-     * @deprecated `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
      */
     topicName?: string;
 }
@@ -114,7 +114,7 @@ export interface GetSubscriptionResult {
     readonly maxDeliveryCount: number;
     readonly name: string;
     /**
-     * @deprecated `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
      */
     readonly namespaceName?: string;
     /**
@@ -122,12 +122,12 @@ export interface GetSubscriptionResult {
      */
     readonly requiresSession: boolean;
     /**
-     * @deprecated `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
      */
     readonly resourceGroupName?: string;
     readonly topicId?: string;
     /**
-     * @deprecated `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
      */
     readonly topicName?: string;
 }
@@ -164,13 +164,13 @@ export interface GetSubscriptionOutputArgs {
     /**
      * The name of the ServiceBus Namespace.
      *
-     * @deprecated `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
      *
-     * @deprecated `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -182,7 +182,7 @@ export interface GetSubscriptionOutputArgs {
      *
      * > **Note:** `namespaceName`，`resourceGroupName` and `topicName` has been deprecated and will be removed in version 4.0 of the provider in favour of `topicId`.
      *
-     * @deprecated `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
      */
     topicName?: pulumi.Input<string>;
 }

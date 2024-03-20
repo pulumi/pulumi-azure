@@ -99,7 +99,7 @@ type AuthomationRule struct {
 	//
 	// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
 	//
-	// Deprecated: This is deprecated in favor of `condition_json`
+	// Deprecated: This is deprecated in favor of `conditionJson`
 	Conditions AuthomationRuleConditionArrayOutput `pulumi:"conditions"`
 	// The display name which should be used for this Sentinel Automation Rule.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
@@ -170,7 +170,7 @@ type authomationRuleState struct {
 	//
 	// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
 	//
-	// Deprecated: This is deprecated in favor of `condition_json`
+	// Deprecated: This is deprecated in favor of `conditionJson`
 	Conditions []AuthomationRuleCondition `pulumi:"conditions"`
 	// The display name which should be used for this Sentinel Automation Rule.
 	DisplayName *string `pulumi:"displayName"`
@@ -203,7 +203,7 @@ type AuthomationRuleState struct {
 	//
 	// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
 	//
-	// Deprecated: This is deprecated in favor of `condition_json`
+	// Deprecated: This is deprecated in favor of `conditionJson`
 	Conditions AuthomationRuleConditionArrayInput
 	// The display name which should be used for this Sentinel Automation Rule.
 	DisplayName pulumi.StringPtrInput
@@ -240,7 +240,7 @@ type authomationRuleArgs struct {
 	//
 	// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
 	//
-	// Deprecated: This is deprecated in favor of `condition_json`
+	// Deprecated: This is deprecated in favor of `conditionJson`
 	Conditions []AuthomationRuleCondition `pulumi:"conditions"`
 	// The display name which should be used for this Sentinel Automation Rule.
 	DisplayName string `pulumi:"displayName"`
@@ -274,7 +274,7 @@ type AuthomationRuleArgs struct {
 	//
 	// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
 	//
-	// Deprecated: This is deprecated in favor of `condition_json`
+	// Deprecated: This is deprecated in favor of `conditionJson`
 	Conditions AuthomationRuleConditionArrayInput
 	// The display name which should be used for this Sentinel Automation Rule.
 	DisplayName pulumi.StringInput
@@ -402,7 +402,7 @@ func (o AuthomationRuleOutput) ConditionJson() pulumi.StringOutput {
 //
 // > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
 //
-// Deprecated: This is deprecated in favor of `condition_json`
+// Deprecated: This is deprecated in favor of `conditionJson`
 func (o AuthomationRuleOutput) Conditions() AuthomationRuleConditionArrayOutput {
 	return o.ApplyT(func(v *AuthomationRule) AuthomationRuleConditionArrayOutput { return v.Conditions }).(AuthomationRuleConditionArrayOutput)
 }

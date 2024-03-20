@@ -143,7 +143,7 @@ export class WorkspaceCustomerManagedKey extends pulumi.CustomResource {
     /**
      * The ID of the Databricks Workspace..
      *
-     * @deprecated this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.
+     * @deprecated this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.
      */
     public readonly workspaceId!: pulumi.Output<string>;
 
@@ -189,7 +189,7 @@ export interface WorkspaceCustomerManagedKeyState {
     /**
      * The ID of the Databricks Workspace..
      *
-     * @deprecated this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.
+     * @deprecated this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.
      */
     workspaceId?: pulumi.Input<string>;
 }
@@ -205,7 +205,7 @@ export interface WorkspaceCustomerManagedKeyArgs {
     /**
      * The ID of the Databricks Workspace..
      *
-     * @deprecated this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.
+     * @deprecated this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.
      */
     workspaceId: pulumi.Input<string>;
 }

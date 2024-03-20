@@ -186,7 +186,7 @@ type LinuxVirtualMachineScaleSet struct {
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplication LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput `pulumi:"galleryApplication"`
-	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+	// Deprecated: `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
 	GalleryApplications LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput `pulumi:"galleryApplications"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrOutput `pulumi:"healthProbeId"`
@@ -232,7 +232,7 @@ type LinuxVirtualMachineScaleSet struct {
 	RollingUpgradePolicy LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput `pulumi:"rollingUpgradePolicy"`
 	// A `scaleIn` block as defined below.
 	ScaleIn LinuxVirtualMachineScaleSetScaleInOutput `pulumi:"scaleIn"`
-	// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+	// Deprecated: `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
 	ScaleInPolicy pulumi.StringOutput `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets LinuxVirtualMachineScaleSetSecretArrayOutput `pulumi:"secrets"`
@@ -258,7 +258,7 @@ type LinuxVirtualMachineScaleSet struct {
 	//
 	// > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
+	// Deprecated: `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
 	TerminateNotification LinuxVirtualMachineScaleSetTerminateNotificationOutput `pulumi:"terminateNotification"`
 	// A `terminationNotification` block as defined below.
 	TerminationNotification LinuxVirtualMachineScaleSetTerminationNotificationOutput `pulumi:"terminationNotification"`
@@ -395,7 +395,7 @@ type linuxVirtualMachineScaleSetState struct {
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplication []LinuxVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplication"`
-	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+	// Deprecated: `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
 	GalleryApplications []LinuxVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplications"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
@@ -441,7 +441,7 @@ type linuxVirtualMachineScaleSetState struct {
 	RollingUpgradePolicy *LinuxVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// A `scaleIn` block as defined below.
 	ScaleIn *LinuxVirtualMachineScaleSetScaleIn `pulumi:"scaleIn"`
-	// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+	// Deprecated: `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
 	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []LinuxVirtualMachineScaleSetSecret `pulumi:"secrets"`
@@ -467,7 +467,7 @@ type linuxVirtualMachineScaleSetState struct {
 	//
 	// > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
+	// Deprecated: `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
 	TerminateNotification *LinuxVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
 	// A `terminationNotification` block as defined below.
 	TerminationNotification *LinuxVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
@@ -549,7 +549,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplication LinuxVirtualMachineScaleSetGalleryApplicationArrayInput
-	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+	// Deprecated: `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
 	GalleryApplications LinuxVirtualMachineScaleSetGalleryApplicationArrayInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
@@ -595,7 +595,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	RollingUpgradePolicy LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput
 	// A `scaleIn` block as defined below.
 	ScaleIn LinuxVirtualMachineScaleSetScaleInPtrInput
-	// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+	// Deprecated: `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
 	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets LinuxVirtualMachineScaleSetSecretArrayInput
@@ -621,7 +621,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	//
 	// > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
+	// Deprecated: `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
 	TerminateNotification LinuxVirtualMachineScaleSetTerminateNotificationPtrInput
 	// A `terminationNotification` block as defined below.
 	TerminationNotification LinuxVirtualMachineScaleSetTerminationNotificationPtrInput
@@ -707,7 +707,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplication []LinuxVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplication"`
-	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+	// Deprecated: `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
 	GalleryApplications []LinuxVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplications"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
@@ -753,7 +753,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	RollingUpgradePolicy *LinuxVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// A `scaleIn` block as defined below.
 	ScaleIn *LinuxVirtualMachineScaleSetScaleIn `pulumi:"scaleIn"`
-	// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+	// Deprecated: `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
 	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []LinuxVirtualMachineScaleSetSecret `pulumi:"secrets"`
@@ -779,7 +779,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	//
 	// > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
+	// Deprecated: `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
 	TerminateNotification *LinuxVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
 	// A `terminationNotification` block as defined below.
 	TerminationNotification *LinuxVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
@@ -860,7 +860,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplication LinuxVirtualMachineScaleSetGalleryApplicationArrayInput
-	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+	// Deprecated: `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
 	GalleryApplications LinuxVirtualMachineScaleSetGalleryApplicationArrayInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
@@ -906,7 +906,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	RollingUpgradePolicy LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput
 	// A `scaleIn` block as defined below.
 	ScaleIn LinuxVirtualMachineScaleSetScaleInPtrInput
-	// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+	// Deprecated: `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
 	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets LinuxVirtualMachineScaleSetSecretArrayInput
@@ -932,7 +932,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	//
 	// > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
+	// Deprecated: `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
 	TerminateNotification LinuxVirtualMachineScaleSetTerminateNotificationPtrInput
 	// A `terminationNotification` block as defined below.
 	TerminationNotification LinuxVirtualMachineScaleSetTerminationNotificationPtrInput
@@ -1176,7 +1176,7 @@ func (o LinuxVirtualMachineScaleSetOutput) GalleryApplication() LinuxVirtualMach
 	}).(LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput)
 }
 
-// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+// Deprecated: `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
 func (o LinuxVirtualMachineScaleSetOutput) GalleryApplications() LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput {
 		return v.GalleryApplications
@@ -1285,7 +1285,7 @@ func (o LinuxVirtualMachineScaleSetOutput) ScaleIn() LinuxVirtualMachineScaleSet
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) LinuxVirtualMachineScaleSetScaleInOutput { return v.ScaleIn }).(LinuxVirtualMachineScaleSetScaleInOutput)
 }
 
-// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+// Deprecated: `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
 func (o LinuxVirtualMachineScaleSetOutput) ScaleInPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringOutput { return v.ScaleInPolicy }).(pulumi.StringOutput)
 }
@@ -1342,7 +1342,7 @@ func (o LinuxVirtualMachineScaleSetOutput) Tags() pulumi.StringMapOutput {
 //
 // > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
 //
-// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
+// Deprecated: `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
 func (o LinuxVirtualMachineScaleSetOutput) TerminateNotification() LinuxVirtualMachineScaleSetTerminateNotificationOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) LinuxVirtualMachineScaleSetTerminateNotificationOutput {
 		return v.TerminateNotification

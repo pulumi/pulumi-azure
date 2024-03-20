@@ -247,7 +247,7 @@ export class FrontdoorOrigin extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
-     * @deprecated `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
+     * @deprecated `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
      */
     public readonly healthProbesEnabled!: pulumi.Output<boolean>;
     /**
@@ -362,7 +362,7 @@ export interface FrontdoorOriginState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * @deprecated `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
+     * @deprecated `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
      */
     healthProbesEnabled?: pulumi.Input<boolean>;
     /**
@@ -424,7 +424,7 @@ export interface FrontdoorOriginArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * @deprecated `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
+     * @deprecated `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
      */
     healthProbesEnabled?: pulumi.Input<boolean>;
     /**

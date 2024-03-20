@@ -135,7 +135,7 @@ export class Application extends pulumi.CustomResource {
      *
      * > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
      *
-     * @deprecated This property has been deprecated in favour of `parameter_values`
+     * @deprecated This property has been deprecated in favour of `parameterValues`
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -240,7 +240,7 @@ export interface ApplicationState {
      *
      * > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
      *
-     * @deprecated This property has been deprecated in favour of `parameter_values`
+     * @deprecated This property has been deprecated in favour of `parameterValues`
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -290,7 +290,7 @@ export interface ApplicationArgs {
      *
      * > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
      *
-     * @deprecated This property has been deprecated in favour of `parameter_values`
+     * @deprecated This property has been deprecated in favour of `parameterValues`
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
