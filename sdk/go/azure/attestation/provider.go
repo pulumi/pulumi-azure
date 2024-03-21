@@ -78,7 +78,7 @@ type Provider struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	OpenEnclavePolicyBase64 pulumi.StringPtrOutput `pulumi:"openEnclavePolicyBase64"`
-	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
+	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `openEnclavePolicyBase64`, `sgxEnclavePolicyBase64`, `tpmPolicyBase64` and `sevSnpPolicyBase64` instead.
 	Policies ProviderPolicyArrayOutput `pulumi:"policies"`
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	//
@@ -141,7 +141,7 @@ type providerState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	OpenEnclavePolicyBase64 *string `pulumi:"openEnclavePolicyBase64"`
-	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
+	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `openEnclavePolicyBase64`, `sgxEnclavePolicyBase64`, `tpmPolicyBase64` and `sevSnpPolicyBase64` instead.
 	Policies []ProviderPolicy `pulumi:"policies"`
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	//
@@ -172,7 +172,7 @@ type ProviderState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	OpenEnclavePolicyBase64 pulumi.StringPtrInput
-	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
+	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `openEnclavePolicyBase64`, `sgxEnclavePolicyBase64`, `tpmPolicyBase64` and `sevSnpPolicyBase64` instead.
 	Policies ProviderPolicyArrayInput
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	//
@@ -205,7 +205,7 @@ type providerArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	OpenEnclavePolicyBase64 *string `pulumi:"openEnclavePolicyBase64"`
-	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
+	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `openEnclavePolicyBase64`, `sgxEnclavePolicyBase64`, `tpmPolicyBase64` and `sevSnpPolicyBase64` instead.
 	Policies []ProviderPolicy `pulumi:"policies"`
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	//
@@ -233,7 +233,7 @@ type ProviderArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
 	OpenEnclavePolicyBase64 pulumi.StringPtrInput
-	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
+	// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `openEnclavePolicyBase64`, `sgxEnclavePolicyBase64`, `tpmPolicyBase64` and `sevSnpPolicyBase64` instead.
 	Policies ProviderPolicyArrayInput
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	//
@@ -360,7 +360,7 @@ func (o ProviderOutput) OpenEnclavePolicyBase64() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OpenEnclavePolicyBase64 }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
+// Deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `openEnclavePolicyBase64`, `sgxEnclavePolicyBase64`, `tpmPolicyBase64` and `sevSnpPolicyBase64` instead.
 func (o ProviderOutput) Policies() ProviderPolicyArrayOutput {
 	return o.ApplyT(func(v *Provider) ProviderPolicyArrayOutput { return v.Policies }).(ProviderPolicyArrayOutput)
 }

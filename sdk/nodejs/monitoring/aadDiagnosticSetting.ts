@@ -128,7 +128,7 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
      *
      * > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
      *
-     * @deprecated `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+     * @deprecated `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
      */
     public readonly logs!: pulumi.Output<outputs.monitoring.AadDiagnosticSettingLog[]>;
     /**
@@ -206,7 +206,7 @@ export interface AadDiagnosticSettingState {
      *
      * > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
      *
-     * @deprecated `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+     * @deprecated `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
      */
     logs?: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingLog>[]>;
     /**
@@ -250,7 +250,7 @@ export interface AadDiagnosticSettingArgs {
      *
      * > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
      *
-     * @deprecated `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+     * @deprecated `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
      */
     logs?: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingLog>[]>;
     /**

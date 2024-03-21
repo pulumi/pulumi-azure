@@ -24,11 +24,11 @@ export interface GetNamespaceDisasterRecoveryConfigArgs {
     name: string;
     namespaceId?: string;
     /**
-     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: string;
     /**
-     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: string;
 }
@@ -47,13 +47,13 @@ export interface GetNamespaceDisasterRecoveryConfigResult {
     readonly name: string;
     readonly namespaceId?: string;
     /**
-     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     readonly namespaceName?: string;
     readonly partnerNamespaceId: string;
     readonly primaryConnectionStringAlias: string;
     /**
-     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     readonly resourceGroupName?: string;
     readonly secondaryConnectionStringAlias: string;
@@ -70,11 +70,11 @@ export interface GetNamespaceDisasterRecoveryConfigOutputArgs {
     name: pulumi.Input<string>;
     namespaceId?: pulumi.Input<string>;
     /**
-     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: pulumi.Input<string>;
     /**
-     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: pulumi.Input<string>;
 }

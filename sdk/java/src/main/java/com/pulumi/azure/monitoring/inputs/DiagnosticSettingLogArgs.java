@@ -80,10 +80,10 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
      * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
      * 
      * @deprecated
-     * `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+     * `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
      * 
      */
-    @Deprecated /* `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention */
+    @Deprecated /* `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention */
     @Import(name="retentionPolicy")
     private @Nullable Output<DiagnosticSettingLogRetentionPolicyArgs> retentionPolicy;
 
@@ -93,10 +93,10 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
      * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
      * 
      * @deprecated
-     * `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+     * `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
      * 
      */
-    @Deprecated /* `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention */
+    @Deprecated /* `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention */
     public Optional<Output<DiagnosticSettingLogRetentionPolicyArgs>> retentionPolicy() {
         return Optional.ofNullable(this.retentionPolicy);
     }
@@ -211,10 +211,10 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          * @deprecated
-         * `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+         * `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
          * 
          */
-        @Deprecated /* `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention */
+        @Deprecated /* `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention */
         public Builder retentionPolicy(@Nullable Output<DiagnosticSettingLogRetentionPolicyArgs> retentionPolicy) {
             $.retentionPolicy = retentionPolicy;
             return this;
@@ -228,10 +228,10 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          * @deprecated
-         * `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+         * `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
          * 
          */
-        @Deprecated /* `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention */
+        @Deprecated /* `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention */
         public Builder retentionPolicy(DiagnosticSettingLogRetentionPolicyArgs retentionPolicy) {
             return retentionPolicy(Output.of(retentionPolicy));
         }

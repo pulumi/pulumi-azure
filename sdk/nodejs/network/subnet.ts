@@ -96,11 +96,11 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly delegations!: pulumi.Output<outputs.network.SubnetDelegation[] | undefined>;
     /**
-     * @deprecated `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
+     * @deprecated `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
      */
     public readonly enforcePrivateLinkEndpointNetworkPolicies!: pulumi.Output<boolean>;
     /**
-     * @deprecated `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
+     * @deprecated `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
      */
     public readonly enforcePrivateLinkServiceNetworkPolicies!: pulumi.Output<boolean>;
     /**
@@ -205,11 +205,11 @@ export interface SubnetState {
      */
     delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
     /**
-     * @deprecated `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
+     * @deprecated `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
      */
     enforcePrivateLinkEndpointNetworkPolicies?: pulumi.Input<boolean>;
     /**
-     * @deprecated `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
+     * @deprecated `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
      */
     enforcePrivateLinkServiceNetworkPolicies?: pulumi.Input<boolean>;
     /**
@@ -263,11 +263,11 @@ export interface SubnetArgs {
      */
     delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
     /**
-     * @deprecated `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
+     * @deprecated `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
      */
     enforcePrivateLinkEndpointNetworkPolicies?: pulumi.Input<boolean>;
     /**
-     * @deprecated `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
+     * @deprecated `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
      */
     enforcePrivateLinkServiceNetworkPolicies?: pulumi.Input<boolean>;
     /**

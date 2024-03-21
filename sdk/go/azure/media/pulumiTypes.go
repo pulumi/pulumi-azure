@@ -9096,7 +9096,7 @@ type TransformOutputType struct {
 	CustomPreset *TransformOutputCustomPreset `pulumi:"customPreset"`
 	// A `faceDetectorPreset` block as defined above.
 	//
-	// Deprecated: `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+	// Deprecated: `faceDetectorPreset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
 	FaceDetectorPreset *TransformOutputFaceDetectorPreset `pulumi:"faceDetectorPreset"`
 	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. Defaults to `StopProcessingJob`.
 	OnErrorAction *string `pulumi:"onErrorAction"`
@@ -9106,7 +9106,7 @@ type TransformOutputType struct {
 	//
 	// > **NOTE:** Each output can only have one type of preset: `builtinPreset`, `audioAnalyzerPreset`, `customPreset`, `faceDetectorPreset` or `videoAnalyzerPreset`. If you need to apply different presets you must create one output for each one.
 	//
-	// Deprecated: `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+	// Deprecated: `videoAnalyzerPreset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
 	VideoAnalyzerPreset *TransformOutputVideoAnalyzerPreset `pulumi:"videoAnalyzerPreset"`
 }
 
@@ -9130,7 +9130,7 @@ type TransformOutputTypeArgs struct {
 	CustomPreset TransformOutputCustomPresetPtrInput `pulumi:"customPreset"`
 	// A `faceDetectorPreset` block as defined above.
 	//
-	// Deprecated: `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+	// Deprecated: `faceDetectorPreset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
 	FaceDetectorPreset TransformOutputFaceDetectorPresetPtrInput `pulumi:"faceDetectorPreset"`
 	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. Defaults to `StopProcessingJob`.
 	OnErrorAction pulumi.StringPtrInput `pulumi:"onErrorAction"`
@@ -9140,7 +9140,7 @@ type TransformOutputTypeArgs struct {
 	//
 	// > **NOTE:** Each output can only have one type of preset: `builtinPreset`, `audioAnalyzerPreset`, `customPreset`, `faceDetectorPreset` or `videoAnalyzerPreset`. If you need to apply different presets you must create one output for each one.
 	//
-	// Deprecated: `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+	// Deprecated: `videoAnalyzerPreset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
 	VideoAnalyzerPreset TransformOutputVideoAnalyzerPresetPtrInput `pulumi:"videoAnalyzerPreset"`
 }
 
@@ -9212,7 +9212,7 @@ func (o TransformOutputTypeOutput) CustomPreset() TransformOutputCustomPresetPtr
 
 // A `faceDetectorPreset` block as defined above.
 //
-// Deprecated: `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+// Deprecated: `faceDetectorPreset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
 func (o TransformOutputTypeOutput) FaceDetectorPreset() TransformOutputFaceDetectorPresetPtrOutput {
 	return o.ApplyT(func(v TransformOutputType) *TransformOutputFaceDetectorPreset { return v.FaceDetectorPreset }).(TransformOutputFaceDetectorPresetPtrOutput)
 }
@@ -9231,7 +9231,7 @@ func (o TransformOutputTypeOutput) RelativePriority() pulumi.StringPtrOutput {
 //
 // > **NOTE:** Each output can only have one type of preset: `builtinPreset`, `audioAnalyzerPreset`, `customPreset`, `faceDetectorPreset` or `videoAnalyzerPreset`. If you need to apply different presets you must create one output for each one.
 //
-// Deprecated: `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+// Deprecated: `videoAnalyzerPreset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
 func (o TransformOutputTypeOutput) VideoAnalyzerPreset() TransformOutputVideoAnalyzerPresetPtrOutput {
 	return o.ApplyT(func(v TransformOutputType) *TransformOutputVideoAnalyzerPreset { return v.VideoAnalyzerPreset }).(TransformOutputVideoAnalyzerPresetPtrOutput)
 }

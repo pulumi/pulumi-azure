@@ -117,7 +117,7 @@ export class ResourcePolicyRemediation extends pulumi.CustomResource {
      *
      * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
      *
-     * @deprecated `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+     * @deprecated `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
      */
     public readonly policyDefinitionId!: pulumi.Output<string | undefined>;
     /**
@@ -213,7 +213,7 @@ export interface ResourcePolicyRemediationState {
      *
      * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
      *
-     * @deprecated `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+     * @deprecated `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
      */
     policyDefinitionId?: pulumi.Input<string>;
     /**
@@ -263,7 +263,7 @@ export interface ResourcePolicyRemediationArgs {
      *
      * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
      *
-     * @deprecated `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+     * @deprecated `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
      */
     policyDefinitionId?: pulumi.Input<string>;
     /**

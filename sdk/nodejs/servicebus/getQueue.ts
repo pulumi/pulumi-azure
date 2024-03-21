@@ -48,7 +48,7 @@ export interface GetQueueArgs {
     /**
      * The name of the ServiceBus Namespace.
      *
-     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: string;
     /**
@@ -56,7 +56,7 @@ export interface GetQueueArgs {
      *
      * > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
      *
-     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: string;
 }
@@ -120,7 +120,7 @@ export interface GetQueueResult {
     readonly name: string;
     readonly namespaceId?: string;
     /**
-     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     readonly namespaceName?: string;
     /**
@@ -132,7 +132,7 @@ export interface GetQueueResult {
      */
     readonly requiresSession: boolean;
     /**
-     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     readonly resourceGroupName?: string;
     /**
@@ -177,7 +177,7 @@ export interface GetQueueOutputArgs {
     /**
      * The name of the ServiceBus Namespace.
      *
-     * @deprecated `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: pulumi.Input<string>;
     /**
@@ -185,7 +185,7 @@ export interface GetQueueOutputArgs {
      *
      * > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
      *
-     * @deprecated `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: pulumi.Input<string>;
 }

@@ -92,7 +92,7 @@ export class ChannelWebChat extends pulumi.CustomResource {
      *
      * > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
      *
-     * @deprecated `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+     * @deprecated `siteNames` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
      */
     public readonly siteNames!: pulumi.Output<string[]>;
     /**
@@ -158,7 +158,7 @@ export interface ChannelWebChatState {
      *
      * > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
      *
-     * @deprecated `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+     * @deprecated `siteNames` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
      */
     siteNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -188,7 +188,7 @@ export interface ChannelWebChatArgs {
      *
      * > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
      *
-     * @deprecated `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+     * @deprecated `siteNames` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
      */
     siteNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**

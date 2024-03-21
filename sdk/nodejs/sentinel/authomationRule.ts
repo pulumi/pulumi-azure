@@ -98,7 +98,7 @@ export class AuthomationRule extends pulumi.CustomResource {
      *
      * > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
      *
-     * @deprecated This is deprecated in favor of `condition_json`
+     * @deprecated This is deprecated in favor of `conditionJson`
      */
     public readonly conditions!: pulumi.Output<outputs.sentinel.AuthomationRuleCondition[]>;
     /**
@@ -214,7 +214,7 @@ export interface AuthomationRuleState {
      *
      * > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
      *
-     * @deprecated This is deprecated in favor of `condition_json`
+     * @deprecated This is deprecated in favor of `conditionJson`
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleCondition>[]>;
     /**
@@ -274,7 +274,7 @@ export interface AuthomationRuleArgs {
      *
      * > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
      *
-     * @deprecated This is deprecated in favor of `condition_json`
+     * @deprecated This is deprecated in favor of `conditionJson`
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleCondition>[]>;
     /**

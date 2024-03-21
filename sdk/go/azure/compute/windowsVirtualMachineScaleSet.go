@@ -175,7 +175,7 @@ type WindowsVirtualMachineScaleSet struct {
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplication WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput `pulumi:"galleryApplication"`
-	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+	// Deprecated: `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
 	GalleryApplications WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput `pulumi:"galleryApplications"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrOutput `pulumi:"healthProbeId"`
@@ -223,7 +223,7 @@ type WindowsVirtualMachineScaleSet struct {
 	RollingUpgradePolicy WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput `pulumi:"rollingUpgradePolicy"`
 	// A `scaleIn` block as defined below.
 	ScaleIn WindowsVirtualMachineScaleSetScaleInOutput `pulumi:"scaleIn"`
-	// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+	// Deprecated: `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
 	ScaleInPolicy pulumi.StringOutput `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets WindowsVirtualMachineScaleSetSecretArrayOutput `pulumi:"secrets"`
@@ -249,7 +249,7 @@ type WindowsVirtualMachineScaleSet struct {
 	//
 	// > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
+	// Deprecated: `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
 	TerminateNotification WindowsVirtualMachineScaleSetTerminateNotificationOutput `pulumi:"terminateNotification"`
 	// A `terminationNotification` block as defined below.
 	TerminationNotification WindowsVirtualMachineScaleSetTerminationNotificationOutput `pulumi:"terminationNotification"`
@@ -386,7 +386,7 @@ type windowsVirtualMachineScaleSetState struct {
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplication []WindowsVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplication"`
-	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+	// Deprecated: `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
 	GalleryApplications []WindowsVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplications"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
@@ -434,7 +434,7 @@ type windowsVirtualMachineScaleSetState struct {
 	RollingUpgradePolicy *WindowsVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// A `scaleIn` block as defined below.
 	ScaleIn *WindowsVirtualMachineScaleSetScaleIn `pulumi:"scaleIn"`
-	// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+	// Deprecated: `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
 	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []WindowsVirtualMachineScaleSetSecret `pulumi:"secrets"`
@@ -460,7 +460,7 @@ type windowsVirtualMachineScaleSetState struct {
 	//
 	// > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
+	// Deprecated: `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
 	TerminateNotification *WindowsVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
 	// A `terminationNotification` block as defined below.
 	TerminationNotification *WindowsVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
@@ -536,7 +536,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplication WindowsVirtualMachineScaleSetGalleryApplicationArrayInput
-	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+	// Deprecated: `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
 	GalleryApplications WindowsVirtualMachineScaleSetGalleryApplicationArrayInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
@@ -584,7 +584,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	RollingUpgradePolicy WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput
 	// A `scaleIn` block as defined below.
 	ScaleIn WindowsVirtualMachineScaleSetScaleInPtrInput
-	// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+	// Deprecated: `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
 	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets WindowsVirtualMachineScaleSetSecretArrayInput
@@ -610,7 +610,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	//
 	// > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
+	// Deprecated: `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
 	TerminateNotification WindowsVirtualMachineScaleSetTerminateNotificationPtrInput
 	// A `terminationNotification` block as defined below.
 	TerminationNotification WindowsVirtualMachineScaleSetTerminationNotificationPtrInput
@@ -690,7 +690,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplication []WindowsVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplication"`
-	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+	// Deprecated: `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
 	GalleryApplications []WindowsVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplications"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
@@ -738,7 +738,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	RollingUpgradePolicy *WindowsVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// A `scaleIn` block as defined below.
 	ScaleIn *WindowsVirtualMachineScaleSetScaleIn `pulumi:"scaleIn"`
-	// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+	// Deprecated: `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
 	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []WindowsVirtualMachineScaleSetSecret `pulumi:"secrets"`
@@ -764,7 +764,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	//
 	// > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
+	// Deprecated: `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
 	TerminateNotification *WindowsVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
 	// A `terminationNotification` block as defined below.
 	TerminationNotification *WindowsVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
@@ -839,7 +839,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplication WindowsVirtualMachineScaleSetGalleryApplicationArrayInput
-	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+	// Deprecated: `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
 	GalleryApplications WindowsVirtualMachineScaleSetGalleryApplicationArrayInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
@@ -887,7 +887,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	RollingUpgradePolicy WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput
 	// A `scaleIn` block as defined below.
 	ScaleIn WindowsVirtualMachineScaleSetScaleInPtrInput
-	// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+	// Deprecated: `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
 	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets WindowsVirtualMachineScaleSetSecretArrayInput
@@ -913,7 +913,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	//
 	// > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
+	// Deprecated: `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
 	TerminateNotification WindowsVirtualMachineScaleSetTerminateNotificationPtrInput
 	// A `terminationNotification` block as defined below.
 	TerminationNotification WindowsVirtualMachineScaleSetTerminationNotificationPtrInput
@@ -1151,7 +1151,7 @@ func (o WindowsVirtualMachineScaleSetOutput) GalleryApplication() WindowsVirtual
 	}).(WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput)
 }
 
-// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
+// Deprecated: `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
 func (o WindowsVirtualMachineScaleSetOutput) GalleryApplications() WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput {
 		return v.GalleryApplications
@@ -1267,7 +1267,7 @@ func (o WindowsVirtualMachineScaleSetOutput) ScaleIn() WindowsVirtualMachineScal
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetScaleInOutput { return v.ScaleIn }).(WindowsVirtualMachineScaleSetScaleInOutput)
 }
 
-// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+// Deprecated: `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
 func (o WindowsVirtualMachineScaleSetOutput) ScaleInPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringOutput { return v.ScaleInPolicy }).(pulumi.StringOutput)
 }
@@ -1326,7 +1326,7 @@ func (o WindowsVirtualMachineScaleSetOutput) Tags() pulumi.StringMapOutput {
 //
 // > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
 //
-// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
+// Deprecated: `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
 func (o WindowsVirtualMachineScaleSetOutput) TerminateNotification() WindowsVirtualMachineScaleSetTerminateNotificationOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetTerminateNotificationOutput {
 		return v.TerminateNotification

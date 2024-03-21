@@ -75,7 +75,7 @@ import (
 //				Description:       pulumi.String("Test Managed App Definition"),
 //				Authorizations: managedapplication.DefinitionAuthorizationArray{
 //					&managedapplication.DefinitionAuthorizationArgs{
-//						ServicePrincipalId: *pulumi.String(current.ObjectId),
+//						ServicePrincipalId: pulumi.String(current.ObjectId),
 //						RoleDefinitionId:   invokeSplit.Result[len(invokeSplit1.Result)-1],
 //					},
 //				},
@@ -148,7 +148,7 @@ type Application struct {
 	//
 	// > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
 	//
-	// Deprecated: This property has been deprecated in favour of `parameter_values`
+	// Deprecated: This property has been deprecated in favour of `parameterValues`
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// One `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan ApplicationPlanPtrOutput `pulumi:"plan"`
@@ -215,7 +215,7 @@ type applicationState struct {
 	//
 	// > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
 	//
-	// Deprecated: This property has been deprecated in favour of `parameter_values`
+	// Deprecated: This property has been deprecated in favour of `parameterValues`
 	Parameters map[string]string `pulumi:"parameters"`
 	// One `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *ApplicationPlan `pulumi:"plan"`
@@ -244,7 +244,7 @@ type ApplicationState struct {
 	//
 	// > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
 	//
-	// Deprecated: This property has been deprecated in favour of `parameter_values`
+	// Deprecated: This property has been deprecated in favour of `parameterValues`
 	Parameters pulumi.StringMapInput
 	// One `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan ApplicationPlanPtrInput
@@ -275,7 +275,7 @@ type applicationArgs struct {
 	//
 	// > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
 	//
-	// Deprecated: This property has been deprecated in favour of `parameter_values`
+	// Deprecated: This property has been deprecated in favour of `parameterValues`
 	Parameters map[string]string `pulumi:"parameters"`
 	// One `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *ApplicationPlan `pulumi:"plan"`
@@ -303,7 +303,7 @@ type ApplicationArgs struct {
 	//
 	// > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
 	//
-	// Deprecated: This property has been deprecated in favour of `parameter_values`
+	// Deprecated: This property has been deprecated in favour of `parameterValues`
 	Parameters pulumi.StringMapInput
 	// One `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan ApplicationPlanPtrInput
@@ -439,7 +439,7 @@ func (o ApplicationOutput) ParameterValues() pulumi.StringOutput {
 //
 // > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
 //
-// Deprecated: This property has been deprecated in favour of `parameter_values`
+// Deprecated: This property has been deprecated in favour of `parameterValues`
 func (o ApplicationOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }

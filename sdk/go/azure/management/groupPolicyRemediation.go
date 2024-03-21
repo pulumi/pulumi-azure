@@ -58,7 +58,7 @@ import (
 //			exampleGroupPolicyAssignment, err := management.NewGroupPolicyAssignment(ctx, "example", &management.GroupPolicyAssignmentArgs{
 //				Name:               pulumi.String("exampleAssignment"),
 //				ManagementGroupId:  exampleGroup.ID(),
-//				PolicyDefinitionId: *pulumi.String(example.Id),
+//				PolicyDefinitionId: pulumi.String(example.Id),
 //				Parameters:         pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -105,7 +105,7 @@ type GroupPolicyRemediation struct {
 	//
 	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
 	//
-	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
 	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrOutput `pulumi:"policyDefinitionReferenceId"`
@@ -115,7 +115,7 @@ type GroupPolicyRemediation struct {
 	//
 	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	//
-	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+	// Deprecated: `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode pulumi.StringPtrOutput `pulumi:"resourceDiscoveryMode"`
 }
 
@@ -171,7 +171,7 @@ type groupPolicyRemediationState struct {
 	//
 	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
 	//
-	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
@@ -181,7 +181,7 @@ type groupPolicyRemediationState struct {
 	//
 	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	//
-	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+	// Deprecated: `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
 }
 
@@ -202,7 +202,7 @@ type GroupPolicyRemediationState struct {
 	//
 	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
 	//
-	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
 	PolicyDefinitionId pulumi.StringPtrInput
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
@@ -212,7 +212,7 @@ type GroupPolicyRemediationState struct {
 	//
 	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	//
-	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+	// Deprecated: `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode pulumi.StringPtrInput
 }
 
@@ -237,7 +237,7 @@ type groupPolicyRemediationArgs struct {
 	//
 	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
 	//
-	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
@@ -247,7 +247,7 @@ type groupPolicyRemediationArgs struct {
 	//
 	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	//
-	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+	// Deprecated: `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
 }
 
@@ -269,7 +269,7 @@ type GroupPolicyRemediationArgs struct {
 	//
 	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
 	//
-	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
 	PolicyDefinitionId pulumi.StringPtrInput
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
@@ -279,7 +279,7 @@ type GroupPolicyRemediationArgs struct {
 	//
 	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	//
-	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+	// Deprecated: `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode pulumi.StringPtrInput
 }
 
@@ -404,7 +404,7 @@ func (o GroupPolicyRemediationOutput) PolicyAssignmentId() pulumi.StringOutput {
 //
 // > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
 //
-// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
 func (o GroupPolicyRemediationOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
 }
@@ -423,7 +423,7 @@ func (o GroupPolicyRemediationOutput) ResourceCount() pulumi.IntPtrOutput {
 //
 // > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
 //
-// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+// Deprecated: `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 func (o GroupPolicyRemediationOutput) ResourceDiscoveryMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.StringPtrOutput { return v.ResourceDiscoveryMode }).(pulumi.StringPtrOutput)
 }

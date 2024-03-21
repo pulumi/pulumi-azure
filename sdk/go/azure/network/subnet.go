@@ -98,9 +98,9 @@ type Subnet struct {
 	AddressPrefixes pulumi.StringArrayOutput `pulumi:"addressPrefixes"`
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayOutput `pulumi:"delegations"`
-	// Deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
+	// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolOutput `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
+	// Deprecated: `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolOutput `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -169,9 +169,9 @@ type subnetState struct {
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// One or more `delegation` blocks as defined below.
 	Delegations []SubnetDelegation `pulumi:"delegations"`
-	// Deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
+	// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkEndpointNetworkPolicies *bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
+	// Deprecated: `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkServiceNetworkPolicies *bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -202,9 +202,9 @@ type SubnetState struct {
 	AddressPrefixes pulumi.StringArrayInput
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayInput
-	// Deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
+	// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolPtrInput
-	// Deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
+	// Deprecated: `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolPtrInput
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -239,9 +239,9 @@ type subnetArgs struct {
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// One or more `delegation` blocks as defined below.
 	Delegations []SubnetDelegation `pulumi:"delegations"`
-	// Deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
+	// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkEndpointNetworkPolicies *bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
+	// Deprecated: `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkServiceNetworkPolicies *bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -273,9 +273,9 @@ type SubnetArgs struct {
 	AddressPrefixes pulumi.StringArrayInput
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayInput
-	// Deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
+	// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolPtrInput
-	// Deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
+	// Deprecated: `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
 	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolPtrInput
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -398,12 +398,12 @@ func (o SubnetOutput) Delegations() SubnetDelegationArrayOutput {
 	return o.ApplyT(func(v *Subnet) SubnetDelegationArrayOutput { return v.Delegations }).(SubnetDelegationArrayOutput)
 }
 
-// Deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider
+// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
 func (o SubnetOutput) EnforcePrivateLinkEndpointNetworkPolicies() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.BoolOutput { return v.EnforcePrivateLinkEndpointNetworkPolicies }).(pulumi.BoolOutput)
 }
 
-// Deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
+// Deprecated: `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
 func (o SubnetOutput) EnforcePrivateLinkServiceNetworkPolicies() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.BoolOutput { return v.EnforcePrivateLinkServiceNetworkPolicies }).(pulumi.BoolOutput)
 }

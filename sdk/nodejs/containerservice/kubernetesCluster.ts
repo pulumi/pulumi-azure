@@ -89,7 +89,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly apiServerAccessProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterApiServerAccessProfile>;
     /**
-     * @deprecated This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
+     * @deprecated This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
      */
     public readonly apiServerAuthorizedIpRanges!: pulumi.Output<string[]>;
     /**
@@ -367,7 +367,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      *
      * !> **Note:** `publicNetworkAccessEnabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `privateClusterEnabled` and `apiServerAccessProfile`.
      *
-     * @deprecated `public_network_access_enabled` is currently not functional and is not be passed to the API
+     * @deprecated `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -611,7 +611,7 @@ export interface KubernetesClusterState {
      */
     apiServerAccessProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterApiServerAccessProfile>;
     /**
-     * @deprecated This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
+     * @deprecated This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
      */
     apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -889,7 +889,7 @@ export interface KubernetesClusterState {
      *
      * !> **Note:** `publicNetworkAccessEnabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `privateClusterEnabled` and `apiServerAccessProfile`.
      *
-     * @deprecated `public_network_access_enabled` is currently not functional and is not be passed to the API
+     * @deprecated `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -969,7 +969,7 @@ export interface KubernetesClusterArgs {
      */
     apiServerAccessProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterApiServerAccessProfile>;
     /**
-     * @deprecated This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
+     * @deprecated This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
      */
     apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -1203,7 +1203,7 @@ export interface KubernetesClusterArgs {
      *
      * !> **Note:** `publicNetworkAccessEnabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `privateClusterEnabled` and `apiServerAccessProfile`.
      *
-     * @deprecated `public_network_access_enabled` is currently not functional and is not be passed to the API
+     * @deprecated `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**

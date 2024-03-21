@@ -74,7 +74,7 @@ type GetDiagnosticCategoriesResult struct {
 	LogCategoryTypes []string `pulumi:"logCategoryTypes"`
 	// A list of the Log Categories supported for this Resource.
 	//
-	// Deprecated: `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `logs` will be removed in favour of the property `logCategoryTypes` in version 4.0 of the AzureRM Provider.
 	Logs []string `pulumi:"logs"`
 	// A list of the Metric Categories supported for this Resource.
 	Metrics    []string `pulumi:"metrics"`
@@ -136,7 +136,7 @@ func (o GetDiagnosticCategoriesResultOutput) LogCategoryTypes() pulumi.StringArr
 
 // A list of the Log Categories supported for this Resource.
 //
-// Deprecated: `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.
+// Deprecated: `logs` will be removed in favour of the property `logCategoryTypes` in version 4.0 of the AzureRM Provider.
 func (o GetDiagnosticCategoriesResultOutput) Logs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDiagnosticCategoriesResult) []string { return v.Logs }).(pulumi.StringArrayOutput)
 }

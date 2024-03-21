@@ -379,7 +379,7 @@ type AppIngress struct {
 	AllowInsecureConnections *bool `pulumi:"allowInsecureConnections"`
 	// One or more `customDomain` block as detailed below.
 	//
-	// Deprecated: This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.
+	// Deprecated: This property is deprecated in favour of the new `containerapp.CustomDomain` resource and will become computed only in a future release.
 	CustomDomain *AppIngressCustomDomain `pulumi:"customDomain"`
 	// The exposed port on the container for the Ingress traffic.
 	//
@@ -415,7 +415,7 @@ type AppIngressArgs struct {
 	AllowInsecureConnections pulumi.BoolPtrInput `pulumi:"allowInsecureConnections"`
 	// One or more `customDomain` block as detailed below.
 	//
-	// Deprecated: This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.
+	// Deprecated: This property is deprecated in favour of the new `containerapp.CustomDomain` resource and will become computed only in a future release.
 	CustomDomain AppIngressCustomDomainPtrInput `pulumi:"customDomain"`
 	// The exposed port on the container for the Ingress traffic.
 	//
@@ -519,7 +519,7 @@ func (o AppIngressOutput) AllowInsecureConnections() pulumi.BoolPtrOutput {
 
 // One or more `customDomain` block as detailed below.
 //
-// Deprecated: This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.
+// Deprecated: This property is deprecated in favour of the new `containerapp.CustomDomain` resource and will become computed only in a future release.
 func (o AppIngressOutput) CustomDomain() AppIngressCustomDomainPtrOutput {
 	return o.ApplyT(func(v AppIngress) *AppIngressCustomDomain { return v.CustomDomain }).(AppIngressCustomDomainPtrOutput)
 }
@@ -597,7 +597,7 @@ func (o AppIngressPtrOutput) AllowInsecureConnections() pulumi.BoolPtrOutput {
 
 // One or more `customDomain` block as detailed below.
 //
-// Deprecated: This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.
+// Deprecated: This property is deprecated in favour of the new `containerapp.CustomDomain` resource and will become computed only in a future release.
 func (o AppIngressPtrOutput) CustomDomain() AppIngressCustomDomainPtrOutput {
 	return o.ApplyT(func(v *AppIngress) *AppIngressCustomDomain {
 		if v == nil {

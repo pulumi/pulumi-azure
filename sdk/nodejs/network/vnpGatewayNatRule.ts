@@ -93,7 +93,7 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
      *
      * > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
      *
-     * @deprecated `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
+     * @deprecated `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
      */
     public readonly externalAddressSpaceMappings!: pulumi.Output<string[]>;
     /**
@@ -105,7 +105,7 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
      *
      * > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
      *
-     * @deprecated `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
+     * @deprecated `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
      */
     public readonly internalAddressSpaceMappings!: pulumi.Output<string[]>;
     /**
@@ -193,7 +193,7 @@ export interface VnpGatewayNatRuleState {
      *
      * > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
      *
-     * @deprecated `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
+     * @deprecated `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
      */
     externalAddressSpaceMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -205,7 +205,7 @@ export interface VnpGatewayNatRuleState {
      *
      * > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
      *
-     * @deprecated `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
+     * @deprecated `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
      */
     internalAddressSpaceMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -247,7 +247,7 @@ export interface VnpGatewayNatRuleArgs {
      *
      * > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
      *
-     * @deprecated `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
+     * @deprecated `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
      */
     externalAddressSpaceMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -259,7 +259,7 @@ export interface VnpGatewayNatRuleArgs {
      *
      * > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
      *
-     * @deprecated `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
+     * @deprecated `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
      */
     internalAddressSpaceMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
