@@ -55,7 +55,7 @@ import (
 //				Name:              pulumi.String("workspaceexamplekeyvault"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				TenantId:          *pulumi.String(current.TenantId),
+//				TenantId:          pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("premium"),
 //			})
 //			if err != nil {
@@ -137,7 +137,7 @@ import (
 //				Name:                   pulumi.String("workspaceexamplekeyvault"),
 //				Location:               example.Location,
 //				ResourceGroupName:      example.Name,
-//				TenantId:               *pulumi.String(current.TenantId),
+//				TenantId:               pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("premium"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
 //			})
@@ -146,8 +146,8 @@ import (
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "example", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   *pulumi.String(current.TenantId),
-//				ObjectId:   *pulumi.String(current.ObjectId),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Create"),
 //					pulumi.String("Get"),
@@ -268,7 +268,7 @@ import (
 //				Name:                   pulumi.String("example-keyvalut"),
 //				Location:               example.Location,
 //				ResourceGroupName:      example.Name,
-//				TenantId:               *pulumi.String(current.TenantId),
+//				TenantId:               pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("premium"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
 //			})
@@ -285,7 +285,7 @@ import (
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "example-identity", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   *pulumi.String(current.TenantId),
+//				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   exampleUserAssignedIdentity.PrincipalId,
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("WrapKey"),
@@ -308,8 +308,8 @@ import (
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "example-sp", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   *pulumi.String(current.TenantId),
-//				ObjectId:   *pulumi.String(current.ObjectId),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //					pulumi.String("Create"),
@@ -330,8 +330,8 @@ import (
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "example-cosmosdb", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   *pulumi.String(current.TenantId),
-//				ObjectId:   *pulumi.String(test.ObjectId),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   pulumi.String(test.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //					pulumi.String("Recover"),
@@ -468,7 +468,7 @@ type Workspace struct {
 	PrimaryUserAssignedIdentity pulumi.StringPtrOutput `pulumi:"primaryUserAssignedIdentity"`
 	// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
 	//
-	// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `publicAccessBehindVirtualNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	PublicAccessBehindVirtualNetworkEnabled pulumi.BoolPtrOutput `pulumi:"publicAccessBehindVirtualNetworkEnabled"`
 	// Enable public access when this Machine Learning Workspace is behind VNet.
 	//
@@ -571,7 +571,7 @@ type workspaceState struct {
 	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
 	// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
 	//
-	// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `publicAccessBehindVirtualNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	PublicAccessBehindVirtualNetworkEnabled *bool `pulumi:"publicAccessBehindVirtualNetworkEnabled"`
 	// Enable public access when this Machine Learning Workspace is behind VNet.
 	//
@@ -630,7 +630,7 @@ type WorkspaceState struct {
 	PrimaryUserAssignedIdentity pulumi.StringPtrInput
 	// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
 	//
-	// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `publicAccessBehindVirtualNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	PublicAccessBehindVirtualNetworkEnabled pulumi.BoolPtrInput
 	// Enable public access when this Machine Learning Workspace is behind VNet.
 	//
@@ -691,7 +691,7 @@ type workspaceArgs struct {
 	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
 	// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
 	//
-	// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `publicAccessBehindVirtualNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	PublicAccessBehindVirtualNetworkEnabled *bool `pulumi:"publicAccessBehindVirtualNetworkEnabled"`
 	// Enable public access when this Machine Learning Workspace is behind VNet.
 	//
@@ -747,7 +747,7 @@ type WorkspaceArgs struct {
 	PrimaryUserAssignedIdentity pulumi.StringPtrInput
 	// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
 	//
-	// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `publicAccessBehindVirtualNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 	PublicAccessBehindVirtualNetworkEnabled pulumi.BoolPtrInput
 	// Enable public access when this Machine Learning Workspace is behind VNet.
 	//
@@ -938,7 +938,7 @@ func (o WorkspaceOutput) PrimaryUserAssignedIdentity() pulumi.StringPtrOutput {
 
 // Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
 //
-// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+// Deprecated: `publicAccessBehindVirtualNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
 func (o WorkspaceOutput) PublicAccessBehindVirtualNetworkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.PublicAccessBehindVirtualNetworkEnabled }).(pulumi.BoolPtrOutput)
 }

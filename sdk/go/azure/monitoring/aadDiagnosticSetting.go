@@ -120,7 +120,7 @@ type AadDiagnosticSetting struct {
 	//
 	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
 	Logs AadDiagnosticSettingLogArrayOutput `pulumi:"logs"`
 	// The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -176,7 +176,7 @@ type aadDiagnosticSettingState struct {
 	//
 	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
 	Logs []AadDiagnosticSettingLog `pulumi:"logs"`
 	// The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
 	Name *string `pulumi:"name"`
@@ -203,7 +203,7 @@ type AadDiagnosticSettingState struct {
 	//
 	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
 	Logs AadDiagnosticSettingLogArrayInput
 	// The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
 	Name pulumi.StringPtrInput
@@ -234,7 +234,7 @@ type aadDiagnosticSettingArgs struct {
 	//
 	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
 	Logs []AadDiagnosticSettingLog `pulumi:"logs"`
 	// The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
 	Name *string `pulumi:"name"`
@@ -262,7 +262,7 @@ type AadDiagnosticSettingArgs struct {
 	//
 	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
 	Logs AadDiagnosticSettingLogArrayInput
 	// The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
 	Name pulumi.StringPtrInput
@@ -387,7 +387,7 @@ func (o AadDiagnosticSettingOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOu
 //
 // > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
 //
-// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
 func (o AadDiagnosticSettingOutput) Logs() AadDiagnosticSettingLogArrayOutput {
 	return o.ApplyT(func(v *AadDiagnosticSetting) AadDiagnosticSettingLogArrayOutput { return v.Logs }).(AadDiagnosticSettingLogArrayOutput)
 }

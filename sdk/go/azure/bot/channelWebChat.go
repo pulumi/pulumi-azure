@@ -46,7 +46,7 @@ import (
 //				Location:          pulumi.String("global"),
 //				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("F0"),
-//				MicrosoftAppId:    *pulumi.String(current.ClientId),
+//				MicrosoftAppId:    pulumi.String(current.ClientId),
 //			})
 //			if err != nil {
 //				return err
@@ -91,7 +91,7 @@ type ChannelWebChat struct {
 	//
 	// > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `siteNames` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 	SiteNames pulumi.StringArrayOutput `pulumi:"siteNames"`
 	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites ChannelWebChatSiteArrayOutput `pulumi:"sites"`
@@ -143,7 +143,7 @@ type channelWebChatState struct {
 	//
 	// > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `siteNames` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 	SiteNames []string `pulumi:"siteNames"`
 	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites []ChannelWebChatSite `pulumi:"sites"`
@@ -160,7 +160,7 @@ type ChannelWebChatState struct {
 	//
 	// > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `siteNames` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 	SiteNames pulumi.StringArrayInput
 	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites ChannelWebChatSiteArrayInput
@@ -181,7 +181,7 @@ type channelWebChatArgs struct {
 	//
 	// > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `siteNames` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 	SiteNames []string `pulumi:"siteNames"`
 	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites []ChannelWebChatSite `pulumi:"sites"`
@@ -199,7 +199,7 @@ type ChannelWebChatArgs struct {
 	//
 	// > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `siteNames` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 	SiteNames pulumi.StringArrayInput
 	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites ChannelWebChatSiteArrayInput
@@ -311,7 +311,7 @@ func (o ChannelWebChatOutput) ResourceGroupName() pulumi.StringOutput {
 //
 // > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 //
-// Deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+// Deprecated: `siteNames` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 func (o ChannelWebChatOutput) SiteNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ChannelWebChat) pulumi.StringArrayOutput { return v.SiteNames }).(pulumi.StringArrayOutput)
 }

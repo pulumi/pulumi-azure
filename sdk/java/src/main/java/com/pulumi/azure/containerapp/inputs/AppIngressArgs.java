@@ -41,10 +41,10 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
      * One or more `custom_domain` block as detailed below.
      * 
      * @deprecated
-     * This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.
+     * This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release.
      * 
      */
-    @Deprecated /* This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release. */
+    @Deprecated /* This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release. */
     @Import(name="customDomain")
     private @Nullable Output<AppIngressCustomDomainArgs> customDomain;
 
@@ -52,10 +52,10 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
      * @return One or more `custom_domain` block as detailed below.
      * 
      * @deprecated
-     * This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.
+     * This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release.
      * 
      */
-    @Deprecated /* This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release. */
+    @Deprecated /* This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release. */
     public Optional<Output<AppIngressCustomDomainArgs>> customDomain() {
         return Optional.ofNullable(this.customDomain);
     }
@@ -228,10 +228,10 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.
+         * This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release.
          * 
          */
-        @Deprecated /* This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release. */
+        @Deprecated /* This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release. */
         public Builder customDomain(@Nullable Output<AppIngressCustomDomainArgs> customDomain) {
             $.customDomain = customDomain;
             return this;
@@ -243,10 +243,10 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.
+         * This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release.
          * 
          */
-        @Deprecated /* This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release. */
+        @Deprecated /* This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release. */
         public Builder customDomain(AppIngressCustomDomainArgs customDomain) {
             return customDomain(Output.of(customDomain));
         }

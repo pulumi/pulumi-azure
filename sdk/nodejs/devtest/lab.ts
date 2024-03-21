@@ -102,7 +102,7 @@ export class Lab extends pulumi.CustomResource {
      *
      * > **Note:** `storageType` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
      *
-     * @deprecated `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
+     * @deprecated `storageType` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
      */
     public readonly storageType!: pulumi.Output<string | undefined>;
     /**
@@ -201,7 +201,7 @@ export interface LabState {
      *
      * > **Note:** `storageType` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
      *
-     * @deprecated `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
+     * @deprecated `storageType` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
      */
     storageType?: pulumi.Input<string>;
     /**
@@ -235,7 +235,7 @@ export interface LabArgs {
      *
      * > **Note:** `storageType` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
      *
-     * @deprecated `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
+     * @deprecated `storageType` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
      */
     storageType?: pulumi.Input<string>;
     /**

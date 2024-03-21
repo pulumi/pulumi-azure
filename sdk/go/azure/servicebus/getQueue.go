@@ -60,13 +60,13 @@ type LookupQueueArgs struct {
 	NamespaceId *string `pulumi:"namespaceId"`
 	// The name of the ServiceBus Namespace.
 	//
-	// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The name of the Resource Group where the Service Bus Queue exists.
 	//
 	// > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
 	//
-	// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
@@ -100,13 +100,13 @@ type LookupQueueResult struct {
 	MaxSizeInMegabytes int     `pulumi:"maxSizeInMegabytes"`
 	Name               string  `pulumi:"name"`
 	NamespaceId        *string `pulumi:"namespaceId"`
-	// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
 	// Boolean flag which controls whether the Queue requires duplicate detection.
 	RequiresDuplicateDetection bool `pulumi:"requiresDuplicateDetection"`
 	// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages.
 	RequiresSession bool `pulumi:"requiresSession"`
-	// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`.
 	Status string `pulumi:"status"`
@@ -133,13 +133,13 @@ type LookupQueueOutputArgs struct {
 	NamespaceId pulumi.StringPtrInput `pulumi:"namespaceId"`
 	// The name of the ServiceBus Namespace.
 	//
-	// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
 	// The name of the Resource Group where the Service Bus Queue exists.
 	//
 	// > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
 	//
-	// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }
 
@@ -235,7 +235,7 @@ func (o LookupQueueResultOutput) NamespaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.NamespaceId }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 func (o LookupQueueResultOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
@@ -250,7 +250,7 @@ func (o LookupQueueResultOutput) RequiresSession() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupQueueResult) bool { return v.RequiresSession }).(pulumi.BoolOutput)
 }
 
-// Deprecated: `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 func (o LookupQueueResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }

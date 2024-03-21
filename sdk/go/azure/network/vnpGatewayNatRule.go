@@ -103,7 +103,7 @@ type VnpGatewayNatRule struct {
 	//
 	// > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
 	ExternalAddressSpaceMappings pulumi.StringArrayOutput `pulumi:"externalAddressSpaceMappings"`
 	// One or more `externalMapping` blocks as documented below.
 	ExternalMappings VnpGatewayNatRuleExternalMappingArrayOutput `pulumi:"externalMappings"`
@@ -111,7 +111,7 @@ type VnpGatewayNatRule struct {
 	//
 	// > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 	InternalAddressSpaceMappings pulumi.StringArrayOutput `pulumi:"internalAddressSpaceMappings"`
 	// One or more `internalMapping` blocks as documented below.
 	InternalMappings VnpGatewayNatRuleInternalMappingArrayOutput `pulumi:"internalMappings"`
@@ -169,7 +169,7 @@ type vnpGatewayNatRuleState struct {
 	//
 	// > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
 	ExternalAddressSpaceMappings []string `pulumi:"externalAddressSpaceMappings"`
 	// One or more `externalMapping` blocks as documented below.
 	ExternalMappings []VnpGatewayNatRuleExternalMapping `pulumi:"externalMappings"`
@@ -177,7 +177,7 @@ type vnpGatewayNatRuleState struct {
 	//
 	// > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 	InternalAddressSpaceMappings []string `pulumi:"internalAddressSpaceMappings"`
 	// One or more `internalMapping` blocks as documented below.
 	InternalMappings []VnpGatewayNatRuleInternalMapping `pulumi:"internalMappings"`
@@ -200,7 +200,7 @@ type VnpGatewayNatRuleState struct {
 	//
 	// > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
 	ExternalAddressSpaceMappings pulumi.StringArrayInput
 	// One or more `externalMapping` blocks as documented below.
 	ExternalMappings VnpGatewayNatRuleExternalMappingArrayInput
@@ -208,7 +208,7 @@ type VnpGatewayNatRuleState struct {
 	//
 	// > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 	InternalAddressSpaceMappings pulumi.StringArrayInput
 	// One or more `internalMapping` blocks as documented below.
 	InternalMappings VnpGatewayNatRuleInternalMappingArrayInput
@@ -235,7 +235,7 @@ type vnpGatewayNatRuleArgs struct {
 	//
 	// > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
 	ExternalAddressSpaceMappings []string `pulumi:"externalAddressSpaceMappings"`
 	// One or more `externalMapping` blocks as documented below.
 	ExternalMappings []VnpGatewayNatRuleExternalMapping `pulumi:"externalMappings"`
@@ -243,7 +243,7 @@ type vnpGatewayNatRuleArgs struct {
 	//
 	// > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 	InternalAddressSpaceMappings []string `pulumi:"internalAddressSpaceMappings"`
 	// One or more `internalMapping` blocks as documented below.
 	InternalMappings []VnpGatewayNatRuleInternalMapping `pulumi:"internalMappings"`
@@ -267,7 +267,7 @@ type VnpGatewayNatRuleArgs struct {
 	//
 	// > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
 	ExternalAddressSpaceMappings pulumi.StringArrayInput
 	// One or more `externalMapping` blocks as documented below.
 	ExternalMappings VnpGatewayNatRuleExternalMappingArrayInput
@@ -275,7 +275,7 @@ type VnpGatewayNatRuleArgs struct {
 	//
 	// > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 	//
-	// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 	InternalAddressSpaceMappings pulumi.StringArrayInput
 	// One or more `internalMapping` blocks as documented below.
 	InternalMappings VnpGatewayNatRuleInternalMappingArrayInput
@@ -384,7 +384,7 @@ func (o VnpGatewayNatRuleOutput) ToVnpGatewayNatRuleOutputWithContext(ctx contex
 //
 // > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
 //
-// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
+// Deprecated: `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
 func (o VnpGatewayNatRuleOutput) ExternalAddressSpaceMappings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VnpGatewayNatRule) pulumi.StringArrayOutput { return v.ExternalAddressSpaceMappings }).(pulumi.StringArrayOutput)
 }
@@ -398,7 +398,7 @@ func (o VnpGatewayNatRuleOutput) ExternalMappings() VnpGatewayNatRuleExternalMap
 //
 // > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 //
-// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
+// Deprecated: `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 func (o VnpGatewayNatRuleOutput) InternalAddressSpaceMappings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VnpGatewayNatRule) pulumi.StringArrayOutput { return v.InternalAddressSpaceMappings }).(pulumi.StringArrayOutput)
 }

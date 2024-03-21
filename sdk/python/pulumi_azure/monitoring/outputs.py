@@ -6849,8 +6849,8 @@ class DiagnosticSettingEnabledLog(dict):
 
         !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
-        warnings.warn("""`retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-        pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
+        warnings.warn("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
+        pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
 
         return pulumi.get(self, "retention_policy")
 
@@ -6978,8 +6978,8 @@ class DiagnosticSettingLog(dict):
 
         !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
-        warnings.warn("""`retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-        pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
+        warnings.warn("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
+        pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
 
         return pulumi.get(self, "retention_policy")
 
@@ -7084,8 +7084,8 @@ class DiagnosticSettingMetric(dict):
 
         !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
-        warnings.warn("""`retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-        pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
+        warnings.warn("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
+        pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
 
         return pulumi.get(self, "retention_policy")
 

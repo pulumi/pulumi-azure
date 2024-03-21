@@ -125,7 +125,7 @@ type Api struct {
 	//
 	// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+	// Deprecated: `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
 	SoapPassThrough pulumi.BoolOutput `pulumi:"soapPassThrough"`
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId pulumi.StringPtrOutput `pulumi:"sourceApiId"`
@@ -226,7 +226,7 @@ type apiState struct {
 	//
 	// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+	// Deprecated: `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
 	SoapPassThrough *bool `pulumi:"soapPassThrough"`
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId *string `pulumi:"sourceApiId"`
@@ -289,7 +289,7 @@ type ApiState struct {
 	//
 	// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+	// Deprecated: `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
 	SoapPassThrough pulumi.BoolPtrInput
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId pulumi.StringPtrInput
@@ -352,7 +352,7 @@ type apiArgs struct {
 	//
 	// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+	// Deprecated: `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
 	SoapPassThrough *bool `pulumi:"soapPassThrough"`
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId *string `pulumi:"sourceApiId"`
@@ -412,7 +412,7 @@ type ApiArgs struct {
 	//
 	// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+	// Deprecated: `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
 	SoapPassThrough pulumi.BoolPtrInput
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId pulumi.StringPtrInput
@@ -615,7 +615,7 @@ func (o ApiOutput) ServiceUrl() pulumi.StringOutput {
 //
 // > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
 //
-// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+// Deprecated: `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
 func (o ApiOutput) SoapPassThrough() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Api) pulumi.BoolOutput { return v.SoapPassThrough }).(pulumi.BoolOutput)
 }

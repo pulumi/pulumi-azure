@@ -58,11 +58,11 @@ type LookupSubscriptionArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the ServiceBus Namespace.
 	//
-	// Deprecated: `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
 	// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
 	//
-	// Deprecated: `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the ServiceBus Topic where the Service Bus Subscription exists.
 	TopicId *string `pulumi:"topicId"`
@@ -70,7 +70,7 @@ type LookupSubscriptionArgs struct {
 	//
 	// > **Note:** `namespaceName`，`resourceGroupName` and `topicName` has been deprecated and will be removed in version 4.0 of the provider in favour of `topicId`.
 	//
-	// Deprecated: `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `topicName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 	TopicName *string `pulumi:"topicName"`
 }
 
@@ -97,14 +97,14 @@ type LookupSubscriptionResult struct {
 	// The maximum number of deliveries.
 	MaxDeliveryCount int    `pulumi:"maxDeliveryCount"`
 	Name             string `pulumi:"name"`
-	// Deprecated: `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
 	// Whether or not this ServiceBus Subscription supports session.
 	RequiresSession bool `pulumi:"requiresSession"`
-	// Deprecated: `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	TopicId           *string `pulumi:"topicId"`
-	// Deprecated: `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `topicName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 	TopicName *string `pulumi:"topicName"`
 }
 
@@ -127,11 +127,11 @@ type LookupSubscriptionOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the ServiceBus Namespace.
 	//
-	// Deprecated: `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
 	// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
 	//
-	// Deprecated: `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 	// The ID of the ServiceBus Topic where the Service Bus Subscription exists.
 	TopicId pulumi.StringPtrInput `pulumi:"topicId"`
@@ -139,7 +139,7 @@ type LookupSubscriptionOutputArgs struct {
 	//
 	// > **Note:** `namespaceName`，`resourceGroupName` and `topicName` has been deprecated and will be removed in version 4.0 of the provider in favour of `topicId`.
 	//
-	// Deprecated: `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `topicName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 	TopicName pulumi.StringPtrInput `pulumi:"topicName"`
 }
 
@@ -216,7 +216,7 @@ func (o LookupSubscriptionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Deprecated: `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+// Deprecated: `namespaceName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 func (o LookupSubscriptionResultOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
@@ -226,7 +226,7 @@ func (o LookupSubscriptionResultOutput) RequiresSession() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) bool { return v.RequiresSession }).(pulumi.BoolOutput)
 }
 
-// Deprecated: `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+// Deprecated: `resourceGroupName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 func (o LookupSubscriptionResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
@@ -235,7 +235,7 @@ func (o LookupSubscriptionResultOutput) TopicId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.TopicId }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+// Deprecated: `topicName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 func (o LookupSubscriptionResultOutput) TopicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.TopicName }).(pulumi.StringPtrOutput)
 }

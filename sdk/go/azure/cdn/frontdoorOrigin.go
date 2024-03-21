@@ -263,7 +263,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				VisibilitySubscriptionIds: pulumi.StringArray{
-//					*pulumi.String(current.SubscriptionId),
+//					pulumi.String(current.SubscriptionId),
 //				},
 //				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
 //					exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
@@ -333,7 +333,7 @@ type FrontdoorOrigin struct {
 	//
 	// > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `healthProbesEnabled` property in version 3.x of the AzureRM Provider.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
+	// Deprecated: `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
 	HealthProbesEnabled pulumi.BoolOutput `pulumi:"healthProbesEnabled"`
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
@@ -406,7 +406,7 @@ type frontdoorOriginState struct {
 	//
 	// > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `healthProbesEnabled` property in version 3.x of the AzureRM Provider.
 	Enabled *bool `pulumi:"enabled"`
-	// Deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
+	// Deprecated: `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
 	HealthProbesEnabled *bool `pulumi:"healthProbesEnabled"`
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
@@ -441,7 +441,7 @@ type FrontdoorOriginState struct {
 	//
 	// > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `healthProbesEnabled` property in version 3.x of the AzureRM Provider.
 	Enabled pulumi.BoolPtrInput
-	// Deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
+	// Deprecated: `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
 	HealthProbesEnabled pulumi.BoolPtrInput
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
@@ -480,7 +480,7 @@ type frontdoorOriginArgs struct {
 	//
 	// > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `healthProbesEnabled` property in version 3.x of the AzureRM Provider.
 	Enabled *bool `pulumi:"enabled"`
-	// Deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
+	// Deprecated: `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
 	HealthProbesEnabled *bool `pulumi:"healthProbesEnabled"`
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
@@ -516,7 +516,7 @@ type FrontdoorOriginArgs struct {
 	//
 	// > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `healthProbesEnabled` property in version 3.x of the AzureRM Provider.
 	Enabled pulumi.BoolPtrInput
-	// Deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
+	// Deprecated: `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
 	HealthProbesEnabled pulumi.BoolPtrInput
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
@@ -646,7 +646,7 @@ func (o FrontdoorOriginOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *FrontdoorOrigin) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
+// Deprecated: `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
 func (o FrontdoorOriginOutput) HealthProbesEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *FrontdoorOrigin) pulumi.BoolOutput { return v.HealthProbesEnabled }).(pulumi.BoolOutput)
 }

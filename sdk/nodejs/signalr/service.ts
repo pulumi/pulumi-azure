@@ -119,7 +119,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Specifies if Live Trace is enabled or not. Defaults to `false`.
      *
-     * @deprecated `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+     * @deprecated `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
      */
     public readonly liveTraceEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -321,7 +321,7 @@ export interface ServiceState {
     /**
      * Specifies if Live Trace is enabled or not. Defaults to `false`.
      *
-     * @deprecated `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+     * @deprecated `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
      */
     liveTraceEnabled?: pulumi.Input<boolean>;
     /**
@@ -433,7 +433,7 @@ export interface ServiceArgs {
     /**
      * Specifies if Live Trace is enabled or not. Defaults to `false`.
      *
-     * @deprecated `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+     * @deprecated `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
      */
     liveTraceEnabled?: pulumi.Input<boolean>;
     /**

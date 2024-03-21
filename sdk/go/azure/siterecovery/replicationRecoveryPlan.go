@@ -334,7 +334,7 @@ type ReplicationRecoveryPlan struct {
 	//
 	// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
 	//
-	// Deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
+	// Deprecated: the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
 	RecoveryGroups ReplicationRecoveryPlanRecoveryGroupArrayOutput `pulumi:"recoveryGroups"`
 	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId pulumi.StringOutput `pulumi:"recoveryVaultId"`
@@ -403,7 +403,7 @@ type replicationRecoveryPlanState struct {
 	//
 	// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
 	//
-	// Deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
+	// Deprecated: the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
 	RecoveryGroups []ReplicationRecoveryPlanRecoveryGroup `pulumi:"recoveryGroups"`
 	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId *string `pulumi:"recoveryVaultId"`
@@ -434,7 +434,7 @@ type ReplicationRecoveryPlanState struct {
 	//
 	// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
 	//
-	// Deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
+	// Deprecated: the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
 	RecoveryGroups ReplicationRecoveryPlanRecoveryGroupArrayInput
 	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId pulumi.StringPtrInput
@@ -469,7 +469,7 @@ type replicationRecoveryPlanArgs struct {
 	//
 	// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
 	//
-	// Deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
+	// Deprecated: the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
 	RecoveryGroups []ReplicationRecoveryPlanRecoveryGroup `pulumi:"recoveryGroups"`
 	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId string `pulumi:"recoveryVaultId"`
@@ -501,7 +501,7 @@ type ReplicationRecoveryPlanArgs struct {
 	//
 	// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
 	//
-	// Deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
+	// Deprecated: the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
 	RecoveryGroups ReplicationRecoveryPlanRecoveryGroupArrayInput
 	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId pulumi.StringInput
@@ -636,7 +636,7 @@ func (o ReplicationRecoveryPlanOutput) Name() pulumi.StringOutput {
 //
 // > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
 //
-// Deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
+// Deprecated: the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
 func (o ReplicationRecoveryPlanOutput) RecoveryGroups() ReplicationRecoveryPlanRecoveryGroupArrayOutput {
 	return o.ApplyT(func(v *ReplicationRecoveryPlan) ReplicationRecoveryPlanRecoveryGroupArrayOutput {
 		return v.RecoveryGroups

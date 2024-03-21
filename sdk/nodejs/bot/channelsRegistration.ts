@@ -106,7 +106,7 @@ export class ChannelsRegistration extends pulumi.CustomResource {
      *
      * > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
      *
-     * @deprecated `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+     * @deprecated `isolatedNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
      */
     public readonly isolatedNetworkEnabled!: pulumi.Output<boolean>;
     /**
@@ -253,7 +253,7 @@ export interface ChannelsRegistrationState {
      *
      * > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
      *
-     * @deprecated `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+     * @deprecated `isolatedNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
      */
     isolatedNetworkEnabled?: pulumi.Input<boolean>;
     /**
@@ -335,7 +335,7 @@ export interface ChannelsRegistrationArgs {
      *
      * > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
      *
-     * @deprecated `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+     * @deprecated `isolatedNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
      */
     isolatedNetworkEnabled?: pulumi.Input<boolean>;
     /**

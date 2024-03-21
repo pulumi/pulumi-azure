@@ -117,7 +117,7 @@ type SoftwareUpdateConfiguration struct {
 	ErrorCode pulumi.StringOutput `pulumi:"errorCode"`
 	// The Error message indicating why the operation failed.
 	//
-	// Deprecated: `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
+	// Deprecated: `errorMeesage` will be removed in favour of `errorMessage` in version 4.0 of the AzureRM Provider
 	ErrorMeesage pulumi.StringOutput `pulumi:"errorMeesage"`
 	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
 	// A `linux` block as defined below.
@@ -188,7 +188,7 @@ type softwareUpdateConfigurationState struct {
 	ErrorCode *string `pulumi:"errorCode"`
 	// The Error message indicating why the operation failed.
 	//
-	// Deprecated: `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
+	// Deprecated: `errorMeesage` will be removed in favour of `errorMessage` in version 4.0 of the AzureRM Provider
 	ErrorMeesage *string `pulumi:"errorMeesage"`
 	ErrorMessage *string `pulumi:"errorMessage"`
 	// A `linux` block as defined below.
@@ -224,7 +224,7 @@ type SoftwareUpdateConfigurationState struct {
 	ErrorCode pulumi.StringPtrInput
 	// The Error message indicating why the operation failed.
 	//
-	// Deprecated: `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
+	// Deprecated: `errorMeesage` will be removed in favour of `errorMessage` in version 4.0 of the AzureRM Provider
 	ErrorMeesage pulumi.StringPtrInput
 	ErrorMessage pulumi.StringPtrInput
 	// A `linux` block as defined below.
@@ -418,7 +418,7 @@ func (o SoftwareUpdateConfigurationOutput) ErrorCode() pulumi.StringOutput {
 
 // The Error message indicating why the operation failed.
 //
-// Deprecated: `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
+// Deprecated: `errorMeesage` will be removed in favour of `errorMessage` in version 4.0 of the AzureRM Provider
 func (o SoftwareUpdateConfigurationOutput) ErrorMeesage() pulumi.StringOutput {
 	return o.ApplyT(func(v *SoftwareUpdateConfiguration) pulumi.StringOutput { return v.ErrorMeesage }).(pulumi.StringOutput)
 }

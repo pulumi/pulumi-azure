@@ -12525,11 +12525,11 @@ export namespace appservice {
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
-         * @deprecated this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
+         * @deprecated this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
          */
         javaContainer?: pulumi.Input<string>;
         /**
-         * @deprecated This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
+         * @deprecated This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
          */
         javaContainerVersion?: pulumi.Input<string>;
         /**
@@ -13730,11 +13730,11 @@ export namespace appservice {
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
-         * @deprecated this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
+         * @deprecated this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
          */
         javaContainer?: pulumi.Input<string>;
         /**
-         * @deprecated This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
+         * @deprecated This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
          */
         javaContainerVersion?: pulumi.Input<string>;
         /**
@@ -14903,7 +14903,7 @@ export namespace automation {
 
     export interface SoftwareUpdateConfigurationWindows {
         /**
-         * @deprecated windows classification can be set as a list, use `classifications_included` instead.
+         * @deprecated windows classification can be set as a list, use `classificationsIncluded` instead.
          */
         classificationIncluded?: pulumi.Input<string>;
         /**
@@ -16157,7 +16157,7 @@ export namespace cdn {
         /**
          * The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `keyVaultSecretId`.
          *
-         * @deprecated This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
+         * @deprecated This is deprecated in favor of `keyVaultSecretId` as the service is actually looking for a secret, not a certificate
          */
         keyVaultCertificateId?: pulumi.Input<string>;
         /**
@@ -18350,7 +18350,7 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetGalleryApplication {
         /**
-         * @deprecated `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
+         * @deprecated `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
          */
         configurationReferenceBlobUri?: pulumi.Input<string>;
         /**
@@ -18358,7 +18358,7 @@ export namespace compute {
          */
         order?: pulumi.Input<number>;
         /**
-         * @deprecated `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
+         * @deprecated `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
          */
         packageReferenceId: pulumi.Input<string>;
         /**
@@ -18759,7 +18759,7 @@ export namespace compute {
          */
         diskEncryptionKey?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettingsDiskEncryptionKey>;
         /**
-         * @deprecated Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+         * @deprecated Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
          */
         enabled?: pulumi.Input<boolean>;
         /**
@@ -20037,7 +20037,7 @@ export namespace compute {
          */
         diskEncryptionKey?: pulumi.Input<inputs.compute.SnapshotEncryptionSettingsDiskEncryptionKey>;
         /**
-         * @deprecated Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+         * @deprecated Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
          */
         enabled?: pulumi.Input<boolean>;
         /**
@@ -20716,7 +20716,7 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetGalleryApplication {
         /**
-         * @deprecated `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
+         * @deprecated `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
          */
         configurationReferenceBlobUri?: pulumi.Input<string>;
         /**
@@ -20724,7 +20724,7 @@ export namespace compute {
          */
         order?: pulumi.Input<number>;
         /**
-         * @deprecated `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
+         * @deprecated `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
          */
         packageReferenceId: pulumi.Input<string>;
         /**
@@ -21607,7 +21607,7 @@ export namespace containerapp {
         /**
          * One or more `customDomain` block as detailed below.
          *
-         * @deprecated This property is deprecated in favour of the new `azurerm_container_app_custom_domain` resource and will become computed only in a future release.
+         * @deprecated This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release.
          */
         customDomain?: pulumi.Input<inputs.containerapp.AppIngressCustomDomain>;
         /**
@@ -24025,7 +24025,7 @@ export namespace containerservice {
          *
          * > **Note:** `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
          *
-         * @deprecated `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+         * @deprecated `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
          */
         dockerBridgeCidr?: pulumi.Input<string>;
         /**
@@ -38074,7 +38074,7 @@ export namespace media {
         /**
          * A `faceDetectorPreset` block as defined above.
          *
-         * @deprecated `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+         * @deprecated `faceDetectorPreset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
          */
         faceDetectorPreset?: pulumi.Input<inputs.media.TransformOutputFaceDetectorPreset>;
         /**
@@ -38090,7 +38090,7 @@ export namespace media {
          *
          * > **NOTE:** Each output can only have one type of preset: `builtinPreset`, `audioAnalyzerPreset`, `customPreset`, `faceDetectorPreset` or `videoAnalyzerPreset`. If you need to apply different presets you must create one output for each one.
          *
-         * @deprecated `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+         * @deprecated `videoAnalyzerPreset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
          */
         videoAnalyzerPreset?: pulumi.Input<inputs.media.TransformOutputVideoAnalyzerPreset>;
     }
@@ -41243,7 +41243,7 @@ export namespace monitoring {
          *
          * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
          *
-         * @deprecated `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+         * @deprecated `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
          */
         retentionPolicy?: pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledLogRetentionPolicy>;
     }
@@ -41286,7 +41286,7 @@ export namespace monitoring {
          *
          * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
          *
-         * @deprecated `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+         * @deprecated `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
          */
         retentionPolicy?: pulumi.Input<inputs.monitoring.DiagnosticSettingLogRetentionPolicy>;
     }
@@ -41321,7 +41321,7 @@ export namespace monitoring {
          *
          * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
          *
-         * @deprecated `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+         * @deprecated `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
          */
         retentionPolicy?: pulumi.Input<inputs.monitoring.DiagnosticSettingMetricRetentionPolicy>;
     }
@@ -52184,7 +52184,7 @@ export namespace waf {
 
     export interface PolicyManagedRulesManagedRuleSetRuleGroupOverride {
         /**
-         * @deprecated `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
+         * @deprecated `disabledRules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
          */
         disabledRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**

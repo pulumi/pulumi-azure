@@ -152,7 +152,7 @@ type KafkaCluster struct {
 	RestProxy KafkaClusterRestProxyPtrOutput `pulumi:"restProxy"`
 	// A `roles` block as defined below.
 	//
-	// Deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
+	// Deprecated: `kafkaManagementNode` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
 	Roles KafkaClusterRolesOutput `pulumi:"roles"`
 	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile KafkaClusterSecurityProfilePtrOutput `pulumi:"securityProfile"`
@@ -254,7 +254,7 @@ type kafkaClusterState struct {
 	RestProxy *KafkaClusterRestProxy `pulumi:"restProxy"`
 	// A `roles` block as defined below.
 	//
-	// Deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
+	// Deprecated: `kafkaManagementNode` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
 	Roles *KafkaClusterRoles `pulumi:"roles"`
 	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile *KafkaClusterSecurityProfile `pulumi:"securityProfile"`
@@ -309,7 +309,7 @@ type KafkaClusterState struct {
 	RestProxy KafkaClusterRestProxyPtrInput
 	// A `roles` block as defined below.
 	//
-	// Deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
+	// Deprecated: `kafkaManagementNode` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
 	Roles KafkaClusterRolesPtrInput
 	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile KafkaClusterSecurityProfilePtrInput
@@ -364,7 +364,7 @@ type kafkaClusterArgs struct {
 	RestProxy *KafkaClusterRestProxy `pulumi:"restProxy"`
 	// A `roles` block as defined below.
 	//
-	// Deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
+	// Deprecated: `kafkaManagementNode` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
 	Roles KafkaClusterRoles `pulumi:"roles"`
 	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile *KafkaClusterSecurityProfile `pulumi:"securityProfile"`
@@ -414,7 +414,7 @@ type KafkaClusterArgs struct {
 	RestProxy KafkaClusterRestProxyPtrInput
 	// A `roles` block as defined below.
 	//
-	// Deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
+	// Deprecated: `kafkaManagementNode` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
 	Roles KafkaClusterRolesInput
 	// A `securityProfile` block as defined below. Changing this forces a new resource to be created.
 	SecurityProfile KafkaClusterSecurityProfilePtrInput
@@ -601,7 +601,7 @@ func (o KafkaClusterOutput) RestProxy() KafkaClusterRestProxyPtrOutput {
 
 // A `roles` block as defined below.
 //
-// Deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
+// Deprecated: `kafkaManagementNode` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
 func (o KafkaClusterOutput) Roles() KafkaClusterRolesOutput {
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterRolesOutput { return v.Roles }).(KafkaClusterRolesOutput)
 }

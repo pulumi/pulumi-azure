@@ -13776,7 +13776,7 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// > **Note:** `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	// Deprecated: `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
 	// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
 	//
@@ -13850,7 +13850,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// > **Note:** `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	//
-	// Deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	// Deprecated: `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
 	// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
 	//
@@ -13992,7 +13992,7 @@ func (o KubernetesClusterNetworkProfileOutput) DnsServiceIp() pulumi.StringPtrOu
 //
 // > **Note:** `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 //
-// Deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+// Deprecated: `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 func (o KubernetesClusterNetworkProfileOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
@@ -14133,7 +14133,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) DnsServiceIp() pulumi.StringPt
 //
 // > **Note:** `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 //
-// Deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+// Deprecated: `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 func (o KubernetesClusterNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {

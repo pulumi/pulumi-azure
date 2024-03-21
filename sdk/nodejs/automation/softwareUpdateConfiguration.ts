@@ -114,7 +114,7 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
     /**
      * The Error message indicating why the operation failed.
      *
-     * @deprecated `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
+     * @deprecated `errorMeesage` will be removed in favour of `errorMessage` in version 4.0 of the AzureRM Provider
      */
     public /*out*/ readonly errorMeesage!: pulumi.Output<string>;
     public /*out*/ readonly errorMessage!: pulumi.Output<string>;
@@ -237,7 +237,7 @@ export interface SoftwareUpdateConfigurationState {
     /**
      * The Error message indicating why the operation failed.
      *
-     * @deprecated `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
+     * @deprecated `errorMeesage` will be removed in favour of `errorMessage` in version 4.0 of the AzureRM Provider
      */
     errorMeesage?: pulumi.Input<string>;
     errorMessage?: pulumi.Input<string>;

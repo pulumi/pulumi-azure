@@ -1109,7 +1109,7 @@ func (o PolicyManagedRulesManagedRuleSetArrayOutput) Index(i pulumi.IntInput) Po
 }
 
 type PolicyManagedRulesManagedRuleSetRuleGroupOverride struct {
-	// Deprecated: `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
+	// Deprecated: `disabledRules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
 	DisabledRules []string `pulumi:"disabledRules"`
 	// The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`MS-ThreatIntel-WebShells`,.
 	RuleGroupName string `pulumi:"ruleGroupName"`
@@ -1129,7 +1129,7 @@ type PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput interface {
 }
 
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs struct {
-	// Deprecated: `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
+	// Deprecated: `disabledRules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
 	DisabledRules pulumi.StringArrayInput `pulumi:"disabledRules"`
 	// The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`MS-ThreatIntel-WebShells`,.
 	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
@@ -1188,7 +1188,7 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) ToPolicyManaged
 	return o
 }
 
-// Deprecated: `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
+// Deprecated: `disabledRules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) DisabledRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverride) []string { return v.DisabledRules }).(pulumi.StringArrayOutput)
 }

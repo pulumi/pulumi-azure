@@ -110,7 +110,7 @@ type Service struct {
 	LiveTrace ServiceLiveTracePtrOutput `pulumi:"liveTrace"`
 	// Specifies if Live Trace is enabled or not. Defaults to `false`.
 	//
-	// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+	// Deprecated: `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
 	LiveTraceEnabled pulumi.BoolPtrOutput `pulumi:"liveTraceEnabled"`
 	// Whether to enable local auth? Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
@@ -215,7 +215,7 @@ type serviceState struct {
 	LiveTrace *ServiceLiveTrace `pulumi:"liveTrace"`
 	// Specifies if Live Trace is enabled or not. Defaults to `false`.
 	//
-	// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+	// Deprecated: `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
 	LiveTraceEnabled *bool `pulumi:"liveTraceEnabled"`
 	// Whether to enable local auth? Defaults to `true`.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
@@ -278,7 +278,7 @@ type ServiceState struct {
 	LiveTrace ServiceLiveTracePtrInput
 	// Specifies if Live Trace is enabled or not. Defaults to `false`.
 	//
-	// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+	// Deprecated: `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
 	LiveTraceEnabled pulumi.BoolPtrInput
 	// Whether to enable local auth? Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrInput
@@ -341,7 +341,7 @@ type serviceArgs struct {
 	LiveTrace *ServiceLiveTrace `pulumi:"liveTrace"`
 	// Specifies if Live Trace is enabled or not. Defaults to `false`.
 	//
-	// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+	// Deprecated: `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
 	LiveTraceEnabled *bool `pulumi:"liveTraceEnabled"`
 	// Whether to enable local auth? Defaults to `true`.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
@@ -389,7 +389,7 @@ type ServiceArgs struct {
 	LiveTrace ServiceLiveTracePtrInput
 	// Specifies if Live Trace is enabled or not. Defaults to `false`.
 	//
-	// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+	// Deprecated: `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
 	LiveTraceEnabled pulumi.BoolPtrInput
 	// Whether to enable local auth? Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrInput
@@ -550,7 +550,7 @@ func (o ServiceOutput) LiveTrace() ServiceLiveTracePtrOutput {
 
 // Specifies if Live Trace is enabled or not. Defaults to `false`.
 //
-// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+// Deprecated: `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
 func (o ServiceOutput) LiveTraceEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.LiveTraceEnabled }).(pulumi.BoolPtrOutput)
 }
