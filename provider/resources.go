@@ -1731,9 +1731,6 @@ func Provider() tfbridge.ProviderInfo {
 					"bgp_settings": {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
-								"peering_address": {
-									Name: "peeringAddress",
-								},
 								"peering_addresses": {
 									Name: "peeringAddresses",
 								},
