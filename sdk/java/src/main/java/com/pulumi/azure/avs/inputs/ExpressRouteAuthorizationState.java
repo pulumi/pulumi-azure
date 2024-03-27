@@ -16,14 +16,14 @@ public final class ExpressRouteAuthorizationState extends com.pulumi.resources.R
     public static final ExpressRouteAuthorizationState Empty = new ExpressRouteAuthorizationState();
 
     /**
-     * The ID of the Express Route Circuit Authorization.
+     * The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
      * 
      */
     @Import(name="expressRouteAuthorizationId")
     private @Nullable Output<String> expressRouteAuthorizationId;
 
     /**
-     * @return The ID of the Express Route Circuit Authorization.
+     * @return The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
      * 
      */
     public Optional<Output<String>> expressRouteAuthorizationId() {
@@ -31,14 +31,14 @@ public final class ExpressRouteAuthorizationState extends com.pulumi.resources.R
     }
 
     /**
-     * The key of the Express Route Circuit Authorization.
+     * The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
      * 
      */
     @Import(name="expressRouteAuthorizationKey")
     private @Nullable Output<String> expressRouteAuthorizationKey;
 
     /**
-     * @return The key of the Express Route Circuit Authorization.
+     * @return The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
      * 
      */
     public Optional<Output<String>> expressRouteAuthorizationKey() {
@@ -46,14 +46,14 @@ public final class ExpressRouteAuthorizationState extends com.pulumi.resources.R
     }
 
     /**
-     * The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+     * The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+     * @return The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -61,14 +61,14 @@ public final class ExpressRouteAuthorizationState extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+     * The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
      * 
      */
     @Import(name="privateCloudId")
     private @Nullable Output<String> privateCloudId;
 
     /**
-     * @return The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+     * @return The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
      * 
      */
     public Optional<Output<String>> privateCloudId() {
@@ -103,7 +103,7 @@ public final class ExpressRouteAuthorizationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param expressRouteAuthorizationId The ID of the Express Route Circuit Authorization.
+         * @param expressRouteAuthorizationId The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ExpressRouteAuthorizationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param expressRouteAuthorizationId The ID of the Express Route Circuit Authorization.
+         * @param expressRouteAuthorizationId The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class ExpressRouteAuthorizationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param expressRouteAuthorizationKey The key of the Express Route Circuit Authorization.
+         * @param expressRouteAuthorizationKey The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class ExpressRouteAuthorizationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param expressRouteAuthorizationKey The key of the Express Route Circuit Authorization.
+         * @param expressRouteAuthorizationKey The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class ExpressRouteAuthorizationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+         * @param name The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ExpressRouteAuthorizationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+         * @param name The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ExpressRouteAuthorizationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param privateCloudId The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+         * @param privateCloudId The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ExpressRouteAuthorizationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param privateCloudId The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+         * @param privateCloudId The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
          * 
          * @return builder
          * 

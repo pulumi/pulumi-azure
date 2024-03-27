@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to access information about an existing VMware Private Cloud.
+// Use this data source to access information about an existing Azure VMware Solution Private Cloud.
 //
 // ## Example Usage
 //
@@ -56,9 +56,9 @@ func LookupPrivateCloud(ctx *pulumi.Context, args *LookupPrivateCloudArgs, opts 
 
 // A collection of arguments for invoking getPrivateCloud.
 type LookupPrivateCloudArgs struct {
-	// The name of this VMware Private Cloud.
+	// The name of this Azure VMware Solution Private Cloud.
 	Name string `pulumi:"name"`
-	// The name of the Resource Group where the VMware Private Cloud exists.
+	// The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -66,35 +66,35 @@ type LookupPrivateCloudArgs struct {
 type LookupPrivateCloudResult struct {
 	// A `circuit` block as defined below.
 	Circuits []GetPrivateCloudCircuit `pulumi:"circuits"`
-	// The endpoint for the HCX Cloud Manager.
+	// The endpoint for the VMware HCX Cloud Manager.
 	HcxCloudManagerEndpoint string `pulumi:"hcxCloudManagerEndpoint"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Is the VMware Private Cluster connected to the internet?
+	// Is the Azure VMware Solution Private Cloud connected to the internet?
 	InternetConnectionEnabled bool `pulumi:"internetConnectionEnabled"`
-	// The Azure Region where the VMware Private Cloud exists.
+	// The Azure Region where the Azure VMware Solution Private Cloud exists.
 	Location string `pulumi:"location"`
 	// A `managementCluster` block as defined below.
 	ManagementClusters []GetPrivateCloudManagementCluster `pulumi:"managementClusters"`
-	// The network used to access vCenter Server and NSX-T Manager.
+	// The network used to access VMware vCenter Server and NSX Manager.
 	ManagementSubnetCidr string `pulumi:"managementSubnetCidr"`
 	Name                 string `pulumi:"name"`
-	// The subnet CIDR of the VMware Private Cloud.
+	// The subnet CIDR of the Azure VMware Solution Private Cloud.
 	NetworkSubnetCidr string `pulumi:"networkSubnetCidr"`
-	// The thumbprint of the NSX-T Manager SSL certificate.
+	// The thumbprint of the VMware NSX Manager SSL certificate.
 	NsxtCertificateThumbprint string `pulumi:"nsxtCertificateThumbprint"`
-	// The endpoint for the NSX-T Data Center manager.
+	// The endpoint for the VMware NSX Manager.
 	NsxtManagerEndpoint string `pulumi:"nsxtManagerEndpoint"`
 	// The network which isused for virtual machine cold migration, cloning, and snapshot migration.
 	ProvisioningSubnetCidr string `pulumi:"provisioningSubnetCidr"`
 	ResourceGroupName      string `pulumi:"resourceGroupName"`
-	// The Name of the SKU used for this Private Cloud.
+	// The Name of the SKU used for this Azure VMware Solution Private Cloud.
 	SkuName string `pulumi:"skuName"`
-	// A mapping of tags assigned to the VMware Private Cloud.
+	// A mapping of tags assigned to the Azure VMware Solution Private Cloud.
 	Tags map[string]string `pulumi:"tags"`
-	// The thumbprint of the vCenter Server SSL certificate.
+	// The thumbprint of the VMware vCenter Server SSL certificate.
 	VcenterCertificateThumbprint string `pulumi:"vcenterCertificateThumbprint"`
-	// The endpoint for Virtual Center Server Appliance.
+	// The endpoint for VMware vCenter Server Appliance.
 	VcsaEndpoint string `pulumi:"vcsaEndpoint"`
 	// The network which is used for live migration of virtual machines.
 	VmotionSubnetCidr string `pulumi:"vmotionSubnetCidr"`
@@ -115,9 +115,9 @@ func LookupPrivateCloudOutput(ctx *pulumi.Context, args LookupPrivateCloudOutput
 
 // A collection of arguments for invoking getPrivateCloud.
 type LookupPrivateCloudOutputArgs struct {
-	// The name of this VMware Private Cloud.
+	// The name of this Azure VMware Solution Private Cloud.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Resource Group where the VMware Private Cloud exists.
+	// The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
@@ -145,7 +145,7 @@ func (o LookupPrivateCloudResultOutput) Circuits() GetPrivateCloudCircuitArrayOu
 	return o.ApplyT(func(v LookupPrivateCloudResult) []GetPrivateCloudCircuit { return v.Circuits }).(GetPrivateCloudCircuitArrayOutput)
 }
 
-// The endpoint for the HCX Cloud Manager.
+// The endpoint for the VMware HCX Cloud Manager.
 func (o LookupPrivateCloudResultOutput) HcxCloudManagerEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) string { return v.HcxCloudManagerEndpoint }).(pulumi.StringOutput)
 }
@@ -155,12 +155,12 @@ func (o LookupPrivateCloudResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Is the VMware Private Cluster connected to the internet?
+// Is the Azure VMware Solution Private Cloud connected to the internet?
 func (o LookupPrivateCloudResultOutput) InternetConnectionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) bool { return v.InternetConnectionEnabled }).(pulumi.BoolOutput)
 }
 
-// The Azure Region where the VMware Private Cloud exists.
+// The Azure Region where the Azure VMware Solution Private Cloud exists.
 func (o LookupPrivateCloudResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -170,7 +170,7 @@ func (o LookupPrivateCloudResultOutput) ManagementClusters() GetPrivateCloudMana
 	return o.ApplyT(func(v LookupPrivateCloudResult) []GetPrivateCloudManagementCluster { return v.ManagementClusters }).(GetPrivateCloudManagementClusterArrayOutput)
 }
 
-// The network used to access vCenter Server and NSX-T Manager.
+// The network used to access VMware vCenter Server and NSX Manager.
 func (o LookupPrivateCloudResultOutput) ManagementSubnetCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) string { return v.ManagementSubnetCidr }).(pulumi.StringOutput)
 }
@@ -179,17 +179,17 @@ func (o LookupPrivateCloudResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The subnet CIDR of the VMware Private Cloud.
+// The subnet CIDR of the Azure VMware Solution Private Cloud.
 func (o LookupPrivateCloudResultOutput) NetworkSubnetCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) string { return v.NetworkSubnetCidr }).(pulumi.StringOutput)
 }
 
-// The thumbprint of the NSX-T Manager SSL certificate.
+// The thumbprint of the VMware NSX Manager SSL certificate.
 func (o LookupPrivateCloudResultOutput) NsxtCertificateThumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) string { return v.NsxtCertificateThumbprint }).(pulumi.StringOutput)
 }
 
-// The endpoint for the NSX-T Data Center manager.
+// The endpoint for the VMware NSX Manager.
 func (o LookupPrivateCloudResultOutput) NsxtManagerEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) string { return v.NsxtManagerEndpoint }).(pulumi.StringOutput)
 }
@@ -203,22 +203,22 @@ func (o LookupPrivateCloudResultOutput) ResourceGroupName() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupPrivateCloudResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The Name of the SKU used for this Private Cloud.
+// The Name of the SKU used for this Azure VMware Solution Private Cloud.
 func (o LookupPrivateCloudResultOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) string { return v.SkuName }).(pulumi.StringOutput)
 }
 
-// A mapping of tags assigned to the VMware Private Cloud.
+// A mapping of tags assigned to the Azure VMware Solution Private Cloud.
 func (o LookupPrivateCloudResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The thumbprint of the vCenter Server SSL certificate.
+// The thumbprint of the VMware vCenter Server SSL certificate.
 func (o LookupPrivateCloudResultOutput) VcenterCertificateThumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) string { return v.VcenterCertificateThumbprint }).(pulumi.StringOutput)
 }
 
-// The endpoint for Virtual Center Server Appliance.
+// The endpoint for VMware vCenter Server Appliance.
 func (o LookupPrivateCloudResultOutput) VcsaEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateCloudResult) string { return v.VcsaEndpoint }).(pulumi.StringOutput)
 }

@@ -23,7 +23,11 @@ import * as utilities from "../utilities";
  *     location: "westus2",
  *     kind: "fhir-R4",
  *     cosmosdbThroughput: 2000,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     accessPolicyObjectIds: current.then(current => current.objectId),
+ *     configurationExportStorageAccountName: "teststorage",
  *     tags: {
  *         environment: "testenv",
  *         purpose: "AcceptanceTests",
@@ -95,6 +99,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly authenticationConfiguration!: pulumi.Output<outputs.healthcare.ServiceAuthenticationConfiguration>;
     /**
+     * Specifies the name of the storage account which the operation configuration information is exported to.
+     */
+    public readonly configurationExportStorageAccountName!: pulumi.Output<string | undefined>;
+    /**
      * A `corsConfiguration` block as defined below.
      */
     public readonly corsConfiguration!: pulumi.Output<outputs.healthcare.ServiceCorsConfiguration>;
@@ -108,6 +116,10 @@ export class Service extends pulumi.CustomResource {
      * The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
      */
     public readonly cosmosdbThroughput!: pulumi.Output<number | undefined>;
+    /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.healthcare.ServiceIdentity | undefined>;
     /**
      * The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
      */
@@ -150,9 +162,11 @@ export class Service extends pulumi.CustomResource {
             const state = argsOrState as ServiceState | undefined;
             resourceInputs["accessPolicyObjectIds"] = state ? state.accessPolicyObjectIds : undefined;
             resourceInputs["authenticationConfiguration"] = state ? state.authenticationConfiguration : undefined;
+            resourceInputs["configurationExportStorageAccountName"] = state ? state.configurationExportStorageAccountName : undefined;
             resourceInputs["corsConfiguration"] = state ? state.corsConfiguration : undefined;
             resourceInputs["cosmosdbKeyVaultKeyVersionlessId"] = state ? state.cosmosdbKeyVaultKeyVersionlessId : undefined;
             resourceInputs["cosmosdbThroughput"] = state ? state.cosmosdbThroughput : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -166,9 +180,11 @@ export class Service extends pulumi.CustomResource {
             }
             resourceInputs["accessPolicyObjectIds"] = args ? args.accessPolicyObjectIds : undefined;
             resourceInputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
+            resourceInputs["configurationExportStorageAccountName"] = args ? args.configurationExportStorageAccountName : undefined;
             resourceInputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
             resourceInputs["cosmosdbKeyVaultKeyVersionlessId"] = args ? args.cosmosdbKeyVaultKeyVersionlessId : undefined;
             resourceInputs["cosmosdbThroughput"] = args ? args.cosmosdbThroughput : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -191,6 +207,10 @@ export interface ServiceState {
      */
     authenticationConfiguration?: pulumi.Input<inputs.healthcare.ServiceAuthenticationConfiguration>;
     /**
+     * Specifies the name of the storage account which the operation configuration information is exported to.
+     */
+    configurationExportStorageAccountName?: pulumi.Input<string>;
+    /**
      * A `corsConfiguration` block as defined below.
      */
     corsConfiguration?: pulumi.Input<inputs.healthcare.ServiceCorsConfiguration>;
@@ -204,6 +224,10 @@ export interface ServiceState {
      * The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
      */
     cosmosdbThroughput?: pulumi.Input<number>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.healthcare.ServiceIdentity>;
     /**
      * The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
      */
@@ -242,6 +266,10 @@ export interface ServiceArgs {
      */
     authenticationConfiguration?: pulumi.Input<inputs.healthcare.ServiceAuthenticationConfiguration>;
     /**
+     * Specifies the name of the storage account which the operation configuration information is exported to.
+     */
+    configurationExportStorageAccountName?: pulumi.Input<string>;
+    /**
      * A `corsConfiguration` block as defined below.
      */
     corsConfiguration?: pulumi.Input<inputs.healthcare.ServiceCorsConfiguration>;
@@ -255,6 +283,10 @@ export interface ServiceArgs {
      * The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
      */
     cosmosdbThroughput?: pulumi.Input<number>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.healthcare.ServiceIdentity>;
     /**
      * The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
      */

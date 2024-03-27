@@ -75,6 +75,10 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
      */
     public readonly catalogInfo!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisCatalogInfo | undefined>;
     /**
+     * One `copyComputeScale` block as defined below.
+     */
+    public readonly copyComputeScale!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisCopyComputeScale | undefined>;
+    /**
      * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
      *
      * > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
@@ -133,6 +137,10 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
      */
     public readonly packageStores!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisPackageStore[] | undefined>;
     /**
+     * One `pipelineExternalComputeScale` block as defined below.
+     */
+    public readonly pipelineExternalComputeScale!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisPipelineExternalComputeScale | undefined>;
+    /**
      * A `proxy` block as defined below.
      */
     public readonly proxy!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisProxy | undefined>;
@@ -155,6 +163,7 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as IntegrationRuntimeSsisState | undefined;
             resourceInputs["catalogInfo"] = state ? state.catalogInfo : undefined;
+            resourceInputs["copyComputeScale"] = state ? state.copyComputeScale : undefined;
             resourceInputs["credentialName"] = state ? state.credentialName : undefined;
             resourceInputs["customSetupScript"] = state ? state.customSetupScript : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
@@ -169,6 +178,7 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
             resourceInputs["nodeSize"] = state ? state.nodeSize : undefined;
             resourceInputs["numberOfNodes"] = state ? state.numberOfNodes : undefined;
             resourceInputs["packageStores"] = state ? state.packageStores : undefined;
+            resourceInputs["pipelineExternalComputeScale"] = state ? state.pipelineExternalComputeScale : undefined;
             resourceInputs["proxy"] = state ? state.proxy : undefined;
             resourceInputs["vnetIntegration"] = state ? state.vnetIntegration : undefined;
         } else {
@@ -180,6 +190,7 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
                 throw new Error("Missing required property 'nodeSize'");
             }
             resourceInputs["catalogInfo"] = args ? args.catalogInfo : undefined;
+            resourceInputs["copyComputeScale"] = args ? args.copyComputeScale : undefined;
             resourceInputs["credentialName"] = args ? args.credentialName : undefined;
             resourceInputs["customSetupScript"] = args ? args.customSetupScript : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
@@ -194,6 +205,7 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
             resourceInputs["nodeSize"] = args ? args.nodeSize : undefined;
             resourceInputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
             resourceInputs["packageStores"] = args ? args.packageStores : undefined;
+            resourceInputs["pipelineExternalComputeScale"] = args ? args.pipelineExternalComputeScale : undefined;
             resourceInputs["proxy"] = args ? args.proxy : undefined;
             resourceInputs["vnetIntegration"] = args ? args.vnetIntegration : undefined;
         }
@@ -210,6 +222,10 @@ export interface IntegrationRuntimeSsisState {
      * A `catalogInfo` block as defined below.
      */
     catalogInfo?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCatalogInfo>;
+    /**
+     * One `copyComputeScale` block as defined below.
+     */
+    copyComputeScale?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCopyComputeScale>;
     /**
      * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
      *
@@ -269,6 +285,10 @@ export interface IntegrationRuntimeSsisState {
      */
     packageStores?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisPackageStore>[]>;
     /**
+     * One `pipelineExternalComputeScale` block as defined below.
+     */
+    pipelineExternalComputeScale?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisPipelineExternalComputeScale>;
+    /**
      * A `proxy` block as defined below.
      */
     proxy?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisProxy>;
@@ -286,6 +306,10 @@ export interface IntegrationRuntimeSsisArgs {
      * A `catalogInfo` block as defined below.
      */
     catalogInfo?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCatalogInfo>;
+    /**
+     * One `copyComputeScale` block as defined below.
+     */
+    copyComputeScale?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCopyComputeScale>;
     /**
      * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
      *
@@ -344,6 +368,10 @@ export interface IntegrationRuntimeSsisArgs {
      * One or more `packageStore` block as defined below.
      */
     packageStores?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisPackageStore>[]>;
+    /**
+     * One `pipelineExternalComputeScale` block as defined below.
+     */
+    pipelineExternalComputeScale?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisPipelineExternalComputeScale>;
     /**
      * A `proxy` block as defined below.
      */

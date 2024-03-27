@@ -22,7 +22,10 @@ class GetDeploymentResult:
     """
     A collection of values returned by getDeployment.
     """
-    def __init__(__self__, automatic_upgrade_channel=None, capacity=None, diagnose_support_enabled=None, email=None, frontend_privates=None, frontend_publics=None, id=None, identities=None, ip_address=None, location=None, logging_storage_accounts=None, managed_resource_group=None, name=None, network_interfaces=None, nginx_version=None, resource_group_name=None, sku=None, tags=None):
+    def __init__(__self__, auto_scale_profiles=None, automatic_upgrade_channel=None, capacity=None, diagnose_support_enabled=None, email=None, frontend_privates=None, frontend_publics=None, id=None, identities=None, ip_address=None, location=None, logging_storage_accounts=None, managed_resource_group=None, name=None, network_interfaces=None, nginx_version=None, resource_group_name=None, sku=None, tags=None):
+        if auto_scale_profiles and not isinstance(auto_scale_profiles, list):
+            raise TypeError("Expected argument 'auto_scale_profiles' to be a list")
+        pulumi.set(__self__, "auto_scale_profiles", auto_scale_profiles)
         if automatic_upgrade_channel and not isinstance(automatic_upgrade_channel, str):
             raise TypeError("Expected argument 'automatic_upgrade_channel' to be a str")
         pulumi.set(__self__, "automatic_upgrade_channel", automatic_upgrade_channel)
@@ -77,6 +80,14 @@ class GetDeploymentResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="autoScaleProfiles")
+    def auto_scale_profiles(self) -> Sequence['outputs.GetDeploymentAutoScaleProfileResult']:
+        """
+        An `auto_scale_profile` block as defined below.
+        """
+        return pulumi.get(self, "auto_scale_profiles")
 
     @property
     @pulumi.getter(name="automaticUpgradeChannel")
@@ -178,7 +189,7 @@ class GetDeploymentResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The account name of the StorageAccount for logging.
+        Name of the autoscaling profile.
         """
         return pulumi.get(self, "name")
 
@@ -226,6 +237,7 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
         if False:
             yield self
         return GetDeploymentResult(
+            auto_scale_profiles=self.auto_scale_profiles,
             automatic_upgrade_channel=self.automatic_upgrade_channel,
             capacity=self.capacity,
             diagnose_support_enabled=self.diagnose_support_enabled,
@@ -276,6 +288,7 @@ def get_deployment(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:nginx/getDeployment:getDeployment', __args__, opts=opts, typ=GetDeploymentResult).value
 
     return AwaitableGetDeploymentResult(
+        auto_scale_profiles=pulumi.get(__ret__, 'auto_scale_profiles'),
         automatic_upgrade_channel=pulumi.get(__ret__, 'automatic_upgrade_channel'),
         capacity=pulumi.get(__ret__, 'capacity'),
         diagnose_support_enabled=pulumi.get(__ret__, 'diagnose_support_enabled'),

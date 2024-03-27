@@ -172,6 +172,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// A `servers` block as defined below.
+        /// </summary>
+        [Output("servers")]
+        public Output<ImmutableArray<Outputs.PostgresqlClusterServer>> Servers { get; private set; } = null!;
+
+        /// <summary>
         /// Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
         /// </summary>
         [Output("shardsOnCoordinatorEnabled")]
@@ -540,6 +546,18 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("servers")]
+        private InputList<Inputs.PostgresqlClusterServerGetArgs>? _servers;
+
+        /// <summary>
+        /// A `servers` block as defined below.
+        /// </summary>
+        public InputList<Inputs.PostgresqlClusterServerGetArgs> Servers
+        {
+            get => _servers ?? (_servers = new InputList<Inputs.PostgresqlClusterServerGetArgs>());
+            set => _servers = value;
+        }
 
         /// <summary>
         /// Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.

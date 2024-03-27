@@ -93,14 +93,14 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+     * Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -284,7 +284,7 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+         * @param resourceGroupName Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+         * @param resourceGroupName Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

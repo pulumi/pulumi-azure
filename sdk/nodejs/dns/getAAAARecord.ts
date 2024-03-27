@@ -12,12 +12,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.AaaaRecord("example", {
+ * const example = azure.dns.getAAAARecord({
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsAaaaRecordId = exampleAzurermDnsAaaaRecord.id;
+ * export const dnsAaaaRecordId = example.then(example => example.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -89,12 +89,12 @@ export interface GetAAAARecordResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.AaaaRecord("example", {
+ * const example = azure.dns.getAAAARecord({
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsAaaaRecordId = exampleAzurermDnsAaaaRecord.id;
+ * export const dnsAaaaRecordId = example.then(example => example.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */

@@ -12,180 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages the configuration for a Nginx Deployment.
-//
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/nginx"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				AllocationMethod:  pulumi.String("Static"),
-//				Sku:               pulumi.String("Standard"),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-vnet"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("delegation"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("NGINX.NGINXPLUS/nginxDeployments"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDeployment, err := nginx.NewDeployment(ctx, "example", &nginx.DeploymentArgs{
-//				Name:                   pulumi.String("example-nginx"),
-//				ResourceGroupName:      example.Name,
-//				Sku:                    pulumi.String("publicpreview_Monthly_gmz7xq9ge3py"),
-//				Location:               example.Location,
-//				ManagedResourceGroup:   pulumi.String("example"),
-//				DiagnoseSupportEnabled: pulumi.Bool(true),
-//				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
-//					IpAddresses: pulumi.StringArray{
-//						examplePublicIp.ID(),
-//					},
-//				},
-//				NetworkInterfaces: nginx.DeploymentNetworkInterfaceArray{
-//					&nginx.DeploymentNetworkInterfaceArgs{
-//						SubnetId: exampleSubnet.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: `http {
-//	    server {
-//	        listen 80;
-//	        location / {
-//	            default_type text/html;
-//	            return 200 '<!doctype html><html lang="en"><head></head><body>
-//	                <div>this one will be updated</div>
-//	                <div>at 10:38 am</div>
-//	            </body></html>';
-//	        }
-//	        include site/*.conf;
-//	    }
-//	}
-//
-// `,
-//
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeBase64encode1, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: `location /bbb {
-//	 default_type text/html;
-//	 return 200 '<!doctype html><html lang="en"><head></head><body>
-//	  <div>this one will be updated</div>
-//	  <div>at 10:38 am</div>
-//	 </body></html>';
-//	}
-//
-// `,
-//
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = nginx.NewConfiguration(ctx, "example", &nginx.ConfigurationArgs{
-//				NginxDeploymentId: exampleDeployment.ID(),
-//				RootFile:          pulumi.String("/etc/nginx/nginx.conf"),
-//				ConfigFiles: nginx.ConfigurationConfigFileArray{
-//					&nginx.ConfigurationConfigFileArgs{
-//						Content:     invokeBase64encode.Result,
-//						VirtualPath: pulumi.String("/etc/nginx/nginx.conf"),
-//					},
-//					&nginx.ConfigurationConfigFileArgs{
-//						Content:     invokeBase64encode1.Result,
-//						VirtualPath: pulumi.String("/etc/nginx/site/b.conf"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
-// ## Import
-//
-// An Nginx Configuration can be imported using the `resource id`, e.g.
-//
-// ```sh
-// $ pulumi import azure:nginx/configuration:Configuration example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/dep1/configurations/default
-// ```
 type Configuration struct {
 	pulumi.CustomResourceState
 
-	// One or more `configFile` blocks as defined below.
-	ConfigFiles ConfigurationConfigFileArrayOutput `pulumi:"configFiles"`
-	// The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
-	NginxDeploymentId pulumi.StringOutput `pulumi:"nginxDeploymentId"`
-	// Specify the package data for this configuration.
-	PackageData pulumi.StringPtrOutput `pulumi:"packageData"`
-	// One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
-	ProtectedFiles ConfigurationProtectedFileArrayOutput `pulumi:"protectedFiles"`
-	// Specify the root file path of this Nginx Configuration.
-	RootFile pulumi.StringOutput `pulumi:"rootFile"`
+	ConfigFiles       ConfigurationConfigFileArrayOutput    `pulumi:"configFiles"`
+	NginxDeploymentId pulumi.StringOutput                   `pulumi:"nginxDeploymentId"`
+	PackageData       pulumi.StringPtrOutput                `pulumi:"packageData"`
+	ProtectedFiles    ConfigurationProtectedFileArrayOutput `pulumi:"protectedFiles"`
+	RootFile          pulumi.StringOutput                   `pulumi:"rootFile"`
 }
 
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -224,29 +58,19 @@ func GetConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Configuration resources.
 type configurationState struct {
-	// One or more `configFile` blocks as defined below.
-	ConfigFiles []ConfigurationConfigFile `pulumi:"configFiles"`
-	// The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
-	NginxDeploymentId *string `pulumi:"nginxDeploymentId"`
-	// Specify the package data for this configuration.
-	PackageData *string `pulumi:"packageData"`
-	// One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
-	ProtectedFiles []ConfigurationProtectedFile `pulumi:"protectedFiles"`
-	// Specify the root file path of this Nginx Configuration.
-	RootFile *string `pulumi:"rootFile"`
+	ConfigFiles       []ConfigurationConfigFile    `pulumi:"configFiles"`
+	NginxDeploymentId *string                      `pulumi:"nginxDeploymentId"`
+	PackageData       *string                      `pulumi:"packageData"`
+	ProtectedFiles    []ConfigurationProtectedFile `pulumi:"protectedFiles"`
+	RootFile          *string                      `pulumi:"rootFile"`
 }
 
 type ConfigurationState struct {
-	// One or more `configFile` blocks as defined below.
-	ConfigFiles ConfigurationConfigFileArrayInput
-	// The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
+	ConfigFiles       ConfigurationConfigFileArrayInput
 	NginxDeploymentId pulumi.StringPtrInput
-	// Specify the package data for this configuration.
-	PackageData pulumi.StringPtrInput
-	// One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
-	ProtectedFiles ConfigurationProtectedFileArrayInput
-	// Specify the root file path of this Nginx Configuration.
-	RootFile pulumi.StringPtrInput
+	PackageData       pulumi.StringPtrInput
+	ProtectedFiles    ConfigurationProtectedFileArrayInput
+	RootFile          pulumi.StringPtrInput
 }
 
 func (ConfigurationState) ElementType() reflect.Type {
@@ -254,30 +78,20 @@ func (ConfigurationState) ElementType() reflect.Type {
 }
 
 type configurationArgs struct {
-	// One or more `configFile` blocks as defined below.
-	ConfigFiles []ConfigurationConfigFile `pulumi:"configFiles"`
-	// The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
-	NginxDeploymentId string `pulumi:"nginxDeploymentId"`
-	// Specify the package data for this configuration.
-	PackageData *string `pulumi:"packageData"`
-	// One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
-	ProtectedFiles []ConfigurationProtectedFile `pulumi:"protectedFiles"`
-	// Specify the root file path of this Nginx Configuration.
-	RootFile string `pulumi:"rootFile"`
+	ConfigFiles       []ConfigurationConfigFile    `pulumi:"configFiles"`
+	NginxDeploymentId string                       `pulumi:"nginxDeploymentId"`
+	PackageData       *string                      `pulumi:"packageData"`
+	ProtectedFiles    []ConfigurationProtectedFile `pulumi:"protectedFiles"`
+	RootFile          string                       `pulumi:"rootFile"`
 }
 
 // The set of arguments for constructing a Configuration resource.
 type ConfigurationArgs struct {
-	// One or more `configFile` blocks as defined below.
-	ConfigFiles ConfigurationConfigFileArrayInput
-	// The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
+	ConfigFiles       ConfigurationConfigFileArrayInput
 	NginxDeploymentId pulumi.StringInput
-	// Specify the package data for this configuration.
-	PackageData pulumi.StringPtrInput
-	// One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
-	ProtectedFiles ConfigurationProtectedFileArrayInput
-	// Specify the root file path of this Nginx Configuration.
-	RootFile pulumi.StringInput
+	PackageData       pulumi.StringPtrInput
+	ProtectedFiles    ConfigurationProtectedFileArrayInput
+	RootFile          pulumi.StringInput
 }
 
 func (ConfigurationArgs) ElementType() reflect.Type {
@@ -367,27 +181,22 @@ func (o ConfigurationOutput) ToConfigurationOutputWithContext(ctx context.Contex
 	return o
 }
 
-// One or more `configFile` blocks as defined below.
 func (o ConfigurationOutput) ConfigFiles() ConfigurationConfigFileArrayOutput {
 	return o.ApplyT(func(v *Configuration) ConfigurationConfigFileArrayOutput { return v.ConfigFiles }).(ConfigurationConfigFileArrayOutput)
 }
 
-// The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
 func (o ConfigurationOutput) NginxDeploymentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.NginxDeploymentId }).(pulumi.StringOutput)
 }
 
-// Specify the package data for this configuration.
 func (o ConfigurationOutput) PackageData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.PackageData }).(pulumi.StringPtrOutput)
 }
 
-// One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
 func (o ConfigurationOutput) ProtectedFiles() ConfigurationProtectedFileArrayOutput {
 	return o.ApplyT(func(v *Configuration) ConfigurationProtectedFileArrayOutput { return v.ProtectedFiles }).(ConfigurationProtectedFileArrayOutput)
 }
 
-// Specify the root file path of this Nginx Configuration.
 func (o ConfigurationOutput) RootFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.RootFile }).(pulumi.StringOutput)
 }

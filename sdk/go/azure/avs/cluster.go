@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a VMware Cluster.
+// Manages an Azure VMware Solution Cluster.
 //
 // ## Example Usage
 //
@@ -71,7 +71,7 @@ import (
 //
 // ## Import
 //
-// VMware Clusters can be imported using the `resource id`, e.g.
+// Azure VMware Solution Clusters can be imported using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:avs/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/cluster1
@@ -79,17 +79,17 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// The count of the VMware Cluster nodes.
+	// The count of the Azure VMware Solution Cluster nodes.
 	ClusterNodeCount pulumi.IntOutput `pulumi:"clusterNodeCount"`
-	// A number that identifies this VMware Cluster in its VMware Private Cloud.
+	// A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
 	ClusterNumber pulumi.IntOutput `pulumi:"clusterNumber"`
-	// A list of host of the VMware Cluster.
+	// A list of hosts in the Azure VMware Solution Cluster.
 	Hosts pulumi.StringArrayOutput `pulumi:"hosts"`
-	// The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+	// The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+	// The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+	// The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
 	VmwareCloudId pulumi.StringOutput `pulumi:"vmwareCloudId"`
 }
 
@@ -132,32 +132,32 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// The count of the VMware Cluster nodes.
+	// The count of the Azure VMware Solution Cluster nodes.
 	ClusterNodeCount *int `pulumi:"clusterNodeCount"`
-	// A number that identifies this VMware Cluster in its VMware Private Cloud.
+	// A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
 	ClusterNumber *int `pulumi:"clusterNumber"`
-	// A list of host of the VMware Cluster.
+	// A list of hosts in the Azure VMware Solution Cluster.
 	Hosts []string `pulumi:"hosts"`
-	// The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+	// The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
 	Name *string `pulumi:"name"`
-	// The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+	// The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
 	SkuName *string `pulumi:"skuName"`
-	// The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+	// The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
 	VmwareCloudId *string `pulumi:"vmwareCloudId"`
 }
 
 type ClusterState struct {
-	// The count of the VMware Cluster nodes.
+	// The count of the Azure VMware Solution Cluster nodes.
 	ClusterNodeCount pulumi.IntPtrInput
-	// A number that identifies this VMware Cluster in its VMware Private Cloud.
+	// A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
 	ClusterNumber pulumi.IntPtrInput
-	// A list of host of the VMware Cluster.
+	// A list of hosts in the Azure VMware Solution Cluster.
 	Hosts pulumi.StringArrayInput
-	// The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+	// The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
 	Name pulumi.StringPtrInput
-	// The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+	// The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
 	SkuName pulumi.StringPtrInput
-	// The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+	// The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
 	VmwareCloudId pulumi.StringPtrInput
 }
 
@@ -166,25 +166,25 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// The count of the VMware Cluster nodes.
+	// The count of the Azure VMware Solution Cluster nodes.
 	ClusterNodeCount int `pulumi:"clusterNodeCount"`
-	// The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+	// The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
 	Name *string `pulumi:"name"`
-	// The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+	// The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
 	SkuName string `pulumi:"skuName"`
-	// The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+	// The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
 	VmwareCloudId string `pulumi:"vmwareCloudId"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// The count of the VMware Cluster nodes.
+	// The count of the Azure VMware Solution Cluster nodes.
 	ClusterNodeCount pulumi.IntInput
-	// The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+	// The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
 	Name pulumi.StringPtrInput
-	// The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+	// The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
 	SkuName pulumi.StringInput
-	// The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+	// The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
 	VmwareCloudId pulumi.StringInput
 }
 
@@ -275,32 +275,32 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
-// The count of the VMware Cluster nodes.
+// The count of the Azure VMware Solution Cluster nodes.
 func (o ClusterOutput) ClusterNodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.ClusterNodeCount }).(pulumi.IntOutput)
 }
 
-// A number that identifies this VMware Cluster in its VMware Private Cloud.
+// A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
 func (o ClusterOutput) ClusterNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.ClusterNumber }).(pulumi.IntOutput)
 }
 
-// A list of host of the VMware Cluster.
+// A list of hosts in the Azure VMware Solution Cluster.
 func (o ClusterOutput) Hosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.Hosts }).(pulumi.StringArrayOutput)
 }
 
-// The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+// The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
 func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+// The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
 func (o ClusterOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
 
-// The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+// The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
 func (o ClusterOutput) VmwareCloudId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.VmwareCloudId }).(pulumi.StringOutput)
 }

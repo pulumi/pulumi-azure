@@ -179,14 +179,14 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
         return this.recoveryVaultName;
     }
     /**
-     * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+     * Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

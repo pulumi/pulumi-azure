@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -162,6 +163,20 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      */
     public Output<String> secondaryAuthorizationKey() {
         return this.secondaryAuthorizationKey;
+    }
+    /**
+     * Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+     * 
+     */
+    @Export(name="selfContainedInteractiveAuthoringEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> selfContainedInteractiveAuthoringEnabled;
+
+    /**
+     * @return Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+     * 
+     */
+    public Output<Optional<Boolean>> selfContainedInteractiveAuthoringEnabled() {
+        return Codegen.optional(this.selfContainedInteractiveAuthoringEnabled);
     }
 
     /**

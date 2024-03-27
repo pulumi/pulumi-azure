@@ -66,8 +66,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTableEntity = new TableEntity(&#34;exampleTableEntity&#34;, TableEntityArgs.builder()        
- *             .storageAccountName(exampleAccount.name())
- *             .tableName(exampleTable.name())
+ *             .storageTableId(exampleTable.id())
  *             .partitionKey(&#34;examplepartition&#34;)
  *             .rowKey(&#34;examplerow&#34;)
  *             .entity(Map.of(&#34;example&#34;, &#34;example&#34;))
@@ -104,58 +103,68 @@ public class TableEntity extends com.pulumi.resources.CustomResource {
         return this.entity;
     }
     /**
-     * The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+     * The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="partitionKey", refs={String.class}, tree="[0]")
     private Output<String> partitionKey;
 
     /**
-     * @return The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+     * @return The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> partitionKey() {
         return this.partitionKey;
     }
     /**
-     * The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+     * The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="rowKey", refs={String.class}, tree="[0]")
     private Output<String> rowKey;
 
     /**
-     * @return The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+     * @return The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> rowKey() {
         return this.rowKey;
     }
     /**
-     * Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
+     * @deprecated
+     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
     @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output<String> storageAccountName;
 
-    /**
-     * @return Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> storageAccountName() {
         return this.storageAccountName;
     }
     /**
-     * The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
+     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      * 
      */
+    @Export(name="storageTableId", refs={String.class}, tree="[0]")
+    private Output<String> storageTableId;
+
+    /**
+     * @return The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> storageTableId() {
+        return this.storageTableId;
+    }
+    /**
+     * @deprecated
+     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
     @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
-    /**
-     * @return The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }

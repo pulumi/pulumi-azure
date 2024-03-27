@@ -29,6 +29,7 @@ class AccountArgs:
                  custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
                  customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
                  default_to_oauth_authentication: Optional[pulumi.Input[bool]] = None,
+                 dns_endpoint_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
@@ -74,6 +75,9 @@ class AccountArgs:
         :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[bool] default_to_oauth_authentication: Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+        :param pulumi.Input[str] dns_endpoint_type: Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
@@ -137,6 +141,8 @@ class AccountArgs:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if default_to_oauth_authentication is not None:
             pulumi.set(__self__, "default_to_oauth_authentication", default_to_oauth_authentication)
+        if dns_endpoint_type is not None:
+            pulumi.set(__self__, "dns_endpoint_type", dns_endpoint_type)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_https_traffic_only is not None:
@@ -347,6 +353,20 @@ class AccountArgs:
     @default_to_oauth_authentication.setter
     def default_to_oauth_authentication(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "default_to_oauth_authentication", value)
+
+    @property
+    @pulumi.getter(name="dnsEndpointType")
+    def dns_endpoint_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+
+        > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+        """
+        return pulumi.get(self, "dns_endpoint_type")
+
+    @dns_endpoint_type.setter
+    def dns_endpoint_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_endpoint_type", value)
 
     @property
     @pulumi.getter(name="edgeZone")
@@ -665,6 +685,7 @@ class _AccountState:
                  custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
                  customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
                  default_to_oauth_authentication: Optional[pulumi.Input[bool]] = None,
+                 dns_endpoint_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
@@ -782,6 +803,9 @@ class _AccountState:
         :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[bool] default_to_oauth_authentication: Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+        :param pulumi.Input[str] dns_endpoint_type: Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
@@ -919,6 +943,8 @@ class _AccountState:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if default_to_oauth_authentication is not None:
             pulumi.set(__self__, "default_to_oauth_authentication", default_to_oauth_authentication)
+        if dns_endpoint_type is not None:
+            pulumi.set(__self__, "dns_endpoint_type", dns_endpoint_type)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_https_traffic_only is not None:
@@ -1263,6 +1289,20 @@ class _AccountState:
     @default_to_oauth_authentication.setter
     def default_to_oauth_authentication(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "default_to_oauth_authentication", value)
+
+    @property
+    @pulumi.getter(name="dnsEndpointType")
+    def dns_endpoint_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+
+        > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+        """
+        return pulumi.get(self, "dns_endpoint_type")
+
+    @dns_endpoint_type.setter
+    def dns_endpoint_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_endpoint_type", value)
 
     @property
     @pulumi.getter(name="edgeZone")
@@ -2459,6 +2499,7 @@ class Account(pulumi.CustomResource):
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']]] = None,
                  default_to_oauth_authentication: Optional[pulumi.Input[bool]] = None,
+                 dns_endpoint_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
@@ -2579,6 +2620,9 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[bool] default_to_oauth_authentication: Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+        :param pulumi.Input[str] dns_endpoint_type: Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
@@ -2727,6 +2771,7 @@ class Account(pulumi.CustomResource):
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']]] = None,
                  default_to_oauth_authentication: Optional[pulumi.Input[bool]] = None,
+                 dns_endpoint_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
@@ -2777,6 +2822,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["custom_domain"] = custom_domain
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["default_to_oauth_authentication"] = default_to_oauth_authentication
+            __props__.__dict__["dns_endpoint_type"] = dns_endpoint_type
             __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
             __props__.__dict__["identity"] = identity
@@ -2900,6 +2946,7 @@ class Account(pulumi.CustomResource):
             custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
             customer_managed_key: Optional[pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']]] = None,
             default_to_oauth_authentication: Optional[pulumi.Input[bool]] = None,
+            dns_endpoint_type: Optional[pulumi.Input[str]] = None,
             edge_zone: Optional[pulumi.Input[str]] = None,
             enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
@@ -3022,6 +3069,9 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[bool] default_to_oauth_authentication: Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+        :param pulumi.Input[str] dns_endpoint_type: Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
@@ -3151,6 +3201,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["custom_domain"] = custom_domain
         __props__.__dict__["customer_managed_key"] = customer_managed_key
         __props__.__dict__["default_to_oauth_authentication"] = default_to_oauth_authentication
+        __props__.__dict__["dns_endpoint_type"] = dns_endpoint_type
         __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
         __props__.__dict__["identity"] = identity
@@ -3351,6 +3402,16 @@ class Account(pulumi.CustomResource):
         Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
         """
         return pulumi.get(self, "default_to_oauth_authentication")
+
+    @property
+    @pulumi.getter(name="dnsEndpointType")
+    def dns_endpoint_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+
+        > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+        """
+        return pulumi.get(self, "dns_endpoint_type")
 
     @property
     @pulumi.getter(name="edgeZone")

@@ -455,14 +455,14 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
     }
 
     /**
-     * Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+     * Should the Windows Web App Slot use a 32-bit worker. The default value varies from different service plans.
      * 
      */
     @Import(name="use32BitWorker")
     private @Nullable Output<Boolean> use32BitWorker;
 
     /**
-     * @return Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+     * @return Should the Windows Web App Slot use a 32-bit worker. The default value varies from different service plans.
      * 
      */
     public Optional<Output<Boolean>> use32BitWorker() {
@@ -1224,7 +1224,7 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param use32BitWorker Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+         * @param use32BitWorker Should the Windows Web App Slot use a 32-bit worker. The default value varies from different service plans.
          * 
          * @return builder
          * 
@@ -1235,7 +1235,7 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param use32BitWorker Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+         * @param use32BitWorker Should the Windows Web App Slot use a 32-bit worker. The default value varies from different service plans.
          * 
          * @return builder
          * 

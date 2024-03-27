@@ -73,6 +73,8 @@ type IntegrationRuntimeSsis struct {
 
 	// A `catalogInfo` block as defined below.
 	CatalogInfo IntegrationRuntimeSsisCatalogInfoPtrOutput `pulumi:"catalogInfo"`
+	// One `copyComputeScale` block as defined below.
+	CopyComputeScale IntegrationRuntimeSsisCopyComputeScalePtrOutput `pulumi:"copyComputeScale"`
 	// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 	//
 	// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
@@ -103,6 +105,8 @@ type IntegrationRuntimeSsis struct {
 	NumberOfNodes pulumi.IntPtrOutput `pulumi:"numberOfNodes"`
 	// One or more `packageStore` block as defined below.
 	PackageStores IntegrationRuntimeSsisPackageStoreArrayOutput `pulumi:"packageStores"`
+	// One `pipelineExternalComputeScale` block as defined below.
+	PipelineExternalComputeScale IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput `pulumi:"pipelineExternalComputeScale"`
 	// A `proxy` block as defined below.
 	Proxy IntegrationRuntimeSsisProxyPtrOutput `pulumi:"proxy"`
 	// A `vnetIntegration` block as defined below.
@@ -147,6 +151,8 @@ func GetIntegrationRuntimeSsis(ctx *pulumi.Context,
 type integrationRuntimeSsisState struct {
 	// A `catalogInfo` block as defined below.
 	CatalogInfo *IntegrationRuntimeSsisCatalogInfo `pulumi:"catalogInfo"`
+	// One `copyComputeScale` block as defined below.
+	CopyComputeScale *IntegrationRuntimeSsisCopyComputeScale `pulumi:"copyComputeScale"`
 	// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 	//
 	// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
@@ -177,6 +183,8 @@ type integrationRuntimeSsisState struct {
 	NumberOfNodes *int `pulumi:"numberOfNodes"`
 	// One or more `packageStore` block as defined below.
 	PackageStores []IntegrationRuntimeSsisPackageStore `pulumi:"packageStores"`
+	// One `pipelineExternalComputeScale` block as defined below.
+	PipelineExternalComputeScale *IntegrationRuntimeSsisPipelineExternalComputeScale `pulumi:"pipelineExternalComputeScale"`
 	// A `proxy` block as defined below.
 	Proxy *IntegrationRuntimeSsisProxy `pulumi:"proxy"`
 	// A `vnetIntegration` block as defined below.
@@ -186,6 +194,8 @@ type integrationRuntimeSsisState struct {
 type IntegrationRuntimeSsisState struct {
 	// A `catalogInfo` block as defined below.
 	CatalogInfo IntegrationRuntimeSsisCatalogInfoPtrInput
+	// One `copyComputeScale` block as defined below.
+	CopyComputeScale IntegrationRuntimeSsisCopyComputeScalePtrInput
 	// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 	//
 	// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
@@ -216,6 +226,8 @@ type IntegrationRuntimeSsisState struct {
 	NumberOfNodes pulumi.IntPtrInput
 	// One or more `packageStore` block as defined below.
 	PackageStores IntegrationRuntimeSsisPackageStoreArrayInput
+	// One `pipelineExternalComputeScale` block as defined below.
+	PipelineExternalComputeScale IntegrationRuntimeSsisPipelineExternalComputeScalePtrInput
 	// A `proxy` block as defined below.
 	Proxy IntegrationRuntimeSsisProxyPtrInput
 	// A `vnetIntegration` block as defined below.
@@ -229,6 +241,8 @@ func (IntegrationRuntimeSsisState) ElementType() reflect.Type {
 type integrationRuntimeSsisArgs struct {
 	// A `catalogInfo` block as defined below.
 	CatalogInfo *IntegrationRuntimeSsisCatalogInfo `pulumi:"catalogInfo"`
+	// One `copyComputeScale` block as defined below.
+	CopyComputeScale *IntegrationRuntimeSsisCopyComputeScale `pulumi:"copyComputeScale"`
 	// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 	//
 	// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
@@ -259,6 +273,8 @@ type integrationRuntimeSsisArgs struct {
 	NumberOfNodes *int `pulumi:"numberOfNodes"`
 	// One or more `packageStore` block as defined below.
 	PackageStores []IntegrationRuntimeSsisPackageStore `pulumi:"packageStores"`
+	// One `pipelineExternalComputeScale` block as defined below.
+	PipelineExternalComputeScale *IntegrationRuntimeSsisPipelineExternalComputeScale `pulumi:"pipelineExternalComputeScale"`
 	// A `proxy` block as defined below.
 	Proxy *IntegrationRuntimeSsisProxy `pulumi:"proxy"`
 	// A `vnetIntegration` block as defined below.
@@ -269,6 +285,8 @@ type integrationRuntimeSsisArgs struct {
 type IntegrationRuntimeSsisArgs struct {
 	// A `catalogInfo` block as defined below.
 	CatalogInfo IntegrationRuntimeSsisCatalogInfoPtrInput
+	// One `copyComputeScale` block as defined below.
+	CopyComputeScale IntegrationRuntimeSsisCopyComputeScalePtrInput
 	// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 	//
 	// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
@@ -299,6 +317,8 @@ type IntegrationRuntimeSsisArgs struct {
 	NumberOfNodes pulumi.IntPtrInput
 	// One or more `packageStore` block as defined below.
 	PackageStores IntegrationRuntimeSsisPackageStoreArrayInput
+	// One `pipelineExternalComputeScale` block as defined below.
+	PipelineExternalComputeScale IntegrationRuntimeSsisPipelineExternalComputeScalePtrInput
 	// A `proxy` block as defined below.
 	Proxy IntegrationRuntimeSsisProxyPtrInput
 	// A `vnetIntegration` block as defined below.
@@ -397,6 +417,13 @@ func (o IntegrationRuntimeSsisOutput) CatalogInfo() IntegrationRuntimeSsisCatalo
 	return o.ApplyT(func(v *IntegrationRuntimeSsis) IntegrationRuntimeSsisCatalogInfoPtrOutput { return v.CatalogInfo }).(IntegrationRuntimeSsisCatalogInfoPtrOutput)
 }
 
+// One `copyComputeScale` block as defined below.
+func (o IntegrationRuntimeSsisOutput) CopyComputeScale() IntegrationRuntimeSsisCopyComputeScalePtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsis) IntegrationRuntimeSsisCopyComputeScalePtrOutput {
+		return v.CopyComputeScale
+	}).(IntegrationRuntimeSsisCopyComputeScalePtrOutput)
+}
+
 // The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
 //
 // > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
@@ -473,6 +500,13 @@ func (o IntegrationRuntimeSsisOutput) NumberOfNodes() pulumi.IntPtrOutput {
 // One or more `packageStore` block as defined below.
 func (o IntegrationRuntimeSsisOutput) PackageStores() IntegrationRuntimeSsisPackageStoreArrayOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsis) IntegrationRuntimeSsisPackageStoreArrayOutput { return v.PackageStores }).(IntegrationRuntimeSsisPackageStoreArrayOutput)
+}
+
+// One `pipelineExternalComputeScale` block as defined below.
+func (o IntegrationRuntimeSsisOutput) PipelineExternalComputeScale() IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsis) IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput {
+		return v.PipelineExternalComputeScale
+	}).(IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput)
 }
 
 // A `proxy` block as defined below.

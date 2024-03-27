@@ -127,7 +127,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
-        /// Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+        /// Should the Windows Web App Slot use a 32-bit worker. The default value varies from different service plans.
         /// </summary>
         public readonly bool? Use32BitWorker;
         /// <summary>

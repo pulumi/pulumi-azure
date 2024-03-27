@@ -97,6 +97,21 @@ import * as utilities from "../utilities";
  *     roleDefinitionName: "Reader",
  *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
  * });
+ * const testVaultMsiSnapshotContributorOnSnapRg = new azure.authorization.Assignment("test_vault_msi_snapshot_contributor_on_snap_rg", {
+ *     scope: snap.id,
+ *     roleDefinitionName: "Disk Snapshot Contributor",
+ *     principalId: test.identity[0].principalId,
+ * });
+ * const testVaultDataOperatorOnSnapRg = new azure.authorization.Assignment("test_vault_data_operator_on_snap_rg", {
+ *     scope: snap.id,
+ *     roleDefinitionName: "Data Operator for Managed Disks",
+ *     principalId: test.identity[0].principalId,
+ * });
+ * const testVaultDataContributorOnStorage = new azure.authorization.Assignment("test_vault_data_contributor_on_storage", {
+ *     scope: testAzurermStorageAccount.id,
+ *     roleDefinitionName: "Storage Blob Data Contributor",
+ *     principalId: test.identity[0].principalId,
+ * });
  * const clusterMsiContributorOnSnapRg = new azure.authorization.Assignment("cluster_msi_contributor_on_snap_rg", {
  *     scope: snap.id,
  *     roleDefinitionName: "Contributor",

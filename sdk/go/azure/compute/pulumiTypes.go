@@ -30603,7 +30603,7 @@ type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct
 	Primary bool `pulumi:"primary"`
 	// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
 	PublicIpAddresses []GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
-	// The the identifier of the subnet.
+	// The identifier of the subnet.
 	SubnetId string `pulumi:"subnetId"`
 	// The Internet Protocol Version of the public IP address.
 	Version string `pulumi:"version"`
@@ -30635,7 +30635,7 @@ type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs st
 	Primary pulumi.BoolInput `pulumi:"primary"`
 	// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
 	PublicIpAddresses GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
-	// The the identifier of the subnet.
+	// The identifier of the subnet.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// The Internet Protocol Version of the public IP address.
 	Version pulumi.StringInput `pulumi:"version"`
@@ -30737,7 +30737,7 @@ func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutp
 	}).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
 }
 
-// The the identifier of the subnet.
+// The identifier of the subnet.
 func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -32567,7 +32567,7 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
 	Primary bool `pulumi:"primary"`
 	// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
 	PublicIpAddresses []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
-	// The the identifier of the subnet.
+	// The identifier of the subnet.
 	SubnetId string `pulumi:"subnetId"`
 	// The Internet Protocol Version of the public IP address.
 	Version string `pulumi:"version"`
@@ -32599,7 +32599,7 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
 	Primary pulumi.BoolInput `pulumi:"primary"`
 	// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
 	PublicIpAddresses GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
-	// The the identifier of the subnet.
+	// The identifier of the subnet.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// The Internet Protocol Version of the public IP address.
 	Version pulumi.StringInput `pulumi:"version"`
@@ -32701,7 +32701,7 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) PublicIp
 	}).(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
 }
 
-// The the identifier of the subnet.
+// The identifier of the subnet.
 func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.nginx.outputs;
 
+import com.pulumi.azure.nginx.outputs.GetDeploymentAutoScaleProfile;
 import com.pulumi.azure.nginx.outputs.GetDeploymentFrontendPrivate;
 import com.pulumi.azure.nginx.outputs.GetDeploymentFrontendPublic;
 import com.pulumi.azure.nginx.outputs.GetDeploymentIdentity;
@@ -19,6 +20,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDeploymentResult {
+    /**
+     * @return An `auto_scale_profile` block as defined below.
+     * 
+     */
+    private List<GetDeploymentAutoScaleProfile> autoScaleProfiles;
     /**
      * @return The automatic upgrade channel for this NGINX deployment.
      * 
@@ -80,7 +86,7 @@ public final class GetDeploymentResult {
      */
     private String managedResourceGroup;
     /**
-     * @return The account name of the StorageAccount for logging.
+     * @return Name of the autoscaling profile.
      * 
      */
     private String name;
@@ -107,6 +113,13 @@ public final class GetDeploymentResult {
     private Map<String,String> tags;
 
     private GetDeploymentResult() {}
+    /**
+     * @return An `auto_scale_profile` block as defined below.
+     * 
+     */
+    public List<GetDeploymentAutoScaleProfile> autoScaleProfiles() {
+        return this.autoScaleProfiles;
+    }
     /**
      * @return The automatic upgrade channel for this NGINX deployment.
      * 
@@ -192,7 +205,7 @@ public final class GetDeploymentResult {
         return this.managedResourceGroup;
     }
     /**
-     * @return The account name of the StorageAccount for logging.
+     * @return Name of the autoscaling profile.
      * 
      */
     public String name() {
@@ -239,6 +252,7 @@ public final class GetDeploymentResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetDeploymentAutoScaleProfile> autoScaleProfiles;
         private String automaticUpgradeChannel;
         private Integer capacity;
         private Boolean diagnoseSupportEnabled;
@@ -260,6 +274,7 @@ public final class GetDeploymentResult {
         public Builder() {}
         public Builder(GetDeploymentResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.autoScaleProfiles = defaults.autoScaleProfiles;
     	      this.automaticUpgradeChannel = defaults.automaticUpgradeChannel;
     	      this.capacity = defaults.capacity;
     	      this.diagnoseSupportEnabled = defaults.diagnoseSupportEnabled;
@@ -280,6 +295,17 @@ public final class GetDeploymentResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder autoScaleProfiles(List<GetDeploymentAutoScaleProfile> autoScaleProfiles) {
+            if (autoScaleProfiles == null) {
+              throw new MissingRequiredPropertyException("GetDeploymentResult", "autoScaleProfiles");
+            }
+            this.autoScaleProfiles = autoScaleProfiles;
+            return this;
+        }
+        public Builder autoScaleProfiles(GetDeploymentAutoScaleProfile... autoScaleProfiles) {
+            return autoScaleProfiles(List.of(autoScaleProfiles));
+        }
         @CustomType.Setter
         public Builder automaticUpgradeChannel(String automaticUpgradeChannel) {
             if (automaticUpgradeChannel == null) {
@@ -441,6 +467,7 @@ public final class GetDeploymentResult {
         }
         public GetDeploymentResult build() {
             final var _resultValue = new GetDeploymentResult();
+            _resultValue.autoScaleProfiles = autoScaleProfiles;
             _resultValue.automaticUpgradeChannel = automaticUpgradeChannel;
             _resultValue.capacity = capacity;
             _resultValue.diagnoseSupportEnabled = diagnoseSupportEnabled;

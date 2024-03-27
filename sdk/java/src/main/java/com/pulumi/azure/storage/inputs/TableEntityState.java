@@ -32,14 +32,14 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+     * The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="partitionKey")
     private @Nullable Output<String> partitionKey;
 
     /**
-     * @return The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+     * @return The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> partitionKey() {
@@ -47,14 +47,14 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+     * The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="rowKey")
     private @Nullable Output<String> rowKey;
 
     /**
-     * @return The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+     * @return The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> rowKey() {
@@ -62,31 +62,54 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
+     * @deprecated
+     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
     @Import(name="storageAccountName")
     private @Nullable Output<String> storageAccountName;
 
     /**
-     * @return Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
+     * @deprecated
+     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
     public Optional<Output<String>> storageAccountName() {
         return Optional.ofNullable(this.storageAccountName);
     }
 
     /**
-     * The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
+     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      * 
      */
+    @Import(name="storageTableId")
+    private @Nullable Output<String> storageTableId;
+
+    /**
+     * @return The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> storageTableId() {
+        return Optional.ofNullable(this.storageTableId);
+    }
+
+    /**
+     * @deprecated
+     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
     @Import(name="tableName")
     private @Nullable Output<String> tableName;
 
     /**
-     * @return The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
+     * @deprecated
+     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
     public Optional<Output<String>> tableName() {
         return Optional.ofNullable(this.tableName);
     }
@@ -98,6 +121,7 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
         this.partitionKey = $.partitionKey;
         this.rowKey = $.rowKey;
         this.storageAccountName = $.storageAccountName;
+        this.storageTableId = $.storageTableId;
         this.tableName = $.tableName;
     }
 
@@ -141,7 +165,7 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partitionKey The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+         * @param partitionKey The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -152,7 +176,7 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partitionKey The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+         * @param partitionKey The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -162,7 +186,7 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rowKey The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+         * @param rowKey The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -173,7 +197,7 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rowKey The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+         * @param rowKey The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -183,43 +207,72 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
         public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;
         }
 
         /**
-         * @param storageAccountName Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
         public Builder storageAccountName(String storageAccountName) {
             return storageAccountName(Output.of(storageAccountName));
         }
 
         /**
-         * @param tableName The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
+         * @param storageTableId The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
+        public Builder storageTableId(@Nullable Output<String> storageTableId) {
+            $.storageTableId = storageTableId;
+            return this;
+        }
+
+        /**
+         * @param storageTableId The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageTableId(String storageTableId) {
+            return storageTableId(Output.of(storageTableId));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+         * 
+         */
+        @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
         public Builder tableName(@Nullable Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
         /**
-         * @param tableName The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

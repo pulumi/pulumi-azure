@@ -86,12 +86,16 @@ public class Container extends com.pulumi.resources.CustomResource {
     /**
      * The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
      * 
+     * &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+     * 
      */
     @Export(name="containerAccessType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> containerAccessType;
 
     /**
      * @return The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+     * 
+     * &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      * 
      */
     public Output<Optional<String>> containerAccessType() {

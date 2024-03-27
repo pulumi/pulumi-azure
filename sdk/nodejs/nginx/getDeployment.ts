@@ -52,6 +52,10 @@ export interface GetDeploymentArgs {
  */
 export interface GetDeploymentResult {
     /**
+     * An `autoScaleProfile` block as defined below.
+     */
+    readonly autoScaleProfiles: outputs.nginx.GetDeploymentAutoScaleProfile[];
+    /**
      * The automatic upgrade channel for this NGINX deployment.
      */
     readonly automaticUpgradeChannel: string;
@@ -100,7 +104,7 @@ export interface GetDeploymentResult {
      */
     readonly managedResourceGroup: string;
     /**
-     * The account name of the StorageAccount for logging.
+     * Name of the autoscaling profile.
      */
     readonly name: string;
     /**

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Avs
     public static class GetPrivateCloud
     {
         /// <summary>
-        /// Use this data source to access information about an existing VMware Private Cloud.
+        /// Use this data source to access information about an existing Azure VMware Solution Private Cloud.
         /// 
         /// ## Example Usage
         /// 
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Avs
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateCloudResult>("azure:avs/getPrivateCloud:getPrivateCloud", args ?? new GetPrivateCloudArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing VMware Private Cloud.
+        /// Use this data source to access information about an existing Azure VMware Solution Private Cloud.
         /// 
         /// ## Example Usage
         /// 
@@ -82,13 +82,13 @@ namespace Pulumi.Azure.Avs
     public sealed class GetPrivateCloudArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of this VMware Private Cloud.
+        /// The name of this Azure VMware Solution Private Cloud.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the VMware Private Cloud exists.
+        /// The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -102,13 +102,13 @@ namespace Pulumi.Azure.Avs
     public sealed class GetPrivateCloudInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of this VMware Private Cloud.
+        /// The name of this Azure VMware Solution Private Cloud.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the VMware Private Cloud exists.
+        /// The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Avs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPrivateCloudCircuitResult> Circuits;
         /// <summary>
-        /// The endpoint for the HCX Cloud Manager.
+        /// The endpoint for the VMware HCX Cloud Manager.
         /// </summary>
         public readonly string HcxCloudManagerEndpoint;
         /// <summary>
@@ -136,11 +136,11 @@ namespace Pulumi.Azure.Avs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Is the VMware Private Cluster connected to the internet?
+        /// Is the Azure VMware Solution Private Cloud connected to the internet?
         /// </summary>
         public readonly bool InternetConnectionEnabled;
         /// <summary>
-        /// The Azure Region where the VMware Private Cloud exists.
+        /// The Azure Region where the Azure VMware Solution Private Cloud exists.
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -148,20 +148,20 @@ namespace Pulumi.Azure.Avs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPrivateCloudManagementClusterResult> ManagementClusters;
         /// <summary>
-        /// The network used to access vCenter Server and NSX-T Manager.
+        /// The network used to access VMware vCenter Server and NSX Manager.
         /// </summary>
         public readonly string ManagementSubnetCidr;
         public readonly string Name;
         /// <summary>
-        /// The subnet CIDR of the VMware Private Cloud.
+        /// The subnet CIDR of the Azure VMware Solution Private Cloud.
         /// </summary>
         public readonly string NetworkSubnetCidr;
         /// <summary>
-        /// The thumbprint of the NSX-T Manager SSL certificate.
+        /// The thumbprint of the VMware NSX Manager SSL certificate.
         /// </summary>
         public readonly string NsxtCertificateThumbprint;
         /// <summary>
-        /// The endpoint for the NSX-T Data Center manager.
+        /// The endpoint for the VMware NSX Manager.
         /// </summary>
         public readonly string NsxtManagerEndpoint;
         /// <summary>
@@ -170,19 +170,19 @@ namespace Pulumi.Azure.Avs
         public readonly string ProvisioningSubnetCidr;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The Name of the SKU used for this Private Cloud.
+        /// The Name of the SKU used for this Azure VMware Solution Private Cloud.
         /// </summary>
         public readonly string SkuName;
         /// <summary>
-        /// A mapping of tags assigned to the VMware Private Cloud.
+        /// A mapping of tags assigned to the Azure VMware Solution Private Cloud.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The thumbprint of the vCenter Server SSL certificate.
+        /// The thumbprint of the VMware vCenter Server SSL certificate.
         /// </summary>
         public readonly string VcenterCertificateThumbprint;
         /// <summary>
-        /// The endpoint for Virtual Center Server Appliance.
+        /// The endpoint for VMware vCenter Server Appliance.
         /// </summary>
         public readonly string VcsaEndpoint;
         /// <summary>

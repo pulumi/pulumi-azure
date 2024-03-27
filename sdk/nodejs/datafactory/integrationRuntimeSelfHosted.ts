@@ -92,6 +92,10 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
      * The secondary integration runtime authentication key.
      */
     public /*out*/ readonly secondaryAuthorizationKey!: pulumi.Output<string>;
+    /**
+     * Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+     */
+    public readonly selfContainedInteractiveAuthoringEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a IntegrationRuntimeSelfHosted resource with the given unique name, arguments, and options.
@@ -112,6 +116,7 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
             resourceInputs["primaryAuthorizationKey"] = state ? state.primaryAuthorizationKey : undefined;
             resourceInputs["rbacAuthorizations"] = state ? state.rbacAuthorizations : undefined;
             resourceInputs["secondaryAuthorizationKey"] = state ? state.secondaryAuthorizationKey : undefined;
+            resourceInputs["selfContainedInteractiveAuthoringEnabled"] = state ? state.selfContainedInteractiveAuthoringEnabled : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeSelfHostedArgs | undefined;
             if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
@@ -121,6 +126,7 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["rbacAuthorizations"] = args ? args.rbacAuthorizations : undefined;
+            resourceInputs["selfContainedInteractiveAuthoringEnabled"] = args ? args.selfContainedInteractiveAuthoringEnabled : undefined;
             resourceInputs["primaryAuthorizationKey"] = undefined /*out*/;
             resourceInputs["secondaryAuthorizationKey"] = undefined /*out*/;
         }
@@ -157,6 +163,10 @@ export interface IntegrationRuntimeSelfHostedState {
      * The secondary integration runtime authentication key.
      */
     secondaryAuthorizationKey?: pulumi.Input<string>;
+    /**
+     * Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+     */
+    selfContainedInteractiveAuthoringEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -179,4 +189,8 @@ export interface IntegrationRuntimeSelfHostedArgs {
      * A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
      */
     rbacAuthorizations?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization>[]>;
+    /**
+     * Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+     */
+    selfContainedInteractiveAuthoringEnabled?: pulumi.Input<boolean>;
 }

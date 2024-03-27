@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Avs
 {
     /// <summary>
-    /// Manages a VMware Cluster.
+    /// Manages an Azure VMware Solution Cluster.
     /// 
     /// ## Example Usage
     /// 
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Avs
     /// 
     /// ## Import
     /// 
-    /// VMware Clusters can be imported using the `resource id`, e.g.
+    /// Azure VMware Solution Clusters can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:avs/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/cluster1
@@ -69,37 +69,37 @@ namespace Pulumi.Azure.Avs
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The count of the VMware Cluster nodes.
+        /// The count of the Azure VMware Solution Cluster nodes.
         /// </summary>
         [Output("clusterNodeCount")]
         public Output<int> ClusterNodeCount { get; private set; } = null!;
 
         /// <summary>
-        /// A number that identifies this VMware Cluster in its VMware Private Cloud.
+        /// A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
         /// </summary>
         [Output("clusterNumber")]
         public Output<int> ClusterNumber { get; private set; } = null!;
 
         /// <summary>
-        /// A list of host of the VMware Cluster.
+        /// A list of hosts in the Azure VMware Solution Cluster.
         /// </summary>
         [Output("hosts")]
         public Output<ImmutableArray<string>> Hosts { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        /// The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+        /// The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        /// The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         /// </summary>
         [Output("vmwareCloudId")]
         public Output<string> VmwareCloudId { get; private set; } = null!;
@@ -151,25 +151,25 @@ namespace Pulumi.Azure.Avs
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The count of the VMware Cluster nodes.
+        /// The count of the Azure VMware Solution Cluster nodes.
         /// </summary>
         [Input("clusterNodeCount", required: true)]
         public Input<int> ClusterNodeCount { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        /// The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+        /// The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        /// The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         /// </summary>
         [Input("vmwareCloudId", required: true)]
         public Input<string> VmwareCloudId { get; set; } = null!;
@@ -183,13 +183,13 @@ namespace Pulumi.Azure.Avs
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The count of the VMware Cluster nodes.
+        /// The count of the Azure VMware Solution Cluster nodes.
         /// </summary>
         [Input("clusterNodeCount")]
         public Input<int>? ClusterNodeCount { get; set; }
 
         /// <summary>
-        /// A number that identifies this VMware Cluster in its VMware Private Cloud.
+        /// A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
         /// </summary>
         [Input("clusterNumber")]
         public Input<int>? ClusterNumber { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.Avs
         private InputList<string>? _hosts;
 
         /// <summary>
-        /// A list of host of the VMware Cluster.
+        /// A list of hosts in the Azure VMware Solution Cluster.
         /// </summary>
         public InputList<string> Hosts
         {
@@ -207,19 +207,19 @@ namespace Pulumi.Azure.Avs
         }
 
         /// <summary>
-        /// The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        /// The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+        /// The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        /// The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         /// </summary>
         [Input("vmwareCloudId")]
         public Input<string>? VmwareCloudId { get; set; }

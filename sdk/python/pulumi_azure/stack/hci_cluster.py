@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['HciClusterArgs', 'HciCluster']
 
@@ -17,6 +19,7 @@ class HciClusterArgs:
                  client_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  automanage_configuration_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['HciClusterIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -26,6 +29,7 @@ class HciClusterArgs:
         :param pulumi.Input[str] client_id: The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] automanage_configuration_id: The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
+        :param pulumi.Input['HciClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
@@ -37,6 +41,8 @@ class HciClusterArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if automanage_configuration_id is not None:
             pulumi.set(__self__, "automanage_configuration_id", automanage_configuration_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -81,6 +87,18 @@ class HciClusterArgs:
     @automanage_configuration_id.setter
     def automanage_configuration_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "automanage_configuration_id", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['HciClusterIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['HciClusterIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -138,18 +156,26 @@ class _HciClusterState:
     def __init__(__self__, *,
                  automanage_configuration_id: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 cloud_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['HciClusterIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_provider_object_id: Optional[pulumi.Input[str]] = None,
+                 service_endpoint: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering HciCluster resources.
         :param pulumi.Input[str] automanage_configuration_id: The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[str] client_id: The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] cloud_id: An immutable UUID for the Azure Stack HCI Cluster.
+        :param pulumi.Input['HciClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_provider_object_id: The object ID of the Resource Provider Service Principal.
+        :param pulumi.Input[str] service_endpoint: The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
                
@@ -159,12 +185,20 @@ class _HciClusterState:
             pulumi.set(__self__, "automanage_configuration_id", automanage_configuration_id)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
+        if cloud_id is not None:
+            pulumi.set(__self__, "cloud_id", cloud_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if resource_provider_object_id is not None:
+            pulumi.set(__self__, "resource_provider_object_id", resource_provider_object_id)
+        if service_endpoint is not None:
+            pulumi.set(__self__, "service_endpoint", service_endpoint)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tenant_id is not None:
@@ -193,6 +227,30 @@ class _HciClusterState:
     @client_id.setter
     def client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="cloudId")
+    def cloud_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An immutable UUID for the Azure Stack HCI Cluster.
+        """
+        return pulumi.get(self, "cloud_id")
+
+    @cloud_id.setter
+    def cloud_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloud_id", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['HciClusterIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['HciClusterIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -231,6 +289,30 @@ class _HciClusterState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="resourceProviderObjectId")
+    def resource_provider_object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The object ID of the Resource Provider Service Principal.
+        """
+        return pulumi.get(self, "resource_provider_object_id")
+
+    @resource_provider_object_id.setter
+    def resource_provider_object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_provider_object_id", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpoint")
+    def service_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+        """
+        return pulumi.get(self, "service_endpoint")
+
+    @service_endpoint.setter
+    def service_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_endpoint", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -264,6 +346,7 @@ class HciCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automanage_configuration_id: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['HciClusterIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -291,7 +374,10 @@ class HciCluster(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             client_id=example.application_id,
-            tenant_id=current.tenant_id)
+            tenant_id=current.tenant_id,
+            identity=azure.stack.HciClusterIdentityArgs(
+                type="SystemAssigned",
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -307,6 +393,7 @@ class HciCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automanage_configuration_id: The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[str] client_id: The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['HciClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
@@ -342,7 +429,10 @@ class HciCluster(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             client_id=example.application_id,
-            tenant_id=current.tenant_id)
+            tenant_id=current.tenant_id,
+            identity=azure.stack.HciClusterIdentityArgs(
+                type="SystemAssigned",
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -371,6 +461,7 @@ class HciCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automanage_configuration_id: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['HciClusterIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -389,6 +480,7 @@ class HciCluster(pulumi.CustomResource):
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -396,6 +488,9 @@ class HciCluster(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["cloud_id"] = None
+            __props__.__dict__["resource_provider_object_id"] = None
+            __props__.__dict__["service_endpoint"] = None
         super(HciCluster, __self__).__init__(
             'azure:stack/hciCluster:HciCluster',
             resource_name,
@@ -408,9 +503,13 @@ class HciCluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             automanage_configuration_id: Optional[pulumi.Input[str]] = None,
             client_id: Optional[pulumi.Input[str]] = None,
+            cloud_id: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['HciClusterIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            resource_provider_object_id: Optional[pulumi.Input[str]] = None,
+            service_endpoint: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tenant_id: Optional[pulumi.Input[str]] = None) -> 'HciCluster':
         """
@@ -422,9 +521,13 @@ class HciCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automanage_configuration_id: The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[str] client_id: The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] cloud_id: An immutable UUID for the Azure Stack HCI Cluster.
+        :param pulumi.Input[pulumi.InputType['HciClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_provider_object_id: The object ID of the Resource Provider Service Principal.
+        :param pulumi.Input[str] service_endpoint: The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
                
@@ -436,9 +539,13 @@ class HciCluster(pulumi.CustomResource):
 
         __props__.__dict__["automanage_configuration_id"] = automanage_configuration_id
         __props__.__dict__["client_id"] = client_id
+        __props__.__dict__["cloud_id"] = cloud_id
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["resource_provider_object_id"] = resource_provider_object_id
+        __props__.__dict__["service_endpoint"] = service_endpoint
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tenant_id"] = tenant_id
         return HciCluster(resource_name, opts=opts, __props__=__props__)
@@ -458,6 +565,22 @@ class HciCluster(pulumi.CustomResource):
         The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="cloudId")
+    def cloud_id(self) -> pulumi.Output[str]:
+        """
+        An immutable UUID for the Azure Stack HCI Cluster.
+        """
+        return pulumi.get(self, "cloud_id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.HciClusterIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -482,6 +605,22 @@ class HciCluster(pulumi.CustomResource):
         The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="resourceProviderObjectId")
+    def resource_provider_object_id(self) -> pulumi.Output[str]:
+        """
+        The object ID of the Resource Provider Service Principal.
+        """
+        return pulumi.get(self, "resource_provider_object_id")
+
+    @property
+    @pulumi.getter(name="serviceEndpoint")
+    def service_endpoint(self) -> pulumi.Output[str]:
+        """
+        The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+        """
+        return pulumi.get(self, "service_endpoint")
 
     @property
     @pulumi.getter

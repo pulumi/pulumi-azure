@@ -8,6 +8,7 @@ import com.pulumi.azure.healthcare.ServiceArgs;
 import com.pulumi.azure.healthcare.inputs.ServiceState;
 import com.pulumi.azure.healthcare.outputs.ServiceAuthenticationConfiguration;
 import com.pulumi.azure.healthcare.outputs.ServiceCorsConfiguration;
+import com.pulumi.azure.healthcare.outputs.ServiceIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -35,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.CoreFunctions;
  * import com.pulumi.azure.healthcare.Service;
  * import com.pulumi.azure.healthcare.ServiceArgs;
+ * import com.pulumi.azure.healthcare.inputs.ServiceIdentityArgs;
  * import com.pulumi.azure.healthcare.inputs.ServiceAuthenticationConfigurationArgs;
  * import com.pulumi.azure.healthcare.inputs.ServiceCorsConfigurationArgs;
  * import java.util.List;
@@ -58,7 +60,11 @@ import javax.annotation.Nullable;
  *             .location(&#34;westus2&#34;)
  *             .kind(&#34;fhir-R4&#34;)
  *             .cosmosdbThroughput(&#34;2000&#34;)
+ *             .identity(ServiceIdentityArgs.builder()
+ *                 .type(&#34;SystemAssigned&#34;)
+ *                 .build())
  *             .accessPolicyObjectIds(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .configurationExportStorageAccountName(&#34;teststorage&#34;)
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;environment&#34;, &#34;testenv&#34;),
  *                 Map.entry(&#34;purpose&#34;, &#34;AcceptanceTests&#34;)
@@ -120,6 +126,20 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.authenticationConfiguration;
     }
     /**
+     * Specifies the name of the storage account which the operation configuration information is exported to.
+     * 
+     */
+    @Export(name="configurationExportStorageAccountName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> configurationExportStorageAccountName;
+
+    /**
+     * @return Specifies the name of the storage account which the operation configuration information is exported to.
+     * 
+     */
+    public Output<Optional<String>> configurationExportStorageAccountName() {
+        return Codegen.optional(this.configurationExportStorageAccountName);
+    }
+    /**
      * A `cors_configuration` block as defined below.
      * 
      */
@@ -164,6 +184,20 @@ public class Service extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> cosmosdbThroughput() {
         return Codegen.optional(this.cosmosdbThroughput);
+    }
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", refs={ServiceIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ ServiceIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<ServiceIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.

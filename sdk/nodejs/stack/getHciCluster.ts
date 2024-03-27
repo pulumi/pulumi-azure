@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,9 +62,17 @@ export interface GetHciClusterResult {
      */
     readonly clientId: string;
     /**
+     * An immutable UUID for the Azure Stack HCI Cluster.
+     */
+    readonly cloudId: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * An `identity` block as defined below.
+     */
+    readonly identities: outputs.stack.GetHciClusterIdentity[];
     /**
      * The Azure Region where the Azure Stack HCI Cluster exists.
      */
@@ -70,11 +80,19 @@ export interface GetHciClusterResult {
     readonly name: string;
     readonly resourceGroupName: string;
     /**
+     * The object ID of the Resource Provider Service Principal.
+     */
+    readonly resourceProviderObjectId: string;
+    /**
+     * The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+     */
+    readonly serviceEndpoint: string;
+    /**
      * A mapping of tags assigned to the Azure Stack HCI Cluster.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The Tenant ID of the Azure Active Directory used by the Azure Stack HCI Cluster.
+     * The Tenant ID associated with this Managed Service Identity.
      */
     readonly tenantId: string;
 }

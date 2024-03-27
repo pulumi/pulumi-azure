@@ -45,8 +45,24 @@ class AccountActiveDirectory(dict):
             suggest = "dns_servers"
         elif key == "smbServerName":
             suggest = "smb_server_name"
+        elif key == "aesEncryptionEnabled":
+            suggest = "aes_encryption_enabled"
+        elif key == "kerberosAdName":
+            suggest = "kerberos_ad_name"
+        elif key == "kerberosKdcIp":
+            suggest = "kerberos_kdc_ip"
+        elif key == "ldapOverTlsEnabled":
+            suggest = "ldap_over_tls_enabled"
+        elif key == "ldapSigningEnabled":
+            suggest = "ldap_signing_enabled"
+        elif key == "localNfsUsersWithLdapAllowed":
+            suggest = "local_nfs_users_with_ldap_allowed"
         elif key == "organizationalUnit":
             suggest = "organizational_unit"
+        elif key == "serverRootCaCertificate":
+            suggest = "server_root_ca_certificate"
+        elif key == "siteName":
+            suggest = "site_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AccountActiveDirectory. Access the value via the '{suggest}' property getter instead.")
@@ -65,22 +81,56 @@ class AccountActiveDirectory(dict):
                  password: str,
                  smb_server_name: str,
                  username: str,
-                 organizational_unit: Optional[str] = None):
+                 aes_encryption_enabled: Optional[bool] = None,
+                 kerberos_ad_name: Optional[str] = None,
+                 kerberos_kdc_ip: Optional[str] = None,
+                 ldap_over_tls_enabled: Optional[bool] = None,
+                 ldap_signing_enabled: Optional[bool] = None,
+                 local_nfs_users_with_ldap_allowed: Optional[bool] = None,
+                 organizational_unit: Optional[str] = None,
+                 server_root_ca_certificate: Optional[str] = None,
+                 site_name: Optional[str] = None):
         """
         :param Sequence[str] dns_servers: A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
         :param str domain: The name of the Active Directory domain.
         :param str password: The password associated with the `username`.
         :param str smb_server_name: The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
         :param str username: The Username of Active Directory Domain Administrator.
-        :param str organizational_unit: The Organizational Unit (OU) within the Active Directory Domain.
+        :param bool aes_encryption_enabled: If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+        :param str kerberos_ad_name: Name of the active directory machine.
+        :param str kerberos_kdc_ip: kdc server IP addresses for the active directory machine.
+               
+               > **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+        :param bool ldap_over_tls_enabled: Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+        :param bool ldap_signing_enabled: Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
+        :param bool local_nfs_users_with_ldap_allowed: If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
+        :param str organizational_unit: The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
+        :param str server_root_ca_certificate: When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+        :param str site_name: The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
         """
         pulumi.set(__self__, "dns_servers", dns_servers)
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "smb_server_name", smb_server_name)
         pulumi.set(__self__, "username", username)
+        if aes_encryption_enabled is not None:
+            pulumi.set(__self__, "aes_encryption_enabled", aes_encryption_enabled)
+        if kerberos_ad_name is not None:
+            pulumi.set(__self__, "kerberos_ad_name", kerberos_ad_name)
+        if kerberos_kdc_ip is not None:
+            pulumi.set(__self__, "kerberos_kdc_ip", kerberos_kdc_ip)
+        if ldap_over_tls_enabled is not None:
+            pulumi.set(__self__, "ldap_over_tls_enabled", ldap_over_tls_enabled)
+        if ldap_signing_enabled is not None:
+            pulumi.set(__self__, "ldap_signing_enabled", ldap_signing_enabled)
+        if local_nfs_users_with_ldap_allowed is not None:
+            pulumi.set(__self__, "local_nfs_users_with_ldap_allowed", local_nfs_users_with_ldap_allowed)
         if organizational_unit is not None:
             pulumi.set(__self__, "organizational_unit", organizational_unit)
+        if server_root_ca_certificate is not None:
+            pulumi.set(__self__, "server_root_ca_certificate", server_root_ca_certificate)
+        if site_name is not None:
+            pulumi.set(__self__, "site_name", site_name)
 
     @property
     @pulumi.getter(name="dnsServers")
@@ -123,12 +173,78 @@ class AccountActiveDirectory(dict):
         return pulumi.get(self, "username")
 
     @property
+    @pulumi.getter(name="aesEncryptionEnabled")
+    def aes_encryption_enabled(self) -> Optional[bool]:
+        """
+        If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+        """
+        return pulumi.get(self, "aes_encryption_enabled")
+
+    @property
+    @pulumi.getter(name="kerberosAdName")
+    def kerberos_ad_name(self) -> Optional[str]:
+        """
+        Name of the active directory machine.
+        """
+        return pulumi.get(self, "kerberos_ad_name")
+
+    @property
+    @pulumi.getter(name="kerberosKdcIp")
+    def kerberos_kdc_ip(self) -> Optional[str]:
+        """
+        kdc server IP addresses for the active directory machine.
+
+        > **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+        """
+        return pulumi.get(self, "kerberos_kdc_ip")
+
+    @property
+    @pulumi.getter(name="ldapOverTlsEnabled")
+    def ldap_over_tls_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+        """
+        return pulumi.get(self, "ldap_over_tls_enabled")
+
+    @property
+    @pulumi.getter(name="ldapSigningEnabled")
+    def ldap_signing_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
+        """
+        return pulumi.get(self, "ldap_signing_enabled")
+
+    @property
+    @pulumi.getter(name="localNfsUsersWithLdapAllowed")
+    def local_nfs_users_with_ldap_allowed(self) -> Optional[bool]:
+        """
+        If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
+        """
+        return pulumi.get(self, "local_nfs_users_with_ldap_allowed")
+
+    @property
     @pulumi.getter(name="organizationalUnit")
     def organizational_unit(self) -> Optional[str]:
         """
-        The Organizational Unit (OU) within the Active Directory Domain.
+        The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
         """
         return pulumi.get(self, "organizational_unit")
+
+    @property
+    @pulumi.getter(name="serverRootCaCertificate")
+    def server_root_ca_certificate(self) -> Optional[str]:
+        """
+        When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+        """
+        return pulumi.get(self, "server_root_ca_certificate")
+
+    @property
+    @pulumi.getter(name="siteName")
+    def site_name(self) -> Optional[str]:
+        """
+        The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
+        """
+        return pulumi.get(self, "site_name")
 
 
 @pulumi.output_type

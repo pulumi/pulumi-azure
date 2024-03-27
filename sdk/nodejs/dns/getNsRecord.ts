@@ -12,12 +12,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.NsRecord("example", {
+ * const example = azure.dns.getNsRecord({
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsNsRecordId = exampleAzurermDnsNsRecord.id;
+ * export const dnsNsRecordId = example.then(example => example.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -85,12 +85,12 @@ export interface GetNsRecordResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.NsRecord("example", {
+ * const example = azure.dns.getNsRecord({
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsNsRecordId = exampleAzurermDnsNsRecord.id;
+ * export const dnsNsRecordId = example.then(example => example.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */

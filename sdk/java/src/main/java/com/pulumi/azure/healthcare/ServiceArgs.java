@@ -5,6 +5,7 @@ package com.pulumi.azure.healthcare;
 
 import com.pulumi.azure.healthcare.inputs.ServiceAuthenticationConfigurationArgs;
 import com.pulumi.azure.healthcare.inputs.ServiceCorsConfigurationArgs;
+import com.pulumi.azure.healthcare.inputs.ServiceIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -42,6 +43,21 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<ServiceAuthenticationConfigurationArgs>> authenticationConfiguration() {
         return Optional.ofNullable(this.authenticationConfiguration);
+    }
+
+    /**
+     * Specifies the name of the storage account which the operation configuration information is exported to.
+     * 
+     */
+    @Import(name="configurationExportStorageAccountName")
+    private @Nullable Output<String> configurationExportStorageAccountName;
+
+    /**
+     * @return Specifies the name of the storage account which the operation configuration information is exported to.
+     * 
+     */
+    public Optional<Output<String>> configurationExportStorageAccountName() {
+        return Optional.ofNullable(this.configurationExportStorageAccountName);
     }
 
     /**
@@ -91,6 +107,21 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> cosmosdbThroughput() {
         return Optional.ofNullable(this.cosmosdbThroughput);
+    }
+
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<ServiceIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<ServiceIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -192,9 +223,11 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     private ServiceArgs(ServiceArgs $) {
         this.accessPolicyObjectIds = $.accessPolicyObjectIds;
         this.authenticationConfiguration = $.authenticationConfiguration;
+        this.configurationExportStorageAccountName = $.configurationExportStorageAccountName;
         this.corsConfiguration = $.corsConfiguration;
         this.cosmosdbKeyVaultKeyVersionlessId = $.cosmosdbKeyVaultKeyVersionlessId;
         this.cosmosdbThroughput = $.cosmosdbThroughput;
+        this.identity = $.identity;
         this.kind = $.kind;
         this.location = $.location;
         this.name = $.name;
@@ -253,6 +286,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder authenticationConfiguration(ServiceAuthenticationConfigurationArgs authenticationConfiguration) {
             return authenticationConfiguration(Output.of(authenticationConfiguration));
+        }
+
+        /**
+         * @param configurationExportStorageAccountName Specifies the name of the storage account which the operation configuration information is exported to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurationExportStorageAccountName(@Nullable Output<String> configurationExportStorageAccountName) {
+            $.configurationExportStorageAccountName = configurationExportStorageAccountName;
+            return this;
+        }
+
+        /**
+         * @param configurationExportStorageAccountName Specifies the name of the storage account which the operation configuration information is exported to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurationExportStorageAccountName(String configurationExportStorageAccountName) {
+            return configurationExportStorageAccountName(Output.of(configurationExportStorageAccountName));
         }
 
         /**
@@ -320,6 +374,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder cosmosdbThroughput(Integer cosmosdbThroughput) {
             return cosmosdbThroughput(Output.of(cosmosdbThroughput));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<ServiceIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(ServiceIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**

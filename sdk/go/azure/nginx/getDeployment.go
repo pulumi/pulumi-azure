@@ -62,6 +62,8 @@ type LookupDeploymentArgs struct {
 
 // A collection of values returned by getDeployment.
 type LookupDeploymentResult struct {
+	// An `autoScaleProfile` block as defined below.
+	AutoScaleProfiles []GetDeploymentAutoScaleProfile `pulumi:"autoScaleProfiles"`
 	// The automatic upgrade channel for this NGINX deployment.
 	AutomaticUpgradeChannel string `pulumi:"automaticUpgradeChannel"`
 	// The number of NGINX capacity units for this Nginx Deployment.
@@ -86,7 +88,7 @@ type LookupDeploymentResult struct {
 	LoggingStorageAccounts []GetDeploymentLoggingStorageAccount `pulumi:"loggingStorageAccounts"`
 	// Auto-generated managed resource group for the Nginx Deployment.
 	ManagedResourceGroup string `pulumi:"managedResourceGroup"`
-	// The account name of the StorageAccount for logging.
+	// Name of the autoscaling profile.
 	Name string `pulumi:"name"`
 	// A `networkInterface` block as defined below.
 	NetworkInterfaces []GetDeploymentNetworkInterface `pulumi:"networkInterfaces"`
@@ -137,6 +139,11 @@ func (o LookupDeploymentResultOutput) ToLookupDeploymentResultOutput() LookupDep
 
 func (o LookupDeploymentResultOutput) ToLookupDeploymentResultOutputWithContext(ctx context.Context) LookupDeploymentResultOutput {
 	return o
+}
+
+// An `autoScaleProfile` block as defined below.
+func (o LookupDeploymentResultOutput) AutoScaleProfiles() GetDeploymentAutoScaleProfileArrayOutput {
+	return o.ApplyT(func(v LookupDeploymentResult) []GetDeploymentAutoScaleProfile { return v.AutoScaleProfiles }).(GetDeploymentAutoScaleProfileArrayOutput)
 }
 
 // The automatic upgrade channel for this NGINX deployment.
@@ -199,7 +206,7 @@ func (o LookupDeploymentResultOutput) ManagedResourceGroup() pulumi.StringOutput
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.ManagedResourceGroup }).(pulumi.StringOutput)
 }
 
-// The account name of the StorageAccount for logging.
+// Name of the autoscaling profile.
 func (o LookupDeploymentResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.Name }).(pulumi.StringOutput)
 }

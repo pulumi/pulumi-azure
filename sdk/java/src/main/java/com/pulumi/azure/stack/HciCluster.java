@@ -6,6 +6,7 @@ package com.pulumi.azure.stack;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.stack.HciClusterArgs;
 import com.pulumi.azure.stack.inputs.HciClusterState;
+import com.pulumi.azure.stack.outputs.HciClusterIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -34,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.stack.HciCluster;
  * import com.pulumi.azure.stack.HciClusterArgs;
+ * import com.pulumi.azure.stack.inputs.HciClusterIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,6 +66,9 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .clientId(example.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .identity(HciClusterIdentityArgs.builder()
+ *                 .type(&#34;SystemAssigned&#34;)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -111,6 +116,34 @@ public class HciCluster extends com.pulumi.resources.CustomResource {
         return this.clientId;
     }
     /**
+     * An immutable UUID for the Azure Stack HCI Cluster.
+     * 
+     */
+    @Export(name="cloudId", refs={String.class}, tree="[0]")
+    private Output<String> cloudId;
+
+    /**
+     * @return An immutable UUID for the Azure Stack HCI Cluster.
+     * 
+     */
+    public Output<String> cloudId() {
+        return this.cloudId;
+    }
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", refs={HciClusterIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ HciClusterIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<HciClusterIdentity>> identity() {
+        return Codegen.optional(this.identity);
+    }
+    /**
      * The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -151,6 +184,34 @@ public class HciCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * The object ID of the Resource Provider Service Principal.
+     * 
+     */
+    @Export(name="resourceProviderObjectId", refs={String.class}, tree="[0]")
+    private Output<String> resourceProviderObjectId;
+
+    /**
+     * @return The object ID of the Resource Provider Service Principal.
+     * 
+     */
+    public Output<String> resourceProviderObjectId() {
+        return this.resourceProviderObjectId;
+    }
+    /**
+     * The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+     * 
+     */
+    @Export(name="serviceEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> serviceEndpoint;
+
+    /**
+     * @return The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+     * 
+     */
+    public Output<String> serviceEndpoint() {
+        return this.serviceEndpoint;
     }
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Cluster.

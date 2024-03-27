@@ -8,10 +8,15 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ConfigurationConfigFile',
     'ConfigurationProtectedFile',
+    'DeploymentAutoScaleProfile',
+    'DeploymentConfiguration',
+    'DeploymentConfigurationConfigFile',
+    'DeploymentConfigurationProtectedFile',
     'DeploymentFrontendPrivate',
     'DeploymentFrontendPublic',
     'DeploymentIdentity',
@@ -19,6 +24,7 @@ __all__ = [
     'DeploymentNetworkInterface',
     'GetConfigurationConfigFileResult',
     'GetConfigurationProtectedFileResult',
+    'GetDeploymentAutoScaleProfileResult',
     'GetDeploymentFrontendPrivateResult',
     'GetDeploymentFrontendPublicResult',
     'GetDeploymentIdentityResult',
@@ -43,6 +49,210 @@ class ConfigurationConfigFile(dict):
 
     def get(self, key: str, default = None) -> Any:
         ConfigurationConfigFile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content: str,
+                 virtual_path: str):
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> str:
+        return pulumi.get(self, "virtual_path")
+
+
+@pulumi.output_type
+class ConfigurationProtectedFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualPath":
+            suggest = "virtual_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationProtectedFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationProtectedFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationProtectedFile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content: str,
+                 virtual_path: str):
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> str:
+        return pulumi.get(self, "virtual_path")
+
+
+@pulumi.output_type
+class DeploymentAutoScaleProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxCapacity":
+            suggest = "max_capacity"
+        elif key == "minCapacity":
+            suggest = "min_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentAutoScaleProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentAutoScaleProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentAutoScaleProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_capacity: int,
+                 min_capacity: int,
+                 name: str):
+        """
+        :param int min_capacity: Specify the minimum number of NGINX capacity units for this NGINX Deployment.
+        :param str name: Specify the name of the autoscaling profile.
+        """
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "min_capacity", min_capacity)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> int:
+        return pulumi.get(self, "max_capacity")
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> int:
+        """
+        Specify the minimum number of NGINX capacity units for this NGINX Deployment.
+        """
+        return pulumi.get(self, "min_capacity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specify the name of the autoscaling profile.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DeploymentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rootFile":
+            suggest = "root_file"
+        elif key == "configFiles":
+            suggest = "config_files"
+        elif key == "packageData":
+            suggest = "package_data"
+        elif key == "protectedFiles":
+            suggest = "protected_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 root_file: str,
+                 config_files: Optional[Sequence['outputs.DeploymentConfigurationConfigFile']] = None,
+                 package_data: Optional[str] = None,
+                 protected_files: Optional[Sequence['outputs.DeploymentConfigurationProtectedFile']] = None):
+        """
+        :param str root_file: Specify the root file path of this Nginx Configuration.
+        :param Sequence['DeploymentConfigurationConfigFileArgs'] config_files: One or more `config_file` blocks as defined below.
+        :param str package_data: Specify the package data for this configuration.
+        :param Sequence['DeploymentConfigurationProtectedFileArgs'] protected_files: One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+        """
+        pulumi.set(__self__, "root_file", root_file)
+        if config_files is not None:
+            pulumi.set(__self__, "config_files", config_files)
+        if package_data is not None:
+            pulumi.set(__self__, "package_data", package_data)
+        if protected_files is not None:
+            pulumi.set(__self__, "protected_files", protected_files)
+
+    @property
+    @pulumi.getter(name="rootFile")
+    def root_file(self) -> str:
+        """
+        Specify the root file path of this Nginx Configuration.
+        """
+        return pulumi.get(self, "root_file")
+
+    @property
+    @pulumi.getter(name="configFiles")
+    def config_files(self) -> Optional[Sequence['outputs.DeploymentConfigurationConfigFile']]:
+        """
+        One or more `config_file` blocks as defined below.
+        """
+        return pulumi.get(self, "config_files")
+
+    @property
+    @pulumi.getter(name="packageData")
+    def package_data(self) -> Optional[str]:
+        """
+        Specify the package data for this configuration.
+        """
+        return pulumi.get(self, "package_data")
+
+    @property
+    @pulumi.getter(name="protectedFiles")
+    def protected_files(self) -> Optional[Sequence['outputs.DeploymentConfigurationProtectedFile']]:
+        """
+        One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+        """
+        return pulumi.get(self, "protected_files")
+
+
+@pulumi.output_type
+class DeploymentConfigurationConfigFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualPath":
+            suggest = "virtual_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentConfigurationConfigFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentConfigurationConfigFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentConfigurationConfigFile.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -73,7 +283,7 @@ class ConfigurationConfigFile(dict):
 
 
 @pulumi.output_type
-class ConfigurationProtectedFile(dict):
+class DeploymentConfigurationProtectedFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -81,14 +291,14 @@ class ConfigurationProtectedFile(dict):
             suggest = "virtual_path"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConfigurationProtectedFile. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentConfigurationProtectedFile. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ConfigurationProtectedFile.__key_warning(key)
+        DeploymentConfigurationProtectedFile.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ConfigurationProtectedFile.__key_warning(key)
+        DeploymentConfigurationProtectedFile.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -374,27 +584,17 @@ class GetConfigurationConfigFileResult(dict):
     def __init__(__self__, *,
                  content: str,
                  virtual_path: str):
-        """
-        :param str content: The base-64 encoded contents of this configuration file.
-        :param str virtual_path: The path of this configuration file.
-        """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "virtual_path", virtual_path)
 
     @property
     @pulumi.getter
     def content(self) -> str:
-        """
-        The base-64 encoded contents of this configuration file.
-        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="virtualPath")
     def virtual_path(self) -> str:
-        """
-        The path of this configuration file.
-        """
         return pulumi.get(self, "virtual_path")
 
 
@@ -403,28 +603,58 @@ class GetConfigurationProtectedFileResult(dict):
     def __init__(__self__, *,
                  content: str,
                  virtual_path: str):
-        """
-        :param str content: The base-64 encoded contents of this configuration file.
-        :param str virtual_path: The path of this configuration file.
-        """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "virtual_path", virtual_path)
 
     @property
     @pulumi.getter
     def content(self) -> str:
-        """
-        The base-64 encoded contents of this configuration file.
-        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="virtualPath")
     def virtual_path(self) -> str:
-        """
-        The path of this configuration file.
-        """
         return pulumi.get(self, "virtual_path")
+
+
+@pulumi.output_type
+class GetDeploymentAutoScaleProfileResult(dict):
+    def __init__(__self__, *,
+                 max_capacity: int,
+                 min_capacity: int,
+                 name: str):
+        """
+        :param int max_capacity: The maximum number of NGINX capacity units for this NGINX Deployment.
+        :param int min_capacity: The minimum number of NGINX capacity units for this NGINX Deployment.
+        :param str name: The name of this Nginx Deployment.
+        """
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "min_capacity", min_capacity)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> int:
+        """
+        The maximum number of NGINX capacity units for this NGINX Deployment.
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> int:
+        """
+        The minimum number of NGINX capacity units for this NGINX Deployment.
+        """
+        return pulumi.get(self, "min_capacity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Nginx Deployment.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

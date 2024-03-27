@@ -12580,7 +12580,7 @@ class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult
         :param str name: The name of this Orchestrated Virtual Machine Scale Set.
         :param bool primary: If this ip_configuration is the primary one.
         :param Sequence['GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
-        :param str subnet_id: The the identifier of the subnet.
+        :param str subnet_id: The identifier of the subnet.
         :param str version: The Internet Protocol Version of the public IP address.
         """
         pulumi.set(__self__, "application_gateway_backend_address_pool_ids", application_gateway_backend_address_pool_ids)
@@ -12653,7 +12653,7 @@ class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        The the identifier of the subnet.
+        The identifier of the subnet.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -13418,7 +13418,7 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
         :param str name: The name of this Virtual Machine Scale Set.
         :param bool primary: If this ip_configuration is the primary one.
         :param Sequence['GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
-        :param str subnet_id: The the identifier of the subnet.
+        :param str subnet_id: The identifier of the subnet.
         :param str version: The Internet Protocol Version of the public IP address.
         """
         pulumi.set(__self__, "application_gateway_backend_address_pool_ids", application_gateway_backend_address_pool_ids)
@@ -13491,7 +13491,7 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        The the identifier of the subnet.
+        The identifier of the subnet.
         """
         return pulumi.get(self, "subnet_id")
 

@@ -8,6 +8,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class EnvironmentWorkloadProfile {
@@ -15,19 +17,23 @@ public final class EnvironmentWorkloadProfile {
      * @return The maximum number of instances of workload profile that can be deployed in the Container App Environment.
      * 
      */
-    private Integer maximumCount;
+    private @Nullable Integer maximumCount;
     /**
      * @return The minimum number of instances of workload profile that can be deployed in the Container App Environment.
      * 
      */
-    private Integer minimumCount;
+    private @Nullable Integer minimumCount;
     /**
      * @return The name of the workload profile.
      * 
      */
     private String name;
     /**
-     * @return Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+     * @return Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+     * 
+     * &gt; **NOTE:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
+     * 
+     * &gt; **NOTE:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
      * 
      */
     private String workloadProfileType;
@@ -37,15 +43,15 @@ public final class EnvironmentWorkloadProfile {
      * @return The maximum number of instances of workload profile that can be deployed in the Container App Environment.
      * 
      */
-    public Integer maximumCount() {
-        return this.maximumCount;
+    public Optional<Integer> maximumCount() {
+        return Optional.ofNullable(this.maximumCount);
     }
     /**
      * @return The minimum number of instances of workload profile that can be deployed in the Container App Environment.
      * 
      */
-    public Integer minimumCount() {
-        return this.minimumCount;
+    public Optional<Integer> minimumCount() {
+        return Optional.ofNullable(this.minimumCount);
     }
     /**
      * @return The name of the workload profile.
@@ -55,7 +61,11 @@ public final class EnvironmentWorkloadProfile {
         return this.name;
     }
     /**
-     * @return Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+     * @return Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+     * 
+     * &gt; **NOTE:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
+     * 
+     * &gt; **NOTE:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
      * 
      */
     public String workloadProfileType() {
@@ -71,8 +81,8 @@ public final class EnvironmentWorkloadProfile {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer maximumCount;
-        private Integer minimumCount;
+        private @Nullable Integer maximumCount;
+        private @Nullable Integer minimumCount;
         private String name;
         private String workloadProfileType;
         public Builder() {}
@@ -85,18 +95,14 @@ public final class EnvironmentWorkloadProfile {
         }
 
         @CustomType.Setter
-        public Builder maximumCount(Integer maximumCount) {
-            if (maximumCount == null) {
-              throw new MissingRequiredPropertyException("EnvironmentWorkloadProfile", "maximumCount");
-            }
+        public Builder maximumCount(@Nullable Integer maximumCount) {
+
             this.maximumCount = maximumCount;
             return this;
         }
         @CustomType.Setter
-        public Builder minimumCount(Integer minimumCount) {
-            if (minimumCount == null) {
-              throw new MissingRequiredPropertyException("EnvironmentWorkloadProfile", "minimumCount");
-            }
+        public Builder minimumCount(@Nullable Integer minimumCount) {
+
             this.minimumCount = minimumCount;
             return this;
         }

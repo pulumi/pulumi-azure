@@ -13,25 +13,25 @@ namespace Pulumi.Azure.Lb.Inputs
     public sealed class BackendAddressPoolTunnelInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+        /// The unique identifier of this Gateway Load Balancer Tunnel Interface.
         /// </summary>
         [Input("identifier", required: true)]
         public Input<int> Identifier { get; set; } = null!;
 
         /// <summary>
-        /// The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+        /// The port number that this Gateway Load Balancer Tunnel Interface listens to.
         /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+        /// The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
+        /// The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

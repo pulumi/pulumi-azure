@@ -158,6 +158,30 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = authorization.NewAssignment(ctx, "test_vault_msi_snapshot_contributor_on_snap_rg", &authorization.AssignmentArgs{
+//				Scope:              snap.ID(),
+//				RoleDefinitionName: pulumi.String("Disk Snapshot Contributor"),
+//				PrincipalId:        pulumi.Any(test.Identity[0].PrincipalId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "test_vault_data_operator_on_snap_rg", &authorization.AssignmentArgs{
+//				Scope:              snap.ID(),
+//				RoleDefinitionName: pulumi.String("Data Operator for Managed Disks"),
+//				PrincipalId:        pulumi.Any(test.Identity[0].PrincipalId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "test_vault_data_contributor_on_storage", &authorization.AssignmentArgs{
+//				Scope:              pulumi.Any(testAzurermStorageAccount.Id),
+//				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
+//				PrincipalId:        pulumi.Any(test.Identity[0].PrincipalId),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = authorization.NewAssignment(ctx, "cluster_msi_contributor_on_snap_rg", &authorization.AssignmentArgs{
 //				Scope:              snap.ID(),
 //				RoleDefinitionName: pulumi.String("Contributor"),

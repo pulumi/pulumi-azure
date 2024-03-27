@@ -54,7 +54,7 @@ class SparkPoolArgs:
         :param pulumi.Input['SparkPoolSparkConfigArgs'] spark_config: A `spark_config` block as defined below.
         :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
         :param pulumi.Input[str] spark_log_folder: The default folder where Spark logs will be written. Defaults to `/logs`.
-        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`.
+        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Spark Pool.
         """
         pulumi.set(__self__, "node_size", node_size)
@@ -301,7 +301,7 @@ class SparkPoolArgs:
     @pulumi.getter(name="sparkVersion")
     def spark_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`.
+        The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
         """
         return pulumi.get(self, "spark_version")
 
@@ -362,7 +362,7 @@ class _SparkPoolState:
         :param pulumi.Input['SparkPoolSparkConfigArgs'] spark_config: A `spark_config` block as defined below.
         :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
         :param pulumi.Input[str] spark_log_folder: The default folder where Spark logs will be written. Defaults to `/logs`.
-        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`.
+        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Spark Pool.
         """
@@ -601,7 +601,7 @@ class _SparkPoolState:
     @pulumi.getter(name="sparkVersion")
     def spark_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`.
+        The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
         """
         return pulumi.get(self, "spark_version")
 
@@ -748,7 +748,7 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SparkPoolSparkConfigArgs']] spark_config: A `spark_config` block as defined below.
         :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
         :param pulumi.Input[str] spark_log_folder: The default folder where Spark logs will be written. Defaults to `/logs`.
-        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`.
+        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Spark Pool.
         """
@@ -949,7 +949,7 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SparkPoolSparkConfigArgs']] spark_config: A `spark_config` block as defined below.
         :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
         :param pulumi.Input[str] spark_log_folder: The default folder where Spark logs will be written. Defaults to `/logs`.
-        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`.
+        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Spark Pool.
         """
@@ -1110,7 +1110,7 @@ class SparkPool(pulumi.CustomResource):
     @pulumi.getter(name="sparkVersion")
     def spark_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`.
+        The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
         """
         return pulumi.get(self, "spark_version")
 

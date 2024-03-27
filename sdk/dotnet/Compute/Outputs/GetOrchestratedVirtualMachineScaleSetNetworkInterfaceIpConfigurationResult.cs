@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult> PublicIpAddresses;
         /// <summary>
-        /// The the identifier of the subnet.
+        /// The identifier of the subnet.
         /// </summary>
         public readonly string SubnetId;
         /// <summary>

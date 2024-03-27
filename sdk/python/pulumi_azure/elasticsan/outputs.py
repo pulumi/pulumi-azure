@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'ElasticSanSku',
+    'VolumeCreateSource',
     'VolumeGroupEncryption',
     'VolumeGroupIdentity',
     'VolumeGroupNetworkRule',
@@ -48,6 +49,54 @@ class ElasticSanSku(dict):
         The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class VolumeCreateSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceId":
+            suggest = "source_id"
+        elif key == "sourceType":
+            suggest = "source_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeCreateSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeCreateSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeCreateSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_id: str,
+                 source_type: str):
+        """
+        :param str source_id: Specifies the ID of the source to create the Elastic SAN Volume from. Changing this forces a new resource to be created.
+        :param str source_type: Specifies the type of the source to create the Elastic SAN Volume from. Possible values are `Disk`, `DiskRestorePoint`, `DiskSnapshot` and `VolumeSnapshot`. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "source_type", source_type)
+
+    @property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> str:
+        """
+        Specifies the ID of the source to create the Elastic SAN Volume from. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_id")
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> str:
+        """
+        Specifies the type of the source to create the Elastic SAN Volume from. Possible values are `Disk`, `DiskRestorePoint`, `DiskSnapshot` and `VolumeSnapshot`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_type")
 
 
 @pulumi.output_type

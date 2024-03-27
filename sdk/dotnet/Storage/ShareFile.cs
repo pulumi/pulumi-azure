@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage
 {
     /// <summary>
-    /// Manages a File within an Azure Storage File Share.
-    /// 
     /// ## Example Usage
     /// 
     /// &lt;!--Start PulumiCodeChooser --&gt;

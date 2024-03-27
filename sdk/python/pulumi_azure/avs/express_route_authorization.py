@@ -18,8 +18,8 @@ class ExpressRouteAuthorizationArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ExpressRouteAuthorization resource.
-        :param pulumi.Input[str] private_cloud_id: The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        :param pulumi.Input[str] private_cloud_id: The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         """
         pulumi.set(__self__, "private_cloud_id", private_cloud_id)
         if name is not None:
@@ -29,7 +29,7 @@ class ExpressRouteAuthorizationArgs:
     @pulumi.getter(name="privateCloudId")
     def private_cloud_id(self) -> pulumi.Input[str]:
         """
-        The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         """
         return pulumi.get(self, "private_cloud_id")
 
@@ -41,7 +41,7 @@ class ExpressRouteAuthorizationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         """
         return pulumi.get(self, "name")
 
@@ -59,10 +59,10 @@ class _ExpressRouteAuthorizationState:
                  private_cloud_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ExpressRouteAuthorization resources.
-        :param pulumi.Input[str] express_route_authorization_id: The ID of the Express Route Circuit Authorization.
-        :param pulumi.Input[str] express_route_authorization_key: The key of the Express Route Circuit Authorization.
-        :param pulumi.Input[str] name: The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
-        :param pulumi.Input[str] private_cloud_id: The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        :param pulumi.Input[str] express_route_authorization_id: The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
+        :param pulumi.Input[str] express_route_authorization_key: The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
+        :param pulumi.Input[str] name: The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
+        :param pulumi.Input[str] private_cloud_id: The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         """
         if express_route_authorization_id is not None:
             pulumi.set(__self__, "express_route_authorization_id", express_route_authorization_id)
@@ -77,7 +77,7 @@ class _ExpressRouteAuthorizationState:
     @pulumi.getter(name="expressRouteAuthorizationId")
     def express_route_authorization_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Express Route Circuit Authorization.
+        The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
         """
         return pulumi.get(self, "express_route_authorization_id")
 
@@ -89,7 +89,7 @@ class _ExpressRouteAuthorizationState:
     @pulumi.getter(name="expressRouteAuthorizationKey")
     def express_route_authorization_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The key of the Express Route Circuit Authorization.
+        The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
         """
         return pulumi.get(self, "express_route_authorization_key")
 
@@ -101,7 +101,7 @@ class _ExpressRouteAuthorizationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         """
         return pulumi.get(self, "name")
 
@@ -113,7 +113,7 @@ class _ExpressRouteAuthorizationState:
     @pulumi.getter(name="privateCloudId")
     def private_cloud_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         """
         return pulumi.get(self, "private_cloud_id")
 
@@ -131,7 +131,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
                  private_cloud_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Express Route VMware Authorization.
+        Manages an Azure VMware Solution ExpressRoute Circuit Authorization.
 
         ## Example Usage
 
@@ -163,7 +163,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
 
         ## Import
 
-        VMware Authorizations can be imported using the `resource id`, e.g.
+        Azure VMware Solution ExpressRoute Circuit Authorizations can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:avs/expressRouteAuthorization:ExpressRouteAuthorization example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/authorizations/authorization1
@@ -171,8 +171,8 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
-        :param pulumi.Input[str] private_cloud_id: The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
+        :param pulumi.Input[str] private_cloud_id: The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         """
         ...
     @overload
@@ -181,7 +181,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
                  args: ExpressRouteAuthorizationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Express Route VMware Authorization.
+        Manages an Azure VMware Solution ExpressRoute Circuit Authorization.
 
         ## Example Usage
 
@@ -213,7 +213,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
 
         ## Import
 
-        VMware Authorizations can be imported using the `resource id`, e.g.
+        Azure VMware Solution ExpressRoute Circuit Authorizations can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:avs/expressRouteAuthorization:ExpressRouteAuthorization example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/authorizations/authorization1
@@ -274,10 +274,10 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] express_route_authorization_id: The ID of the Express Route Circuit Authorization.
-        :param pulumi.Input[str] express_route_authorization_key: The key of the Express Route Circuit Authorization.
-        :param pulumi.Input[str] name: The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
-        :param pulumi.Input[str] private_cloud_id: The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        :param pulumi.Input[str] express_route_authorization_id: The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
+        :param pulumi.Input[str] express_route_authorization_key: The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
+        :param pulumi.Input[str] name: The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
+        :param pulumi.Input[str] private_cloud_id: The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -293,7 +293,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
     @pulumi.getter(name="expressRouteAuthorizationId")
     def express_route_authorization_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Express Route Circuit Authorization.
+        The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
         """
         return pulumi.get(self, "express_route_authorization_id")
 
@@ -301,7 +301,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
     @pulumi.getter(name="expressRouteAuthorizationKey")
     def express_route_authorization_key(self) -> pulumi.Output[str]:
         """
-        The key of the Express Route Circuit Authorization.
+        The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
         """
         return pulumi.get(self, "express_route_authorization_key")
 
@@ -309,7 +309,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         """
         return pulumi.get(self, "name")
 
@@ -317,7 +317,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
     @pulumi.getter(name="privateCloudId")
     def private_cloud_id(self) -> pulumi.Output[str]:
         """
-        The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         """
         return pulumi.get(self, "private_cloud_id")
 

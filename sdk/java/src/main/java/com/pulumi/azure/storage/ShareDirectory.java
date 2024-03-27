@@ -16,8 +16,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Directory within an Azure Storage File Share.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -69,8 +67,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleShareDirectory = new ShareDirectory(&#34;exampleShareDirectory&#34;, ShareDirectoryArgs.builder()        
  *             .name(&#34;example&#34;)
- *             .shareName(exampleShare.name())
- *             .storageAccountName(exampleAccount.name())
+ *             .storageShareId(exampleShare.id())
  *             .build());
  * 
  *     }
@@ -118,32 +115,42 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
+     * @deprecated
+     * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
     @Export(name="shareName", refs={String.class}, tree="[0]")
     private Output<String> shareName;
 
-    /**
-     * @return The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> shareName() {
         return this.shareName;
     }
     /**
-     * The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
+     * @deprecated
+     * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
     @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output<String> storageAccountName;
 
-    /**
-     * @return The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> storageAccountName() {
         return this.storageAccountName;
+    }
+    /**
+     * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="storageShareId", refs={String.class}, tree="[0]")
+    private Output<String> storageShareId;
+
+    /**
+     * @return The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> storageShareId() {
+        return this.storageShareId;
     }
 
     /**
@@ -158,7 +165,7 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ShareDirectory(String name, ShareDirectoryArgs args) {
+    public ShareDirectory(String name, @Nullable ShareDirectoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -167,7 +174,7 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ShareDirectory(String name, ShareDirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ShareDirectory(String name, @Nullable ShareDirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/shareDirectory:ShareDirectory", name, args == null ? ShareDirectoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

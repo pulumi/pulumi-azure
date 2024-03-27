@@ -143,11 +143,10 @@ def get_cname_record(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.dns.CNameRecord("example",
-        name="test",
+    example = azure.dns.get_cname_record(name="test",
         zone_name="test-zone",
         resource_group_name="test-rg")
-    pulumi.export("dnsCnameRecordId", example_azurerm_dns_cname_record["id"])
+    pulumi.export("dnsCnameRecordId", example.id)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -188,11 +187,10 @@ def get_cname_record_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.dns.CNameRecord("example",
-        name="test",
+    example = azure.dns.get_cname_record(name="test",
         zone_name="test-zone",
         resource_group_name="test-rg")
-    pulumi.export("dnsCnameRecordId", example_azurerm_dns_cname_record["id"])
+    pulumi.export("dnsCnameRecordId", example.id)
     ```
     <!--End PulumiCodeChooser -->
 

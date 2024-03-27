@@ -19,11 +19,11 @@ namespace Pulumi.Azure.Dns
         /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
-        /// using Azurerm = Pulumi.Azurerm;
+        /// using Azure = Pulumi.Azure;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azurerm.Index.DnsSoaRecord("example", new()
+        ///     var example = Azure.Dns.GetSoaRecord.Invoke(new()
         ///     {
         ///         ZoneName = "test-zone",
         ///         ResourceGroupName = "test-rg",
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Dns
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["dnsSoaRecordId"] = exampleAzurermDnsSoaRecord.Id,
+        ///         ["dnsSoaRecordId"] = example.Apply(getSoaRecordResult =&gt; getSoaRecordResult.Id),
         ///     };
         /// });
         /// ```
@@ -48,11 +48,11 @@ namespace Pulumi.Azure.Dns
         /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
-        /// using Azurerm = Pulumi.Azurerm;
+        /// using Azure = Pulumi.Azure;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azurerm.Index.DnsSoaRecord("example", new()
+        ///     var example = Azure.Dns.GetSoaRecord.Invoke(new()
         ///     {
         ///         ZoneName = "test-zone",
         ///         ResourceGroupName = "test-rg",
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Dns
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["dnsSoaRecordId"] = exampleAzurermDnsSoaRecord.Id,
+        ///         ["dnsSoaRecordId"] = example.Apply(getSoaRecordResult =&gt; getSoaRecordResult.Id),
         ///     };
         /// });
         /// ```

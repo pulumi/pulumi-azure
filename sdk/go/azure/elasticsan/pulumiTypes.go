@@ -177,6 +177,162 @@ func (o ElasticSanSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type VolumeCreateSource struct {
+	// Specifies the ID of the source to create the Elastic SAN Volume from. Changing this forces a new resource to be created.
+	SourceId string `pulumi:"sourceId"`
+	// Specifies the type of the source to create the Elastic SAN Volume from. Possible values are `Disk`, `DiskRestorePoint`, `DiskSnapshot` and `VolumeSnapshot`. Changing this forces a new resource to be created.
+	SourceType string `pulumi:"sourceType"`
+}
+
+// VolumeCreateSourceInput is an input type that accepts VolumeCreateSourceArgs and VolumeCreateSourceOutput values.
+// You can construct a concrete instance of `VolumeCreateSourceInput` via:
+//
+//	VolumeCreateSourceArgs{...}
+type VolumeCreateSourceInput interface {
+	pulumi.Input
+
+	ToVolumeCreateSourceOutput() VolumeCreateSourceOutput
+	ToVolumeCreateSourceOutputWithContext(context.Context) VolumeCreateSourceOutput
+}
+
+type VolumeCreateSourceArgs struct {
+	// Specifies the ID of the source to create the Elastic SAN Volume from. Changing this forces a new resource to be created.
+	SourceId pulumi.StringInput `pulumi:"sourceId"`
+	// Specifies the type of the source to create the Elastic SAN Volume from. Possible values are `Disk`, `DiskRestorePoint`, `DiskSnapshot` and `VolumeSnapshot`. Changing this forces a new resource to be created.
+	SourceType pulumi.StringInput `pulumi:"sourceType"`
+}
+
+func (VolumeCreateSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeCreateSource)(nil)).Elem()
+}
+
+func (i VolumeCreateSourceArgs) ToVolumeCreateSourceOutput() VolumeCreateSourceOutput {
+	return i.ToVolumeCreateSourceOutputWithContext(context.Background())
+}
+
+func (i VolumeCreateSourceArgs) ToVolumeCreateSourceOutputWithContext(ctx context.Context) VolumeCreateSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeCreateSourceOutput)
+}
+
+func (i VolumeCreateSourceArgs) ToVolumeCreateSourcePtrOutput() VolumeCreateSourcePtrOutput {
+	return i.ToVolumeCreateSourcePtrOutputWithContext(context.Background())
+}
+
+func (i VolumeCreateSourceArgs) ToVolumeCreateSourcePtrOutputWithContext(ctx context.Context) VolumeCreateSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeCreateSourceOutput).ToVolumeCreateSourcePtrOutputWithContext(ctx)
+}
+
+// VolumeCreateSourcePtrInput is an input type that accepts VolumeCreateSourceArgs, VolumeCreateSourcePtr and VolumeCreateSourcePtrOutput values.
+// You can construct a concrete instance of `VolumeCreateSourcePtrInput` via:
+//
+//	        VolumeCreateSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeCreateSourcePtrInput interface {
+	pulumi.Input
+
+	ToVolumeCreateSourcePtrOutput() VolumeCreateSourcePtrOutput
+	ToVolumeCreateSourcePtrOutputWithContext(context.Context) VolumeCreateSourcePtrOutput
+}
+
+type volumeCreateSourcePtrType VolumeCreateSourceArgs
+
+func VolumeCreateSourcePtr(v *VolumeCreateSourceArgs) VolumeCreateSourcePtrInput {
+	return (*volumeCreateSourcePtrType)(v)
+}
+
+func (*volumeCreateSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeCreateSource)(nil)).Elem()
+}
+
+func (i *volumeCreateSourcePtrType) ToVolumeCreateSourcePtrOutput() VolumeCreateSourcePtrOutput {
+	return i.ToVolumeCreateSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *volumeCreateSourcePtrType) ToVolumeCreateSourcePtrOutputWithContext(ctx context.Context) VolumeCreateSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeCreateSourcePtrOutput)
+}
+
+type VolumeCreateSourceOutput struct{ *pulumi.OutputState }
+
+func (VolumeCreateSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeCreateSource)(nil)).Elem()
+}
+
+func (o VolumeCreateSourceOutput) ToVolumeCreateSourceOutput() VolumeCreateSourceOutput {
+	return o
+}
+
+func (o VolumeCreateSourceOutput) ToVolumeCreateSourceOutputWithContext(ctx context.Context) VolumeCreateSourceOutput {
+	return o
+}
+
+func (o VolumeCreateSourceOutput) ToVolumeCreateSourcePtrOutput() VolumeCreateSourcePtrOutput {
+	return o.ToVolumeCreateSourcePtrOutputWithContext(context.Background())
+}
+
+func (o VolumeCreateSourceOutput) ToVolumeCreateSourcePtrOutputWithContext(ctx context.Context) VolumeCreateSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeCreateSource) *VolumeCreateSource {
+		return &v
+	}).(VolumeCreateSourcePtrOutput)
+}
+
+// Specifies the ID of the source to create the Elastic SAN Volume from. Changing this forces a new resource to be created.
+func (o VolumeCreateSourceOutput) SourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeCreateSource) string { return v.SourceId }).(pulumi.StringOutput)
+}
+
+// Specifies the type of the source to create the Elastic SAN Volume from. Possible values are `Disk`, `DiskRestorePoint`, `DiskSnapshot` and `VolumeSnapshot`. Changing this forces a new resource to be created.
+func (o VolumeCreateSourceOutput) SourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeCreateSource) string { return v.SourceType }).(pulumi.StringOutput)
+}
+
+type VolumeCreateSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeCreateSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeCreateSource)(nil)).Elem()
+}
+
+func (o VolumeCreateSourcePtrOutput) ToVolumeCreateSourcePtrOutput() VolumeCreateSourcePtrOutput {
+	return o
+}
+
+func (o VolumeCreateSourcePtrOutput) ToVolumeCreateSourcePtrOutputWithContext(ctx context.Context) VolumeCreateSourcePtrOutput {
+	return o
+}
+
+func (o VolumeCreateSourcePtrOutput) Elem() VolumeCreateSourceOutput {
+	return o.ApplyT(func(v *VolumeCreateSource) VolumeCreateSource {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeCreateSource
+		return ret
+	}).(VolumeCreateSourceOutput)
+}
+
+// Specifies the ID of the source to create the Elastic SAN Volume from. Changing this forces a new resource to be created.
+func (o VolumeCreateSourcePtrOutput) SourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeCreateSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of the source to create the Elastic SAN Volume from. Possible values are `Disk`, `DiskRestorePoint`, `DiskSnapshot` and `VolumeSnapshot`. Changing this forces a new resource to be created.
+func (o VolumeCreateSourcePtrOutput) SourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeCreateSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceType
+	}).(pulumi.StringPtrOutput)
+}
+
 type VolumeGroupEncryption struct {
 	// The timestamp of the expiration time for the current version of the customer managed key.
 	CurrentVersionedKeyExpirationTimestamp *string `pulumi:"currentVersionedKeyExpirationTimestamp"`
@@ -693,6 +849,8 @@ func (o VolumeGroupNetworkRuleArrayOutput) Index(i pulumi.IntInput) VolumeGroupN
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ElasticSanSkuInput)(nil)).Elem(), ElasticSanSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ElasticSanSkuPtrInput)(nil)).Elem(), ElasticSanSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeCreateSourceInput)(nil)).Elem(), VolumeCreateSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeCreateSourcePtrInput)(nil)).Elem(), VolumeCreateSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupEncryptionInput)(nil)).Elem(), VolumeGroupEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupEncryptionPtrInput)(nil)).Elem(), VolumeGroupEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupIdentityInput)(nil)).Elem(), VolumeGroupIdentityArgs{})
@@ -701,6 +859,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupNetworkRuleArrayInput)(nil)).Elem(), VolumeGroupNetworkRuleArray{})
 	pulumi.RegisterOutputType(ElasticSanSkuOutput{})
 	pulumi.RegisterOutputType(ElasticSanSkuPtrOutput{})
+	pulumi.RegisterOutputType(VolumeCreateSourceOutput{})
+	pulumi.RegisterOutputType(VolumeCreateSourcePtrOutput{})
 	pulumi.RegisterOutputType(VolumeGroupEncryptionOutput{})
 	pulumi.RegisterOutputType(VolumeGroupEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(VolumeGroupIdentityOutput{})

@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Table within an Azure Storage Account.
  *
+ * > **Note on Authentication** Shared Key authentication will always be used for this resource, as AzureAD authentication is not supported when setting or retrieving ACLs for Tables.
+ *
  * ## Example Usage
  *
  * <!--Start PulumiCodeChooser -->

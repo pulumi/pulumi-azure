@@ -692,6 +692,7 @@
         "elasticcloud/index.ts",
         "elasticsan/elasticSan.ts",
         "elasticsan/index.ts",
+        "elasticsan/volume.ts",
         "elasticsan/volumeGroup.ts",
         "eventgrid/domain.ts",
         "eventgrid/domainTopic.ts",

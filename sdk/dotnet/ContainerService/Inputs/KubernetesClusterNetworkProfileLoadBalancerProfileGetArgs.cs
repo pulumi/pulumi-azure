@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+        /// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
         /// </summary>
         [Input("idleTimeoutInMinutes")]
         public Input<int>? IdleTimeoutInMinutes { get; set; }

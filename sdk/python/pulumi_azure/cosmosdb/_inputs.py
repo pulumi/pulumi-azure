@@ -44,6 +44,7 @@ __all__ = [
     'MongoRoleDefinitionPrivilegeArgs',
     'MongoRoleDefinitionPrivilegeResourceArgs',
     'PostgresqlClusterMaintenanceWindowArgs',
+    'PostgresqlClusterServerArgs',
     'SqlContainerAutoscaleSettingsArgs',
     'SqlContainerConflictResolutionPolicyArgs',
     'SqlContainerIndexingPolicyArgs',
@@ -1519,6 +1520,45 @@ class PostgresqlClusterMaintenanceWindowArgs:
     @start_minute.setter
     def start_minute(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start_minute", value)
+
+
+@pulumi.input_type
+class PostgresqlClusterServerArgs:
+    def __init__(__self__, *,
+                 fqdn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] fqdn: The Fully Qualified Domain Name of the server.
+        :param pulumi.Input[str] name: The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
+        """
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Fully Qualified Domain Name of the server.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

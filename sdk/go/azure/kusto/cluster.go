@@ -117,7 +117,9 @@ type Cluster struct {
 	TrustedExternalTenants pulumi.StringArrayOutput `pulumi:"trustedExternalTenants"`
 	// The FQDN of the Azure Kusto Cluster.
 	Uri pulumi.StringOutput `pulumi:"uri"`
-	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
+	// A `virtualNetworkConfiguration` block as defined below.
+	//
+	// > **NOTE:** Currently removing `virtualNetworkConfiguration` sets the `virtualNetworkConfiguration` to `Disabled` state. But any changes to `virtualNetworkConfiguration` in `Disabled` state forces a new resource to be created.
 	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrOutput `pulumi:"virtualNetworkConfiguration"`
 	// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
@@ -207,7 +209,9 @@ type clusterState struct {
 	TrustedExternalTenants []string `pulumi:"trustedExternalTenants"`
 	// The FQDN of the Azure Kusto Cluster.
 	Uri *string `pulumi:"uri"`
-	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
+	// A `virtualNetworkConfiguration` block as defined below.
+	//
+	// > **NOTE:** Currently removing `virtualNetworkConfiguration` sets the `virtualNetworkConfiguration` to `Disabled` state. But any changes to `virtualNetworkConfiguration` in `Disabled` state forces a new resource to be created.
 	VirtualNetworkConfiguration *ClusterVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 	// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 	Zones []string `pulumi:"zones"`
@@ -262,7 +266,9 @@ type ClusterState struct {
 	TrustedExternalTenants pulumi.StringArrayInput
 	// The FQDN of the Azure Kusto Cluster.
 	Uri pulumi.StringPtrInput
-	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
+	// A `virtualNetworkConfiguration` block as defined below.
+	//
+	// > **NOTE:** Currently removing `virtualNetworkConfiguration` sets the `virtualNetworkConfiguration` to `Disabled` state. But any changes to `virtualNetworkConfiguration` in `Disabled` state forces a new resource to be created.
 	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrInput
 	// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 	Zones pulumi.StringArrayInput
@@ -317,7 +323,9 @@ type clusterArgs struct {
 	//
 	// > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = ["MyTenantOnly"]` to `trustedExternalTenants = []`.
 	TrustedExternalTenants []string `pulumi:"trustedExternalTenants"`
-	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
+	// A `virtualNetworkConfiguration` block as defined below.
+	//
+	// > **NOTE:** Currently removing `virtualNetworkConfiguration` sets the `virtualNetworkConfiguration` to `Disabled` state. But any changes to `virtualNetworkConfiguration` in `Disabled` state forces a new resource to be created.
 	VirtualNetworkConfiguration *ClusterVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 	// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 	Zones []string `pulumi:"zones"`
@@ -369,7 +377,9 @@ type ClusterArgs struct {
 	//
 	// > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = ["MyTenantOnly"]` to `trustedExternalTenants = []`.
 	TrustedExternalTenants pulumi.StringArrayInput
-	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
+	// A `virtualNetworkConfiguration` block as defined below.
+	//
+	// > **NOTE:** Currently removing `virtualNetworkConfiguration` sets the `virtualNetworkConfiguration` to `Disabled` state. But any changes to `virtualNetworkConfiguration` in `Disabled` state forces a new resource to be created.
 	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrInput
 	// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 	Zones pulumi.StringArrayInput
@@ -576,7 +586,9 @@ func (o ClusterOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
 }
 
-// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
+// A `virtualNetworkConfiguration` block as defined below.
+//
+// > **NOTE:** Currently removing `virtualNetworkConfiguration` sets the `virtualNetworkConfiguration` to `Disabled` state. But any changes to `virtualNetworkConfiguration` in `Disabled` state forces a new resource to be created.
 func (o ClusterOutput) VirtualNetworkConfiguration() ClusterVirtualNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterVirtualNetworkConfigurationPtrOutput { return v.VirtualNetworkConfiguration }).(ClusterVirtualNetworkConfigurationPtrOutput)
 }

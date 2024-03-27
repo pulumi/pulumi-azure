@@ -129,13 +129,13 @@ func (o BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput) Index(i p
 }
 
 type BackendAddressPoolTunnelInterface struct {
-	// The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+	// The unique identifier of this Gateway Load Balancer Tunnel Interface.
 	Identifier int `pulumi:"identifier"`
-	// The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+	// The port number that this Gateway Load Balancer Tunnel Interface listens to.
 	Port int `pulumi:"port"`
-	// The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+	// The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
 	Protocol string `pulumi:"protocol"`
-	// The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
+	// The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
 	Type string `pulumi:"type"`
 }
 
@@ -151,13 +151,13 @@ type BackendAddressPoolTunnelInterfaceInput interface {
 }
 
 type BackendAddressPoolTunnelInterfaceArgs struct {
-	// The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+	// The unique identifier of this Gateway Load Balancer Tunnel Interface.
 	Identifier pulumi.IntInput `pulumi:"identifier"`
-	// The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+	// The port number that this Gateway Load Balancer Tunnel Interface listens to.
 	Port pulumi.IntInput `pulumi:"port"`
-	// The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+	// The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
+	// The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -212,22 +212,22 @@ func (o BackendAddressPoolTunnelInterfaceOutput) ToBackendAddressPoolTunnelInter
 	return o
 }
 
-// The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+// The unique identifier of this Gateway Load Balancer Tunnel Interface.
 func (o BackendAddressPoolTunnelInterfaceOutput) Identifier() pulumi.IntOutput {
 	return o.ApplyT(func(v BackendAddressPoolTunnelInterface) int { return v.Identifier }).(pulumi.IntOutput)
 }
 
-// The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+// The port number that this Gateway Load Balancer Tunnel Interface listens to.
 func (o BackendAddressPoolTunnelInterfaceOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v BackendAddressPoolTunnelInterface) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+// The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
 func (o BackendAddressPoolTunnelInterfaceOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendAddressPoolTunnelInterface) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
+// The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
 func (o BackendAddressPoolTunnelInterfaceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendAddressPoolTunnelInterface) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -19,77 +19,37 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ConfigurationArgs Empty = new ConfigurationArgs();
 
-    /**
-     * One or more `config_file` blocks as defined below.
-     * 
-     */
     @Import(name="configFiles")
     private @Nullable Output<List<ConfigurationConfigFileArgs>> configFiles;
 
-    /**
-     * @return One or more `config_file` blocks as defined below.
-     * 
-     */
     public Optional<Output<List<ConfigurationConfigFileArgs>>> configFiles() {
         return Optional.ofNullable(this.configFiles);
     }
 
-    /**
-     * The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
-     * 
-     */
     @Import(name="nginxDeploymentId", required=true)
     private Output<String> nginxDeploymentId;
 
-    /**
-     * @return The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
-     * 
-     */
     public Output<String> nginxDeploymentId() {
         return this.nginxDeploymentId;
     }
 
-    /**
-     * Specify the package data for this configuration.
-     * 
-     */
     @Import(name="packageData")
     private @Nullable Output<String> packageData;
 
-    /**
-     * @return Specify the package data for this configuration.
-     * 
-     */
     public Optional<Output<String>> packageData() {
         return Optional.ofNullable(this.packageData);
     }
 
-    /**
-     * One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-     * 
-     */
     @Import(name="protectedFiles")
     private @Nullable Output<List<ConfigurationProtectedFileArgs>> protectedFiles;
 
-    /**
-     * @return One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-     * 
-     */
     public Optional<Output<List<ConfigurationProtectedFileArgs>>> protectedFiles() {
         return Optional.ofNullable(this.protectedFiles);
     }
 
-    /**
-     * Specify the root file path of this Nginx Configuration.
-     * 
-     */
     @Import(name="rootFile", required=true)
     private Output<String> rootFile;
 
-    /**
-     * @return Specify the root file path of this Nginx Configuration.
-     * 
-     */
     public Output<String> rootFile() {
         return this.rootFile;
     }
@@ -122,127 +82,55 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configFiles One or more `config_file` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configFiles(@Nullable Output<List<ConfigurationConfigFileArgs>> configFiles) {
             $.configFiles = configFiles;
             return this;
         }
 
-        /**
-         * @param configFiles One or more `config_file` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configFiles(List<ConfigurationConfigFileArgs> configFiles) {
             return configFiles(Output.of(configFiles));
         }
 
-        /**
-         * @param configFiles One or more `config_file` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configFiles(ConfigurationConfigFileArgs... configFiles) {
             return configFiles(List.of(configFiles));
         }
 
-        /**
-         * @param nginxDeploymentId The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nginxDeploymentId(Output<String> nginxDeploymentId) {
             $.nginxDeploymentId = nginxDeploymentId;
             return this;
         }
 
-        /**
-         * @param nginxDeploymentId The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nginxDeploymentId(String nginxDeploymentId) {
             return nginxDeploymentId(Output.of(nginxDeploymentId));
         }
 
-        /**
-         * @param packageData Specify the package data for this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageData(@Nullable Output<String> packageData) {
             $.packageData = packageData;
             return this;
         }
 
-        /**
-         * @param packageData Specify the package data for this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageData(String packageData) {
             return packageData(Output.of(packageData));
         }
 
-        /**
-         * @param protectedFiles One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protectedFiles(@Nullable Output<List<ConfigurationProtectedFileArgs>> protectedFiles) {
             $.protectedFiles = protectedFiles;
             return this;
         }
 
-        /**
-         * @param protectedFiles One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protectedFiles(List<ConfigurationProtectedFileArgs> protectedFiles) {
             return protectedFiles(Output.of(protectedFiles));
         }
 
-        /**
-         * @param protectedFiles One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protectedFiles(ConfigurationProtectedFileArgs... protectedFiles) {
             return protectedFiles(List.of(protectedFiles));
         }
 
-        /**
-         * @param rootFile Specify the root file path of this Nginx Configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rootFile(Output<String> rootFile) {
             $.rootFile = rootFile;
             return this;
         }
 
-        /**
-         * @param rootFile Specify the root file path of this Nginx Configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rootFile(String rootFile) {
             return rootFile(Output.of(rootFile));
         }

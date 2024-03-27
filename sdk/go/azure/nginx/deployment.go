@@ -25,6 +25,7 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/nginx"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,6 +85,37 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			configContent := std.Base64encode(ctx, &std.Base64encodeArgs{
+//				Input: `http {
+//	    server {
+//	        listen 80;
+//	        location / {
+//	            auth_basic "Protected Area";
+//	            auth_basic_user_file /opt/.htpasswd;
+//	            default_type text/html;
+//	        }
+//	        include site/*.conf;
+//	    }
+//	}
+//
+// `,
+//
+//			}, nil).Result
+//			protectedContent := std.Base64encode(ctx, &std.Base64encodeArgs{
+//				Input: "user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1\n",
+//			}, nil).Result
+//			subConfigContent := std.Base64encode(ctx, &std.Base64encodeArgs{
+//				Input: `location /bbb {
+//		default_type text/html;
+//		return 200 '<!doctype html><html lang="en"><head></head><body>
+//			<div>this one will be updated</div>
+//			<div>at 10:38 am</div>
+//		</body></html>';
+//	}
+//
+// `,
+//
+//			}, nil).Result
 //			_, err = nginx.NewDeployment(ctx, "example", &nginx.DeploymentArgs{
 //				Name:                    pulumi.String("example-nginx"),
 //				ResourceGroupName:       example.Name,
@@ -104,6 +136,25 @@ import (
 //				},
 //				Capacity: pulumi.Int(20),
 //				Email:    pulumi.String("user@test.com"),
+//				Configuration: &nginx.DeploymentConfigurationArgs{
+//					RootFile: pulumi.String("/etc/nginx/nginx.conf"),
+//					ConfigFiles: nginx.DeploymentConfigurationConfigFileArray{
+//						&nginx.DeploymentConfigurationConfigFileArgs{
+//							Content:     pulumi.String(configContent),
+//							VirtualPath: pulumi.String("/etc/nginx/nginx.conf"),
+//						},
+//						&nginx.DeploymentConfigurationConfigFileArgs{
+//							Content:     pulumi.String(subConfigContent),
+//							VirtualPath: pulumi.String("/etc/nginx/site/b.conf"),
+//						},
+//					},
+//					ProtectedFiles: nginx.DeploymentConfigurationProtectedFileArray{
+//						&nginx.DeploymentConfigurationProtectedFileArgs{
+//							Content:     pulumi.String(protectedContent),
+//							VirtualPath: pulumi.String("/opt/.htpasswd"),
+//						},
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -125,12 +176,16 @@ import (
 type Deployment struct {
 	pulumi.CustomResourceState
 
+	// An `autoScaleProfile` block as defined below.
+	AutoScaleProfiles DeploymentAutoScaleProfileArrayOutput `pulumi:"autoScaleProfiles"`
 	// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
 	AutomaticUpgradeChannel pulumi.StringPtrOutput `pulumi:"automaticUpgradeChannel"`
 	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
+	// Specify a custom `configuration` block as defined below.
+	Configuration DeploymentConfigurationOutput `pulumi:"configuration"`
 	// Should the diagnosis support be enabled?
 	DiagnoseSupportEnabled pulumi.BoolPtrOutput `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address of the user used for sending alerts and notification.
@@ -199,12 +254,16 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
+	// An `autoScaleProfile` block as defined below.
+	AutoScaleProfiles []DeploymentAutoScaleProfile `pulumi:"autoScaleProfiles"`
 	// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
 	AutomaticUpgradeChannel *string `pulumi:"automaticUpgradeChannel"`
 	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity *int `pulumi:"capacity"`
+	// Specify a custom `configuration` block as defined below.
+	Configuration *DeploymentConfiguration `pulumi:"configuration"`
 	// Should the diagnosis support be enabled?
 	DiagnoseSupportEnabled *bool `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address of the user used for sending alerts and notification.
@@ -238,12 +297,16 @@ type deploymentState struct {
 }
 
 type DeploymentState struct {
+	// An `autoScaleProfile` block as defined below.
+	AutoScaleProfiles DeploymentAutoScaleProfileArrayInput
 	// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
 	AutomaticUpgradeChannel pulumi.StringPtrInput
 	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrInput
+	// Specify a custom `configuration` block as defined below.
+	Configuration DeploymentConfigurationPtrInput
 	// Should the diagnosis support be enabled?
 	DiagnoseSupportEnabled pulumi.BoolPtrInput
 	// Specify the preferred support contact email address of the user used for sending alerts and notification.
@@ -281,12 +344,16 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
+	// An `autoScaleProfile` block as defined below.
+	AutoScaleProfiles []DeploymentAutoScaleProfile `pulumi:"autoScaleProfiles"`
 	// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
 	AutomaticUpgradeChannel *string `pulumi:"automaticUpgradeChannel"`
 	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity *int `pulumi:"capacity"`
+	// Specify a custom `configuration` block as defined below.
+	Configuration *DeploymentConfiguration `pulumi:"configuration"`
 	// Should the diagnosis support be enabled?
 	DiagnoseSupportEnabled *bool `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address of the user used for sending alerts and notification.
@@ -317,12 +384,16 @@ type deploymentArgs struct {
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
+	// An `autoScaleProfile` block as defined below.
+	AutoScaleProfiles DeploymentAutoScaleProfileArrayInput
 	// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
 	AutomaticUpgradeChannel pulumi.StringPtrInput
 	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrInput
+	// Specify a custom `configuration` block as defined below.
+	Configuration DeploymentConfigurationPtrInput
 	// Should the diagnosis support be enabled?
 	DiagnoseSupportEnabled pulumi.BoolPtrInput
 	// Specify the preferred support contact email address of the user used for sending alerts and notification.
@@ -438,6 +509,11 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
+// An `autoScaleProfile` block as defined below.
+func (o DeploymentOutput) AutoScaleProfiles() DeploymentAutoScaleProfileArrayOutput {
+	return o.ApplyT(func(v *Deployment) DeploymentAutoScaleProfileArrayOutput { return v.AutoScaleProfiles }).(DeploymentAutoScaleProfileArrayOutput)
+}
+
 // Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
 func (o DeploymentOutput) AutomaticUpgradeChannel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.AutomaticUpgradeChannel }).(pulumi.StringPtrOutput)
@@ -448,6 +524,11 @@ func (o DeploymentOutput) AutomaticUpgradeChannel() pulumi.StringPtrOutput {
 // > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 func (o DeploymentOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.IntPtrOutput { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// Specify a custom `configuration` block as defined below.
+func (o DeploymentOutput) Configuration() DeploymentConfigurationOutput {
+	return o.ApplyT(func(v *Deployment) DeploymentConfigurationOutput { return v.Configuration }).(DeploymentConfigurationOutput)
 }
 
 // Should the diagnosis support be enabled?

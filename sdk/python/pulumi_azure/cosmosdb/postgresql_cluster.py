@@ -413,6 +413,7 @@ class _PostgresqlClusterState:
                  point_in_time_in_utc: Optional[pulumi.Input[str]] = None,
                  preferred_primary_zone: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 servers: Optional[pulumi.Input[Sequence[pulumi.Input['PostgresqlClusterServerArgs']]]] = None,
                  shards_on_coordinator_enabled: Optional[pulumi.Input[bool]] = None,
                  source_location: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -441,6 +442,7 @@ class _PostgresqlClusterState:
         :param pulumi.Input[str] point_in_time_in_utc: The date and time in UTC (ISO8601 format) for the Azure Cosmos DB for PostgreSQL cluster restore. Changing this forces a new resource to be created.
         :param pulumi.Input[str] preferred_primary_zone: The preferred primary availability zone for the Azure Cosmos DB for PostgreSQL cluster.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['PostgresqlClusterServerArgs']]] servers: A `servers` block as defined below.
         :param pulumi.Input[bool] shards_on_coordinator_enabled: Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
         :param pulumi.Input[str] source_location: The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_resource_id: The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
@@ -485,6 +487,8 @@ class _PostgresqlClusterState:
             pulumi.set(__self__, "preferred_primary_zone", preferred_primary_zone)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if servers is not None:
+            pulumi.set(__self__, "servers", servers)
         if shards_on_coordinator_enabled is not None:
             pulumi.set(__self__, "shards_on_coordinator_enabled", shards_on_coordinator_enabled)
         if source_location is not None:
@@ -725,6 +729,18 @@ class _PostgresqlClusterState:
     @resource_group_name.setter
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PostgresqlClusterServerArgs']]]]:
+        """
+        A `servers` block as defined below.
+        """
+        return pulumi.get(self, "servers")
+
+    @servers.setter
+    def servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PostgresqlClusterServerArgs']]]]):
+        pulumi.set(self, "servers", value)
 
     @property
     @pulumi.getter(name="shardsOnCoordinatorEnabled")
@@ -989,6 +1005,7 @@ class PostgresqlCluster(pulumi.CustomResource):
             __props__.__dict__["sql_version"] = sql_version
             __props__.__dict__["tags"] = tags
             __props__.__dict__["earliest_restore_time"] = None
+            __props__.__dict__["servers"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorLoginPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(PostgresqlCluster, __self__).__init__(
@@ -1020,6 +1037,7 @@ class PostgresqlCluster(pulumi.CustomResource):
             point_in_time_in_utc: Optional[pulumi.Input[str]] = None,
             preferred_primary_zone: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PostgresqlClusterServerArgs']]]]] = None,
             shards_on_coordinator_enabled: Optional[pulumi.Input[bool]] = None,
             source_location: Optional[pulumi.Input[str]] = None,
             source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -1053,6 +1071,7 @@ class PostgresqlCluster(pulumi.CustomResource):
         :param pulumi.Input[str] point_in_time_in_utc: The date and time in UTC (ISO8601 format) for the Azure Cosmos DB for PostgreSQL cluster restore. Changing this forces a new resource to be created.
         :param pulumi.Input[str] preferred_primary_zone: The preferred primary availability zone for the Azure Cosmos DB for PostgreSQL cluster.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PostgresqlClusterServerArgs']]]] servers: A `servers` block as defined below.
         :param pulumi.Input[bool] shards_on_coordinator_enabled: Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
         :param pulumi.Input[str] source_location: The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_resource_id: The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
@@ -1082,6 +1101,7 @@ class PostgresqlCluster(pulumi.CustomResource):
         __props__.__dict__["point_in_time_in_utc"] = point_in_time_in_utc
         __props__.__dict__["preferred_primary_zone"] = preferred_primary_zone
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["servers"] = servers
         __props__.__dict__["shards_on_coordinator_enabled"] = shards_on_coordinator_enabled
         __props__.__dict__["source_location"] = source_location
         __props__.__dict__["source_resource_id"] = source_resource_id
@@ -1242,6 +1262,14 @@ class PostgresqlCluster(pulumi.CustomResource):
         The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def servers(self) -> pulumi.Output[Sequence['outputs.PostgresqlClusterServer']]:
+        """
+        A `servers` block as defined below.
+        """
+        return pulumi.get(self, "servers")
 
     @property
     @pulumi.getter(name="shardsOnCoordinatorEnabled")

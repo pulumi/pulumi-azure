@@ -54,6 +54,9 @@ import (
 //				Location:          exampleResourceGroup.Location,
 //				ClientId:          pulumi.String(example.ApplicationId),
 //				TenantId:          pulumi.String(current.TenantId),
+//				Identity: &stack.HciClusterIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -79,12 +82,20 @@ type HciCluster struct {
 	AutomanageConfigurationId pulumi.StringPtrOutput `pulumi:"automanageConfigurationId"`
 	// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
+	// An immutable UUID for the Azure Stack HCI Cluster.
+	CloudId pulumi.StringOutput `pulumi:"cloudId"`
+	// An `identity` block as defined below.
+	Identity HciClusterIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The object ID of the Resource Provider Service Principal.
+	ResourceProviderObjectId pulumi.StringOutput `pulumi:"resourceProviderObjectId"`
+	// The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+	ServiceEndpoint pulumi.StringOutput `pulumi:"serviceEndpoint"`
 	// A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
@@ -133,12 +144,20 @@ type hciClusterState struct {
 	AutomanageConfigurationId *string `pulumi:"automanageConfigurationId"`
 	// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 	ClientId *string `pulumi:"clientId"`
+	// An immutable UUID for the Azure Stack HCI Cluster.
+	CloudId *string `pulumi:"cloudId"`
+	// An `identity` block as defined below.
+	Identity *HciClusterIdentity `pulumi:"identity"`
 	// The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The object ID of the Resource Provider Service Principal.
+	ResourceProviderObjectId *string `pulumi:"resourceProviderObjectId"`
+	// The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+	ServiceEndpoint *string `pulumi:"serviceEndpoint"`
 	// A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
@@ -152,12 +171,20 @@ type HciClusterState struct {
 	AutomanageConfigurationId pulumi.StringPtrInput
 	// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 	ClientId pulumi.StringPtrInput
+	// An immutable UUID for the Azure Stack HCI Cluster.
+	CloudId pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity HciClusterIdentityPtrInput
 	// The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The object ID of the Resource Provider Service Principal.
+	ResourceProviderObjectId pulumi.StringPtrInput
+	// The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+	ServiceEndpoint pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
 	Tags pulumi.StringMapInput
 	// The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
@@ -175,6 +202,8 @@ type hciClusterArgs struct {
 	AutomanageConfigurationId *string `pulumi:"automanageConfigurationId"`
 	// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 	ClientId string `pulumi:"clientId"`
+	// An `identity` block as defined below.
+	Identity *HciClusterIdentity `pulumi:"identity"`
 	// The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Azure Stack HCI Cluster. Changing this forces a new resource to be created.
@@ -195,6 +224,8 @@ type HciClusterArgs struct {
 	AutomanageConfigurationId pulumi.StringPtrInput
 	// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 	ClientId pulumi.StringInput
+	// An `identity` block as defined below.
+	Identity HciClusterIdentityPtrInput
 	// The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Azure Stack HCI Cluster. Changing this forces a new resource to be created.
@@ -306,6 +337,16 @@ func (o HciClusterOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HciCluster) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// An immutable UUID for the Azure Stack HCI Cluster.
+func (o HciClusterOutput) CloudId() pulumi.StringOutput {
+	return o.ApplyT(func(v *HciCluster) pulumi.StringOutput { return v.CloudId }).(pulumi.StringOutput)
+}
+
+// An `identity` block as defined below.
+func (o HciClusterOutput) Identity() HciClusterIdentityPtrOutput {
+	return o.ApplyT(func(v *HciCluster) HciClusterIdentityPtrOutput { return v.Identity }).(HciClusterIdentityPtrOutput)
+}
+
 // The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
 func (o HciClusterOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *HciCluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
@@ -319,6 +360,16 @@ func (o HciClusterOutput) Name() pulumi.StringOutput {
 // The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
 func (o HciClusterOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *HciCluster) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The object ID of the Resource Provider Service Principal.
+func (o HciClusterOutput) ResourceProviderObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *HciCluster) pulumi.StringOutput { return v.ResourceProviderObjectId }).(pulumi.StringOutput)
+}
+
+// The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+func (o HciClusterOutput) ServiceEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *HciCluster) pulumi.StringOutput { return v.ServiceEndpoint }).(pulumi.StringOutput)
 }
 
 // A mapping of tags which should be assigned to the Azure Stack HCI Cluster.

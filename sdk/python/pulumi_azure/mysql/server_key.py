@@ -100,6 +100,8 @@ class ServerKey(pulumi.CustomResource):
         """
         Manages a Customer Managed Key for a MySQL Server.
 
+        > **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: https://go.microsoft.com/fwlink/?linkid=2216041. The `mysql.ServerKey` resource is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `customer_managed_key` property of the `mysql.FlexibleServer` resource instead.
+
         ## Example Usage
 
         <!--Start PulumiCodeChooser -->
@@ -203,6 +205,8 @@ class ServerKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Customer Managed Key for a MySQL Server.
+
+        > **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: https://go.microsoft.com/fwlink/?linkid=2216041. The `mysql.ServerKey` resource is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `customer_managed_key` property of the `mysql.FlexibleServer` resource instead.
 
         ## Example Usage
 

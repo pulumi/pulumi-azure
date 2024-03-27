@@ -35,12 +35,16 @@ import (
 //				return err
 //			}
 //			_, err = healthcare.NewService(ctx, "example", &healthcare.ServiceArgs{
-//				Name:                  pulumi.String("uniquefhirname"),
-//				ResourceGroupName:     pulumi.String("sample-resource-group"),
-//				Location:              pulumi.String("westus2"),
-//				Kind:                  pulumi.String("fhir-R4"),
-//				CosmosdbThroughput:    pulumi.Int(2000),
-//				AccessPolicyObjectIds: pulumi.String(current.ObjectId),
+//				Name:               pulumi.String("uniquefhirname"),
+//				ResourceGroupName:  pulumi.String("sample-resource-group"),
+//				Location:           pulumi.String("westus2"),
+//				Kind:               pulumi.String("fhir-R4"),
+//				CosmosdbThroughput: pulumi.Int(2000),
+//				Identity: &healthcare.ServiceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//				AccessPolicyObjectIds:                 pulumi.String(current.ObjectId),
+//				ConfigurationExportStorageAccountName: pulumi.String("teststorage"),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("testenv"),
 //					"purpose":     pulumi.String("AcceptanceTests"),
@@ -90,6 +94,8 @@ type Service struct {
 	AccessPolicyObjectIds pulumi.StringArrayOutput `pulumi:"accessPolicyObjectIds"`
 	// An `authenticationConfiguration` block as defined below.
 	AuthenticationConfiguration ServiceAuthenticationConfigurationOutput `pulumi:"authenticationConfiguration"`
+	// Specifies the name of the storage account which the operation configuration information is exported to.
+	ConfigurationExportStorageAccountName pulumi.StringPtrOutput `pulumi:"configurationExportStorageAccountName"`
 	// A `corsConfiguration` block as defined below.
 	CorsConfiguration ServiceCorsConfigurationOutput `pulumi:"corsConfiguration"`
 	// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
@@ -98,6 +104,8 @@ type Service struct {
 	CosmosdbKeyVaultKeyVersionlessId pulumi.StringPtrOutput `pulumi:"cosmosdbKeyVaultKeyVersionlessId"`
 	// The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
 	CosmosdbThroughput pulumi.IntPtrOutput `pulumi:"cosmosdbThroughput"`
+	// An `identity` block as defined below.
+	Identity ServiceIdentityPtrOutput `pulumi:"identity"`
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
@@ -150,6 +158,8 @@ type serviceState struct {
 	AccessPolicyObjectIds []string `pulumi:"accessPolicyObjectIds"`
 	// An `authenticationConfiguration` block as defined below.
 	AuthenticationConfiguration *ServiceAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
+	// Specifies the name of the storage account which the operation configuration information is exported to.
+	ConfigurationExportStorageAccountName *string `pulumi:"configurationExportStorageAccountName"`
 	// A `corsConfiguration` block as defined below.
 	CorsConfiguration *ServiceCorsConfiguration `pulumi:"corsConfiguration"`
 	// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
@@ -158,6 +168,8 @@ type serviceState struct {
 	CosmosdbKeyVaultKeyVersionlessId *string `pulumi:"cosmosdbKeyVaultKeyVersionlessId"`
 	// The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
 	CosmosdbThroughput *int `pulumi:"cosmosdbThroughput"`
+	// An `identity` block as defined below.
+	Identity *ServiceIdentity `pulumi:"identity"`
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
@@ -178,6 +190,8 @@ type ServiceState struct {
 	AccessPolicyObjectIds pulumi.StringArrayInput
 	// An `authenticationConfiguration` block as defined below.
 	AuthenticationConfiguration ServiceAuthenticationConfigurationPtrInput
+	// Specifies the name of the storage account which the operation configuration information is exported to.
+	ConfigurationExportStorageAccountName pulumi.StringPtrInput
 	// A `corsConfiguration` block as defined below.
 	CorsConfiguration ServiceCorsConfigurationPtrInput
 	// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
@@ -186,6 +200,8 @@ type ServiceState struct {
 	CosmosdbKeyVaultKeyVersionlessId pulumi.StringPtrInput
 	// The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
 	CosmosdbThroughput pulumi.IntPtrInput
+	// An `identity` block as defined below.
+	Identity ServiceIdentityPtrInput
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
@@ -210,6 +226,8 @@ type serviceArgs struct {
 	AccessPolicyObjectIds []string `pulumi:"accessPolicyObjectIds"`
 	// An `authenticationConfiguration` block as defined below.
 	AuthenticationConfiguration *ServiceAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
+	// Specifies the name of the storage account which the operation configuration information is exported to.
+	ConfigurationExportStorageAccountName *string `pulumi:"configurationExportStorageAccountName"`
 	// A `corsConfiguration` block as defined below.
 	CorsConfiguration *ServiceCorsConfiguration `pulumi:"corsConfiguration"`
 	// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
@@ -218,6 +236,8 @@ type serviceArgs struct {
 	CosmosdbKeyVaultKeyVersionlessId *string `pulumi:"cosmosdbKeyVaultKeyVersionlessId"`
 	// The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
 	CosmosdbThroughput *int `pulumi:"cosmosdbThroughput"`
+	// An `identity` block as defined below.
+	Identity *ServiceIdentity `pulumi:"identity"`
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
@@ -239,6 +259,8 @@ type ServiceArgs struct {
 	AccessPolicyObjectIds pulumi.StringArrayInput
 	// An `authenticationConfiguration` block as defined below.
 	AuthenticationConfiguration ServiceAuthenticationConfigurationPtrInput
+	// Specifies the name of the storage account which the operation configuration information is exported to.
+	ConfigurationExportStorageAccountName pulumi.StringPtrInput
 	// A `corsConfiguration` block as defined below.
 	CorsConfiguration ServiceCorsConfigurationPtrInput
 	// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
@@ -247,6 +269,8 @@ type ServiceArgs struct {
 	CosmosdbKeyVaultKeyVersionlessId pulumi.StringPtrInput
 	// The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
 	CosmosdbThroughput pulumi.IntPtrInput
+	// An `identity` block as defined below.
+	Identity ServiceIdentityPtrInput
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
@@ -359,6 +383,11 @@ func (o ServiceOutput) AuthenticationConfiguration() ServiceAuthenticationConfig
 	return o.ApplyT(func(v *Service) ServiceAuthenticationConfigurationOutput { return v.AuthenticationConfiguration }).(ServiceAuthenticationConfigurationOutput)
 }
 
+// Specifies the name of the storage account which the operation configuration information is exported to.
+func (o ServiceOutput) ConfigurationExportStorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.ConfigurationExportStorageAccountName }).(pulumi.StringPtrOutput)
+}
+
 // A `corsConfiguration` block as defined below.
 func (o ServiceOutput) CorsConfiguration() ServiceCorsConfigurationOutput {
 	return o.ApplyT(func(v *Service) ServiceCorsConfigurationOutput { return v.CorsConfiguration }).(ServiceCorsConfigurationOutput)
@@ -374,6 +403,11 @@ func (o ServiceOutput) CosmosdbKeyVaultKeyVersionlessId() pulumi.StringPtrOutput
 // The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
 func (o ServiceOutput) CosmosdbThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.IntPtrOutput { return v.CosmosdbThroughput }).(pulumi.IntPtrOutput)
+}
+
+// An `identity` block as defined below.
+func (o ServiceOutput) Identity() ServiceIdentityPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceIdentityPtrOutput { return v.Identity }).(ServiceIdentityPtrOutput)
 }
 
 // The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.

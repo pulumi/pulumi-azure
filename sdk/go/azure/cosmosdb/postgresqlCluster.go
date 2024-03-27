@@ -106,6 +106,8 @@ type PostgresqlCluster struct {
 	PreferredPrimaryZone pulumi.StringPtrOutput `pulumi:"preferredPrimaryZone"`
 	// The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A `servers` block as defined below.
+	Servers PostgresqlClusterServerArrayOutput `pulumi:"servers"`
 	// Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
 	ShardsOnCoordinatorEnabled pulumi.BoolOutput `pulumi:"shardsOnCoordinatorEnabled"`
 	// The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
@@ -201,6 +203,8 @@ type postgresqlClusterState struct {
 	PreferredPrimaryZone *string `pulumi:"preferredPrimaryZone"`
 	// The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `servers` block as defined below.
+	Servers []PostgresqlClusterServer `pulumi:"servers"`
 	// Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
 	ShardsOnCoordinatorEnabled *bool `pulumi:"shardsOnCoordinatorEnabled"`
 	// The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
@@ -254,6 +258,8 @@ type PostgresqlClusterState struct {
 	PreferredPrimaryZone pulumi.StringPtrInput
 	// The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A `servers` block as defined below.
+	Servers PostgresqlClusterServerArrayInput
 	// Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
 	ShardsOnCoordinatorEnabled pulumi.BoolPtrInput
 	// The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
@@ -555,6 +561,11 @@ func (o PostgresqlClusterOutput) PreferredPrimaryZone() pulumi.StringPtrOutput {
 // The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
 func (o PostgresqlClusterOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PostgresqlCluster) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A `servers` block as defined below.
+func (o PostgresqlClusterOutput) Servers() PostgresqlClusterServerArrayOutput {
+	return o.ApplyT(func(v *PostgresqlCluster) PostgresqlClusterServerArrayOutput { return v.Servers }).(PostgresqlClusterServerArrayOutput)
 }
 
 // Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.

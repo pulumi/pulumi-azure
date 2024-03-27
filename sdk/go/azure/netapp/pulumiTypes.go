@@ -14,14 +14,32 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AccountActiveDirectory struct {
+	// If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+	AesEncryptionEnabled *bool `pulumi:"aesEncryptionEnabled"`
 	// A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
 	DnsServers []string `pulumi:"dnsServers"`
 	// The name of the Active Directory domain.
 	Domain string `pulumi:"domain"`
-	// The Organizational Unit (OU) within the Active Directory Domain.
+	// Name of the active directory machine.
+	KerberosAdName *string `pulumi:"kerberosAdName"`
+	// kdc server IP addresses for the active directory machine.
+	//
+	// > **IMPORTANT:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
+	KerberosKdcIp *string `pulumi:"kerberosKdcIp"`
+	// Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+	LdapOverTlsEnabled *bool `pulumi:"ldapOverTlsEnabled"`
+	// Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
+	LdapSigningEnabled *bool `pulumi:"ldapSigningEnabled"`
+	// If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
+	LocalNfsUsersWithLdapAllowed *bool `pulumi:"localNfsUsersWithLdapAllowed"`
+	// The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
 	OrganizationalUnit *string `pulumi:"organizationalUnit"`
 	// The password associated with the `username`.
 	Password string `pulumi:"password"`
+	// When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
+	ServerRootCaCertificate *string `pulumi:"serverRootCaCertificate"`
+	// The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
+	SiteName *string `pulumi:"siteName"`
 	// The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
 	SmbServerName string `pulumi:"smbServerName"`
 	// The Username of Active Directory Domain Administrator.
@@ -40,14 +58,32 @@ type AccountActiveDirectoryInput interface {
 }
 
 type AccountActiveDirectoryArgs struct {
+	// If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+	AesEncryptionEnabled pulumi.BoolPtrInput `pulumi:"aesEncryptionEnabled"`
 	// A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
 	// The name of the Active Directory domain.
 	Domain pulumi.StringInput `pulumi:"domain"`
-	// The Organizational Unit (OU) within the Active Directory Domain.
+	// Name of the active directory machine.
+	KerberosAdName pulumi.StringPtrInput `pulumi:"kerberosAdName"`
+	// kdc server IP addresses for the active directory machine.
+	//
+	// > **IMPORTANT:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
+	KerberosKdcIp pulumi.StringPtrInput `pulumi:"kerberosKdcIp"`
+	// Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+	LdapOverTlsEnabled pulumi.BoolPtrInput `pulumi:"ldapOverTlsEnabled"`
+	// Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
+	LdapSigningEnabled pulumi.BoolPtrInput `pulumi:"ldapSigningEnabled"`
+	// If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
+	LocalNfsUsersWithLdapAllowed pulumi.BoolPtrInput `pulumi:"localNfsUsersWithLdapAllowed"`
+	// The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
 	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
 	// The password associated with the `username`.
 	Password pulumi.StringInput `pulumi:"password"`
+	// When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
+	ServerRootCaCertificate pulumi.StringPtrInput `pulumi:"serverRootCaCertificate"`
+	// The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
+	SiteName pulumi.StringPtrInput `pulumi:"siteName"`
 	// The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
 	SmbServerName pulumi.StringInput `pulumi:"smbServerName"`
 	// The Username of Active Directory Domain Administrator.
@@ -131,6 +167,11 @@ func (o AccountActiveDirectoryOutput) ToAccountActiveDirectoryPtrOutputWithConte
 	}).(AccountActiveDirectoryPtrOutput)
 }
 
+// If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+func (o AccountActiveDirectoryOutput) AesEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountActiveDirectory) *bool { return v.AesEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
 func (o AccountActiveDirectoryOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountActiveDirectory) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
@@ -141,7 +182,34 @@ func (o AccountActiveDirectoryOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Domain }).(pulumi.StringOutput)
 }
 
-// The Organizational Unit (OU) within the Active Directory Domain.
+// Name of the active directory machine.
+func (o AccountActiveDirectoryOutput) KerberosAdName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountActiveDirectory) *string { return v.KerberosAdName }).(pulumi.StringPtrOutput)
+}
+
+// kdc server IP addresses for the active directory machine.
+//
+// > **IMPORTANT:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
+func (o AccountActiveDirectoryOutput) KerberosKdcIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountActiveDirectory) *string { return v.KerberosKdcIp }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+func (o AccountActiveDirectoryOutput) LdapOverTlsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountActiveDirectory) *bool { return v.LdapOverTlsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
+func (o AccountActiveDirectoryOutput) LdapSigningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountActiveDirectory) *bool { return v.LdapSigningEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
+func (o AccountActiveDirectoryOutput) LocalNfsUsersWithLdapAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountActiveDirectory) *bool { return v.LocalNfsUsersWithLdapAllowed }).(pulumi.BoolPtrOutput)
+}
+
+// The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
 func (o AccountActiveDirectoryOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountActiveDirectory) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
 }
@@ -149,6 +217,16 @@ func (o AccountActiveDirectoryOutput) OrganizationalUnit() pulumi.StringPtrOutpu
 // The password associated with the `username`.
 func (o AccountActiveDirectoryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
+func (o AccountActiveDirectoryOutput) ServerRootCaCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountActiveDirectory) *string { return v.ServerRootCaCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
+func (o AccountActiveDirectoryOutput) SiteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountActiveDirectory) *string { return v.SiteName }).(pulumi.StringPtrOutput)
 }
 
 // The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
@@ -185,6 +263,16 @@ func (o AccountActiveDirectoryPtrOutput) Elem() AccountActiveDirectoryOutput {
 	}).(AccountActiveDirectoryOutput)
 }
 
+// If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+func (o AccountActiveDirectoryPtrOutput) AesEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AesEncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
 func (o AccountActiveDirectoryPtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountActiveDirectory) []string {
@@ -205,7 +293,59 @@ func (o AccountActiveDirectoryPtrOutput) Domain() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Organizational Unit (OU) within the Active Directory Domain.
+// Name of the active directory machine.
+func (o AccountActiveDirectoryPtrOutput) KerberosAdName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KerberosAdName
+	}).(pulumi.StringPtrOutput)
+}
+
+// kdc server IP addresses for the active directory machine.
+//
+// > **IMPORTANT:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
+func (o AccountActiveDirectoryPtrOutput) KerberosKdcIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KerberosKdcIp
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+func (o AccountActiveDirectoryPtrOutput) LdapOverTlsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LdapOverTlsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
+func (o AccountActiveDirectoryPtrOutput) LdapSigningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LdapSigningEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
+func (o AccountActiveDirectoryPtrOutput) LocalNfsUsersWithLdapAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LocalNfsUsersWithLdapAllowed
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
 func (o AccountActiveDirectoryPtrOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountActiveDirectory) *string {
 		if v == nil {
@@ -222,6 +362,26 @@ func (o AccountActiveDirectoryPtrOutput) Password() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
+func (o AccountActiveDirectoryPtrOutput) ServerRootCaCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerRootCaCertificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
+func (o AccountActiveDirectoryPtrOutput) SiteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SiteName
 	}).(pulumi.StringPtrOutput)
 }
 

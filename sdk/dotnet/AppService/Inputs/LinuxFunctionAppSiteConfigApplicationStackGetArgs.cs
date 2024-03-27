@@ -37,7 +37,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? JavaVersion { get; set; }
 
         /// <summary>
-        /// The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
+        /// The version of Node to run. Possible values include `12`, `14`, `16`, `18` and `20`.
         /// </summary>
         [Input("nodeVersion")]
         public Input<string>? NodeVersion { get; set; }

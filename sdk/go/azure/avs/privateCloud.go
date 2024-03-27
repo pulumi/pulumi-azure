@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a VMware Private Cloud.
+// Manages an Azure VMware Solution Private Cloud.
 //
 // ## Example Usage
 //
@@ -64,7 +64,7 @@ import (
 //
 // ## Import
 //
-// VMware Private Clouds can be imported using the `resource id`, e.g.
+// Azure VMware Solution Private Clouds can be imported using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:avs/privateCloud:PrivateCloud example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/privateCloud1
@@ -74,41 +74,41 @@ type PrivateCloud struct {
 
 	// A `circuit` block as defined below.
 	Circuits PrivateCloudCircuitArrayOutput `pulumi:"circuits"`
-	// The endpoint for the HCX Cloud Manager.
+	// The endpoint for the VMware HCX Cloud Manager.
 	HcxCloudManagerEndpoint pulumi.StringOutput `pulumi:"hcxCloudManagerEndpoint"`
-	// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+	// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
 	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	InternetConnectionEnabled pulumi.BoolPtrOutput `pulumi:"internetConnectionEnabled"`
-	// The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+	// The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A `managementCluster` block as defined below.
 	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	ManagementCluster PrivateCloudManagementClusterOutput `pulumi:"managementCluster"`
-	// The network used to access vCenter Server and NSX-T Manager.
+	// The network used to access VMware vCenter Server and NSX Manager.
 	ManagementSubnetCidr pulumi.StringOutput `pulumi:"managementSubnetCidr"`
-	// The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+	// The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+	// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	NetworkSubnetCidr pulumi.StringOutput `pulumi:"networkSubnetCidr"`
-	// The thumbprint of the NSX-T Manager SSL certificate.
+	// The thumbprint of the VMware NSX Manager SSL certificate.
 	NsxtCertificateThumbprint pulumi.StringOutput `pulumi:"nsxtCertificateThumbprint"`
-	// The endpoint for the NSX-T Data Center manager.
+	// The endpoint for the VMware NSX Manager.
 	NsxtManagerEndpoint pulumi.StringOutput `pulumi:"nsxtManagerEndpoint"`
-	// The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+	// The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	NsxtPassword pulumi.StringPtrOutput `pulumi:"nsxtPassword"`
 	// The network which is used for virtual machine cold migration, cloning, and snapshot migration.
 	ProvisioningSubnetCidr pulumi.StringOutput `pulumi:"provisioningSubnetCidr"`
-	// The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+	// The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+	// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// A mapping of tags which should be assigned to the VMware Private Cloud.
+	// A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The thumbprint of the vCenter Server SSL certificate.
+	// The thumbprint of the VMware vCenter Server SSL certificate.
 	VcenterCertificateThumbprint pulumi.StringOutput `pulumi:"vcenterCertificateThumbprint"`
-	// The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+	// The password of the VMware vCenter Server cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	VcenterPassword pulumi.StringPtrOutput `pulumi:"vcenterPassword"`
-	// The endpoint for Virtual Center Server Appliance.
+	// The endpoint for VMware vCenter Server Appliance.
 	VcsaEndpoint pulumi.StringOutput `pulumi:"vcsaEndpoint"`
 	// The network which is used for live migration of virtual machines.
 	VmotionSubnetCidr pulumi.StringOutput `pulumi:"vmotionSubnetCidr"`
@@ -169,41 +169,41 @@ func GetPrivateCloud(ctx *pulumi.Context,
 type privateCloudState struct {
 	// A `circuit` block as defined below.
 	Circuits []PrivateCloudCircuit `pulumi:"circuits"`
-	// The endpoint for the HCX Cloud Manager.
+	// The endpoint for the VMware HCX Cloud Manager.
 	HcxCloudManagerEndpoint *string `pulumi:"hcxCloudManagerEndpoint"`
-	// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+	// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
 	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	InternetConnectionEnabled *bool `pulumi:"internetConnectionEnabled"`
-	// The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+	// The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Location *string `pulumi:"location"`
 	// A `managementCluster` block as defined below.
 	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	ManagementCluster *PrivateCloudManagementCluster `pulumi:"managementCluster"`
-	// The network used to access vCenter Server and NSX-T Manager.
+	// The network used to access VMware vCenter Server and NSX Manager.
 	ManagementSubnetCidr *string `pulumi:"managementSubnetCidr"`
-	// The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+	// The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Name *string `pulumi:"name"`
-	// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+	// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	NetworkSubnetCidr *string `pulumi:"networkSubnetCidr"`
-	// The thumbprint of the NSX-T Manager SSL certificate.
+	// The thumbprint of the VMware NSX Manager SSL certificate.
 	NsxtCertificateThumbprint *string `pulumi:"nsxtCertificateThumbprint"`
-	// The endpoint for the NSX-T Data Center manager.
+	// The endpoint for the VMware NSX Manager.
 	NsxtManagerEndpoint *string `pulumi:"nsxtManagerEndpoint"`
-	// The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+	// The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	NsxtPassword *string `pulumi:"nsxtPassword"`
 	// The network which is used for virtual machine cold migration, cloning, and snapshot migration.
 	ProvisioningSubnetCidr *string `pulumi:"provisioningSubnetCidr"`
-	// The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+	// The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+	// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	SkuName *string `pulumi:"skuName"`
-	// A mapping of tags which should be assigned to the VMware Private Cloud.
+	// A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
 	Tags map[string]string `pulumi:"tags"`
-	// The thumbprint of the vCenter Server SSL certificate.
+	// The thumbprint of the VMware vCenter Server SSL certificate.
 	VcenterCertificateThumbprint *string `pulumi:"vcenterCertificateThumbprint"`
-	// The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+	// The password of the VMware vCenter Server cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	VcenterPassword *string `pulumi:"vcenterPassword"`
-	// The endpoint for Virtual Center Server Appliance.
+	// The endpoint for VMware vCenter Server Appliance.
 	VcsaEndpoint *string `pulumi:"vcsaEndpoint"`
 	// The network which is used for live migration of virtual machines.
 	VmotionSubnetCidr *string `pulumi:"vmotionSubnetCidr"`
@@ -212,41 +212,41 @@ type privateCloudState struct {
 type PrivateCloudState struct {
 	// A `circuit` block as defined below.
 	Circuits PrivateCloudCircuitArrayInput
-	// The endpoint for the HCX Cloud Manager.
+	// The endpoint for the VMware HCX Cloud Manager.
 	HcxCloudManagerEndpoint pulumi.StringPtrInput
-	// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+	// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
 	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	InternetConnectionEnabled pulumi.BoolPtrInput
-	// The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+	// The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Location pulumi.StringPtrInput
 	// A `managementCluster` block as defined below.
 	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	ManagementCluster PrivateCloudManagementClusterPtrInput
-	// The network used to access vCenter Server and NSX-T Manager.
+	// The network used to access VMware vCenter Server and NSX Manager.
 	ManagementSubnetCidr pulumi.StringPtrInput
-	// The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+	// The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Name pulumi.StringPtrInput
-	// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+	// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	NetworkSubnetCidr pulumi.StringPtrInput
-	// The thumbprint of the NSX-T Manager SSL certificate.
+	// The thumbprint of the VMware NSX Manager SSL certificate.
 	NsxtCertificateThumbprint pulumi.StringPtrInput
-	// The endpoint for the NSX-T Data Center manager.
+	// The endpoint for the VMware NSX Manager.
 	NsxtManagerEndpoint pulumi.StringPtrInput
-	// The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+	// The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	NsxtPassword pulumi.StringPtrInput
 	// The network which is used for virtual machine cold migration, cloning, and snapshot migration.
 	ProvisioningSubnetCidr pulumi.StringPtrInput
-	// The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+	// The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+	// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	SkuName pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the VMware Private Cloud.
+	// A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
 	Tags pulumi.StringMapInput
-	// The thumbprint of the vCenter Server SSL certificate.
+	// The thumbprint of the VMware vCenter Server SSL certificate.
 	VcenterCertificateThumbprint pulumi.StringPtrInput
-	// The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+	// The password of the VMware vCenter Server cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	VcenterPassword pulumi.StringPtrInput
-	// The endpoint for Virtual Center Server Appliance.
+	// The endpoint for VMware vCenter Server Appliance.
 	VcsaEndpoint pulumi.StringPtrInput
 	// The network which is used for live migration of virtual machines.
 	VmotionSubnetCidr pulumi.StringPtrInput
@@ -257,53 +257,53 @@ func (PrivateCloudState) ElementType() reflect.Type {
 }
 
 type privateCloudArgs struct {
-	// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+	// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
 	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	InternetConnectionEnabled *bool `pulumi:"internetConnectionEnabled"`
-	// The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+	// The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Location *string `pulumi:"location"`
 	// A `managementCluster` block as defined below.
 	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	ManagementCluster PrivateCloudManagementCluster `pulumi:"managementCluster"`
-	// The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+	// The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Name *string `pulumi:"name"`
-	// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+	// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	NetworkSubnetCidr string `pulumi:"networkSubnetCidr"`
-	// The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+	// The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	NsxtPassword *string `pulumi:"nsxtPassword"`
-	// The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+	// The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+	// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	SkuName string `pulumi:"skuName"`
-	// A mapping of tags which should be assigned to the VMware Private Cloud.
+	// A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
 	Tags map[string]string `pulumi:"tags"`
-	// The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+	// The password of the VMware vCenter Server cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	VcenterPassword *string `pulumi:"vcenterPassword"`
 }
 
 // The set of arguments for constructing a PrivateCloud resource.
 type PrivateCloudArgs struct {
-	// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+	// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
 	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	InternetConnectionEnabled pulumi.BoolPtrInput
-	// The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+	// The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Location pulumi.StringPtrInput
 	// A `managementCluster` block as defined below.
 	// > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 	ManagementCluster PrivateCloudManagementClusterInput
-	// The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+	// The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	Name pulumi.StringPtrInput
-	// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+	// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	NetworkSubnetCidr pulumi.StringInput
-	// The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+	// The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	NsxtPassword pulumi.StringPtrInput
-	// The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+	// The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	ResourceGroupName pulumi.StringInput
-	// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+	// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	SkuName pulumi.StringInput
-	// A mapping of tags which should be assigned to the VMware Private Cloud.
+	// A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
 	Tags pulumi.StringMapInput
-	// The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+	// The password of the VMware vCenter Server cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	VcenterPassword pulumi.StringPtrInput
 }
 
@@ -399,18 +399,18 @@ func (o PrivateCloudOutput) Circuits() PrivateCloudCircuitArrayOutput {
 	return o.ApplyT(func(v *PrivateCloud) PrivateCloudCircuitArrayOutput { return v.Circuits }).(PrivateCloudCircuitArrayOutput)
 }
 
-// The endpoint for the HCX Cloud Manager.
+// The endpoint for the VMware HCX Cloud Manager.
 func (o PrivateCloudOutput) HcxCloudManagerEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.HcxCloudManagerEndpoint }).(pulumi.StringOutput)
 }
 
-// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
 // > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
 func (o PrivateCloudOutput) InternetConnectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.BoolPtrOutput { return v.InternetConnectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+// The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 func (o PrivateCloudOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -421,32 +421,32 @@ func (o PrivateCloudOutput) ManagementCluster() PrivateCloudManagementClusterOut
 	return o.ApplyT(func(v *PrivateCloud) PrivateCloudManagementClusterOutput { return v.ManagementCluster }).(PrivateCloudManagementClusterOutput)
 }
 
-// The network used to access vCenter Server and NSX-T Manager.
+// The network used to access VMware vCenter Server and NSX Manager.
 func (o PrivateCloudOutput) ManagementSubnetCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.ManagementSubnetCidr }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+// The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 func (o PrivateCloudOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 func (o PrivateCloudOutput) NetworkSubnetCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.NetworkSubnetCidr }).(pulumi.StringOutput)
 }
 
-// The thumbprint of the NSX-T Manager SSL certificate.
+// The thumbprint of the VMware NSX Manager SSL certificate.
 func (o PrivateCloudOutput) NsxtCertificateThumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.NsxtCertificateThumbprint }).(pulumi.StringOutput)
 }
 
-// The endpoint for the NSX-T Data Center manager.
+// The endpoint for the VMware NSX Manager.
 func (o PrivateCloudOutput) NsxtManagerEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.NsxtManagerEndpoint }).(pulumi.StringOutput)
 }
 
-// The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+// The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 func (o PrivateCloudOutput) NsxtPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringPtrOutput { return v.NsxtPassword }).(pulumi.StringPtrOutput)
 }
@@ -456,32 +456,32 @@ func (o PrivateCloudOutput) ProvisioningSubnetCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.ProvisioningSubnetCidr }).(pulumi.StringOutput)
 }
 
-// The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+// The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 func (o PrivateCloudOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 func (o PrivateCloudOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
 
-// A mapping of tags which should be assigned to the VMware Private Cloud.
+// A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
 func (o PrivateCloudOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The thumbprint of the vCenter Server SSL certificate.
+// The thumbprint of the VMware vCenter Server SSL certificate.
 func (o PrivateCloudOutput) VcenterCertificateThumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.VcenterCertificateThumbprint }).(pulumi.StringOutput)
 }
 
-// The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+// The password of the VMware vCenter Server cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 func (o PrivateCloudOutput) VcenterPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringPtrOutput { return v.VcenterPassword }).(pulumi.StringPtrOutput)
 }
 
-// The endpoint for Virtual Center Server Appliance.
+// The endpoint for VMware vCenter Server Appliance.
 func (o PrivateCloudOutput) VcsaEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.VcsaEndpoint }).(pulumi.StringOutput)
 }

@@ -12,6 +12,10 @@ from .. import _utilities
 __all__ = [
     'ConfigurationConfigFileArgs',
     'ConfigurationProtectedFileArgs',
+    'DeploymentAutoScaleProfileArgs',
+    'DeploymentConfigurationArgs',
+    'DeploymentConfigurationConfigFileArgs',
+    'DeploymentConfigurationProtectedFileArgs',
     'DeploymentFrontendPrivateArgs',
     'DeploymentFrontendPublicArgs',
     'DeploymentIdentityArgs',
@@ -21,6 +25,178 @@ __all__ = [
 
 @pulumi.input_type
 class ConfigurationConfigFileArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 virtual_path: pulumi.Input[str]):
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "virtual_path")
+
+    @virtual_path.setter
+    def virtual_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_path", value)
+
+
+@pulumi.input_type
+class ConfigurationProtectedFileArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 virtual_path: pulumi.Input[str]):
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "virtual_path")
+
+    @virtual_path.setter
+    def virtual_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_path", value)
+
+
+@pulumi.input_type
+class DeploymentAutoScaleProfileArgs:
+    def __init__(__self__, *,
+                 max_capacity: pulumi.Input[int],
+                 min_capacity: pulumi.Input[int],
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] min_capacity: Specify the minimum number of NGINX capacity units for this NGINX Deployment.
+        :param pulumi.Input[str] name: Specify the name of the autoscaling profile.
+        """
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "min_capacity", min_capacity)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "max_capacity")
+
+    @max_capacity.setter
+    def max_capacity(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_capacity", value)
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> pulumi.Input[int]:
+        """
+        Specify the minimum number of NGINX capacity units for this NGINX Deployment.
+        """
+        return pulumi.get(self, "min_capacity")
+
+    @min_capacity.setter
+    def min_capacity(self, value: pulumi.Input[int]):
+        pulumi.set(self, "min_capacity", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specify the name of the autoscaling profile.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class DeploymentConfigurationArgs:
+    def __init__(__self__, *,
+                 root_file: pulumi.Input[str],
+                 config_files: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentConfigurationConfigFileArgs']]]] = None,
+                 package_data: Optional[pulumi.Input[str]] = None,
+                 protected_files: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentConfigurationProtectedFileArgs']]]] = None):
+        """
+        :param pulumi.Input[str] root_file: Specify the root file path of this Nginx Configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentConfigurationConfigFileArgs']]] config_files: One or more `config_file` blocks as defined below.
+        :param pulumi.Input[str] package_data: Specify the package data for this configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentConfigurationProtectedFileArgs']]] protected_files: One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+        """
+        pulumi.set(__self__, "root_file", root_file)
+        if config_files is not None:
+            pulumi.set(__self__, "config_files", config_files)
+        if package_data is not None:
+            pulumi.set(__self__, "package_data", package_data)
+        if protected_files is not None:
+            pulumi.set(__self__, "protected_files", protected_files)
+
+    @property
+    @pulumi.getter(name="rootFile")
+    def root_file(self) -> pulumi.Input[str]:
+        """
+        Specify the root file path of this Nginx Configuration.
+        """
+        return pulumi.get(self, "root_file")
+
+    @root_file.setter
+    def root_file(self, value: pulumi.Input[str]):
+        pulumi.set(self, "root_file", value)
+
+    @property
+    @pulumi.getter(name="configFiles")
+    def config_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentConfigurationConfigFileArgs']]]]:
+        """
+        One or more `config_file` blocks as defined below.
+        """
+        return pulumi.get(self, "config_files")
+
+    @config_files.setter
+    def config_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentConfigurationConfigFileArgs']]]]):
+        pulumi.set(self, "config_files", value)
+
+    @property
+    @pulumi.getter(name="packageData")
+    def package_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the package data for this configuration.
+        """
+        return pulumi.get(self, "package_data")
+
+    @package_data.setter
+    def package_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_data", value)
+
+    @property
+    @pulumi.getter(name="protectedFiles")
+    def protected_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentConfigurationProtectedFileArgs']]]]:
+        """
+        One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+        """
+        return pulumi.get(self, "protected_files")
+
+    @protected_files.setter
+    def protected_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentConfigurationProtectedFileArgs']]]]):
+        pulumi.set(self, "protected_files", value)
+
+
+@pulumi.input_type
+class DeploymentConfigurationConfigFileArgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  virtual_path: pulumi.Input[str]):
@@ -57,7 +233,7 @@ class ConfigurationConfigFileArgs:
 
 
 @pulumi.input_type
-class ConfigurationProtectedFileArgs:
+class DeploymentConfigurationProtectedFileArgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  virtual_path: pulumi.Input[str]):

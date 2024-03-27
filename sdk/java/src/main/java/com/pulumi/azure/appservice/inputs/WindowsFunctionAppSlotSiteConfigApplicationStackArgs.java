@@ -47,14 +47,14 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
     }
 
     /**
-     * The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
+     * The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
      * 
      */
     @Import(name="nodeVersion")
     private @Nullable Output<String> nodeVersion;
 
     /**
-     * @return The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
+     * @return The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
      * 
      */
     public Optional<Output<String>> nodeVersion() {
@@ -178,7 +178,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
         }
 
         /**
-         * @param nodeVersion The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
+         * @param nodeVersion The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStackArgs extends 
         }
 
         /**
-         * @param nodeVersion The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
+         * @param nodeVersion The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
          * 
          * @return builder
          * 

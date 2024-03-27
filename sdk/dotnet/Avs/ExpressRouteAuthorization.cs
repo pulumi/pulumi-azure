@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Avs
 {
     /// <summary>
-    /// Manages an Express Route VMware Authorization.
+    /// Manages an Azure VMware Solution ExpressRoute Circuit Authorization.
     /// 
     /// ## Example Usage
     /// 
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Avs
     /// 
     /// ## Import
     /// 
-    /// VMware Authorizations can be imported using the `resource id`, e.g.
+    /// Azure VMware Solution ExpressRoute Circuit Authorizations can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:avs/expressRouteAuthorization:ExpressRouteAuthorization example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/authorizations/authorization1
@@ -67,25 +67,25 @@ namespace Pulumi.Azure.Avs
     public partial class ExpressRouteAuthorization : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the Express Route Circuit Authorization.
+        /// The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
         /// </summary>
         [Output("expressRouteAuthorizationId")]
         public Output<string> ExpressRouteAuthorizationId { get; private set; } = null!;
 
         /// <summary>
-        /// The key of the Express Route Circuit Authorization.
+        /// The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
         /// </summary>
         [Output("expressRouteAuthorizationKey")]
         public Output<string> ExpressRouteAuthorizationKey { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        /// The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        /// The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         /// </summary>
         [Output("privateCloudId")]
         public Output<string> PrivateCloudId { get; private set; } = null!;
@@ -141,13 +141,13 @@ namespace Pulumi.Azure.Avs
     public sealed class ExpressRouteAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        /// The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        /// The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         /// </summary>
         [Input("privateCloudId", required: true)]
         public Input<string> PrivateCloudId { get; set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.Avs
     public sealed class ExpressRouteAuthorizationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Express Route Circuit Authorization.
+        /// The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
         /// </summary>
         [Input("expressRouteAuthorizationId")]
         public Input<string>? ExpressRouteAuthorizationId { get; set; }
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Avs
         private Input<string>? _expressRouteAuthorizationKey;
 
         /// <summary>
-        /// The key of the Express Route Circuit Authorization.
+        /// The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
         /// </summary>
         public Input<string>? ExpressRouteAuthorizationKey
         {
@@ -183,13 +183,13 @@ namespace Pulumi.Azure.Avs
         }
 
         /// <summary>
-        /// The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        /// The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+        /// The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         /// </summary>
         [Input("privateCloudId")]
         public Input<string>? PrivateCloudId { get; set; }

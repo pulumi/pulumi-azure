@@ -4139,6 +4139,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "elasticsan/volume",
+  "fqn": "pulumi_azure.elasticsan",
+  "classes": {
+   "azure:elasticsan/volume:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "elasticsan/volumeGroup",
   "fqn": "pulumi_azure.elasticsan",
   "classes": {

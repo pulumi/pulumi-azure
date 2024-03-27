@@ -6,23 +6,6 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to access information about an existing Nginx Configuration.
- *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.nginx.getConfiguration({
- *     nginxDeploymentId: exampleAzurermNginxDeployment.id,
- * });
- * export const id = example.then(example => example.id);
- * ```
- * <!--End PulumiCodeChooser -->
- */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,9 +18,6 @@ export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getConfiguration.
  */
 export interface GetConfigurationArgs {
-    /**
-     * The ID of the Nginx Deployment.
-     */
     nginxDeploymentId: string;
 }
 
@@ -45,42 +25,16 @@ export interface GetConfigurationArgs {
  * A collection of values returned by getConfiguration.
  */
 export interface GetConfigurationResult {
-    /**
-     * A `configFile` block as defined below.
-     */
     readonly configFiles: outputs.nginx.GetConfigurationConfigFile[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly nginxDeploymentId: string;
-    /**
-     * The package data for this configuration.
-     */
     readonly packageData: string;
     readonly protectedFiles: outputs.nginx.GetConfigurationProtectedFile[];
-    /**
-     * The root file path of this Nginx Configuration.
-     */
     readonly rootFile: string;
 }
-/**
- * Use this data source to access information about an existing Nginx Configuration.
- *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.nginx.getConfiguration({
- *     nginxDeploymentId: exampleAzurermNginxDeployment.id,
- * });
- * export const id = example.then(example => example.id);
- * ```
- * <!--End PulumiCodeChooser -->
- */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))
 }
@@ -89,8 +43,5 @@ export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: 
  * A collection of arguments for invoking getConfiguration.
  */
 export interface GetConfigurationOutputArgs {
-    /**
-     * The ID of the Nginx Deployment.
-     */
     nginxDeploymentId: pulumi.Input<string>;
 }

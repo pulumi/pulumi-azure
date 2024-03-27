@@ -10,13 +10,13 @@ import * as utilities from "../utilities";
  * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
+ * import * as azure from "@pulumi/azure";
  *
- * const example = new azurerm.index.DnsSoaRecord("example", {
+ * const example = azure.dns.getSoaRecord({
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsSoaRecordId = exampleAzurermDnsSoaRecord.id;
+ * export const dnsSoaRecordId = example.then(example => example.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -109,13 +109,13 @@ export interface GetSoaRecordResult {
  * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
+ * import * as azure from "@pulumi/azure";
  *
- * const example = new azurerm.index.DnsSoaRecord("example", {
+ * const example = azure.dns.getSoaRecord({
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsSoaRecordId = exampleAzurermDnsSoaRecord.id;
+ * export const dnsSoaRecordId = example.then(example => example.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */

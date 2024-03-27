@@ -21,7 +21,7 @@ public final class GetPrivateCloudResult {
      */
     private List<GetPrivateCloudCircuit> circuits;
     /**
-     * @return The endpoint for the HCX Cloud Manager.
+     * @return The endpoint for the VMware HCX Cloud Manager.
      * 
      */
     private String hcxCloudManagerEndpoint;
@@ -31,12 +31,12 @@ public final class GetPrivateCloudResult {
      */
     private String id;
     /**
-     * @return Is the VMware Private Cluster connected to the internet?
+     * @return Is the Azure VMware Solution Private Cloud connected to the internet?
      * 
      */
     private Boolean internetConnectionEnabled;
     /**
-     * @return The Azure Region where the VMware Private Cloud exists.
+     * @return The Azure Region where the Azure VMware Solution Private Cloud exists.
      * 
      */
     private String location;
@@ -46,23 +46,23 @@ public final class GetPrivateCloudResult {
      */
     private List<GetPrivateCloudManagementCluster> managementClusters;
     /**
-     * @return The network used to access vCenter Server and NSX-T Manager.
+     * @return The network used to access VMware vCenter Server and NSX Manager.
      * 
      */
     private String managementSubnetCidr;
     private String name;
     /**
-     * @return The subnet CIDR of the VMware Private Cloud.
+     * @return The subnet CIDR of the Azure VMware Solution Private Cloud.
      * 
      */
     private String networkSubnetCidr;
     /**
-     * @return The thumbprint of the NSX-T Manager SSL certificate.
+     * @return The thumbprint of the VMware NSX Manager SSL certificate.
      * 
      */
     private String nsxtCertificateThumbprint;
     /**
-     * @return The endpoint for the NSX-T Data Center manager.
+     * @return The endpoint for the VMware NSX Manager.
      * 
      */
     private String nsxtManagerEndpoint;
@@ -73,22 +73,22 @@ public final class GetPrivateCloudResult {
     private String provisioningSubnetCidr;
     private String resourceGroupName;
     /**
-     * @return The Name of the SKU used for this Private Cloud.
+     * @return The Name of the SKU used for this Azure VMware Solution Private Cloud.
      * 
      */
     private String skuName;
     /**
-     * @return A mapping of tags assigned to the VMware Private Cloud.
+     * @return A mapping of tags assigned to the Azure VMware Solution Private Cloud.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return The thumbprint of the vCenter Server SSL certificate.
+     * @return The thumbprint of the VMware vCenter Server SSL certificate.
      * 
      */
     private String vcenterCertificateThumbprint;
     /**
-     * @return The endpoint for Virtual Center Server Appliance.
+     * @return The endpoint for VMware vCenter Server Appliance.
      * 
      */
     private String vcsaEndpoint;
@@ -107,7 +107,7 @@ public final class GetPrivateCloudResult {
         return this.circuits;
     }
     /**
-     * @return The endpoint for the HCX Cloud Manager.
+     * @return The endpoint for the VMware HCX Cloud Manager.
      * 
      */
     public String hcxCloudManagerEndpoint() {
@@ -121,14 +121,14 @@ public final class GetPrivateCloudResult {
         return this.id;
     }
     /**
-     * @return Is the VMware Private Cluster connected to the internet?
+     * @return Is the Azure VMware Solution Private Cloud connected to the internet?
      * 
      */
     public Boolean internetConnectionEnabled() {
         return this.internetConnectionEnabled;
     }
     /**
-     * @return The Azure Region where the VMware Private Cloud exists.
+     * @return The Azure Region where the Azure VMware Solution Private Cloud exists.
      * 
      */
     public String location() {
@@ -142,7 +142,7 @@ public final class GetPrivateCloudResult {
         return this.managementClusters;
     }
     /**
-     * @return The network used to access vCenter Server and NSX-T Manager.
+     * @return The network used to access VMware vCenter Server and NSX Manager.
      * 
      */
     public String managementSubnetCidr() {
@@ -152,21 +152,21 @@ public final class GetPrivateCloudResult {
         return this.name;
     }
     /**
-     * @return The subnet CIDR of the VMware Private Cloud.
+     * @return The subnet CIDR of the Azure VMware Solution Private Cloud.
      * 
      */
     public String networkSubnetCidr() {
         return this.networkSubnetCidr;
     }
     /**
-     * @return The thumbprint of the NSX-T Manager SSL certificate.
+     * @return The thumbprint of the VMware NSX Manager SSL certificate.
      * 
      */
     public String nsxtCertificateThumbprint() {
         return this.nsxtCertificateThumbprint;
     }
     /**
-     * @return The endpoint for the NSX-T Data Center manager.
+     * @return The endpoint for the VMware NSX Manager.
      * 
      */
     public String nsxtManagerEndpoint() {
@@ -183,28 +183,28 @@ public final class GetPrivateCloudResult {
         return this.resourceGroupName;
     }
     /**
-     * @return The Name of the SKU used for this Private Cloud.
+     * @return The Name of the SKU used for this Azure VMware Solution Private Cloud.
      * 
      */
     public String skuName() {
         return this.skuName;
     }
     /**
-     * @return A mapping of tags assigned to the VMware Private Cloud.
+     * @return A mapping of tags assigned to the Azure VMware Solution Private Cloud.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The thumbprint of the vCenter Server SSL certificate.
+     * @return The thumbprint of the VMware vCenter Server SSL certificate.
      * 
      */
     public String vcenterCertificateThumbprint() {
         return this.vcenterCertificateThumbprint;
     }
     /**
-     * @return The endpoint for Virtual Center Server Appliance.
+     * @return The endpoint for VMware vCenter Server Appliance.
      * 
      */
     public String vcsaEndpoint() {

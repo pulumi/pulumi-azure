@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'ElasticSanSkuArgs',
+    'VolumeCreateSourceArgs',
     'VolumeGroupEncryptionArgs',
     'VolumeGroupIdentityArgs',
     'VolumeGroupNetworkRuleArgs',
@@ -56,6 +57,43 @@ class ElasticSanSkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class VolumeCreateSourceArgs:
+    def __init__(__self__, *,
+                 source_id: pulumi.Input[str],
+                 source_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] source_id: Specifies the ID of the source to create the Elastic SAN Volume from. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_type: Specifies the type of the source to create the Elastic SAN Volume from. Possible values are `Disk`, `DiskRestorePoint`, `DiskSnapshot` and `VolumeSnapshot`. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "source_type", source_type)
+
+    @property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the ID of the source to create the Elastic SAN Volume from. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_id")
+
+    @source_id.setter
+    def source_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_id", value)
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of the source to create the Elastic SAN Volume from. Possible values are `Disk`, `DiskRestorePoint`, `DiskSnapshot` and `VolumeSnapshot`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_type", value)
 
 
 @pulumi.input_type

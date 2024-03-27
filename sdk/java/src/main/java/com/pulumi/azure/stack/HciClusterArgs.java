@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.stack;
 
+import com.pulumi.azure.stack.inputs.HciClusterIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -45,6 +46,21 @@ public final class HciClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> clientId() {
         return this.clientId;
+    }
+
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<HciClusterIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<HciClusterIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -131,6 +147,7 @@ public final class HciClusterArgs extends com.pulumi.resources.ResourceArgs {
     private HciClusterArgs(HciClusterArgs $) {
         this.automanageConfigurationId = $.automanageConfigurationId;
         this.clientId = $.clientId;
+        this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -196,6 +213,27 @@ public final class HciClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<HciClusterIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(HciClusterIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**

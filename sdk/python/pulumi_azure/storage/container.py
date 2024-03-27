@@ -22,6 +22,8 @@ class ContainerArgs:
         The set of arguments for constructing a Container resource.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+               
+               > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
         :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         """
@@ -50,6 +52,8 @@ class ContainerArgs:
     def container_access_type(self) -> Optional[pulumi.Input[str]]:
         """
         The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+
+        > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         """
         return pulumi.get(self, "container_access_type")
 
@@ -95,6 +99,8 @@ class _ContainerState:
         """
         Input properties used for looking up and filtering Container resources.
         :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+               
+               > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         :param pulumi.Input[bool] has_immutability_policy: Is there an Immutability Policy configured on this Storage Container?
         :param pulumi.Input[bool] has_legal_hold: Is there a Legal Hold configured on this Storage Container?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
@@ -122,6 +128,8 @@ class _ContainerState:
     def container_access_type(self) -> Optional[pulumi.Input[str]]:
         """
         The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+
+        > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         """
         return pulumi.get(self, "container_access_type")
 
@@ -252,6 +260,8 @@ class Container(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+               
+               > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
         :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
@@ -361,6 +371,8 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+               
+               > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         :param pulumi.Input[bool] has_immutability_policy: Is there an Immutability Policy configured on this Storage Container?
         :param pulumi.Input[bool] has_legal_hold: Is there a Legal Hold configured on this Storage Container?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
@@ -386,6 +398,8 @@ class Container(pulumi.CustomResource):
     def container_access_type(self) -> pulumi.Output[Optional[str]]:
         """
         The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+
+        > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         """
         return pulumi.get(self, "container_access_type")
 

@@ -11,63 +11,9 @@ namespace Pulumi.Azure.Nginx
 {
     public static class GetConfiguration
     {
-        /// <summary>
-        /// Use this data source to access information about an existing Nginx Configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Nginx.GetConfiguration.Invoke(new()
-        ///     {
-        ///         NginxDeploymentId = exampleAzurermNginxDeployment.Id,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getConfigurationResult =&gt; getConfigurationResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure:nginx/getConfiguration:getConfiguration", args ?? new GetConfigurationArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to access information about an existing Nginx Configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Nginx.GetConfiguration.Invoke(new()
-        ///     {
-        ///         NginxDeploymentId = exampleAzurermNginxDeployment.Id,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getConfigurationResult =&gt; getConfigurationResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
-        /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure:nginx/getConfiguration:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
     }
@@ -75,9 +21,6 @@ namespace Pulumi.Azure.Nginx
 
     public sealed class GetConfigurationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ID of the Nginx Deployment.
-        /// </summary>
         [Input("nginxDeploymentId", required: true)]
         public string NginxDeploymentId { get; set; } = null!;
 
@@ -89,9 +32,6 @@ namespace Pulumi.Azure.Nginx
 
     public sealed class GetConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ID of the Nginx Deployment.
-        /// </summary>
         [Input("nginxDeploymentId", required: true)]
         public Input<string> NginxDeploymentId { get; set; } = null!;
 
@@ -105,23 +45,14 @@ namespace Pulumi.Azure.Nginx
     [OutputType]
     public sealed class GetConfigurationResult
     {
-        /// <summary>
-        /// A `config_file` block as defined below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationConfigFileResult> ConfigFiles;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string NginxDeploymentId;
-        /// <summary>
-        /// The package data for this configuration.
-        /// </summary>
         public readonly string PackageData;
         public readonly ImmutableArray<Outputs.GetConfigurationProtectedFileResult> ProtectedFiles;
-        /// <summary>
-        /// The root file path of this Nginx Configuration.
-        /// </summary>
         public readonly string RootFile;
 
         [OutputConstructor]

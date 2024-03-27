@@ -204,7 +204,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? ScmUseMainIpRestriction { get; set; }
 
         /// <summary>
-        /// Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+        /// Should the Windows Web App Slot use a 32-bit worker. The default value varies from different service plans.
         /// </summary>
         [Input("use32BitWorker")]
         public Input<bool>? Use32BitWorker { get; set; }

@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.cosmosdb.PostgresqlClusterArgs;
 import com.pulumi.azure.cosmosdb.inputs.PostgresqlClusterState;
 import com.pulumi.azure.cosmosdb.outputs.PostgresqlClusterMaintenanceWindow;
+import com.pulumi.azure.cosmosdb.outputs.PostgresqlClusterServer;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -348,6 +349,20 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * A `servers` block as defined below.
+     * 
+     */
+    @Export(name="servers", refs={List.class,PostgresqlClusterServer.class}, tree="[0,1]")
+    private Output<List<PostgresqlClusterServer>> servers;
+
+    /**
+     * @return A `servers` block as defined below.
+     * 
+     */
+    public Output<List<PostgresqlClusterServer>> servers() {
+        return this.servers;
     }
     /**
      * Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.

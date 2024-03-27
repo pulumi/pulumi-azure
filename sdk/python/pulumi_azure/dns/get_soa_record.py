@@ -204,12 +204,11 @@ def get_soa_record(name: Optional[str] = None,
     <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
-    import pulumi_azurerm as azurerm
+    import pulumi_azure as azure
 
-    example = azurerm.index.DnsSoaRecord("example",
-        zone_name=test-zone,
-        resource_group_name=test-rg)
-    pulumi.export("dnsSoaRecordId", example_azurerm_dns_soa_record["id"])
+    example = azure.dns.get_soa_record(zone_name="test-zone",
+        resource_group_name="test-rg")
+    pulumi.export("dnsSoaRecordId", example.id)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -253,12 +252,11 @@ def get_soa_record_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
-    import pulumi_azurerm as azurerm
+    import pulumi_azure as azure
 
-    example = azurerm.index.DnsSoaRecord("example",
-        zone_name=test-zone,
-        resource_group_name=test-rg)
-    pulumi.export("dnsSoaRecordId", example_azurerm_dns_soa_record["id"])
+    example = azure.dns.get_soa_record(zone_name="test-zone",
+        resource_group_name="test-rg")
+    pulumi.export("dnsSoaRecordId", example.id)
     ```
     <!--End PulumiCodeChooser -->
 

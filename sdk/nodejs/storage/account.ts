@@ -169,6 +169,12 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly defaultToOauthAuthentication!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+     */
+    public readonly dnsEndpointType!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
@@ -595,6 +601,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["customDomain"] = state ? state.customDomain : undefined;
             resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
             resourceInputs["defaultToOauthAuthentication"] = state ? state.defaultToOauthAuthentication : undefined;
+            resourceInputs["dnsEndpointType"] = state ? state.dnsEndpointType : undefined;
             resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["enableHttpsTrafficOnly"] = state ? state.enableHttpsTrafficOnly : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
@@ -715,6 +722,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["customDomain"] = args ? args.customDomain : undefined;
             resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
             resourceInputs["defaultToOauthAuthentication"] = args ? args.defaultToOauthAuthentication : undefined;
+            resourceInputs["dnsEndpointType"] = args ? args.dnsEndpointType : undefined;
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -878,6 +886,12 @@ export interface AccountState {
      * Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
      */
     defaultToOauthAuthentication?: pulumi.Input<boolean>;
+    /**
+     * Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+     */
+    dnsEndpointType?: pulumi.Input<string>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      */
@@ -1339,6 +1353,12 @@ export interface AccountArgs {
      * Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
      */
     defaultToOauthAuthentication?: pulumi.Input<boolean>;
+    /**
+     * Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+     */
+    dnsEndpointType?: pulumi.Input<string>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      */

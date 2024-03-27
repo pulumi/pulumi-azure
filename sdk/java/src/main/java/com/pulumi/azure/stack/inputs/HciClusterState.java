@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.stack.inputs;
 
+import com.pulumi.azure.stack.inputs.HciClusterIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -44,6 +45,36 @@ public final class HciClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> clientId() {
         return Optional.ofNullable(this.clientId);
+    }
+
+    /**
+     * An immutable UUID for the Azure Stack HCI Cluster.
+     * 
+     */
+    @Import(name="cloudId")
+    private @Nullable Output<String> cloudId;
+
+    /**
+     * @return An immutable UUID for the Azure Stack HCI Cluster.
+     * 
+     */
+    public Optional<Output<String>> cloudId() {
+        return Optional.ofNullable(this.cloudId);
+    }
+
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<HciClusterIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<HciClusterIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -92,6 +123,36 @@ public final class HciClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The object ID of the Resource Provider Service Principal.
+     * 
+     */
+    @Import(name="resourceProviderObjectId")
+    private @Nullable Output<String> resourceProviderObjectId;
+
+    /**
+     * @return The object ID of the Resource Provider Service Principal.
+     * 
+     */
+    public Optional<Output<String>> resourceProviderObjectId() {
+        return Optional.ofNullable(this.resourceProviderObjectId);
+    }
+
+    /**
+     * The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+     * 
+     */
+    @Import(name="serviceEndpoint")
+    private @Nullable Output<String> serviceEndpoint;
+
+    /**
+     * @return The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+     * 
+     */
+    public Optional<Output<String>> serviceEndpoint() {
+        return Optional.ofNullable(this.serviceEndpoint);
+    }
+
+    /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
      * 
      */
@@ -130,9 +191,13 @@ public final class HciClusterState extends com.pulumi.resources.ResourceArgs {
     private HciClusterState(HciClusterState $) {
         this.automanageConfigurationId = $.automanageConfigurationId;
         this.clientId = $.clientId;
+        this.cloudId = $.cloudId;
+        this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
+        this.resourceProviderObjectId = $.resourceProviderObjectId;
+        this.serviceEndpoint = $.serviceEndpoint;
         this.tags = $.tags;
         this.tenantId = $.tenantId;
     }
@@ -198,6 +263,48 @@ public final class HciClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param cloudId An immutable UUID for the Azure Stack HCI Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudId(@Nullable Output<String> cloudId) {
+            $.cloudId = cloudId;
+            return this;
+        }
+
+        /**
+         * @param cloudId An immutable UUID for the Azure Stack HCI Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudId(String cloudId) {
+            return cloudId(Output.of(cloudId));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<HciClusterIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(HciClusterIdentityArgs identity) {
+            return identity(Output.of(identity));
+        }
+
+        /**
          * @param location The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -258,6 +365,48 @@ public final class HciClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param resourceProviderObjectId The object ID of the Resource Provider Service Principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceProviderObjectId(@Nullable Output<String> resourceProviderObjectId) {
+            $.resourceProviderObjectId = resourceProviderObjectId;
+            return this;
+        }
+
+        /**
+         * @param resourceProviderObjectId The object ID of the Resource Provider Service Principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceProviderObjectId(String resourceProviderObjectId) {
+            return resourceProviderObjectId(Output.of(resourceProviderObjectId));
+        }
+
+        /**
+         * @param serviceEndpoint The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpoint(@Nullable Output<String> serviceEndpoint) {
+            $.serviceEndpoint = serviceEndpoint;
+            return this;
+        }
+
+        /**
+         * @param serviceEndpoint The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpoint(String serviceEndpoint) {
+            return serviceEndpoint(Output.of(serviceEndpoint));
         }
 
         /**

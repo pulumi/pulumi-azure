@@ -14,12 +14,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.SrvRecord("example", {
+ * const example = azure.dns.getSrvRecord({
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsSrvRecordId = exampleAzurermDnsSrvRecord.id;
+ * export const dnsSrvRecordId = example.then(example => example.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -87,12 +87,12 @@ export interface GetSrvRecordResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.SrvRecord("example", {
+ * const example = azure.dns.getSrvRecord({
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsSrvRecordId = exampleAzurermDnsSrvRecord.id;
+ * export const dnsSrvRecordId = example.then(example => example.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */

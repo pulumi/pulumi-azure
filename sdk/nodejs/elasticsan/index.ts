@@ -10,6 +10,11 @@ export type ElasticSan = import("./elasticSan").ElasticSan;
 export const ElasticSan: typeof import("./elasticSan").ElasticSan = null as any;
 utilities.lazyLoad(exports, ["ElasticSan"], () => require("./elasticSan"));
 
+export { VolumeArgs, VolumeState } from "./volume";
+export type Volume = import("./volume").Volume;
+export const Volume: typeof import("./volume").Volume = null as any;
+utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
+
 export { VolumeGroupArgs, VolumeGroupState } from "./volumeGroup";
 export type VolumeGroup = import("./volumeGroup").VolumeGroup;
 export const VolumeGroup: typeof import("./volumeGroup").VolumeGroup = null as any;
@@ -22,6 +27,8 @@ const _module = {
         switch (type) {
             case "azure:elasticsan/elasticSan:ElasticSan":
                 return new ElasticSan(name, <any>undefined, { urn })
+            case "azure:elasticsan/volume:Volume":
+                return new Volume(name, <any>undefined, { urn })
             case "azure:elasticsan/volumeGroup:VolumeGroup":
                 return new VolumeGroup(name, <any>undefined, { urn })
             default:
@@ -30,4 +37,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "elasticsan/elasticSan", _module)
+pulumi.runtime.registerResourceModule("azure", "elasticsan/volume", _module)
 pulumi.runtime.registerResourceModule("azure", "elasticsan/volumeGroup", _module)

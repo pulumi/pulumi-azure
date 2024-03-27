@@ -19,7 +19,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
      */
     private @Nullable List<String> effectiveOutboundIps;
     /**
-     * @return Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+     * @return Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
      * 
      */
     private @Nullable Integer idleTimeoutInMinutes;
@@ -64,7 +64,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
         return this.effectiveOutboundIps == null ? List.of() : this.effectiveOutboundIps;
     }
     /**
-     * @return Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+     * @return Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
      * 
      */
     public Optional<Integer> idleTimeoutInMinutes() {
