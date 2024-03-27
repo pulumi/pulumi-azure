@@ -7,6 +7,7 @@ import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSelfHostedRbacAutho
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -78,6 +79,21 @@ public final class IntegrationRuntimeSelfHostedArgs extends com.pulumi.resources
         return Optional.ofNullable(this.rbacAuthorizations);
     }
 
+    /**
+     * Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+     * 
+     */
+    @Import(name="selfContainedInteractiveAuthoringEnabled")
+    private @Nullable Output<Boolean> selfContainedInteractiveAuthoringEnabled;
+
+    /**
+     * @return Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+     * 
+     */
+    public Optional<Output<Boolean>> selfContainedInteractiveAuthoringEnabled() {
+        return Optional.ofNullable(this.selfContainedInteractiveAuthoringEnabled);
+    }
+
     private IntegrationRuntimeSelfHostedArgs() {}
 
     private IntegrationRuntimeSelfHostedArgs(IntegrationRuntimeSelfHostedArgs $) {
@@ -85,6 +101,7 @@ public final class IntegrationRuntimeSelfHostedArgs extends com.pulumi.resources
         this.description = $.description;
         this.name = $.name;
         this.rbacAuthorizations = $.rbacAuthorizations;
+        this.selfContainedInteractiveAuthoringEnabled = $.selfContainedInteractiveAuthoringEnabled;
     }
 
     public static Builder builder() {
@@ -197,6 +214,27 @@ public final class IntegrationRuntimeSelfHostedArgs extends com.pulumi.resources
          */
         public Builder rbacAuthorizations(IntegrationRuntimeSelfHostedRbacAuthorizationArgs... rbacAuthorizations) {
             return rbacAuthorizations(List.of(rbacAuthorizations));
+        }
+
+        /**
+         * @param selfContainedInteractiveAuthoringEnabled Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selfContainedInteractiveAuthoringEnabled(@Nullable Output<Boolean> selfContainedInteractiveAuthoringEnabled) {
+            $.selfContainedInteractiveAuthoringEnabled = selfContainedInteractiveAuthoringEnabled;
+            return this;
+        }
+
+        /**
+         * @param selfContainedInteractiveAuthoringEnabled Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selfContainedInteractiveAuthoringEnabled(Boolean selfContainedInteractiveAuthoringEnabled) {
+            return selfContainedInteractiveAuthoringEnabled(Output.of(selfContainedInteractiveAuthoringEnabled));
         }
 
         public IntegrationRuntimeSelfHostedArgs build() {

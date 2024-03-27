@@ -6,6 +6,7 @@ package com.pulumi.azure.netapp.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class AccountActiveDirectoryArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AccountActiveDirectoryArgs Empty = new AccountActiveDirectoryArgs();
+
+    /**
+     * If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+     * 
+     */
+    @Import(name="aesEncryptionEnabled")
+    private @Nullable Output<Boolean> aesEncryptionEnabled;
+
+    /**
+     * @return If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> aesEncryptionEnabled() {
+        return Optional.ofNullable(this.aesEncryptionEnabled);
+    }
 
     /**
      * A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
@@ -48,14 +64,93 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The Organizational Unit (OU) within the Active Directory Domain.
+     * Name of the active directory machine.
+     * 
+     */
+    @Import(name="kerberosAdName")
+    private @Nullable Output<String> kerberosAdName;
+
+    /**
+     * @return Name of the active directory machine.
+     * 
+     */
+    public Optional<Output<String>> kerberosAdName() {
+        return Optional.ofNullable(this.kerberosAdName);
+    }
+
+    /**
+     * kdc server IP addresses for the active directory machine.
+     * 
+     * &gt; **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+     * 
+     */
+    @Import(name="kerberosKdcIp")
+    private @Nullable Output<String> kerberosKdcIp;
+
+    /**
+     * @return kdc server IP addresses for the active directory machine.
+     * 
+     * &gt; **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+     * 
+     */
+    public Optional<Output<String>> kerberosKdcIp() {
+        return Optional.ofNullable(this.kerberosKdcIp);
+    }
+
+    /**
+     * Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+     * 
+     */
+    @Import(name="ldapOverTlsEnabled")
+    private @Nullable Output<Boolean> ldapOverTlsEnabled;
+
+    /**
+     * @return Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> ldapOverTlsEnabled() {
+        return Optional.ofNullable(this.ldapOverTlsEnabled);
+    }
+
+    /**
+     * Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
+     * 
+     */
+    @Import(name="ldapSigningEnabled")
+    private @Nullable Output<Boolean> ldapSigningEnabled;
+
+    /**
+     * @return Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> ldapSigningEnabled() {
+        return Optional.ofNullable(this.ldapSigningEnabled);
+    }
+
+    /**
+     * If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
+     * 
+     */
+    @Import(name="localNfsUsersWithLdapAllowed")
+    private @Nullable Output<Boolean> localNfsUsersWithLdapAllowed;
+
+    /**
+     * @return If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> localNfsUsersWithLdapAllowed() {
+        return Optional.ofNullable(this.localNfsUsersWithLdapAllowed);
+    }
+
+    /**
+     * The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
      * 
      */
     @Import(name="organizationalUnit")
     private @Nullable Output<String> organizationalUnit;
 
     /**
-     * @return The Organizational Unit (OU) within the Active Directory Domain.
+     * @return The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
      * 
      */
     public Optional<Output<String>> organizationalUnit() {
@@ -75,6 +170,36 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
      */
     public Output<String> password() {
         return this.password;
+    }
+
+    /**
+     * When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+     * 
+     */
+    @Import(name="serverRootCaCertificate")
+    private @Nullable Output<String> serverRootCaCertificate;
+
+    /**
+     * @return When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+     * 
+     */
+    public Optional<Output<String>> serverRootCaCertificate() {
+        return Optional.ofNullable(this.serverRootCaCertificate);
+    }
+
+    /**
+     * The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
+     * 
+     */
+    @Import(name="siteName")
+    private @Nullable Output<String> siteName;
+
+    /**
+     * @return The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
+     * 
+     */
+    public Optional<Output<String>> siteName() {
+        return Optional.ofNullable(this.siteName);
     }
 
     /**
@@ -110,10 +235,18 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
     private AccountActiveDirectoryArgs() {}
 
     private AccountActiveDirectoryArgs(AccountActiveDirectoryArgs $) {
+        this.aesEncryptionEnabled = $.aesEncryptionEnabled;
         this.dnsServers = $.dnsServers;
         this.domain = $.domain;
+        this.kerberosAdName = $.kerberosAdName;
+        this.kerberosKdcIp = $.kerberosKdcIp;
+        this.ldapOverTlsEnabled = $.ldapOverTlsEnabled;
+        this.ldapSigningEnabled = $.ldapSigningEnabled;
+        this.localNfsUsersWithLdapAllowed = $.localNfsUsersWithLdapAllowed;
         this.organizationalUnit = $.organizationalUnit;
         this.password = $.password;
+        this.serverRootCaCertificate = $.serverRootCaCertificate;
+        this.siteName = $.siteName;
         this.smbServerName = $.smbServerName;
         this.username = $.username;
     }
@@ -134,6 +267,27 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
 
         public Builder(AccountActiveDirectoryArgs defaults) {
             $ = new AccountActiveDirectoryArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param aesEncryptionEnabled If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aesEncryptionEnabled(@Nullable Output<Boolean> aesEncryptionEnabled) {
+            $.aesEncryptionEnabled = aesEncryptionEnabled;
+            return this;
+        }
+
+        /**
+         * @param aesEncryptionEnabled If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aesEncryptionEnabled(Boolean aesEncryptionEnabled) {
+            return aesEncryptionEnabled(Output.of(aesEncryptionEnabled));
         }
 
         /**
@@ -189,7 +343,116 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param organizationalUnit The Organizational Unit (OU) within the Active Directory Domain.
+         * @param kerberosAdName Name of the active directory machine.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosAdName(@Nullable Output<String> kerberosAdName) {
+            $.kerberosAdName = kerberosAdName;
+            return this;
+        }
+
+        /**
+         * @param kerberosAdName Name of the active directory machine.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosAdName(String kerberosAdName) {
+            return kerberosAdName(Output.of(kerberosAdName));
+        }
+
+        /**
+         * @param kerberosKdcIp kdc server IP addresses for the active directory machine.
+         * 
+         * &gt; **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosKdcIp(@Nullable Output<String> kerberosKdcIp) {
+            $.kerberosKdcIp = kerberosKdcIp;
+            return this;
+        }
+
+        /**
+         * @param kerberosKdcIp kdc server IP addresses for the active directory machine.
+         * 
+         * &gt; **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosKdcIp(String kerberosKdcIp) {
+            return kerberosKdcIp(Output.of(kerberosKdcIp));
+        }
+
+        /**
+         * @param ldapOverTlsEnabled Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ldapOverTlsEnabled(@Nullable Output<Boolean> ldapOverTlsEnabled) {
+            $.ldapOverTlsEnabled = ldapOverTlsEnabled;
+            return this;
+        }
+
+        /**
+         * @param ldapOverTlsEnabled Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ldapOverTlsEnabled(Boolean ldapOverTlsEnabled) {
+            return ldapOverTlsEnabled(Output.of(ldapOverTlsEnabled));
+        }
+
+        /**
+         * @param ldapSigningEnabled Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ldapSigningEnabled(@Nullable Output<Boolean> ldapSigningEnabled) {
+            $.ldapSigningEnabled = ldapSigningEnabled;
+            return this;
+        }
+
+        /**
+         * @param ldapSigningEnabled Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ldapSigningEnabled(Boolean ldapSigningEnabled) {
+            return ldapSigningEnabled(Output.of(ldapSigningEnabled));
+        }
+
+        /**
+         * @param localNfsUsersWithLdapAllowed If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localNfsUsersWithLdapAllowed(@Nullable Output<Boolean> localNfsUsersWithLdapAllowed) {
+            $.localNfsUsersWithLdapAllowed = localNfsUsersWithLdapAllowed;
+            return this;
+        }
+
+        /**
+         * @param localNfsUsersWithLdapAllowed If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localNfsUsersWithLdapAllowed(Boolean localNfsUsersWithLdapAllowed) {
+            return localNfsUsersWithLdapAllowed(Output.of(localNfsUsersWithLdapAllowed));
+        }
+
+        /**
+         * @param organizationalUnit The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
          * 
          * @return builder
          * 
@@ -200,7 +463,7 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param organizationalUnit The Organizational Unit (OU) within the Active Directory Domain.
+         * @param organizationalUnit The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
          * 
          * @return builder
          * 
@@ -228,6 +491,48 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        /**
+         * @param serverRootCaCertificate When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverRootCaCertificate(@Nullable Output<String> serverRootCaCertificate) {
+            $.serverRootCaCertificate = serverRootCaCertificate;
+            return this;
+        }
+
+        /**
+         * @param serverRootCaCertificate When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverRootCaCertificate(String serverRootCaCertificate) {
+            return serverRootCaCertificate(Output.of(serverRootCaCertificate));
+        }
+
+        /**
+         * @param siteName The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder siteName(@Nullable Output<String> siteName) {
+            $.siteName = siteName;
+            return this;
+        }
+
+        /**
+         * @param siteName The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder siteName(String siteName) {
+            return siteName(Output.of(siteName));
         }
 
         /**

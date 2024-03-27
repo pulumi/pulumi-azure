@@ -132,11 +132,10 @@ def get_mx_record(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.dns.MxRecord("example",
-        name="test",
+    example = azure.dns.get_mx_record(name="test",
         zone_name="test-zone",
         resource_group_name="test-rg")
-    pulumi.export("dnsMxRecordId", example_azurerm_dns_mx_record["id"])
+    pulumi.export("dnsMxRecordId", example.id)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -176,11 +175,10 @@ def get_mx_record_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.dns.MxRecord("example",
-        name="test",
+    example = azure.dns.get_mx_record(name="test",
         zone_name="test-zone",
         resource_group_name="test-rg")
-    pulumi.export("dnsMxRecordId", example_azurerm_dns_mx_record["id"])
+    pulumi.export("dnsMxRecordId", example.id)
     ```
     <!--End PulumiCodeChooser -->
 

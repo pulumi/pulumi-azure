@@ -107,7 +107,7 @@ type ProtectedVM struct {
 	ProtectionState pulumi.StringOutput `pulumi:"protectionState"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
-	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+	// Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
 	//
@@ -162,7 +162,7 @@ type protectedVMState struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName *string `pulumi:"recoveryVaultName"`
-	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+	// Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
 	//
@@ -182,7 +182,7 @@ type ProtectedVMState struct {
 	ProtectionState pulumi.StringPtrInput
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringPtrInput
-	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+	// Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
 	//
@@ -206,7 +206,7 @@ type protectedVMArgs struct {
 	ProtectionState *string `pulumi:"protectionState"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
-	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+	// Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
 	//
@@ -227,7 +227,7 @@ type ProtectedVMArgs struct {
 	ProtectionState pulumi.StringPtrInput
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringInput
-	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+	// Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
 	//
@@ -348,7 +348,7 @@ func (o ProtectedVMOutput) RecoveryVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectedVM) pulumi.StringOutput { return v.RecoveryVaultName }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+// Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
 func (o ProtectedVMOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectedVM) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

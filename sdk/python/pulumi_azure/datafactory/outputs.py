@@ -76,6 +76,7 @@ __all__ = [
     'IntegrationRuntimeManagedVnetIntegration',
     'IntegrationRuntimeSelfHostedRbacAuthorization',
     'IntegrationRuntimeSsisCatalogInfo',
+    'IntegrationRuntimeSsisCopyComputeScale',
     'IntegrationRuntimeSsisCustomSetupScript',
     'IntegrationRuntimeSsisExpressCustomSetup',
     'IntegrationRuntimeSsisExpressCustomSetupCommandKey',
@@ -84,6 +85,7 @@ __all__ = [
     'IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense',
     'IntegrationRuntimeSsisExpressVnetIntegration',
     'IntegrationRuntimeSsisPackageStore',
+    'IntegrationRuntimeSsisPipelineExternalComputeScale',
     'IntegrationRuntimeSsisProxy',
     'IntegrationRuntimeSsisVnetIntegration',
     'LinkedCustomServiceIntegrationRuntime',
@@ -3891,6 +3893,56 @@ class IntegrationRuntimeSsisCatalogInfo(dict):
 
 
 @pulumi.output_type
+class IntegrationRuntimeSsisCopyComputeScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataIntegrationUnit":
+            suggest = "data_integration_unit"
+        elif key == "timeToLive":
+            suggest = "time_to_live"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisCopyComputeScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisCopyComputeScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisCopyComputeScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_integration_unit: Optional[int] = None,
+                 time_to_live: Optional[int] = None):
+        """
+        :param int data_integration_unit: Specifies the data integration unit number setting reserved for copy activity execution. Supported values are multiples of `4` in range 4-256.
+        :param int time_to_live: Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+        """
+        if data_integration_unit is not None:
+            pulumi.set(__self__, "data_integration_unit", data_integration_unit)
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter(name="dataIntegrationUnit")
+    def data_integration_unit(self) -> Optional[int]:
+        """
+        Specifies the data integration unit number setting reserved for copy activity execution. Supported values are multiples of `4` in range 4-256.
+        """
+        return pulumi.get(self, "data_integration_unit")
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[int]:
+        """
+        Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+        """
+        return pulumi.get(self, "time_to_live")
+
+
+@pulumi.output_type
 class IntegrationRuntimeSsisCustomSetupScript(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4376,6 +4428,70 @@ class IntegrationRuntimeSsisPackageStore(dict):
         Name of the package store.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class IntegrationRuntimeSsisPipelineExternalComputeScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberOfExternalNodes":
+            suggest = "number_of_external_nodes"
+        elif key == "numberOfPipelineNodes":
+            suggest = "number_of_pipeline_nodes"
+        elif key == "timeToLive":
+            suggest = "time_to_live"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisPipelineExternalComputeScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisPipelineExternalComputeScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisPipelineExternalComputeScale.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 number_of_external_nodes: Optional[int] = None,
+                 number_of_pipeline_nodes: Optional[int] = None,
+                 time_to_live: Optional[int] = None):
+        """
+        :param int number_of_external_nodes: Specifies the number of the external nodes, which should be greater than `0` and less than `11`.
+        :param int number_of_pipeline_nodes: Specifies the number of the pipeline nodes, which should be greater than `0` and less than `11`.
+        :param int time_to_live: Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+        """
+        if number_of_external_nodes is not None:
+            pulumi.set(__self__, "number_of_external_nodes", number_of_external_nodes)
+        if number_of_pipeline_nodes is not None:
+            pulumi.set(__self__, "number_of_pipeline_nodes", number_of_pipeline_nodes)
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter(name="numberOfExternalNodes")
+    def number_of_external_nodes(self) -> Optional[int]:
+        """
+        Specifies the number of the external nodes, which should be greater than `0` and less than `11`.
+        """
+        return pulumi.get(self, "number_of_external_nodes")
+
+    @property
+    @pulumi.getter(name="numberOfPipelineNodes")
+    def number_of_pipeline_nodes(self) -> Optional[int]:
+        """
+        Specifies the number of the pipeline nodes, which should be greater than `0` and less than `11`.
+        """
+        return pulumi.get(self, "number_of_pipeline_nodes")
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[int]:
+        """
+        Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+        """
+        return pulumi.get(self, "time_to_live")
 
 
 @pulumi.output_type

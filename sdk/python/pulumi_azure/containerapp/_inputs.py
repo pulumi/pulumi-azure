@@ -535,6 +535,8 @@ class AppRegistryArgs:
                
                The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
         :param pulumi.Input[str] identity: Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+               
+               > **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
         :param pulumi.Input[str] password_secret_name: The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
         :param pulumi.Input[str] username: The username to use for this Container Registry, `password_secret_name` must also be supplied..
         """
@@ -565,6 +567,8 @@ class AppRegistryArgs:
     def identity(self) -> Optional[pulumi.Input[str]]:
         """
         Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+
+        > **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
         """
         return pulumi.get(self, "identity")
 
@@ -2475,44 +2479,26 @@ class EnvironmentDaprComponentSecretArgs:
 @pulumi.input_type
 class EnvironmentWorkloadProfileArgs:
     def __init__(__self__, *,
-                 maximum_count: pulumi.Input[int],
-                 minimum_count: pulumi.Input[int],
                  name: pulumi.Input[str],
-                 workload_profile_type: pulumi.Input[str]):
+                 workload_profile_type: pulumi.Input[str],
+                 maximum_count: Optional[pulumi.Input[int]] = None,
+                 minimum_count: Optional[pulumi.Input[int]] = None):
         """
+        :param pulumi.Input[str] name: The name of the workload profile.
+        :param pulumi.Input[str] workload_profile_type: Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+               
+               > **NOTE:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
+               
+               > **NOTE:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
         :param pulumi.Input[int] maximum_count: The maximum number of instances of workload profile that can be deployed in the Container App Environment.
         :param pulumi.Input[int] minimum_count: The minimum number of instances of workload profile that can be deployed in the Container App Environment.
-        :param pulumi.Input[str] name: The name of the workload profile.
-        :param pulumi.Input[str] workload_profile_type: Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
         """
-        pulumi.set(__self__, "maximum_count", maximum_count)
-        pulumi.set(__self__, "minimum_count", minimum_count)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "workload_profile_type", workload_profile_type)
-
-    @property
-    @pulumi.getter(name="maximumCount")
-    def maximum_count(self) -> pulumi.Input[int]:
-        """
-        The maximum number of instances of workload profile that can be deployed in the Container App Environment.
-        """
-        return pulumi.get(self, "maximum_count")
-
-    @maximum_count.setter
-    def maximum_count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "maximum_count", value)
-
-    @property
-    @pulumi.getter(name="minimumCount")
-    def minimum_count(self) -> pulumi.Input[int]:
-        """
-        The minimum number of instances of workload profile that can be deployed in the Container App Environment.
-        """
-        return pulumi.get(self, "minimum_count")
-
-    @minimum_count.setter
-    def minimum_count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "minimum_count", value)
+        if maximum_count is not None:
+            pulumi.set(__self__, "maximum_count", maximum_count)
+        if minimum_count is not None:
+            pulumi.set(__self__, "minimum_count", minimum_count)
 
     @property
     @pulumi.getter
@@ -2530,12 +2516,40 @@ class EnvironmentWorkloadProfileArgs:
     @pulumi.getter(name="workloadProfileType")
     def workload_profile_type(self) -> pulumi.Input[str]:
         """
-        Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+        Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+
+        > **NOTE:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
+
+        > **NOTE:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
         """
         return pulumi.get(self, "workload_profile_type")
 
     @workload_profile_type.setter
     def workload_profile_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "workload_profile_type", value)
+
+    @property
+    @pulumi.getter(name="maximumCount")
+    def maximum_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of instances of workload profile that can be deployed in the Container App Environment.
+        """
+        return pulumi.get(self, "maximum_count")
+
+    @maximum_count.setter
+    def maximum_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_count", value)
+
+    @property
+    @pulumi.getter(name="minimumCount")
+    def minimum_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+        """
+        return pulumi.get(self, "minimum_count")
+
+    @minimum_count.setter
+    def minimum_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum_count", value)
 
 

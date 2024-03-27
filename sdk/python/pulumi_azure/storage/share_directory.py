@@ -14,95 +14,33 @@ __all__ = ['ShareDirectoryArgs', 'ShareDirectory']
 @pulumi.input_type
 class ShareDirectoryArgs:
     def __init__(__self__, *,
-                 share_name: pulumi.Input[str],
-                 storage_account_name: pulumi.Input[str],
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        The set of arguments for constructing a ShareDirectory resource.
-        :param pulumi.Input[str] share_name: The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_account_name: The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this Directory.
-        :param pulumi.Input[str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "share_name", share_name)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="shareName")
-    def share_name(self) -> pulumi.Input[str]:
-        """
-        The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "share_name")
-
-    @share_name.setter
-    def share_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "share_name", value)
-
-    @property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Input[str]:
-        """
-        The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @storage_account_name.setter
-    def storage_account_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "storage_account_name", value)
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of metadata to assign to this Directory.
-        """
-        return pulumi.get(self, "metadata")
-
-    @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "metadata", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class _ShareDirectoryState:
-    def __init__(__self__, *,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None):
+                 storage_account_name: Optional[pulumi.Input[str]] = None,
+                 storage_share_id: Optional[pulumi.Input[str]] = None):
         """
-        Input properties used for looking up and filtering ShareDirectory resources.
+        The set of arguments for constructing a ShareDirectory resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this Directory.
         :param pulumi.Input[str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] share_name: The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_account_name: The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         """
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if share_name is not None:
+            warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""share_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
+        if share_name is not None:
             pulumi.set(__self__, "share_name", share_name)
         if storage_account_name is not None:
+            warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""storage_account_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
+        if storage_account_name is not None:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_share_id is not None:
+            pulumi.set(__self__, "storage_share_id", storage_share_id)
 
     @property
     @pulumi.getter
@@ -131,9 +69,9 @@ class _ShareDirectoryState:
     @property
     @pulumi.getter(name="shareName")
     def share_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
-        """
+        warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
+        pulumi.log.warn("""share_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
+
         return pulumi.get(self, "share_name")
 
     @share_name.setter
@@ -143,14 +81,118 @@ class _ShareDirectoryState:
     @property
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
-        """
+        warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
+        pulumi.log.warn("""storage_account_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
+
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
     def storage_account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="storageShareId")
+    def storage_share_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_share_id")
+
+    @storage_share_id.setter
+    def storage_share_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_share_id", value)
+
+
+@pulumi.input_type
+class _ShareDirectoryState:
+    def __init__(__self__, *,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 share_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None,
+                 storage_share_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ShareDirectory resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this Directory.
+        :param pulumi.Input[str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        """
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if share_name is not None:
+            warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""share_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
+        if share_name is not None:
+            pulumi.set(__self__, "share_name", share_name)
+        if storage_account_name is not None:
+            warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""storage_account_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_share_id is not None:
+            pulumi.set(__self__, "storage_share_id", storage_share_id)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of metadata to assign to this Directory.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
+        pulumi.log.warn("""share_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
+
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
+        pulumi.log.warn("""storage_account_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
+
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="storageShareId")
+    def storage_share_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_share_id")
+
+    @storage_share_id.setter
+    def storage_share_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_share_id", value)
 
 
 class ShareDirectory(pulumi.CustomResource):
@@ -162,10 +204,9 @@ class ShareDirectory(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
+                 storage_share_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Directory within an Azure Storage File Share.
-
         ## Example Usage
 
         <!--Start PulumiCodeChooser -->
@@ -188,8 +229,7 @@ class ShareDirectory(pulumi.CustomResource):
             quota=50)
         example_share_directory = azure.storage.ShareDirectory("example",
             name="example",
-            share_name=example_share.name,
-            storage_account_name=example_account.name)
+            storage_share_id=example_share.id)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -205,18 +245,15 @@ class ShareDirectory(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this Directory.
         :param pulumi.Input[str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] share_name: The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_account_name: The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ShareDirectoryArgs,
+                 args: Optional[ShareDirectoryArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Directory within an Azure Storage File Share.
-
         ## Example Usage
 
         <!--Start PulumiCodeChooser -->
@@ -239,8 +276,7 @@ class ShareDirectory(pulumi.CustomResource):
             quota=50)
         example_share_directory = azure.storage.ShareDirectory("example",
             name="example",
-            share_name=example_share.name,
-            storage_account_name=example_account.name)
+            storage_share_id=example_share.id)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -271,6 +307,7 @@ class ShareDirectory(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
+                 storage_share_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -282,12 +319,9 @@ class ShareDirectory(pulumi.CustomResource):
 
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name
-            if share_name is None and not opts.urn:
-                raise TypeError("Missing required property 'share_name'")
             __props__.__dict__["share_name"] = share_name
-            if storage_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_account_name'")
             __props__.__dict__["storage_account_name"] = storage_account_name
+            __props__.__dict__["storage_share_id"] = storage_share_id
         super(ShareDirectory, __self__).__init__(
             'azure:storage/shareDirectory:ShareDirectory',
             resource_name,
@@ -301,7 +335,8 @@ class ShareDirectory(pulumi.CustomResource):
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             share_name: Optional[pulumi.Input[str]] = None,
-            storage_account_name: Optional[pulumi.Input[str]] = None) -> 'ShareDirectory':
+            storage_account_name: Optional[pulumi.Input[str]] = None,
+            storage_share_id: Optional[pulumi.Input[str]] = None) -> 'ShareDirectory':
         """
         Get an existing ShareDirectory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -311,8 +346,7 @@ class ShareDirectory(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this Directory.
         :param pulumi.Input[str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] share_name: The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_account_name: The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -322,6 +356,7 @@ class ShareDirectory(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["share_name"] = share_name
         __props__.__dict__["storage_account_name"] = storage_account_name
+        __props__.__dict__["storage_share_id"] = storage_share_id
         return ShareDirectory(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -343,16 +378,24 @@ class ShareDirectory(pulumi.CustomResource):
     @property
     @pulumi.getter(name="shareName")
     def share_name(self) -> pulumi.Output[str]:
-        """
-        The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
-        """
+        warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
+        pulumi.log.warn("""share_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
+
         return pulumi.get(self, "share_name")
 
     @property
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Output[str]:
-        """
-        The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
-        """
+        warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
+        pulumi.log.warn("""storage_account_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
+
         return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="storageShareId")
+    def storage_share_id(self) -> pulumi.Output[str]:
+        """
+        The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_share_id")
 

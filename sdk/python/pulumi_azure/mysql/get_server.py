@@ -270,6 +270,8 @@ def get_server(name: Optional[str] = None,
     """
     Use this data source to access information about an existing MySQL Server.
 
+    > **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: https://go.microsoft.com/fwlink/?linkid=2216041. The `mysql.Server` data source is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `mysql.FlexibleServer` data source instead.
+
     ## Example Usage
 
     <!--Start PulumiCodeChooser -->
@@ -322,6 +324,8 @@ def get_server_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
     """
     Use this data source to access information about an existing MySQL Server.
+
+    > **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: https://go.microsoft.com/fwlink/?linkid=2216041. The `mysql.Server` data source is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `mysql.FlexibleServer` data source instead.
 
     ## Example Usage
 

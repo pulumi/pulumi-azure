@@ -12,50 +12,50 @@ import java.util.Objects;
 @CustomType
 public final class BackendAddressPoolTunnelInterface {
     /**
-     * @return The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+     * @return The unique identifier of this Gateway Load Balancer Tunnel Interface.
      * 
      */
     private Integer identifier;
     /**
-     * @return The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+     * @return The port number that this Gateway Load Balancer Tunnel Interface listens to.
      * 
      */
     private Integer port;
     /**
-     * @return The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+     * @return The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
      * 
      */
     private String protocol;
     /**
-     * @return The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
+     * @return The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
      * 
      */
     private String type;
 
     private BackendAddressPoolTunnelInterface() {}
     /**
-     * @return The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+     * @return The unique identifier of this Gateway Load Balancer Tunnel Interface.
      * 
      */
     public Integer identifier() {
         return this.identifier;
     }
     /**
-     * @return The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+     * @return The port number that this Gateway Load Balancer Tunnel Interface listens to.
      * 
      */
     public Integer port() {
         return this.port;
     }
     /**
-     * @return The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+     * @return The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
      * 
      */
     public String protocol() {
         return this.protocol;
     }
     /**
-     * @return The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
+     * @return The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
      * 
      */
     public String type() {

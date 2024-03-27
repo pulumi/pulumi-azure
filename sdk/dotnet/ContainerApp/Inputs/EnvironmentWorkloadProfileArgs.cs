@@ -15,14 +15,14 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         /// <summary>
         /// The maximum number of instances of workload profile that can be deployed in the Container App Environment.
         /// </summary>
-        [Input("maximumCount", required: true)]
-        public Input<int> MaximumCount { get; set; } = null!;
+        [Input("maximumCount")]
+        public Input<int>? MaximumCount { get; set; }
 
         /// <summary>
         /// The minimum number of instances of workload profile that can be deployed in the Container App Environment.
         /// </summary>
-        [Input("minimumCount", required: true)]
-        public Input<int> MinimumCount { get; set; } = null!;
+        [Input("minimumCount")]
+        public Input<int>? MinimumCount { get; set; }
 
         /// <summary>
         /// The name of the workload profile.
@@ -31,7 +31,11 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+        /// Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+        /// 
+        /// &gt; **NOTE:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
+        /// 
+        /// &gt; **NOTE:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
         /// </summary>
         [Input("workloadProfileType", required: true)]
         public Input<string> WorkloadProfileType { get; set; } = null!;

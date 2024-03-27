@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage
 {
     /// <summary>
-    /// Manages a Directory within an Azure Storage File Share.
-    /// 
     /// ## Example Usage
     /// 
     /// &lt;!--Start PulumiCodeChooser --&gt;
@@ -48,8 +46,7 @@ namespace Pulumi.Azure.Storage
     ///     var exampleShareDirectory = new Azure.Storage.ShareDirectory("example", new()
     ///     {
     ///         Name = "example",
-    ///         ShareName = exampleShare.Name,
-    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageShareId = exampleShare.Id,
     ///     });
     /// 
     /// });
@@ -79,17 +76,17 @@ namespace Pulumi.Azure.Storage
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("shareName")]
         public Output<string> ShareName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("storageShareId")]
+        public Output<string> StorageShareId { get; private set; } = null!;
 
 
         /// <summary>
@@ -99,7 +96,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ShareDirectory(string name, ShareDirectoryArgs args, CustomResourceOptions? options = null)
+        public ShareDirectory(string name, ShareDirectoryArgs? args = null, CustomResourceOptions? options = null)
             : base("azure:storage/shareDirectory:ShareDirectory", name, args ?? new ShareDirectoryArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -155,17 +152,17 @@ namespace Pulumi.Azure.Storage
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("shareName", required: true)]
-        public Input<string> ShareName { get; set; } = null!;
+        [Input("shareName")]
+        public Input<string>? ShareName { get; set; }
+
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
 
         /// <summary>
-        /// The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
+        /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
+        [Input("storageShareId")]
+        public Input<string>? StorageShareId { get; set; }
 
         public ShareDirectoryArgs()
         {
@@ -193,17 +190,17 @@ namespace Pulumi.Azure.Storage
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("shareName")]
         public Input<string>? ShareName { get; set; }
 
-        /// <summary>
-        /// The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
+
+        /// <summary>
+        /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("storageShareId")]
+        public Input<string>? StorageShareId { get; set; }
 
         public ShareDirectoryState()
         {

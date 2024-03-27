@@ -15,6 +15,8 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     {
         /// <summary>
         /// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+        /// 
+        /// &gt; **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
         /// </summary>
         public readonly string? Identity;
         /// <summary>

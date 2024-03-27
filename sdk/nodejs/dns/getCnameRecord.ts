@@ -12,12 +12,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.CNameRecord("example", {
+ * const example = azure.dns.getCnameRecord({
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsCnameRecordId = exampleAzurermDnsCnameRecord.id;
+ * export const dnsCnameRecordId = example.then(example => example.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -89,12 +89,12 @@ export interface GetCnameRecordResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.CNameRecord("example", {
+ * const example = azure.dns.getCnameRecord({
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsCnameRecordId = exampleAzurermDnsCnameRecord.id;
+ * export const dnsCnameRecordId = example.then(example => example.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */

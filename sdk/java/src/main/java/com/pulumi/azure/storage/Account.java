@@ -341,6 +341,24 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultToOauthAuthentication);
     }
     /**
+     * Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace &#34;Microsoft.Storage&#34; --name &#34;PartitionedDns&#34;`.
+     * 
+     */
+    @Export(name="dnsEndpointType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> dnsEndpointType;
+
+    /**
+     * @return Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace &#34;Microsoft.Storage&#34; --name &#34;PartitionedDns&#34;`.
+     * 
+     */
+    public Output<Optional<String>> dnsEndpointType() {
+        return Codegen.optional(this.dnsEndpointType);
+    }
+    /**
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      * 
      */

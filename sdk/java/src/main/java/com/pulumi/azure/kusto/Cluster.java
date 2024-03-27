@@ -398,14 +398,18 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.uri;
     }
     /**
-     * A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
+     * A `virtual_network_configuration` block as defined below.
+     * 
+     * &gt; **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
      * 
      */
     @Export(name="virtualNetworkConfiguration", refs={ClusterVirtualNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ClusterVirtualNetworkConfiguration> virtualNetworkConfiguration;
 
     /**
-     * @return A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `virtual_network_configuration` block as defined below.
+     * 
+     * &gt; **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
      * 
      */
     public Output<Optional<ClusterVirtualNetworkConfiguration>> virtualNetworkConfiguration() {

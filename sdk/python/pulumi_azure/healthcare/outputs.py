@@ -20,6 +20,7 @@ __all__ = [
     'MedtechServiceIdentity',
     'ServiceAuthenticationConfiguration',
     'ServiceCorsConfiguration',
+    'ServiceIdentity',
     'WorkspacePrivateEndpointConnection',
     'GetDicomServiceAuthenticationResult',
     'GetDicomServiceIdentityResult',
@@ -655,6 +656,59 @@ class ServiceCorsConfiguration(dict):
         The max age to be allowed via CORS.
         """
         return pulumi.get(self, "max_age_in_seconds")
+
+
+@pulumi.output_type
+class ServiceIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: The type of managed identity to assign. The only possible value is `SystemAssigned`.
+        """
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of managed identity to assign. The only possible value is `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type

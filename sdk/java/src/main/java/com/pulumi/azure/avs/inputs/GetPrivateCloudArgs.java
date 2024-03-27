@@ -15,14 +15,14 @@ public final class GetPrivateCloudArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetPrivateCloudArgs Empty = new GetPrivateCloudArgs();
 
     /**
-     * The name of this VMware Private Cloud.
+     * The name of this Azure VMware Solution Private Cloud.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of this VMware Private Cloud.
+     * @return The name of this Azure VMware Solution Private Cloud.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class GetPrivateCloudArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the Resource Group where the VMware Private Cloud exists.
+     * The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the VMware Private Cloud exists.
+     * @return The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -70,7 +70,7 @@ public final class GetPrivateCloudArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of this VMware Private Cloud.
+         * @param name The name of this Azure VMware Solution Private Cloud.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetPrivateCloudArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of this VMware Private Cloud.
+         * @param name The name of this Azure VMware Solution Private Cloud.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetPrivateCloudArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the VMware Private Cloud exists.
+         * @param resourceGroupName The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetPrivateCloudArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the VMware Private Cloud exists.
+         * @param resourceGroupName The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
          * 
          * @return builder
          * 

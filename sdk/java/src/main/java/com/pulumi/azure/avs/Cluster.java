@@ -16,7 +16,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Manages a VMware Cluster.
+ * Manages an Azure VMware Solution Cluster.
  * 
  * ## Example Usage
  * 
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VMware Clusters can be imported using the `resource id`, e.g.
+ * Azure VMware Solution Clusters can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:avs/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/cluster1
@@ -90,84 +90,84 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:avs/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
     /**
-     * The count of the VMware Cluster nodes.
+     * The count of the Azure VMware Solution Cluster nodes.
      * 
      */
     @Export(name="clusterNodeCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> clusterNodeCount;
 
     /**
-     * @return The count of the VMware Cluster nodes.
+     * @return The count of the Azure VMware Solution Cluster nodes.
      * 
      */
     public Output<Integer> clusterNodeCount() {
         return this.clusterNodeCount;
     }
     /**
-     * A number that identifies this VMware Cluster in its VMware Private Cloud.
+     * A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
      * 
      */
     @Export(name="clusterNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> clusterNumber;
 
     /**
-     * @return A number that identifies this VMware Cluster in its VMware Private Cloud.
+     * @return A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
      * 
      */
     public Output<Integer> clusterNumber() {
         return this.clusterNumber;
     }
     /**
-     * A list of host of the VMware Cluster.
+     * A list of hosts in the Azure VMware Solution Cluster.
      * 
      */
     @Export(name="hosts", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> hosts;
 
     /**
-     * @return A list of host of the VMware Cluster.
+     * @return A list of hosts in the Azure VMware Solution Cluster.
      * 
      */
     public Output<List<String>> hosts() {
         return this.hosts;
     }
     /**
-     * The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+     * The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+     * @return The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+     * The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
-     * @return The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+     * @return The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
      * 
      */
     public Output<String> skuName() {
         return this.skuName;
     }
     /**
-     * The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+     * The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
      * 
      */
     @Export(name="vmwareCloudId", refs={String.class}, tree="[0]")
     private Output<String> vmwareCloudId;
 
     /**
-     * @return The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+     * @return The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
      * 
      */
     public Output<String> vmwareCloudId() {

@@ -1122,6 +1122,8 @@ func (o AppIngressTrafficWeightArrayOutput) Index(i pulumi.IntInput) AppIngressT
 
 type AppRegistry struct {
 	// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+	//
+	// > **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
 	Identity *string `pulumi:"identity"`
 	// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
 	PasswordSecretName *string `pulumi:"passwordSecretName"`
@@ -1146,6 +1148,8 @@ type AppRegistryInput interface {
 
 type AppRegistryArgs struct {
 	// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+	//
+	// > **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
 	Identity pulumi.StringPtrInput `pulumi:"identity"`
 	// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
 	PasswordSecretName pulumi.StringPtrInput `pulumi:"passwordSecretName"`
@@ -1209,6 +1213,8 @@ func (o AppRegistryOutput) ToAppRegistryOutputWithContext(ctx context.Context) A
 }
 
 // Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+//
+// > **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
 func (o AppRegistryOutput) Identity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppRegistry) *string { return v.Identity }).(pulumi.StringPtrOutput)
 }
@@ -4605,12 +4611,16 @@ func (o EnvironmentDaprComponentSecretArrayOutput) Index(i pulumi.IntInput) Envi
 
 type EnvironmentWorkloadProfile struct {
 	// The maximum number of instances of workload profile that can be deployed in the Container App Environment.
-	MaximumCount int `pulumi:"maximumCount"`
+	MaximumCount *int `pulumi:"maximumCount"`
 	// The minimum number of instances of workload profile that can be deployed in the Container App Environment.
-	MinimumCount int `pulumi:"minimumCount"`
+	MinimumCount *int `pulumi:"minimumCount"`
 	// The name of the workload profile.
 	Name string `pulumi:"name"`
-	// Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+	// Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+	//
+	// > **NOTE:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
+	//
+	// > **NOTE:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
 	WorkloadProfileType string `pulumi:"workloadProfileType"`
 }
 
@@ -4627,12 +4637,16 @@ type EnvironmentWorkloadProfileInput interface {
 
 type EnvironmentWorkloadProfileArgs struct {
 	// The maximum number of instances of workload profile that can be deployed in the Container App Environment.
-	MaximumCount pulumi.IntInput `pulumi:"maximumCount"`
+	MaximumCount pulumi.IntPtrInput `pulumi:"maximumCount"`
 	// The minimum number of instances of workload profile that can be deployed in the Container App Environment.
-	MinimumCount pulumi.IntInput `pulumi:"minimumCount"`
+	MinimumCount pulumi.IntPtrInput `pulumi:"minimumCount"`
 	// The name of the workload profile.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+	// Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+	//
+	// > **NOTE:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
+	//
+	// > **NOTE:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
 	WorkloadProfileType pulumi.StringInput `pulumi:"workloadProfileType"`
 }
 
@@ -4688,13 +4702,13 @@ func (o EnvironmentWorkloadProfileOutput) ToEnvironmentWorkloadProfileOutputWith
 }
 
 // The maximum number of instances of workload profile that can be deployed in the Container App Environment.
-func (o EnvironmentWorkloadProfileOutput) MaximumCount() pulumi.IntOutput {
-	return o.ApplyT(func(v EnvironmentWorkloadProfile) int { return v.MaximumCount }).(pulumi.IntOutput)
+func (o EnvironmentWorkloadProfileOutput) MaximumCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EnvironmentWorkloadProfile) *int { return v.MaximumCount }).(pulumi.IntPtrOutput)
 }
 
 // The minimum number of instances of workload profile that can be deployed in the Container App Environment.
-func (o EnvironmentWorkloadProfileOutput) MinimumCount() pulumi.IntOutput {
-	return o.ApplyT(func(v EnvironmentWorkloadProfile) int { return v.MinimumCount }).(pulumi.IntOutput)
+func (o EnvironmentWorkloadProfileOutput) MinimumCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EnvironmentWorkloadProfile) *int { return v.MinimumCount }).(pulumi.IntPtrOutput)
 }
 
 // The name of the workload profile.
@@ -4702,7 +4716,11 @@ func (o EnvironmentWorkloadProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentWorkloadProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+// Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+//
+// > **NOTE:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
+//
+// > **NOTE:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
 func (o EnvironmentWorkloadProfileOutput) WorkloadProfileType() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentWorkloadProfile) string { return v.WorkloadProfileType }).(pulumi.StringOutput)
 }

@@ -95,7 +95,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String javaVersion;
     /**
-     * @return The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
+     * @return The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
      * 
      * &gt; **NOTE:** This property conflicts with `java_version`.
      * 
@@ -240,7 +240,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.javaVersion);
     }
     /**
-     * @return The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
+     * @return The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
      * 
      * &gt; **NOTE:** This property conflicts with `java_version`.
      * 

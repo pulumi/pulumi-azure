@@ -46,8 +46,7 @@ namespace Pulumi.Azure.Storage
     /// 
     ///     var exampleTableEntity = new Azure.Storage.TableEntity("example", new()
     ///     {
-    ///         StorageAccountName = exampleAccount.Name,
-    ///         TableName = exampleTable.Name,
+    ///         StorageTableId = exampleTable.Id,
     ///         PartitionKey = "examplepartition",
     ///         RowKey = "examplerow",
     ///         Entity = 
@@ -78,26 +77,26 @@ namespace Pulumi.Azure.Storage
         public Output<ImmutableDictionary<string, string>> Entity { get; private set; } = null!;
 
         /// <summary>
-        /// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+        /// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
         /// </summary>
         [Output("partitionKey")]
         public Output<string> PartitionKey { get; private set; } = null!;
 
         /// <summary>
-        /// The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+        /// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
         /// </summary>
         [Output("rowKey")]
         public Output<string> RowKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
+        /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         /// </summary>
+        [Output("storageTableId")]
+        public Output<string> StorageTableId { get; private set; } = null!;
+
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
 
@@ -160,28 +159,28 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+        /// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
         /// </summary>
         [Input("partitionKey", required: true)]
         public Input<string> PartitionKey { get; set; } = null!;
 
         /// <summary>
-        /// The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+        /// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
         /// </summary>
         [Input("rowKey", required: true)]
         public Input<string> RowKey { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
 
         /// <summary>
-        /// The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
+        /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("tableName", required: true)]
-        public Input<string> TableName { get; set; } = null!;
+        [Input("storageTableId")]
+        public Input<string>? StorageTableId { get; set; }
+
+        [Input("tableName")]
+        public Input<string>? TableName { get; set; }
 
         public TableEntityArgs()
         {
@@ -204,26 +203,26 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
+        /// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
         /// </summary>
         [Input("partitionKey")]
         public Input<string>? PartitionKey { get; set; }
 
         /// <summary>
-        /// The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
+        /// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
         /// </summary>
         [Input("rowKey")]
         public Input<string>? RowKey { get; set; }
 
-        /// <summary>
-        /// Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
 
         /// <summary>
-        /// The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
+        /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         /// </summary>
+        [Input("storageTableId")]
+        public Input<string>? StorageTableId { get; set; }
+
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
 

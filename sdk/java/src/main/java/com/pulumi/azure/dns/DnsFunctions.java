@@ -54,8 +54,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.AaaaRecord;
-     * import com.pulumi.azure.dns.AaaaRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetAAAARecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -69,13 +69,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AaaaRecord(&#34;example&#34;, AaaaRecordArgs.builder()        
+     *         final var example = DnsFunctions.getAAAARecord(GetAAAARecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsAaaaRecordId&#34;, exampleAzurermDnsAaaaRecord.id());
+     *         ctx.export(&#34;dnsAaaaRecordId&#34;, example.applyValue(getAAAARecordResult -&gt; getAAAARecordResult.id()));
      *     }
      * }
      * ```
@@ -95,8 +95,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.AaaaRecord;
-     * import com.pulumi.azure.dns.AaaaRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetAAAARecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -110,13 +110,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AaaaRecord(&#34;example&#34;, AaaaRecordArgs.builder()        
+     *         final var example = DnsFunctions.getAAAARecord(GetAAAARecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsAaaaRecordId&#34;, exampleAzurermDnsAaaaRecord.id());
+     *         ctx.export(&#34;dnsAaaaRecordId&#34;, example.applyValue(getAAAARecordResult -&gt; getAAAARecordResult.id()));
      *     }
      * }
      * ```
@@ -136,8 +136,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.AaaaRecord;
-     * import com.pulumi.azure.dns.AaaaRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetAAAARecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -151,13 +151,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AaaaRecord(&#34;example&#34;, AaaaRecordArgs.builder()        
+     *         final var example = DnsFunctions.getAAAARecord(GetAAAARecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsAaaaRecordId&#34;, exampleAzurermDnsAaaaRecord.id());
+     *         ctx.export(&#34;dnsAaaaRecordId&#34;, example.applyValue(getAAAARecordResult -&gt; getAAAARecordResult.id()));
      *     }
      * }
      * ```
@@ -177,8 +177,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.AaaaRecord;
-     * import com.pulumi.azure.dns.AaaaRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetAAAARecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -192,13 +192,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AaaaRecord(&#34;example&#34;, AaaaRecordArgs.builder()        
+     *         final var example = DnsFunctions.getAAAARecord(GetAAAARecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsAaaaRecordId&#34;, exampleAzurermDnsAaaaRecord.id());
+     *         ctx.export(&#34;dnsAaaaRecordId&#34;, example.applyValue(getAAAARecordResult -&gt; getAAAARecordResult.id()));
      *     }
      * }
      * ```
@@ -382,8 +382,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.CaaRecord;
-     * import com.pulumi.azure.dns.CaaRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetCAARecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -397,13 +397,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CaaRecord(&#34;example&#34;, CaaRecordArgs.builder()        
+     *         final var example = DnsFunctions.getCAARecord(GetCAARecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCaaRecordId&#34;, exampleAzurermDnsCaaRecord.id());
+     *         ctx.export(&#34;dnsCaaRecordId&#34;, example.applyValue(getCAARecordResult -&gt; getCAARecordResult.id()));
      *     }
      * }
      * ```
@@ -423,8 +423,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.CaaRecord;
-     * import com.pulumi.azure.dns.CaaRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetCAARecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -438,13 +438,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CaaRecord(&#34;example&#34;, CaaRecordArgs.builder()        
+     *         final var example = DnsFunctions.getCAARecord(GetCAARecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCaaRecordId&#34;, exampleAzurermDnsCaaRecord.id());
+     *         ctx.export(&#34;dnsCaaRecordId&#34;, example.applyValue(getCAARecordResult -&gt; getCAARecordResult.id()));
      *     }
      * }
      * ```
@@ -464,8 +464,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.CaaRecord;
-     * import com.pulumi.azure.dns.CaaRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetCAARecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -479,13 +479,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CaaRecord(&#34;example&#34;, CaaRecordArgs.builder()        
+     *         final var example = DnsFunctions.getCAARecord(GetCAARecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCaaRecordId&#34;, exampleAzurermDnsCaaRecord.id());
+     *         ctx.export(&#34;dnsCaaRecordId&#34;, example.applyValue(getCAARecordResult -&gt; getCAARecordResult.id()));
      *     }
      * }
      * ```
@@ -505,8 +505,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.CaaRecord;
-     * import com.pulumi.azure.dns.CaaRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetCAARecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -520,13 +520,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CaaRecord(&#34;example&#34;, CaaRecordArgs.builder()        
+     *         final var example = DnsFunctions.getCAARecord(GetCAARecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCaaRecordId&#34;, exampleAzurermDnsCaaRecord.id());
+     *         ctx.export(&#34;dnsCaaRecordId&#34;, example.applyValue(getCAARecordResult -&gt; getCAARecordResult.id()));
      *     }
      * }
      * ```
@@ -546,8 +546,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.CNameRecord;
-     * import com.pulumi.azure.dns.CNameRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetCnameRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -561,13 +561,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CNameRecord(&#34;example&#34;, CNameRecordArgs.builder()        
+     *         final var example = DnsFunctions.getCnameRecord(GetCnameRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCnameRecordId&#34;, exampleAzurermDnsCnameRecord.id());
+     *         ctx.export(&#34;dnsCnameRecordId&#34;, example.applyValue(getCnameRecordResult -&gt; getCnameRecordResult.id()));
      *     }
      * }
      * ```
@@ -587,8 +587,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.CNameRecord;
-     * import com.pulumi.azure.dns.CNameRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetCnameRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -602,13 +602,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CNameRecord(&#34;example&#34;, CNameRecordArgs.builder()        
+     *         final var example = DnsFunctions.getCnameRecord(GetCnameRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCnameRecordId&#34;, exampleAzurermDnsCnameRecord.id());
+     *         ctx.export(&#34;dnsCnameRecordId&#34;, example.applyValue(getCnameRecordResult -&gt; getCnameRecordResult.id()));
      *     }
      * }
      * ```
@@ -628,8 +628,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.CNameRecord;
-     * import com.pulumi.azure.dns.CNameRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetCnameRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -643,13 +643,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CNameRecord(&#34;example&#34;, CNameRecordArgs.builder()        
+     *         final var example = DnsFunctions.getCnameRecord(GetCnameRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCnameRecordId&#34;, exampleAzurermDnsCnameRecord.id());
+     *         ctx.export(&#34;dnsCnameRecordId&#34;, example.applyValue(getCnameRecordResult -&gt; getCnameRecordResult.id()));
      *     }
      * }
      * ```
@@ -669,8 +669,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.CNameRecord;
-     * import com.pulumi.azure.dns.CNameRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetCnameRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -684,13 +684,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CNameRecord(&#34;example&#34;, CNameRecordArgs.builder()        
+     *         final var example = DnsFunctions.getCnameRecord(GetCnameRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsCnameRecordId&#34;, exampleAzurermDnsCnameRecord.id());
+     *         ctx.export(&#34;dnsCnameRecordId&#34;, example.applyValue(getCnameRecordResult -&gt; getCnameRecordResult.id()));
      *     }
      * }
      * ```
@@ -710,8 +710,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.MxRecord;
-     * import com.pulumi.azure.dns.MxRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetMxRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -725,13 +725,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *         final var example = DnsFunctions.getMxRecord(GetMxRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsMxRecordId&#34;, exampleAzurermDnsMxRecord.id());
+     *         ctx.export(&#34;dnsMxRecordId&#34;, example.applyValue(getMxRecordResult -&gt; getMxRecordResult.id()));
      *     }
      * }
      * ```
@@ -751,8 +751,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.MxRecord;
-     * import com.pulumi.azure.dns.MxRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetMxRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -766,13 +766,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *         final var example = DnsFunctions.getMxRecord(GetMxRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsMxRecordId&#34;, exampleAzurermDnsMxRecord.id());
+     *         ctx.export(&#34;dnsMxRecordId&#34;, example.applyValue(getMxRecordResult -&gt; getMxRecordResult.id()));
      *     }
      * }
      * ```
@@ -792,8 +792,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.MxRecord;
-     * import com.pulumi.azure.dns.MxRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetMxRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -807,13 +807,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *         final var example = DnsFunctions.getMxRecord(GetMxRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsMxRecordId&#34;, exampleAzurermDnsMxRecord.id());
+     *         ctx.export(&#34;dnsMxRecordId&#34;, example.applyValue(getMxRecordResult -&gt; getMxRecordResult.id()));
      *     }
      * }
      * ```
@@ -833,8 +833,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.MxRecord;
-     * import com.pulumi.azure.dns.MxRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetMxRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -848,13 +848,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *         final var example = DnsFunctions.getMxRecord(GetMxRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsMxRecordId&#34;, exampleAzurermDnsMxRecord.id());
+     *         ctx.export(&#34;dnsMxRecordId&#34;, example.applyValue(getMxRecordResult -&gt; getMxRecordResult.id()));
      *     }
      * }
      * ```
@@ -874,8 +874,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.NsRecord;
-     * import com.pulumi.azure.dns.NsRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetNsRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -889,13 +889,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new NsRecord(&#34;example&#34;, NsRecordArgs.builder()        
+     *         final var example = DnsFunctions.getNsRecord(GetNsRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsNsRecordId&#34;, exampleAzurermDnsNsRecord.id());
+     *         ctx.export(&#34;dnsNsRecordId&#34;, example.applyValue(getNsRecordResult -&gt; getNsRecordResult.id()));
      *     }
      * }
      * ```
@@ -915,8 +915,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.NsRecord;
-     * import com.pulumi.azure.dns.NsRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetNsRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -930,13 +930,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new NsRecord(&#34;example&#34;, NsRecordArgs.builder()        
+     *         final var example = DnsFunctions.getNsRecord(GetNsRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsNsRecordId&#34;, exampleAzurermDnsNsRecord.id());
+     *         ctx.export(&#34;dnsNsRecordId&#34;, example.applyValue(getNsRecordResult -&gt; getNsRecordResult.id()));
      *     }
      * }
      * ```
@@ -956,8 +956,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.NsRecord;
-     * import com.pulumi.azure.dns.NsRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetNsRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -971,13 +971,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new NsRecord(&#34;example&#34;, NsRecordArgs.builder()        
+     *         final var example = DnsFunctions.getNsRecord(GetNsRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsNsRecordId&#34;, exampleAzurermDnsNsRecord.id());
+     *         ctx.export(&#34;dnsNsRecordId&#34;, example.applyValue(getNsRecordResult -&gt; getNsRecordResult.id()));
      *     }
      * }
      * ```
@@ -997,8 +997,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.NsRecord;
-     * import com.pulumi.azure.dns.NsRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetNsRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1012,13 +1012,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new NsRecord(&#34;example&#34;, NsRecordArgs.builder()        
+     *         final var example = DnsFunctions.getNsRecord(GetNsRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsNsRecordId&#34;, exampleAzurermDnsNsRecord.id());
+     *         ctx.export(&#34;dnsNsRecordId&#34;, example.applyValue(getNsRecordResult -&gt; getNsRecordResult.id()));
      *     }
      * }
      * ```
@@ -1038,8 +1038,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.PtrRecord;
-     * import com.pulumi.azure.dns.PtrRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetPtrRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1053,13 +1053,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PtrRecord(&#34;example&#34;, PtrRecordArgs.builder()        
+     *         final var example = DnsFunctions.getPtrRecord(GetPtrRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsPtrRecordId&#34;, exampleAzurermDnsPtrRecord.id());
+     *         ctx.export(&#34;dnsPtrRecordId&#34;, example.applyValue(getPtrRecordResult -&gt; getPtrRecordResult.id()));
      *     }
      * }
      * ```
@@ -1079,8 +1079,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.PtrRecord;
-     * import com.pulumi.azure.dns.PtrRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetPtrRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1094,13 +1094,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PtrRecord(&#34;example&#34;, PtrRecordArgs.builder()        
+     *         final var example = DnsFunctions.getPtrRecord(GetPtrRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsPtrRecordId&#34;, exampleAzurermDnsPtrRecord.id());
+     *         ctx.export(&#34;dnsPtrRecordId&#34;, example.applyValue(getPtrRecordResult -&gt; getPtrRecordResult.id()));
      *     }
      * }
      * ```
@@ -1120,8 +1120,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.PtrRecord;
-     * import com.pulumi.azure.dns.PtrRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetPtrRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1135,13 +1135,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PtrRecord(&#34;example&#34;, PtrRecordArgs.builder()        
+     *         final var example = DnsFunctions.getPtrRecord(GetPtrRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsPtrRecordId&#34;, exampleAzurermDnsPtrRecord.id());
+     *         ctx.export(&#34;dnsPtrRecordId&#34;, example.applyValue(getPtrRecordResult -&gt; getPtrRecordResult.id()));
      *     }
      * }
      * ```
@@ -1161,8 +1161,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.PtrRecord;
-     * import com.pulumi.azure.dns.PtrRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetPtrRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1176,13 +1176,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PtrRecord(&#34;example&#34;, PtrRecordArgs.builder()        
+     *         final var example = DnsFunctions.getPtrRecord(GetPtrRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsPtrRecordId&#34;, exampleAzurermDnsPtrRecord.id());
+     *         ctx.export(&#34;dnsPtrRecordId&#34;, example.applyValue(getPtrRecordResult -&gt; getPtrRecordResult.id()));
      *     }
      * }
      * ```
@@ -1202,8 +1202,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azurerm.dnsSoaRecord;
-     * import com.pulumi.azurerm.DnsSoaRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetSoaRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1217,12 +1217,12 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new DnsSoaRecord(&#34;example&#34;, DnsSoaRecordArgs.builder()        
+     *         final var example = DnsFunctions.getSoaRecord(GetSoaRecordArgs.builder()
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSoaRecordId&#34;, exampleAzurermDnsSoaRecord.id());
+     *         ctx.export(&#34;dnsSoaRecordId&#34;, example.applyValue(getSoaRecordResult -&gt; getSoaRecordResult.id()));
      *     }
      * }
      * ```
@@ -1242,8 +1242,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azurerm.dnsSoaRecord;
-     * import com.pulumi.azurerm.DnsSoaRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetSoaRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1257,12 +1257,12 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new DnsSoaRecord(&#34;example&#34;, DnsSoaRecordArgs.builder()        
+     *         final var example = DnsFunctions.getSoaRecord(GetSoaRecordArgs.builder()
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSoaRecordId&#34;, exampleAzurermDnsSoaRecord.id());
+     *         ctx.export(&#34;dnsSoaRecordId&#34;, example.applyValue(getSoaRecordResult -&gt; getSoaRecordResult.id()));
      *     }
      * }
      * ```
@@ -1282,8 +1282,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azurerm.dnsSoaRecord;
-     * import com.pulumi.azurerm.DnsSoaRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetSoaRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1297,12 +1297,12 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new DnsSoaRecord(&#34;example&#34;, DnsSoaRecordArgs.builder()        
+     *         final var example = DnsFunctions.getSoaRecord(GetSoaRecordArgs.builder()
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSoaRecordId&#34;, exampleAzurermDnsSoaRecord.id());
+     *         ctx.export(&#34;dnsSoaRecordId&#34;, example.applyValue(getSoaRecordResult -&gt; getSoaRecordResult.id()));
      *     }
      * }
      * ```
@@ -1322,8 +1322,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azurerm.dnsSoaRecord;
-     * import com.pulumi.azurerm.DnsSoaRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetSoaRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1337,12 +1337,12 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new DnsSoaRecord(&#34;example&#34;, DnsSoaRecordArgs.builder()        
+     *         final var example = DnsFunctions.getSoaRecord(GetSoaRecordArgs.builder()
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSoaRecordId&#34;, exampleAzurermDnsSoaRecord.id());
+     *         ctx.export(&#34;dnsSoaRecordId&#34;, example.applyValue(getSoaRecordResult -&gt; getSoaRecordResult.id()));
      *     }
      * }
      * ```
@@ -1362,8 +1362,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.SrvRecord;
-     * import com.pulumi.azure.dns.SrvRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetSrvRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1377,13 +1377,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SrvRecord(&#34;example&#34;, SrvRecordArgs.builder()        
+     *         final var example = DnsFunctions.getSrvRecord(GetSrvRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSrvRecordId&#34;, exampleAzurermDnsSrvRecord.id());
+     *         ctx.export(&#34;dnsSrvRecordId&#34;, example.applyValue(getSrvRecordResult -&gt; getSrvRecordResult.id()));
      *     }
      * }
      * ```
@@ -1403,8 +1403,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.SrvRecord;
-     * import com.pulumi.azure.dns.SrvRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetSrvRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1418,13 +1418,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SrvRecord(&#34;example&#34;, SrvRecordArgs.builder()        
+     *         final var example = DnsFunctions.getSrvRecord(GetSrvRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSrvRecordId&#34;, exampleAzurermDnsSrvRecord.id());
+     *         ctx.export(&#34;dnsSrvRecordId&#34;, example.applyValue(getSrvRecordResult -&gt; getSrvRecordResult.id()));
      *     }
      * }
      * ```
@@ -1444,8 +1444,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.SrvRecord;
-     * import com.pulumi.azure.dns.SrvRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetSrvRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1459,13 +1459,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SrvRecord(&#34;example&#34;, SrvRecordArgs.builder()        
+     *         final var example = DnsFunctions.getSrvRecord(GetSrvRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSrvRecordId&#34;, exampleAzurermDnsSrvRecord.id());
+     *         ctx.export(&#34;dnsSrvRecordId&#34;, example.applyValue(getSrvRecordResult -&gt; getSrvRecordResult.id()));
      *     }
      * }
      * ```
@@ -1485,8 +1485,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.SrvRecord;
-     * import com.pulumi.azure.dns.SrvRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetSrvRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1500,13 +1500,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SrvRecord(&#34;example&#34;, SrvRecordArgs.builder()        
+     *         final var example = DnsFunctions.getSrvRecord(GetSrvRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsSrvRecordId&#34;, exampleAzurermDnsSrvRecord.id());
+     *         ctx.export(&#34;dnsSrvRecordId&#34;, example.applyValue(getSrvRecordResult -&gt; getSrvRecordResult.id()));
      *     }
      * }
      * ```
@@ -1526,8 +1526,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.TxtRecord;
-     * import com.pulumi.azure.dns.TxtRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetTxtRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1541,13 +1541,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *         final var example = DnsFunctions.getTxtRecord(GetTxtRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsTxtRecordId&#34;, exampleAzurermDnsTxtRecord.id());
+     *         ctx.export(&#34;dnsTxtRecordId&#34;, example.applyValue(getTxtRecordResult -&gt; getTxtRecordResult.id()));
      *     }
      * }
      * ```
@@ -1567,8 +1567,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.TxtRecord;
-     * import com.pulumi.azure.dns.TxtRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetTxtRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1582,13 +1582,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *         final var example = DnsFunctions.getTxtRecord(GetTxtRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsTxtRecordId&#34;, exampleAzurermDnsTxtRecord.id());
+     *         ctx.export(&#34;dnsTxtRecordId&#34;, example.applyValue(getTxtRecordResult -&gt; getTxtRecordResult.id()));
      *     }
      * }
      * ```
@@ -1608,8 +1608,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.TxtRecord;
-     * import com.pulumi.azure.dns.TxtRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetTxtRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1623,13 +1623,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *         final var example = DnsFunctions.getTxtRecord(GetTxtRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsTxtRecordId&#34;, exampleAzurermDnsTxtRecord.id());
+     *         ctx.export(&#34;dnsTxtRecordId&#34;, example.applyValue(getTxtRecordResult -&gt; getTxtRecordResult.id()));
      *     }
      * }
      * ```
@@ -1649,8 +1649,8 @@ public final class DnsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dns.TxtRecord;
-     * import com.pulumi.azure.dns.TxtRecordArgs;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetTxtRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1664,13 +1664,13 @@ public final class DnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *         final var example = DnsFunctions.getTxtRecord(GetTxtRecordArgs.builder()
      *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;dnsTxtRecordId&#34;, exampleAzurermDnsTxtRecord.id());
+     *         ctx.export(&#34;dnsTxtRecordId&#34;, example.applyValue(getTxtRecordResult -&gt; getTxtRecordResult.id()));
      *     }
      * }
      * ```

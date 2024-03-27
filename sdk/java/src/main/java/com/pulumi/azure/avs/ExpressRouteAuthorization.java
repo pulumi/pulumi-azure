@@ -15,7 +15,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Manages an Express Route VMware Authorization.
+ * Manages an Azure VMware Solution ExpressRoute Circuit Authorization.
  * 
  * ## Example Usage
  * 
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VMware Authorizations can be imported using the `resource id`, e.g.
+ * Azure VMware Solution ExpressRoute Circuit Authorizations can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:avs/expressRouteAuthorization:ExpressRouteAuthorization example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/authorizations/authorization1
@@ -87,56 +87,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:avs/expressRouteAuthorization:ExpressRouteAuthorization")
 public class ExpressRouteAuthorization extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the Express Route Circuit Authorization.
+     * The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
      * 
      */
     @Export(name="expressRouteAuthorizationId", refs={String.class}, tree="[0]")
     private Output<String> expressRouteAuthorizationId;
 
     /**
-     * @return The ID of the Express Route Circuit Authorization.
+     * @return The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
      * 
      */
     public Output<String> expressRouteAuthorizationId() {
         return this.expressRouteAuthorizationId;
     }
     /**
-     * The key of the Express Route Circuit Authorization.
+     * The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
      * 
      */
     @Export(name="expressRouteAuthorizationKey", refs={String.class}, tree="[0]")
     private Output<String> expressRouteAuthorizationKey;
 
     /**
-     * @return The key of the Express Route Circuit Authorization.
+     * @return The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
      * 
      */
     public Output<String> expressRouteAuthorizationKey() {
         return this.expressRouteAuthorizationKey;
     }
     /**
-     * The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+     * The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+     * @return The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+     * The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
      * 
      */
     @Export(name="privateCloudId", refs={String.class}, tree="[0]")
     private Output<String> privateCloudId;
 
     /**
-     * @return The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
+     * @return The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
      * 
      */
     public Output<String> privateCloudId() {

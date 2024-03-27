@@ -4717,6 +4717,112 @@ func (o PostgresqlClusterMaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+type PostgresqlClusterServer struct {
+	// The Fully Qualified Domain Name of the server.
+	Fqdn *string `pulumi:"fqdn"`
+	// The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+}
+
+// PostgresqlClusterServerInput is an input type that accepts PostgresqlClusterServerArgs and PostgresqlClusterServerOutput values.
+// You can construct a concrete instance of `PostgresqlClusterServerInput` via:
+//
+//	PostgresqlClusterServerArgs{...}
+type PostgresqlClusterServerInput interface {
+	pulumi.Input
+
+	ToPostgresqlClusterServerOutput() PostgresqlClusterServerOutput
+	ToPostgresqlClusterServerOutputWithContext(context.Context) PostgresqlClusterServerOutput
+}
+
+type PostgresqlClusterServerArgs struct {
+	// The Fully Qualified Domain Name of the server.
+	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
+	// The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (PostgresqlClusterServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostgresqlClusterServer)(nil)).Elem()
+}
+
+func (i PostgresqlClusterServerArgs) ToPostgresqlClusterServerOutput() PostgresqlClusterServerOutput {
+	return i.ToPostgresqlClusterServerOutputWithContext(context.Background())
+}
+
+func (i PostgresqlClusterServerArgs) ToPostgresqlClusterServerOutputWithContext(ctx context.Context) PostgresqlClusterServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlClusterServerOutput)
+}
+
+// PostgresqlClusterServerArrayInput is an input type that accepts PostgresqlClusterServerArray and PostgresqlClusterServerArrayOutput values.
+// You can construct a concrete instance of `PostgresqlClusterServerArrayInput` via:
+//
+//	PostgresqlClusterServerArray{ PostgresqlClusterServerArgs{...} }
+type PostgresqlClusterServerArrayInput interface {
+	pulumi.Input
+
+	ToPostgresqlClusterServerArrayOutput() PostgresqlClusterServerArrayOutput
+	ToPostgresqlClusterServerArrayOutputWithContext(context.Context) PostgresqlClusterServerArrayOutput
+}
+
+type PostgresqlClusterServerArray []PostgresqlClusterServerInput
+
+func (PostgresqlClusterServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PostgresqlClusterServer)(nil)).Elem()
+}
+
+func (i PostgresqlClusterServerArray) ToPostgresqlClusterServerArrayOutput() PostgresqlClusterServerArrayOutput {
+	return i.ToPostgresqlClusterServerArrayOutputWithContext(context.Background())
+}
+
+func (i PostgresqlClusterServerArray) ToPostgresqlClusterServerArrayOutputWithContext(ctx context.Context) PostgresqlClusterServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlClusterServerArrayOutput)
+}
+
+type PostgresqlClusterServerOutput struct{ *pulumi.OutputState }
+
+func (PostgresqlClusterServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostgresqlClusterServer)(nil)).Elem()
+}
+
+func (o PostgresqlClusterServerOutput) ToPostgresqlClusterServerOutput() PostgresqlClusterServerOutput {
+	return o
+}
+
+func (o PostgresqlClusterServerOutput) ToPostgresqlClusterServerOutputWithContext(ctx context.Context) PostgresqlClusterServerOutput {
+	return o
+}
+
+// The Fully Qualified Domain Name of the server.
+func (o PostgresqlClusterServerOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresqlClusterServer) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+// The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
+func (o PostgresqlClusterServerOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostgresqlClusterServer) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type PostgresqlClusterServerArrayOutput struct{ *pulumi.OutputState }
+
+func (PostgresqlClusterServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PostgresqlClusterServer)(nil)).Elem()
+}
+
+func (o PostgresqlClusterServerArrayOutput) ToPostgresqlClusterServerArrayOutput() PostgresqlClusterServerArrayOutput {
+	return o
+}
+
+func (o PostgresqlClusterServerArrayOutput) ToPostgresqlClusterServerArrayOutputWithContext(ctx context.Context) PostgresqlClusterServerArrayOutput {
+	return o
+}
+
+func (o PostgresqlClusterServerArrayOutput) Index(i pulumi.IntInput) PostgresqlClusterServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PostgresqlClusterServer {
+		return vs[0].([]PostgresqlClusterServer)[vs[1].(int)]
+	}).(PostgresqlClusterServerOutput)
+}
+
 type SqlContainerAutoscaleSettings struct {
 	// The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
@@ -7161,6 +7267,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoRoleDefinitionPrivilegeResourceInput)(nil)).Elem(), MongoRoleDefinitionPrivilegeResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PostgresqlClusterMaintenanceWindowInput)(nil)).Elem(), PostgresqlClusterMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PostgresqlClusterMaintenanceWindowPtrInput)(nil)).Elem(), PostgresqlClusterMaintenanceWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PostgresqlClusterServerInput)(nil)).Elem(), PostgresqlClusterServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PostgresqlClusterServerArrayInput)(nil)).Elem(), PostgresqlClusterServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlContainerAutoscaleSettingsInput)(nil)).Elem(), SqlContainerAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlContainerAutoscaleSettingsPtrInput)(nil)).Elem(), SqlContainerAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlContainerConflictResolutionPolicyInput)(nil)).Elem(), SqlContainerConflictResolutionPolicyArgs{})
@@ -7268,6 +7376,8 @@ func init() {
 	pulumi.RegisterOutputType(MongoRoleDefinitionPrivilegeResourceOutput{})
 	pulumi.RegisterOutputType(PostgresqlClusterMaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(PostgresqlClusterMaintenanceWindowPtrOutput{})
+	pulumi.RegisterOutputType(PostgresqlClusterServerOutput{})
+	pulumi.RegisterOutputType(PostgresqlClusterServerArrayOutput{})
 	pulumi.RegisterOutputType(SqlContainerAutoscaleSettingsOutput{})
 	pulumi.RegisterOutputType(SqlContainerAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SqlContainerConflictResolutionPolicyOutput{})

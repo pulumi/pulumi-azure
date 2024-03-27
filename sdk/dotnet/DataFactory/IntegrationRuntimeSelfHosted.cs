@@ -93,6 +93,12 @@ namespace Pulumi.Azure.DataFactory
         [Output("secondaryAuthorizationKey")]
         public Output<string> SecondaryAuthorizationKey { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+        /// </summary>
+        [Output("selfContainedInteractiveAuthoringEnabled")]
+        public Output<bool?> SelfContainedInteractiveAuthoringEnabled { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a IntegrationRuntimeSelfHosted resource with the given unique name, arguments, and options.
@@ -169,6 +175,12 @@ namespace Pulumi.Azure.DataFactory
             set => _rbacAuthorizations = value;
         }
 
+        /// <summary>
+        /// Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+        /// </summary>
+        [Input("selfContainedInteractiveAuthoringEnabled")]
+        public Input<bool>? SelfContainedInteractiveAuthoringEnabled { get; set; }
+
         public IntegrationRuntimeSelfHostedArgs()
         {
         }
@@ -218,6 +230,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("secondaryAuthorizationKey")]
         public Input<string>? SecondaryAuthorizationKey { get; set; }
+
+        /// <summary>
+        /// Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+        /// </summary>
+        [Input("selfContainedInteractiveAuthoringEnabled")]
+        public Input<bool>? SelfContainedInteractiveAuthoringEnabled { get; set; }
 
         public IntegrationRuntimeSelfHostedState()
         {

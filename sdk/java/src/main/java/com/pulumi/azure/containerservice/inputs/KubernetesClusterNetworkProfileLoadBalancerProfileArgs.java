@@ -33,14 +33,14 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
     }
 
     /**
-     * Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+     * Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
      * 
      */
     @Import(name="idleTimeoutInMinutes")
     private @Nullable Output<Integer> idleTimeoutInMinutes;
 
     /**
-     * @return Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+     * @return Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
      * 
      */
     public Optional<Output<Integer>> idleTimeoutInMinutes() {
@@ -196,7 +196,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
         }
 
         /**
-         * @param idleTimeoutInMinutes Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+         * @param idleTimeoutInMinutes Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
         }
 
         /**
-         * @param idleTimeoutInMinutes Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+         * @param idleTimeoutInMinutes Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
          * 
          * @return builder
          * 

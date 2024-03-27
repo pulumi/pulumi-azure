@@ -1679,6 +1679,173 @@ func (o ServiceCorsConfigurationPtrOutput) MaxAgeInSeconds() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+type ServiceIdentity struct {
+	PrincipalId *string `pulumi:"principalId"`
+	TenantId    *string `pulumi:"tenantId"`
+	// The type of managed identity to assign. The only possible value is `SystemAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// ServiceIdentityInput is an input type that accepts ServiceIdentityArgs and ServiceIdentityOutput values.
+// You can construct a concrete instance of `ServiceIdentityInput` via:
+//
+//	ServiceIdentityArgs{...}
+type ServiceIdentityInput interface {
+	pulumi.Input
+
+	ToServiceIdentityOutput() ServiceIdentityOutput
+	ToServiceIdentityOutputWithContext(context.Context) ServiceIdentityOutput
+}
+
+type ServiceIdentityArgs struct {
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The type of managed identity to assign. The only possible value is `SystemAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceIdentity)(nil)).Elem()
+}
+
+func (i ServiceIdentityArgs) ToServiceIdentityOutput() ServiceIdentityOutput {
+	return i.ToServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i ServiceIdentityArgs) ToServiceIdentityOutputWithContext(ctx context.Context) ServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIdentityOutput)
+}
+
+func (i ServiceIdentityArgs) ToServiceIdentityPtrOutput() ServiceIdentityPtrOutput {
+	return i.ToServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceIdentityArgs) ToServiceIdentityPtrOutputWithContext(ctx context.Context) ServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIdentityOutput).ToServiceIdentityPtrOutputWithContext(ctx)
+}
+
+// ServiceIdentityPtrInput is an input type that accepts ServiceIdentityArgs, ServiceIdentityPtr and ServiceIdentityPtrOutput values.
+// You can construct a concrete instance of `ServiceIdentityPtrInput` via:
+//
+//	        ServiceIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToServiceIdentityPtrOutput() ServiceIdentityPtrOutput
+	ToServiceIdentityPtrOutputWithContext(context.Context) ServiceIdentityPtrOutput
+}
+
+type serviceIdentityPtrType ServiceIdentityArgs
+
+func ServiceIdentityPtr(v *ServiceIdentityArgs) ServiceIdentityPtrInput {
+	return (*serviceIdentityPtrType)(v)
+}
+
+func (*serviceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceIdentity)(nil)).Elem()
+}
+
+func (i *serviceIdentityPtrType) ToServiceIdentityPtrOutput() ServiceIdentityPtrOutput {
+	return i.ToServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceIdentityPtrType) ToServiceIdentityPtrOutputWithContext(ctx context.Context) ServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIdentityPtrOutput)
+}
+
+type ServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (ServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceIdentity)(nil)).Elem()
+}
+
+func (o ServiceIdentityOutput) ToServiceIdentityOutput() ServiceIdentityOutput {
+	return o
+}
+
+func (o ServiceIdentityOutput) ToServiceIdentityOutputWithContext(ctx context.Context) ServiceIdentityOutput {
+	return o
+}
+
+func (o ServiceIdentityOutput) ToServiceIdentityPtrOutput() ServiceIdentityPtrOutput {
+	return o.ToServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceIdentityOutput) ToServiceIdentityPtrOutputWithContext(ctx context.Context) ServiceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceIdentity) *ServiceIdentity {
+		return &v
+	}).(ServiceIdentityPtrOutput)
+}
+
+func (o ServiceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of managed identity to assign. The only possible value is `SystemAssigned`.
+func (o ServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ServiceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceIdentity)(nil)).Elem()
+}
+
+func (o ServiceIdentityPtrOutput) ToServiceIdentityPtrOutput() ServiceIdentityPtrOutput {
+	return o
+}
+
+func (o ServiceIdentityPtrOutput) ToServiceIdentityPtrOutputWithContext(ctx context.Context) ServiceIdentityPtrOutput {
+	return o
+}
+
+func (o ServiceIdentityPtrOutput) Elem() ServiceIdentityOutput {
+	return o.ApplyT(func(v *ServiceIdentity) ServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceIdentity
+		return ret
+	}).(ServiceIdentityOutput)
+}
+
+func (o ServiceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of managed identity to assign. The only possible value is `SystemAssigned`.
+func (o ServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspacePrivateEndpointConnection struct {
 	// The ID of the Healthcare Workspace.
 	Id *string `pulumi:"id"`
@@ -2859,6 +3026,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthenticationConfigurationPtrInput)(nil)).Elem(), ServiceAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorsConfigurationInput)(nil)).Elem(), ServiceCorsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorsConfigurationPtrInput)(nil)).Elem(), ServiceCorsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIdentityInput)(nil)).Elem(), ServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIdentityPtrInput)(nil)).Elem(), ServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePrivateEndpointConnectionInput)(nil)).Elem(), WorkspacePrivateEndpointConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePrivateEndpointConnectionArrayInput)(nil)).Elem(), WorkspacePrivateEndpointConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServiceAuthenticationInput)(nil)).Elem(), GetDicomServiceAuthenticationArgs{})
@@ -2899,6 +3068,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCorsConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceCorsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceIdentityOutput{})
+	pulumi.RegisterOutputType(ServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WorkspacePrivateEndpointConnectionOutput{})
 	pulumi.RegisterOutputType(WorkspacePrivateEndpointConnectionArrayOutput{})
 	pulumi.RegisterOutputType(GetDicomServiceAuthenticationOutput{})

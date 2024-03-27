@@ -222,6 +222,25 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace &#34;Microsoft.Storage&#34; --name &#34;PartitionedDns&#34;`.
+     * 
+     */
+    @Import(name="dnsEndpointType")
+    private @Nullable Output<String> dnsEndpointType;
+
+    /**
+     * @return Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace &#34;Microsoft.Storage&#34; --name &#34;PartitionedDns&#34;`.
+     * 
+     */
+    public Optional<Output<String>> dnsEndpointType() {
+        return Optional.ofNullable(this.dnsEndpointType);
+    }
+
+    /**
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      * 
      */
@@ -1715,6 +1734,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.customDomain = $.customDomain;
         this.customerManagedKey = $.customerManagedKey;
         this.defaultToOauthAuthentication = $.defaultToOauthAuthentication;
+        this.dnsEndpointType = $.dnsEndpointType;
         this.edgeZone = $.edgeZone;
         this.enableHttpsTrafficOnly = $.enableHttpsTrafficOnly;
         this.identity = $.identity;
@@ -2094,6 +2114,31 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder defaultToOauthAuthentication(Boolean defaultToOauthAuthentication) {
             return defaultToOauthAuthentication(Output.of(defaultToOauthAuthentication));
+        }
+
+        /**
+         * @param dnsEndpointType Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace &#34;Microsoft.Storage&#34; --name &#34;PartitionedDns&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsEndpointType(@Nullable Output<String> dnsEndpointType) {
+            $.dnsEndpointType = dnsEndpointType;
+            return this;
+        }
+
+        /**
+         * @param dnsEndpointType Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace &#34;Microsoft.Storage&#34; --name &#34;PartitionedDns&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsEndpointType(String dnsEndpointType) {
+            return dnsEndpointType(Output.of(dnsEndpointType));
         }
 
         /**

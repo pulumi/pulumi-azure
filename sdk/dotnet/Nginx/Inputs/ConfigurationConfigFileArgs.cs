@@ -12,15 +12,9 @@ namespace Pulumi.Azure.Nginx.Inputs
 
     public sealed class ConfigurationConfigFileArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the base-64 encoded contents of this config file.
-        /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
-        /// <summary>
-        /// Specify the path of this config file.
-        /// </summary>
         [Input("virtualPath", required: true)]
         public Input<string> VirtualPath { get; set; } = null!;
 

@@ -147,6 +147,10 @@ export class PostgresqlCluster extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A `servers` block as defined below.
+     */
+    public /*out*/ readonly servers!: pulumi.Output<outputs.cosmosdb.PostgresqlClusterServer[]>;
+    /**
      * Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
      */
     public readonly shardsOnCoordinatorEnabled!: pulumi.Output<boolean>;
@@ -199,6 +203,7 @@ export class PostgresqlCluster extends pulumi.CustomResource {
             resourceInputs["pointInTimeInUtc"] = state ? state.pointInTimeInUtc : undefined;
             resourceInputs["preferredPrimaryZone"] = state ? state.preferredPrimaryZone : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["servers"] = state ? state.servers : undefined;
             resourceInputs["shardsOnCoordinatorEnabled"] = state ? state.shardsOnCoordinatorEnabled : undefined;
             resourceInputs["sourceLocation"] = state ? state.sourceLocation : undefined;
             resourceInputs["sourceResourceId"] = state ? state.sourceResourceId : undefined;
@@ -236,6 +241,7 @@ export class PostgresqlCluster extends pulumi.CustomResource {
             resourceInputs["sqlVersion"] = args ? args.sqlVersion : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["earliestRestoreTime"] = undefined /*out*/;
+            resourceInputs["servers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["administratorLoginPassword"] };
@@ -326,6 +332,10 @@ export interface PostgresqlClusterState {
      * The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A `servers` block as defined below.
+     */
+    servers?: pulumi.Input<pulumi.Input<inputs.cosmosdb.PostgresqlClusterServer>[]>;
     /**
      * Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
      */

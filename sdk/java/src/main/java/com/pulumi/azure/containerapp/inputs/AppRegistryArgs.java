@@ -19,12 +19,16 @@ public final class AppRegistryArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
      * 
+     * &gt; **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
+     * 
      */
     @Import(name="identity")
     private @Nullable Output<String> identity;
 
     /**
      * @return Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+     * 
+     * &gt; **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
      * 
      */
     public Optional<Output<String>> identity() {
@@ -110,6 +114,8 @@ public final class AppRegistryArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param identity Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
          * 
+         * &gt; **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
+         * 
          * @return builder
          * 
          */
@@ -120,6 +126,8 @@ public final class AppRegistryArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param identity Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+         * 
+         * &gt; **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
          * 
          * @return builder
          * 

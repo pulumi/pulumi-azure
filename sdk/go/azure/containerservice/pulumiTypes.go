@@ -2439,7 +2439,7 @@ type GroupContainer struct {
 	LivenessProbe *GroupContainerLivenessProbe `pulumi:"livenessProbe"`
 	// The required memory of the containers in GB. Changing this forces a new resource to be created.
 	Memory float64 `pulumi:"memory"`
-	// The the upper limit of the memory of the containers in GB.
+	// The upper limit of the memory of the containers in GB.
 	MemoryLimit *float64 `pulumi:"memoryLimit"`
 	// Specifies the name of the Container. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -2487,7 +2487,7 @@ type GroupContainerArgs struct {
 	LivenessProbe GroupContainerLivenessProbePtrInput `pulumi:"livenessProbe"`
 	// The required memory of the containers in GB. Changing this forces a new resource to be created.
 	Memory pulumi.Float64Input `pulumi:"memory"`
-	// The the upper limit of the memory of the containers in GB.
+	// The upper limit of the memory of the containers in GB.
 	MemoryLimit pulumi.Float64PtrInput `pulumi:"memoryLimit"`
 	// Specifies the name of the Container. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2601,7 +2601,7 @@ func (o GroupContainerOutput) Memory() pulumi.Float64Output {
 	return o.ApplyT(func(v GroupContainer) float64 { return v.Memory }).(pulumi.Float64Output)
 }
 
-// The the upper limit of the memory of the containers in GB.
+// The upper limit of the memory of the containers in GB.
 func (o GroupContainerOutput) MemoryLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v GroupContainer) *float64 { return v.MemoryLimit }).(pulumi.Float64PtrOutput)
 }
@@ -10460,7 +10460,7 @@ func (o KubernetesClusterHttpProxyConfigPtrOutput) TrustedCa() pulumi.StringPtrO
 type KubernetesClusterIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
 	//
-	// > **Note:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -10484,7 +10484,7 @@ type KubernetesClusterIdentityInput interface {
 type KubernetesClusterIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
 	//
-	// > **Note:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -10573,7 +10573,7 @@ func (o KubernetesClusterIdentityOutput) ToKubernetesClusterIdentityPtrOutputWit
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
 //
-// > **Note:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
 func (o KubernetesClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -10619,7 +10619,7 @@ func (o KubernetesClusterIdentityPtrOutput) Elem() KubernetesClusterIdentityOutp
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
 //
-// > **Note:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
 func (o KubernetesClusterIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterIdentity) []string {
 		if v == nil {
@@ -14310,7 +14310,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) ServiceCidrs() pulumi.StringAr
 type KubernetesClusterNetworkProfileLoadBalancerProfile struct {
 	// The outcome (resource IDs) of the specified arguments.
 	EffectiveOutboundIps []string `pulumi:"effectiveOutboundIps"`
-	// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+	// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
 	ManagedOutboundIpCount *int `pulumi:"managedOutboundIpCount"`
@@ -14344,7 +14344,7 @@ type KubernetesClusterNetworkProfileLoadBalancerProfileInput interface {
 type KubernetesClusterNetworkProfileLoadBalancerProfileArgs struct {
 	// The outcome (resource IDs) of the specified arguments.
 	EffectiveOutboundIps pulumi.StringArrayInput `pulumi:"effectiveOutboundIps"`
-	// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+	// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
 	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
 	// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
 	ManagedOutboundIpCount pulumi.IntPtrInput `pulumi:"managedOutboundIpCount"`
@@ -14446,7 +14446,7 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) EffectiveOutbo
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.EffectiveOutboundIps }).(pulumi.StringArrayOutput)
 }
 
-// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -14516,7 +14516,7 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) EffectiveOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfileLoadBalancerProfile) *int {
 		if v == nil {

@@ -10553,7 +10553,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
+         * The version of Node to run. Possible values include `12`, `14`, `16`, `18` and `20`.
          */
         nodeVersion?: string;
         /**
@@ -11545,7 +11545,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to use. Possible values include `12`, `14`, `16` and `18`
+         * The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
          */
         nodeVersion?: string;
         /**
@@ -15613,7 +15613,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values include `~12`, `~14`, `~16` and `~18`.
+         * The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
          */
         nodeVersion?: string;
         /**
@@ -16564,7 +16564,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
+         * The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
          */
         nodeVersion?: string;
         /**
@@ -17689,7 +17689,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, and `~18`.
+         * The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
          *
          * > **NOTE:** This property conflicts with `javaVersion`.
          */
@@ -18808,7 +18808,7 @@ export namespace appservice {
          */
         scmUseMainIpRestriction?: boolean;
         /**
-         * Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+         * Should the Windows Web App Slot use a 32-bit worker. The default value varies from different service plans.
          */
         use32BitWorker: boolean;
         /**
@@ -18894,7 +18894,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of node to use when `currentStack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
+         * The version of node to use when `currentStack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
          *
          * > **NOTE:** This property conflicts with `javaVersion`.
          */
@@ -24449,7 +24449,7 @@ export namespace compute {
          */
         publicIpAddresses: outputs.compute.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
         /**
-         * The the identifier of the subnet.
+         * The identifier of the subnet.
          */
         subnetId: string;
         /**
@@ -24753,7 +24753,7 @@ export namespace compute {
          */
         publicIpAddresses: outputs.compute.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
         /**
-         * The the identifier of the subnet.
+         * The identifier of the subnet.
          */
         subnetId: string;
         /**
@@ -28896,6 +28896,8 @@ export namespace containerapp {
     export interface AppRegistry {
         /**
          * Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+         *
+         * > **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
          */
         identity?: string;
         /**
@@ -29439,17 +29441,21 @@ export namespace containerapp {
         /**
          * The maximum number of instances of workload profile that can be deployed in the Container App Environment.
          */
-        maximumCount: number;
+        maximumCount?: number;
         /**
          * The minimum number of instances of workload profile that can be deployed in the Container App Environment.
          */
-        minimumCount: number;
+        minimumCount?: number;
         /**
          * The name of the workload profile.
          */
         name: string;
         /**
-         * Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+         * Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+         *
+         * > **NOTE:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
+         *
+         * > **NOTE:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
          */
         workloadProfileType: string;
     }
@@ -30782,7 +30788,7 @@ export namespace containerservice {
          */
         memory: number;
         /**
-         * The the upper limit of the memory of the containers in GB.
+         * The upper limit of the memory of the containers in GB.
          */
         memoryLimit?: number;
         /**
@@ -31851,7 +31857,7 @@ export namespace containerservice {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
          *
-         * > **Note:** This is required when `type` is set to `UserAssigned`.
+         * > **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
          */
         identityIds?: string[];
         /**
@@ -32313,7 +32319,7 @@ export namespace containerservice {
          */
         effectiveOutboundIps: string[];
         /**
-         * Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+         * Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
          */
         idleTimeoutInMinutes?: number;
         /**
@@ -34330,6 +34336,17 @@ export namespace cosmosdb {
         startMinute?: number;
     }
 
+    export interface PostgresqlClusterServer {
+        /**
+         * The Fully Qualified Domain Name of the server.
+         */
+        fqdn: string;
+        /**
+         * The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
+         */
+        name: string;
+    }
+
     export interface SqlContainerAutoscaleSettings {
         /**
          * The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
@@ -36270,6 +36287,17 @@ export namespace datafactory {
         serverEndpoint: string;
     }
 
+    export interface IntegrationRuntimeSsisCopyComputeScale {
+        /**
+         * Specifies the data integration unit number setting reserved for copy activity execution. Supported values are multiples of `4` in range 4-256.
+         */
+        dataIntegrationUnit?: number;
+        /**
+         * Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+         */
+        timeToLive?: number;
+    }
+
     export interface IntegrationRuntimeSsisCustomSetupScript {
         /**
          * The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
@@ -36390,6 +36418,21 @@ export namespace datafactory {
          * Name of the package store.
          */
         name: string;
+    }
+
+    export interface IntegrationRuntimeSsisPipelineExternalComputeScale {
+        /**
+         * Specifies the number of the external nodes, which should be greater than `0` and less than `11`.
+         */
+        numberOfExternalNodes?: number;
+        /**
+         * Specifies the number of the pipeline nodes, which should be greater than `0` and less than `11`.
+         */
+        numberOfPipelineNodes?: number;
+        /**
+         * Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+         */
+        timeToLive?: number;
     }
 
     export interface IntegrationRuntimeSsisProxy {
@@ -37851,6 +37894,17 @@ export namespace elasticsan {
          * The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
          */
         tier?: string;
+    }
+
+    export interface VolumeCreateSource {
+        /**
+         * Specifies the ID of the source to create the Elastic SAN Volume from. Changing this forces a new resource to be created.
+         */
+        sourceId: string;
+        /**
+         * Specifies the type of the source to create the Elastic SAN Volume from. Possible values are `Disk`, `DiskRestorePoint`, `DiskSnapshot` and `VolumeSnapshot`. Changing this forces a new resource to be created.
+         */
+        sourceType: string;
     }
 
     export interface VolumeGroupEncryption {
@@ -43164,6 +43218,15 @@ export namespace healthcare {
         maxAgeInSeconds?: number;
     }
 
+    export interface ServiceIdentity {
+        principalId: string;
+        tenantId: string;
+        /**
+         * The type of managed identity to assign. The only possible value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
     export interface WorkspacePrivateEndpointConnection {
         /**
          * The ID of the Healthcare Workspace.
@@ -45343,19 +45406,19 @@ export namespace lb {
 
     export interface BackendAddressPoolTunnelInterface {
         /**
-         * The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+         * The unique identifier of this Gateway Load Balancer Tunnel Interface.
          */
         identifier: number;
         /**
-         * The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+         * The port number that this Gateway Load Balancer Tunnel Interface listens to.
          */
         port: number;
         /**
-         * The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+         * The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
          */
         protocol: string;
         /**
-         * The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
+         * The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
          */
         type: string;
     }
@@ -53553,6 +53616,10 @@ export namespace mysql {
 export namespace netapp {
     export interface AccountActiveDirectory {
         /**
+         * If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+         */
+        aesEncryptionEnabled?: boolean;
+        /**
          * A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
          */
         dnsServers: string[];
@@ -53561,13 +53628,43 @@ export namespace netapp {
          */
         domain: string;
         /**
-         * The Organizational Unit (OU) within the Active Directory Domain.
+         * Name of the active directory machine.
+         */
+        kerberosAdName?: string;
+        /**
+         * kdc server IP addresses for the active directory machine.
+         *
+         * > **IMPORTANT:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
+         */
+        kerberosKdcIp?: string;
+        /**
+         * Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+         */
+        ldapOverTlsEnabled?: boolean;
+        /**
+         * Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
+         */
+        ldapSigningEnabled?: boolean;
+        /**
+         * If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
+         */
+        localNfsUsersWithLdapAllowed?: boolean;
+        /**
+         * The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
          */
         organizationalUnit?: string;
         /**
          * The password associated with the `username`.
          */
         password: string;
+        /**
+         * When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
+         */
+        serverRootCaCertificate?: string;
+        /**
+         * The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
+         */
+        siteName?: string;
         /**
          * The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
          */
@@ -59295,6 +59392,47 @@ export namespace newrelic {
 
 export namespace nginx {
     export interface ConfigurationConfigFile {
+        content: string;
+        virtualPath: string;
+    }
+
+    export interface ConfigurationProtectedFile {
+        content: string;
+        virtualPath: string;
+    }
+
+    export interface DeploymentAutoScaleProfile {
+        maxCapacity: number;
+        /**
+         * Specify the minimum number of NGINX capacity units for this NGINX Deployment.
+         */
+        minCapacity: number;
+        /**
+         * Specify the name of the autoscaling profile.
+         */
+        name: string;
+    }
+
+    export interface DeploymentConfiguration {
+        /**
+         * One or more `configFile` blocks as defined below.
+         */
+        configFiles?: outputs.nginx.DeploymentConfigurationConfigFile[];
+        /**
+         * Specify the package data for this configuration.
+         */
+        packageData?: string;
+        /**
+         * One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
+         */
+        protectedFiles?: outputs.nginx.DeploymentConfigurationProtectedFile[];
+        /**
+         * Specify the root file path of this Nginx Configuration.
+         */
+        rootFile: string;
+    }
+
+    export interface DeploymentConfigurationConfigFile {
         /**
          * Specifies the base-64 encoded contents of this config file.
          */
@@ -59305,7 +59443,7 @@ export namespace nginx {
         virtualPath: string;
     }
 
-    export interface ConfigurationProtectedFile {
+    export interface DeploymentConfigurationProtectedFile {
         /**
          * Specifies the base-64 encoded contents of this config file (Sensitive).
          */
@@ -59372,25 +59510,28 @@ export namespace nginx {
     }
 
     export interface GetConfigurationConfigFile {
-        /**
-         * The base-64 encoded contents of this configuration file.
-         */
         content: string;
-        /**
-         * The path of this configuration file.
-         */
         virtualPath: string;
     }
 
     export interface GetConfigurationProtectedFile {
-        /**
-         * The base-64 encoded contents of this configuration file.
-         */
         content: string;
-        /**
-         * The path of this configuration file.
-         */
         virtualPath: string;
+    }
+
+    export interface GetDeploymentAutoScaleProfile {
+        /**
+         * The maximum number of NGINX capacity units for this NGINX Deployment.
+         */
+        maxCapacity: number;
+        /**
+         * The minimum number of NGINX capacity units for this NGINX Deployment.
+         */
+        minCapacity: number;
+        /**
+         * The name of this Nginx Deployment.
+         */
+        name: string;
     }
 
     export interface GetDeploymentFrontendPrivate {
@@ -63916,6 +64057,41 @@ export namespace sql {
          * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: string;
+    }
+
+}
+
+export namespace stack {
+    export interface GetHciClusterIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * (Required) The type of Managed Service Identity configured on the Azure Stack HCI Cluster.
+         */
+        type: string;
+    }
+
+    export interface HciClusterIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+         *
+         * > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on the Azure Stack HCI Cluster. Possible value is `SystemAssigned`.
+         */
+        type: string;
     }
 
 }

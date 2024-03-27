@@ -16,14 +16,14 @@ public final class BackendAddressPoolTunnelInterfaceArgs extends com.pulumi.reso
     public static final BackendAddressPoolTunnelInterfaceArgs Empty = new BackendAddressPoolTunnelInterfaceArgs();
 
     /**
-     * The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+     * The unique identifier of this Gateway Load Balancer Tunnel Interface.
      * 
      */
     @Import(name="identifier", required=true)
     private Output<Integer> identifier;
 
     /**
-     * @return The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+     * @return The unique identifier of this Gateway Load Balancer Tunnel Interface.
      * 
      */
     public Output<Integer> identifier() {
@@ -31,14 +31,14 @@ public final class BackendAddressPoolTunnelInterfaceArgs extends com.pulumi.reso
     }
 
     /**
-     * The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+     * The port number that this Gateway Load Balancer Tunnel Interface listens to.
      * 
      */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
     /**
-     * @return The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+     * @return The port number that this Gateway Load Balancer Tunnel Interface listens to.
      * 
      */
     public Output<Integer> port() {
@@ -46,14 +46,14 @@ public final class BackendAddressPoolTunnelInterfaceArgs extends com.pulumi.reso
     }
 
     /**
-     * The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+     * The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+     * @return The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
      * 
      */
     public Output<String> protocol() {
@@ -61,14 +61,14 @@ public final class BackendAddressPoolTunnelInterfaceArgs extends com.pulumi.reso
     }
 
     /**
-     * The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
+     * The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
+     * @return The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
      * 
      */
     public Output<String> type() {
@@ -103,7 +103,7 @@ public final class BackendAddressPoolTunnelInterfaceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param identifier The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+         * @param identifier The unique identifier of this Gateway Load Balancer Tunnel Interface.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class BackendAddressPoolTunnelInterfaceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param identifier The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+         * @param identifier The unique identifier of this Gateway Load Balancer Tunnel Interface.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class BackendAddressPoolTunnelInterfaceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param port The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+         * @param port The port number that this Gateway Load Balancer Tunnel Interface listens to.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class BackendAddressPoolTunnelInterfaceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param port The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+         * @param port The port number that this Gateway Load Balancer Tunnel Interface listens to.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class BackendAddressPoolTunnelInterfaceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param protocol The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+         * @param protocol The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class BackendAddressPoolTunnelInterfaceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param protocol The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+         * @param protocol The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class BackendAddressPoolTunnelInterfaceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param type The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
+         * @param type The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class BackendAddressPoolTunnelInterfaceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param type The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
+         * @param type The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
          * 
          * @return builder
          * 

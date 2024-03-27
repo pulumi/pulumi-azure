@@ -66,6 +66,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<Outputs.IntegrationRuntimeSsisCatalogInfo?> CatalogInfo { get; private set; } = null!;
 
         /// <summary>
+        /// One `copy_compute_scale` block as defined below.
+        /// </summary>
+        [Output("copyComputeScale")]
+        public Output<Outputs.IntegrationRuntimeSsisCopyComputeScale?> CopyComputeScale { get; private set; } = null!;
+
+        /// <summary>
         /// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
         /// 
         /// &gt; **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
@@ -152,6 +158,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<Outputs.IntegrationRuntimeSsisPackageStore>> PackageStores { get; private set; } = null!;
 
         /// <summary>
+        /// One `pipeline_external_compute_scale` block as defined below.
+        /// </summary>
+        [Output("pipelineExternalComputeScale")]
+        public Output<Outputs.IntegrationRuntimeSsisPipelineExternalComputeScale?> PipelineExternalComputeScale { get; private set; } = null!;
+
+        /// <summary>
         /// A `proxy` block as defined below.
         /// </summary>
         [Output("proxy")]
@@ -214,6 +226,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("catalogInfo")]
         public Input<Inputs.IntegrationRuntimeSsisCatalogInfoArgs>? CatalogInfo { get; set; }
+
+        /// <summary>
+        /// One `copy_compute_scale` block as defined below.
+        /// </summary>
+        [Input("copyComputeScale")]
+        public Input<Inputs.IntegrationRuntimeSsisCopyComputeScaleArgs>? CopyComputeScale { get; set; }
 
         /// <summary>
         /// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
@@ -308,6 +326,12 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
+        /// One `pipeline_external_compute_scale` block as defined below.
+        /// </summary>
+        [Input("pipelineExternalComputeScale")]
+        public Input<Inputs.IntegrationRuntimeSsisPipelineExternalComputeScaleArgs>? PipelineExternalComputeScale { get; set; }
+
+        /// <summary>
         /// A `proxy` block as defined below.
         /// </summary>
         [Input("proxy")]
@@ -332,6 +356,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("catalogInfo")]
         public Input<Inputs.IntegrationRuntimeSsisCatalogInfoGetArgs>? CatalogInfo { get; set; }
+
+        /// <summary>
+        /// One `copy_compute_scale` block as defined below.
+        /// </summary>
+        [Input("copyComputeScale")]
+        public Input<Inputs.IntegrationRuntimeSsisCopyComputeScaleGetArgs>? CopyComputeScale { get; set; }
 
         /// <summary>
         /// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
@@ -424,6 +454,12 @@ namespace Pulumi.Azure.DataFactory
             get => _packageStores ?? (_packageStores = new InputList<Inputs.IntegrationRuntimeSsisPackageStoreGetArgs>());
             set => _packageStores = value;
         }
+
+        /// <summary>
+        /// One `pipeline_external_compute_scale` block as defined below.
+        /// </summary>
+        [Input("pipelineExternalComputeScale")]
+        public Input<Inputs.IntegrationRuntimeSsisPipelineExternalComputeScaleGetArgs>? PipelineExternalComputeScale { get; set; }
 
         /// <summary>
         /// A `proxy` block as defined below.

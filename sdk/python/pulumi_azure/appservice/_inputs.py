@@ -9084,7 +9084,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]] dockers: One or more `docker` blocks as defined below.
         :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0` and `8.0`.
         :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, `11` & `17`.
-        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
+        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12`, `14`, `16`, `18` and `20`.
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
         :param pulumi.Input[str] python_version: The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param pulumi.Input[bool] use_custom_runtime: Should the Linux Function App use a custom runtime?
@@ -9147,7 +9147,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
+        The version of Node to run. Possible values include `12`, `14`, `16`, `18` and `20`.
         """
         return pulumi.get(self, "node_version")
 
@@ -12774,7 +12774,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs']]] dockers: a `docker` block as detailed below.
         :param pulumi.Input[str] dotnet_version: The version of .Net. Possible values are `3.1`, `6.0`, `7.0` and `8.0`.
         :param pulumi.Input[str] java_version: The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
-        :param pulumi.Input[str] node_version: The version of Node to use. Possible values include `12`, `14`, `16` and `18`
+        :param pulumi.Input[str] node_version: The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
         :param pulumi.Input[str] python_version: The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param pulumi.Input[bool] use_custom_runtime: Should the Linux Function App use a custom runtime?
@@ -12837,7 +12837,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Node to use. Possible values include `12`, `14`, `16` and `18`
+        The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
         """
         return pulumi.get(self, "node_version")
 
@@ -27876,7 +27876,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
         """
         :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
         :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `1.8`, `11` & `17` (In-Preview).
-        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16` and `~18`.
+        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
                
                > **NOTE:** A value of `7` will provide the latest stable version. `7.2` is in preview at the time of writing.
@@ -27924,7 +27924,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Node to run. Possible values include `~12`, `~14`, `~16` and `~18`.
+        The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
         """
         return pulumi.get(self, "node_version")
 
@@ -31414,7 +31414,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
         """
         :param pulumi.Input[str] dotnet_version: The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
         :param pulumi.Input[str] java_version: The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
-        :param pulumi.Input[str] node_version: The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
+        :param pulumi.Input[str] node_version: The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
         :param pulumi.Input[str] powershell_core_version: The PowerShell Core version to use. Possible values are `7`, and `7.2`.
         :param pulumi.Input[bool] use_custom_runtime: Does the Function App use a custom Application Stack?
         :param pulumi.Input[bool] use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
@@ -31460,7 +31460,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
+        The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
         """
         return pulumi.get(self, "node_version")
 
@@ -35418,7 +35418,7 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] java_version: The version of Java to use when `current_stack` is set to `java`. 
                
                > **NOTE:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
-        :param pulumi.Input[str] node_version: The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, and `~18`.
+        :param pulumi.Input[str] node_version: The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
                
                > **NOTE:** This property conflicts with `java_version`.
         :param pulumi.Input[str] php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
@@ -35669,7 +35669,7 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, and `~18`.
+        The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
 
         > **NOTE:** This property conflicts with `java_version`.
         """
@@ -39373,7 +39373,7 @@ class WindowsWebAppSlotSiteConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Windows Web App Slot `ip_restriction` configuration be used for the SCM also.
-        :param pulumi.Input[bool] use32_bit_worker: Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+        :param pulumi.Input[bool] use32_bit_worker: Should the Windows Web App Slot use a 32-bit worker. The default value varies from different service plans.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArgs']]] virtual_applications: One or more `virtual_application` blocks as defined below.
         :param pulumi.Input[bool] vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param pulumi.Input[bool] websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
@@ -39809,7 +39809,7 @@ class WindowsWebAppSlotSiteConfigArgs:
     @pulumi.getter(name="use32BitWorker")
     def use32_bit_worker(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+        Should the Windows Web App Slot use a 32-bit worker. The default value varies from different service plans.
         """
         return pulumi.get(self, "use32_bit_worker")
 
@@ -39915,7 +39915,7 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
                
                > **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
-        :param pulumi.Input[str] node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
+        :param pulumi.Input[str] node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
                
                > **NOTE:** This property conflicts with `java_version`.
         :param pulumi.Input[str] php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
@@ -40155,7 +40155,7 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
+        The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
 
         > **NOTE:** This property conflicts with `java_version`.
         """

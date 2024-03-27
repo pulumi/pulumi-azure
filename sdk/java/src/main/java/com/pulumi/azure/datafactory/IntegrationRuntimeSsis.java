@@ -7,10 +7,12 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.datafactory.IntegrationRuntimeSsisArgs;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisState;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisCatalogInfo;
+import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisCopyComputeScale;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisCustomSetupScript;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisExpressCustomSetup;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisExpressVnetIntegration;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisPackageStore;
+import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisPipelineExternalComputeScale;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisProxy;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisVnetIntegration;
 import com.pulumi.core.Output;
@@ -101,6 +103,20 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<IntegrationRuntimeSsisCatalogInfo>> catalogInfo() {
         return Codegen.optional(this.catalogInfo);
+    }
+    /**
+     * One `copy_compute_scale` block as defined below.
+     * 
+     */
+    @Export(name="copyComputeScale", refs={IntegrationRuntimeSsisCopyComputeScale.class}, tree="[0]")
+    private Output</* @Nullable */ IntegrationRuntimeSsisCopyComputeScale> copyComputeScale;
+
+    /**
+     * @return One `copy_compute_scale` block as defined below.
+     * 
+     */
+    public Output<Optional<IntegrationRuntimeSsisCopyComputeScale>> copyComputeScale() {
+        return Codegen.optional(this.copyComputeScale);
     }
     /**
      * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
@@ -301,6 +317,20 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<List<IntegrationRuntimeSsisPackageStore>>> packageStores() {
         return Codegen.optional(this.packageStores);
+    }
+    /**
+     * One `pipeline_external_compute_scale` block as defined below.
+     * 
+     */
+    @Export(name="pipelineExternalComputeScale", refs={IntegrationRuntimeSsisPipelineExternalComputeScale.class}, tree="[0]")
+    private Output</* @Nullable */ IntegrationRuntimeSsisPipelineExternalComputeScale> pipelineExternalComputeScale;
+
+    /**
+     * @return One `pipeline_external_compute_scale` block as defined below.
+     * 
+     */
+    public Output<Optional<IntegrationRuntimeSsisPipelineExternalComputeScale>> pipelineExternalComputeScale() {
+        return Codegen.optional(this.pipelineExternalComputeScale);
     }
     /**
      * A `proxy` block as defined below.

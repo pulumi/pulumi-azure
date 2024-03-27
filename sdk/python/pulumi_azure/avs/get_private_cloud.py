@@ -90,7 +90,7 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="hcxCloudManagerEndpoint")
     def hcx_cloud_manager_endpoint(self) -> str:
         """
-        The endpoint for the HCX Cloud Manager.
+        The endpoint for the VMware HCX Cloud Manager.
         """
         return pulumi.get(self, "hcx_cloud_manager_endpoint")
 
@@ -106,7 +106,7 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="internetConnectionEnabled")
     def internet_connection_enabled(self) -> bool:
         """
-        Is the VMware Private Cluster connected to the internet?
+        Is the Azure VMware Solution Private Cloud connected to the internet?
         """
         return pulumi.get(self, "internet_connection_enabled")
 
@@ -114,7 +114,7 @@ class GetPrivateCloudResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        The Azure Region where the VMware Private Cloud exists.
+        The Azure Region where the Azure VMware Solution Private Cloud exists.
         """
         return pulumi.get(self, "location")
 
@@ -130,7 +130,7 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="managementSubnetCidr")
     def management_subnet_cidr(self) -> str:
         """
-        The network used to access vCenter Server and NSX-T Manager.
+        The network used to access VMware vCenter Server and NSX Manager.
         """
         return pulumi.get(self, "management_subnet_cidr")
 
@@ -143,7 +143,7 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="networkSubnetCidr")
     def network_subnet_cidr(self) -> str:
         """
-        The subnet CIDR of the VMware Private Cloud.
+        The subnet CIDR of the Azure VMware Solution Private Cloud.
         """
         return pulumi.get(self, "network_subnet_cidr")
 
@@ -151,7 +151,7 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="nsxtCertificateThumbprint")
     def nsxt_certificate_thumbprint(self) -> str:
         """
-        The thumbprint of the NSX-T Manager SSL certificate.
+        The thumbprint of the VMware NSX Manager SSL certificate.
         """
         return pulumi.get(self, "nsxt_certificate_thumbprint")
 
@@ -159,7 +159,7 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="nsxtManagerEndpoint")
     def nsxt_manager_endpoint(self) -> str:
         """
-        The endpoint for the NSX-T Data Center manager.
+        The endpoint for the VMware NSX Manager.
         """
         return pulumi.get(self, "nsxt_manager_endpoint")
 
@@ -180,7 +180,7 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> str:
         """
-        The Name of the SKU used for this Private Cloud.
+        The Name of the SKU used for this Azure VMware Solution Private Cloud.
         """
         return pulumi.get(self, "sku_name")
 
@@ -188,7 +188,7 @@ class GetPrivateCloudResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A mapping of tags assigned to the VMware Private Cloud.
+        A mapping of tags assigned to the Azure VMware Solution Private Cloud.
         """
         return pulumi.get(self, "tags")
 
@@ -196,7 +196,7 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="vcenterCertificateThumbprint")
     def vcenter_certificate_thumbprint(self) -> str:
         """
-        The thumbprint of the vCenter Server SSL certificate.
+        The thumbprint of the VMware vCenter Server SSL certificate.
         """
         return pulumi.get(self, "vcenter_certificate_thumbprint")
 
@@ -204,7 +204,7 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="vcsaEndpoint")
     def vcsa_endpoint(self) -> str:
         """
-        The endpoint for Virtual Center Server Appliance.
+        The endpoint for VMware vCenter Server Appliance.
         """
         return pulumi.get(self, "vcsa_endpoint")
 
@@ -247,7 +247,7 @@ def get_private_cloud(name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateCloudResult:
     """
-    Use this data source to access information about an existing VMware Private Cloud.
+    Use this data source to access information about an existing Azure VMware Solution Private Cloud.
 
     ## Example Usage
 
@@ -265,8 +265,8 @@ def get_private_cloud(name: Optional[str] = None,
     <!--End PulumiCodeChooser -->
 
 
-    :param str name: The name of this VMware Private Cloud.
-    :param str resource_group_name: The name of the Resource Group where the VMware Private Cloud exists.
+    :param str name: The name of this Azure VMware Solution Private Cloud.
+    :param str resource_group_name: The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -300,7 +300,7 @@ def get_private_cloud_output(name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateCloudResult]:
     """
-    Use this data source to access information about an existing VMware Private Cloud.
+    Use this data source to access information about an existing Azure VMware Solution Private Cloud.
 
     ## Example Usage
 
@@ -318,7 +318,7 @@ def get_private_cloud_output(name: Optional[pulumi.Input[str]] = None,
     <!--End PulumiCodeChooser -->
 
 
-    :param str name: The name of this VMware Private Cloud.
-    :param str resource_group_name: The name of the Resource Group where the VMware Private Cloud exists.
+    :param str name: The name of this Azure VMware Solution Private Cloud.
+    :param str resource_group_name: The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
     """
     ...

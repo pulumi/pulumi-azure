@@ -15,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class AvsFunctions {
     /**
-     * Use this data source to access information about an existing VMware Private Cloud.
+     * Use this data source to access information about an existing Azure VMware Solution Private Cloud.
      * 
      * ## Example Usage
      * 
@@ -59,7 +59,7 @@ public final class AvsFunctions {
         return getPrivateCloud(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing VMware Private Cloud.
+     * Use this data source to access information about an existing Azure VMware Solution Private Cloud.
      * 
      * ## Example Usage
      * 
@@ -103,7 +103,7 @@ public final class AvsFunctions {
         return getPrivateCloudPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing VMware Private Cloud.
+     * Use this data source to access information about an existing Azure VMware Solution Private Cloud.
      * 
      * ## Example Usage
      * 
@@ -147,7 +147,7 @@ public final class AvsFunctions {
         return Deployment.getInstance().invoke("azure:avs/getPrivateCloud:getPrivateCloud", TypeShape.of(GetPrivateCloudResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing VMware Private Cloud.
+     * Use this data source to access information about an existing Azure VMware Solution Private Cloud.
      * 
      * ## Example Usage
      * 

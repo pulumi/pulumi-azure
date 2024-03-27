@@ -10742,6 +10742,162 @@ func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) ServerEndpoint() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+type IntegrationRuntimeSsisCopyComputeScale struct {
+	// Specifies the data integration unit number setting reserved for copy activity execution. Supported values are multiples of `4` in range 4-256.
+	DataIntegrationUnit *int `pulumi:"dataIntegrationUnit"`
+	// Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+	TimeToLive *int `pulumi:"timeToLive"`
+}
+
+// IntegrationRuntimeSsisCopyComputeScaleInput is an input type that accepts IntegrationRuntimeSsisCopyComputeScaleArgs and IntegrationRuntimeSsisCopyComputeScaleOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisCopyComputeScaleInput` via:
+//
+//	IntegrationRuntimeSsisCopyComputeScaleArgs{...}
+type IntegrationRuntimeSsisCopyComputeScaleInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisCopyComputeScaleOutput() IntegrationRuntimeSsisCopyComputeScaleOutput
+	ToIntegrationRuntimeSsisCopyComputeScaleOutputWithContext(context.Context) IntegrationRuntimeSsisCopyComputeScaleOutput
+}
+
+type IntegrationRuntimeSsisCopyComputeScaleArgs struct {
+	// Specifies the data integration unit number setting reserved for copy activity execution. Supported values are multiples of `4` in range 4-256.
+	DataIntegrationUnit pulumi.IntPtrInput `pulumi:"dataIntegrationUnit"`
+	// Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+	TimeToLive pulumi.IntPtrInput `pulumi:"timeToLive"`
+}
+
+func (IntegrationRuntimeSsisCopyComputeScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisCopyComputeScale)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisCopyComputeScaleArgs) ToIntegrationRuntimeSsisCopyComputeScaleOutput() IntegrationRuntimeSsisCopyComputeScaleOutput {
+	return i.ToIntegrationRuntimeSsisCopyComputeScaleOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisCopyComputeScaleArgs) ToIntegrationRuntimeSsisCopyComputeScaleOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCopyComputeScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisCopyComputeScaleOutput)
+}
+
+func (i IntegrationRuntimeSsisCopyComputeScaleArgs) ToIntegrationRuntimeSsisCopyComputeScalePtrOutput() IntegrationRuntimeSsisCopyComputeScalePtrOutput {
+	return i.ToIntegrationRuntimeSsisCopyComputeScalePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisCopyComputeScaleArgs) ToIntegrationRuntimeSsisCopyComputeScalePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCopyComputeScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisCopyComputeScaleOutput).ToIntegrationRuntimeSsisCopyComputeScalePtrOutputWithContext(ctx)
+}
+
+// IntegrationRuntimeSsisCopyComputeScalePtrInput is an input type that accepts IntegrationRuntimeSsisCopyComputeScaleArgs, IntegrationRuntimeSsisCopyComputeScalePtr and IntegrationRuntimeSsisCopyComputeScalePtrOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisCopyComputeScalePtrInput` via:
+//
+//	        IntegrationRuntimeSsisCopyComputeScaleArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationRuntimeSsisCopyComputeScalePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisCopyComputeScalePtrOutput() IntegrationRuntimeSsisCopyComputeScalePtrOutput
+	ToIntegrationRuntimeSsisCopyComputeScalePtrOutputWithContext(context.Context) IntegrationRuntimeSsisCopyComputeScalePtrOutput
+}
+
+type integrationRuntimeSsisCopyComputeScalePtrType IntegrationRuntimeSsisCopyComputeScaleArgs
+
+func IntegrationRuntimeSsisCopyComputeScalePtr(v *IntegrationRuntimeSsisCopyComputeScaleArgs) IntegrationRuntimeSsisCopyComputeScalePtrInput {
+	return (*integrationRuntimeSsisCopyComputeScalePtrType)(v)
+}
+
+func (*integrationRuntimeSsisCopyComputeScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisCopyComputeScale)(nil)).Elem()
+}
+
+func (i *integrationRuntimeSsisCopyComputeScalePtrType) ToIntegrationRuntimeSsisCopyComputeScalePtrOutput() IntegrationRuntimeSsisCopyComputeScalePtrOutput {
+	return i.ToIntegrationRuntimeSsisCopyComputeScalePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationRuntimeSsisCopyComputeScalePtrType) ToIntegrationRuntimeSsisCopyComputeScalePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCopyComputeScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisCopyComputeScalePtrOutput)
+}
+
+type IntegrationRuntimeSsisCopyComputeScaleOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisCopyComputeScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisCopyComputeScale)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisCopyComputeScaleOutput) ToIntegrationRuntimeSsisCopyComputeScaleOutput() IntegrationRuntimeSsisCopyComputeScaleOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCopyComputeScaleOutput) ToIntegrationRuntimeSsisCopyComputeScaleOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCopyComputeScaleOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCopyComputeScaleOutput) ToIntegrationRuntimeSsisCopyComputeScalePtrOutput() IntegrationRuntimeSsisCopyComputeScalePtrOutput {
+	return o.ToIntegrationRuntimeSsisCopyComputeScalePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeSsisCopyComputeScaleOutput) ToIntegrationRuntimeSsisCopyComputeScalePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCopyComputeScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsisCopyComputeScale) *IntegrationRuntimeSsisCopyComputeScale {
+		return &v
+	}).(IntegrationRuntimeSsisCopyComputeScalePtrOutput)
+}
+
+// Specifies the data integration unit number setting reserved for copy activity execution. Supported values are multiples of `4` in range 4-256.
+func (o IntegrationRuntimeSsisCopyComputeScaleOutput) DataIntegrationUnit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCopyComputeScale) *int { return v.DataIntegrationUnit }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+func (o IntegrationRuntimeSsisCopyComputeScaleOutput) TimeToLive() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCopyComputeScale) *int { return v.TimeToLive }).(pulumi.IntPtrOutput)
+}
+
+type IntegrationRuntimeSsisCopyComputeScalePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisCopyComputeScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisCopyComputeScale)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisCopyComputeScalePtrOutput) ToIntegrationRuntimeSsisCopyComputeScalePtrOutput() IntegrationRuntimeSsisCopyComputeScalePtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCopyComputeScalePtrOutput) ToIntegrationRuntimeSsisCopyComputeScalePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCopyComputeScalePtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCopyComputeScalePtrOutput) Elem() IntegrationRuntimeSsisCopyComputeScaleOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCopyComputeScale) IntegrationRuntimeSsisCopyComputeScale {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeSsisCopyComputeScale
+		return ret
+	}).(IntegrationRuntimeSsisCopyComputeScaleOutput)
+}
+
+// Specifies the data integration unit number setting reserved for copy activity execution. Supported values are multiples of `4` in range 4-256.
+func (o IntegrationRuntimeSsisCopyComputeScalePtrOutput) DataIntegrationUnit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCopyComputeScale) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DataIntegrationUnit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+func (o IntegrationRuntimeSsisCopyComputeScalePtrOutput) TimeToLive() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCopyComputeScale) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeToLive
+	}).(pulumi.IntPtrOutput)
+}
+
 type IntegrationRuntimeSsisCustomSetupScript struct {
 	// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 	BlobContainerUri string `pulumi:"blobContainerUri"`
@@ -11988,6 +12144,181 @@ func (o IntegrationRuntimeSsisPackageStoreArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationRuntimeSsisPackageStore {
 		return vs[0].([]IntegrationRuntimeSsisPackageStore)[vs[1].(int)]
 	}).(IntegrationRuntimeSsisPackageStoreOutput)
+}
+
+type IntegrationRuntimeSsisPipelineExternalComputeScale struct {
+	// Specifies the number of the external nodes, which should be greater than `0` and less than `11`.
+	NumberOfExternalNodes *int `pulumi:"numberOfExternalNodes"`
+	// Specifies the number of the pipeline nodes, which should be greater than `0` and less than `11`.
+	NumberOfPipelineNodes *int `pulumi:"numberOfPipelineNodes"`
+	// Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+	TimeToLive *int `pulumi:"timeToLive"`
+}
+
+// IntegrationRuntimeSsisPipelineExternalComputeScaleInput is an input type that accepts IntegrationRuntimeSsisPipelineExternalComputeScaleArgs and IntegrationRuntimeSsisPipelineExternalComputeScaleOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisPipelineExternalComputeScaleInput` via:
+//
+//	IntegrationRuntimeSsisPipelineExternalComputeScaleArgs{...}
+type IntegrationRuntimeSsisPipelineExternalComputeScaleInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisPipelineExternalComputeScaleOutput() IntegrationRuntimeSsisPipelineExternalComputeScaleOutput
+	ToIntegrationRuntimeSsisPipelineExternalComputeScaleOutputWithContext(context.Context) IntegrationRuntimeSsisPipelineExternalComputeScaleOutput
+}
+
+type IntegrationRuntimeSsisPipelineExternalComputeScaleArgs struct {
+	// Specifies the number of the external nodes, which should be greater than `0` and less than `11`.
+	NumberOfExternalNodes pulumi.IntPtrInput `pulumi:"numberOfExternalNodes"`
+	// Specifies the number of the pipeline nodes, which should be greater than `0` and less than `11`.
+	NumberOfPipelineNodes pulumi.IntPtrInput `pulumi:"numberOfPipelineNodes"`
+	// Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+	TimeToLive pulumi.IntPtrInput `pulumi:"timeToLive"`
+}
+
+func (IntegrationRuntimeSsisPipelineExternalComputeScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisPipelineExternalComputeScale)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisPipelineExternalComputeScaleArgs) ToIntegrationRuntimeSsisPipelineExternalComputeScaleOutput() IntegrationRuntimeSsisPipelineExternalComputeScaleOutput {
+	return i.ToIntegrationRuntimeSsisPipelineExternalComputeScaleOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisPipelineExternalComputeScaleArgs) ToIntegrationRuntimeSsisPipelineExternalComputeScaleOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPipelineExternalComputeScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisPipelineExternalComputeScaleOutput)
+}
+
+func (i IntegrationRuntimeSsisPipelineExternalComputeScaleArgs) ToIntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput() IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput {
+	return i.ToIntegrationRuntimeSsisPipelineExternalComputeScalePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisPipelineExternalComputeScaleArgs) ToIntegrationRuntimeSsisPipelineExternalComputeScalePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisPipelineExternalComputeScaleOutput).ToIntegrationRuntimeSsisPipelineExternalComputeScalePtrOutputWithContext(ctx)
+}
+
+// IntegrationRuntimeSsisPipelineExternalComputeScalePtrInput is an input type that accepts IntegrationRuntimeSsisPipelineExternalComputeScaleArgs, IntegrationRuntimeSsisPipelineExternalComputeScalePtr and IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisPipelineExternalComputeScalePtrInput` via:
+//
+//	        IntegrationRuntimeSsisPipelineExternalComputeScaleArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationRuntimeSsisPipelineExternalComputeScalePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput() IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput
+	ToIntegrationRuntimeSsisPipelineExternalComputeScalePtrOutputWithContext(context.Context) IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput
+}
+
+type integrationRuntimeSsisPipelineExternalComputeScalePtrType IntegrationRuntimeSsisPipelineExternalComputeScaleArgs
+
+func IntegrationRuntimeSsisPipelineExternalComputeScalePtr(v *IntegrationRuntimeSsisPipelineExternalComputeScaleArgs) IntegrationRuntimeSsisPipelineExternalComputeScalePtrInput {
+	return (*integrationRuntimeSsisPipelineExternalComputeScalePtrType)(v)
+}
+
+func (*integrationRuntimeSsisPipelineExternalComputeScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisPipelineExternalComputeScale)(nil)).Elem()
+}
+
+func (i *integrationRuntimeSsisPipelineExternalComputeScalePtrType) ToIntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput() IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput {
+	return i.ToIntegrationRuntimeSsisPipelineExternalComputeScalePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationRuntimeSsisPipelineExternalComputeScalePtrType) ToIntegrationRuntimeSsisPipelineExternalComputeScalePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput)
+}
+
+type IntegrationRuntimeSsisPipelineExternalComputeScaleOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisPipelineExternalComputeScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisPipelineExternalComputeScale)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisPipelineExternalComputeScaleOutput) ToIntegrationRuntimeSsisPipelineExternalComputeScaleOutput() IntegrationRuntimeSsisPipelineExternalComputeScaleOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisPipelineExternalComputeScaleOutput) ToIntegrationRuntimeSsisPipelineExternalComputeScaleOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPipelineExternalComputeScaleOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisPipelineExternalComputeScaleOutput) ToIntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput() IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput {
+	return o.ToIntegrationRuntimeSsisPipelineExternalComputeScalePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeSsisPipelineExternalComputeScaleOutput) ToIntegrationRuntimeSsisPipelineExternalComputeScalePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsisPipelineExternalComputeScale) *IntegrationRuntimeSsisPipelineExternalComputeScale {
+		return &v
+	}).(IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput)
+}
+
+// Specifies the number of the external nodes, which should be greater than `0` and less than `11`.
+func (o IntegrationRuntimeSsisPipelineExternalComputeScaleOutput) NumberOfExternalNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisPipelineExternalComputeScale) *int { return v.NumberOfExternalNodes }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the number of the pipeline nodes, which should be greater than `0` and less than `11`.
+func (o IntegrationRuntimeSsisPipelineExternalComputeScaleOutput) NumberOfPipelineNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisPipelineExternalComputeScale) *int { return v.NumberOfPipelineNodes }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+func (o IntegrationRuntimeSsisPipelineExternalComputeScaleOutput) TimeToLive() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisPipelineExternalComputeScale) *int { return v.TimeToLive }).(pulumi.IntPtrOutput)
+}
+
+type IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisPipelineExternalComputeScale)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput) ToIntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput() IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput) ToIntegrationRuntimeSsisPipelineExternalComputeScalePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput) Elem() IntegrationRuntimeSsisPipelineExternalComputeScaleOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisPipelineExternalComputeScale) IntegrationRuntimeSsisPipelineExternalComputeScale {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeSsisPipelineExternalComputeScale
+		return ret
+	}).(IntegrationRuntimeSsisPipelineExternalComputeScaleOutput)
+}
+
+// Specifies the number of the external nodes, which should be greater than `0` and less than `11`.
+func (o IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput) NumberOfExternalNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisPipelineExternalComputeScale) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfExternalNodes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the number of the pipeline nodes, which should be greater than `0` and less than `11`.
+func (o IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput) NumberOfPipelineNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisPipelineExternalComputeScale) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfPipelineNodes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+func (o IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput) TimeToLive() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisPipelineExternalComputeScale) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeToLive
+	}).(pulumi.IntPtrOutput)
 }
 
 type IntegrationRuntimeSsisProxy struct {
@@ -16890,6 +17221,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput)(nil)).Elem(), IntegrationRuntimeSelfHostedRbacAuthorizationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisCatalogInfoInput)(nil)).Elem(), IntegrationRuntimeSsisCatalogInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisCatalogInfoPtrInput)(nil)).Elem(), IntegrationRuntimeSsisCatalogInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisCopyComputeScaleInput)(nil)).Elem(), IntegrationRuntimeSsisCopyComputeScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisCopyComputeScalePtrInput)(nil)).Elem(), IntegrationRuntimeSsisCopyComputeScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisCustomSetupScriptInput)(nil)).Elem(), IntegrationRuntimeSsisCustomSetupScriptArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisCustomSetupScriptPtrInput)(nil)).Elem(), IntegrationRuntimeSsisCustomSetupScriptArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisExpressCustomSetupInput)(nil)).Elem(), IntegrationRuntimeSsisExpressCustomSetupArgs{})
@@ -16906,6 +17239,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisExpressVnetIntegrationPtrInput)(nil)).Elem(), IntegrationRuntimeSsisExpressVnetIntegrationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisPackageStoreInput)(nil)).Elem(), IntegrationRuntimeSsisPackageStoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisPackageStoreArrayInput)(nil)).Elem(), IntegrationRuntimeSsisPackageStoreArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisPipelineExternalComputeScaleInput)(nil)).Elem(), IntegrationRuntimeSsisPipelineExternalComputeScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisPipelineExternalComputeScalePtrInput)(nil)).Elem(), IntegrationRuntimeSsisPipelineExternalComputeScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisProxyInput)(nil)).Elem(), IntegrationRuntimeSsisProxyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisProxyPtrInput)(nil)).Elem(), IntegrationRuntimeSsisProxyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisVnetIntegrationInput)(nil)).Elem(), IntegrationRuntimeSsisVnetIntegrationArgs{})
@@ -17098,6 +17433,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisCatalogInfoOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisCatalogInfoPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisCopyComputeScaleOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisCopyComputeScalePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisCustomSetupScriptOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisCustomSetupScriptPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressCustomSetupOutput{})
@@ -17114,6 +17451,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisPackageStoreOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisPackageStoreArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisPipelineExternalComputeScaleOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisPipelineExternalComputeScalePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisProxyOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisProxyPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisVnetIntegrationOutput{})

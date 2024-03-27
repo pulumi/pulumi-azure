@@ -20,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a VMware Private Cloud.
+ * Manages an Azure VMware Solution Private Cloud.
  * 
  * ## Example Usage
  * 
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VMware Private Clouds can be imported using the `resource id`, e.g.
+ * Azure VMware Solution Private Clouds can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:avs/privateCloud:PrivateCloud example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/privateCloud1
@@ -101,21 +101,21 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
         return this.circuits;
     }
     /**
-     * The endpoint for the HCX Cloud Manager.
+     * The endpoint for the VMware HCX Cloud Manager.
      * 
      */
     @Export(name="hcxCloudManagerEndpoint", refs={String.class}, tree="[0]")
     private Output<String> hcxCloudManagerEndpoint;
 
     /**
-     * @return The endpoint for the HCX Cloud Manager.
+     * @return The endpoint for the VMware HCX Cloud Manager.
      * 
      */
     public Output<String> hcxCloudManagerEndpoint() {
         return this.hcxCloudManagerEndpoint;
     }
     /**
-     * Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+     * Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
      * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
@@ -123,7 +123,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> internetConnectionEnabled;
 
     /**
-     * @return Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+     * @return Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
      * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
@@ -131,14 +131,14 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.internetConnectionEnabled);
     }
     /**
-     * The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+     * The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+     * @return The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Output<String> location() {
@@ -161,84 +161,84 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
         return this.managementCluster;
     }
     /**
-     * The network used to access vCenter Server and NSX-T Manager.
+     * The network used to access VMware vCenter Server and NSX Manager.
      * 
      */
     @Export(name="managementSubnetCidr", refs={String.class}, tree="[0]")
     private Output<String> managementSubnetCidr;
 
     /**
-     * @return The network used to access vCenter Server and NSX-T Manager.
+     * @return The network used to access VMware vCenter Server and NSX Manager.
      * 
      */
     public Output<String> managementSubnetCidr() {
         return this.managementSubnetCidr;
     }
     /**
-     * The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+     * The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+     * @return The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+     * The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Export(name="networkSubnetCidr", refs={String.class}, tree="[0]")
     private Output<String> networkSubnetCidr;
 
     /**
-     * @return The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+     * @return The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Output<String> networkSubnetCidr() {
         return this.networkSubnetCidr;
     }
     /**
-     * The thumbprint of the NSX-T Manager SSL certificate.
+     * The thumbprint of the VMware NSX Manager SSL certificate.
      * 
      */
     @Export(name="nsxtCertificateThumbprint", refs={String.class}, tree="[0]")
     private Output<String> nsxtCertificateThumbprint;
 
     /**
-     * @return The thumbprint of the NSX-T Manager SSL certificate.
+     * @return The thumbprint of the VMware NSX Manager SSL certificate.
      * 
      */
     public Output<String> nsxtCertificateThumbprint() {
         return this.nsxtCertificateThumbprint;
     }
     /**
-     * The endpoint for the NSX-T Data Center manager.
+     * The endpoint for the VMware NSX Manager.
      * 
      */
     @Export(name="nsxtManagerEndpoint", refs={String.class}, tree="[0]")
     private Output<String> nsxtManagerEndpoint;
 
     /**
-     * @return The endpoint for the NSX-T Data Center manager.
+     * @return The endpoint for the VMware NSX Manager.
      * 
      */
     public Output<String> nsxtManagerEndpoint() {
         return this.nsxtManagerEndpoint;
     }
     /**
-     * The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+     * The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Export(name="nsxtPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nsxtPassword;
 
     /**
-     * @return The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+     * @return The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Output<Optional<String>> nsxtPassword() {
@@ -259,84 +259,84 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
         return this.provisioningSubnetCidr;
     }
     /**
-     * The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+     * The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+     * @return The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+     * The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
-     * @return The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+     * @return The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Output<String> skuName() {
         return this.skuName;
     }
     /**
-     * A mapping of tags which should be assigned to the VMware Private Cloud.
+     * A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the VMware Private Cloud.
+     * @return A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * The thumbprint of the vCenter Server SSL certificate.
+     * The thumbprint of the VMware vCenter Server SSL certificate.
      * 
      */
     @Export(name="vcenterCertificateThumbprint", refs={String.class}, tree="[0]")
     private Output<String> vcenterCertificateThumbprint;
 
     /**
-     * @return The thumbprint of the vCenter Server SSL certificate.
+     * @return The thumbprint of the VMware vCenter Server SSL certificate.
      * 
      */
     public Output<String> vcenterCertificateThumbprint() {
         return this.vcenterCertificateThumbprint;
     }
     /**
-     * The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+     * The password of the VMware vCenter Server cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     @Export(name="vcenterPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vcenterPassword;
 
     /**
-     * @return The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+     * @return The password of the VMware vCenter Server cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      * 
      */
     public Output<Optional<String>> vcenterPassword() {
         return Codegen.optional(this.vcenterPassword);
     }
     /**
-     * The endpoint for Virtual Center Server Appliance.
+     * The endpoint for VMware vCenter Server Appliance.
      * 
      */
     @Export(name="vcsaEndpoint", refs={String.class}, tree="[0]")
     private Output<String> vcsaEndpoint;
 
     /**
-     * @return The endpoint for Virtual Center Server Appliance.
+     * @return The endpoint for VMware vCenter Server Appliance.
      * 
      */
     public Output<String> vcsaEndpoint() {

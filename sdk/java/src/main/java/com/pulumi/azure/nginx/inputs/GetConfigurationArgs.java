@@ -14,17 +14,9 @@ public final class GetConfigurationArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetConfigurationArgs Empty = new GetConfigurationArgs();
 
-    /**
-     * The ID of the Nginx Deployment.
-     * 
-     */
     @Import(name="nginxDeploymentId", required=true)
     private Output<String> nginxDeploymentId;
 
-    /**
-     * @return The ID of the Nginx Deployment.
-     * 
-     */
     public Output<String> nginxDeploymentId() {
         return this.nginxDeploymentId;
     }
@@ -53,23 +45,11 @@ public final class GetConfigurationArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param nginxDeploymentId The ID of the Nginx Deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nginxDeploymentId(Output<String> nginxDeploymentId) {
             $.nginxDeploymentId = nginxDeploymentId;
             return this;
         }
 
-        /**
-         * @param nginxDeploymentId The ID of the Nginx Deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nginxDeploymentId(String nginxDeploymentId) {
             return nginxDeploymentId(Output.of(nginxDeploymentId));
         }

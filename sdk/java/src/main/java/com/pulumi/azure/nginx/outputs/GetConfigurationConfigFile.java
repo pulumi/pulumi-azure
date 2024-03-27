@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConfigurationConfigFile {
-    /**
-     * @return The base-64 encoded contents of this configuration file.
-     * 
-     */
     private String content;
-    /**
-     * @return The path of this configuration file.
-     * 
-     */
     private String virtualPath;
 
     private GetConfigurationConfigFile() {}
-    /**
-     * @return The base-64 encoded contents of this configuration file.
-     * 
-     */
     public String content() {
         return this.content;
     }
-    /**
-     * @return The path of this configuration file.
-     * 
-     */
     public String virtualPath() {
         return this.virtualPath;
     }

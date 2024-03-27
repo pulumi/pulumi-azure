@@ -161,6 +161,24 @@ import javax.annotation.Nullable;
  *             .principalId(exampleBackupVault.identity().applyValue(identity -&gt; identity.principalId()))
  *             .build());
  * 
+ *         var testVaultMsiSnapshotContributorOnSnapRg = new Assignment(&#34;testVaultMsiSnapshotContributorOnSnapRg&#34;, AssignmentArgs.builder()        
+ *             .scope(snap.id())
+ *             .roleDefinitionName(&#34;Disk Snapshot Contributor&#34;)
+ *             .principalId(test.identity()[0].principalId())
+ *             .build());
+ * 
+ *         var testVaultDataOperatorOnSnapRg = new Assignment(&#34;testVaultDataOperatorOnSnapRg&#34;, AssignmentArgs.builder()        
+ *             .scope(snap.id())
+ *             .roleDefinitionName(&#34;Data Operator for Managed Disks&#34;)
+ *             .principalId(test.identity()[0].principalId())
+ *             .build());
+ * 
+ *         var testVaultDataContributorOnStorage = new Assignment(&#34;testVaultDataContributorOnStorage&#34;, AssignmentArgs.builder()        
+ *             .scope(testAzurermStorageAccount.id())
+ *             .roleDefinitionName(&#34;Storage Blob Data Contributor&#34;)
+ *             .principalId(test.identity()[0].principalId())
+ *             .build());
+ * 
  *         var clusterMsiContributorOnSnapRg = new Assignment(&#34;clusterMsiContributorOnSnapRg&#34;, AssignmentArgs.builder()        
  *             .scope(snap.id())
  *             .roleDefinitionName(&#34;Contributor&#34;)

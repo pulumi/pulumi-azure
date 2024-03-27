@@ -14,14 +14,14 @@ public final class GetPrivateCloudPlainArgs extends com.pulumi.resources.InvokeA
     public static final GetPrivateCloudPlainArgs Empty = new GetPrivateCloudPlainArgs();
 
     /**
-     * The name of this VMware Private Cloud.
+     * The name of this Azure VMware Solution Private Cloud.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of this VMware Private Cloud.
+     * @return The name of this Azure VMware Solution Private Cloud.
      * 
      */
     public String name() {
@@ -29,14 +29,14 @@ public final class GetPrivateCloudPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * The name of the Resource Group where the VMware Private Cloud exists.
+     * The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private String resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the VMware Private Cloud exists.
+     * @return The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
      * 
      */
     public String resourceGroupName() {
@@ -69,7 +69,7 @@ public final class GetPrivateCloudPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param name The name of this VMware Private Cloud.
+         * @param name The name of this Azure VMware Solution Private Cloud.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetPrivateCloudPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the VMware Private Cloud exists.
+         * @param resourceGroupName The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
          * 
          * @return builder
          * 

@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
  *
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "example-rg",
@@ -49,6 +50,33 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
+ * const configContent = std.base64encode({
+ *     input: `http {
+ *     server {
+ *         listen 80;
+ *         location / {
+ *             auth_basic "Protected Area";
+ *             auth_basic_user_file /opt/.htpasswd;
+ *             default_type text/html;
+ *         }
+ *         include site/*.conf;
+ *     }
+ * }
+ * `,
+ * }).then(invoke => invoke.result);
+ * const protectedContent = std.base64encode({
+ *     input: "user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1\n",
+ * }).then(invoke => invoke.result);
+ * const subConfigContent = std.base64encode({
+ *     input: `location /bbb {
+ * 	default_type text/html;
+ * 	return 200 '<!doctype html><html lang="en"><head></head><body>
+ * 		<div>this one will be updated</div>
+ * 		<div>at 10:38 am</div>
+ * 	</body></html>';
+ * }
+ * `,
+ * }).then(invoke => invoke.result);
  * const exampleDeployment = new azure.nginx.Deployment("example", {
  *     name: "example-nginx",
  *     resourceGroupName: example.name,
@@ -65,6 +93,23 @@ import * as utilities from "../utilities";
  *     }],
  *     capacity: 20,
  *     email: "user@test.com",
+ *     configuration: {
+ *         rootFile: "/etc/nginx/nginx.conf",
+ *         configFiles: [
+ *             {
+ *                 content: configContent,
+ *                 virtualPath: "/etc/nginx/nginx.conf",
+ *             },
+ *             {
+ *                 content: subConfigContent,
+ *                 virtualPath: "/etc/nginx/site/b.conf",
+ *             },
+ *         ],
+ *         protectedFiles: [{
+ *             content: protectedContent,
+ *             virtualPath: "/opt/.htpasswd",
+ *         }],
+ *     },
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -106,6 +151,10 @@ export class Deployment extends pulumi.CustomResource {
     }
 
     /**
+     * An `autoScaleProfile` block as defined below.
+     */
+    public readonly autoScaleProfiles!: pulumi.Output<outputs.nginx.DeploymentAutoScaleProfile[] | undefined>;
+    /**
      * Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
      */
     public readonly automaticUpgradeChannel!: pulumi.Output<string | undefined>;
@@ -115,6 +164,10 @@ export class Deployment extends pulumi.CustomResource {
      * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */
     public readonly capacity!: pulumi.Output<number | undefined>;
+    /**
+     * Specify a custom `configuration` block as defined below.
+     */
+    public readonly configuration!: pulumi.Output<outputs.nginx.DeploymentConfiguration>;
     /**
      * Should the diagnosis support be enabled?
      */
@@ -189,8 +242,10 @@ export class Deployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
+            resourceInputs["autoScaleProfiles"] = state ? state.autoScaleProfiles : undefined;
             resourceInputs["automaticUpgradeChannel"] = state ? state.automaticUpgradeChannel : undefined;
             resourceInputs["capacity"] = state ? state.capacity : undefined;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
             resourceInputs["diagnoseSupportEnabled"] = state ? state.diagnoseSupportEnabled : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
             resourceInputs["frontendPrivates"] = state ? state.frontendPrivates : undefined;
@@ -214,8 +269,10 @@ export class Deployment extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["autoScaleProfiles"] = args ? args.autoScaleProfiles : undefined;
             resourceInputs["automaticUpgradeChannel"] = args ? args.automaticUpgradeChannel : undefined;
             resourceInputs["capacity"] = args ? args.capacity : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["diagnoseSupportEnabled"] = args ? args.diagnoseSupportEnabled : undefined;
             resourceInputs["email"] = args ? args.email : undefined;
             resourceInputs["frontendPrivates"] = args ? args.frontendPrivates : undefined;
@@ -242,6 +299,10 @@ export class Deployment extends pulumi.CustomResource {
  */
 export interface DeploymentState {
     /**
+     * An `autoScaleProfile` block as defined below.
+     */
+    autoScaleProfiles?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentAutoScaleProfile>[]>;
+    /**
      * Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
      */
     automaticUpgradeChannel?: pulumi.Input<string>;
@@ -251,6 +312,10 @@ export interface DeploymentState {
      * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */
     capacity?: pulumi.Input<number>;
+    /**
+     * Specify a custom `configuration` block as defined below.
+     */
+    configuration?: pulumi.Input<inputs.nginx.DeploymentConfiguration>;
     /**
      * Should the diagnosis support be enabled?
      */
@@ -318,6 +383,10 @@ export interface DeploymentState {
  */
 export interface DeploymentArgs {
     /**
+     * An `autoScaleProfile` block as defined below.
+     */
+    autoScaleProfiles?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentAutoScaleProfile>[]>;
+    /**
      * Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
      */
     automaticUpgradeChannel?: pulumi.Input<string>;
@@ -327,6 +396,10 @@ export interface DeploymentArgs {
      * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */
     capacity?: pulumi.Input<number>;
+    /**
+     * Specify a custom `configuration` block as defined below.
+     */
+    configuration?: pulumi.Input<inputs.nginx.DeploymentConfiguration>;
     /**
      * Should the diagnosis support be enabled?
      */

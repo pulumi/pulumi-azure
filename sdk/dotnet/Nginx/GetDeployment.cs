@@ -120,6 +120,10 @@ namespace Pulumi.Azure.Nginx
     public sealed class GetDeploymentResult
     {
         /// <summary>
+        /// An `auto_scale_profile` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDeploymentAutoScaleProfileResult> AutoScaleProfiles;
+        /// <summary>
         /// The automatic upgrade channel for this NGINX deployment.
         /// </summary>
         public readonly string AutomaticUpgradeChannel;
@@ -168,7 +172,7 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         public readonly string ManagedResourceGroup;
         /// <summary>
-        /// The account name of the StorageAccount for logging.
+        /// Name of the autoscaling profile.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -191,6 +195,8 @@ namespace Pulumi.Azure.Nginx
 
         [OutputConstructor]
         private GetDeploymentResult(
+            ImmutableArray<Outputs.GetDeploymentAutoScaleProfileResult> autoScaleProfiles,
+
             string automaticUpgradeChannel,
 
             int capacity,
@@ -227,6 +233,7 @@ namespace Pulumi.Azure.Nginx
 
             ImmutableDictionary<string, string> tags)
         {
+            AutoScaleProfiles = autoScaleProfiles;
             AutomaticUpgradeChannel = automaticUpgradeChannel;
             Capacity = capacity;
             DiagnoseSupportEnabled = diagnoseSupportEnabled;

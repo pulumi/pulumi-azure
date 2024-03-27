@@ -176,6 +176,10 @@ type Account struct {
 	CustomerManagedKey AccountCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
 	// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
 	DefaultToOauthAuthentication pulumi.BoolPtrOutput `pulumi:"defaultToOauthAuthentication"`
+	// Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+	DnsEndpointType pulumi.StringPtrOutput `pulumi:"dnsEndpointType"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
@@ -465,6 +469,10 @@ type accountState struct {
 	CustomerManagedKey *AccountCustomerManagedKey `pulumi:"customerManagedKey"`
 	// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
 	DefaultToOauthAuthentication *bool `pulumi:"defaultToOauthAuthentication"`
+	// Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+	DnsEndpointType *string `pulumi:"dnsEndpointType"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
@@ -707,6 +715,10 @@ type AccountState struct {
 	CustomerManagedKey AccountCustomerManagedKeyPtrInput
 	// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
 	DefaultToOauthAuthentication pulumi.BoolPtrInput
+	// Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+	DnsEndpointType pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrInput
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
@@ -953,6 +965,10 @@ type accountArgs struct {
 	CustomerManagedKey *AccountCustomerManagedKey `pulumi:"customerManagedKey"`
 	// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
 	DefaultToOauthAuthentication *bool `pulumi:"defaultToOauthAuthentication"`
+	// Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+	DnsEndpointType *string `pulumi:"dnsEndpointType"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
@@ -1052,6 +1068,10 @@ type AccountArgs struct {
 	CustomerManagedKey AccountCustomerManagedKeyPtrInput
 	// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
 	DefaultToOauthAuthentication pulumi.BoolPtrInput
+	// Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+	DnsEndpointType pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrInput
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
@@ -1270,6 +1290,13 @@ func (o AccountOutput) CustomerManagedKey() AccountCustomerManagedKeyPtrOutput {
 // Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
 func (o AccountOutput) DefaultToOauthAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.DefaultToOauthAuthentication }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+func (o AccountOutput) DnsEndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.DnsEndpointType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.

@@ -14,12 +14,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.MxRecord("example", {
+ * const example = azure.dns.getMxRecord({
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsMxRecordId = exampleAzurermDnsMxRecord.id;
+ * export const dnsMxRecordId = example.then(example => example.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -87,12 +87,12 @@ export interface GetMxRecordResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.MxRecord("example", {
+ * const example = azure.dns.getMxRecord({
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsMxRecordId = exampleAzurermDnsMxRecord.id;
+ * export const dnsMxRecordId = example.then(example => example.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */

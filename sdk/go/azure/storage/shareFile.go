@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a File within an Azure Storage File Share.
-//
 // ## Example Usage
 //
 // <!--Start PulumiCodeChooser -->

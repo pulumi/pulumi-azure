@@ -32,7 +32,12 @@ namespace Pulumi.Azure.Healthcare
     ///         Location = "westus2",
     ///         Kind = "fhir-R4",
     ///         CosmosdbThroughput = 2000,
+    ///         Identity = new Azure.Healthcare.Inputs.ServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         AccessPolicyObjectIds = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         ConfigurationExportStorageAccountName = "teststorage",
     ///         Tags = 
     ///         {
     ///             { "environment", "testenv" },
@@ -91,6 +96,12 @@ namespace Pulumi.Azure.Healthcare
         public Output<Outputs.ServiceAuthenticationConfiguration> AuthenticationConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the name of the storage account which the operation configuration information is exported to.
+        /// </summary>
+        [Output("configurationExportStorageAccountName")]
+        public Output<string?> ConfigurationExportStorageAccountName { get; private set; } = null!;
+
+        /// <summary>
         /// A `cors_configuration` block as defined below.
         /// </summary>
         [Output("corsConfiguration")]
@@ -109,6 +120,12 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         [Output("cosmosdbThroughput")]
         public Output<int?> CosmosdbThroughput { get; private set; } = null!;
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ServiceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
@@ -209,6 +226,12 @@ namespace Pulumi.Azure.Healthcare
         public Input<Inputs.ServiceAuthenticationConfigurationArgs>? AuthenticationConfiguration { get; set; }
 
         /// <summary>
+        /// Specifies the name of the storage account which the operation configuration information is exported to.
+        /// </summary>
+        [Input("configurationExportStorageAccountName")]
+        public Input<string>? ConfigurationExportStorageAccountName { get; set; }
+
+        /// <summary>
         /// A `cors_configuration` block as defined below.
         /// </summary>
         [Input("corsConfiguration")]
@@ -227,6 +250,12 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         [Input("cosmosdbThroughput")]
         public Input<int>? CosmosdbThroughput { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
@@ -295,6 +324,12 @@ namespace Pulumi.Azure.Healthcare
         public Input<Inputs.ServiceAuthenticationConfigurationGetArgs>? AuthenticationConfiguration { get; set; }
 
         /// <summary>
+        /// Specifies the name of the storage account which the operation configuration information is exported to.
+        /// </summary>
+        [Input("configurationExportStorageAccountName")]
+        public Input<string>? ConfigurationExportStorageAccountName { get; set; }
+
+        /// <summary>
         /// A `cors_configuration` block as defined below.
         /// </summary>
         [Input("corsConfiguration")]
@@ -313,6 +348,12 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         [Input("cosmosdbThroughput")]
         public Input<int>? CosmosdbThroughput { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ServiceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.

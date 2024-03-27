@@ -134,6 +134,27 @@ namespace Pulumi.Azure.DataProtection
     ///         PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///     });
     /// 
+    ///     var testVaultMsiSnapshotContributorOnSnapRg = new Azure.Authorization.Assignment("test_vault_msi_snapshot_contributor_on_snap_rg", new()
+    ///     {
+    ///         Scope = snap.Id,
+    ///         RoleDefinitionName = "Disk Snapshot Contributor",
+    ///         PrincipalId = test.Identity[0].PrincipalId,
+    ///     });
+    /// 
+    ///     var testVaultDataOperatorOnSnapRg = new Azure.Authorization.Assignment("test_vault_data_operator_on_snap_rg", new()
+    ///     {
+    ///         Scope = snap.Id,
+    ///         RoleDefinitionName = "Data Operator for Managed Disks",
+    ///         PrincipalId = test.Identity[0].PrincipalId,
+    ///     });
+    /// 
+    ///     var testVaultDataContributorOnStorage = new Azure.Authorization.Assignment("test_vault_data_contributor_on_storage", new()
+    ///     {
+    ///         Scope = testAzurermStorageAccount.Id,
+    ///         RoleDefinitionName = "Storage Blob Data Contributor",
+    ///         PrincipalId = test.Identity[0].PrincipalId,
+    ///     });
+    /// 
     ///     var clusterMsiContributorOnSnapRg = new Azure.Authorization.Assignment("cluster_msi_contributor_on_snap_rg", new()
     ///     {
     ///         Scope = snap.Id,

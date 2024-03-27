@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:elasticsan/elasticSan:ElasticSan":
 		r = &ElasticSan{}
+	case "azure:elasticsan/volume:Volume":
+		r = &Volume{}
 	case "azure:elasticsan/volumeGroup:VolumeGroup":
 		r = &VolumeGroup{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"elasticsan/elasticSan",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"elasticsan/volume",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

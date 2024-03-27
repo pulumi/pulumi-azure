@@ -81,7 +81,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<double> Memory { get; set; } = null!;
 
         /// <summary>
-        /// The the upper limit of the memory of the containers in GB.
+        /// The upper limit of the memory of the containers in GB.
         /// </summary>
         [Input("memoryLimit")]
         public Input<double>? MemoryLimit { get; set; }

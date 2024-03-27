@@ -52,7 +52,7 @@ index 40c52aa5bd..dab70b9c5c 100644
  
  			"backup_blob_container_uri": {
 diff --git a/internal/services/appservice/helpers/function_app_schema.go b/internal/services/appservice/helpers/function_app_schema.go
-index 5ebae00fca..fdeaf47804 100644
+index 66719d8bec..01dad19aa2 100644
 --- a/internal/services/appservice/helpers/function_app_schema.go
 +++ b/internal/services/appservice/helpers/function_app_schema.go
 @@ -1059,10 +1059,11 @@ func linuxFunctionAppStackSchema() *pluginsdk.Schema {
@@ -69,10 +69,10 @@ index 5ebae00fca..fdeaf47804 100644
  						"site_config.0.application_stack.0.python_version",
  						"site_config.0.application_stack.0.java_version",
 diff --git a/internal/services/appservice/linux_function_app_slot_resource_test.go b/internal/services/appservice/linux_function_app_slot_resource_test.go
-index 7f0051904e..de06d7eda3 100644
+index 4b02552385..5dfdc6a81e 100644
 --- a/internal/services/appservice/linux_function_app_slot_resource_test.go
 +++ b/internal/services/appservice/linux_function_app_slot_resource_test.go
-@@ -1089,11 +1089,21 @@ func TestAccLinuxFunctionAppSlot_identityKeyVaultIdentity(t *testing.T) {
+@@ -1098,11 +1098,21 @@ func TestAccLinuxFunctionAppSlot_identityKeyVaultIdentity(t *testing.T) {
  
  	data.ResourceTest(t, r, []acceptance.TestStep{
  		{
@@ -95,7 +95,7 @@ index 7f0051904e..de06d7eda3 100644
  	})
  }
  
-@@ -1138,7 +1148,6 @@ func TestAccLinuxFunctionAppSlot_storageAccountKeyVaultSecret(t *testing.T) {
+@@ -1147,7 +1157,6 @@ func TestAccLinuxFunctionAppSlot_storageAccountKeyVaultSecret(t *testing.T) {
  			Config: r.storageAccountKVSecret(data, SkuStandardPlan),
  			Check: acceptance.ComposeTestCheckFunc(
  				check.That(data.ResourceName).ExistsInAzure(r),
@@ -457,10 +457,10 @@ index 46644dc374..1a8604d4a8 100644
  
  	return nil
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index cf81c00711..6f89ae788e 100644
+index 87b319ed1f..7e5386d865 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
-@@ -1130,7 +1130,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
+@@ -1106,7 +1106,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(managedclusters.LoadBalancerSkuBasic),
  								string(managedclusters.LoadBalancerSkuStandard),
@@ -562,7 +562,7 @@ index e6a2b93e01..f9665d9631 100644
  	data := acceptance.BuildTestData(t, "azurerm_cosmosdb_cassandra_cluster", "test")
  	r := CassandraClusterResource{}
 diff --git a/internal/services/cosmos/cosmosdb_gremlin_graph_resource.go b/internal/services/cosmos/cosmosdb_gremlin_graph_resource.go
-index 4fa921dbd3..1e42078303 100644
+index ba13f83bab..6c6e7bd44b 100644
 --- a/internal/services/cosmos/cosmosdb_gremlin_graph_resource.go
 +++ b/internal/services/cosmos/cosmosdb_gremlin_graph_resource.go
 @@ -6,6 +6,7 @@ package cosmos
@@ -807,7 +807,7 @@ index 90e02d8080..8970530193 100644
  									"reuse_key": {
  										Type:     pluginsdk.TypeBool,
 diff --git a/internal/services/legacy/virtual_machine_resource.go b/internal/services/legacy/virtual_machine_resource.go
-index e1d7d72e3e..48bfd018c5 100644
+index a1fb4be0c7..74f605b536 100644
 --- a/internal/services/legacy/virtual_machine_resource.go
 +++ b/internal/services/legacy/virtual_machine_resource.go
 @@ -9,6 +9,7 @@ import (
@@ -1370,7 +1370,7 @@ index 95a9635019..6cf10653d9 100644
  
  			"storage_account_access_key": {
 diff --git a/internal/services/mysql/mysql_server_resource.go b/internal/services/mysql/mysql_server_resource.go
-index 99b9550833..80cfadc5d3 100644
+index a7553589e1..8691c8bb72 100644
 --- a/internal/services/mysql/mysql_server_resource.go
 +++ b/internal/services/mysql/mysql_server_resource.go
 @@ -6,6 +6,8 @@ package mysql
@@ -1382,7 +1382,7 @@ index 99b9550833..80cfadc5d3 100644
  	"log"
  	"strconv"
  	"strings"
-@@ -307,8 +309,9 @@ func resourceMySqlServer() *pluginsdk.Resource {
+@@ -309,8 +311,9 @@ func resourceMySqlServer() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(servers.ServerVersionFivePointSeven),
  					string(servers.ServerVersionEightPointZero),
@@ -1666,19 +1666,18 @@ index f0f001ff61..d909b00794 100644
  
  			"zones": commonschema.ZonesMultipleOptionalForceNew(),
 diff --git a/internal/services/network/public_ip_resource.go b/internal/services/network/public_ip_resource.go
-index de8f303fea..29ece43f39 100644
+index 783d4697cc..f29ea8b4da 100644
 --- a/internal/services/network/public_ip_resource.go
 +++ b/internal/services/network/public_ip_resource.go
-@@ -5,6 +5,8 @@ package network
+@@ -5,6 +5,7 @@ package network
  
  import (
  	"fmt"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
  	"log"
  	"strings"
  	"time"
-@@ -88,14 +90,15 @@ func resourcePublicIp() *pluginsdk.Resource {
+@@ -89,14 +90,15 @@ func resourcePublicIp() *pluginsdk.Resource {
  			"edge_zone": commonschema.EdgeZoneOptionalForceNew(),
  
  			"ip_version": {
@@ -1699,7 +1698,7 @@ index de8f303fea..29ece43f39 100644
  			},
  
  			"sku": {
-@@ -106,7 +109,7 @@ func resourcePublicIp() *pluginsdk.Resource {
+@@ -113,7 +115,7 @@ func resourcePublicIp() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(network.PublicIPAddressSkuNameBasic),
  					string(network.PublicIPAddressSkuNameStandard),
@@ -2123,7 +2122,7 @@ index ff302107f2..a8916e78f2 100644
  
  			"name": {
 diff --git a/internal/services/resource/template_deployment_resource.go b/internal/services/resource/template_deployment_resource.go
-index c30d64233f..bc8a08aeea 100644
+index 7cb0c666d8..2bbe3566f2 100644
 --- a/internal/services/resource/template_deployment_resource.go
 +++ b/internal/services/resource/template_deployment_resource.go
 @@ -7,6 +7,7 @@ import (
@@ -2222,7 +2221,7 @@ index 56fa2647cb..b03bdc1fa8 100644
  
  			"capacity": {
 diff --git a/internal/services/servicebus/servicebus_queue_resource.go b/internal/services/servicebus/servicebus_queue_resource.go
-index c2c24b2294..704ad1f842 100644
+index fd6bafbc15..892ca423b4 100644
 --- a/internal/services/servicebus/servicebus_queue_resource.go
 +++ b/internal/services/servicebus/servicebus_queue_resource.go
 @@ -46,6 +46,8 @@ func resourceServiceBusQueue() *pluginsdk.Resource {
@@ -2526,7 +2525,7 @@ index b215edff58..af572b05db 100644
  	if !ok {
  		return fmt.Errorf("could not determine Storage domain suffix for environment %q", meta.(*clients.Client).Account.Environment.Name)
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index cb95fc31c2..26440e1408 100644
+index fd2f273fcc..0b964acf68 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
 @@ -6,6 +6,8 @@ package storage
@@ -2580,7 +2579,7 @@ index cb95fc31c2..26440e1408 100644
  			},
  
  			"azure_files_authentication": {
-@@ -392,7 +398,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -403,7 +409,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  									string(storage.BypassLogging),
  									string(storage.BypassMetrics),
  									string(storage.BypassNone),

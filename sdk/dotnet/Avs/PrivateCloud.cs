@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Avs
 {
     /// <summary>
-    /// Manages a VMware Private Cloud.
+    /// Manages an Azure VMware Solution Private Cloud.
     /// 
     /// ## Example Usage
     /// 
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Avs
     /// 
     /// ## Import
     /// 
-    /// VMware Private Clouds can be imported using the `resource id`, e.g.
+    /// Azure VMware Solution Private Clouds can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:avs/privateCloud:PrivateCloud example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/privateCloud1
@@ -69,20 +69,20 @@ namespace Pulumi.Azure.Avs
         public Output<ImmutableArray<Outputs.PrivateCloudCircuit>> Circuits { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint for the HCX Cloud Manager.
+        /// The endpoint for the VMware HCX Cloud Manager.
         /// </summary>
         [Output("hcxCloudManagerEndpoint")]
         public Output<string> HcxCloudManagerEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+        /// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
         /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Output("internetConnectionEnabled")]
         public Output<bool?> InternetConnectionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+        /// The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -95,37 +95,37 @@ namespace Pulumi.Azure.Avs
         public Output<Outputs.PrivateCloudManagementCluster> ManagementCluster { get; private set; } = null!;
 
         /// <summary>
-        /// The network used to access vCenter Server and NSX-T Manager.
+        /// The network used to access VMware vCenter Server and NSX Manager.
         /// </summary>
         [Output("managementSubnetCidr")]
         public Output<string> ManagementSubnetCidr { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+        /// The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+        /// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Output("networkSubnetCidr")]
         public Output<string> NetworkSubnetCidr { get; private set; } = null!;
 
         /// <summary>
-        /// The thumbprint of the NSX-T Manager SSL certificate.
+        /// The thumbprint of the VMware NSX Manager SSL certificate.
         /// </summary>
         [Output("nsxtCertificateThumbprint")]
         public Output<string> NsxtCertificateThumbprint { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint for the NSX-T Data Center manager.
+        /// The endpoint for the VMware NSX Manager.
         /// </summary>
         [Output("nsxtManagerEndpoint")]
         public Output<string> NsxtManagerEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+        /// The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Output("nsxtPassword")]
         public Output<string?> NsxtPassword { get; private set; } = null!;
@@ -137,37 +137,37 @@ namespace Pulumi.Azure.Avs
         public Output<string> ProvisioningSubnetCidr { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+        /// The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+        /// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the VMware Private Cloud.
+        /// A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The thumbprint of the vCenter Server SSL certificate.
+        /// The thumbprint of the VMware vCenter Server SSL certificate.
         /// </summary>
         [Output("vcenterCertificateThumbprint")]
         public Output<string> VcenterCertificateThumbprint { get; private set; } = null!;
 
         /// <summary>
-        /// The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+        /// The password of the VMware vCenter Server cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Output("vcenterPassword")]
         public Output<string?> VcenterPassword { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint for Virtual Center Server Appliance.
+        /// The endpoint for VMware vCenter Server Appliance.
         /// </summary>
         [Output("vcsaEndpoint")]
         public Output<string> VcsaEndpoint { get; private set; } = null!;
@@ -230,14 +230,14 @@ namespace Pulumi.Azure.Avs
     public sealed class PrivateCloudArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+        /// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
         /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Input("internetConnectionEnabled")]
         public Input<bool>? InternetConnectionEnabled { get; set; }
 
         /// <summary>
-        /// The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+        /// The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -250,13 +250,13 @@ namespace Pulumi.Azure.Avs
         public Input<Inputs.PrivateCloudManagementClusterArgs> ManagementCluster { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+        /// The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+        /// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Input("networkSubnetCidr", required: true)]
         public Input<string> NetworkSubnetCidr { get; set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.Avs
         private Input<string>? _nsxtPassword;
 
         /// <summary>
-        /// The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+        /// The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         public Input<string>? NsxtPassword
         {
@@ -278,13 +278,13 @@ namespace Pulumi.Azure.Avs
         }
 
         /// <summary>
-        /// The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+        /// The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+        /// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -293,7 +293,7 @@ namespace Pulumi.Azure.Avs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the VMware Private Cloud.
+        /// A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -305,7 +305,7 @@ namespace Pulumi.Azure.Avs
         private Input<string>? _vcenterPassword;
 
         /// <summary>
-        /// The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+        /// The password of the VMware vCenter Server cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         public Input<string>? VcenterPassword
         {
@@ -338,20 +338,20 @@ namespace Pulumi.Azure.Avs
         }
 
         /// <summary>
-        /// The endpoint for the HCX Cloud Manager.
+        /// The endpoint for the VMware HCX Cloud Manager.
         /// </summary>
         [Input("hcxCloudManagerEndpoint")]
         public Input<string>? HcxCloudManagerEndpoint { get; set; }
 
         /// <summary>
-        /// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+        /// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
         /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Input("internetConnectionEnabled")]
         public Input<bool>? InternetConnectionEnabled { get; set; }
 
         /// <summary>
-        /// The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+        /// The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -364,31 +364,31 @@ namespace Pulumi.Azure.Avs
         public Input<Inputs.PrivateCloudManagementClusterGetArgs>? ManagementCluster { get; set; }
 
         /// <summary>
-        /// The network used to access vCenter Server and NSX-T Manager.
+        /// The network used to access VMware vCenter Server and NSX Manager.
         /// </summary>
         [Input("managementSubnetCidr")]
         public Input<string>? ManagementSubnetCidr { get; set; }
 
         /// <summary>
-        /// The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+        /// The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+        /// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Input("networkSubnetCidr")]
         public Input<string>? NetworkSubnetCidr { get; set; }
 
         /// <summary>
-        /// The thumbprint of the NSX-T Manager SSL certificate.
+        /// The thumbprint of the VMware NSX Manager SSL certificate.
         /// </summary>
         [Input("nsxtCertificateThumbprint")]
         public Input<string>? NsxtCertificateThumbprint { get; set; }
 
         /// <summary>
-        /// The endpoint for the NSX-T Data Center manager.
+        /// The endpoint for the VMware NSX Manager.
         /// </summary>
         [Input("nsxtManagerEndpoint")]
         public Input<string>? NsxtManagerEndpoint { get; set; }
@@ -397,7 +397,7 @@ namespace Pulumi.Azure.Avs
         private Input<string>? _nsxtPassword;
 
         /// <summary>
-        /// The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+        /// The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         public Input<string>? NsxtPassword
         {
@@ -416,13 +416,13 @@ namespace Pulumi.Azure.Avs
         public Input<string>? ProvisioningSubnetCidr { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+        /// The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created.
+        /// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -431,7 +431,7 @@ namespace Pulumi.Azure.Avs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the VMware Private Cloud.
+        /// A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -440,7 +440,7 @@ namespace Pulumi.Azure.Avs
         }
 
         /// <summary>
-        /// The thumbprint of the vCenter Server SSL certificate.
+        /// The thumbprint of the VMware vCenter Server SSL certificate.
         /// </summary>
         [Input("vcenterCertificateThumbprint")]
         public Input<string>? VcenterCertificateThumbprint { get; set; }
@@ -449,7 +449,7 @@ namespace Pulumi.Azure.Avs
         private Input<string>? _vcenterPassword;
 
         /// <summary>
-        /// The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
+        /// The password of the VMware vCenter Server cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         /// </summary>
         public Input<string>? VcenterPassword
         {
@@ -462,7 +462,7 @@ namespace Pulumi.Azure.Avs
         }
 
         /// <summary>
-        /// The endpoint for Virtual Center Server Appliance.
+        /// The endpoint for VMware vCenter Server Appliance.
         /// </summary>
         [Input("vcsaEndpoint")]
         public Input<string>? VcsaEndpoint { get; set; }

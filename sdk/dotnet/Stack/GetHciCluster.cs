@@ -132,9 +132,17 @@ namespace Pulumi.Azure.Stack
         /// </summary>
         public readonly string ClientId;
         /// <summary>
+        /// An immutable UUID for the Azure Stack HCI Cluster.
+        /// </summary>
+        public readonly string CloudId;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetHciClusterIdentityResult> Identities;
         /// <summary>
         /// The Azure Region where the Azure Stack HCI Cluster exists.
         /// </summary>
@@ -142,11 +150,19 @@ namespace Pulumi.Azure.Stack
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
+        /// The object ID of the Resource Provider Service Principal.
+        /// </summary>
+        public readonly string ResourceProviderObjectId;
+        /// <summary>
+        /// The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+        /// </summary>
+        public readonly string ServiceEndpoint;
+        /// <summary>
         /// A mapping of tags assigned to the Azure Stack HCI Cluster.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The Tenant ID of the Azure Active Directory used by the Azure Stack HCI Cluster.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string TenantId;
 
@@ -156,7 +172,11 @@ namespace Pulumi.Azure.Stack
 
             string clientId,
 
+            string cloudId,
+
             string id,
+
+            ImmutableArray<Outputs.GetHciClusterIdentityResult> identities,
 
             string location,
 
@@ -164,16 +184,24 @@ namespace Pulumi.Azure.Stack
 
             string resourceGroupName,
 
+            string resourceProviderObjectId,
+
+            string serviceEndpoint,
+
             ImmutableDictionary<string, string> tags,
 
             string tenantId)
         {
             AutomanageConfigurationId = automanageConfigurationId;
             ClientId = clientId;
+            CloudId = cloudId;
             Id = id;
+            Identities = identities;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
+            ResourceProviderObjectId = resourceProviderObjectId;
+            ServiceEndpoint = serviceEndpoint;
             Tags = tags;
             TenantId = tenantId;
         }

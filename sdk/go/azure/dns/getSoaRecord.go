@@ -19,21 +19,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azurerm/sdk/v1/go/azurerm"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := index.NewDnsSoaRecord(ctx, "example", &index.DnsSoaRecordArgs{
+//			example, err := dns.GetSoaRecord(ctx, &dns.GetSoaRecordArgs{
 //				ZoneName:          "test-zone",
 //				ResourceGroupName: "test-rg",
-//			})
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("dnsSoaRecordId", exampleAzurermDnsSoaRecord.Id)
+//			ctx.Export("dnsSoaRecordId", example.Id)
 //			return nil
 //		})
 //	}

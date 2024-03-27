@@ -74,6 +74,8 @@ export class Container extends pulumi.CustomResource {
 
     /**
      * The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+     *
+     * > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      */
     public readonly containerAccessType!: pulumi.Output<string | undefined>;
     /**
@@ -145,6 +147,8 @@ export class Container extends pulumi.CustomResource {
 export interface ContainerState {
     /**
      * The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+     *
+     * > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      */
     containerAccessType?: pulumi.Input<string>;
     /**
@@ -179,6 +183,8 @@ export interface ContainerState {
 export interface ContainerArgs {
     /**
      * The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+     *
+     * > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      */
     containerAccessType?: pulumi.Input<string>;
     /**

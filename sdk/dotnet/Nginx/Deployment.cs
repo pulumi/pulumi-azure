@@ -20,6 +20,7 @@ namespace Pulumi.Azure.Nginx
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -79,6 +80,40 @@ namespace Pulumi.Azure.Nginx
     ///         },
     ///     });
     /// 
+    ///     var configContent = Std.Base64encode.Invoke(new()
+    ///     {
+    ///         Input = @"http {
+    ///     server {
+    ///         listen 80;
+    ///         location / {
+    ///             auth_basic ""Protected Area"";
+    ///             auth_basic_user_file /opt/.htpasswd;
+    ///             default_type text/html;
+    ///         }
+    ///         include site/*.conf;
+    ///     }
+    /// }
+    /// ",
+    ///     }).Apply(invoke =&gt; invoke.Result);
+    /// 
+    ///     var protectedContent = Std.Base64encode.Invoke(new()
+    ///     {
+    ///         Input = @"user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1
+    /// ",
+    ///     }).Apply(invoke =&gt; invoke.Result);
+    /// 
+    ///     var subConfigContent = Std.Base64encode.Invoke(new()
+    ///     {
+    ///         Input = @"location /bbb {
+    /// 	default_type text/html;
+    /// 	return 200 '&lt;!doctype html&gt;&lt;html lang=""en""&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;
+    /// 		&lt;div&gt;this one will be updated&lt;/div&gt;
+    /// 		&lt;div&gt;at 10:38 am&lt;/div&gt;
+    /// 	&lt;/body&gt;&lt;/html&gt;';
+    /// }
+    /// ",
+    ///     }).Apply(invoke =&gt; invoke.Result);
+    /// 
     ///     var exampleDeployment = new Azure.Nginx.Deployment("example", new()
     ///     {
     ///         Name = "example-nginx",
@@ -104,6 +139,31 @@ namespace Pulumi.Azure.Nginx
     ///         },
     ///         Capacity = 20,
     ///         Email = "user@test.com",
+    ///         Configuration = new Azure.Nginx.Inputs.DeploymentConfigurationArgs
+    ///         {
+    ///             RootFile = "/etc/nginx/nginx.conf",
+    ///             ConfigFiles = new[]
+    ///             {
+    ///                 new Azure.Nginx.Inputs.DeploymentConfigurationConfigFileArgs
+    ///                 {
+    ///                     Content = configContent,
+    ///                     VirtualPath = "/etc/nginx/nginx.conf",
+    ///                 },
+    ///                 new Azure.Nginx.Inputs.DeploymentConfigurationConfigFileArgs
+    ///                 {
+    ///                     Content = subConfigContent,
+    ///                     VirtualPath = "/etc/nginx/site/b.conf",
+    ///                 },
+    ///             },
+    ///             ProtectedFiles = new[]
+    ///             {
+    ///                 new Azure.Nginx.Inputs.DeploymentConfigurationProtectedFileArgs
+    ///                 {
+    ///                     Content = protectedContent,
+    ///                     VirtualPath = "/opt/.htpasswd",
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -122,6 +182,12 @@ namespace Pulumi.Azure.Nginx
     public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// An `auto_scale_profile` block as defined below.
+        /// </summary>
+        [Output("autoScaleProfiles")]
+        public Output<ImmutableArray<Outputs.DeploymentAutoScaleProfile>> AutoScaleProfiles { get; private set; } = null!;
+
+        /// <summary>
         /// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         /// </summary>
         [Output("automaticUpgradeChannel")]
@@ -134,6 +200,12 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         [Output("capacity")]
         public Output<int?> Capacity { get; private set; } = null!;
+
+        /// <summary>
+        /// Specify a custom `configuration` block as defined below.
+        /// </summary>
+        [Output("configuration")]
+        public Output<Outputs.DeploymentConfiguration> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// Should the diagnosis support be enabled?
@@ -271,6 +343,18 @@ namespace Pulumi.Azure.Nginx
 
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
+        [Input("autoScaleProfiles")]
+        private InputList<Inputs.DeploymentAutoScaleProfileArgs>? _autoScaleProfiles;
+
+        /// <summary>
+        /// An `auto_scale_profile` block as defined below.
+        /// </summary>
+        public InputList<Inputs.DeploymentAutoScaleProfileArgs> AutoScaleProfiles
+        {
+            get => _autoScaleProfiles ?? (_autoScaleProfiles = new InputList<Inputs.DeploymentAutoScaleProfileArgs>());
+            set => _autoScaleProfiles = value;
+        }
+
         /// <summary>
         /// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         /// </summary>
@@ -284,6 +368,12 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
+
+        /// <summary>
+        /// Specify a custom `configuration` block as defined below.
+        /// </summary>
+        [Input("configuration")]
+        public Input<Inputs.DeploymentConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
         /// Should the diagnosis support be enabled?
@@ -395,6 +485,18 @@ namespace Pulumi.Azure.Nginx
 
     public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
+        [Input("autoScaleProfiles")]
+        private InputList<Inputs.DeploymentAutoScaleProfileGetArgs>? _autoScaleProfiles;
+
+        /// <summary>
+        /// An `auto_scale_profile` block as defined below.
+        /// </summary>
+        public InputList<Inputs.DeploymentAutoScaleProfileGetArgs> AutoScaleProfiles
+        {
+            get => _autoScaleProfiles ?? (_autoScaleProfiles = new InputList<Inputs.DeploymentAutoScaleProfileGetArgs>());
+            set => _autoScaleProfiles = value;
+        }
+
         /// <summary>
         /// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         /// </summary>
@@ -408,6 +510,12 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
+
+        /// <summary>
+        /// Specify a custom `configuration` block as defined below.
+        /// </summary>
+        [Input("configuration")]
+        public Input<Inputs.DeploymentConfigurationGetArgs>? Configuration { get; set; }
 
         /// <summary>
         /// Should the diagnosis support be enabled?

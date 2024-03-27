@@ -354,8 +354,6 @@ class ShareFile(pulumi.CustomResource):
                  storage_share_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a File within an Azure Storage File Share.
-
         ## Example Usage
 
         <!--Start PulumiCodeChooser -->
@@ -412,8 +410,6 @@ class ShareFile(pulumi.CustomResource):
                  args: ShareFileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a File within an Azure Storage File Share.
-
         ## Example Usage
 
         <!--Start PulumiCodeChooser -->

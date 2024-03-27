@@ -2256,7 +2256,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Nginx
 			"azurerm_nginx_certificate":   {Tok: azureResource(azureNginx, "Certificate")},
-			"azurerm_nginx_configuration": {Tok: azureResource(azureNginx, "Configuration")},
+			"azurerm_nginx_configuration": {Tok: azureResource(azureNginx, "Configuration"), Docs: &tfbridge.DocInfo{AllowMissing: true}},
 			"azurerm_nginx_deployment":    {Tok: azureResource(azureNginx, "Deployment")},
 
 			//AppConfiguration
@@ -3112,6 +3112,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_orchestrated_virtual_machine_scale_set": {Tok: azureDataSource(azureCompute, "getOrchestratedVirtualMachineScaleSet")},
 			"azurerm_container_app":                          {Tok: azureDataSource(azureContainerApp, "getApp")},
 			"azurerm_ip_groups":                              {Tok: azureDataSource(azureNetwork, "getIpGroups")},
+
+			"azurerm_nginx_configuration": {Tok: azureDataSource(azureNginx, "getConfiguration"), Docs: &tfbridge.DocInfo{AllowMissing: true}},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			TypeScriptVersion: "4.7.4",

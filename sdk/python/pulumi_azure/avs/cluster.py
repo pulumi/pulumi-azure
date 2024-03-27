@@ -20,10 +20,10 @@ class ClusterArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[int] cluster_node_count: The count of the VMware Cluster nodes.
-        :param pulumi.Input[str] sku_name: The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
-        :param pulumi.Input[str] vmware_cloud_id: The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
-        :param pulumi.Input[str] name: The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        :param pulumi.Input[int] cluster_node_count: The count of the Azure VMware Solution Cluster nodes.
+        :param pulumi.Input[str] sku_name: The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
+        :param pulumi.Input[str] vmware_cloud_id: The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         pulumi.set(__self__, "cluster_node_count", cluster_node_count)
         pulumi.set(__self__, "sku_name", sku_name)
@@ -35,7 +35,7 @@ class ClusterArgs:
     @pulumi.getter(name="clusterNodeCount")
     def cluster_node_count(self) -> pulumi.Input[int]:
         """
-        The count of the VMware Cluster nodes.
+        The count of the Azure VMware Solution Cluster nodes.
         """
         return pulumi.get(self, "cluster_node_count")
 
@@ -47,7 +47,7 @@ class ClusterArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+        The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -59,7 +59,7 @@ class ClusterArgs:
     @pulumi.getter(name="vmwareCloudId")
     def vmware_cloud_id(self) -> pulumi.Input[str]:
         """
-        The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         return pulumi.get(self, "vmware_cloud_id")
 
@@ -71,7 +71,7 @@ class ClusterArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         return pulumi.get(self, "name")
 
@@ -91,12 +91,12 @@ class _ClusterState:
                  vmware_cloud_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
-        :param pulumi.Input[int] cluster_node_count: The count of the VMware Cluster nodes.
-        :param pulumi.Input[int] cluster_number: A number that identifies this VMware Cluster in its VMware Private Cloud.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] hosts: A list of host of the VMware Cluster.
-        :param pulumi.Input[str] name: The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
-        :param pulumi.Input[str] sku_name: The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
-        :param pulumi.Input[str] vmware_cloud_id: The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        :param pulumi.Input[int] cluster_node_count: The count of the Azure VMware Solution Cluster nodes.
+        :param pulumi.Input[int] cluster_number: A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] hosts: A list of hosts in the Azure VMware Solution Cluster.
+        :param pulumi.Input[str] name: The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
+        :param pulumi.Input[str] sku_name: The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
+        :param pulumi.Input[str] vmware_cloud_id: The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         if cluster_node_count is not None:
             pulumi.set(__self__, "cluster_node_count", cluster_node_count)
@@ -115,7 +115,7 @@ class _ClusterState:
     @pulumi.getter(name="clusterNodeCount")
     def cluster_node_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The count of the VMware Cluster nodes.
+        The count of the Azure VMware Solution Cluster nodes.
         """
         return pulumi.get(self, "cluster_node_count")
 
@@ -127,7 +127,7 @@ class _ClusterState:
     @pulumi.getter(name="clusterNumber")
     def cluster_number(self) -> Optional[pulumi.Input[int]]:
         """
-        A number that identifies this VMware Cluster in its VMware Private Cloud.
+        A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
         """
         return pulumi.get(self, "cluster_number")
 
@@ -139,7 +139,7 @@ class _ClusterState:
     @pulumi.getter
     def hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of host of the VMware Cluster.
+        A list of hosts in the Azure VMware Solution Cluster.
         """
         return pulumi.get(self, "hosts")
 
@@ -151,7 +151,7 @@ class _ClusterState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         return pulumi.get(self, "name")
 
@@ -163,7 +163,7 @@ class _ClusterState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+        The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -175,7 +175,7 @@ class _ClusterState:
     @pulumi.getter(name="vmwareCloudId")
     def vmware_cloud_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         return pulumi.get(self, "vmware_cloud_id")
 
@@ -195,7 +195,7 @@ class Cluster(pulumi.CustomResource):
                  vmware_cloud_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a VMware Cluster.
+        Manages an Azure VMware Solution Cluster.
 
         ## Example Usage
 
@@ -229,7 +229,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        VMware Clusters can be imported using the `resource id`, e.g.
+        Azure VMware Solution Clusters can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:avs/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/cluster1
@@ -237,10 +237,10 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] cluster_node_count: The count of the VMware Cluster nodes.
-        :param pulumi.Input[str] name: The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
-        :param pulumi.Input[str] sku_name: The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
-        :param pulumi.Input[str] vmware_cloud_id: The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        :param pulumi.Input[int] cluster_node_count: The count of the Azure VMware Solution Cluster nodes.
+        :param pulumi.Input[str] name: The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
+        :param pulumi.Input[str] sku_name: The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
+        :param pulumi.Input[str] vmware_cloud_id: The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         ...
     @overload
@@ -249,7 +249,7 @@ class Cluster(pulumi.CustomResource):
                  args: ClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a VMware Cluster.
+        Manages an Azure VMware Solution Cluster.
 
         ## Example Usage
 
@@ -283,7 +283,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        VMware Clusters can be imported using the `resource id`, e.g.
+        Azure VMware Solution Clusters can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:avs/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/cluster1
@@ -352,12 +352,12 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] cluster_node_count: The count of the VMware Cluster nodes.
-        :param pulumi.Input[int] cluster_number: A number that identifies this VMware Cluster in its VMware Private Cloud.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] hosts: A list of host of the VMware Cluster.
-        :param pulumi.Input[str] name: The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
-        :param pulumi.Input[str] sku_name: The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
-        :param pulumi.Input[str] vmware_cloud_id: The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        :param pulumi.Input[int] cluster_node_count: The count of the Azure VMware Solution Cluster nodes.
+        :param pulumi.Input[int] cluster_number: A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] hosts: A list of hosts in the Azure VMware Solution Cluster.
+        :param pulumi.Input[str] name: The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
+        :param pulumi.Input[str] sku_name: The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
+        :param pulumi.Input[str] vmware_cloud_id: The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -375,7 +375,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterNodeCount")
     def cluster_node_count(self) -> pulumi.Output[int]:
         """
-        The count of the VMware Cluster nodes.
+        The count of the Azure VMware Solution Cluster nodes.
         """
         return pulumi.get(self, "cluster_node_count")
 
@@ -383,7 +383,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterNumber")
     def cluster_number(self) -> pulumi.Output[int]:
         """
-        A number that identifies this VMware Cluster in its VMware Private Cloud.
+        A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
         """
         return pulumi.get(self, "cluster_number")
 
@@ -391,7 +391,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def hosts(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of host of the VMware Cluster.
+        A list of hosts in the Azure VMware Solution Cluster.
         """
         return pulumi.get(self, "hosts")
 
@@ -399,7 +399,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         return pulumi.get(self, "name")
 
@@ -407,7 +407,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Cluster to be created.
+        The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -415,7 +415,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="vmwareCloudId")
     def vmware_cloud_id(self) -> pulumi.Output[str]:
         """
-        The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
+        The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         """
         return pulumi.get(self, "vmware_cloud_id")
 

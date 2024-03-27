@@ -23,7 +23,7 @@ namespace Pulumi.Azure.Dns
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.Dns.CNameRecord("example", new()
+        ///     var example = Azure.Dns.GetCnameRecord.Invoke(new()
         ///     {
         ///         Name = "test",
         ///         ZoneName = "test-zone",
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Dns
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["dnsCnameRecordId"] = exampleAzurermDnsCnameRecord.Id,
+        ///         ["dnsCnameRecordId"] = example.Apply(getCnameRecordResult =&gt; getCnameRecordResult.Id),
         ///     };
         /// });
         /// ```
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Dns
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.Dns.CNameRecord("example", new()
+        ///     var example = Azure.Dns.GetCnameRecord.Invoke(new()
         ///     {
         ///         Name = "test",
         ///         ZoneName = "test-zone",
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Dns
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["dnsCnameRecordId"] = exampleAzurermDnsCnameRecord.Id,
+        ///         ["dnsCnameRecordId"] = example.Apply(getCnameRecordResult =&gt; getCnameRecordResult.Id),
         ///     };
         /// });
         /// ```

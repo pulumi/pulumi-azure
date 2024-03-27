@@ -161,7 +161,7 @@ public final class WindowsWebAppSlotSiteConfig {
      */
     private @Nullable Boolean scmUseMainIpRestriction;
     /**
-     * @return Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+     * @return Should the Windows Web App Slot use a 32-bit worker. The default value varies from different service plans.
      * 
      */
     private @Nullable Boolean use32BitWorker;
@@ -389,7 +389,7 @@ public final class WindowsWebAppSlotSiteConfig {
         return Optional.ofNullable(this.scmUseMainIpRestriction);
     }
     /**
-     * @return Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+     * @return Should the Windows Web App Slot use a 32-bit worker. The default value varies from different service plans.
      * 
      */
     public Optional<Boolean> use32BitWorker() {

@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Lb.Outputs
     public sealed class BackendAddressPoolTunnelInterface
     {
         /// <summary>
-        /// The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+        /// The unique identifier of this Gateway Load Balancer Tunnel Interface.
         /// </summary>
         public readonly int Identifier;
         /// <summary>
-        /// The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+        /// The port number that this Gateway Load Balancer Tunnel Interface listens to.
         /// </summary>
         public readonly int Port;
         /// <summary>
-        /// The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+        /// The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
+        /// The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
         /// </summary>
         public readonly string Type;
 

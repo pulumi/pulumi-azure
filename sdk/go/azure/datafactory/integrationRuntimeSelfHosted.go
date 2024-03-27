@@ -81,6 +81,8 @@ type IntegrationRuntimeSelfHosted struct {
 	RbacAuthorizations IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput `pulumi:"rbacAuthorizations"`
 	// The secondary integration runtime authentication key.
 	SecondaryAuthorizationKey pulumi.StringOutput `pulumi:"secondaryAuthorizationKey"`
+	// Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+	SelfContainedInteractiveAuthoringEnabled pulumi.BoolPtrOutput `pulumi:"selfContainedInteractiveAuthoringEnabled"`
 }
 
 // NewIntegrationRuntimeSelfHosted registers a new resource with the given unique name, arguments, and options.
@@ -128,6 +130,8 @@ type integrationRuntimeSelfHostedState struct {
 	RbacAuthorizations []IntegrationRuntimeSelfHostedRbacAuthorization `pulumi:"rbacAuthorizations"`
 	// The secondary integration runtime authentication key.
 	SecondaryAuthorizationKey *string `pulumi:"secondaryAuthorizationKey"`
+	// Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+	SelfContainedInteractiveAuthoringEnabled *bool `pulumi:"selfContainedInteractiveAuthoringEnabled"`
 }
 
 type IntegrationRuntimeSelfHostedState struct {
@@ -143,6 +147,8 @@ type IntegrationRuntimeSelfHostedState struct {
 	RbacAuthorizations IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput
 	// The secondary integration runtime authentication key.
 	SecondaryAuthorizationKey pulumi.StringPtrInput
+	// Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+	SelfContainedInteractiveAuthoringEnabled pulumi.BoolPtrInput
 }
 
 func (IntegrationRuntimeSelfHostedState) ElementType() reflect.Type {
@@ -158,6 +164,8 @@ type integrationRuntimeSelfHostedArgs struct {
 	Name *string `pulumi:"name"`
 	// A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
 	RbacAuthorizations []IntegrationRuntimeSelfHostedRbacAuthorization `pulumi:"rbacAuthorizations"`
+	// Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+	SelfContainedInteractiveAuthoringEnabled *bool `pulumi:"selfContainedInteractiveAuthoringEnabled"`
 }
 
 // The set of arguments for constructing a IntegrationRuntimeSelfHosted resource.
@@ -170,6 +178,8 @@ type IntegrationRuntimeSelfHostedArgs struct {
 	Name pulumi.StringPtrInput
 	// A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
 	RbacAuthorizations IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput
+	// Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+	SelfContainedInteractiveAuthoringEnabled pulumi.BoolPtrInput
 }
 
 func (IntegrationRuntimeSelfHostedArgs) ElementType() reflect.Type {
@@ -289,6 +299,13 @@ func (o IntegrationRuntimeSelfHostedOutput) RbacAuthorizations() IntegrationRunt
 // The secondary integration runtime authentication key.
 func (o IntegrationRuntimeSelfHostedOutput) SecondaryAuthorizationKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSelfHosted) pulumi.StringOutput { return v.SecondaryAuthorizationKey }).(pulumi.StringOutput)
+}
+
+// Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+func (o IntegrationRuntimeSelfHostedOutput) SelfContainedInteractiveAuthoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSelfHosted) pulumi.BoolPtrOutput {
+		return v.SelfContainedInteractiveAuthoringEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type IntegrationRuntimeSelfHostedArrayOutput struct{ *pulumi.OutputState }

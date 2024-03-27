@@ -14,9 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ConfigurationConfigFile struct {
-	// Specifies the base-64 encoded contents of this config file.
-	Content string `pulumi:"content"`
-	// Specify the path of this config file.
+	Content     string `pulumi:"content"`
 	VirtualPath string `pulumi:"virtualPath"`
 }
 
@@ -32,9 +30,7 @@ type ConfigurationConfigFileInput interface {
 }
 
 type ConfigurationConfigFileArgs struct {
-	// Specifies the base-64 encoded contents of this config file.
-	Content pulumi.StringInput `pulumi:"content"`
-	// Specify the path of this config file.
+	Content     pulumi.StringInput `pulumi:"content"`
 	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
 }
 
@@ -89,12 +85,10 @@ func (o ConfigurationConfigFileOutput) ToConfigurationConfigFileOutputWithContex
 	return o
 }
 
-// Specifies the base-64 encoded contents of this config file.
 func (o ConfigurationConfigFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationConfigFile) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// Specify the path of this config file.
 func (o ConfigurationConfigFileOutput) VirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationConfigFile) string { return v.VirtualPath }).(pulumi.StringOutput)
 }
@@ -120,9 +114,7 @@ func (o ConfigurationConfigFileArrayOutput) Index(i pulumi.IntInput) Configurati
 }
 
 type ConfigurationProtectedFile struct {
-	// Specifies the base-64 encoded contents of this config file (Sensitive).
-	Content string `pulumi:"content"`
-	// Specify the path of this config file.
+	Content     string `pulumi:"content"`
 	VirtualPath string `pulumi:"virtualPath"`
 }
 
@@ -138,9 +130,7 @@ type ConfigurationProtectedFileInput interface {
 }
 
 type ConfigurationProtectedFileArgs struct {
-	// Specifies the base-64 encoded contents of this config file (Sensitive).
-	Content pulumi.StringInput `pulumi:"content"`
-	// Specify the path of this config file.
+	Content     pulumi.StringInput `pulumi:"content"`
 	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
 }
 
@@ -195,12 +185,10 @@ func (o ConfigurationProtectedFileOutput) ToConfigurationProtectedFileOutputWith
 	return o
 }
 
-// Specifies the base-64 encoded contents of this config file (Sensitive).
 func (o ConfigurationProtectedFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationProtectedFile) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// Specify the path of this config file.
 func (o ConfigurationProtectedFileOutput) VirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationProtectedFile) string { return v.VirtualPath }).(pulumi.StringOutput)
 }
@@ -223,6 +211,524 @@ func (o ConfigurationProtectedFileArrayOutput) Index(i pulumi.IntInput) Configur
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationProtectedFile {
 		return vs[0].([]ConfigurationProtectedFile)[vs[1].(int)]
 	}).(ConfigurationProtectedFileOutput)
+}
+
+type DeploymentAutoScaleProfile struct {
+	MaxCapacity int `pulumi:"maxCapacity"`
+	// Specify the minimum number of NGINX capacity units for this NGINX Deployment.
+	MinCapacity int `pulumi:"minCapacity"`
+	// Specify the name of the autoscaling profile.
+	Name string `pulumi:"name"`
+}
+
+// DeploymentAutoScaleProfileInput is an input type that accepts DeploymentAutoScaleProfileArgs and DeploymentAutoScaleProfileOutput values.
+// You can construct a concrete instance of `DeploymentAutoScaleProfileInput` via:
+//
+//	DeploymentAutoScaleProfileArgs{...}
+type DeploymentAutoScaleProfileInput interface {
+	pulumi.Input
+
+	ToDeploymentAutoScaleProfileOutput() DeploymentAutoScaleProfileOutput
+	ToDeploymentAutoScaleProfileOutputWithContext(context.Context) DeploymentAutoScaleProfileOutput
+}
+
+type DeploymentAutoScaleProfileArgs struct {
+	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
+	// Specify the minimum number of NGINX capacity units for this NGINX Deployment.
+	MinCapacity pulumi.IntInput `pulumi:"minCapacity"`
+	// Specify the name of the autoscaling profile.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (DeploymentAutoScaleProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAutoScaleProfile)(nil)).Elem()
+}
+
+func (i DeploymentAutoScaleProfileArgs) ToDeploymentAutoScaleProfileOutput() DeploymentAutoScaleProfileOutput {
+	return i.ToDeploymentAutoScaleProfileOutputWithContext(context.Background())
+}
+
+func (i DeploymentAutoScaleProfileArgs) ToDeploymentAutoScaleProfileOutputWithContext(ctx context.Context) DeploymentAutoScaleProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAutoScaleProfileOutput)
+}
+
+// DeploymentAutoScaleProfileArrayInput is an input type that accepts DeploymentAutoScaleProfileArray and DeploymentAutoScaleProfileArrayOutput values.
+// You can construct a concrete instance of `DeploymentAutoScaleProfileArrayInput` via:
+//
+//	DeploymentAutoScaleProfileArray{ DeploymentAutoScaleProfileArgs{...} }
+type DeploymentAutoScaleProfileArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentAutoScaleProfileArrayOutput() DeploymentAutoScaleProfileArrayOutput
+	ToDeploymentAutoScaleProfileArrayOutputWithContext(context.Context) DeploymentAutoScaleProfileArrayOutput
+}
+
+type DeploymentAutoScaleProfileArray []DeploymentAutoScaleProfileInput
+
+func (DeploymentAutoScaleProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentAutoScaleProfile)(nil)).Elem()
+}
+
+func (i DeploymentAutoScaleProfileArray) ToDeploymentAutoScaleProfileArrayOutput() DeploymentAutoScaleProfileArrayOutput {
+	return i.ToDeploymentAutoScaleProfileArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentAutoScaleProfileArray) ToDeploymentAutoScaleProfileArrayOutputWithContext(ctx context.Context) DeploymentAutoScaleProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAutoScaleProfileArrayOutput)
+}
+
+type DeploymentAutoScaleProfileOutput struct{ *pulumi.OutputState }
+
+func (DeploymentAutoScaleProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAutoScaleProfile)(nil)).Elem()
+}
+
+func (o DeploymentAutoScaleProfileOutput) ToDeploymentAutoScaleProfileOutput() DeploymentAutoScaleProfileOutput {
+	return o
+}
+
+func (o DeploymentAutoScaleProfileOutput) ToDeploymentAutoScaleProfileOutputWithContext(ctx context.Context) DeploymentAutoScaleProfileOutput {
+	return o
+}
+
+func (o DeploymentAutoScaleProfileOutput) MaxCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v DeploymentAutoScaleProfile) int { return v.MaxCapacity }).(pulumi.IntOutput)
+}
+
+// Specify the minimum number of NGINX capacity units for this NGINX Deployment.
+func (o DeploymentAutoScaleProfileOutput) MinCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v DeploymentAutoScaleProfile) int { return v.MinCapacity }).(pulumi.IntOutput)
+}
+
+// Specify the name of the autoscaling profile.
+func (o DeploymentAutoScaleProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentAutoScaleProfile) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type DeploymentAutoScaleProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentAutoScaleProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentAutoScaleProfile)(nil)).Elem()
+}
+
+func (o DeploymentAutoScaleProfileArrayOutput) ToDeploymentAutoScaleProfileArrayOutput() DeploymentAutoScaleProfileArrayOutput {
+	return o
+}
+
+func (o DeploymentAutoScaleProfileArrayOutput) ToDeploymentAutoScaleProfileArrayOutputWithContext(ctx context.Context) DeploymentAutoScaleProfileArrayOutput {
+	return o
+}
+
+func (o DeploymentAutoScaleProfileArrayOutput) Index(i pulumi.IntInput) DeploymentAutoScaleProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentAutoScaleProfile {
+		return vs[0].([]DeploymentAutoScaleProfile)[vs[1].(int)]
+	}).(DeploymentAutoScaleProfileOutput)
+}
+
+type DeploymentConfiguration struct {
+	// One or more `configFile` blocks as defined below.
+	ConfigFiles []DeploymentConfigurationConfigFile `pulumi:"configFiles"`
+	// Specify the package data for this configuration.
+	PackageData *string `pulumi:"packageData"`
+	// One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
+	ProtectedFiles []DeploymentConfigurationProtectedFile `pulumi:"protectedFiles"`
+	// Specify the root file path of this Nginx Configuration.
+	RootFile string `pulumi:"rootFile"`
+}
+
+// DeploymentConfigurationInput is an input type that accepts DeploymentConfigurationArgs and DeploymentConfigurationOutput values.
+// You can construct a concrete instance of `DeploymentConfigurationInput` via:
+//
+//	DeploymentConfigurationArgs{...}
+type DeploymentConfigurationInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigurationOutput() DeploymentConfigurationOutput
+	ToDeploymentConfigurationOutputWithContext(context.Context) DeploymentConfigurationOutput
+}
+
+type DeploymentConfigurationArgs struct {
+	// One or more `configFile` blocks as defined below.
+	ConfigFiles DeploymentConfigurationConfigFileArrayInput `pulumi:"configFiles"`
+	// Specify the package data for this configuration.
+	PackageData pulumi.StringPtrInput `pulumi:"packageData"`
+	// One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
+	ProtectedFiles DeploymentConfigurationProtectedFileArrayInput `pulumi:"protectedFiles"`
+	// Specify the root file path of this Nginx Configuration.
+	RootFile pulumi.StringInput `pulumi:"rootFile"`
+}
+
+func (DeploymentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfiguration)(nil)).Elem()
+}
+
+func (i DeploymentConfigurationArgs) ToDeploymentConfigurationOutput() DeploymentConfigurationOutput {
+	return i.ToDeploymentConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigurationArgs) ToDeploymentConfigurationOutputWithContext(ctx context.Context) DeploymentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationOutput)
+}
+
+func (i DeploymentConfigurationArgs) ToDeploymentConfigurationPtrOutput() DeploymentConfigurationPtrOutput {
+	return i.ToDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigurationArgs) ToDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationOutput).ToDeploymentConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeploymentConfigurationPtrInput is an input type that accepts DeploymentConfigurationArgs, DeploymentConfigurationPtr and DeploymentConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeploymentConfigurationPtrInput` via:
+//
+//	        DeploymentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigurationPtrOutput() DeploymentConfigurationPtrOutput
+	ToDeploymentConfigurationPtrOutputWithContext(context.Context) DeploymentConfigurationPtrOutput
+}
+
+type deploymentConfigurationPtrType DeploymentConfigurationArgs
+
+func DeploymentConfigurationPtr(v *DeploymentConfigurationArgs) DeploymentConfigurationPtrInput {
+	return (*deploymentConfigurationPtrType)(v)
+}
+
+func (*deploymentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfiguration)(nil)).Elem()
+}
+
+func (i *deploymentConfigurationPtrType) ToDeploymentConfigurationPtrOutput() DeploymentConfigurationPtrOutput {
+	return i.ToDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentConfigurationPtrType) ToDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationPtrOutput)
+}
+
+type DeploymentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfiguration)(nil)).Elem()
+}
+
+func (o DeploymentConfigurationOutput) ToDeploymentConfigurationOutput() DeploymentConfigurationOutput {
+	return o
+}
+
+func (o DeploymentConfigurationOutput) ToDeploymentConfigurationOutputWithContext(ctx context.Context) DeploymentConfigurationOutput {
+	return o
+}
+
+func (o DeploymentConfigurationOutput) ToDeploymentConfigurationPtrOutput() DeploymentConfigurationPtrOutput {
+	return o.ToDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentConfigurationOutput) ToDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfiguration) *DeploymentConfiguration {
+		return &v
+	}).(DeploymentConfigurationPtrOutput)
+}
+
+// One or more `configFile` blocks as defined below.
+func (o DeploymentConfigurationOutput) ConfigFiles() DeploymentConfigurationConfigFileArrayOutput {
+	return o.ApplyT(func(v DeploymentConfiguration) []DeploymentConfigurationConfigFile { return v.ConfigFiles }).(DeploymentConfigurationConfigFileArrayOutput)
+}
+
+// Specify the package data for this configuration.
+func (o DeploymentConfigurationOutput) PackageData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentConfiguration) *string { return v.PackageData }).(pulumi.StringPtrOutput)
+}
+
+// One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
+func (o DeploymentConfigurationOutput) ProtectedFiles() DeploymentConfigurationProtectedFileArrayOutput {
+	return o.ApplyT(func(v DeploymentConfiguration) []DeploymentConfigurationProtectedFile { return v.ProtectedFiles }).(DeploymentConfigurationProtectedFileArrayOutput)
+}
+
+// Specify the root file path of this Nginx Configuration.
+func (o DeploymentConfigurationOutput) RootFile() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentConfiguration) string { return v.RootFile }).(pulumi.StringOutput)
+}
+
+type DeploymentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfiguration)(nil)).Elem()
+}
+
+func (o DeploymentConfigurationPtrOutput) ToDeploymentConfigurationPtrOutput() DeploymentConfigurationPtrOutput {
+	return o
+}
+
+func (o DeploymentConfigurationPtrOutput) ToDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentConfigurationPtrOutput {
+	return o
+}
+
+func (o DeploymentConfigurationPtrOutput) Elem() DeploymentConfigurationOutput {
+	return o.ApplyT(func(v *DeploymentConfiguration) DeploymentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentConfiguration
+		return ret
+	}).(DeploymentConfigurationOutput)
+}
+
+// One or more `configFile` blocks as defined below.
+func (o DeploymentConfigurationPtrOutput) ConfigFiles() DeploymentConfigurationConfigFileArrayOutput {
+	return o.ApplyT(func(v *DeploymentConfiguration) []DeploymentConfigurationConfigFile {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigFiles
+	}).(DeploymentConfigurationConfigFileArrayOutput)
+}
+
+// Specify the package data for this configuration.
+func (o DeploymentConfigurationPtrOutput) PackageData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PackageData
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
+func (o DeploymentConfigurationPtrOutput) ProtectedFiles() DeploymentConfigurationProtectedFileArrayOutput {
+	return o.ApplyT(func(v *DeploymentConfiguration) []DeploymentConfigurationProtectedFile {
+		if v == nil {
+			return nil
+		}
+		return v.ProtectedFiles
+	}).(DeploymentConfigurationProtectedFileArrayOutput)
+}
+
+// Specify the root file path of this Nginx Configuration.
+func (o DeploymentConfigurationPtrOutput) RootFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootFile
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentConfigurationConfigFile struct {
+	// Specifies the base-64 encoded contents of this config file.
+	Content string `pulumi:"content"`
+	// Specify the path of this config file.
+	VirtualPath string `pulumi:"virtualPath"`
+}
+
+// DeploymentConfigurationConfigFileInput is an input type that accepts DeploymentConfigurationConfigFileArgs and DeploymentConfigurationConfigFileOutput values.
+// You can construct a concrete instance of `DeploymentConfigurationConfigFileInput` via:
+//
+//	DeploymentConfigurationConfigFileArgs{...}
+type DeploymentConfigurationConfigFileInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigurationConfigFileOutput() DeploymentConfigurationConfigFileOutput
+	ToDeploymentConfigurationConfigFileOutputWithContext(context.Context) DeploymentConfigurationConfigFileOutput
+}
+
+type DeploymentConfigurationConfigFileArgs struct {
+	// Specifies the base-64 encoded contents of this config file.
+	Content pulumi.StringInput `pulumi:"content"`
+	// Specify the path of this config file.
+	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
+}
+
+func (DeploymentConfigurationConfigFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfigurationConfigFile)(nil)).Elem()
+}
+
+func (i DeploymentConfigurationConfigFileArgs) ToDeploymentConfigurationConfigFileOutput() DeploymentConfigurationConfigFileOutput {
+	return i.ToDeploymentConfigurationConfigFileOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigurationConfigFileArgs) ToDeploymentConfigurationConfigFileOutputWithContext(ctx context.Context) DeploymentConfigurationConfigFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationConfigFileOutput)
+}
+
+// DeploymentConfigurationConfigFileArrayInput is an input type that accepts DeploymentConfigurationConfigFileArray and DeploymentConfigurationConfigFileArrayOutput values.
+// You can construct a concrete instance of `DeploymentConfigurationConfigFileArrayInput` via:
+//
+//	DeploymentConfigurationConfigFileArray{ DeploymentConfigurationConfigFileArgs{...} }
+type DeploymentConfigurationConfigFileArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigurationConfigFileArrayOutput() DeploymentConfigurationConfigFileArrayOutput
+	ToDeploymentConfigurationConfigFileArrayOutputWithContext(context.Context) DeploymentConfigurationConfigFileArrayOutput
+}
+
+type DeploymentConfigurationConfigFileArray []DeploymentConfigurationConfigFileInput
+
+func (DeploymentConfigurationConfigFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentConfigurationConfigFile)(nil)).Elem()
+}
+
+func (i DeploymentConfigurationConfigFileArray) ToDeploymentConfigurationConfigFileArrayOutput() DeploymentConfigurationConfigFileArrayOutput {
+	return i.ToDeploymentConfigurationConfigFileArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigurationConfigFileArray) ToDeploymentConfigurationConfigFileArrayOutputWithContext(ctx context.Context) DeploymentConfigurationConfigFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationConfigFileArrayOutput)
+}
+
+type DeploymentConfigurationConfigFileOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigurationConfigFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfigurationConfigFile)(nil)).Elem()
+}
+
+func (o DeploymentConfigurationConfigFileOutput) ToDeploymentConfigurationConfigFileOutput() DeploymentConfigurationConfigFileOutput {
+	return o
+}
+
+func (o DeploymentConfigurationConfigFileOutput) ToDeploymentConfigurationConfigFileOutputWithContext(ctx context.Context) DeploymentConfigurationConfigFileOutput {
+	return o
+}
+
+// Specifies the base-64 encoded contents of this config file.
+func (o DeploymentConfigurationConfigFileOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentConfigurationConfigFile) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// Specify the path of this config file.
+func (o DeploymentConfigurationConfigFileOutput) VirtualPath() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentConfigurationConfigFile) string { return v.VirtualPath }).(pulumi.StringOutput)
+}
+
+type DeploymentConfigurationConfigFileArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigurationConfigFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentConfigurationConfigFile)(nil)).Elem()
+}
+
+func (o DeploymentConfigurationConfigFileArrayOutput) ToDeploymentConfigurationConfigFileArrayOutput() DeploymentConfigurationConfigFileArrayOutput {
+	return o
+}
+
+func (o DeploymentConfigurationConfigFileArrayOutput) ToDeploymentConfigurationConfigFileArrayOutputWithContext(ctx context.Context) DeploymentConfigurationConfigFileArrayOutput {
+	return o
+}
+
+func (o DeploymentConfigurationConfigFileArrayOutput) Index(i pulumi.IntInput) DeploymentConfigurationConfigFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentConfigurationConfigFile {
+		return vs[0].([]DeploymentConfigurationConfigFile)[vs[1].(int)]
+	}).(DeploymentConfigurationConfigFileOutput)
+}
+
+type DeploymentConfigurationProtectedFile struct {
+	// Specifies the base-64 encoded contents of this config file (Sensitive).
+	Content string `pulumi:"content"`
+	// Specify the path of this config file.
+	VirtualPath string `pulumi:"virtualPath"`
+}
+
+// DeploymentConfigurationProtectedFileInput is an input type that accepts DeploymentConfigurationProtectedFileArgs and DeploymentConfigurationProtectedFileOutput values.
+// You can construct a concrete instance of `DeploymentConfigurationProtectedFileInput` via:
+//
+//	DeploymentConfigurationProtectedFileArgs{...}
+type DeploymentConfigurationProtectedFileInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigurationProtectedFileOutput() DeploymentConfigurationProtectedFileOutput
+	ToDeploymentConfigurationProtectedFileOutputWithContext(context.Context) DeploymentConfigurationProtectedFileOutput
+}
+
+type DeploymentConfigurationProtectedFileArgs struct {
+	// Specifies the base-64 encoded contents of this config file (Sensitive).
+	Content pulumi.StringInput `pulumi:"content"`
+	// Specify the path of this config file.
+	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
+}
+
+func (DeploymentConfigurationProtectedFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfigurationProtectedFile)(nil)).Elem()
+}
+
+func (i DeploymentConfigurationProtectedFileArgs) ToDeploymentConfigurationProtectedFileOutput() DeploymentConfigurationProtectedFileOutput {
+	return i.ToDeploymentConfigurationProtectedFileOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigurationProtectedFileArgs) ToDeploymentConfigurationProtectedFileOutputWithContext(ctx context.Context) DeploymentConfigurationProtectedFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationProtectedFileOutput)
+}
+
+// DeploymentConfigurationProtectedFileArrayInput is an input type that accepts DeploymentConfigurationProtectedFileArray and DeploymentConfigurationProtectedFileArrayOutput values.
+// You can construct a concrete instance of `DeploymentConfigurationProtectedFileArrayInput` via:
+//
+//	DeploymentConfigurationProtectedFileArray{ DeploymentConfigurationProtectedFileArgs{...} }
+type DeploymentConfigurationProtectedFileArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigurationProtectedFileArrayOutput() DeploymentConfigurationProtectedFileArrayOutput
+	ToDeploymentConfigurationProtectedFileArrayOutputWithContext(context.Context) DeploymentConfigurationProtectedFileArrayOutput
+}
+
+type DeploymentConfigurationProtectedFileArray []DeploymentConfigurationProtectedFileInput
+
+func (DeploymentConfigurationProtectedFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentConfigurationProtectedFile)(nil)).Elem()
+}
+
+func (i DeploymentConfigurationProtectedFileArray) ToDeploymentConfigurationProtectedFileArrayOutput() DeploymentConfigurationProtectedFileArrayOutput {
+	return i.ToDeploymentConfigurationProtectedFileArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigurationProtectedFileArray) ToDeploymentConfigurationProtectedFileArrayOutputWithContext(ctx context.Context) DeploymentConfigurationProtectedFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationProtectedFileArrayOutput)
+}
+
+type DeploymentConfigurationProtectedFileOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigurationProtectedFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfigurationProtectedFile)(nil)).Elem()
+}
+
+func (o DeploymentConfigurationProtectedFileOutput) ToDeploymentConfigurationProtectedFileOutput() DeploymentConfigurationProtectedFileOutput {
+	return o
+}
+
+func (o DeploymentConfigurationProtectedFileOutput) ToDeploymentConfigurationProtectedFileOutputWithContext(ctx context.Context) DeploymentConfigurationProtectedFileOutput {
+	return o
+}
+
+// Specifies the base-64 encoded contents of this config file (Sensitive).
+func (o DeploymentConfigurationProtectedFileOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentConfigurationProtectedFile) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// Specify the path of this config file.
+func (o DeploymentConfigurationProtectedFileOutput) VirtualPath() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentConfigurationProtectedFile) string { return v.VirtualPath }).(pulumi.StringOutput)
+}
+
+type DeploymentConfigurationProtectedFileArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigurationProtectedFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentConfigurationProtectedFile)(nil)).Elem()
+}
+
+func (o DeploymentConfigurationProtectedFileArrayOutput) ToDeploymentConfigurationProtectedFileArrayOutput() DeploymentConfigurationProtectedFileArrayOutput {
+	return o
+}
+
+func (o DeploymentConfigurationProtectedFileArrayOutput) ToDeploymentConfigurationProtectedFileArrayOutputWithContext(ctx context.Context) DeploymentConfigurationProtectedFileArrayOutput {
+	return o
+}
+
+func (o DeploymentConfigurationProtectedFileArrayOutput) Index(i pulumi.IntInput) DeploymentConfigurationProtectedFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentConfigurationProtectedFile {
+		return vs[0].([]DeploymentConfigurationProtectedFile)[vs[1].(int)]
+	}).(DeploymentConfigurationProtectedFileOutput)
 }
 
 type DeploymentFrontendPrivate struct {
@@ -875,9 +1381,7 @@ func (o DeploymentNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Deployme
 }
 
 type GetConfigurationConfigFile struct {
-	// The base-64 encoded contents of this configuration file.
-	Content string `pulumi:"content"`
-	// The path of this configuration file.
+	Content     string `pulumi:"content"`
 	VirtualPath string `pulumi:"virtualPath"`
 }
 
@@ -893,9 +1397,7 @@ type GetConfigurationConfigFileInput interface {
 }
 
 type GetConfigurationConfigFileArgs struct {
-	// The base-64 encoded contents of this configuration file.
-	Content pulumi.StringInput `pulumi:"content"`
-	// The path of this configuration file.
+	Content     pulumi.StringInput `pulumi:"content"`
 	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
 }
 
@@ -950,12 +1452,10 @@ func (o GetConfigurationConfigFileOutput) ToGetConfigurationConfigFileOutputWith
 	return o
 }
 
-// The base-64 encoded contents of this configuration file.
 func (o GetConfigurationConfigFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationConfigFile) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// The path of this configuration file.
 func (o GetConfigurationConfigFileOutput) VirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationConfigFile) string { return v.VirtualPath }).(pulumi.StringOutput)
 }
@@ -981,9 +1481,7 @@ func (o GetConfigurationConfigFileArrayOutput) Index(i pulumi.IntInput) GetConfi
 }
 
 type GetConfigurationProtectedFile struct {
-	// The base-64 encoded contents of this configuration file.
-	Content string `pulumi:"content"`
-	// The path of this configuration file.
+	Content     string `pulumi:"content"`
 	VirtualPath string `pulumi:"virtualPath"`
 }
 
@@ -999,9 +1497,7 @@ type GetConfigurationProtectedFileInput interface {
 }
 
 type GetConfigurationProtectedFileArgs struct {
-	// The base-64 encoded contents of this configuration file.
-	Content pulumi.StringInput `pulumi:"content"`
-	// The path of this configuration file.
+	Content     pulumi.StringInput `pulumi:"content"`
 	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
 }
 
@@ -1056,12 +1552,10 @@ func (o GetConfigurationProtectedFileOutput) ToGetConfigurationProtectedFileOutp
 	return o
 }
 
-// The base-64 encoded contents of this configuration file.
 func (o GetConfigurationProtectedFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationProtectedFile) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// The path of this configuration file.
 func (o GetConfigurationProtectedFileOutput) VirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationProtectedFile) string { return v.VirtualPath }).(pulumi.StringOutput)
 }
@@ -1084,6 +1578,121 @@ func (o GetConfigurationProtectedFileArrayOutput) Index(i pulumi.IntInput) GetCo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationProtectedFile {
 		return vs[0].([]GetConfigurationProtectedFile)[vs[1].(int)]
 	}).(GetConfigurationProtectedFileOutput)
+}
+
+type GetDeploymentAutoScaleProfile struct {
+	// The maximum number of NGINX capacity units for this NGINX Deployment.
+	MaxCapacity int `pulumi:"maxCapacity"`
+	// The minimum number of NGINX capacity units for this NGINX Deployment.
+	MinCapacity int `pulumi:"minCapacity"`
+	// The name of this Nginx Deployment.
+	Name string `pulumi:"name"`
+}
+
+// GetDeploymentAutoScaleProfileInput is an input type that accepts GetDeploymentAutoScaleProfileArgs and GetDeploymentAutoScaleProfileOutput values.
+// You can construct a concrete instance of `GetDeploymentAutoScaleProfileInput` via:
+//
+//	GetDeploymentAutoScaleProfileArgs{...}
+type GetDeploymentAutoScaleProfileInput interface {
+	pulumi.Input
+
+	ToGetDeploymentAutoScaleProfileOutput() GetDeploymentAutoScaleProfileOutput
+	ToGetDeploymentAutoScaleProfileOutputWithContext(context.Context) GetDeploymentAutoScaleProfileOutput
+}
+
+type GetDeploymentAutoScaleProfileArgs struct {
+	// The maximum number of NGINX capacity units for this NGINX Deployment.
+	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
+	// The minimum number of NGINX capacity units for this NGINX Deployment.
+	MinCapacity pulumi.IntInput `pulumi:"minCapacity"`
+	// The name of this Nginx Deployment.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetDeploymentAutoScaleProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentAutoScaleProfile)(nil)).Elem()
+}
+
+func (i GetDeploymentAutoScaleProfileArgs) ToGetDeploymentAutoScaleProfileOutput() GetDeploymentAutoScaleProfileOutput {
+	return i.ToGetDeploymentAutoScaleProfileOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentAutoScaleProfileArgs) ToGetDeploymentAutoScaleProfileOutputWithContext(ctx context.Context) GetDeploymentAutoScaleProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentAutoScaleProfileOutput)
+}
+
+// GetDeploymentAutoScaleProfileArrayInput is an input type that accepts GetDeploymentAutoScaleProfileArray and GetDeploymentAutoScaleProfileArrayOutput values.
+// You can construct a concrete instance of `GetDeploymentAutoScaleProfileArrayInput` via:
+//
+//	GetDeploymentAutoScaleProfileArray{ GetDeploymentAutoScaleProfileArgs{...} }
+type GetDeploymentAutoScaleProfileArrayInput interface {
+	pulumi.Input
+
+	ToGetDeploymentAutoScaleProfileArrayOutput() GetDeploymentAutoScaleProfileArrayOutput
+	ToGetDeploymentAutoScaleProfileArrayOutputWithContext(context.Context) GetDeploymentAutoScaleProfileArrayOutput
+}
+
+type GetDeploymentAutoScaleProfileArray []GetDeploymentAutoScaleProfileInput
+
+func (GetDeploymentAutoScaleProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentAutoScaleProfile)(nil)).Elem()
+}
+
+func (i GetDeploymentAutoScaleProfileArray) ToGetDeploymentAutoScaleProfileArrayOutput() GetDeploymentAutoScaleProfileArrayOutput {
+	return i.ToGetDeploymentAutoScaleProfileArrayOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentAutoScaleProfileArray) ToGetDeploymentAutoScaleProfileArrayOutputWithContext(ctx context.Context) GetDeploymentAutoScaleProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentAutoScaleProfileArrayOutput)
+}
+
+type GetDeploymentAutoScaleProfileOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentAutoScaleProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentAutoScaleProfile)(nil)).Elem()
+}
+
+func (o GetDeploymentAutoScaleProfileOutput) ToGetDeploymentAutoScaleProfileOutput() GetDeploymentAutoScaleProfileOutput {
+	return o
+}
+
+func (o GetDeploymentAutoScaleProfileOutput) ToGetDeploymentAutoScaleProfileOutputWithContext(ctx context.Context) GetDeploymentAutoScaleProfileOutput {
+	return o
+}
+
+// The maximum number of NGINX capacity units for this NGINX Deployment.
+func (o GetDeploymentAutoScaleProfileOutput) MaxCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDeploymentAutoScaleProfile) int { return v.MaxCapacity }).(pulumi.IntOutput)
+}
+
+// The minimum number of NGINX capacity units for this NGINX Deployment.
+func (o GetDeploymentAutoScaleProfileOutput) MinCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDeploymentAutoScaleProfile) int { return v.MinCapacity }).(pulumi.IntOutput)
+}
+
+// The name of this Nginx Deployment.
+func (o GetDeploymentAutoScaleProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentAutoScaleProfile) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetDeploymentAutoScaleProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentAutoScaleProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentAutoScaleProfile)(nil)).Elem()
+}
+
+func (o GetDeploymentAutoScaleProfileArrayOutput) ToGetDeploymentAutoScaleProfileArrayOutput() GetDeploymentAutoScaleProfileArrayOutput {
+	return o
+}
+
+func (o GetDeploymentAutoScaleProfileArrayOutput) ToGetDeploymentAutoScaleProfileArrayOutputWithContext(ctx context.Context) GetDeploymentAutoScaleProfileArrayOutput {
+	return o
+}
+
+func (o GetDeploymentAutoScaleProfileArrayOutput) Index(i pulumi.IntInput) GetDeploymentAutoScaleProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeploymentAutoScaleProfile {
+		return vs[0].([]GetDeploymentAutoScaleProfile)[vs[1].(int)]
+	}).(GetDeploymentAutoScaleProfileOutput)
 }
 
 type GetDeploymentFrontendPrivate struct {
@@ -1624,6 +2233,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationConfigFileArrayInput)(nil)).Elem(), ConfigurationConfigFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProtectedFileInput)(nil)).Elem(), ConfigurationProtectedFileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProtectedFileArrayInput)(nil)).Elem(), ConfigurationProtectedFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentAutoScaleProfileInput)(nil)).Elem(), DeploymentAutoScaleProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentAutoScaleProfileArrayInput)(nil)).Elem(), DeploymentAutoScaleProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigurationInput)(nil)).Elem(), DeploymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigurationPtrInput)(nil)).Elem(), DeploymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigurationConfigFileInput)(nil)).Elem(), DeploymentConfigurationConfigFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigurationConfigFileArrayInput)(nil)).Elem(), DeploymentConfigurationConfigFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigurationProtectedFileInput)(nil)).Elem(), DeploymentConfigurationProtectedFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigurationProtectedFileArrayInput)(nil)).Elem(), DeploymentConfigurationProtectedFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentFrontendPrivateInput)(nil)).Elem(), DeploymentFrontendPrivateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentFrontendPrivateArrayInput)(nil)).Elem(), DeploymentFrontendPrivateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentFrontendPublicInput)(nil)).Elem(), DeploymentFrontendPublicArgs{})
@@ -1638,6 +2255,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationConfigFileArrayInput)(nil)).Elem(), GetConfigurationConfigFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationProtectedFileInput)(nil)).Elem(), GetConfigurationProtectedFileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationProtectedFileArrayInput)(nil)).Elem(), GetConfigurationProtectedFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentAutoScaleProfileInput)(nil)).Elem(), GetDeploymentAutoScaleProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentAutoScaleProfileArrayInput)(nil)).Elem(), GetDeploymentAutoScaleProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentFrontendPrivateInput)(nil)).Elem(), GetDeploymentFrontendPrivateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentFrontendPrivateArrayInput)(nil)).Elem(), GetDeploymentFrontendPrivateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentFrontendPublicInput)(nil)).Elem(), GetDeploymentFrontendPublicArgs{})
@@ -1652,6 +2271,14 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationConfigFileArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationProtectedFileOutput{})
 	pulumi.RegisterOutputType(ConfigurationProtectedFileArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentAutoScaleProfileOutput{})
+	pulumi.RegisterOutputType(DeploymentAutoScaleProfileArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigurationOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigurationConfigFileOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigurationConfigFileArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigurationProtectedFileOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigurationProtectedFileArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentFrontendPrivateOutput{})
 	pulumi.RegisterOutputType(DeploymentFrontendPrivateArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentFrontendPublicOutput{})
@@ -1666,6 +2293,8 @@ func init() {
 	pulumi.RegisterOutputType(GetConfigurationConfigFileArrayOutput{})
 	pulumi.RegisterOutputType(GetConfigurationProtectedFileOutput{})
 	pulumi.RegisterOutputType(GetConfigurationProtectedFileArrayOutput{})
+	pulumi.RegisterOutputType(GetDeploymentAutoScaleProfileOutput{})
+	pulumi.RegisterOutputType(GetDeploymentAutoScaleProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetDeploymentFrontendPrivateOutput{})
 	pulumi.RegisterOutputType(GetDeploymentFrontendPrivateArrayOutput{})
 	pulumi.RegisterOutputType(GetDeploymentFrontendPublicOutput{})

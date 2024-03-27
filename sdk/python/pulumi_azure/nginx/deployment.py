@@ -18,8 +18,10 @@ class DeploymentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input[str],
+                 auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]] = None,
                  automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 configuration: Optional[pulumi.Input['DeploymentConfigurationArgs']] = None,
                  diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
@@ -35,10 +37,12 @@ class DeploymentArgs:
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[str] sku: Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        :param pulumi.Input['DeploymentConfigurationArgs'] configuration: Specify a custom `configuration` block as defined below.
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
         :param pulumi.Input[str] email: Specify the preferred support contact email address of the user used for sending alerts and notification.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
@@ -53,10 +57,14 @@ class DeploymentArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if auto_scale_profiles is not None:
+            pulumi.set(__self__, "auto_scale_profiles", auto_scale_profiles)
         if automatic_upgrade_channel is not None:
             pulumi.set(__self__, "automatic_upgrade_channel", automatic_upgrade_channel)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
         if diagnose_support_enabled is not None:
             pulumi.set(__self__, "diagnose_support_enabled", diagnose_support_enabled)
         if email is not None:
@@ -105,6 +113,18 @@ class DeploymentArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="autoScaleProfiles")
+    def auto_scale_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]]:
+        """
+        An `auto_scale_profile` block as defined below.
+        """
+        return pulumi.get(self, "auto_scale_profiles")
+
+    @auto_scale_profiles.setter
+    def auto_scale_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]]):
+        pulumi.set(self, "auto_scale_profiles", value)
+
+    @property
     @pulumi.getter(name="automaticUpgradeChannel")
     def automatic_upgrade_channel(self) -> Optional[pulumi.Input[str]]:
         """
@@ -129,6 +149,18 @@ class DeploymentArgs:
     @capacity.setter
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input['DeploymentConfigurationArgs']]:
+        """
+        Specify a custom `configuration` block as defined below.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input['DeploymentConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
 
     @property
     @pulumi.getter(name="diagnoseSupportEnabled")
@@ -266,8 +298,10 @@ class DeploymentArgs:
 @pulumi.input_type
 class _DeploymentState:
     def __init__(__self__, *,
+                 auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]] = None,
                  automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 configuration: Optional[pulumi.Input['DeploymentConfigurationArgs']] = None,
                  diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
@@ -285,10 +319,12 @@ class _DeploymentState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        :param pulumi.Input['DeploymentConfigurationArgs'] configuration: Specify a custom `configuration` block as defined below.
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
         :param pulumi.Input[str] email: Specify the preferred support contact email address of the user used for sending alerts and notification.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
@@ -305,10 +341,14 @@ class _DeploymentState:
         :param pulumi.Input[str] sku: Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Nginx Deployment.
         """
+        if auto_scale_profiles is not None:
+            pulumi.set(__self__, "auto_scale_profiles", auto_scale_profiles)
         if automatic_upgrade_channel is not None:
             pulumi.set(__self__, "automatic_upgrade_channel", automatic_upgrade_channel)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
         if diagnose_support_enabled is not None:
             pulumi.set(__self__, "diagnose_support_enabled", diagnose_support_enabled)
         if email is not None:
@@ -341,6 +381,18 @@ class _DeploymentState:
             pulumi.set(__self__, "tags", tags)
 
     @property
+    @pulumi.getter(name="autoScaleProfiles")
+    def auto_scale_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]]:
+        """
+        An `auto_scale_profile` block as defined below.
+        """
+        return pulumi.get(self, "auto_scale_profiles")
+
+    @auto_scale_profiles.setter
+    def auto_scale_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]]):
+        pulumi.set(self, "auto_scale_profiles", value)
+
+    @property
     @pulumi.getter(name="automaticUpgradeChannel")
     def automatic_upgrade_channel(self) -> Optional[pulumi.Input[str]]:
         """
@@ -365,6 +417,18 @@ class _DeploymentState:
     @capacity.setter
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input['DeploymentConfigurationArgs']]:
+        """
+        Specify a custom `configuration` block as defined below.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input['DeploymentConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
 
     @property
     @pulumi.getter(name="diagnoseSupportEnabled")
@@ -552,8 +616,10 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentAutoScaleProfileArgs']]]]] = None,
                  automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']]] = None,
                  diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]]] = None,
@@ -577,6 +643,7 @@ class Deployment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
         example = azure.core.ResourceGroup("example",
             name="example-rg",
@@ -607,6 +674,27 @@ class Deployment(pulumi.CustomResource):
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 ),
             )])
+        config_content = std.base64encode(input=\"\"\"http {
+            server {
+                listen 80;
+                location / {
+                    auth_basic "Protected Area";
+                    auth_basic_user_file /opt/.htpasswd;
+                    default_type text/html;
+                }
+                include site/*.conf;
+            }
+        }
+        \"\"\").result
+        protected_content = std.base64encode(input="user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1\\n").result
+        sub_config_content = std.base64encode(input=\"\"\"location /bbb {
+        	default_type text/html;
+        	return 200 '<!doctype html><html lang="en"><head></head><body>
+        		<div>this one will be updated</div>
+        		<div>at 10:38 am</div>
+        	</body></html>';
+        }
+        \"\"\").result
         example_deployment = azure.nginx.Deployment("example",
             name="example-nginx",
             resource_group_name=example.name,
@@ -622,7 +710,24 @@ class Deployment(pulumi.CustomResource):
                 subnet_id=example_subnet.id,
             )],
             capacity=20,
-            email="user@test.com")
+            email="user@test.com",
+            configuration=azure.nginx.DeploymentConfigurationArgs(
+                root_file="/etc/nginx/nginx.conf",
+                config_files=[
+                    azure.nginx.DeploymentConfigurationConfigFileArgs(
+                        content=config_content,
+                        virtual_path="/etc/nginx/nginx.conf",
+                    ),
+                    azure.nginx.DeploymentConfigurationConfigFileArgs(
+                        content=sub_config_content,
+                        virtual_path="/etc/nginx/site/b.conf",
+                    ),
+                ],
+                protected_files=[azure.nginx.DeploymentConfigurationProtectedFileArgs(
+                    content=protected_content,
+                    virtual_path="/opt/.htpasswd",
+                )],
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -636,10 +741,12 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentAutoScaleProfileArgs']]]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        :param pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']] configuration: Specify a custom `configuration` block as defined below.
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
         :param pulumi.Input[str] email: Specify the preferred support contact email address of the user used for sending alerts and notification.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
@@ -669,6 +776,7 @@ class Deployment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
         example = azure.core.ResourceGroup("example",
             name="example-rg",
@@ -699,6 +807,27 @@ class Deployment(pulumi.CustomResource):
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 ),
             )])
+        config_content = std.base64encode(input=\"\"\"http {
+            server {
+                listen 80;
+                location / {
+                    auth_basic "Protected Area";
+                    auth_basic_user_file /opt/.htpasswd;
+                    default_type text/html;
+                }
+                include site/*.conf;
+            }
+        }
+        \"\"\").result
+        protected_content = std.base64encode(input="user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1\\n").result
+        sub_config_content = std.base64encode(input=\"\"\"location /bbb {
+        	default_type text/html;
+        	return 200 '<!doctype html><html lang="en"><head></head><body>
+        		<div>this one will be updated</div>
+        		<div>at 10:38 am</div>
+        	</body></html>';
+        }
+        \"\"\").result
         example_deployment = azure.nginx.Deployment("example",
             name="example-nginx",
             resource_group_name=example.name,
@@ -714,7 +843,24 @@ class Deployment(pulumi.CustomResource):
                 subnet_id=example_subnet.id,
             )],
             capacity=20,
-            email="user@test.com")
+            email="user@test.com",
+            configuration=azure.nginx.DeploymentConfigurationArgs(
+                root_file="/etc/nginx/nginx.conf",
+                config_files=[
+                    azure.nginx.DeploymentConfigurationConfigFileArgs(
+                        content=config_content,
+                        virtual_path="/etc/nginx/nginx.conf",
+                    ),
+                    azure.nginx.DeploymentConfigurationConfigFileArgs(
+                        content=sub_config_content,
+                        virtual_path="/etc/nginx/site/b.conf",
+                    ),
+                ],
+                protected_files=[azure.nginx.DeploymentConfigurationProtectedFileArgs(
+                    content=protected_content,
+                    virtual_path="/opt/.htpasswd",
+                )],
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -741,8 +887,10 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentAutoScaleProfileArgs']]]]] = None,
                  automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']]] = None,
                  diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]]] = None,
@@ -765,8 +913,10 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeploymentArgs.__new__(DeploymentArgs)
 
+            __props__.__dict__["auto_scale_profiles"] = auto_scale_profiles
             __props__.__dict__["automatic_upgrade_channel"] = automatic_upgrade_channel
             __props__.__dict__["capacity"] = capacity
+            __props__.__dict__["configuration"] = configuration
             __props__.__dict__["diagnose_support_enabled"] = diagnose_support_enabled
             __props__.__dict__["email"] = email
             __props__.__dict__["frontend_privates"] = frontend_privates
@@ -796,8 +946,10 @@ class Deployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentAutoScaleProfileArgs']]]]] = None,
             automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
             capacity: Optional[pulumi.Input[int]] = None,
+            configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']]] = None,
             diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
             email: Optional[pulumi.Input[str]] = None,
             frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]]] = None,
@@ -820,10 +972,12 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentAutoScaleProfileArgs']]]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        :param pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']] configuration: Specify a custom `configuration` block as defined below.
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
         :param pulumi.Input[str] email: Specify the preferred support contact email address of the user used for sending alerts and notification.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
@@ -844,8 +998,10 @@ class Deployment(pulumi.CustomResource):
 
         __props__ = _DeploymentState.__new__(_DeploymentState)
 
+        __props__.__dict__["auto_scale_profiles"] = auto_scale_profiles
         __props__.__dict__["automatic_upgrade_channel"] = automatic_upgrade_channel
         __props__.__dict__["capacity"] = capacity
+        __props__.__dict__["configuration"] = configuration
         __props__.__dict__["diagnose_support_enabled"] = diagnose_support_enabled
         __props__.__dict__["email"] = email
         __props__.__dict__["frontend_privates"] = frontend_privates
@@ -864,6 +1020,14 @@ class Deployment(pulumi.CustomResource):
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="autoScaleProfiles")
+    def auto_scale_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentAutoScaleProfile']]]:
+        """
+        An `auto_scale_profile` block as defined below.
+        """
+        return pulumi.get(self, "auto_scale_profiles")
+
+    @property
     @pulumi.getter(name="automaticUpgradeChannel")
     def automatic_upgrade_channel(self) -> pulumi.Output[Optional[str]]:
         """
@@ -880,6 +1044,14 @@ class Deployment(pulumi.CustomResource):
         > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         """
         return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Output['outputs.DeploymentConfiguration']:
+        """
+        Specify a custom `configuration` block as defined below.
+        """
+        return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="diagnoseSupportEnabled")

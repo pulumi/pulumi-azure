@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing VMware Private Cloud.
+ * Use this data source to access information about an existing Azure VMware Solution Private Cloud.
  *
  * ## Example Usage
  *
@@ -40,11 +40,11 @@ export function getPrivateCloud(args: GetPrivateCloudArgs, opts?: pulumi.InvokeO
  */
 export interface GetPrivateCloudArgs {
     /**
-     * The name of this VMware Private Cloud.
+     * The name of this Azure VMware Solution Private Cloud.
      */
     name: string;
     /**
-     * The name of the Resource Group where the VMware Private Cloud exists.
+     * The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
      */
     resourceGroupName: string;
 }
@@ -58,7 +58,7 @@ export interface GetPrivateCloudResult {
      */
     readonly circuits: outputs.avs.GetPrivateCloudCircuit[];
     /**
-     * The endpoint for the HCX Cloud Manager.
+     * The endpoint for the VMware HCX Cloud Manager.
      */
     readonly hcxCloudManagerEndpoint: string;
     /**
@@ -66,11 +66,11 @@ export interface GetPrivateCloudResult {
      */
     readonly id: string;
     /**
-     * Is the VMware Private Cluster connected to the internet?
+     * Is the Azure VMware Solution Private Cloud connected to the internet?
      */
     readonly internetConnectionEnabled: boolean;
     /**
-     * The Azure Region where the VMware Private Cloud exists.
+     * The Azure Region where the Azure VMware Solution Private Cloud exists.
      */
     readonly location: string;
     /**
@@ -78,20 +78,20 @@ export interface GetPrivateCloudResult {
      */
     readonly managementClusters: outputs.avs.GetPrivateCloudManagementCluster[];
     /**
-     * The network used to access vCenter Server and NSX-T Manager.
+     * The network used to access VMware vCenter Server and NSX Manager.
      */
     readonly managementSubnetCidr: string;
     readonly name: string;
     /**
-     * The subnet CIDR of the VMware Private Cloud.
+     * The subnet CIDR of the Azure VMware Solution Private Cloud.
      */
     readonly networkSubnetCidr: string;
     /**
-     * The thumbprint of the NSX-T Manager SSL certificate.
+     * The thumbprint of the VMware NSX Manager SSL certificate.
      */
     readonly nsxtCertificateThumbprint: string;
     /**
-     * The endpoint for the NSX-T Data Center manager.
+     * The endpoint for the VMware NSX Manager.
      */
     readonly nsxtManagerEndpoint: string;
     /**
@@ -100,19 +100,19 @@ export interface GetPrivateCloudResult {
     readonly provisioningSubnetCidr: string;
     readonly resourceGroupName: string;
     /**
-     * The Name of the SKU used for this Private Cloud.
+     * The Name of the SKU used for this Azure VMware Solution Private Cloud.
      */
     readonly skuName: string;
     /**
-     * A mapping of tags assigned to the VMware Private Cloud.
+     * A mapping of tags assigned to the Azure VMware Solution Private Cloud.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The thumbprint of the vCenter Server SSL certificate.
+     * The thumbprint of the VMware vCenter Server SSL certificate.
      */
     readonly vcenterCertificateThumbprint: string;
     /**
-     * The endpoint for Virtual Center Server Appliance.
+     * The endpoint for VMware vCenter Server Appliance.
      */
     readonly vcsaEndpoint: string;
     /**
@@ -121,7 +121,7 @@ export interface GetPrivateCloudResult {
     readonly vmotionSubnetCidr: string;
 }
 /**
- * Use this data source to access information about an existing VMware Private Cloud.
+ * Use this data source to access information about an existing Azure VMware Solution Private Cloud.
  *
  * ## Example Usage
  *
@@ -149,11 +149,11 @@ export function getPrivateCloudOutput(args: GetPrivateCloudOutputArgs, opts?: pu
  */
 export interface GetPrivateCloudOutputArgs {
     /**
-     * The name of this VMware Private Cloud.
+     * The name of this Azure VMware Solution Private Cloud.
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the VMware Private Cloud exists.
+     * The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
      */
     resourceGroupName: pulumi.Input<string>;
 }

@@ -3,9 +3,11 @@
 
 package com.pulumi.azure.stack.outputs;
 
+import com.pulumi.azure.stack.outputs.GetHciClusterIdentity;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -22,10 +24,20 @@ public final class GetHciClusterResult {
      */
     private String clientId;
     /**
+     * @return An immutable UUID for the Azure Stack HCI Cluster.
+     * 
+     */
+    private String cloudId;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    private List<GetHciClusterIdentity> identities;
     /**
      * @return The Azure Region where the Azure Stack HCI Cluster exists.
      * 
@@ -34,12 +46,22 @@ public final class GetHciClusterResult {
     private String name;
     private String resourceGroupName;
     /**
+     * @return The object ID of the Resource Provider Service Principal.
+     * 
+     */
+    private String resourceProviderObjectId;
+    /**
+     * @return The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+     * 
+     */
+    private String serviceEndpoint;
+    /**
      * @return A mapping of tags assigned to the Azure Stack HCI Cluster.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return The Tenant ID of the Azure Active Directory used by the Azure Stack HCI Cluster.
+     * @return The Tenant ID associated with this Managed Service Identity.
      * 
      */
     private String tenantId;
@@ -60,11 +82,25 @@ public final class GetHciClusterResult {
         return this.clientId;
     }
     /**
+     * @return An immutable UUID for the Azure Stack HCI Cluster.
+     * 
+     */
+    public String cloudId() {
+        return this.cloudId;
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public List<GetHciClusterIdentity> identities() {
+        return this.identities;
     }
     /**
      * @return The Azure Region where the Azure Stack HCI Cluster exists.
@@ -80,6 +116,20 @@ public final class GetHciClusterResult {
         return this.resourceGroupName;
     }
     /**
+     * @return The object ID of the Resource Provider Service Principal.
+     * 
+     */
+    public String resourceProviderObjectId() {
+        return this.resourceProviderObjectId;
+    }
+    /**
+     * @return The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
+     * 
+     */
+    public String serviceEndpoint() {
+        return this.serviceEndpoint;
+    }
+    /**
      * @return A mapping of tags assigned to the Azure Stack HCI Cluster.
      * 
      */
@@ -87,7 +137,7 @@ public final class GetHciClusterResult {
         return this.tags;
     }
     /**
-     * @return The Tenant ID of the Azure Active Directory used by the Azure Stack HCI Cluster.
+     * @return The Tenant ID associated with this Managed Service Identity.
      * 
      */
     public String tenantId() {
@@ -105,10 +155,14 @@ public final class GetHciClusterResult {
     public static final class Builder {
         private String automanageConfigurationId;
         private String clientId;
+        private String cloudId;
         private String id;
+        private List<GetHciClusterIdentity> identities;
         private String location;
         private String name;
         private String resourceGroupName;
+        private String resourceProviderObjectId;
+        private String serviceEndpoint;
         private Map<String,String> tags;
         private String tenantId;
         public Builder() {}
@@ -116,10 +170,14 @@ public final class GetHciClusterResult {
     	      Objects.requireNonNull(defaults);
     	      this.automanageConfigurationId = defaults.automanageConfigurationId;
     	      this.clientId = defaults.clientId;
+    	      this.cloudId = defaults.cloudId;
     	      this.id = defaults.id;
+    	      this.identities = defaults.identities;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
+    	      this.resourceProviderObjectId = defaults.resourceProviderObjectId;
+    	      this.serviceEndpoint = defaults.serviceEndpoint;
     	      this.tags = defaults.tags;
     	      this.tenantId = defaults.tenantId;
         }
@@ -141,12 +199,31 @@ public final class GetHciClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder cloudId(String cloudId) {
+            if (cloudId == null) {
+              throw new MissingRequiredPropertyException("GetHciClusterResult", "cloudId");
+            }
+            this.cloudId = cloudId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetHciClusterResult", "id");
             }
             this.id = id;
             return this;
+        }
+        @CustomType.Setter
+        public Builder identities(List<GetHciClusterIdentity> identities) {
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetHciClusterResult", "identities");
+            }
+            this.identities = identities;
+            return this;
+        }
+        public Builder identities(GetHciClusterIdentity... identities) {
+            return identities(List.of(identities));
         }
         @CustomType.Setter
         public Builder location(String location) {
@@ -173,6 +250,22 @@ public final class GetHciClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder resourceProviderObjectId(String resourceProviderObjectId) {
+            if (resourceProviderObjectId == null) {
+              throw new MissingRequiredPropertyException("GetHciClusterResult", "resourceProviderObjectId");
+            }
+            this.resourceProviderObjectId = resourceProviderObjectId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder serviceEndpoint(String serviceEndpoint) {
+            if (serviceEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetHciClusterResult", "serviceEndpoint");
+            }
+            this.serviceEndpoint = serviceEndpoint;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetHciClusterResult", "tags");
@@ -192,10 +285,14 @@ public final class GetHciClusterResult {
             final var _resultValue = new GetHciClusterResult();
             _resultValue.automanageConfigurationId = automanageConfigurationId;
             _resultValue.clientId = clientId;
+            _resultValue.cloudId = cloudId;
             _resultValue.id = id;
+            _resultValue.identities = identities;
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.resourceProviderObjectId = resourceProviderObjectId;
+            _resultValue.serviceEndpoint = serviceEndpoint;
             _resultValue.tags = tags;
             _resultValue.tenantId = tenantId;
             return _resultValue;

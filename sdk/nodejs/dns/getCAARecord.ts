@@ -14,12 +14,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.CaaRecord("example", {
+ * const example = azure.dns.getCAARecord({
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsCaaRecordId = exampleAzurermDnsCaaRecord.id;
+ * export const dnsCaaRecordId = example.then(example => example.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -87,12 +87,12 @@ export interface GetCAARecordResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.CaaRecord("example", {
+ * const example = azure.dns.getCAARecord({
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsCaaRecordId = exampleAzurermDnsCaaRecord.id;
+ * export const dnsCaaRecordId = example.then(example => example.id);
  * ```
  * <!--End PulumiCodeChooser -->
  */

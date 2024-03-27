@@ -209,6 +209,14 @@ namespace Pulumi.Azure.Storage
         public Output<bool?> DefaultToOauthAuthentication { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+        /// </summary>
+        [Output("dnsEndpointType")]
+        public Output<string?> DnsEndpointType { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         /// </summary>
         [Output("edgeZone")]
@@ -937,6 +945,14 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? DefaultToOauthAuthentication { get; set; }
 
         /// <summary>
+        /// Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+        /// </summary>
+        [Input("dnsEndpointType")]
+        public Input<string>? DnsEndpointType { get; set; }
+
+        /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         /// </summary>
         [Input("edgeZone")]
@@ -1190,6 +1206,14 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("defaultToOauthAuthentication")]
         public Input<bool>? DefaultToOauthAuthentication { get; set; }
+
+        /// <summary>
+        /// Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+        /// </summary>
+        [Input("dnsEndpointType")]
+        public Input<string>? DnsEndpointType { get; set; }
 
         /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.

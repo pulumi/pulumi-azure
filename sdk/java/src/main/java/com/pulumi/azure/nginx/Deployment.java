@@ -6,6 +6,8 @@ package com.pulumi.azure.nginx;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.nginx.DeploymentArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentState;
+import com.pulumi.azure.nginx.outputs.DeploymentAutoScaleProfile;
+import com.pulumi.azure.nginx.outputs.DeploymentConfiguration;
 import com.pulumi.azure.nginx.outputs.DeploymentFrontendPrivate;
 import com.pulumi.azure.nginx.outputs.DeploymentFrontendPublic;
 import com.pulumi.azure.nginx.outputs.DeploymentIdentity;
@@ -49,6 +51,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.nginx.DeploymentArgs;
  * import com.pulumi.azure.nginx.inputs.DeploymentFrontendPublicArgs;
  * import com.pulumi.azure.nginx.inputs.DeploymentNetworkInterfaceArgs;
+ * import com.pulumi.azure.nginx.inputs.DeploymentConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -97,6 +100,40 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         final var configContent = StdFunctions.base64encode(Base64encodeArgs.builder()
+ *             .input(&#34;&#34;&#34;
+ * http {
+ *     server {
+ *         listen 80;
+ *         location / {
+ *             auth_basic &#34;Protected Area&#34;;
+ *             auth_basic_user_file /opt/.htpasswd;
+ *             default_type text/html;
+ *         }
+ *         include site/*.conf;
+ *     }
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build()).result();
+ * 
+ *         final var protectedContent = StdFunctions.base64encode(Base64encodeArgs.builder()
+ *             .input(&#34;&#34;&#34;
+ * user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1
+ *             &#34;&#34;&#34;)
+ *             .build()).result();
+ * 
+ *         final var subConfigContent = StdFunctions.base64encode(Base64encodeArgs.builder()
+ *             .input(&#34;&#34;&#34;
+ * location /bbb {
+ * 	default_type text/html;
+ * 	return 200 &#39;&lt;!doctype html&gt;&lt;html lang=&#34;en&#34;&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;
+ * 		&lt;div&gt;this one will be updated&lt;/div&gt;
+ * 		&lt;div&gt;at 10:38 am&lt;/div&gt;
+ * 	&lt;/body&gt;&lt;/html&gt;&#39;;
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build()).result();
+ * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
  *             .name(&#34;example-nginx&#34;)
  *             .resourceGroupName(example.name())
@@ -113,6 +150,22 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .capacity(20)
  *             .email(&#34;user@test.com&#34;)
+ *             .configuration(DeploymentConfigurationArgs.builder()
+ *                 .rootFile(&#34;/etc/nginx/nginx.conf&#34;)
+ *                 .configFiles(                
+ *                     DeploymentConfigurationConfigFileArgs.builder()
+ *                         .content(configContent)
+ *                         .virtualPath(&#34;/etc/nginx/nginx.conf&#34;)
+ *                         .build(),
+ *                     DeploymentConfigurationConfigFileArgs.builder()
+ *                         .content(subConfigContent)
+ *                         .virtualPath(&#34;/etc/nginx/site/b.conf&#34;)
+ *                         .build())
+ *                 .protectedFiles(DeploymentConfigurationProtectedFileArgs.builder()
+ *                     .content(protectedContent)
+ *                     .virtualPath(&#34;/opt/.htpasswd&#34;)
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -131,6 +184,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:nginx/deployment:Deployment")
 public class Deployment extends com.pulumi.resources.CustomResource {
+    /**
+     * An `auto_scale_profile` block as defined below.
+     * 
+     */
+    @Export(name="autoScaleProfiles", refs={List.class,DeploymentAutoScaleProfile.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<DeploymentAutoScaleProfile>> autoScaleProfiles;
+
+    /**
+     * @return An `auto_scale_profile` block as defined below.
+     * 
+     */
+    public Output<Optional<List<DeploymentAutoScaleProfile>>> autoScaleProfiles() {
+        return Codegen.optional(this.autoScaleProfiles);
+    }
     /**
      * Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
      * 
@@ -162,6 +229,20 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> capacity() {
         return Codegen.optional(this.capacity);
+    }
+    /**
+     * Specify a custom `configuration` block as defined below.
+     * 
+     */
+    @Export(name="configuration", refs={DeploymentConfiguration.class}, tree="[0]")
+    private Output<DeploymentConfiguration> configuration;
+
+    /**
+     * @return Specify a custom `configuration` block as defined below.
+     * 
+     */
+    public Output<DeploymentConfiguration> configuration() {
+        return this.configuration;
     }
     /**
      * Should the diagnosis support be enabled?

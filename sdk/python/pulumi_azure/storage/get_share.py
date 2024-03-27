@@ -117,6 +117,8 @@ def get_share(acls: Optional[Sequence[pulumi.InputType['GetShareAclArgs']]] = No
     """
     Use this data source to access information about an existing File Share.
 
+    > **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+
     ## Example Usage
 
     <!--Start PulumiCodeChooser -->
@@ -162,6 +164,8 @@ def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[pulumi.InputT
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetShareResult]:
     """
     Use this data source to access information about an existing File Share.
+
+    > **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
 
     ## Example Usage
 

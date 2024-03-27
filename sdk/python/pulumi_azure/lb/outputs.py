@@ -94,10 +94,10 @@ class BackendAddressPoolTunnelInterface(dict):
                  protocol: str,
                  type: str):
         """
-        :param int identifier: The unique identifier of this Gateway Lodbalancer Tunnel Interface.
-        :param int port: The port number that this Gateway Lodbalancer Tunnel Interface listens to.
-        :param str protocol: The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
-        :param str type: The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
+        :param int identifier: The unique identifier of this Gateway Load Balancer Tunnel Interface.
+        :param int port: The port number that this Gateway Load Balancer Tunnel Interface listens to.
+        :param str protocol: The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+        :param str type: The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
         """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "port", port)
@@ -108,7 +108,7 @@ class BackendAddressPoolTunnelInterface(dict):
     @pulumi.getter
     def identifier(self) -> int:
         """
-        The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+        The unique identifier of this Gateway Load Balancer Tunnel Interface.
         """
         return pulumi.get(self, "identifier")
 
@@ -116,7 +116,7 @@ class BackendAddressPoolTunnelInterface(dict):
     @pulumi.getter
     def port(self) -> int:
         """
-        The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+        The port number that this Gateway Load Balancer Tunnel Interface listens to.
         """
         return pulumi.get(self, "port")
 
@@ -124,7 +124,7 @@ class BackendAddressPoolTunnelInterface(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+        The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
         """
         return pulumi.get(self, "protocol")
 
@@ -132,7 +132,7 @@ class BackendAddressPoolTunnelInterface(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
+        The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
         """
         return pulumi.get(self, "type")
 

@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class EnvironmentWorkloadProfileArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,30 +21,30 @@ public final class EnvironmentWorkloadProfileArgs extends com.pulumi.resources.R
      * The maximum number of instances of workload profile that can be deployed in the Container App Environment.
      * 
      */
-    @Import(name="maximumCount", required=true)
-    private Output<Integer> maximumCount;
+    @Import(name="maximumCount")
+    private @Nullable Output<Integer> maximumCount;
 
     /**
      * @return The maximum number of instances of workload profile that can be deployed in the Container App Environment.
      * 
      */
-    public Output<Integer> maximumCount() {
-        return this.maximumCount;
+    public Optional<Output<Integer>> maximumCount() {
+        return Optional.ofNullable(this.maximumCount);
     }
 
     /**
      * The minimum number of instances of workload profile that can be deployed in the Container App Environment.
      * 
      */
-    @Import(name="minimumCount", required=true)
-    private Output<Integer> minimumCount;
+    @Import(name="minimumCount")
+    private @Nullable Output<Integer> minimumCount;
 
     /**
      * @return The minimum number of instances of workload profile that can be deployed in the Container App Environment.
      * 
      */
-    public Output<Integer> minimumCount() {
-        return this.minimumCount;
+    public Optional<Output<Integer>> minimumCount() {
+        return Optional.ofNullable(this.minimumCount);
     }
 
     /**
@@ -61,14 +63,22 @@ public final class EnvironmentWorkloadProfileArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+     * Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+     * 
+     * &gt; **NOTE:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
+     * 
+     * &gt; **NOTE:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
      * 
      */
     @Import(name="workloadProfileType", required=true)
     private Output<String> workloadProfileType;
 
     /**
-     * @return Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+     * @return Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+     * 
+     * &gt; **NOTE:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
+     * 
+     * &gt; **NOTE:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
      * 
      */
     public Output<String> workloadProfileType() {
@@ -108,7 +118,7 @@ public final class EnvironmentWorkloadProfileArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder maximumCount(Output<Integer> maximumCount) {
+        public Builder maximumCount(@Nullable Output<Integer> maximumCount) {
             $.maximumCount = maximumCount;
             return this;
         }
@@ -129,7 +139,7 @@ public final class EnvironmentWorkloadProfileArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder minimumCount(Output<Integer> minimumCount) {
+        public Builder minimumCount(@Nullable Output<Integer> minimumCount) {
             $.minimumCount = minimumCount;
             return this;
         }
@@ -166,7 +176,11 @@ public final class EnvironmentWorkloadProfileArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param workloadProfileType Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+         * @param workloadProfileType Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+         * 
+         * &gt; **NOTE:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
+         * 
+         * &gt; **NOTE:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
          * 
          * @return builder
          * 
@@ -177,7 +191,11 @@ public final class EnvironmentWorkloadProfileArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param workloadProfileType Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+         * @param workloadProfileType Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+         * 
+         * &gt; **NOTE:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
+         * 
+         * &gt; **NOTE:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
          * 
          * @return builder
          * 
@@ -187,12 +205,6 @@ public final class EnvironmentWorkloadProfileArgs extends com.pulumi.resources.R
         }
 
         public EnvironmentWorkloadProfileArgs build() {
-            if ($.maximumCount == null) {
-                throw new MissingRequiredPropertyException("EnvironmentWorkloadProfileArgs", "maximumCount");
-            }
-            if ($.minimumCount == null) {
-                throw new MissingRequiredPropertyException("EnvironmentWorkloadProfileArgs", "minimumCount");
-            }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("EnvironmentWorkloadProfileArgs", "name");
             }

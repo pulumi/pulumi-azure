@@ -15,6 +15,8 @@ public final class AppRegistry {
     /**
      * @return Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
      * 
+     * &gt; **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
+     * 
      */
     private @Nullable String identity;
     /**
@@ -38,6 +40,8 @@ public final class AppRegistry {
     private AppRegistry() {}
     /**
      * @return Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+     * 
+     * &gt; **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
      * 
      */
     public Optional<String> identity() {

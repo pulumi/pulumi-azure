@@ -4,10 +4,12 @@
 package com.pulumi.azure.datafactory;
 
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisCatalogInfoArgs;
+import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisCopyComputeScaleArgs;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisCustomSetupScriptArgs;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisExpressCustomSetupArgs;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisExpressVnetIntegrationArgs;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisPackageStoreArgs;
+import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisPipelineExternalComputeScaleArgs;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisProxyArgs;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisVnetIntegrationArgs;
 import com.pulumi.core.Output;
@@ -38,6 +40,21 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<IntegrationRuntimeSsisCatalogInfoArgs>> catalogInfo() {
         return Optional.ofNullable(this.catalogInfo);
+    }
+
+    /**
+     * One `copy_compute_scale` block as defined below.
+     * 
+     */
+    @Import(name="copyComputeScale")
+    private @Nullable Output<IntegrationRuntimeSsisCopyComputeScaleArgs> copyComputeScale;
+
+    /**
+     * @return One `copy_compute_scale` block as defined below.
+     * 
+     */
+    public Optional<Output<IntegrationRuntimeSsisCopyComputeScaleArgs>> copyComputeScale() {
+        return Optional.ofNullable(this.copyComputeScale);
     }
 
     /**
@@ -255,6 +272,21 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * One `pipeline_external_compute_scale` block as defined below.
+     * 
+     */
+    @Import(name="pipelineExternalComputeScale")
+    private @Nullable Output<IntegrationRuntimeSsisPipelineExternalComputeScaleArgs> pipelineExternalComputeScale;
+
+    /**
+     * @return One `pipeline_external_compute_scale` block as defined below.
+     * 
+     */
+    public Optional<Output<IntegrationRuntimeSsisPipelineExternalComputeScaleArgs>> pipelineExternalComputeScale() {
+        return Optional.ofNullable(this.pipelineExternalComputeScale);
+    }
+
+    /**
      * A `proxy` block as defined below.
      * 
      */
@@ -288,6 +320,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
 
     private IntegrationRuntimeSsisArgs(IntegrationRuntimeSsisArgs $) {
         this.catalogInfo = $.catalogInfo;
+        this.copyComputeScale = $.copyComputeScale;
         this.credentialName = $.credentialName;
         this.customSetupScript = $.customSetupScript;
         this.dataFactoryId = $.dataFactoryId;
@@ -302,6 +335,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         this.nodeSize = $.nodeSize;
         this.numberOfNodes = $.numberOfNodes;
         this.packageStores = $.packageStores;
+        this.pipelineExternalComputeScale = $.pipelineExternalComputeScale;
         this.proxy = $.proxy;
         this.vnetIntegration = $.vnetIntegration;
     }
@@ -343,6 +377,27 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
          */
         public Builder catalogInfo(IntegrationRuntimeSsisCatalogInfoArgs catalogInfo) {
             return catalogInfo(Output.of(catalogInfo));
+        }
+
+        /**
+         * @param copyComputeScale One `copy_compute_scale` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder copyComputeScale(@Nullable Output<IntegrationRuntimeSsisCopyComputeScaleArgs> copyComputeScale) {
+            $.copyComputeScale = copyComputeScale;
+            return this;
+        }
+
+        /**
+         * @param copyComputeScale One `copy_compute_scale` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder copyComputeScale(IntegrationRuntimeSsisCopyComputeScaleArgs copyComputeScale) {
+            return copyComputeScale(Output.of(copyComputeScale));
         }
 
         /**
@@ -651,6 +706,27 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
          */
         public Builder packageStores(IntegrationRuntimeSsisPackageStoreArgs... packageStores) {
             return packageStores(List.of(packageStores));
+        }
+
+        /**
+         * @param pipelineExternalComputeScale One `pipeline_external_compute_scale` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipelineExternalComputeScale(@Nullable Output<IntegrationRuntimeSsisPipelineExternalComputeScaleArgs> pipelineExternalComputeScale) {
+            $.pipelineExternalComputeScale = pipelineExternalComputeScale;
+            return this;
+        }
+
+        /**
+         * @param pipelineExternalComputeScale One `pipeline_external_compute_scale` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipelineExternalComputeScale(IntegrationRuntimeSsisPipelineExternalComputeScaleArgs pipelineExternalComputeScale) {
+            return pipelineExternalComputeScale(Output.of(pipelineExternalComputeScale));
         }
 
         /**

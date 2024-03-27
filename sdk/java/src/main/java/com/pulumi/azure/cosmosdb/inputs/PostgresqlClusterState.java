@@ -4,11 +4,13 @@
 package com.pulumi.azure.cosmosdb.inputs;
 
 import com.pulumi.azure.cosmosdb.inputs.PostgresqlClusterMaintenanceWindowArgs;
+import com.pulumi.azure.cosmosdb.inputs.PostgresqlClusterServerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -309,6 +311,21 @@ public final class PostgresqlClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * A `servers` block as defined below.
+     * 
+     */
+    @Import(name="servers")
+    private @Nullable Output<List<PostgresqlClusterServerArgs>> servers;
+
+    /**
+     * @return A `servers` block as defined below.
+     * 
+     */
+    public Optional<Output<List<PostgresqlClusterServerArgs>>> servers() {
+        return Optional.ofNullable(this.servers);
+    }
+
+    /**
      * Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
      * 
      */
@@ -405,6 +422,7 @@ public final class PostgresqlClusterState extends com.pulumi.resources.ResourceA
         this.pointInTimeInUtc = $.pointInTimeInUtc;
         this.preferredPrimaryZone = $.preferredPrimaryZone;
         this.resourceGroupName = $.resourceGroupName;
+        this.servers = $.servers;
         this.shardsOnCoordinatorEnabled = $.shardsOnCoordinatorEnabled;
         this.sourceLocation = $.sourceLocation;
         this.sourceResourceId = $.sourceResourceId;
@@ -831,6 +849,37 @@ public final class PostgresqlClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param servers A `servers` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servers(@Nullable Output<List<PostgresqlClusterServerArgs>> servers) {
+            $.servers = servers;
+            return this;
+        }
+
+        /**
+         * @param servers A `servers` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servers(List<PostgresqlClusterServerArgs> servers) {
+            return servers(Output.of(servers));
+        }
+
+        /**
+         * @param servers A `servers` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servers(PostgresqlClusterServerArgs... servers) {
+            return servers(List.of(servers));
         }
 
         /**

@@ -3,6 +3,8 @@
 
 package com.pulumi.azure.nginx.inputs;
 
+import com.pulumi.azure.nginx.inputs.DeploymentAutoScaleProfileArgs;
+import com.pulumi.azure.nginx.inputs.DeploymentConfigurationArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentFrontendPrivateArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentFrontendPublicArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentIdentityArgs;
@@ -23,6 +25,21 @@ import javax.annotation.Nullable;
 public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
 
     public static final DeploymentState Empty = new DeploymentState();
+
+    /**
+     * An `auto_scale_profile` block as defined below.
+     * 
+     */
+    @Import(name="autoScaleProfiles")
+    private @Nullable Output<List<DeploymentAutoScaleProfileArgs>> autoScaleProfiles;
+
+    /**
+     * @return An `auto_scale_profile` block as defined below.
+     * 
+     */
+    public Optional<Output<List<DeploymentAutoScaleProfileArgs>>> autoScaleProfiles() {
+        return Optional.ofNullable(this.autoScaleProfiles);
+    }
 
     /**
      * Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
@@ -56,6 +73,21 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> capacity() {
         return Optional.ofNullable(this.capacity);
+    }
+
+    /**
+     * Specify a custom `configuration` block as defined below.
+     * 
+     */
+    @Import(name="configuration")
+    private @Nullable Output<DeploymentConfigurationArgs> configuration;
+
+    /**
+     * @return Specify a custom `configuration` block as defined below.
+     * 
+     */
+    public Optional<Output<DeploymentConfigurationArgs>> configuration() {
+        return Optional.ofNullable(this.configuration);
     }
 
     /**
@@ -286,8 +318,10 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     private DeploymentState() {}
 
     private DeploymentState(DeploymentState $) {
+        this.autoScaleProfiles = $.autoScaleProfiles;
         this.automaticUpgradeChannel = $.automaticUpgradeChannel;
         this.capacity = $.capacity;
+        this.configuration = $.configuration;
         this.diagnoseSupportEnabled = $.diagnoseSupportEnabled;
         this.email = $.email;
         this.frontendPrivates = $.frontendPrivates;
@@ -321,6 +355,37 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(DeploymentState defaults) {
             $ = new DeploymentState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param autoScaleProfiles An `auto_scale_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoScaleProfiles(@Nullable Output<List<DeploymentAutoScaleProfileArgs>> autoScaleProfiles) {
+            $.autoScaleProfiles = autoScaleProfiles;
+            return this;
+        }
+
+        /**
+         * @param autoScaleProfiles An `auto_scale_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoScaleProfiles(List<DeploymentAutoScaleProfileArgs> autoScaleProfiles) {
+            return autoScaleProfiles(Output.of(autoScaleProfiles));
+        }
+
+        /**
+         * @param autoScaleProfiles An `auto_scale_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoScaleProfiles(DeploymentAutoScaleProfileArgs... autoScaleProfiles) {
+            return autoScaleProfiles(List.of(autoScaleProfiles));
         }
 
         /**
@@ -367,6 +432,27 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder capacity(Integer capacity) {
             return capacity(Output.of(capacity));
+        }
+
+        /**
+         * @param configuration Specify a custom `configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configuration(@Nullable Output<DeploymentConfigurationArgs> configuration) {
+            $.configuration = configuration;
+            return this;
+        }
+
+        /**
+         * @param configuration Specify a custom `configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configuration(DeploymentConfigurationArgs configuration) {
+            return configuration(Output.of(configuration));
         }
 
         /**

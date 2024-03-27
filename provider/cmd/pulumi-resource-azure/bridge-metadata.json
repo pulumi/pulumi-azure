@@ -4695,6 +4695,9 @@
                 "fields": {
                     "maintenance_window": {
                         "maxItemsOne": true
+                    },
+                    "servers": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -5285,6 +5288,9 @@
                     "catalog_info": {
                         "maxItemsOne": true
                     },
+                    "copy_compute_scale": {
+                        "maxItemsOne": true
+                    },
                     "custom_setup_script": {
                         "maxItemsOne": true
                     },
@@ -5320,6 +5326,9 @@
                     },
                     "package_store": {
                         "maxItemsOne": false
+                    },
+                    "pipeline_external_compute_scale": {
+                        "maxItemsOne": true
                     },
                     "proxy": {
                         "maxItemsOne": true
@@ -6413,6 +6422,15 @@
                     },
                     "zones": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_elastic_san_volume": {
+                "current": "azure:elasticsan/volume:Volume",
+                "majorVersion": 5,
+                "fields": {
+                    "create_source": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -9046,6 +9064,9 @@
                                 }
                             }
                         }
+                    },
+                    "identity": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -16031,6 +16052,22 @@
                 "current": "azure:nginx/deployment:Deployment",
                 "majorVersion": 5,
                 "fields": {
+                    "auto_scale_profile": {
+                        "maxItemsOne": false
+                    },
+                    "configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "config_file": {
+                                    "maxItemsOne": false
+                                },
+                                "protected_file": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "frontend_private": {
                         "maxItemsOne": false
                     },
@@ -19486,7 +19523,12 @@
             },
             "azurerm_stack_hci_cluster": {
                 "current": "azure:stack/hciCluster:HciCluster",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "azurerm_static_site": {
                 "current": "azure:appservice/staticSite:StaticSite",
@@ -28403,6 +28445,9 @@
                 "current": "azure:nginx/getDeployment:getDeployment",
                 "majorVersion": 5,
                 "fields": {
+                    "auto_scale_profile": {
+                        "maxItemsOne": false
+                    },
                     "frontend_private": {
                         "maxItemsOne": false
                     },
@@ -29299,7 +29344,12 @@
             },
             "azurerm_stack_hci_cluster": {
                 "current": "azure:stack/getHciCluster:getHciCluster",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_static_web_app": {
                 "current": "azure:appservice/getStaticWebApp:getStaticWebApp",

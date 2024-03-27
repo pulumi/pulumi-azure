@@ -24,7 +24,7 @@ class ProtectedVMArgs:
         """
         The set of arguments for constructing a ProtectedVM resource.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] backup_policy_id: Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] exclude_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] include_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
@@ -63,7 +63,7 @@ class ProtectedVMArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+        Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -152,7 +152,7 @@ class _ProtectedVMState:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] include_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
         :param pulumi.Input[str] protection_state: Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
                
                > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
@@ -237,7 +237,7 @@ class _ProtectedVMState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+        Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -330,7 +330,7 @@ class ProtectedVM(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[int]]] include_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
         :param pulumi.Input[str] protection_state: Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
                
                > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
@@ -462,7 +462,7 @@ class ProtectedVM(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[int]]] include_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
         :param pulumi.Input[str] protection_state: Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
                
                > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
@@ -525,7 +525,7 @@ class ProtectedVM(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+        Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
