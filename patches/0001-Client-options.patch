@@ -5,18 +5,18 @@ Subject: [PATCH 1/9] Client-options
 
 
 diff --git a/internal/common/client_options.go b/internal/common/client_options.go
-index 6eba6eeaed..56ccbd5f87 100644
+index be5e783620..8d7ccb0110 100644
 --- a/internal/common/client_options.go
 +++ b/internal/common/client_options.go
-@@ -15,7 +15,6 @@ import (
+@@ -14,7 +14,6 @@ import (
+ 	"github.com/hashicorp/go-azure-sdk/sdk/auth"
  	"github.com/hashicorp/go-azure-sdk/sdk/client"
- 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
  	"github.com/hashicorp/go-azure-sdk/sdk/environments"
 -	"github.com/hashicorp/terraform-plugin-sdk/v2/meta"
  	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
  	"github.com/hashicorp/terraform-provider-azurerm/version"
  )
-@@ -103,12 +102,8 @@ func (o ClientOptions) ConfigureClient(c *autorest.Client, authorizer autorest.A
+@@ -96,12 +95,8 @@ func (o ClientOptions) ConfigureClient(c *autorest.Client, authorizer autorest.A
  }
  
  func userAgent(userAgent, tfVersion, partnerID string, disableTerraformPartnerID bool) string {
@@ -31,7 +31,7 @@ index 6eba6eeaed..56ccbd5f87 100644
  	userAgent = strings.TrimSpace(fmt.Sprintf("%s %s", userAgent, providerUserAgent))
  
  	// append the CloudShell version to the user agent if it exists
-@@ -117,11 +112,11 @@ func userAgent(userAgent, tfVersion, partnerID string, disableTerraformPartnerID
+@@ -110,11 +105,11 @@ func userAgent(userAgent, tfVersion, partnerID string, disableTerraformPartnerID
  	}
  
  	// only one pid can be interpreted currently

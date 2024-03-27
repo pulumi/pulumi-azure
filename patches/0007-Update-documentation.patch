@@ -74,7 +74,7 @@ index 5dbdb7d11e..2f4f4c2ff9 100644
  
  ```hcl
 diff --git a/website/docs/d/kubernetes_cluster.html.markdown b/website/docs/d/kubernetes_cluster.html.markdown
-index c3d65c12e7..061d3a67b0 100644
+index 29cdea762b..fb16b7aaa3 100644
 --- a/website/docs/d/kubernetes_cluster.html.markdown
 +++ b/website/docs/d/kubernetes_cluster.html.markdown
 @@ -10,9 +10,6 @@ description: |-
@@ -975,7 +975,7 @@ index 0000000000..2789c4e8a4
 +terraform import azurerm_connection_monitor.monitor1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/monitor1
 +```
 diff --git a/website/docs/r/container_group.html.markdown b/website/docs/r/container_group.html.markdown
-index 8777a8e41d..43db0332c3 100644
+index 31df674972..74819d42a3 100644
 --- a/website/docs/r/container_group.html.markdown
 +++ b/website/docs/r/container_group.html.markdown
 @@ -14,7 +14,7 @@ Manages as an Azure Container Group instance.
@@ -1268,10 +1268,10 @@ index 20581a02c2..392d3276c0 100644
  ## Example Usage
  
 diff --git a/website/docs/r/data_factory_integration_runtime_self_hosted.html.markdown b/website/docs/r/data_factory_integration_runtime_self_hosted.html.markdown
-index 4f43abf604..3a2a944573 100644
+index 3bfeb2ad0b..360443e61d 100644
 --- a/website/docs/r/data_factory_integration_runtime_self_hosted.html.markdown
 +++ b/website/docs/r/data_factory_integration_runtime_self_hosted.html.markdown
-@@ -50,7 +50,7 @@ A `rbac_authorization` block supports the following:
+@@ -52,7 +52,7 @@ A `rbac_authorization` block supports the following:
  
  * `resource_id` - (Required) The resource identifier of the integration runtime to be shared.
  
@@ -1628,10 +1628,10 @@ index 42d7dd4c1e..acd6b62db5 100644
  
    storage_account {
 diff --git a/website/docs/r/healthcare_service.html.markdown b/website/docs/r/healthcare_service.html.markdown
-index bf47c3b7ca..373f58d791 100644
+index 18197f4acd..f7991b35d9 100644
 --- a/website/docs/r/healthcare_service.html.markdown
 +++ b/website/docs/r/healthcare_service.html.markdown
-@@ -71,9 +71,9 @@ The following arguments are supported:
+@@ -84,9 +84,9 @@ An `identity` block supports the following:
  ---
  An `authentication_configuration` block supports the following:
  
@@ -1799,7 +1799,7 @@ index c6387f8e37..10ac1d0ad4 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 242667b00f..e6dfc6efef 100644
+index 17f9fae3e1..cf5c154844 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -2172,10 +2172,10 @@ index 4289b3af47..30eccc2326 100644
  ```hcl
  data "azurerm_virtual_machine" "example" {
 diff --git a/website/docs/r/mysql_virtual_network_rule.html.markdown b/website/docs/r/mysql_virtual_network_rule.html.markdown
-index 307626a767..00ab7f0475 100644
+index a28f55218f..54d6c8cd9d 100644
 --- a/website/docs/r/mysql_virtual_network_rule.html.markdown
 +++ b/website/docs/r/mysql_virtual_network_rule.html.markdown
-@@ -82,7 +82,7 @@ The following arguments are supported:
+@@ -84,7 +84,7 @@ The following arguments are supported:
  
  * `subnet_id` - (Required) The ID of the subnet that the MySQL server will be connected to.
  
@@ -2591,7 +2591,7 @@ index 1e67c40d11..97e4bc8354 100644
  }
  
 diff --git a/website/docs/r/servicebus_queue.html.markdown b/website/docs/r/servicebus_queue.html.markdown
-index 0d40f4a741..2e7ae3040f 100644
+index 0791e08ecd..7957b743b8 100644
 --- a/website/docs/r/servicebus_queue.html.markdown
 +++ b/website/docs/r/servicebus_queue.html.markdown
 @@ -14,7 +14,7 @@ Manages a ServiceBus Queue.
