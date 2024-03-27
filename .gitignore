@@ -36,3 +36,4 @@ sdk/python/venv
 go.work
 go.work.sum
 .mono
+pulumi-azure.sln
