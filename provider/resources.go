@@ -1847,18 +1847,11 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_public_ip_prefix": {
-				Tok: azureResource(azureNetwork, "PublicIpPrefix"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// Ensure "sku" is a singleton
-					// Per the Azure API, this is not able to be multiple versions so is wrong in the upstream provider
-					"sku": {Name: "sku", MaxItemsOne: ref(true)},
-				},
-			},
-			"azurerm_route":        {Tok: azureResource(azureNetwork, "Route")},
-			"azurerm_route_filter": {Tok: azureResource(azureNetwork, "RouteFilter")},
-			"azurerm_route_table":  {Tok: azureResource(azureNetwork, "RouteTable")},
-			"azurerm_route_map":    {Tok: azureResource(azureNetwork, "RouteMap")},
+			"azurerm_public_ip_prefix": {Tok: azureResource(azureNetwork, "PublicIpPrefix")},
+			"azurerm_route":            {Tok: azureResource(azureNetwork, "Route")},
+			"azurerm_route_filter":     {Tok: azureResource(azureNetwork, "RouteFilter")},
+			"azurerm_route_table":      {Tok: azureResource(azureNetwork, "RouteTable")},
+			"azurerm_route_map":        {Tok: azureResource(azureNetwork, "RouteMap")},
 			"azurerm_subnet": {
 				Tok: azureResource(azureNetwork, "Subnet"),
 				Fields: map[string]*tfbridge.SchemaInfo{
