@@ -61,6 +61,7 @@ import javax.annotation.Nullable;
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
+ *         //Create a Linked Service using managed identity and new cluster config
  *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
  *             .name(&#34;TestDtaFactory92783401247&#34;)
  *             .location(example.location())
@@ -70,6 +71,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         //Create a databricks instance
  *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
  *             .name(&#34;databricks-test&#34;)
  *             .resourceGroupName(example.name())
@@ -148,12 +150,14 @@ import javax.annotation.Nullable;
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
+ *         //Link to an existing cluster via access token
  *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
  *             .name(&#34;TestDtaFactory92783401247&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
+ *         //Create a databricks instance
  *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
  *             .name(&#34;databricks-test&#34;)
  *             .resourceGroupName(example.name())

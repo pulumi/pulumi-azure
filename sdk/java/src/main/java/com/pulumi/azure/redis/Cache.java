@@ -60,6 +60,7 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
+ *         // NOTE: the Name used for Redis needs to be globally unique
  *         var exampleCache = new Cache(&#34;exampleCache&#34;, CacheArgs.builder()        
  *             .name(&#34;example-cache&#34;)
  *             .location(example.location())
