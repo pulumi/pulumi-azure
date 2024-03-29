@@ -133,6 +133,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .build());
  * 
+ *         // associate to a Data Collection Rule
  *         var example1 = new DataCollectionRuleAssociation(&#34;example1&#34;, DataCollectionRuleAssociationArgs.builder()        
  *             .name(&#34;example1-dcra&#34;)
  *             .targetResourceId(exampleLinuxVirtualMachine.id())
@@ -140,6 +141,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;example&#34;)
  *             .build());
  * 
+ *         // associate to a Data Collection Endpoint
  *         var example2 = new DataCollectionRuleAssociation(&#34;example2&#34;, DataCollectionRuleAssociationArgs.builder()        
  *             .targetResourceId(exampleLinuxVirtualMachine.id())
  *             .dataCollectionEndpointId(exampleDataCollectionEndpoint.id())

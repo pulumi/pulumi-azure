@@ -218,6 +218,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // basic example
  *         var exampleRunCommand = new RunCommand(&#34;exampleRunCommand&#34;, RunCommandArgs.builder()        
  *             .name(&#34;example-vmrc&#34;)
  *             .location(exampleResourceGroup.location())
@@ -227,6 +228,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // authorize to storage blob using user assigned identity
  *         var example2RunCommand = new RunCommand(&#34;example2RunCommand&#34;, RunCommandArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .name(&#34;example2-vmrc&#34;)
@@ -261,6 +263,7 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
+ *         // authorize to storage blob using SAS token
  *         var example3RunCommand = new RunCommand(&#34;example3RunCommand&#34;, RunCommandArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .name(&#34;example3-vmrc&#34;)
