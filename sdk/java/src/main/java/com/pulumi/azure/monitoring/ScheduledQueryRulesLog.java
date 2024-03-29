@@ -80,6 +80,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Example: Creates alert using the new Scheduled Query Rules metric
  *         var exampleMetricAlert = new MetricAlert(&#34;exampleMetricAlert&#34;, MetricAlertArgs.builder()        
  *             .name(&#34;example-metricalert&#34;)
  *             .resourceGroupName(example.name())
@@ -99,6 +100,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Example: LogToMetric Action for the named Computer
  *         var exampleScheduledQueryRulesLog = new ScheduledQueryRulesLog(&#34;exampleScheduledQueryRulesLog&#34;, ScheduledQueryRulesLogArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .location(example.location())

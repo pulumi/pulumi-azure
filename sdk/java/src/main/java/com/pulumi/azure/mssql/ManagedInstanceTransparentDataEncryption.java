@@ -201,6 +201,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Create a key vault with policies for the deployer to create a key &amp; SQL Managed Instance to wrap/unwrap/get key
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .location(example.location())
