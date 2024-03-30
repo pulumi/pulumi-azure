@@ -69,11 +69,11 @@ import * as utilities from "../utilities";
  * }).then(invoke => invoke.result);
  * const subConfigContent = std.base64encode({
  *     input: `location /bbb {
- * 	default_type text/html;
- * 	return 200 '<!doctype html><html lang="en"><head></head><body>
- * 		<div>this one will be updated</div>
- * 		<div>at 10:38 am</div>
- * 	</body></html>';
+ * \x09default_type text/html;
+ * \x09return 200 '<!doctype html><html lang="en"><head></head><body>
+ * \x09\x09<div>this one will be updated</div>
+ * \x09\x09<div>at 10:38 am</div>
+ * \x09</body></html>';
  * }
  * `,
  * }).then(invoke => invoke.result);
