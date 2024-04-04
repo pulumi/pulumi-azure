@@ -105,7 +105,7 @@ export class EnvironmentDaprComponent extends pulumi.CustomResource {
     /**
      * A list of scopes to which this component applies.
      *
-     * > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%!C(MISSING)yaml#component-scopes
+     * > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      */
     public readonly scopes!: pulumi.Output<string[] | undefined>;
     /**
@@ -198,7 +198,7 @@ export interface EnvironmentDaprComponentState {
     /**
      * A list of scopes to which this component applies.
      *
-     * > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%!C(MISSING)yaml#component-scopes
+     * > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -242,7 +242,7 @@ export interface EnvironmentDaprComponentArgs {
     /**
      * A list of scopes to which this component applies.
      *
-     * > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%!C(MISSING)yaml#component-scopes
+     * > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

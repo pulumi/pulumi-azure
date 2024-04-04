@@ -93,7 +93,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
      * 
      * -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
      * 
-     * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](&lt;https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature&gt;) for more information.
+     * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
      * 
      */
     @Import(name="ipVersions")
@@ -104,7 +104,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
      * 
      * -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
      * 
-     * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](&lt;https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature&gt;) for more information.
+     * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
      * 
      */
     public Optional<Output<List<String>>> ipVersions() {
@@ -450,7 +450,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          * 
          * -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
          * 
-         * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](&lt;https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature&gt;) for more information.
+         * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          * 
          * -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
          * 
-         * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](&lt;https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature&gt;) for more information.
+         * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          * 
          * -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
          * 
-         * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](&lt;https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature&gt;) for more information.
+         * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
          * 
          * @return builder
          * 

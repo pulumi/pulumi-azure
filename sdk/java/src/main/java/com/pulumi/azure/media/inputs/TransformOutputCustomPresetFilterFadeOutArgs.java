@@ -17,14 +17,14 @@ public final class TransformOutputCustomPresetFilterFadeOutArgs extends com.pulu
     public static final TransformOutputCustomPresetFilterFadeOutArgs Empty = new TransformOutputCustomPresetFilterFadeOutArgs();
 
     /**
-     * The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+     * The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
      * 
      */
     @Import(name="duration", required=true)
     private Output<String> duration;
 
     /**
-     * @return The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+     * @return The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
      * 
      */
     public Output<String> duration() {
@@ -47,14 +47,14 @@ public final class TransformOutputCustomPresetFilterFadeOutArgs extends com.pulu
     }
 
     /**
-     * The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+     * The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
      * 
      */
     @Import(name="start")
     private @Nullable Output<String> start;
 
     /**
-     * @return The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+     * @return The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
      * 
      */
     public Optional<Output<String>> start() {
@@ -88,7 +88,7 @@ public final class TransformOutputCustomPresetFilterFadeOutArgs extends com.pulu
         }
 
         /**
-         * @param duration The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+         * @param duration The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class TransformOutputCustomPresetFilterFadeOutArgs extends com.pulu
         }
 
         /**
-         * @param duration The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+         * @param duration The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class TransformOutputCustomPresetFilterFadeOutArgs extends com.pulu
         }
 
         /**
-         * @param start The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+         * @param start The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class TransformOutputCustomPresetFilterFadeOutArgs extends com.pulu
         }
 
         /**
-         * @param start The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+         * @param start The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
          * 
          * @return builder
          * 

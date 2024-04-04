@@ -199,7 +199,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        /// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         /// </summary>
         [Output("samplingPercentage")]
         public Output<double> SamplingPercentage { get; private set; } = null!;
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        /// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         /// </summary>
         [Input("samplingPercentage")]
         public Input<double>? SamplingPercentage { get; set; }
@@ -421,7 +421,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        /// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         /// </summary>
         [Input("samplingPercentage")]
         public Input<double>? SamplingPercentage { get; set; }

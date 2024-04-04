@@ -16,14 +16,14 @@ public final class TransformOutputCustomPresetFilterOverlayVideoPositionArgs ext
     public static final TransformOutputCustomPresetFilterOverlayVideoPositionArgs Empty = new TransformOutputCustomPresetFilterOverlayVideoPositionArgs();
 
     /**
-     * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     @Import(name="height")
     private @Nullable Output<String> height;
 
     /**
-     * @return The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * @return The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     public Optional<Output<String>> height() {
@@ -31,14 +31,14 @@ public final class TransformOutputCustomPresetFilterOverlayVideoPositionArgs ext
     }
 
     /**
-     * The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     @Import(name="left")
     private @Nullable Output<String> left;
 
     /**
-     * @return The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * @return The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     public Optional<Output<String>> left() {
@@ -46,14 +46,14 @@ public final class TransformOutputCustomPresetFilterOverlayVideoPositionArgs ext
     }
 
     /**
-     * The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     @Import(name="top")
     private @Nullable Output<String> top;
 
     /**
-     * @return The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * @return The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     public Optional<Output<String>> top() {
@@ -61,14 +61,14 @@ public final class TransformOutputCustomPresetFilterOverlayVideoPositionArgs ext
     }
 
     /**
-     * The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
      * 
      */
     @Import(name="width")
     private @Nullable Output<String> width;
 
     /**
-     * @return The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * @return The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
      * 
      */
     public Optional<Output<String>> width() {
@@ -103,7 +103,7 @@ public final class TransformOutputCustomPresetFilterOverlayVideoPositionArgs ext
         }
 
         /**
-         * @param height The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * @param height The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class TransformOutputCustomPresetFilterOverlayVideoPositionArgs ext
         }
 
         /**
-         * @param height The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * @param height The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class TransformOutputCustomPresetFilterOverlayVideoPositionArgs ext
         }
 
         /**
-         * @param left The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * @param left The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class TransformOutputCustomPresetFilterOverlayVideoPositionArgs ext
         }
 
         /**
-         * @param left The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * @param left The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class TransformOutputCustomPresetFilterOverlayVideoPositionArgs ext
         }
 
         /**
-         * @param top The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * @param top The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class TransformOutputCustomPresetFilterOverlayVideoPositionArgs ext
         }
 
         /**
-         * @param top The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * @param top The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class TransformOutputCustomPresetFilterOverlayVideoPositionArgs ext
         }
 
         /**
-         * @param width The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * @param width The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class TransformOutputCustomPresetFilterOverlayVideoPositionArgs ext
         }
 
         /**
-         * @param width The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * @param width The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 

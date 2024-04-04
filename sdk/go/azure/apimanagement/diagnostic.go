@@ -156,7 +156,7 @@ type Diagnostic struct {
 	OperationNameFormat pulumi.StringPtrOutput `pulumi:"operationNameFormat"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+	// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
 	SamplingPercentage pulumi.Float64Output `pulumi:"samplingPercentage"`
 	// Logging verbosity. Possible values are `verbose`, `information` or `error`.
 	Verbosity pulumi.StringOutput `pulumi:"verbosity"`
@@ -228,7 +228,7 @@ type diagnosticState struct {
 	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+	// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// Logging verbosity. Possible values are `verbose`, `information` or `error`.
 	Verbosity *string `pulumi:"verbosity"`
@@ -259,7 +259,7 @@ type DiagnosticState struct {
 	OperationNameFormat pulumi.StringPtrInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+	// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
 	SamplingPercentage pulumi.Float64PtrInput
 	// Logging verbosity. Possible values are `verbose`, `information` or `error`.
 	Verbosity pulumi.StringPtrInput
@@ -294,7 +294,7 @@ type diagnosticArgs struct {
 	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+	// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// Logging verbosity. Possible values are `verbose`, `information` or `error`.
 	Verbosity *string `pulumi:"verbosity"`
@@ -326,7 +326,7 @@ type DiagnosticArgs struct {
 	OperationNameFormat pulumi.StringPtrInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+	// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
 	SamplingPercentage pulumi.Float64PtrInput
 	// Logging verbosity. Possible values are `verbose`, `information` or `error`.
 	Verbosity pulumi.StringPtrInput
@@ -479,7 +479,7 @@ func (o DiagnosticOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Diagnostic) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
 func (o DiagnosticOutput) SamplingPercentage() pulumi.Float64Output {
 	return o.ApplyT(func(v *Diagnostic) pulumi.Float64Output { return v.SamplingPercentage }).(pulumi.Float64Output)
 }

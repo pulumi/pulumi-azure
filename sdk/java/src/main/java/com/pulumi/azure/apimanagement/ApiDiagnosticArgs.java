@@ -218,14 +218,14 @@ public final class ApiDiagnosticArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+     * Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
      * 
      */
     @Import(name="samplingPercentage")
     private @Nullable Output<Double> samplingPercentage;
 
     /**
-     * @return Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+     * @return Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
      * 
      */
     public Optional<Output<Double>> samplingPercentage() {
@@ -559,7 +559,7 @@ public final class ApiDiagnosticArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param samplingPercentage Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+         * @param samplingPercentage Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
          * 
          * @return builder
          * 
@@ -570,7 +570,7 @@ public final class ApiDiagnosticArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param samplingPercentage Sampling (%!)(MISSING). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+         * @param samplingPercentage Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
          * 
          * @return builder
          * 
