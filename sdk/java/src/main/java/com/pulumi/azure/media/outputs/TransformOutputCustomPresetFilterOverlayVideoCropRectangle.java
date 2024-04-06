@@ -12,50 +12,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TransformOutputCustomPresetFilterOverlayVideoCropRectangle {
     /**
-     * @return The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * @return The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     private @Nullable String height;
     /**
-     * @return The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * @return The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     private @Nullable String left;
     /**
-     * @return The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * @return The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     private @Nullable String top;
     /**
-     * @return The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * @return The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
      * 
      */
     private @Nullable String width;
 
     private TransformOutputCustomPresetFilterOverlayVideoCropRectangle() {}
     /**
-     * @return The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * @return The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     public Optional<String> height() {
         return Optional.ofNullable(this.height);
     }
     /**
-     * @return The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * @return The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     public Optional<String> left() {
         return Optional.ofNullable(this.left);
     }
     /**
-     * @return The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * @return The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     public Optional<String> top() {
         return Optional.ofNullable(this.top);
     }
     /**
-     * @return The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+     * @return The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
      * 
      */
     public Optional<String> width() {

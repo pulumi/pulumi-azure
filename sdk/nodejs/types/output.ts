@@ -32246,7 +32246,7 @@ export namespace containerservice {
          *
          * ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
          *
-         * ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+         * ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
          */
         ipVersions: string[];
         /**
@@ -32329,7 +32329,7 @@ export namespace containerservice {
         /**
          * The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
          *
-         * > **Note:** `managedOutboundIpv6Count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+         * > **Note:** `managedOutboundIpv6Count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
          */
         managedOutboundIpv6Count: number;
         /**
@@ -37191,7 +37191,7 @@ export namespace desktopvirtualization {
          */
         peakStartTime: string;
         /**
-         * This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60%!a(MISSING)nd your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+         * This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
          */
         rampDownCapacityThresholdPercent: number;
         /**
@@ -37203,7 +37203,7 @@ export namespace desktopvirtualization {
          */
         rampDownLoadBalancingAlgorithm: string;
         /**
-         * The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10%!a(MISSING)nd total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+         * The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
          */
         rampDownMinimumHostsPercent: number;
         /**
@@ -37223,7 +37223,7 @@ export namespace desktopvirtualization {
          */
         rampDownWaitTimeMinutes: number;
         /**
-         * This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%!`(MISSING) and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
+         * This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
          */
         rampUpCapacityThresholdPercent?: number;
         /**
@@ -37231,7 +37231,7 @@ export namespace desktopvirtualization {
          */
         rampUpLoadBalancingAlgorithm: string;
         /**
-         * Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%!`(MISSING) and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
+         * Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
          */
         rampUpMinimumHostsPercent?: number;
         /**
@@ -48181,7 +48181,7 @@ export namespace media {
          */
         frameRate?: string;
         /**
-         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
          */
         height: string;
         /**
@@ -48209,7 +48209,7 @@ export namespace media {
          */
         slices: number;
         /**
-         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
          */
         width: string;
     }
@@ -48271,7 +48271,7 @@ export namespace media {
          */
         frameRate?: string;
         /**
-         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
          */
         height: string;
         /**
@@ -48299,7 +48299,7 @@ export namespace media {
          */
         slices: number;
         /**
-         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
          */
         width: string;
     }
@@ -48318,7 +48318,7 @@ export namespace media {
          */
         layers?: outputs.media.TransformOutputCustomPresetCodecJpgImageLayer[];
         /**
-         * The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%!`(MISSING) to stop at half of stream duration from start time). The default value is `100%!`(MISSING), which means to stop at the end of the stream.
+         * The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
          */
         range?: string;
         /**
@@ -48326,11 +48326,11 @@ export namespace media {
          */
         spriteColumn?: number;
         /**
-         * The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+         * The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
          */
         start: string;
         /**
-         * The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%!`(MISSING) for one image every 10%!o(MISSING)f stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%!`(MISSING), it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+         * The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
          */
         step?: string;
         /**
@@ -48345,7 +48345,7 @@ export namespace media {
 
     export interface TransformOutputCustomPresetCodecJpgImageLayer {
         /**
-         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
          */
         height?: string;
         /**
@@ -48357,7 +48357,7 @@ export namespace media {
          */
         quality?: number;
         /**
-         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
          */
         width?: string;
     }
@@ -48376,15 +48376,15 @@ export namespace media {
          */
         layers?: outputs.media.TransformOutputCustomPresetCodecPngImageLayer[];
         /**
-         * The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%!`(MISSING) to stop at half of stream duration from start time). The default value is `100%!`(MISSING), which means to stop at the end of the stream.
+         * The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
          */
         range?: string;
         /**
-         * The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+         * The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
          */
         start: string;
         /**
-         * The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%!`(MISSING) for one image every 10%!o(MISSING)f stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%!`(MISSING), it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+         * The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
          */
         step?: string;
         /**
@@ -48399,7 +48399,7 @@ export namespace media {
 
     export interface TransformOutputCustomPresetCodecPngImageLayer {
         /**
-         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
          */
         height?: string;
         /**
@@ -48407,7 +48407,7 @@ export namespace media {
          */
         label?: string;
         /**
-         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
          */
         width?: string;
     }
@@ -48441,19 +48441,19 @@ export namespace media {
 
     export interface TransformOutputCustomPresetFilterCropRectangle {
         /**
-         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          */
         height?: string;
         /**
-         * The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          */
         left?: string;
         /**
-         * The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          */
         top?: string;
         /**
-         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
          */
         width?: string;
     }
@@ -48471,7 +48471,7 @@ export namespace media {
 
     export interface TransformOutputCustomPresetFilterFadeIn {
         /**
-         * The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+         * The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
          */
         duration: string;
         /**
@@ -48479,14 +48479,14 @@ export namespace media {
          */
         fadeColor: string;
         /**
-         * The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+         * The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
          */
         start?: string;
     }
 
     export interface TransformOutputCustomPresetFilterFadeOut {
         /**
-         * The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+         * The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
          */
         duration: string;
         /**
@@ -48494,7 +48494,7 @@ export namespace media {
          */
         fadeColor: string;
         /**
-         * The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+         * The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
          */
         start?: string;
     }
@@ -48580,38 +48580,38 @@ export namespace media {
 
     export interface TransformOutputCustomPresetFilterOverlayVideoCropRectangle {
         /**
-         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          */
         height?: string;
         /**
-         * The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          */
         left?: string;
         /**
-         * The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          */
         top?: string;
         /**
-         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
          */
         width?: string;
     }
 
     export interface TransformOutputCustomPresetFilterOverlayVideoPosition {
         /**
-         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          */
         height?: string;
         /**
-         * The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          */
         left?: string;
         /**
-         * The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          */
         top?: string;
         /**
-         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
          */
         width?: string;
     }

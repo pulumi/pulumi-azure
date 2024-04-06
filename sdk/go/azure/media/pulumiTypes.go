@@ -11195,7 +11195,7 @@ type TransformOutputCustomPresetCodecH264VideoLayer struct {
 	EntropyMode *string `pulumi:"entropyMode"`
 	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
 	FrameRate *string `pulumi:"frameRate"`
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
 	Height *string `pulumi:"height"`
 	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label *string `pulumi:"label"`
@@ -11209,7 +11209,7 @@ type TransformOutputCustomPresetCodecH264VideoLayer struct {
 	ReferenceFrames *int `pulumi:"referenceFrames"`
 	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
 	Slices *int `pulumi:"slices"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
 	Width *string `pulumi:"width"`
 }
 
@@ -11239,7 +11239,7 @@ type TransformOutputCustomPresetCodecH264VideoLayerArgs struct {
 	EntropyMode pulumi.StringPtrInput `pulumi:"entropyMode"`
 	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
 	FrameRate pulumi.StringPtrInput `pulumi:"frameRate"`
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
 	Height pulumi.StringPtrInput `pulumi:"height"`
 	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label pulumi.StringPtrInput `pulumi:"label"`
@@ -11253,7 +11253,7 @@ type TransformOutputCustomPresetCodecH264VideoLayerArgs struct {
 	ReferenceFrames pulumi.IntPtrInput `pulumi:"referenceFrames"`
 	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
 	Slices pulumi.IntPtrInput `pulumi:"slices"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
 	Width pulumi.StringPtrInput `pulumi:"width"`
 }
 
@@ -11343,7 +11343,7 @@ func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) FrameRate() pulumi
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.FrameRate }).(pulumi.StringPtrOutput)
 }
 
-// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
@@ -11378,7 +11378,7 @@ func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Slices() pulumi.In
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *int { return v.Slices }).(pulumi.IntPtrOutput)
 }
 
-// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -11669,7 +11669,7 @@ type TransformOutputCustomPresetCodecH265VideoLayer struct {
 	Crf *float64 `pulumi:"crf"`
 	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
 	FrameRate *string `pulumi:"frameRate"`
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
 	Height *string `pulumi:"height"`
 	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label *string `pulumi:"label"`
@@ -11683,7 +11683,7 @@ type TransformOutputCustomPresetCodecH265VideoLayer struct {
 	ReferenceFrames *int `pulumi:"referenceFrames"`
 	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
 	Slices *int `pulumi:"slices"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
 	Width *string `pulumi:"width"`
 }
 
@@ -11711,7 +11711,7 @@ type TransformOutputCustomPresetCodecH265VideoLayerArgs struct {
 	Crf pulumi.Float64PtrInput `pulumi:"crf"`
 	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
 	FrameRate pulumi.StringPtrInput `pulumi:"frameRate"`
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
 	Height pulumi.StringPtrInput `pulumi:"height"`
 	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label pulumi.StringPtrInput `pulumi:"label"`
@@ -11725,7 +11725,7 @@ type TransformOutputCustomPresetCodecH265VideoLayerArgs struct {
 	ReferenceFrames pulumi.IntPtrInput `pulumi:"referenceFrames"`
 	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
 	Slices pulumi.IntPtrInput `pulumi:"slices"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
 	Width pulumi.StringPtrInput `pulumi:"width"`
 }
 
@@ -11810,7 +11810,7 @@ func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) FrameRate() pulumi
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.FrameRate }).(pulumi.StringPtrOutput)
 }
 
-// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
@@ -11845,7 +11845,7 @@ func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Slices() pulumi.In
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *int { return v.Slices }).(pulumi.IntPtrOutput)
 }
 
-// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -11877,13 +11877,13 @@ type TransformOutputCustomPresetCodecJpgImage struct {
 	Label *string `pulumi:"label"`
 	// One or more `layer` blocks as defined below.
 	Layers []TransformOutputCustomPresetCodecJpgImageLayer `pulumi:"layers"`
-	// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%!`(MISSING) to stop at half of stream duration from start time). The default value is `100%!`(MISSING), which means to stop at the end of the stream.
+	// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
 	Range *string `pulumi:"range"`
 	// Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
 	SpriteColumn *int `pulumi:"spriteColumn"`
-	// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+	// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
 	Start string `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%!`(MISSING) for one image every 10%!o(MISSING)f stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%!`(MISSING), it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+	// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
 	Step *string `pulumi:"step"`
 	// The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
 	StretchMode *string `pulumi:"stretchMode"`
@@ -11909,13 +11909,13 @@ type TransformOutputCustomPresetCodecJpgImageArgs struct {
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// One or more `layer` blocks as defined below.
 	Layers TransformOutputCustomPresetCodecJpgImageLayerArrayInput `pulumi:"layers"`
-	// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%!`(MISSING) to stop at half of stream duration from start time). The default value is `100%!`(MISSING), which means to stop at the end of the stream.
+	// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
 	Range pulumi.StringPtrInput `pulumi:"range"`
 	// Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
 	SpriteColumn pulumi.IntPtrInput `pulumi:"spriteColumn"`
-	// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+	// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
 	Start pulumi.StringInput `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%!`(MISSING) for one image every 10%!o(MISSING)f stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%!`(MISSING), it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+	// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
 	Step pulumi.StringPtrInput `pulumi:"step"`
 	// The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
 	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
@@ -12017,7 +12017,7 @@ func (o TransformOutputCustomPresetCodecJpgImageOutput) Layers() TransformOutput
 	}).(TransformOutputCustomPresetCodecJpgImageLayerArrayOutput)
 }
 
-// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%!`(MISSING) to stop at half of stream duration from start time). The default value is `100%!`(MISSING), which means to stop at the end of the stream.
+// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
 func (o TransformOutputCustomPresetCodecJpgImageOutput) Range() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) *string { return v.Range }).(pulumi.StringPtrOutput)
 }
@@ -12027,12 +12027,12 @@ func (o TransformOutputCustomPresetCodecJpgImageOutput) SpriteColumn() pulumi.In
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) *int { return v.SpriteColumn }).(pulumi.IntPtrOutput)
 }
 
-// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
 func (o TransformOutputCustomPresetCodecJpgImageOutput) Start() pulumi.StringOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) string { return v.Start }).(pulumi.StringOutput)
 }
 
-// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%!`(MISSING) for one image every 10%!o(MISSING)f stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%!`(MISSING), it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
 func (o TransformOutputCustomPresetCodecJpgImageOutput) Step() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) *string { return v.Step }).(pulumi.StringPtrOutput)
 }
@@ -12101,7 +12101,7 @@ func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) Layers() TransformOut
 	}).(TransformOutputCustomPresetCodecJpgImageLayerArrayOutput)
 }
 
-// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%!`(MISSING) to stop at half of stream duration from start time). The default value is `100%!`(MISSING), which means to stop at the end of the stream.
+// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
 func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) Range() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) *string {
 		if v == nil {
@@ -12121,7 +12121,7 @@ func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) SpriteColumn() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
 func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) *string {
 		if v == nil {
@@ -12131,7 +12131,7 @@ func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) Start() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%!`(MISSING) for one image every 10%!o(MISSING)f stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%!`(MISSING), it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
 func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) Step() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) *string {
 		if v == nil {
@@ -12162,13 +12162,13 @@ func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) SyncMode() pulumi.Str
 }
 
 type TransformOutputCustomPresetCodecJpgImageLayer struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
 	Height *string `pulumi:"height"`
 	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label *string `pulumi:"label"`
 	// The compression quality of the JPEG output. Range is from `0` to `100` and the default is `70`.
 	Quality *int `pulumi:"quality"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
 	Width *string `pulumi:"width"`
 }
 
@@ -12184,13 +12184,13 @@ type TransformOutputCustomPresetCodecJpgImageLayerInput interface {
 }
 
 type TransformOutputCustomPresetCodecJpgImageLayerArgs struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
 	Height pulumi.StringPtrInput `pulumi:"height"`
 	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The compression quality of the JPEG output. Range is from `0` to `100` and the default is `70`.
 	Quality pulumi.IntPtrInput `pulumi:"quality"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
 	Width pulumi.StringPtrInput `pulumi:"width"`
 }
 
@@ -12245,7 +12245,7 @@ func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) ToTransformOutputCu
 	return o
 }
 
-// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
 func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImageLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
@@ -12260,7 +12260,7 @@ func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) Quality() pulumi.In
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImageLayer) *int { return v.Quality }).(pulumi.IntPtrOutput)
 }
 
-// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
 func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImageLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -12292,11 +12292,11 @@ type TransformOutputCustomPresetCodecPngImage struct {
 	Label *string `pulumi:"label"`
 	// One or more `layer` blocks as defined below.
 	Layers []TransformOutputCustomPresetCodecPngImageLayer `pulumi:"layers"`
-	// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%!`(MISSING) to stop at half of stream duration from start time). The default value is `100%!`(MISSING), which means to stop at the end of the stream.
+	// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
 	Range *string `pulumi:"range"`
-	// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+	// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
 	Start string `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%!`(MISSING) for one image every 10%!o(MISSING)f stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%!`(MISSING), it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+	// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
 	Step *string `pulumi:"step"`
 	// The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
 	StretchMode *string `pulumi:"stretchMode"`
@@ -12322,11 +12322,11 @@ type TransformOutputCustomPresetCodecPngImageArgs struct {
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// One or more `layer` blocks as defined below.
 	Layers TransformOutputCustomPresetCodecPngImageLayerArrayInput `pulumi:"layers"`
-	// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%!`(MISSING) to stop at half of stream duration from start time). The default value is `100%!`(MISSING), which means to stop at the end of the stream.
+	// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
 	Range pulumi.StringPtrInput `pulumi:"range"`
-	// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+	// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
 	Start pulumi.StringInput `pulumi:"start"`
-	// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%!`(MISSING) for one image every 10%!o(MISSING)f stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%!`(MISSING), it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+	// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
 	Step pulumi.StringPtrInput `pulumi:"step"`
 	// The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
 	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
@@ -12428,17 +12428,17 @@ func (o TransformOutputCustomPresetCodecPngImageOutput) Layers() TransformOutput
 	}).(TransformOutputCustomPresetCodecPngImageLayerArrayOutput)
 }
 
-// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%!`(MISSING) to stop at half of stream duration from start time). The default value is `100%!`(MISSING), which means to stop at the end of the stream.
+// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
 func (o TransformOutputCustomPresetCodecPngImageOutput) Range() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImage) *string { return v.Range }).(pulumi.StringPtrOutput)
 }
 
-// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
 func (o TransformOutputCustomPresetCodecPngImageOutput) Start() pulumi.StringOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImage) string { return v.Start }).(pulumi.StringOutput)
 }
 
-// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%!`(MISSING) for one image every 10%!o(MISSING)f stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%!`(MISSING), it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
 func (o TransformOutputCustomPresetCodecPngImageOutput) Step() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImage) *string { return v.Step }).(pulumi.StringPtrOutput)
 }
@@ -12507,7 +12507,7 @@ func (o TransformOutputCustomPresetCodecPngImagePtrOutput) Layers() TransformOut
 	}).(TransformOutputCustomPresetCodecPngImageLayerArrayOutput)
 }
 
-// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%!`(MISSING) to stop at half of stream duration from start time). The default value is `100%!`(MISSING), which means to stop at the end of the stream.
+// The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
 func (o TransformOutputCustomPresetCodecPngImagePtrOutput) Range() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecPngImage) *string {
 		if v == nil {
@@ -12517,7 +12517,7 @@ func (o TransformOutputCustomPresetCodecPngImagePtrOutput) Range() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+// The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
 func (o TransformOutputCustomPresetCodecPngImagePtrOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecPngImage) *string {
 		if v == nil {
@@ -12527,7 +12527,7 @@ func (o TransformOutputCustomPresetCodecPngImagePtrOutput) Start() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%!`(MISSING) for one image every 10%!o(MISSING)f stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%!`(MISSING), it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+// The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
 func (o TransformOutputCustomPresetCodecPngImagePtrOutput) Step() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecPngImage) *string {
 		if v == nil {
@@ -12558,11 +12558,11 @@ func (o TransformOutputCustomPresetCodecPngImagePtrOutput) SyncMode() pulumi.Str
 }
 
 type TransformOutputCustomPresetCodecPngImageLayer struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
 	Height *string `pulumi:"height"`
 	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label *string `pulumi:"label"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
 	Width *string `pulumi:"width"`
 }
 
@@ -12578,11 +12578,11 @@ type TransformOutputCustomPresetCodecPngImageLayerInput interface {
 }
 
 type TransformOutputCustomPresetCodecPngImageLayerArgs struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
 	Height pulumi.StringPtrInput `pulumi:"height"`
 	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
 	Width pulumi.StringPtrInput `pulumi:"width"`
 }
 
@@ -12637,7 +12637,7 @@ func (o TransformOutputCustomPresetCodecPngImageLayerOutput) ToTransformOutputCu
 	return o
 }
 
-// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
 func (o TransformOutputCustomPresetCodecPngImageLayerOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImageLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
@@ -12647,7 +12647,7 @@ func (o TransformOutputCustomPresetCodecPngImageLayerOutput) Label() pulumi.Stri
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImageLayer) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
 func (o TransformOutputCustomPresetCodecPngImageLayerOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImageLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -12911,13 +12911,13 @@ func (o TransformOutputCustomPresetFilterPtrOutput) Rotation() pulumi.StringPtrO
 }
 
 type TransformOutputCustomPresetFilterCropRectangle struct {
-	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Height *string `pulumi:"height"`
-	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Left *string `pulumi:"left"`
-	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Top *string `pulumi:"top"`
-	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 	Width *string `pulumi:"width"`
 }
 
@@ -12933,13 +12933,13 @@ type TransformOutputCustomPresetFilterCropRectangleInput interface {
 }
 
 type TransformOutputCustomPresetFilterCropRectangleArgs struct {
-	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Left pulumi.StringPtrInput `pulumi:"left"`
-	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Top pulumi.StringPtrInput `pulumi:"top"`
-	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 	Width pulumi.StringPtrInput `pulumi:"width"`
 }
 
@@ -13020,22 +13020,22 @@ func (o TransformOutputCustomPresetFilterCropRectangleOutput) ToTransformOutputC
 	}).(TransformOutputCustomPresetFilterCropRectanglePtrOutput)
 }
 
-// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterCropRectangleOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterCropRectangle) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterCropRectangleOutput) Left() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterCropRectangle) *string { return v.Left }).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterCropRectangleOutput) Top() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterCropRectangle) *string { return v.Top }).(pulumi.StringPtrOutput)
 }
 
-// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterCropRectangleOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterCropRectangle) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -13064,7 +13064,7 @@ func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) Elem() Transfor
 	}).(TransformOutputCustomPresetFilterCropRectangleOutput)
 }
 
-// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterCropRectangle) *string {
 		if v == nil {
@@ -13074,7 +13074,7 @@ func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) Height() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) Left() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterCropRectangle) *string {
 		if v == nil {
@@ -13084,7 +13084,7 @@ func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) Left() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) Top() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterCropRectangle) *string {
 		if v == nil {
@@ -13094,7 +13094,7 @@ func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) Top() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterCropRectangle) *string {
 		if v == nil {
@@ -13261,11 +13261,11 @@ func (o TransformOutputCustomPresetFilterDeinterlacePtrOutput) Parity() pulumi.S
 }
 
 type TransformOutputCustomPresetFilterFadeIn struct {
-	// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+	// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
 	Duration string `pulumi:"duration"`
 	// The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
 	FadeColor string `pulumi:"fadeColor"`
-	// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+	// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
 	Start *string `pulumi:"start"`
 }
 
@@ -13281,11 +13281,11 @@ type TransformOutputCustomPresetFilterFadeInInput interface {
 }
 
 type TransformOutputCustomPresetFilterFadeInArgs struct {
-	// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+	// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
 	Duration pulumi.StringInput `pulumi:"duration"`
 	// The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
 	FadeColor pulumi.StringInput `pulumi:"fadeColor"`
-	// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+	// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
 	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
@@ -13366,7 +13366,7 @@ func (o TransformOutputCustomPresetFilterFadeInOutput) ToTransformOutputCustomPr
 	}).(TransformOutputCustomPresetFilterFadeInPtrOutput)
 }
 
-// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
 func (o TransformOutputCustomPresetFilterFadeInOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterFadeIn) string { return v.Duration }).(pulumi.StringOutput)
 }
@@ -13376,7 +13376,7 @@ func (o TransformOutputCustomPresetFilterFadeInOutput) FadeColor() pulumi.String
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterFadeIn) string { return v.FadeColor }).(pulumi.StringOutput)
 }
 
-// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
 func (o TransformOutputCustomPresetFilterFadeInOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterFadeIn) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -13405,7 +13405,7 @@ func (o TransformOutputCustomPresetFilterFadeInPtrOutput) Elem() TransformOutput
 	}).(TransformOutputCustomPresetFilterFadeInOutput)
 }
 
-// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
 func (o TransformOutputCustomPresetFilterFadeInPtrOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterFadeIn) *string {
 		if v == nil {
@@ -13425,7 +13425,7 @@ func (o TransformOutputCustomPresetFilterFadeInPtrOutput) FadeColor() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
 func (o TransformOutputCustomPresetFilterFadeInPtrOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterFadeIn) *string {
 		if v == nil {
@@ -13436,11 +13436,11 @@ func (o TransformOutputCustomPresetFilterFadeInPtrOutput) Start() pulumi.StringP
 }
 
 type TransformOutputCustomPresetFilterFadeOut struct {
-	// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+	// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
 	Duration string `pulumi:"duration"`
 	// The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
 	FadeColor string `pulumi:"fadeColor"`
-	// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+	// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
 	Start *string `pulumi:"start"`
 }
 
@@ -13456,11 +13456,11 @@ type TransformOutputCustomPresetFilterFadeOutInput interface {
 }
 
 type TransformOutputCustomPresetFilterFadeOutArgs struct {
-	// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+	// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
 	Duration pulumi.StringInput `pulumi:"duration"`
 	// The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
 	FadeColor pulumi.StringInput `pulumi:"fadeColor"`
-	// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+	// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
 	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
@@ -13541,7 +13541,7 @@ func (o TransformOutputCustomPresetFilterFadeOutOutput) ToTransformOutputCustomP
 	}).(TransformOutputCustomPresetFilterFadeOutPtrOutput)
 }
 
-// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
 func (o TransformOutputCustomPresetFilterFadeOutOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterFadeOut) string { return v.Duration }).(pulumi.StringOutput)
 }
@@ -13551,7 +13551,7 @@ func (o TransformOutputCustomPresetFilterFadeOutOutput) FadeColor() pulumi.Strin
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterFadeOut) string { return v.FadeColor }).(pulumi.StringOutput)
 }
 
-// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
 func (o TransformOutputCustomPresetFilterFadeOutOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterFadeOut) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -13580,7 +13580,7 @@ func (o TransformOutputCustomPresetFilterFadeOutPtrOutput) Elem() TransformOutpu
 	}).(TransformOutputCustomPresetFilterFadeOutOutput)
 }
 
-// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
 func (o TransformOutputCustomPresetFilterFadeOutPtrOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterFadeOut) *string {
 		if v == nil {
@@ -13600,7 +13600,7 @@ func (o TransformOutputCustomPresetFilterFadeOutPtrOutput) FadeColor() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
 func (o TransformOutputCustomPresetFilterFadeOutPtrOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterFadeOut) *string {
 		if v == nil {
@@ -14252,13 +14252,13 @@ func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) Start() pulumi.S
 }
 
 type TransformOutputCustomPresetFilterOverlayVideoCropRectangle struct {
-	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Height *string `pulumi:"height"`
-	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Left *string `pulumi:"left"`
-	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Top *string `pulumi:"top"`
-	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 	Width *string `pulumi:"width"`
 }
 
@@ -14274,13 +14274,13 @@ type TransformOutputCustomPresetFilterOverlayVideoCropRectangleInput interface {
 }
 
 type TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs struct {
-	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Left pulumi.StringPtrInput `pulumi:"left"`
-	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Top pulumi.StringPtrInput `pulumi:"top"`
-	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 	Width pulumi.StringPtrInput `pulumi:"width"`
 }
 
@@ -14361,22 +14361,22 @@ func (o TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) ToTran
 	}).(TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput)
 }
 
-// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) Left() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string { return v.Left }).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) Top() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string { return v.Top }).(pulumi.StringPtrOutput)
 }
 
-// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -14405,7 +14405,7 @@ func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) Ele
 	}).(TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput)
 }
 
-// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string {
 		if v == nil {
@@ -14415,7 +14415,7 @@ func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) Hei
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) Left() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string {
 		if v == nil {
@@ -14425,7 +14425,7 @@ func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) Lef
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) Top() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string {
 		if v == nil {
@@ -14435,7 +14435,7 @@ func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) Top
 	}).(pulumi.StringPtrOutput)
 }
 
-// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string {
 		if v == nil {
@@ -14446,13 +14446,13 @@ func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) Wid
 }
 
 type TransformOutputCustomPresetFilterOverlayVideoPosition struct {
-	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Height *string `pulumi:"height"`
-	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Left *string `pulumi:"left"`
-	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Top *string `pulumi:"top"`
-	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 	Width *string `pulumi:"width"`
 }
 
@@ -14468,13 +14468,13 @@ type TransformOutputCustomPresetFilterOverlayVideoPositionInput interface {
 }
 
 type TransformOutputCustomPresetFilterOverlayVideoPositionArgs struct {
-	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Left pulumi.StringPtrInput `pulumi:"left"`
-	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Top pulumi.StringPtrInput `pulumi:"top"`
-	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 	Width pulumi.StringPtrInput `pulumi:"width"`
 }
 
@@ -14555,22 +14555,22 @@ func (o TransformOutputCustomPresetFilterOverlayVideoPositionOutput) ToTransform
 	}).(TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput)
 }
 
-// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoPositionOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoPosition) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoPositionOutput) Left() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoPosition) *string { return v.Left }).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoPositionOutput) Top() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoPosition) *string { return v.Top }).(pulumi.StringPtrOutput)
 }
 
-// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoPositionOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoPosition) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -14599,7 +14599,7 @@ func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) Elem() T
 	}).(TransformOutputCustomPresetFilterOverlayVideoPositionOutput)
 }
 
-// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoPosition) *string {
 		if v == nil {
@@ -14609,7 +14609,7 @@ func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) Height()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) Left() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoPosition) *string {
 		if v == nil {
@@ -14619,7 +14619,7 @@ func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) Left() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) Top() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoPosition) *string {
 		if v == nil {
@@ -14629,7 +14629,7 @@ func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) Top() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%!`(MISSING)).
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoPosition) *string {
 		if v == nil {

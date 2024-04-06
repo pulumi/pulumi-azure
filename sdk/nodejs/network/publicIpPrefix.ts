@@ -85,7 +85,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
     /**
      * Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
      *
-     * > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address)
+     * > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
      */
     public readonly prefixLength!: pulumi.Output<number | undefined>;
     /**
@@ -174,7 +174,7 @@ export interface PublicIpPrefixState {
     /**
      * Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
      *
-     * > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address)
+     * > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
      */
     prefixLength?: pulumi.Input<number>;
     /**
@@ -218,7 +218,7 @@ export interface PublicIpPrefixArgs {
     /**
      * Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
      *
-     * > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%!f(MISSING)azure%!f(MISSING)virtual-network%!f(MISSING)toc.json#publicip-address)
+     * > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
      */
     prefixLength?: pulumi.Input<number>;
     /**

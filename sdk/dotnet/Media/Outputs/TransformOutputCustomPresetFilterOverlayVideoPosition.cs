@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Media.Outputs
     public sealed class TransformOutputCustomPresetFilterOverlayVideoPosition
     {
         /// <summary>
-        /// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        /// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         /// </summary>
         public readonly string? Height;
         /// <summary>
-        /// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        /// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         /// </summary>
         public readonly string? Left;
         /// <summary>
-        /// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        /// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         /// </summary>
         public readonly string? Top;
         /// <summary>
-        /// The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        /// The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         /// </summary>
         public readonly string? Width;
 

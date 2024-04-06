@@ -46,7 +46,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayer {
      */
     private @Nullable String frameRate;
     /**
-     * @return The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+     * @return The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
      * 
      */
     private @Nullable String height;
@@ -81,7 +81,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayer {
      */
     private @Nullable Integer slices;
     /**
-     * @return The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+     * @return The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
      * 
      */
     private @Nullable String width;
@@ -130,7 +130,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayer {
         return Optional.ofNullable(this.frameRate);
     }
     /**
-     * @return The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+     * @return The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
      * 
      */
     public Optional<String> height() {
@@ -179,7 +179,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayer {
         return Optional.ofNullable(this.slices);
     }
     /**
-     * @return The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+     * @return The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
      * 
      */
     public Optional<String> width() {

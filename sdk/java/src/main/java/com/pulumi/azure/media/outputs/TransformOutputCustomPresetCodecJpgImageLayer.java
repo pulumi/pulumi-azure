@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TransformOutputCustomPresetCodecJpgImageLayer {
     /**
-     * @return The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+     * @return The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
      * 
      */
     private @Nullable String height;
@@ -28,14 +28,14 @@ public final class TransformOutputCustomPresetCodecJpgImageLayer {
      */
     private @Nullable Integer quality;
     /**
-     * @return The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+     * @return The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
      * 
      */
     private @Nullable String width;
 
     private TransformOutputCustomPresetCodecJpgImageLayer() {}
     /**
-     * @return The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+     * @return The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
      * 
      */
     public Optional<String> height() {
@@ -56,7 +56,7 @@ public final class TransformOutputCustomPresetCodecJpgImageLayer {
         return Optional.ofNullable(this.quality);
     }
     /**
-     * @return The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+     * @return The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
      * 
      */
     public Optional<String> width() {
