@@ -46,7 +46,7 @@ public final class ScalingPlanSchedule {
      */
     private String peakStartTime;
     /**
-     * @return This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60%!a(MISSING)nd your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+     * @return This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
      * 
      */
     private Integer rampDownCapacityThresholdPercent;
@@ -61,7 +61,7 @@ public final class ScalingPlanSchedule {
      */
     private String rampDownLoadBalancingAlgorithm;
     /**
-     * @return The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10%!a(MISSING)nd total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+     * @return The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
      * 
      */
     private Integer rampDownMinimumHostsPercent;
@@ -86,7 +86,7 @@ public final class ScalingPlanSchedule {
      */
     private Integer rampDownWaitTimeMinutes;
     /**
-     * @return This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%!`(MISSING) and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
+     * @return This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
      * 
      */
     private @Nullable Integer rampUpCapacityThresholdPercent;
@@ -96,7 +96,7 @@ public final class ScalingPlanSchedule {
      */
     private String rampUpLoadBalancingAlgorithm;
     /**
-     * @return Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%!`(MISSING) and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
+     * @return Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
      * 
      */
     private @Nullable Integer rampUpMinimumHostsPercent;
@@ -150,7 +150,7 @@ public final class ScalingPlanSchedule {
         return this.peakStartTime;
     }
     /**
-     * @return This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60%!a(MISSING)nd your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+     * @return This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
      * 
      */
     public Integer rampDownCapacityThresholdPercent() {
@@ -171,7 +171,7 @@ public final class ScalingPlanSchedule {
         return this.rampDownLoadBalancingAlgorithm;
     }
     /**
-     * @return The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10%!a(MISSING)nd total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+     * @return The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
      * 
      */
     public Integer rampDownMinimumHostsPercent() {
@@ -206,7 +206,7 @@ public final class ScalingPlanSchedule {
         return this.rampDownWaitTimeMinutes;
     }
     /**
-     * @return This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%!`(MISSING) and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
+     * @return This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
      * 
      */
     public Optional<Integer> rampUpCapacityThresholdPercent() {
@@ -220,7 +220,7 @@ public final class ScalingPlanSchedule {
         return this.rampUpLoadBalancingAlgorithm;
     }
     /**
-     * @return Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%!`(MISSING) and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
+     * @return Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
      * 
      */
     public Optional<Integer> rampUpMinimumHostsPercent() {

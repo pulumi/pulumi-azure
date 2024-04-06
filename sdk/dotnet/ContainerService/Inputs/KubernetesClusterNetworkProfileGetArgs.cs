@@ -46,7 +46,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// 
         /// -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
         /// 
-        /// -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%!C(MISSING)kubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+        /// -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
         /// </summary>
         public InputList<string> IpVersions
         {

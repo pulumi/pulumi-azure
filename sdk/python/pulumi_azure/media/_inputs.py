@@ -4558,14 +4558,14 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
         :param pulumi.Input[float] crf: The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
         :param pulumi.Input[str] entropy_mode: The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
         :param pulumi.Input[str] frame_rate: The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
-        :param pulumi.Input[str] height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+        :param pulumi.Input[str] height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
         :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         :param pulumi.Input[str] level: The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
         :param pulumi.Input[int] max_bitrate: The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
         :param pulumi.Input[str] profile: The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
         :param pulumi.Input[int] reference_frames: The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
         :param pulumi.Input[int] slices: The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
-        :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+        :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
         """
         pulumi.set(__self__, "bitrate", bitrate)
         if adaptive_b_frame_enabled is not None:
@@ -4685,7 +4685,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter
     def height(self) -> Optional[pulumi.Input[str]]:
         """
-        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
         """
         return pulumi.get(self, "height")
 
@@ -4769,7 +4769,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[str]]:
         """
-        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
         """
         return pulumi.get(self, "width")
 
@@ -4921,14 +4921,14 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
         :param pulumi.Input[str] buffer_window: Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
         :param pulumi.Input[float] crf: The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
         :param pulumi.Input[str] frame_rate: The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
-        :param pulumi.Input[str] height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+        :param pulumi.Input[str] height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
         :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         :param pulumi.Input[str] level: The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
         :param pulumi.Input[int] max_bitrate: The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
         :param pulumi.Input[str] profile: The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
         :param pulumi.Input[int] reference_frames: The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
         :param pulumi.Input[int] slices: The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
-        :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+        :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
         """
         pulumi.set(__self__, "bitrate", bitrate)
         if adaptive_b_frame_enabled is not None:
@@ -5034,7 +5034,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter
     def height(self) -> Optional[pulumi.Input[str]]:
         """
-        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
         """
         return pulumi.get(self, "height")
 
@@ -5118,7 +5118,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[str]]:
         """
-        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
         """
         return pulumi.get(self, "width")
 
@@ -5140,13 +5140,13 @@ class TransformOutputCustomPresetCodecJpgImageArgs:
                  stretch_mode: Optional[pulumi.Input[str]] = None,
                  sync_mode: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+        :param pulumi.Input[str] start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
         :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
         :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
         :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecJpgImageLayerArgs']]] layers: One or more `layer` blocks as defined below.
-        :param pulumi.Input[str] range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%!`(MISSING) to stop at half of stream duration from start time). The default value is `100%!`(MISSING), which means to stop at the end of the stream.
+        :param pulumi.Input[str] range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
         :param pulumi.Input[int] sprite_column: Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
-        :param pulumi.Input[str] step: The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%!`(MISSING) for one image every 10%!o(MISSING)f stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%!`(MISSING), it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+        :param pulumi.Input[str] step: The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
         :param pulumi.Input[str] stretch_mode: The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
         :param pulumi.Input[str] sync_mode: Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
         """
@@ -5172,7 +5172,7 @@ class TransformOutputCustomPresetCodecJpgImageArgs:
     @pulumi.getter
     def start(self) -> pulumi.Input[str]:
         """
-        The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+        The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
         """
         return pulumi.get(self, "start")
 
@@ -5220,7 +5220,7 @@ class TransformOutputCustomPresetCodecJpgImageArgs:
     @pulumi.getter
     def range(self) -> Optional[pulumi.Input[str]]:
         """
-        The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%!`(MISSING) to stop at half of stream duration from start time). The default value is `100%!`(MISSING), which means to stop at the end of the stream.
+        The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
         """
         return pulumi.get(self, "range")
 
@@ -5244,7 +5244,7 @@ class TransformOutputCustomPresetCodecJpgImageArgs:
     @pulumi.getter
     def step(self) -> Optional[pulumi.Input[str]]:
         """
-        The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%!`(MISSING) for one image every 10%!o(MISSING)f stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%!`(MISSING), it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+        The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
         """
         return pulumi.get(self, "step")
 
@@ -5285,10 +5285,10 @@ class TransformOutputCustomPresetCodecJpgImageLayerArgs:
                  quality: Optional[pulumi.Input[int]] = None,
                  width: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+        :param pulumi.Input[str] height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
         :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         :param pulumi.Input[int] quality: The compression quality of the JPEG output. Range is from `0` to `100` and the default is `70`.
-        :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+        :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
         """
         if height is not None:
             pulumi.set(__self__, "height", height)
@@ -5303,7 +5303,7 @@ class TransformOutputCustomPresetCodecJpgImageLayerArgs:
     @pulumi.getter
     def height(self) -> Optional[pulumi.Input[str]]:
         """
-        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
         """
         return pulumi.get(self, "height")
 
@@ -5339,7 +5339,7 @@ class TransformOutputCustomPresetCodecJpgImageLayerArgs:
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[str]]:
         """
-        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
         """
         return pulumi.get(self, "width")
 
@@ -5360,12 +5360,12 @@ class TransformOutputCustomPresetCodecPngImageArgs:
                  stretch_mode: Optional[pulumi.Input[str]] = None,
                  sync_mode: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+        :param pulumi.Input[str] start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
         :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
         :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
         :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecPngImageLayerArgs']]] layers: One or more `layer` blocks as defined below.
-        :param pulumi.Input[str] range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%!`(MISSING) to stop at half of stream duration from start time). The default value is `100%!`(MISSING), which means to stop at the end of the stream.
-        :param pulumi.Input[str] step: The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%!`(MISSING) for one image every 10%!o(MISSING)f stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%!`(MISSING), it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+        :param pulumi.Input[str] range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+        :param pulumi.Input[str] step: The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
         :param pulumi.Input[str] stretch_mode: The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
         :param pulumi.Input[str] sync_mode: Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
         """
@@ -5389,7 +5389,7 @@ class TransformOutputCustomPresetCodecPngImageArgs:
     @pulumi.getter
     def start(self) -> pulumi.Input[str]:
         """
-        The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+        The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
         """
         return pulumi.get(self, "start")
 
@@ -5437,7 +5437,7 @@ class TransformOutputCustomPresetCodecPngImageArgs:
     @pulumi.getter
     def range(self) -> Optional[pulumi.Input[str]]:
         """
-        The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%!`(MISSING) to stop at half of stream duration from start time). The default value is `100%!`(MISSING), which means to stop at the end of the stream.
+        The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
         """
         return pulumi.get(self, "range")
 
@@ -5449,7 +5449,7 @@ class TransformOutputCustomPresetCodecPngImageArgs:
     @pulumi.getter
     def step(self) -> Optional[pulumi.Input[str]]:
         """
-        The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%!`(MISSING) for one image every 10%!o(MISSING)f stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%!`(MISSING), it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+        The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
         """
         return pulumi.get(self, "step")
 
@@ -5489,9 +5489,9 @@ class TransformOutputCustomPresetCodecPngImageLayerArgs:
                  label: Optional[pulumi.Input[str]] = None,
                  width: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+        :param pulumi.Input[str] height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
         :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-        :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+        :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
         """
         if height is not None:
             pulumi.set(__self__, "height", height)
@@ -5504,7 +5504,7 @@ class TransformOutputCustomPresetCodecPngImageLayerArgs:
     @pulumi.getter
     def height(self) -> Optional[pulumi.Input[str]]:
         """
-        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in height as the input.
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
         """
         return pulumi.get(self, "height")
 
@@ -5528,7 +5528,7 @@ class TransformOutputCustomPresetCodecPngImageLayerArgs:
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[str]]:
         """
-        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%!`(MISSING) means the output video has half as many pixels in width as the input.
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
         """
         return pulumi.get(self, "width")
 
@@ -5648,10 +5648,10 @@ class TransformOutputCustomPresetFilterCropRectangleArgs:
                  top: Optional[pulumi.Input[str]] = None,
                  width: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] height: The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
-        :param pulumi.Input[str] left: The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
-        :param pulumi.Input[str] top: The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
-        :param pulumi.Input[str] width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        :param pulumi.Input[str] height: The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param pulumi.Input[str] left: The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param pulumi.Input[str] top: The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param pulumi.Input[str] width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         """
         if height is not None:
             pulumi.set(__self__, "height", height)
@@ -5666,7 +5666,7 @@ class TransformOutputCustomPresetFilterCropRectangleArgs:
     @pulumi.getter
     def height(self) -> Optional[pulumi.Input[str]]:
         """
-        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "height")
 
@@ -5678,7 +5678,7 @@ class TransformOutputCustomPresetFilterCropRectangleArgs:
     @pulumi.getter
     def left(self) -> Optional[pulumi.Input[str]]:
         """
-        The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "left")
 
@@ -5690,7 +5690,7 @@ class TransformOutputCustomPresetFilterCropRectangleArgs:
     @pulumi.getter
     def top(self) -> Optional[pulumi.Input[str]]:
         """
-        The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "top")
 
@@ -5702,7 +5702,7 @@ class TransformOutputCustomPresetFilterCropRectangleArgs:
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[str]]:
         """
-        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "width")
 
@@ -5757,9 +5757,9 @@ class TransformOutputCustomPresetFilterFadeInArgs:
                  fade_color: pulumi.Input[str],
                  start: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] duration: The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+        :param pulumi.Input[str] duration: The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
         :param pulumi.Input[str] fade_color: The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
-        :param pulumi.Input[str] start: The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+        :param pulumi.Input[str] start: The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
         """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "fade_color", fade_color)
@@ -5770,7 +5770,7 @@ class TransformOutputCustomPresetFilterFadeInArgs:
     @pulumi.getter
     def duration(self) -> pulumi.Input[str]:
         """
-        The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+        The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
         """
         return pulumi.get(self, "duration")
 
@@ -5794,7 +5794,7 @@ class TransformOutputCustomPresetFilterFadeInArgs:
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
         """
-        The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+        The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
         """
         return pulumi.get(self, "start")
 
@@ -5810,9 +5810,9 @@ class TransformOutputCustomPresetFilterFadeOutArgs:
                  fade_color: pulumi.Input[str],
                  start: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] duration: The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+        :param pulumi.Input[str] duration: The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
         :param pulumi.Input[str] fade_color: The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
-        :param pulumi.Input[str] start: The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+        :param pulumi.Input[str] start: The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
         """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "fade_color", fade_color)
@@ -5823,7 +5823,7 @@ class TransformOutputCustomPresetFilterFadeOutArgs:
     @pulumi.getter
     def duration(self) -> pulumi.Input[str]:
         """
-        The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10%!t(MISSING)o fade 10%!o(MISSING)f stream duration).
+        The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
         """
         return pulumi.get(self, "duration")
 
@@ -5847,7 +5847,7 @@ class TransformOutputCustomPresetFilterFadeOutArgs:
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
         """
-        The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%!`(MISSING) to start at 10%!o(MISSING)f stream duration). Default to `0`.
+        The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
         """
         return pulumi.get(self, "start")
 
@@ -6159,10 +6159,10 @@ class TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs:
                  top: Optional[pulumi.Input[str]] = None,
                  width: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] height: The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
-        :param pulumi.Input[str] left: The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
-        :param pulumi.Input[str] top: The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
-        :param pulumi.Input[str] width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        :param pulumi.Input[str] height: The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param pulumi.Input[str] left: The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param pulumi.Input[str] top: The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param pulumi.Input[str] width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         """
         if height is not None:
             pulumi.set(__self__, "height", height)
@@ -6177,7 +6177,7 @@ class TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs:
     @pulumi.getter
     def height(self) -> Optional[pulumi.Input[str]]:
         """
-        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "height")
 
@@ -6189,7 +6189,7 @@ class TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs:
     @pulumi.getter
     def left(self) -> Optional[pulumi.Input[str]]:
         """
-        The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "left")
 
@@ -6201,7 +6201,7 @@ class TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs:
     @pulumi.getter
     def top(self) -> Optional[pulumi.Input[str]]:
         """
-        The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "top")
 
@@ -6213,7 +6213,7 @@ class TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs:
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[str]]:
         """
-        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "width")
 
@@ -6230,10 +6230,10 @@ class TransformOutputCustomPresetFilterOverlayVideoPositionArgs:
                  top: Optional[pulumi.Input[str]] = None,
                  width: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] height: The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
-        :param pulumi.Input[str] left: The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
-        :param pulumi.Input[str] top: The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
-        :param pulumi.Input[str] width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        :param pulumi.Input[str] height: The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param pulumi.Input[str] left: The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param pulumi.Input[str] top: The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param pulumi.Input[str] width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         """
         if height is not None:
             pulumi.set(__self__, "height", height)
@@ -6248,7 +6248,7 @@ class TransformOutputCustomPresetFilterOverlayVideoPositionArgs:
     @pulumi.getter
     def height(self) -> Optional[pulumi.Input[str]]:
         """
-        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "height")
 
@@ -6260,7 +6260,7 @@ class TransformOutputCustomPresetFilterOverlayVideoPositionArgs:
     @pulumi.getter
     def left(self) -> Optional[pulumi.Input[str]]:
         """
-        The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "left")
 
@@ -6272,7 +6272,7 @@ class TransformOutputCustomPresetFilterOverlayVideoPositionArgs:
     @pulumi.getter
     def top(self) -> Optional[pulumi.Input[str]]:
         """
-        The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "top")
 
@@ -6284,7 +6284,7 @@ class TransformOutputCustomPresetFilterOverlayVideoPositionArgs:
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[str]]:
         """
-        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%!`(MISSING)).
+        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "width")
 

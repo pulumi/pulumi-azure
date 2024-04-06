@@ -110,14 +110,14 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60%!a(MISSING)nd your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+     * This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
      * 
      */
     @Import(name="rampDownCapacityThresholdPercent", required=true)
     private Output<Integer> rampDownCapacityThresholdPercent;
 
     /**
-     * @return This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60%!a(MISSING)nd your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+     * @return This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
      * 
      */
     public Output<Integer> rampDownCapacityThresholdPercent() {
@@ -155,14 +155,14 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10%!a(MISSING)nd total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+     * The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
      * 
      */
     @Import(name="rampDownMinimumHostsPercent", required=true)
     private Output<Integer> rampDownMinimumHostsPercent;
 
     /**
-     * @return The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10%!a(MISSING)nd total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+     * @return The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
      * 
      */
     public Output<Integer> rampDownMinimumHostsPercent() {
@@ -230,14 +230,14 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%!`(MISSING) and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
+     * This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
      * 
      */
     @Import(name="rampUpCapacityThresholdPercent")
     private @Nullable Output<Integer> rampUpCapacityThresholdPercent;
 
     /**
-     * @return This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%!`(MISSING) and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
+     * @return This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
      * 
      */
     public Optional<Output<Integer>> rampUpCapacityThresholdPercent() {
@@ -260,14 +260,14 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%!`(MISSING) and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
+     * Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
      * 
      */
     @Import(name="rampUpMinimumHostsPercent")
     private @Nullable Output<Integer> rampUpMinimumHostsPercent;
 
     /**
-     * @return Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%!`(MISSING) and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
+     * @return Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
      * 
      */
     public Optional<Output<Integer>> rampUpMinimumHostsPercent() {
@@ -467,7 +467,7 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rampDownCapacityThresholdPercent This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60%!a(MISSING)nd your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+         * @param rampDownCapacityThresholdPercent This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rampDownCapacityThresholdPercent This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60%!a(MISSING)nd your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+         * @param rampDownCapacityThresholdPercent This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rampDownMinimumHostsPercent The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10%!a(MISSING)nd total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+         * @param rampDownMinimumHostsPercent The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rampDownMinimumHostsPercent The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10%!a(MISSING)nd total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+         * @param rampDownMinimumHostsPercent The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
          * 
          * @return builder
          * 
@@ -635,7 +635,7 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rampUpCapacityThresholdPercent This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%!`(MISSING) and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
+         * @param rampUpCapacityThresholdPercent This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
          * 
          * @return builder
          * 
@@ -646,7 +646,7 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rampUpCapacityThresholdPercent This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%!`(MISSING) and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
+         * @param rampUpCapacityThresholdPercent This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
          * 
          * @return builder
          * 
@@ -677,7 +677,7 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rampUpMinimumHostsPercent Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%!`(MISSING) and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
+         * @param rampUpMinimumHostsPercent Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
          * 
          * @return builder
          * 
@@ -688,7 +688,7 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rampUpMinimumHostsPercent Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%!`(MISSING) and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
+         * @param rampUpMinimumHostsPercent Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
          * 
          * @return builder
          * 
