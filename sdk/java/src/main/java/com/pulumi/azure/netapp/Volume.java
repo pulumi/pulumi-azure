@@ -133,6 +133,22 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.exportPolicyRules);
     }
     /**
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
+     * `azurerm_netapp_account` having a defined AD connection.
+     * 
+     */
+    @Export(name="kerberosEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> kerberosEnabled;
+
+    /**
+     * @return Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
+     * `azurerm_netapp_account` having a defined AD connection.
+     * 
+     */
+    public Output<Optional<Boolean>> kerberosEnabled() {
+        return Codegen.optional(this.kerberosEnabled);
+    }
+    /**
      * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
      * 
      */
@@ -285,6 +301,20 @@ public class Volume extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> smbAccessBasedEnumerationEnabled() {
         return Codegen.optional(this.smbAccessBasedEnumerationEnabled);
+    }
+    /**
+     * Enable SMB Continuous Availability.
+     * 
+     */
+    @Export(name="smbContinuousAvailabilityEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> smbContinuousAvailabilityEnabled;
+
+    /**
+     * @return Enable SMB Continuous Availability.
+     * 
+     */
+    public Output<Optional<Boolean>> smbContinuousAvailabilityEnabled() {
+        return Codegen.optional(this.smbContinuousAvailabilityEnabled);
     }
     /**
      * Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in &#34;net view.&#34; Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)

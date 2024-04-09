@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,14 +17,52 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
     public static final AppSecretArgs Empty = new AppSecretArgs();
 
     /**
-     * The Secret name.
+     * The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+     * 
+     * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<String> identity;
+
+    /**
+     * @return The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+     * 
+     * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
+     * 
+     */
+    public Optional<Output<String>> identity() {
+        return Optional.ofNullable(this.identity);
+    }
+
+    /**
+     * The ID of a Key Vault secret. This can be a versioned or version-less ID.
+     * 
+     * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+     * 
+     */
+    @Import(name="keyVaultSecretId")
+    private @Nullable Output<String> keyVaultSecretId;
+
+    /**
+     * @return The ID of a Key Vault secret. This can be a versioned or version-less ID.
+     * 
+     * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+     * 
+     */
+    public Optional<Output<String>> keyVaultSecretId() {
+        return Optional.ofNullable(this.keyVaultSecretId);
+    }
+
+    /**
+     * The secret name.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The Secret name.
+     * @return The secret name.
      * 
      */
     public Output<String> name() {
@@ -32,25 +72,31 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The value for this secret.
      * 
+     * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+     * 
      * !&gt; **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `&#34;&#34;`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
      * 
      */
-    @Import(name="value", required=true)
-    private Output<String> value;
+    @Import(name="value")
+    private @Nullable Output<String> value;
 
     /**
      * @return The value for this secret.
      * 
+     * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+     * 
      * !&gt; **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `&#34;&#34;`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
      * 
      */
-    public Output<String> value() {
-        return this.value;
+    public Optional<Output<String>> value() {
+        return Optional.ofNullable(this.value);
     }
 
     private AppSecretArgs() {}
 
     private AppSecretArgs(AppSecretArgs $) {
+        this.identity = $.identity;
+        this.keyVaultSecretId = $.keyVaultSecretId;
         this.name = $.name;
         this.value = $.value;
     }
@@ -74,7 +120,57 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Secret name.
+         * @param identity The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+         * 
+         * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<String> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+         * 
+         * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(String identity) {
+            return identity(Output.of(identity));
+        }
+
+        /**
+         * @param keyVaultSecretId The ID of a Key Vault secret. This can be a versioned or version-less ID.
+         * 
+         * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultSecretId(@Nullable Output<String> keyVaultSecretId) {
+            $.keyVaultSecretId = keyVaultSecretId;
+            return this;
+        }
+
+        /**
+         * @param keyVaultSecretId The ID of a Key Vault secret. This can be a versioned or version-less ID.
+         * 
+         * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultSecretId(String keyVaultSecretId) {
+            return keyVaultSecretId(Output.of(keyVaultSecretId));
+        }
+
+        /**
+         * @param name The secret name.
          * 
          * @return builder
          * 
@@ -85,7 +181,7 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Secret name.
+         * @param name The secret name.
          * 
          * @return builder
          * 
@@ -97,18 +193,22 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param value The value for this secret.
          * 
+         * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+         * 
          * !&gt; **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `&#34;&#34;`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
          * 
          * @return builder
          * 
          */
-        public Builder value(Output<String> value) {
+        public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
         /**
          * @param value The value for this secret.
+         * 
+         * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
          * 
          * !&gt; **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `&#34;&#34;`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
          * 
@@ -122,9 +222,6 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
         public AppSecretArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("AppSecretArgs", "name");
-            }
-            if ($.value == null) {
-                throw new MissingRequiredPropertyException("AppSecretArgs", "value");
             }
             return $;
         }

@@ -650,31 +650,85 @@ class AppRegistry(dict):
 
 @pulumi.output_type
 class AppSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultSecretId":
+            suggest = "key_vault_secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppSecret.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
-                 value: str):
+                 identity: Optional[str] = None,
+                 key_vault_secret_id: Optional[str] = None,
+                 value: Optional[str] = None):
         """
-        :param str name: The Secret name.
+        :param str name: The secret name.
+        :param str identity: The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+               
+               !> **Note:** `identity` must be used together with `key_vault_secret_id`
+        :param str key_vault_secret_id: The ID of a Key Vault secret. This can be a versioned or version-less ID.
+               
+               !> **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
         :param str value: The value for this secret.
+               
+               !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
                
                !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_vault_secret_id is not None:
+            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The Secret name.
+        The secret name.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def identity(self) -> Optional[str]:
+        """
+        The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+
+        !> **Note:** `identity` must be used together with `key_vault_secret_id`
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> Optional[str]:
+        """
+        The ID of a Key Vault secret. This can be a versioned or version-less ID.
+
+        !> **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
         """
         The value for this secret.
+
+        !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
 
         !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
         """
@@ -2424,15 +2478,41 @@ class EnvironmentDaprComponentMetadata(dict):
 
 @pulumi.output_type
 class EnvironmentDaprComponentSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultSecretId":
+            suggest = "key_vault_secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentDaprComponentSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentDaprComponentSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentDaprComponentSecret.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
-                 value: str):
+                 identity: Optional[str] = None,
+                 key_vault_secret_id: Optional[str] = None,
+                 value: Optional[str] = None):
         """
         :param str name: The Secret name.
+        :param str identity: The identity to use for accessing key vault reference.
+        :param str key_vault_secret_id: The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
         :param str value: The value for this secret.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_vault_secret_id is not None:
+            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2444,7 +2524,23 @@ class EnvironmentDaprComponentSecret(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def identity(self) -> Optional[str]:
+        """
+        The identity to use for accessing key vault reference.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> Optional[str]:
+        """
+        The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
         """
         The value for this secret.
         """
@@ -2918,14 +3014,36 @@ class GetAppRegistryResult(dict):
 @pulumi.output_type
 class GetAppSecretResult(dict):
     def __init__(__self__, *,
+                 identity: str,
+                 key_vault_secret_id: str,
                  name: str,
                  value: str):
         """
+        :param str identity: Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+        :param str key_vault_secret_id: The ID of a Key Vault secret.
         :param str name: The name of the Container App.
         :param str value: The HTTP Header value.
         """
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> str:
+        """
+        Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> str:
+        """
+        The ID of a Key Vault secret.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
 
     @property
     @pulumi.getter

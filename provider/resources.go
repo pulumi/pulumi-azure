@@ -792,6 +792,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_static_site_custom_domain":                {Tok: azureResource(azureAppService, "StaticSiteCustomDomain")},
 			"azurerm_static_web_app":                           {Tok: azureResource(azureAppService, "StaticWebApp")},
 			"azurerm_static_web_app_custom_domain":             {Tok: azureResource(azureAppService, "StaticWebAppCustomDomain")},
+			"azurerm_static_web_app_function_app_registration": {Tok: azureResource(azureAppService, "StaticWebAppFunctionAppRegistration")},
 			"azurerm_app_service_public_certificate":           {Tok: azureResource(azureAppService, "PublicCertificate")},
 			"azurerm_app_service_slot_custom_hostname_binding": {Tok: azureResource(azureAppService, "SlotCustomHostnameBinding")},
 			"azurerm_app_service_source_control":               {Tok: azureResource(azureAppService, "SourceControl")},

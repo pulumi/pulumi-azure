@@ -89,6 +89,12 @@ export class ServiceAzureBot extends pulumi.CustomResource {
     }
 
     /**
+     * The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+     *
+     * > **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+     */
+    public readonly cmkKeyVaultKeyUrl!: pulumi.Output<string | undefined>;
+    /**
      * The Application Insights API Key to associate with this Azure Bot Service.
      */
     public readonly developerAppInsightsApiKey!: pulumi.Output<string | undefined>;
@@ -182,6 +188,7 @@ export class ServiceAzureBot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceAzureBotState | undefined;
+            resourceInputs["cmkKeyVaultKeyUrl"] = state ? state.cmkKeyVaultKeyUrl : undefined;
             resourceInputs["developerAppInsightsApiKey"] = state ? state.developerAppInsightsApiKey : undefined;
             resourceInputs["developerAppInsightsApplicationId"] = state ? state.developerAppInsightsApplicationId : undefined;
             resourceInputs["developerAppInsightsKey"] = state ? state.developerAppInsightsKey : undefined;
@@ -213,6 +220,7 @@ export class ServiceAzureBot extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["cmkKeyVaultKeyUrl"] = args ? args.cmkKeyVaultKeyUrl : undefined;
             resourceInputs["developerAppInsightsApiKey"] = args?.developerAppInsightsApiKey ? pulumi.secret(args.developerAppInsightsApiKey) : undefined;
             resourceInputs["developerAppInsightsApplicationId"] = args ? args.developerAppInsightsApplicationId : undefined;
             resourceInputs["developerAppInsightsKey"] = args ? args.developerAppInsightsKey : undefined;
@@ -245,6 +253,12 @@ export class ServiceAzureBot extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceAzureBot resources.
  */
 export interface ServiceAzureBotState {
+    /**
+     * The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+     *
+     * > **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+     */
+    cmkKeyVaultKeyUrl?: pulumi.Input<string>;
     /**
      * The Application Insights API Key to associate with this Azure Bot Service.
      */
@@ -331,6 +345,12 @@ export interface ServiceAzureBotState {
  * The set of arguments for constructing a ServiceAzureBot resource.
  */
 export interface ServiceAzureBotArgs {
+    /**
+     * The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+     *
+     * > **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+     */
+    cmkKeyVaultKeyUrl?: pulumi.Input<string>;
     /**
      * The Application Insights API Key to associate with this Azure Bot Service.
      */

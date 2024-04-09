@@ -11,6 +11,7 @@ import com.pulumi.azure.config.outputs.FeaturesKeyVault;
 import com.pulumi.azure.config.outputs.FeaturesLogAnalyticsWorkspace;
 import com.pulumi.azure.config.outputs.FeaturesManagedDisk;
 import com.pulumi.azure.config.outputs.FeaturesPostgresqlFlexibleServer;
+import com.pulumi.azure.config.outputs.FeaturesRecoveryService;
 import com.pulumi.azure.config.outputs.FeaturesResourceGroup;
 import com.pulumi.azure.config.outputs.FeaturesSubscription;
 import com.pulumi.azure.config.outputs.FeaturesTemplateDeployment;
@@ -31,6 +32,7 @@ public final class Features {
     private @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
     private @Nullable FeaturesManagedDisk managedDisk;
     private @Nullable FeaturesPostgresqlFlexibleServer postgresqlFlexibleServer;
+    private @Nullable FeaturesRecoveryService recoveryService;
     private @Nullable FeaturesResourceGroup resourceGroup;
     private @Nullable FeaturesSubscription subscription;
     private @Nullable FeaturesTemplateDeployment templateDeployment;
@@ -61,6 +63,9 @@ public final class Features {
     }
     public Optional<FeaturesPostgresqlFlexibleServer> postgresqlFlexibleServer() {
         return Optional.ofNullable(this.postgresqlFlexibleServer);
+    }
+    public Optional<FeaturesRecoveryService> recoveryService() {
+        return Optional.ofNullable(this.recoveryService);
     }
     public Optional<FeaturesResourceGroup> resourceGroup() {
         return Optional.ofNullable(this.resourceGroup);
@@ -95,6 +100,7 @@ public final class Features {
         private @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
         private @Nullable FeaturesManagedDisk managedDisk;
         private @Nullable FeaturesPostgresqlFlexibleServer postgresqlFlexibleServer;
+        private @Nullable FeaturesRecoveryService recoveryService;
         private @Nullable FeaturesResourceGroup resourceGroup;
         private @Nullable FeaturesSubscription subscription;
         private @Nullable FeaturesTemplateDeployment templateDeployment;
@@ -111,6 +117,7 @@ public final class Features {
     	      this.logAnalyticsWorkspace = defaults.logAnalyticsWorkspace;
     	      this.managedDisk = defaults.managedDisk;
     	      this.postgresqlFlexibleServer = defaults.postgresqlFlexibleServer;
+    	      this.recoveryService = defaults.recoveryService;
     	      this.resourceGroup = defaults.resourceGroup;
     	      this.subscription = defaults.subscription;
     	      this.templateDeployment = defaults.templateDeployment;
@@ -167,6 +174,12 @@ public final class Features {
             return this;
         }
         @CustomType.Setter
+        public Builder recoveryService(@Nullable FeaturesRecoveryService recoveryService) {
+
+            this.recoveryService = recoveryService;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroup(@Nullable FeaturesResourceGroup resourceGroup) {
 
             this.resourceGroup = resourceGroup;
@@ -206,6 +219,7 @@ public final class Features {
             _resultValue.logAnalyticsWorkspace = logAnalyticsWorkspace;
             _resultValue.managedDisk = managedDisk;
             _resultValue.postgresqlFlexibleServer = postgresqlFlexibleServer;
+            _resultValue.recoveryService = recoveryService;
             _resultValue.resourceGroup = resourceGroup;
             _resultValue.subscription = subscription;
             _resultValue.templateDeployment = templateDeployment;

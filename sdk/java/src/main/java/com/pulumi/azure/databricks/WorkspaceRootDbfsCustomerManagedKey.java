@@ -11,10 +11,11 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Customer Managed Key for the Databricks Workspaces root Databricks File System(DBFS)
+ * Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System(DBFS)
  * 
  * ## Example Usage
  * 
@@ -137,7 +138,7 @@ import javax.annotation.Nullable;
  * ## Example HCL Configurations
  * 
  * * Databricks Workspace with Root Databricks File System Customer Managed Keys
- * * Databricks Workspace with Customer Managed Keys for Managed Services
+ * * Databricks Workspace with Root Databricks File System Customer Managed Keys in a Different Subscription
  * * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Root Databricks File System Customer Managed Keys
  * 
  * ## Import
@@ -151,6 +152,12 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey")
 public class WorkspaceRootDbfsCustomerManagedKey extends com.pulumi.resources.CustomResource {
+    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> keyVaultId;
+
+    public Output<Optional<String>> keyVaultId() {
+        return Codegen.optional(this.keyVaultId);
+    }
     /**
      * The resource ID of the Key Vault Key to be used.
      * 

@@ -286,7 +286,7 @@ namespace Pulumi.Azure.Nginx
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
+        /// Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -460,7 +460,7 @@ namespace Pulumi.Azure.Nginx
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
+        /// Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -614,7 +614,7 @@ namespace Pulumi.Azure.Nginx
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
+        /// Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

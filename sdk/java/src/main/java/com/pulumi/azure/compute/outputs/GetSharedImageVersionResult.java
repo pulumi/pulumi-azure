@@ -60,7 +60,7 @@ public final class GetSharedImageVersionResult {
      * @return A mapping of tags assigned to the Shared Image.
      * 
      */
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return One or more `target_region` blocks as documented below.
      * 
@@ -134,7 +134,7 @@ public final class GetSharedImageVersionResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
     /**
      * @return One or more `target_region` blocks as documented below.
@@ -164,7 +164,7 @@ public final class GetSharedImageVersionResult {
         private String osDiskSnapshotId;
         private String resourceGroupName;
         private @Nullable Boolean sortVersionsBySemver;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
         private List<GetSharedImageVersionTargetRegion> targetRegions;
         public Builder() {}
         public Builder(GetSharedImageVersionResult defaults) {
@@ -271,10 +271,8 @@ public final class GetSharedImageVersionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            if (tags == null) {
-              throw new MissingRequiredPropertyException("GetSharedImageVersionResult", "tags");
-            }
+        public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }

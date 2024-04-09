@@ -221,7 +221,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
+     * Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
      */
     public readonly sku!: pulumi.Output<string>;
     /**
@@ -369,7 +369,7 @@ export interface DeploymentState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
+     * Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -445,7 +445,7 @@ export interface DeploymentArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
+     * Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
      */
     sku: pulumi.Input<string>;
     /**

@@ -72,6 +72,11 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly exportPolicyRules!: pulumi.Output<outputs.netapp.VolumeExportPolicyRule[] | undefined>;
     /**
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
+     * `azurerm_netapp_account` having a defined AD connection.
+     */
+    public readonly kerberosEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
      */
     public readonly keyVaultPrivateEndpointId!: pulumi.Output<string>;
@@ -115,6 +120,10 @@ export class Volume extends pulumi.CustomResource {
      * Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
      */
     public readonly smbAccessBasedEnumerationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable SMB Continuous Availability.
+     */
+    public readonly smbContinuousAvailabilityEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
      */
@@ -170,6 +179,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["dataProtectionSnapshotPolicy"] = state ? state.dataProtectionSnapshotPolicy : undefined;
             resourceInputs["encryptionKeySource"] = state ? state.encryptionKeySource : undefined;
             resourceInputs["exportPolicyRules"] = state ? state.exportPolicyRules : undefined;
+            resourceInputs["kerberosEnabled"] = state ? state.kerberosEnabled : undefined;
             resourceInputs["keyVaultPrivateEndpointId"] = state ? state.keyVaultPrivateEndpointId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["mountIpAddresses"] = state ? state.mountIpAddresses : undefined;
@@ -181,6 +191,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["securityStyle"] = state ? state.securityStyle : undefined;
             resourceInputs["serviceLevel"] = state ? state.serviceLevel : undefined;
             resourceInputs["smbAccessBasedEnumerationEnabled"] = state ? state.smbAccessBasedEnumerationEnabled : undefined;
+            resourceInputs["smbContinuousAvailabilityEnabled"] = state ? state.smbContinuousAvailabilityEnabled : undefined;
             resourceInputs["smbNonBrowsableEnabled"] = state ? state.smbNonBrowsableEnabled : undefined;
             resourceInputs["snapshotDirectoryVisible"] = state ? state.snapshotDirectoryVisible : undefined;
             resourceInputs["storageQuotaInGb"] = state ? state.storageQuotaInGb : undefined;
@@ -219,6 +230,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["dataProtectionSnapshotPolicy"] = args ? args.dataProtectionSnapshotPolicy : undefined;
             resourceInputs["encryptionKeySource"] = args ? args.encryptionKeySource : undefined;
             resourceInputs["exportPolicyRules"] = args ? args.exportPolicyRules : undefined;
+            resourceInputs["kerberosEnabled"] = args ? args.kerberosEnabled : undefined;
             resourceInputs["keyVaultPrivateEndpointId"] = args ? args.keyVaultPrivateEndpointId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -229,6 +241,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["securityStyle"] = args ? args.securityStyle : undefined;
             resourceInputs["serviceLevel"] = args ? args.serviceLevel : undefined;
             resourceInputs["smbAccessBasedEnumerationEnabled"] = args ? args.smbAccessBasedEnumerationEnabled : undefined;
+            resourceInputs["smbContinuousAvailabilityEnabled"] = args ? args.smbContinuousAvailabilityEnabled : undefined;
             resourceInputs["smbNonBrowsableEnabled"] = args ? args.smbNonBrowsableEnabled : undefined;
             resourceInputs["snapshotDirectoryVisible"] = args ? args.snapshotDirectoryVisible : undefined;
             resourceInputs["storageQuotaInGb"] = args ? args.storageQuotaInGb : undefined;
@@ -277,6 +290,11 @@ export interface VolumeState {
      */
     exportPolicyRules?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeExportPolicyRule>[]>;
     /**
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
+     * `azurerm_netapp_account` having a defined AD connection.
+     */
+    kerberosEnabled?: pulumi.Input<boolean>;
+    /**
      * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
      */
     keyVaultPrivateEndpointId?: pulumi.Input<string>;
@@ -320,6 +338,10 @@ export interface VolumeState {
      * Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
      */
     smbAccessBasedEnumerationEnabled?: pulumi.Input<boolean>;
+    /**
+     * Enable SMB Continuous Availability.
+     */
+    smbContinuousAvailabilityEnabled?: pulumi.Input<boolean>;
     /**
      * Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
      */
@@ -389,6 +411,11 @@ export interface VolumeArgs {
      */
     exportPolicyRules?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeExportPolicyRule>[]>;
     /**
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
+     * `azurerm_netapp_account` having a defined AD connection.
+     */
+    kerberosEnabled?: pulumi.Input<boolean>;
+    /**
      * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
      */
     keyVaultPrivateEndpointId?: pulumi.Input<string>;
@@ -428,6 +455,10 @@ export interface VolumeArgs {
      * Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
      */
     smbAccessBasedEnumerationEnabled?: pulumi.Input<boolean>;
+    /**
+     * Enable SMB Continuous Availability.
+     */
+    smbContinuousAvailabilityEnabled?: pulumi.Input<boolean>;
     /**
      * Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
      */

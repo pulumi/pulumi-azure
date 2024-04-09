@@ -312,26 +312,30 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.elasticPoolId);
     }
     /**
-     * Specifies the type of enclave to be used by the database. Possible value `VBS`.
+     * Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. &lt;!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource.-&gt; Possible values are `Default` or `VBS`.
      * 
      * &gt; **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
      * 
      * &gt; **NOTE:** Geo Replicated and Failover databases must have the same `enclave_type`.
+     * 
+     * &gt; **NOTE:** The default value for the `enclave_type` field is unset not `Default`.
      * 
      */
     @Export(name="enclaveType", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> enclaveType;
+    private Output<String> enclaveType;
 
     /**
-     * @return Specifies the type of enclave to be used by the database. Possible value `VBS`.
+     * @return Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. &lt;!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource.-&gt; Possible values are `Default` or `VBS`.
      * 
      * &gt; **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
      * 
      * &gt; **NOTE:** Geo Replicated and Failover databases must have the same `enclave_type`.
      * 
+     * &gt; **NOTE:** The default value for the `enclave_type` field is unset not `Default`.
+     * 
      */
-    public Output<Optional<String>> enclaveType() {
-        return Codegen.optional(this.enclaveType);
+    public Output<String> enclaveType() {
+        return this.enclaveType;
     }
     /**
      * A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
@@ -596,6 +600,20 @@ public class Database extends com.pulumi.resources.CustomResource {
      */
     public Output<String> sampleName() {
         return this.sampleName;
+    }
+    /**
+     * How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="secondaryType", refs={String.class}, tree="[0]")
+    private Output<String> secondaryType;
+
+    /**
+     * @return How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> secondaryType() {
+        return this.secondaryType;
     }
     /**
      * The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.

@@ -8,6 +8,7 @@ import com.pulumi.azure.monitoring.ScheduledQueryRulesAlertV2Args;
 import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2State;
 import com.pulumi.azure.monitoring.outputs.ScheduledQueryRulesAlertV2Action;
 import com.pulumi.azure.monitoring.outputs.ScheduledQueryRulesAlertV2Criteria;
+import com.pulumi.azure.monitoring.outputs.ScheduledQueryRulesAlertV2Identity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -38,11 +39,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appinsights.InsightsArgs;
  * import com.pulumi.azure.monitoring.ActionGroup;
  * import com.pulumi.azure.monitoring.ActionGroupArgs;
+ * import com.pulumi.azure.authorization.UserAssignedIdentity;
+ * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.monitoring.ScheduledQueryRulesAlertV2;
  * import com.pulumi.azure.monitoring.ScheduledQueryRulesAlertV2Args;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaArgs;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2ActionArgs;
+ * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2IdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -72,6 +78,18 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-mag&#34;)
  *             .resourceGroupName(example.name())
  *             .shortName(&#34;test mag&#34;)
+ *             .build());
+ * 
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
+ *             .name(&#34;example-uai&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+ *             .scope(exampleInsights.id())
+ *             .roleDefinitionName(&#34;Reader&#34;)
+ *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
  *         var exampleScheduledQueryRulesAlertV2 = new ScheduledQueryRulesAlertV2(&#34;exampleScheduledQueryRulesAlertV2&#34;, ScheduledQueryRulesAlertV2Args.builder()        
@@ -115,6 +133,10 @@ import javax.annotation.Nullable;
  *                     Map.entry(&#34;key&#34;, &#34;value&#34;),
  *                     Map.entry(&#34;key2&#34;, &#34;value2&#34;)
  *                 ))
+ *                 .build())
+ *             .identity(ScheduledQueryRulesAlertV2IdentityArgs.builder()
+ *                 .type(&#34;UserAssigned&#34;)
+ *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;key&#34;, &#34;value&#34;),
@@ -257,6 +279,20 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      */
     public Output<Optional<String>> evaluationFrequency() {
         return Codegen.optional(this.evaluationFrequency);
+    }
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", refs={ScheduledQueryRulesAlertV2Identity.class}, tree="[0]")
+    private Output</* @Nullable */ ScheduledQueryRulesAlertV2Identity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<ScheduledQueryRulesAlertV2Identity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * True if this alert rule is a legacy Log Analytic Rule.

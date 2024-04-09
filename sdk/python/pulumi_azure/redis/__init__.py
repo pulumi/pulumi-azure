@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .cache import *
+from .cache_access_policy import *
+from .cache_access_policy_assignment import *
 from .enterprise_cluster import *
 from .enterprise_database import *
 from .firewall_rule import *

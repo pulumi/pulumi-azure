@@ -50,6 +50,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				LabName:           exampleLab.Name,
+//				Status:            pulumi.String("Enabled"),
 //				WeeklyRecurrence: &devtest.ScheduleWeeklyRecurrenceArgs{
 //					Time: pulumi.String("1100"),
 //					WeekDays: pulumi.StringArray{

@@ -79,9 +79,9 @@ export class HciCluster extends pulumi.CustomResource {
      */
     public readonly automanageConfigurationId!: pulumi.Output<string | undefined>;
     /**
-     * The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+     * The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      */
-    public readonly clientId!: pulumi.Output<string>;
+    public readonly clientId!: pulumi.Output<string | undefined>;
     /**
      * An immutable UUID for the Azure Stack HCI Cluster.
      */
@@ -147,9 +147,6 @@ export class HciCluster extends pulumi.CustomResource {
             resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as HciClusterArgs | undefined;
-            if ((!args || args.clientId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'clientId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -179,7 +176,7 @@ export interface HciClusterState {
      */
     automanageConfigurationId?: pulumi.Input<string>;
     /**
-     * The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+     * The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      */
     clientId?: pulumi.Input<string>;
     /**
@@ -231,9 +228,9 @@ export interface HciClusterArgs {
      */
     automanageConfigurationId?: pulumi.Input<string>;
     /**
-     * The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+     * The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      */
-    clientId: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */

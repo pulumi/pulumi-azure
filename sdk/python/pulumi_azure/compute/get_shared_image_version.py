@@ -141,7 +141,7 @@ class GetSharedImageVersionResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A mapping of tags assigned to the Shared Image.
         """
@@ -182,6 +182,7 @@ def get_shared_image_version(gallery_name: Optional[str] = None,
                              name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              sort_versions_by_semver: Optional[bool] = None,
+                             tags: Optional[Mapping[str, str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedImageVersionResult:
     """
     Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
@@ -210,6 +211,7 @@ def get_shared_image_version(gallery_name: Optional[str] = None,
            > **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
     :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
     :param bool sort_versions_by_semver: Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
+    :param Mapping[str, str] tags: A mapping of tags assigned to the Shared Image.
     """
     __args__ = dict()
     __args__['galleryName'] = gallery_name
@@ -217,6 +219,7 @@ def get_shared_image_version(gallery_name: Optional[str] = None,
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['sortVersionsBySemver'] = sort_versions_by_semver
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImageVersion:getSharedImageVersion', __args__, opts=opts, typ=GetSharedImageVersionResult).value
 
@@ -242,6 +245,7 @@ def get_shared_image_version_output(gallery_name: Optional[pulumi.Input[str]] = 
                                     name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     sort_versions_by_semver: Optional[pulumi.Input[Optional[bool]]] = None,
+                                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharedImageVersionResult]:
     """
     Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
@@ -270,5 +274,6 @@ def get_shared_image_version_output(gallery_name: Optional[pulumi.Input[str]] = 
            > **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
     :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
     :param bool sort_versions_by_semver: Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
+    :param Mapping[str, str] tags: A mapping of tags assigned to the Shared Image.
     """
     ...

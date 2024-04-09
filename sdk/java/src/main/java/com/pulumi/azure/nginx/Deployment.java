@@ -427,14 +427,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
+     * Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
     private Output<String> sku;
 
     /**
-     * @return Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
+     * @return Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sku() {

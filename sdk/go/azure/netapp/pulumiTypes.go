@@ -1676,6 +1676,18 @@ func (o VolumeDataProtectionSnapshotPolicyPtrOutput) SnapshotPolicyId() pulumi.S
 type VolumeExportPolicyRule struct {
 	// A list of allowed clients IPv4 addresses.
 	AllowedClients []string `pulumi:"allowedClients"`
+	// Is Kerberos 5 read-only access permitted to this volume?
+	Kerberos5ReadOnlyEnabled *bool `pulumi:"kerberos5ReadOnlyEnabled"`
+	// Is Kerberos 5 read/write permitted to this volume?
+	Kerberos5ReadWriteEnabled *bool `pulumi:"kerberos5ReadWriteEnabled"`
+	// Is Kerberos 5i read-only permitted to this volume?
+	Kerberos5iReadOnlyEnabled *bool `pulumi:"kerberos5iReadOnlyEnabled"`
+	// Is Kerberos 5i read/write permitted to this volume?
+	Kerberos5iReadWriteEnabled *bool `pulumi:"kerberos5iReadWriteEnabled"`
+	// Is Kerberos 5p read-only permitted to this volume?
+	Kerberos5pReadOnlyEnabled *bool `pulumi:"kerberos5pReadOnlyEnabled"`
+	// Is Kerberos 5p read/write permitted to this volume?
+	Kerberos5pReadWriteEnabled *bool `pulumi:"kerberos5pReadWriteEnabled"`
 	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
 	ProtocolsEnabled *string `pulumi:"protocolsEnabled"`
 	// Is root access permitted to this volume?
@@ -1702,6 +1714,18 @@ type VolumeExportPolicyRuleInput interface {
 type VolumeExportPolicyRuleArgs struct {
 	// A list of allowed clients IPv4 addresses.
 	AllowedClients pulumi.StringArrayInput `pulumi:"allowedClients"`
+	// Is Kerberos 5 read-only access permitted to this volume?
+	Kerberos5ReadOnlyEnabled pulumi.BoolPtrInput `pulumi:"kerberos5ReadOnlyEnabled"`
+	// Is Kerberos 5 read/write permitted to this volume?
+	Kerberos5ReadWriteEnabled pulumi.BoolPtrInput `pulumi:"kerberos5ReadWriteEnabled"`
+	// Is Kerberos 5i read-only permitted to this volume?
+	Kerberos5iReadOnlyEnabled pulumi.BoolPtrInput `pulumi:"kerberos5iReadOnlyEnabled"`
+	// Is Kerberos 5i read/write permitted to this volume?
+	Kerberos5iReadWriteEnabled pulumi.BoolPtrInput `pulumi:"kerberos5iReadWriteEnabled"`
+	// Is Kerberos 5p read-only permitted to this volume?
+	Kerberos5pReadOnlyEnabled pulumi.BoolPtrInput `pulumi:"kerberos5pReadOnlyEnabled"`
+	// Is Kerberos 5p read/write permitted to this volume?
+	Kerberos5pReadWriteEnabled pulumi.BoolPtrInput `pulumi:"kerberos5pReadWriteEnabled"`
 	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
 	ProtocolsEnabled pulumi.StringPtrInput `pulumi:"protocolsEnabled"`
 	// Is root access permitted to this volume?
@@ -1768,6 +1792,36 @@ func (o VolumeExportPolicyRuleOutput) ToVolumeExportPolicyRuleOutputWithContext(
 // A list of allowed clients IPv4 addresses.
 func (o VolumeExportPolicyRuleOutput) AllowedClients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VolumeExportPolicyRule) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
+}
+
+// Is Kerberos 5 read-only access permitted to this volume?
+func (o VolumeExportPolicyRuleOutput) Kerberos5ReadOnlyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.Kerberos5ReadOnlyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is Kerberos 5 read/write permitted to this volume?
+func (o VolumeExportPolicyRuleOutput) Kerberos5ReadWriteEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.Kerberos5ReadWriteEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is Kerberos 5i read-only permitted to this volume?
+func (o VolumeExportPolicyRuleOutput) Kerberos5iReadOnlyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.Kerberos5iReadOnlyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is Kerberos 5i read/write permitted to this volume?
+func (o VolumeExportPolicyRuleOutput) Kerberos5iReadWriteEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.Kerberos5iReadWriteEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is Kerberos 5p read-only permitted to this volume?
+func (o VolumeExportPolicyRuleOutput) Kerberos5pReadOnlyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.Kerberos5pReadOnlyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is Kerberos 5p read/write permitted to this volume?
+func (o VolumeExportPolicyRuleOutput) Kerberos5pReadWriteEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.Kerberos5pReadWriteEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.

@@ -8,11 +8,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class WorkspaceRootDbfsCustomerManagedKeyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WorkspaceRootDbfsCustomerManagedKeyArgs Empty = new WorkspaceRootDbfsCustomerManagedKeyArgs();
+
+    @Import(name="keyVaultId")
+    private @Nullable Output<String> keyVaultId;
+
+    public Optional<Output<String>> keyVaultId() {
+        return Optional.ofNullable(this.keyVaultId);
+    }
 
     /**
      * The resource ID of the Key Vault Key to be used.
@@ -47,6 +56,7 @@ public final class WorkspaceRootDbfsCustomerManagedKeyArgs extends com.pulumi.re
     private WorkspaceRootDbfsCustomerManagedKeyArgs() {}
 
     private WorkspaceRootDbfsCustomerManagedKeyArgs(WorkspaceRootDbfsCustomerManagedKeyArgs $) {
+        this.keyVaultId = $.keyVaultId;
         this.keyVaultKeyId = $.keyVaultKeyId;
         this.workspaceId = $.workspaceId;
     }
@@ -67,6 +77,15 @@ public final class WorkspaceRootDbfsCustomerManagedKeyArgs extends com.pulumi.re
 
         public Builder(WorkspaceRootDbfsCustomerManagedKeyArgs defaults) {
             $ = new WorkspaceRootDbfsCustomerManagedKeyArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
+            $.keyVaultId = keyVaultId;
+            return this;
+        }
+
+        public Builder keyVaultId(String keyVaultId) {
+            return keyVaultId(Output.of(keyVaultId));
         }
 
         /**

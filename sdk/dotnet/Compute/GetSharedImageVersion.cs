@@ -107,6 +107,18 @@ namespace Pulumi.Azure.Compute
         [Input("sortVersionsBySemver")]
         public bool? SortVersionsBySemver { get; set; }
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the Shared Image.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetSharedImageVersionArgs()
         {
         }
@@ -148,6 +160,18 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("sortVersionsBySemver")]
         public Input<bool>? SortVersionsBySemver { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the Shared Image.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public GetSharedImageVersionInvokeArgs()
         {
@@ -194,7 +218,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A mapping of tags assigned to the Shared Image.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// One or more `target_region` blocks as documented below.
         /// </summary>
@@ -224,7 +248,7 @@ namespace Pulumi.Azure.Compute
 
             bool? sortVersionsBySemver,
 
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.GetSharedImageVersionTargetRegionResult> targetRegions)
         {

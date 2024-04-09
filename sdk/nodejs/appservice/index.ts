@@ -256,6 +256,11 @@ export type StaticWebAppCustomDomain = import("./staticWebAppCustomDomain").Stat
 export const StaticWebAppCustomDomain: typeof import("./staticWebAppCustomDomain").StaticWebAppCustomDomain = null as any;
 utilities.lazyLoad(exports, ["StaticWebAppCustomDomain"], () => require("./staticWebAppCustomDomain"));
 
+export { StaticWebAppFunctionAppRegistrationArgs, StaticWebAppFunctionAppRegistrationState } from "./staticWebAppFunctionAppRegistration";
+export type StaticWebAppFunctionAppRegistration = import("./staticWebAppFunctionAppRegistration").StaticWebAppFunctionAppRegistration;
+export const StaticWebAppFunctionAppRegistration: typeof import("./staticWebAppFunctionAppRegistration").StaticWebAppFunctionAppRegistration = null as any;
+utilities.lazyLoad(exports, ["StaticWebAppFunctionAppRegistration"], () => require("./staticWebAppFunctionAppRegistration"));
+
 export { VirtualNetworkSwiftConnectionArgs, VirtualNetworkSwiftConnectionState } from "./virtualNetworkSwiftConnection";
 export type VirtualNetworkSwiftConnection = import("./virtualNetworkSwiftConnection").VirtualNetworkSwiftConnection;
 export const VirtualNetworkSwiftConnection: typeof import("./virtualNetworkSwiftConnection").VirtualNetworkSwiftConnection = null as any;
@@ -370,6 +375,8 @@ const _module = {
                 return new StaticWebApp(name, <any>undefined, { urn })
             case "azure:appservice/staticWebAppCustomDomain:StaticWebAppCustomDomain":
                 return new StaticWebAppCustomDomain(name, <any>undefined, { urn })
+            case "azure:appservice/staticWebAppFunctionAppRegistration:StaticWebAppFunctionAppRegistration":
+                return new StaticWebAppFunctionAppRegistration(name, <any>undefined, { urn })
             case "azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection":
                 return new VirtualNetworkSwiftConnection(name, <any>undefined, { urn })
             case "azure:appservice/webAppActiveSlot:WebAppActiveSlot":
@@ -424,6 +431,7 @@ pulumi.runtime.registerResourceModule("azure", "appservice/staticSite", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/staticSiteCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/staticWebApp", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/staticWebAppCustomDomain", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/staticWebAppFunctionAppRegistration", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/virtualNetworkSwiftConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/webAppActiveSlot", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/webAppHybridConnection", _module)

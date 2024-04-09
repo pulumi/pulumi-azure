@@ -14,59 +14,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// Manages a Kubernetes Fleet Member.
     /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var example = new Azure.ContainerService.KubernetesCluster("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         DnsPrefix = "acctestaksexample",
-    ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
-    ///         {
-    ///             Name = "example-value",
-    ///             NodeCount = "example-value",
-    ///             VmSize = "example-value",
-    ///         },
-    ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
-    ///         {
-    ///             Type = "example-value",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleKubernetesFleetManager = new Azure.ContainerService.KubernetesFleetManager("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleFleetMember = new Azure.ContainerService.FleetMember("example", new()
-    ///     {
-    ///         KubernetesClusterId = example.Id,
-    ///         KubernetesFleetId = exampleKubernetesFleetManager.Id,
-    ///         Name = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// An existing Kubernetes Fleet Member can be imported into Terraform using the `resource id`, e.g.

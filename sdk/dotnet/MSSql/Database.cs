@@ -239,14 +239,16 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> ElasticPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of enclave to be used by the database. Possible value `VBS`.
+        /// Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. &lt;!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource.-&gt; Possible values are `Default` or `VBS`.
         /// 
         /// &gt; **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
         /// 
         /// &gt; **NOTE:** Geo Replicated and Failover databases must have the same `enclave_type`.
+        /// 
+        /// &gt; **NOTE:** The default value for the `enclave_type` field is unset not `Default`.
         /// </summary>
         [Output("enclaveType")]
-        public Output<string?> EnclaveType { get; private set; } = null!;
+        public Output<string> EnclaveType { get; private set; } = null!;
 
         /// <summary>
         /// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
@@ -361,6 +363,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("sampleName")]
         public Output<string> SampleName { get; private set; } = null!;
+
+        /// <summary>
+        /// How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("secondaryType")]
+        public Output<string> SecondaryType { get; private set; } = null!;
 
         /// <summary>
         /// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
@@ -509,11 +517,13 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? ElasticPoolId { get; set; }
 
         /// <summary>
-        /// Specifies the type of enclave to be used by the database. Possible value `VBS`.
+        /// Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. &lt;!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource.-&gt; Possible values are `Default` or `VBS`.
         /// 
         /// &gt; **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
         /// 
         /// &gt; **NOTE:** Geo Replicated and Failover databases must have the same `enclave_type`.
+        /// 
+        /// &gt; **NOTE:** The default value for the `enclave_type` field is unset not `Default`.
         /// </summary>
         [Input("enclaveType")]
         public Input<string>? EnclaveType { get; set; }
@@ -633,6 +643,12 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SampleName { get; set; }
 
         /// <summary>
+        /// How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("secondaryType")]
+        public Input<string>? SecondaryType { get; set; }
+
+        /// <summary>
         /// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** This setting is still required for "Serverless" SKUs
@@ -747,11 +763,13 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? ElasticPoolId { get; set; }
 
         /// <summary>
-        /// Specifies the type of enclave to be used by the database. Possible value `VBS`.
+        /// Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. &lt;!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource.-&gt; Possible values are `Default` or `VBS`.
         /// 
         /// &gt; **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
         /// 
         /// &gt; **NOTE:** Geo Replicated and Failover databases must have the same `enclave_type`.
+        /// 
+        /// &gt; **NOTE:** The default value for the `enclave_type` field is unset not `Default`.
         /// </summary>
         [Input("enclaveType")]
         public Input<string>? EnclaveType { get; set; }
@@ -869,6 +887,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("sampleName")]
         public Input<string>? SampleName { get; set; }
+
+        /// <summary>
+        /// How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("secondaryType")]
+        public Input<string>? SecondaryType { get; set; }
 
         /// <summary>
         /// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.

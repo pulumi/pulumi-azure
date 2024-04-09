@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .discovery_virtual_instance import *
 from .single_node_virtual_instance import *
 from .three_tier_virtual_instance import *
 from ._inputs import *

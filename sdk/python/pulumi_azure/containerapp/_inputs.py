@@ -605,21 +605,36 @@ class AppRegistryArgs:
 class AppSecretArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 value: pulumi.Input[str]):
+                 identity: Optional[pulumi.Input[str]] = None,
+                 key_vault_secret_id: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The Secret name.
+        :param pulumi.Input[str] name: The secret name.
+        :param pulumi.Input[str] identity: The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+               
+               !> **Note:** `identity` must be used together with `key_vault_secret_id`
+        :param pulumi.Input[str] key_vault_secret_id: The ID of a Key Vault secret. This can be a versioned or version-less ID.
+               
+               !> **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
         :param pulumi.Input[str] value: The value for this secret.
+               
+               !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
                
                !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_vault_secret_id is not None:
+            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The Secret name.
+        The secret name.
         """
         return pulumi.get(self, "name")
 
@@ -629,16 +644,46 @@ class AppSecretArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
+    def identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+
+        !> **Note:** `identity` must be used together with `key_vault_secret_id`
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a Key Vault secret. This can be a versioned or version-less ID.
+
+        !> **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
+
+    @key_vault_secret_id.setter
+    def key_vault_secret_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_secret_id", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
         """
         The value for this secret.
+
+        !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
 
         !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[str]):
+    def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
 
@@ -2443,13 +2488,22 @@ class EnvironmentDaprComponentMetadataArgs:
 class EnvironmentDaprComponentSecretArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 value: pulumi.Input[str]):
+                 identity: Optional[pulumi.Input[str]] = None,
+                 key_vault_secret_id: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The Secret name.
+        :param pulumi.Input[str] identity: The identity to use for accessing key vault reference.
+        :param pulumi.Input[str] key_vault_secret_id: The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
         :param pulumi.Input[str] value: The value for this secret.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_vault_secret_id is not None:
+            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2465,14 +2519,38 @@ class EnvironmentDaprComponentSecretArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
+    def identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity to use for accessing key vault reference.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
+
+    @key_vault_secret_id.setter
+    def key_vault_secret_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_secret_id", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
         """
         The value for this secret.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[str]):
+    def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
 

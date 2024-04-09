@@ -197,7 +197,7 @@ func (o BastionHostIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 }
 
 type CapacityReservationSku struct {
-	// Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+	// Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription.
 	Capacity int `pulumi:"capacity"`
 	// Name of the sku, such as `Standard_F2`. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -215,7 +215,7 @@ type CapacityReservationSkuInput interface {
 }
 
 type CapacityReservationSkuArgs struct {
-	// Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+	// Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// Name of the sku, such as `Standard_F2`. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -298,7 +298,7 @@ func (o CapacityReservationSkuOutput) ToCapacityReservationSkuPtrOutputWithConte
 	}).(CapacityReservationSkuPtrOutput)
 }
 
-// Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+// Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription.
 func (o CapacityReservationSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v CapacityReservationSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
@@ -332,7 +332,7 @@ func (o CapacityReservationSkuPtrOutput) Elem() CapacityReservationSkuOutput {
 	}).(CapacityReservationSkuOutput)
 }
 
-// Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+// Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription.
 func (o CapacityReservationSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityReservationSku) *int {
 		if v == nil {

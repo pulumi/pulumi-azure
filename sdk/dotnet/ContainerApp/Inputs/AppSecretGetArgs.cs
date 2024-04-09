@@ -12,27 +12,35 @@ namespace Pulumi.Azure.ContainerApp.Inputs
 
     public sealed class AppSecretGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("name", required: true)]
-        private Input<string>? _name;
+        /// <summary>
+        /// The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+        /// 
+        /// !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
+        /// </summary>
+        [Input("identity")]
+        public Input<string>? Identity { get; set; }
 
         /// <summary>
-        /// The Secret name.
+        /// The ID of a Key Vault secret. This can be a versioned or version-less ID.
+        /// 
+        /// !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
         /// </summary>
-        public Input<string>? Name
-        {
-            get => _name;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _name = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
+        [Input("keyVaultSecretId")]
+        public Input<string>? KeyVaultSecretId { get; set; }
 
-        [Input("value", required: true)]
+        /// <summary>
+        /// The secret name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("value")]
         private Input<string>? _value;
 
         /// <summary>
         /// The value for this secret.
+        /// 
+        /// !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
         /// 
         /// !&gt; **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
         /// </summary>

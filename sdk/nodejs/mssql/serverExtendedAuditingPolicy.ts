@@ -168,6 +168,10 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * A list of Actions-Groups and Actions to audit.
+     */
+    public readonly auditActionsAndGroups!: pulumi.Output<string[]>;
+    /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
      * ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
@@ -177,6 +181,10 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      */
     public readonly logMonitoringEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies condition of where clause when creating an audit.
+     */
+    public readonly predicateExpression!: pulumi.Output<string | undefined>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
      */
@@ -215,8 +223,10 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerExtendedAuditingPolicyState | undefined;
+            resourceInputs["auditActionsAndGroups"] = state ? state.auditActionsAndGroups : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["logMonitoringEnabled"] = state ? state.logMonitoringEnabled : undefined;
+            resourceInputs["predicateExpression"] = state ? state.predicateExpression : undefined;
             resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
             resourceInputs["serverId"] = state ? state.serverId : undefined;
             resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
@@ -228,8 +238,10 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
             if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
+            resourceInputs["auditActionsAndGroups"] = args ? args.auditActionsAndGroups : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
+            resourceInputs["predicateExpression"] = args ? args.predicateExpression : undefined;
             resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             resourceInputs["serverId"] = args ? args.serverId : undefined;
             resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
@@ -249,6 +261,10 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
  */
 export interface ServerExtendedAuditingPolicyState {
     /**
+     * A list of Actions-Groups and Actions to audit.
+     */
+    auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
      * ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
@@ -258,6 +274,10 @@ export interface ServerExtendedAuditingPolicyState {
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      */
     logMonitoringEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies condition of where clause when creating an audit.
+     */
+    predicateExpression?: pulumi.Input<string>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
      */
@@ -289,6 +309,10 @@ export interface ServerExtendedAuditingPolicyState {
  */
 export interface ServerExtendedAuditingPolicyArgs {
     /**
+     * A list of Actions-Groups and Actions to audit.
+     */
+    auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
      * ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
@@ -298,6 +322,10 @@ export interface ServerExtendedAuditingPolicyArgs {
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      */
     logMonitoringEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies condition of where clause when creating an audit.
+     */
+    predicateExpression?: pulumi.Input<string>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
      */

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:workloadssap/discoveryVirtualInstance:DiscoveryVirtualInstance":
+		r = &DiscoveryVirtualInstance{}
 	case "azure:workloadssap/singleNodeVirtualInstance:SingleNodeVirtualInstance":
 		r = &SingleNodeVirtualInstance{}
 	case "azure:workloadssap/threeTierVirtualInstance:ThreeTierVirtualInstance":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"workloadssap/discoveryVirtualInstance",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"workloadssap/singleNodeVirtualInstance",

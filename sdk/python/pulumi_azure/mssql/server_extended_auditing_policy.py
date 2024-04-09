@@ -15,8 +15,10 @@ __all__ = ['ServerExtendedAuditingPolicyArgs', 'ServerExtendedAuditingPolicy']
 class ServerExtendedAuditingPolicyArgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[str],
+                 audit_actions_and_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 predicate_expression: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
@@ -25,10 +27,12 @@ class ServerExtendedAuditingPolicyArgs:
         """
         The set of arguments for constructing a ServerExtendedAuditingPolicy resource.
         :param pulumi.Input[str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audit_actions_and_groups: A list of Actions-Groups and Actions to audit.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
                ->**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
+        :param pulumi.Input[str] predicate_expression: Specifies condition of where clause when creating an audit.
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
@@ -36,10 +40,14 @@ class ServerExtendedAuditingPolicyArgs:
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
         pulumi.set(__self__, "server_id", server_id)
+        if audit_actions_and_groups is not None:
+            pulumi.set(__self__, "audit_actions_and_groups", audit_actions_and_groups)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if log_monitoring_enabled is not None:
             pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
+        if predicate_expression is not None:
+            pulumi.set(__self__, "predicate_expression", predicate_expression)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
         if storage_account_access_key is not None:
@@ -62,6 +70,18 @@ class ServerExtendedAuditingPolicyArgs:
     @server_id.setter
     def server_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "server_id", value)
+
+    @property
+    @pulumi.getter(name="auditActionsAndGroups")
+    def audit_actions_and_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Actions-Groups and Actions to audit.
+        """
+        return pulumi.get(self, "audit_actions_and_groups")
+
+    @audit_actions_and_groups.setter
+    def audit_actions_and_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "audit_actions_and_groups", value)
 
     @property
     @pulumi.getter
@@ -88,6 +108,18 @@ class ServerExtendedAuditingPolicyArgs:
     @log_monitoring_enabled.setter
     def log_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "log_monitoring_enabled", value)
+
+    @property
+    @pulumi.getter(name="predicateExpression")
+    def predicate_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies condition of where clause when creating an audit.
+        """
+        return pulumi.get(self, "predicate_expression")
+
+    @predicate_expression.setter
+    def predicate_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "predicate_expression", value)
 
     @property
     @pulumi.getter(name="retentionInDays")
@@ -153,8 +185,10 @@ class ServerExtendedAuditingPolicyArgs:
 @pulumi.input_type
 class _ServerExtendedAuditingPolicyState:
     def __init__(__self__, *,
+                 audit_actions_and_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 predicate_expression: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
@@ -163,10 +197,12 @@ class _ServerExtendedAuditingPolicyState:
                  storage_endpoint: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServerExtendedAuditingPolicy resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audit_actions_and_groups: A list of Actions-Groups and Actions to audit.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
                ->**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
+        :param pulumi.Input[str] predicate_expression: Specifies condition of where clause when creating an audit.
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
         :param pulumi.Input[str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
@@ -174,10 +210,14 @@ class _ServerExtendedAuditingPolicyState:
         :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
+        if audit_actions_and_groups is not None:
+            pulumi.set(__self__, "audit_actions_and_groups", audit_actions_and_groups)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if log_monitoring_enabled is not None:
             pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
+        if predicate_expression is not None:
+            pulumi.set(__self__, "predicate_expression", predicate_expression)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
         if server_id is not None:
@@ -190,6 +230,18 @@ class _ServerExtendedAuditingPolicyState:
             pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
         if storage_endpoint is not None:
             pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+
+    @property
+    @pulumi.getter(name="auditActionsAndGroups")
+    def audit_actions_and_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Actions-Groups and Actions to audit.
+        """
+        return pulumi.get(self, "audit_actions_and_groups")
+
+    @audit_actions_and_groups.setter
+    def audit_actions_and_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "audit_actions_and_groups", value)
 
     @property
     @pulumi.getter
@@ -216,6 +268,18 @@ class _ServerExtendedAuditingPolicyState:
     @log_monitoring_enabled.setter
     def log_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "log_monitoring_enabled", value)
+
+    @property
+    @pulumi.getter(name="predicateExpression")
+    def predicate_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies condition of where clause when creating an audit.
+        """
+        return pulumi.get(self, "predicate_expression")
+
+    @predicate_expression.setter
+    def predicate_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "predicate_expression", value)
 
     @property
     @pulumi.getter(name="retentionInDays")
@@ -295,8 +359,10 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 audit_actions_and_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 predicate_expression: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
@@ -428,10 +494,12 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audit_actions_and_groups: A list of Actions-Groups and Actions to audit.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
                ->**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
+        :param pulumi.Input[str] predicate_expression: Specifies condition of where clause when creating an audit.
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
         :param pulumi.Input[str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
@@ -582,8 +650,10 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 audit_actions_and_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 predicate_expression: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
@@ -599,8 +669,10 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerExtendedAuditingPolicyArgs.__new__(ServerExtendedAuditingPolicyArgs)
 
+            __props__.__dict__["audit_actions_and_groups"] = audit_actions_and_groups
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["log_monitoring_enabled"] = log_monitoring_enabled
+            __props__.__dict__["predicate_expression"] = predicate_expression
             __props__.__dict__["retention_in_days"] = retention_in_days
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
@@ -621,8 +693,10 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            audit_actions_and_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+            predicate_expression: Optional[pulumi.Input[str]] = None,
             retention_in_days: Optional[pulumi.Input[int]] = None,
             server_id: Optional[pulumi.Input[str]] = None,
             storage_account_access_key: Optional[pulumi.Input[str]] = None,
@@ -636,10 +710,12 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audit_actions_and_groups: A list of Actions-Groups and Actions to audit.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
                ->**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
+        :param pulumi.Input[str] predicate_expression: Specifies condition of where clause when creating an audit.
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
         :param pulumi.Input[str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
@@ -651,8 +727,10 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
 
         __props__ = _ServerExtendedAuditingPolicyState.__new__(_ServerExtendedAuditingPolicyState)
 
+        __props__.__dict__["audit_actions_and_groups"] = audit_actions_and_groups
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["log_monitoring_enabled"] = log_monitoring_enabled
+        __props__.__dict__["predicate_expression"] = predicate_expression
         __props__.__dict__["retention_in_days"] = retention_in_days
         __props__.__dict__["server_id"] = server_id
         __props__.__dict__["storage_account_access_key"] = storage_account_access_key
@@ -660,6 +738,14 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         __props__.__dict__["storage_account_subscription_id"] = storage_account_subscription_id
         __props__.__dict__["storage_endpoint"] = storage_endpoint
         return ServerExtendedAuditingPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="auditActionsAndGroups")
+    def audit_actions_and_groups(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of Actions-Groups and Actions to audit.
+        """
+        return pulumi.get(self, "audit_actions_and_groups")
 
     @property
     @pulumi.getter
@@ -678,6 +764,14 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         """
         return pulumi.get(self, "log_monitoring_enabled")
+
+    @property
+    @pulumi.getter(name="predicateExpression")
+    def predicate_expression(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies condition of where clause when creating an audit.
+        """
+        return pulumi.get(self, "predicate_expression")
 
     @property
     @pulumi.getter(name="retentionInDays")

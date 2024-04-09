@@ -130,6 +130,23 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
+     * `azurerm_netapp_account` having a defined AD connection.
+     * 
+     */
+    @Import(name="kerberosEnabled")
+    private @Nullable Output<Boolean> kerberosEnabled;
+
+    /**
+     * @return Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
+     * `azurerm_netapp_account` having a defined AD connection.
+     * 
+     */
+    public Optional<Output<Boolean>> kerberosEnabled() {
+        return Optional.ofNullable(this.kerberosEnabled);
+    }
+
+    /**
      * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
      * 
      */
@@ -280,6 +297,21 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enable SMB Continuous Availability.
+     * 
+     */
+    @Import(name="smbContinuousAvailabilityEnabled")
+    private @Nullable Output<Boolean> smbContinuousAvailabilityEnabled;
+
+    /**
+     * @return Enable SMB Continuous Availability.
+     * 
+     */
+    public Optional<Output<Boolean>> smbContinuousAvailabilityEnabled() {
+        return Optional.ofNullable(this.smbContinuousAvailabilityEnabled);
+    }
+
+    /**
      * Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in &#34;net view.&#34; Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
      * 
      */
@@ -413,6 +445,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         this.dataProtectionSnapshotPolicy = $.dataProtectionSnapshotPolicy;
         this.encryptionKeySource = $.encryptionKeySource;
         this.exportPolicyRules = $.exportPolicyRules;
+        this.kerberosEnabled = $.kerberosEnabled;
         this.keyVaultPrivateEndpointId = $.keyVaultPrivateEndpointId;
         this.location = $.location;
         this.name = $.name;
@@ -423,6 +456,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         this.securityStyle = $.securityStyle;
         this.serviceLevel = $.serviceLevel;
         this.smbAccessBasedEnumerationEnabled = $.smbAccessBasedEnumerationEnabled;
+        this.smbContinuousAvailabilityEnabled = $.smbContinuousAvailabilityEnabled;
         this.smbNonBrowsableEnabled = $.smbNonBrowsableEnabled;
         this.snapshotDirectoryVisible = $.snapshotDirectoryVisible;
         this.storageQuotaInGb = $.storageQuotaInGb;
@@ -606,6 +640,29 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder exportPolicyRules(VolumeExportPolicyRuleArgs... exportPolicyRules) {
             return exportPolicyRules(List.of(exportPolicyRules));
+        }
+
+        /**
+         * @param kerberosEnabled Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
+         * `azurerm_netapp_account` having a defined AD connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosEnabled(@Nullable Output<Boolean> kerberosEnabled) {
+            $.kerberosEnabled = kerberosEnabled;
+            return this;
+        }
+
+        /**
+         * @param kerberosEnabled Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
+         * `azurerm_netapp_account` having a defined AD connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosEnabled(Boolean kerberosEnabled) {
+            return kerberosEnabled(Output.of(kerberosEnabled));
         }
 
         /**
@@ -826,6 +883,27 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder smbAccessBasedEnumerationEnabled(Boolean smbAccessBasedEnumerationEnabled) {
             return smbAccessBasedEnumerationEnabled(Output.of(smbAccessBasedEnumerationEnabled));
+        }
+
+        /**
+         * @param smbContinuousAvailabilityEnabled Enable SMB Continuous Availability.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder smbContinuousAvailabilityEnabled(@Nullable Output<Boolean> smbContinuousAvailabilityEnabled) {
+            $.smbContinuousAvailabilityEnabled = smbContinuousAvailabilityEnabled;
+            return this;
+        }
+
+        /**
+         * @param smbContinuousAvailabilityEnabled Enable SMB Continuous Availability.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder smbContinuousAvailabilityEnabled(Boolean smbContinuousAvailabilityEnabled) {
+            return smbContinuousAvailabilityEnabled(Output.of(smbContinuousAvailabilityEnabled));
         }
 
         /**

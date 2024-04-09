@@ -68,6 +68,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .labName(exampleLab.name())
+ *             .status(&#34;Enabled&#34;)
  *             .weeklyRecurrence(ScheduleWeeklyRecurrenceArgs.builder()
  *                 .time(&#34;1100&#34;)
  *                 .weekDays(                

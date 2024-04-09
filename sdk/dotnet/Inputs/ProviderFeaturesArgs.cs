@@ -36,6 +36,9 @@ namespace Pulumi.Azure.Inputs
         [Input("postgresqlFlexibleServer")]
         public Input<Inputs.ProviderFeaturesPostgresqlFlexibleServerArgs>? PostgresqlFlexibleServer { get; set; }
 
+        [Input("recoveryService")]
+        public Input<Inputs.ProviderFeaturesRecoveryServiceArgs>? RecoveryService { get; set; }
+
         [Input("resourceGroup")]
         public Input<Inputs.ProviderFeaturesResourceGroupArgs>? ResourceGroup { get; set; }
 

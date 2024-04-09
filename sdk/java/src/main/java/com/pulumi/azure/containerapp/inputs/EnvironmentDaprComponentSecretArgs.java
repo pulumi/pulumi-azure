@@ -8,11 +8,43 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class EnvironmentDaprComponentSecretArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EnvironmentDaprComponentSecretArgs Empty = new EnvironmentDaprComponentSecretArgs();
+
+    /**
+     * The identity to use for accessing key vault reference.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<String> identity;
+
+    /**
+     * @return The identity to use for accessing key vault reference.
+     * 
+     */
+    public Optional<Output<String>> identity() {
+        return Optional.ofNullable(this.identity);
+    }
+
+    /**
+     * The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+     * 
+     */
+    @Import(name="keyVaultSecretId")
+    private @Nullable Output<String> keyVaultSecretId;
+
+    /**
+     * @return The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+     * 
+     */
+    public Optional<Output<String>> keyVaultSecretId() {
+        return Optional.ofNullable(this.keyVaultSecretId);
+    }
 
     /**
      * The Secret name.
@@ -33,20 +65,22 @@ public final class EnvironmentDaprComponentSecretArgs extends com.pulumi.resourc
      * The value for this secret.
      * 
      */
-    @Import(name="value", required=true)
-    private Output<String> value;
+    @Import(name="value")
+    private @Nullable Output<String> value;
 
     /**
      * @return The value for this secret.
      * 
      */
-    public Output<String> value() {
-        return this.value;
+    public Optional<Output<String>> value() {
+        return Optional.ofNullable(this.value);
     }
 
     private EnvironmentDaprComponentSecretArgs() {}
 
     private EnvironmentDaprComponentSecretArgs(EnvironmentDaprComponentSecretArgs $) {
+        this.identity = $.identity;
+        this.keyVaultSecretId = $.keyVaultSecretId;
         this.name = $.name;
         this.value = $.value;
     }
@@ -67,6 +101,48 @@ public final class EnvironmentDaprComponentSecretArgs extends com.pulumi.resourc
 
         public Builder(EnvironmentDaprComponentSecretArgs defaults) {
             $ = new EnvironmentDaprComponentSecretArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param identity The identity to use for accessing key vault reference.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<String> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity The identity to use for accessing key vault reference.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(String identity) {
+            return identity(Output.of(identity));
+        }
+
+        /**
+         * @param keyVaultSecretId The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultSecretId(@Nullable Output<String> keyVaultSecretId) {
+            $.keyVaultSecretId = keyVaultSecretId;
+            return this;
+        }
+
+        /**
+         * @param keyVaultSecretId The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultSecretId(String keyVaultSecretId) {
+            return keyVaultSecretId(Output.of(keyVaultSecretId));
         }
 
         /**
@@ -96,7 +172,7 @@ public final class EnvironmentDaprComponentSecretArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder value(Output<String> value) {
+        public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
@@ -114,9 +190,6 @@ public final class EnvironmentDaprComponentSecretArgs extends com.pulumi.resourc
         public EnvironmentDaprComponentSecretArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("EnvironmentDaprComponentSecretArgs", "name");
-            }
-            if ($.value == null) {
-                throw new MissingRequiredPropertyException("EnvironmentDaprComponentSecretArgs", "value");
             }
             return $;
         }

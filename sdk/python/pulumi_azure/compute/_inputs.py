@@ -248,7 +248,7 @@ class CapacityReservationSkuArgs:
                  capacity: pulumi.Input[int],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[int] capacity: Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+        :param pulumi.Input[int] capacity: Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription.
         :param pulumi.Input[str] name: Name of the sku, such as `Standard_F2`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -258,7 +258,7 @@ class CapacityReservationSkuArgs:
     @pulumi.getter
     def capacity(self) -> pulumi.Input[int]:
         """
-        Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+        Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription.
         """
         return pulumi.get(self, "capacity")
 

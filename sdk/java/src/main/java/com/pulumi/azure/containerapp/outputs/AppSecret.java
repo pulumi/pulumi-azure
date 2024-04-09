@@ -7,25 +7,61 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AppSecret {
     /**
-     * @return The Secret name.
+     * @return The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+     * 
+     * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
+     * 
+     */
+    private @Nullable String identity;
+    /**
+     * @return The ID of a Key Vault secret. This can be a versioned or version-less ID.
+     * 
+     * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+     * 
+     */
+    private @Nullable String keyVaultSecretId;
+    /**
+     * @return The secret name.
      * 
      */
     private String name;
     /**
      * @return The value for this secret.
      * 
+     * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+     * 
      * !&gt; **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `&#34;&#34;`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
      * 
      */
-    private String value;
+    private @Nullable String value;
 
     private AppSecret() {}
     /**
-     * @return The Secret name.
+     * @return The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+     * 
+     * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
+     * 
+     */
+    public Optional<String> identity() {
+        return Optional.ofNullable(this.identity);
+    }
+    /**
+     * @return The ID of a Key Vault secret. This can be a versioned or version-less ID.
+     * 
+     * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+     * 
+     */
+    public Optional<String> keyVaultSecretId() {
+        return Optional.ofNullable(this.keyVaultSecretId);
+    }
+    /**
+     * @return The secret name.
      * 
      */
     public String name() {
@@ -34,11 +70,13 @@ public final class AppSecret {
     /**
      * @return The value for this secret.
      * 
+     * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+     * 
      * !&gt; **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `&#34;&#34;`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
      * 
      */
-    public String value() {
-        return this.value;
+    public Optional<String> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -50,15 +88,31 @@ public final class AppSecret {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String identity;
+        private @Nullable String keyVaultSecretId;
         private String name;
-        private String value;
+        private @Nullable String value;
         public Builder() {}
         public Builder(AppSecret defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.identity = defaults.identity;
+    	      this.keyVaultSecretId = defaults.keyVaultSecretId;
     	      this.name = defaults.name;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
+        public Builder identity(@Nullable String identity) {
+
+            this.identity = identity;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder keyVaultSecretId(@Nullable String keyVaultSecretId) {
+
+            this.keyVaultSecretId = keyVaultSecretId;
+            return this;
+        }
         @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
@@ -68,15 +122,15 @@ public final class AppSecret {
             return this;
         }
         @CustomType.Setter
-        public Builder value(String value) {
-            if (value == null) {
-              throw new MissingRequiredPropertyException("AppSecret", "value");
-            }
+        public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }
         public AppSecret build() {
             final var _resultValue = new AppSecret();
+            _resultValue.identity = identity;
+            _resultValue.keyVaultSecretId = keyVaultSecretId;
             _resultValue.name = name;
             _resultValue.value = value;
             return _resultValue;

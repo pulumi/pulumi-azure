@@ -102,7 +102,7 @@ public final class GetDeploymentResult {
     private String nginxVersion;
     private String resourceGroupName;
     /**
-     * @return Name of the SKU for this Nginx Deployment.
+     * @return The Nginx Deployment SKU. Possible values include `standard_Monthly`.
      * 
      */
     private String sku;
@@ -229,7 +229,7 @@ public final class GetDeploymentResult {
         return this.resourceGroupName;
     }
     /**
-     * @return Name of the SKU for this Nginx Deployment.
+     * @return The Nginx Deployment SKU. Possible values include `standard_Monthly`.
      * 
      */
     public String sku() {

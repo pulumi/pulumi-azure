@@ -20,6 +20,7 @@ __all__ = [
     'FeaturesLogAnalyticsWorkspace',
     'FeaturesManagedDisk',
     'FeaturesPostgresqlFlexibleServer',
+    'FeaturesRecoveryService',
     'FeaturesResourceGroup',
     'FeaturesSubscription',
     'FeaturesTemplateDeployment',
@@ -38,6 +39,7 @@ class Features(dict):
                  log_analytics_workspace: Optional['outputs.FeaturesLogAnalyticsWorkspace'] = None,
                  managed_disk: Optional['outputs.FeaturesManagedDisk'] = None,
                  postgresql_flexible_server: Optional['outputs.FeaturesPostgresqlFlexibleServer'] = None,
+                 recovery_service: Optional['outputs.FeaturesRecoveryService'] = None,
                  resource_group: Optional['outputs.FeaturesResourceGroup'] = None,
                  subscription: Optional['outputs.FeaturesSubscription'] = None,
                  template_deployment: Optional['outputs.FeaturesTemplateDeployment'] = None,
@@ -59,6 +61,8 @@ class Features(dict):
             pulumi.set(__self__, "managed_disk", managed_disk)
         if postgresql_flexible_server is not None:
             pulumi.set(__self__, "postgresql_flexible_server", postgresql_flexible_server)
+        if recovery_service is not None:
+            pulumi.set(__self__, "recovery_service", recovery_service)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
         if subscription is not None:
@@ -109,6 +113,11 @@ class Features(dict):
     @pulumi.getter(name="postgresqlFlexibleServer")
     def postgresql_flexible_server(self) -> Optional['outputs.FeaturesPostgresqlFlexibleServer']:
         return pulumi.get(self, "postgresql_flexible_server")
+
+    @property
+    @pulumi.getter(name="recoveryService")
+    def recovery_service(self) -> Optional['outputs.FeaturesRecoveryService']:
+        return pulumi.get(self, "recovery_service")
 
     @property
     @pulumi.getter(name="resourceGroup")
@@ -356,6 +365,27 @@ class FeaturesPostgresqlFlexibleServer(dict):
     @pulumi.getter(name="restartServerOnConfigurationValueChange")
     def restart_server_on_configuration_value_change(self) -> Optional[bool]:
         return pulumi.get(self, "restart_server_on_configuration_value_change")
+
+
+@pulumi.output_type
+class FeaturesRecoveryService(dict):
+    def __init__(__self__, *,
+                 purge_protected_items_from_vault_on_destroy: Optional[bool] = None,
+                 vm_backup_stop_protection_and_retain_data_on_destroy: Optional[bool] = None):
+        if purge_protected_items_from_vault_on_destroy is not None:
+            pulumi.set(__self__, "purge_protected_items_from_vault_on_destroy", purge_protected_items_from_vault_on_destroy)
+        if vm_backup_stop_protection_and_retain_data_on_destroy is not None:
+            pulumi.set(__self__, "vm_backup_stop_protection_and_retain_data_on_destroy", vm_backup_stop_protection_and_retain_data_on_destroy)
+
+    @property
+    @pulumi.getter(name="purgeProtectedItemsFromVaultOnDestroy")
+    def purge_protected_items_from_vault_on_destroy(self) -> Optional[bool]:
+        return pulumi.get(self, "purge_protected_items_from_vault_on_destroy")
+
+    @property
+    @pulumi.getter(name="vmBackupStopProtectionAndRetainDataOnDestroy")
+    def vm_backup_stop_protection_and_retain_data_on_destroy(self) -> Optional[bool]:
+        return pulumi.get(self, "vm_backup_stop_protection_and_retain_data_on_destroy")
 
 
 @pulumi.output_type

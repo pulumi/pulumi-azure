@@ -10,6 +10,16 @@ export type Cache = import("./cache").Cache;
 export const Cache: typeof import("./cache").Cache = null as any;
 utilities.lazyLoad(exports, ["Cache"], () => require("./cache"));
 
+export { CacheAccessPolicyArgs, CacheAccessPolicyState } from "./cacheAccessPolicy";
+export type CacheAccessPolicy = import("./cacheAccessPolicy").CacheAccessPolicy;
+export const CacheAccessPolicy: typeof import("./cacheAccessPolicy").CacheAccessPolicy = null as any;
+utilities.lazyLoad(exports, ["CacheAccessPolicy"], () => require("./cacheAccessPolicy"));
+
+export { CacheAccessPolicyAssignmentArgs, CacheAccessPolicyAssignmentState } from "./cacheAccessPolicyAssignment";
+export type CacheAccessPolicyAssignment = import("./cacheAccessPolicyAssignment").CacheAccessPolicyAssignment;
+export const CacheAccessPolicyAssignment: typeof import("./cacheAccessPolicyAssignment").CacheAccessPolicyAssignment = null as any;
+utilities.lazyLoad(exports, ["CacheAccessPolicyAssignment"], () => require("./cacheAccessPolicyAssignment"));
+
 export { EnterpriseClusterArgs, EnterpriseClusterState } from "./enterpriseCluster";
 export type EnterpriseCluster = import("./enterpriseCluster").EnterpriseCluster;
 export const EnterpriseCluster: typeof import("./enterpriseCluster").EnterpriseCluster = null as any;
@@ -47,6 +57,10 @@ const _module = {
         switch (type) {
             case "azure:redis/cache:Cache":
                 return new Cache(name, <any>undefined, { urn })
+            case "azure:redis/cacheAccessPolicy:CacheAccessPolicy":
+                return new CacheAccessPolicy(name, <any>undefined, { urn })
+            case "azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment":
+                return new CacheAccessPolicyAssignment(name, <any>undefined, { urn })
             case "azure:redis/enterpriseCluster:EnterpriseCluster":
                 return new EnterpriseCluster(name, <any>undefined, { urn })
             case "azure:redis/enterpriseDatabase:EnterpriseDatabase":
@@ -61,6 +75,8 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "redis/cache", _module)
+pulumi.runtime.registerResourceModule("azure", "redis/cacheAccessPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "redis/cacheAccessPolicyAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "redis/enterpriseCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "redis/enterpriseDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "redis/firewallRule", _module)

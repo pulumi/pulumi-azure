@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -100,6 +101,21 @@ public final class GetSharedImageVersionArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.sortVersionsBySemver);
     }
 
+    /**
+     * A mapping of tags assigned to the Shared Image.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return A mapping of tags assigned to the Shared Image.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private GetSharedImageVersionArgs() {}
 
     private GetSharedImageVersionArgs(GetSharedImageVersionArgs $) {
@@ -108,6 +124,7 @@ public final class GetSharedImageVersionArgs extends com.pulumi.resources.Invoke
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.sortVersionsBySemver = $.sortVersionsBySemver;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -239,6 +256,27 @@ public final class GetSharedImageVersionArgs extends com.pulumi.resources.Invoke
          */
         public Builder sortVersionsBySemver(Boolean sortVersionsBySemver) {
             return sortVersionsBySemver(Output.of(sortVersionsBySemver));
+        }
+
+        /**
+         * @param tags A mapping of tags assigned to the Shared Image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags A mapping of tags assigned to the Shared Image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         public GetSharedImageVersionArgs build() {

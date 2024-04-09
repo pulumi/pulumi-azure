@@ -30,6 +30,7 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     labName: exampleLab.name,
+ *     status: "Enabled",
  *     weeklyRecurrence: {
  *         time: "1100",
  *         weekDays: [

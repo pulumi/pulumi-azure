@@ -85,6 +85,14 @@ namespace Pulumi.Azure.Bot
     public partial class ServiceAzureBot : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+        /// 
+        /// &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `soft_delete_enabled` and `purge_protection_enabled` on the `azure.keyvault.KeyVault` that `cmk_key_vault_key_url` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+        /// </summary>
+        [Output("cmkKeyVaultKeyUrl")]
+        public Output<string?> CmkKeyVaultKeyUrl { get; private set; } = null!;
+
+        /// <summary>
         /// The Application Insights API Key to associate with this Azure Bot Service.
         /// </summary>
         [Output("developerAppInsightsApiKey")]
@@ -255,6 +263,14 @@ namespace Pulumi.Azure.Bot
 
     public sealed class ServiceAzureBotArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+        /// 
+        /// &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `soft_delete_enabled` and `purge_protection_enabled` on the `azure.keyvault.KeyVault` that `cmk_key_vault_key_url` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+        /// </summary>
+        [Input("cmkKeyVaultKeyUrl")]
+        public Input<string>? CmkKeyVaultKeyUrl { get; set; }
+
         [Input("developerAppInsightsApiKey")]
         private Input<string>? _developerAppInsightsApiKey;
 
@@ -415,6 +431,14 @@ namespace Pulumi.Azure.Bot
 
     public sealed class ServiceAzureBotState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+        /// 
+        /// &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `soft_delete_enabled` and `purge_protection_enabled` on the `azure.keyvault.KeyVault` that `cmk_key_vault_key_url` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+        /// </summary>
+        [Input("cmkKeyVaultKeyUrl")]
+        public Input<string>? CmkKeyVaultKeyUrl { get; set; }
+
         [Input("developerAppInsightsApiKey")]
         private Input<string>? _developerAppInsightsApiKey;
 

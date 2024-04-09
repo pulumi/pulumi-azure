@@ -22,6 +22,7 @@ type ProviderFeatures struct {
 	LogAnalyticsWorkspace    *ProviderFeaturesLogAnalyticsWorkspace    `pulumi:"logAnalyticsWorkspace"`
 	ManagedDisk              *ProviderFeaturesManagedDisk              `pulumi:"managedDisk"`
 	PostgresqlFlexibleServer *ProviderFeaturesPostgresqlFlexibleServer `pulumi:"postgresqlFlexibleServer"`
+	RecoveryService          *ProviderFeaturesRecoveryService          `pulumi:"recoveryService"`
 	ResourceGroup            *ProviderFeaturesResourceGroup            `pulumi:"resourceGroup"`
 	Subscription             *ProviderFeaturesSubscription             `pulumi:"subscription"`
 	TemplateDeployment       *ProviderFeaturesTemplateDeployment       `pulumi:"templateDeployment"`
@@ -49,6 +50,7 @@ type ProviderFeaturesArgs struct {
 	LogAnalyticsWorkspace    ProviderFeaturesLogAnalyticsWorkspacePtrInput    `pulumi:"logAnalyticsWorkspace"`
 	ManagedDisk              ProviderFeaturesManagedDiskPtrInput              `pulumi:"managedDisk"`
 	PostgresqlFlexibleServer ProviderFeaturesPostgresqlFlexibleServerPtrInput `pulumi:"postgresqlFlexibleServer"`
+	RecoveryService          ProviderFeaturesRecoveryServicePtrInput          `pulumi:"recoveryService"`
 	ResourceGroup            ProviderFeaturesResourceGroupPtrInput            `pulumi:"resourceGroup"`
 	Subscription             ProviderFeaturesSubscriptionPtrInput             `pulumi:"subscription"`
 	TemplateDeployment       ProviderFeaturesTemplateDeploymentPtrInput       `pulumi:"templateDeployment"`
@@ -165,6 +167,10 @@ func (o ProviderFeaturesOutput) PostgresqlFlexibleServer() ProviderFeaturesPostg
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesPostgresqlFlexibleServer { return v.PostgresqlFlexibleServer }).(ProviderFeaturesPostgresqlFlexibleServerPtrOutput)
 }
 
+func (o ProviderFeaturesOutput) RecoveryService() ProviderFeaturesRecoveryServicePtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesRecoveryService { return v.RecoveryService }).(ProviderFeaturesRecoveryServicePtrOutput)
+}
+
 func (o ProviderFeaturesOutput) ResourceGroup() ProviderFeaturesResourceGroupPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesResourceGroup { return v.ResourceGroup }).(ProviderFeaturesResourceGroupPtrOutput)
 }
@@ -279,6 +285,15 @@ func (o ProviderFeaturesPtrOutput) PostgresqlFlexibleServer() ProviderFeaturesPo
 		}
 		return v.PostgresqlFlexibleServer
 	}).(ProviderFeaturesPostgresqlFlexibleServerPtrOutput)
+}
+
+func (o ProviderFeaturesPtrOutput) RecoveryService() ProviderFeaturesRecoveryServicePtrOutput {
+	return o.ApplyT(func(v *ProviderFeatures) *ProviderFeaturesRecoveryService {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryService
+	}).(ProviderFeaturesRecoveryServicePtrOutput)
 }
 
 func (o ProviderFeaturesPtrOutput) ResourceGroup() ProviderFeaturesResourceGroupPtrOutput {
@@ -1578,6 +1593,154 @@ func (o ProviderFeaturesPostgresqlFlexibleServerPtrOutput) RestartServerOnConfig
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ProviderFeaturesRecoveryService struct {
+	PurgeProtectedItemsFromVaultOnDestroy        *bool `pulumi:"purgeProtectedItemsFromVaultOnDestroy"`
+	VmBackupStopProtectionAndRetainDataOnDestroy *bool `pulumi:"vmBackupStopProtectionAndRetainDataOnDestroy"`
+}
+
+// ProviderFeaturesRecoveryServiceInput is an input type that accepts ProviderFeaturesRecoveryServiceArgs and ProviderFeaturesRecoveryServiceOutput values.
+// You can construct a concrete instance of `ProviderFeaturesRecoveryServiceInput` via:
+//
+//	ProviderFeaturesRecoveryServiceArgs{...}
+type ProviderFeaturesRecoveryServiceInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesRecoveryServiceOutput() ProviderFeaturesRecoveryServiceOutput
+	ToProviderFeaturesRecoveryServiceOutputWithContext(context.Context) ProviderFeaturesRecoveryServiceOutput
+}
+
+type ProviderFeaturesRecoveryServiceArgs struct {
+	PurgeProtectedItemsFromVaultOnDestroy        pulumi.BoolPtrInput `pulumi:"purgeProtectedItemsFromVaultOnDestroy"`
+	VmBackupStopProtectionAndRetainDataOnDestroy pulumi.BoolPtrInput `pulumi:"vmBackupStopProtectionAndRetainDataOnDestroy"`
+}
+
+func (ProviderFeaturesRecoveryServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesRecoveryService)(nil)).Elem()
+}
+
+func (i ProviderFeaturesRecoveryServiceArgs) ToProviderFeaturesRecoveryServiceOutput() ProviderFeaturesRecoveryServiceOutput {
+	return i.ToProviderFeaturesRecoveryServiceOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesRecoveryServiceArgs) ToProviderFeaturesRecoveryServiceOutputWithContext(ctx context.Context) ProviderFeaturesRecoveryServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesRecoveryServiceOutput)
+}
+
+func (i ProviderFeaturesRecoveryServiceArgs) ToProviderFeaturesRecoveryServicePtrOutput() ProviderFeaturesRecoveryServicePtrOutput {
+	return i.ToProviderFeaturesRecoveryServicePtrOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesRecoveryServiceArgs) ToProviderFeaturesRecoveryServicePtrOutputWithContext(ctx context.Context) ProviderFeaturesRecoveryServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesRecoveryServiceOutput).ToProviderFeaturesRecoveryServicePtrOutputWithContext(ctx)
+}
+
+// ProviderFeaturesRecoveryServicePtrInput is an input type that accepts ProviderFeaturesRecoveryServiceArgs, ProviderFeaturesRecoveryServicePtr and ProviderFeaturesRecoveryServicePtrOutput values.
+// You can construct a concrete instance of `ProviderFeaturesRecoveryServicePtrInput` via:
+//
+//	        ProviderFeaturesRecoveryServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderFeaturesRecoveryServicePtrInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesRecoveryServicePtrOutput() ProviderFeaturesRecoveryServicePtrOutput
+	ToProviderFeaturesRecoveryServicePtrOutputWithContext(context.Context) ProviderFeaturesRecoveryServicePtrOutput
+}
+
+type providerFeaturesRecoveryServicePtrType ProviderFeaturesRecoveryServiceArgs
+
+func ProviderFeaturesRecoveryServicePtr(v *ProviderFeaturesRecoveryServiceArgs) ProviderFeaturesRecoveryServicePtrInput {
+	return (*providerFeaturesRecoveryServicePtrType)(v)
+}
+
+func (*providerFeaturesRecoveryServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesRecoveryService)(nil)).Elem()
+}
+
+func (i *providerFeaturesRecoveryServicePtrType) ToProviderFeaturesRecoveryServicePtrOutput() ProviderFeaturesRecoveryServicePtrOutput {
+	return i.ToProviderFeaturesRecoveryServicePtrOutputWithContext(context.Background())
+}
+
+func (i *providerFeaturesRecoveryServicePtrType) ToProviderFeaturesRecoveryServicePtrOutputWithContext(ctx context.Context) ProviderFeaturesRecoveryServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesRecoveryServicePtrOutput)
+}
+
+type ProviderFeaturesRecoveryServiceOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesRecoveryServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesRecoveryService)(nil)).Elem()
+}
+
+func (o ProviderFeaturesRecoveryServiceOutput) ToProviderFeaturesRecoveryServiceOutput() ProviderFeaturesRecoveryServiceOutput {
+	return o
+}
+
+func (o ProviderFeaturesRecoveryServiceOutput) ToProviderFeaturesRecoveryServiceOutputWithContext(ctx context.Context) ProviderFeaturesRecoveryServiceOutput {
+	return o
+}
+
+func (o ProviderFeaturesRecoveryServiceOutput) ToProviderFeaturesRecoveryServicePtrOutput() ProviderFeaturesRecoveryServicePtrOutput {
+	return o.ToProviderFeaturesRecoveryServicePtrOutputWithContext(context.Background())
+}
+
+func (o ProviderFeaturesRecoveryServiceOutput) ToProviderFeaturesRecoveryServicePtrOutputWithContext(ctx context.Context) ProviderFeaturesRecoveryServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesRecoveryService) *ProviderFeaturesRecoveryService {
+		return &v
+	}).(ProviderFeaturesRecoveryServicePtrOutput)
+}
+
+func (o ProviderFeaturesRecoveryServiceOutput) PurgeProtectedItemsFromVaultOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesRecoveryService) *bool { return v.PurgeProtectedItemsFromVaultOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesRecoveryServiceOutput) VmBackupStopProtectionAndRetainDataOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesRecoveryService) *bool { return v.VmBackupStopProtectionAndRetainDataOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesRecoveryServicePtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesRecoveryServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesRecoveryService)(nil)).Elem()
+}
+
+func (o ProviderFeaturesRecoveryServicePtrOutput) ToProviderFeaturesRecoveryServicePtrOutput() ProviderFeaturesRecoveryServicePtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesRecoveryServicePtrOutput) ToProviderFeaturesRecoveryServicePtrOutputWithContext(ctx context.Context) ProviderFeaturesRecoveryServicePtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesRecoveryServicePtrOutput) Elem() ProviderFeaturesRecoveryServiceOutput {
+	return o.ApplyT(func(v *ProviderFeaturesRecoveryService) ProviderFeaturesRecoveryService {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesRecoveryService
+		return ret
+	}).(ProviderFeaturesRecoveryServiceOutput)
+}
+
+func (o ProviderFeaturesRecoveryServicePtrOutput) PurgeProtectedItemsFromVaultOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesRecoveryService) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PurgeProtectedItemsFromVaultOnDestroy
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesRecoveryServicePtrOutput) VmBackupStopProtectionAndRetainDataOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesRecoveryService) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VmBackupStopProtectionAndRetainDataOnDestroy
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ProviderFeaturesResourceGroup struct {
 	PreventDeletionIfContainsResources *bool `pulumi:"preventDeletionIfContainsResources"`
 }
@@ -2337,6 +2500,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesManagedDiskPtrInput)(nil)).Elem(), ProviderFeaturesManagedDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesPostgresqlFlexibleServerInput)(nil)).Elem(), ProviderFeaturesPostgresqlFlexibleServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesPostgresqlFlexibleServerPtrInput)(nil)).Elem(), ProviderFeaturesPostgresqlFlexibleServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesRecoveryServiceInput)(nil)).Elem(), ProviderFeaturesRecoveryServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesRecoveryServicePtrInput)(nil)).Elem(), ProviderFeaturesRecoveryServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesResourceGroupInput)(nil)).Elem(), ProviderFeaturesResourceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesResourceGroupPtrInput)(nil)).Elem(), ProviderFeaturesResourceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesSubscriptionInput)(nil)).Elem(), ProviderFeaturesSubscriptionArgs{})
@@ -2365,6 +2530,8 @@ func init() {
 	pulumi.RegisterOutputType(ProviderFeaturesManagedDiskPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesPostgresqlFlexibleServerOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesPostgresqlFlexibleServerPtrOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesRecoveryServiceOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesRecoveryServicePtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesResourceGroupOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesResourceGroupPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesSubscriptionOutput{})

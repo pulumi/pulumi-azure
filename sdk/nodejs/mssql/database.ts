@@ -207,13 +207,15 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly elasticPoolId!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the type of enclave to be used by the database. Possible value `VBS`.
+     * Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
      *
      * > **NOTE:** `enclaveType` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
      *
      * > **NOTE:** Geo Replicated and Failover databases must have the same `enclaveType`.
+     *
+     * > **NOTE:** The default value for the `enclaveType` field is unset not `Default`.
      */
-    public readonly enclaveType!: pulumi.Output<string | undefined>;
+    public readonly enclaveType!: pulumi.Output<string>;
     /**
      * A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
      *
@@ -292,6 +294,10 @@ export class Database extends pulumi.CustomResource {
      * Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
      */
     public readonly sampleName!: pulumi.Output<string>;
+    /**
+     * How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+     */
+    public readonly secondaryType!: pulumi.Output<string>;
     /**
      * The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
      *
@@ -378,6 +384,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["restoreLongTermRetentionBackupId"] = state ? state.restoreLongTermRetentionBackupId : undefined;
             resourceInputs["restorePointInTime"] = state ? state.restorePointInTime : undefined;
             resourceInputs["sampleName"] = state ? state.sampleName : undefined;
+            resourceInputs["secondaryType"] = state ? state.secondaryType : undefined;
             resourceInputs["serverId"] = state ? state.serverId : undefined;
             resourceInputs["shortTermRetentionPolicy"] = state ? state.shortTermRetentionPolicy : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
@@ -417,6 +424,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["restoreLongTermRetentionBackupId"] = args ? args.restoreLongTermRetentionBackupId : undefined;
             resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
             resourceInputs["sampleName"] = args ? args.sampleName : undefined;
+            resourceInputs["secondaryType"] = args ? args.secondaryType : undefined;
             resourceInputs["serverId"] = args ? args.serverId : undefined;
             resourceInputs["shortTermRetentionPolicy"] = args ? args.shortTermRetentionPolicy : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
@@ -460,11 +468,13 @@ export interface DatabaseState {
      */
     elasticPoolId?: pulumi.Input<string>;
     /**
-     * Specifies the type of enclave to be used by the database. Possible value `VBS`.
+     * Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
      *
      * > **NOTE:** `enclaveType` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
      *
      * > **NOTE:** Geo Replicated and Failover databases must have the same `enclaveType`.
+     *
+     * > **NOTE:** The default value for the `enclaveType` field is unset not `Default`.
      */
     enclaveType?: pulumi.Input<string>;
     /**
@@ -545,6 +555,10 @@ export interface DatabaseState {
      * Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
      */
     sampleName?: pulumi.Input<string>;
+    /**
+     * How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+     */
+    secondaryType?: pulumi.Input<string>;
     /**
      * The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
      *
@@ -622,11 +636,13 @@ export interface DatabaseArgs {
      */
     elasticPoolId?: pulumi.Input<string>;
     /**
-     * Specifies the type of enclave to be used by the database. Possible value `VBS`.
+     * Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
      *
      * > **NOTE:** `enclaveType` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
      *
      * > **NOTE:** Geo Replicated and Failover databases must have the same `enclaveType`.
+     *
+     * > **NOTE:** The default value for the `enclaveType` field is unset not `Default`.
      */
     enclaveType?: pulumi.Input<string>;
     /**
@@ -707,6 +723,10 @@ export interface DatabaseArgs {
      * Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
      */
     sampleName?: pulumi.Input<string>;
+    /**
+     * How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+     */
+    secondaryType?: pulumi.Input<string>;
     /**
      * The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
      *

@@ -25,7 +25,7 @@ public final class WorkspaceCustomParameters {
     /**
      * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **NOTE** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+     * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
      * 
      */
     private @Nullable Boolean noPublicIp;
@@ -72,7 +72,7 @@ public final class WorkspaceCustomParameters {
     /**
      * @return Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
+     * &gt; **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
      * 
      */
     private @Nullable String vnetAddressPrefix;
@@ -95,7 +95,7 @@ public final class WorkspaceCustomParameters {
     /**
      * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **NOTE** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+     * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
      * 
      */
     public Optional<Boolean> noPublicIp() {
@@ -160,7 +160,7 @@ public final class WorkspaceCustomParameters {
     /**
      * @return Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
+     * &gt; **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
      * 
      */
     public Optional<String> vnetAddressPrefix() {

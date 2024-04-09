@@ -11,6 +11,16 @@ import java.util.Objects;
 @CustomType
 public final class GetAppSecret {
     /**
+     * @return Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+     * 
+     */
+    private String identity;
+    /**
+     * @return The ID of a Key Vault secret.
+     * 
+     */
+    private String keyVaultSecretId;
+    /**
      * @return The name of the Container App.
      * 
      */
@@ -22,6 +32,20 @@ public final class GetAppSecret {
     private String value;
 
     private GetAppSecret() {}
+    /**
+     * @return Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+     * 
+     */
+    public String identity() {
+        return this.identity;
+    }
+    /**
+     * @return The ID of a Key Vault secret.
+     * 
+     */
+    public String keyVaultSecretId() {
+        return this.keyVaultSecretId;
+    }
     /**
      * @return The name of the Container App.
      * 
@@ -46,15 +70,35 @@ public final class GetAppSecret {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String identity;
+        private String keyVaultSecretId;
         private String name;
         private String value;
         public Builder() {}
         public Builder(GetAppSecret defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.identity = defaults.identity;
+    	      this.keyVaultSecretId = defaults.keyVaultSecretId;
     	      this.name = defaults.name;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
+        public Builder identity(String identity) {
+            if (identity == null) {
+              throw new MissingRequiredPropertyException("GetAppSecret", "identity");
+            }
+            this.identity = identity;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder keyVaultSecretId(String keyVaultSecretId) {
+            if (keyVaultSecretId == null) {
+              throw new MissingRequiredPropertyException("GetAppSecret", "keyVaultSecretId");
+            }
+            this.keyVaultSecretId = keyVaultSecretId;
+            return this;
+        }
         @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
@@ -73,6 +117,8 @@ public final class GetAppSecret {
         }
         public GetAppSecret build() {
             final var _resultValue = new GetAppSecret();
+            _resultValue.identity = identity;
+            _resultValue.keyVaultSecretId = keyVaultSecretId;
             _resultValue.name = name;
             _resultValue.value = value;
             return _resultValue;

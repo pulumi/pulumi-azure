@@ -15,7 +15,8 @@ __all__ = ['WorkspaceRootDbfsCustomerManagedKeyArgs', 'WorkspaceRootDbfsCustomer
 class WorkspaceRootDbfsCustomerManagedKeyArgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[str],
-                 workspace_id: pulumi.Input[str]):
+                 workspace_id: pulumi.Input[str],
+                 key_vault_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WorkspaceRootDbfsCustomerManagedKey resource.
         :param pulumi.Input[str] key_vault_key_id: The resource ID of the Key Vault Key to be used.
@@ -23,6 +24,8 @@ class WorkspaceRootDbfsCustomerManagedKeyArgs:
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         pulumi.set(__self__, "workspace_id", workspace_id)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
@@ -48,10 +51,20 @@ class WorkspaceRootDbfsCustomerManagedKeyArgs:
     def workspace_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "workspace_id", value)
 
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_id", value)
+
 
 @pulumi.input_type
 class _WorkspaceRootDbfsCustomerManagedKeyState:
     def __init__(__self__, *,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
@@ -59,10 +72,21 @@ class _WorkspaceRootDbfsCustomerManagedKeyState:
         :param pulumi.Input[str] key_vault_key_id: The resource ID of the Key Vault Key to be used.
         :param pulumi.Input[str] workspace_id: The resource ID of the Databricks Workspace.
         """
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if workspace_id is not None:
             pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_id", value)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
@@ -94,11 +118,12 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Customer Managed Key for the Databricks Workspaces root Databricks File System(DBFS)
+        Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System(DBFS)
 
         ## Example Usage
 
@@ -181,7 +206,7 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
         ## Example HCL Configurations
 
         * Databricks Workspace with Root Databricks File System Customer Managed Keys
-        * Databricks Workspace with Customer Managed Keys for Managed Services
+        * Databricks Workspace with Root Databricks File System Customer Managed Keys in a Different Subscription
         * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Root Databricks File System Customer Managed Keys
 
         ## Import
@@ -204,7 +229,7 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
                  args: WorkspaceRootDbfsCustomerManagedKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Customer Managed Key for the Databricks Workspaces root Databricks File System(DBFS)
+        Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System(DBFS)
 
         ## Example Usage
 
@@ -287,7 +312,7 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
         ## Example HCL Configurations
 
         * Databricks Workspace with Root Databricks File System Customer Managed Keys
-        * Databricks Workspace with Customer Managed Keys for Managed Services
+        * Databricks Workspace with Root Databricks File System Customer Managed Keys in a Different Subscription
         * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Root Databricks File System Customer Managed Keys
 
         ## Import
@@ -313,6 +338,7 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -324,6 +350,7 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceRootDbfsCustomerManagedKeyArgs.__new__(WorkspaceRootDbfsCustomerManagedKeyArgs)
 
+            __props__.__dict__["key_vault_id"] = key_vault_id
             if key_vault_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_key_id'")
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
@@ -340,6 +367,7 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            key_vault_id: Optional[pulumi.Input[str]] = None,
             key_vault_key_id: Optional[pulumi.Input[str]] = None,
             workspace_id: Optional[pulumi.Input[str]] = None) -> 'WorkspaceRootDbfsCustomerManagedKey':
         """
@@ -356,9 +384,15 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
 
         __props__ = _WorkspaceRootDbfsCustomerManagedKeyState.__new__(_WorkspaceRootDbfsCustomerManagedKeyState)
 
+        __props__.__dict__["key_vault_id"] = key_vault_id
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
         __props__.__dict__["workspace_id"] = workspace_id
         return WorkspaceRootDbfsCustomerManagedKey(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "key_vault_id")
 
     @property
     @pulumi.getter(name="keyVaultKeyId")

@@ -69,6 +69,8 @@ type LookupSharedImageVersionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
 	SortVersionsBySemver *bool `pulumi:"sortVersionsBySemver"`
+	// A mapping of tags assigned to the Shared Image.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSharedImageVersion.
@@ -126,6 +128,8 @@ type LookupSharedImageVersionOutputArgs struct {
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
 	SortVersionsBySemver pulumi.BoolPtrInput `pulumi:"sortVersionsBySemver"`
+	// A mapping of tags assigned to the Shared Image.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupSharedImageVersionOutputArgs) ElementType() reflect.Type {

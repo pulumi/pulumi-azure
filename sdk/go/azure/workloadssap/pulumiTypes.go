@@ -13,6 +13,162 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DiscoveryVirtualInstanceIdentity struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this SAP Discovery Virtual Instance.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The type of Managed Service Identity that should be configured on this SAP Discovery Virtual Instance. The only possible value is `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// DiscoveryVirtualInstanceIdentityInput is an input type that accepts DiscoveryVirtualInstanceIdentityArgs and DiscoveryVirtualInstanceIdentityOutput values.
+// You can construct a concrete instance of `DiscoveryVirtualInstanceIdentityInput` via:
+//
+//	DiscoveryVirtualInstanceIdentityArgs{...}
+type DiscoveryVirtualInstanceIdentityInput interface {
+	pulumi.Input
+
+	ToDiscoveryVirtualInstanceIdentityOutput() DiscoveryVirtualInstanceIdentityOutput
+	ToDiscoveryVirtualInstanceIdentityOutputWithContext(context.Context) DiscoveryVirtualInstanceIdentityOutput
+}
+
+type DiscoveryVirtualInstanceIdentityArgs struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this SAP Discovery Virtual Instance.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The type of Managed Service Identity that should be configured on this SAP Discovery Virtual Instance. The only possible value is `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DiscoveryVirtualInstanceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiscoveryVirtualInstanceIdentity)(nil)).Elem()
+}
+
+func (i DiscoveryVirtualInstanceIdentityArgs) ToDiscoveryVirtualInstanceIdentityOutput() DiscoveryVirtualInstanceIdentityOutput {
+	return i.ToDiscoveryVirtualInstanceIdentityOutputWithContext(context.Background())
+}
+
+func (i DiscoveryVirtualInstanceIdentityArgs) ToDiscoveryVirtualInstanceIdentityOutputWithContext(ctx context.Context) DiscoveryVirtualInstanceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiscoveryVirtualInstanceIdentityOutput)
+}
+
+func (i DiscoveryVirtualInstanceIdentityArgs) ToDiscoveryVirtualInstanceIdentityPtrOutput() DiscoveryVirtualInstanceIdentityPtrOutput {
+	return i.ToDiscoveryVirtualInstanceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i DiscoveryVirtualInstanceIdentityArgs) ToDiscoveryVirtualInstanceIdentityPtrOutputWithContext(ctx context.Context) DiscoveryVirtualInstanceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiscoveryVirtualInstanceIdentityOutput).ToDiscoveryVirtualInstanceIdentityPtrOutputWithContext(ctx)
+}
+
+// DiscoveryVirtualInstanceIdentityPtrInput is an input type that accepts DiscoveryVirtualInstanceIdentityArgs, DiscoveryVirtualInstanceIdentityPtr and DiscoveryVirtualInstanceIdentityPtrOutput values.
+// You can construct a concrete instance of `DiscoveryVirtualInstanceIdentityPtrInput` via:
+//
+//	        DiscoveryVirtualInstanceIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type DiscoveryVirtualInstanceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToDiscoveryVirtualInstanceIdentityPtrOutput() DiscoveryVirtualInstanceIdentityPtrOutput
+	ToDiscoveryVirtualInstanceIdentityPtrOutputWithContext(context.Context) DiscoveryVirtualInstanceIdentityPtrOutput
+}
+
+type discoveryVirtualInstanceIdentityPtrType DiscoveryVirtualInstanceIdentityArgs
+
+func DiscoveryVirtualInstanceIdentityPtr(v *DiscoveryVirtualInstanceIdentityArgs) DiscoveryVirtualInstanceIdentityPtrInput {
+	return (*discoveryVirtualInstanceIdentityPtrType)(v)
+}
+
+func (*discoveryVirtualInstanceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiscoveryVirtualInstanceIdentity)(nil)).Elem()
+}
+
+func (i *discoveryVirtualInstanceIdentityPtrType) ToDiscoveryVirtualInstanceIdentityPtrOutput() DiscoveryVirtualInstanceIdentityPtrOutput {
+	return i.ToDiscoveryVirtualInstanceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *discoveryVirtualInstanceIdentityPtrType) ToDiscoveryVirtualInstanceIdentityPtrOutputWithContext(ctx context.Context) DiscoveryVirtualInstanceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiscoveryVirtualInstanceIdentityPtrOutput)
+}
+
+type DiscoveryVirtualInstanceIdentityOutput struct{ *pulumi.OutputState }
+
+func (DiscoveryVirtualInstanceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiscoveryVirtualInstanceIdentity)(nil)).Elem()
+}
+
+func (o DiscoveryVirtualInstanceIdentityOutput) ToDiscoveryVirtualInstanceIdentityOutput() DiscoveryVirtualInstanceIdentityOutput {
+	return o
+}
+
+func (o DiscoveryVirtualInstanceIdentityOutput) ToDiscoveryVirtualInstanceIdentityOutputWithContext(ctx context.Context) DiscoveryVirtualInstanceIdentityOutput {
+	return o
+}
+
+func (o DiscoveryVirtualInstanceIdentityOutput) ToDiscoveryVirtualInstanceIdentityPtrOutput() DiscoveryVirtualInstanceIdentityPtrOutput {
+	return o.ToDiscoveryVirtualInstanceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o DiscoveryVirtualInstanceIdentityOutput) ToDiscoveryVirtualInstanceIdentityPtrOutputWithContext(ctx context.Context) DiscoveryVirtualInstanceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiscoveryVirtualInstanceIdentity) *DiscoveryVirtualInstanceIdentity {
+		return &v
+	}).(DiscoveryVirtualInstanceIdentityPtrOutput)
+}
+
+// A list of User Assigned Managed Identity IDs to be assigned to this SAP Discovery Virtual Instance.
+func (o DiscoveryVirtualInstanceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DiscoveryVirtualInstanceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The type of Managed Service Identity that should be configured on this SAP Discovery Virtual Instance. The only possible value is `UserAssigned`.
+func (o DiscoveryVirtualInstanceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DiscoveryVirtualInstanceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DiscoveryVirtualInstanceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (DiscoveryVirtualInstanceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiscoveryVirtualInstanceIdentity)(nil)).Elem()
+}
+
+func (o DiscoveryVirtualInstanceIdentityPtrOutput) ToDiscoveryVirtualInstanceIdentityPtrOutput() DiscoveryVirtualInstanceIdentityPtrOutput {
+	return o
+}
+
+func (o DiscoveryVirtualInstanceIdentityPtrOutput) ToDiscoveryVirtualInstanceIdentityPtrOutputWithContext(ctx context.Context) DiscoveryVirtualInstanceIdentityPtrOutput {
+	return o
+}
+
+func (o DiscoveryVirtualInstanceIdentityPtrOutput) Elem() DiscoveryVirtualInstanceIdentityOutput {
+	return o.ApplyT(func(v *DiscoveryVirtualInstanceIdentity) DiscoveryVirtualInstanceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret DiscoveryVirtualInstanceIdentity
+		return ret
+	}).(DiscoveryVirtualInstanceIdentityOutput)
+}
+
+// A list of User Assigned Managed Identity IDs to be assigned to this SAP Discovery Virtual Instance.
+func (o DiscoveryVirtualInstanceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DiscoveryVirtualInstanceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The type of Managed Service Identity that should be configured on this SAP Discovery Virtual Instance. The only possible value is `UserAssigned`.
+func (o DiscoveryVirtualInstanceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiscoveryVirtualInstanceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type SingleNodeVirtualInstanceIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this SAP Single Node Virtual Instance.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -6552,6 +6708,8 @@ func (o ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountPtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DiscoveryVirtualInstanceIdentityInput)(nil)).Elem(), DiscoveryVirtualInstanceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiscoveryVirtualInstanceIdentityPtrInput)(nil)).Elem(), DiscoveryVirtualInstanceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SingleNodeVirtualInstanceIdentityInput)(nil)).Elem(), SingleNodeVirtualInstanceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SingleNodeVirtualInstanceIdentityPtrInput)(nil)).Elem(), SingleNodeVirtualInstanceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SingleNodeVirtualInstanceSingleServerConfigurationInput)(nil)).Elem(), SingleNodeVirtualInstanceSingleServerConfigurationArgs{})
@@ -6626,6 +6784,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStoragePtrInput)(nil)).Elem(), ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountInput)(nil)).Elem(), ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountPtrInput)(nil)).Elem(), ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs{})
+	pulumi.RegisterOutputType(DiscoveryVirtualInstanceIdentityOutput{})
+	pulumi.RegisterOutputType(DiscoveryVirtualInstanceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SingleNodeVirtualInstanceIdentityOutput{})
 	pulumi.RegisterOutputType(SingleNodeVirtualInstanceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SingleNodeVirtualInstanceSingleServerConfigurationOutput{})

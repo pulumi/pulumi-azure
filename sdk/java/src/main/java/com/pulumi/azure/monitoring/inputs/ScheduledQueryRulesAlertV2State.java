@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2ActionArgs;
 import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaArgs;
+import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2IdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -147,6 +148,21 @@ public final class ScheduledQueryRulesAlertV2State extends com.pulumi.resources.
      */
     public Optional<Output<String>> evaluationFrequency() {
         return Optional.ofNullable(this.evaluationFrequency);
+    }
+
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<ScheduledQueryRulesAlertV2IdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<ScheduledQueryRulesAlertV2IdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -378,6 +394,7 @@ public final class ScheduledQueryRulesAlertV2State extends com.pulumi.resources.
         this.displayName = $.displayName;
         this.enabled = $.enabled;
         this.evaluationFrequency = $.evaluationFrequency;
+        this.identity = $.identity;
         this.isALegacyLogAnalyticsRule = $.isALegacyLogAnalyticsRule;
         this.isWorkspaceAlertsStorageConfigured = $.isWorkspaceAlertsStorageConfigured;
         this.location = $.location;
@@ -596,6 +613,27 @@ public final class ScheduledQueryRulesAlertV2State extends com.pulumi.resources.
          */
         public Builder evaluationFrequency(String evaluationFrequency) {
             return evaluationFrequency(Output.of(evaluationFrequency));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<ScheduledQueryRulesAlertV2IdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(ScheduledQueryRulesAlertV2IdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**

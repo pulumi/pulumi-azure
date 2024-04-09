@@ -25,6 +25,42 @@ namespace Pulumi.Azure.NetApp.Inputs
         }
 
         /// <summary>
+        /// Is Kerberos 5 read-only access permitted to this volume?
+        /// </summary>
+        [Input("kerberos5ReadOnlyEnabled")]
+        public Input<bool>? Kerberos5ReadOnlyEnabled { get; set; }
+
+        /// <summary>
+        /// Is Kerberos 5 read/write permitted to this volume?
+        /// </summary>
+        [Input("kerberos5ReadWriteEnabled")]
+        public Input<bool>? Kerberos5ReadWriteEnabled { get; set; }
+
+        /// <summary>
+        /// Is Kerberos 5i read-only permitted to this volume?
+        /// </summary>
+        [Input("kerberos5iReadOnlyEnabled")]
+        public Input<bool>? Kerberos5iReadOnlyEnabled { get; set; }
+
+        /// <summary>
+        /// Is Kerberos 5i read/write permitted to this volume?
+        /// </summary>
+        [Input("kerberos5iReadWriteEnabled")]
+        public Input<bool>? Kerberos5iReadWriteEnabled { get; set; }
+
+        /// <summary>
+        /// Is Kerberos 5p read-only permitted to this volume?
+        /// </summary>
+        [Input("kerberos5pReadOnlyEnabled")]
+        public Input<bool>? Kerberos5pReadOnlyEnabled { get; set; }
+
+        /// <summary>
+        /// Is Kerberos 5p read/write permitted to this volume?
+        /// </summary>
+        [Input("kerberos5pReadWriteEnabled")]
+        public Input<bool>? Kerberos5pReadWriteEnabled { get; set; }
+
+        /// <summary>
         /// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
         /// </summary>
         [Input("protocolsEnabled")]

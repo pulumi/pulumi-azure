@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'DiscoveryVirtualInstanceIdentity',
     'SingleNodeVirtualInstanceIdentity',
     'SingleNodeVirtualInstanceSingleServerConfiguration',
     'SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfiguration',
@@ -49,6 +50,52 @@ __all__ = [
     'ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorage',
     'ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMount',
 ]
+
+@pulumi.output_type
+class DiscoveryVirtualInstanceIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiscoveryVirtualInstanceIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiscoveryVirtualInstanceIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiscoveryVirtualInstanceIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 type: str):
+        """
+        :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this SAP Discovery Virtual Instance.
+        :param str type: The type of Managed Service Identity that should be configured on this SAP Discovery Virtual Instance. The only possible value is `UserAssigned`.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this SAP Discovery Virtual Instance.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of Managed Service Identity that should be configured on this SAP Discovery Virtual Instance. The only possible value is `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
 class SingleNodeVirtualInstanceIdentity(dict):

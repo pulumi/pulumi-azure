@@ -12,23 +12,25 @@ namespace Pulumi.Azure.ContainerApp.Inputs
 
     public sealed class EnvironmentDaprComponentSecretGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("name", required: true)]
-        private Input<string>? _name;
+        /// <summary>
+        /// The identity to use for accessing key vault reference.
+        /// </summary>
+        [Input("identity")]
+        public Input<string>? Identity { get; set; }
+
+        /// <summary>
+        /// The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        /// </summary>
+        [Input("keyVaultSecretId")]
+        public Input<string>? KeyVaultSecretId { get; set; }
 
         /// <summary>
         /// The Secret name.
         /// </summary>
-        public Input<string>? Name
-        {
-            get => _name;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _name = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
-        [Input("value", required: true)]
+        [Input("value")]
         private Input<string>? _value;
 
         /// <summary>

@@ -31,6 +31,16 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     shortName: "test mag",
  * });
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "example-uai",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
+ *     scope: exampleInsights.id,
+ *     roleDefinitionName: "Reader",
+ *     principalId: exampleUserAssignedIdentity.principalId,
+ * });
  * const exampleScheduledQueryRulesAlertV2 = new azure.monitoring.ScheduledQueryRulesAlertV2("example", {
  *     name: "example-msqrv2",
  *     resourceGroupName: example.name,
@@ -71,6 +81,10 @@ import * as utilities from "../utilities";
  *             key: "value",
  *             key2: "value2",
  *         },
+ *     },
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
  *     tags: {
  *         key: "value",
@@ -153,6 +167,10 @@ export class ScheduledQueryRulesAlertV2 extends pulumi.CustomResource {
      */
     public readonly evaluationFrequency!: pulumi.Output<string | undefined>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.monitoring.ScheduledQueryRulesAlertV2Identity | undefined>;
+    /**
      * True if this alert rule is a legacy Log Analytic Rule.
      */
     public /*out*/ readonly isALegacyLogAnalyticsRule!: pulumi.Output<boolean>;
@@ -234,6 +252,7 @@ export class ScheduledQueryRulesAlertV2 extends pulumi.CustomResource {
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["evaluationFrequency"] = state ? state.evaluationFrequency : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["isALegacyLogAnalyticsRule"] = state ? state.isALegacyLogAnalyticsRule : undefined;
             resourceInputs["isWorkspaceAlertsStorageConfigured"] = state ? state.isWorkspaceAlertsStorageConfigured : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -272,6 +291,7 @@ export class ScheduledQueryRulesAlertV2 extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["muteActionsAfterAlertDuration"] = args ? args.muteActionsAfterAlertDuration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -333,6 +353,10 @@ export interface ScheduledQueryRulesAlertV2State {
      * > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
      */
     evaluationFrequency?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertV2Identity>;
     /**
      * True if this alert rule is a legacy Log Analytic Rule.
      */
@@ -431,6 +455,10 @@ export interface ScheduledQueryRulesAlertV2Args {
      * > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
      */
     evaluationFrequency?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertV2Identity>;
     /**
      * Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
      */

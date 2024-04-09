@@ -652,6 +652,12 @@ class VolumeExportPolicyRuleArgs:
     def __init__(__self__, *,
                  allowed_clients: pulumi.Input[Sequence[pulumi.Input[str]]],
                  rule_index: pulumi.Input[int],
+                 kerberos5_read_only_enabled: Optional[pulumi.Input[bool]] = None,
+                 kerberos5_read_write_enabled: Optional[pulumi.Input[bool]] = None,
+                 kerberos5i_read_only_enabled: Optional[pulumi.Input[bool]] = None,
+                 kerberos5i_read_write_enabled: Optional[pulumi.Input[bool]] = None,
+                 kerberos5p_read_only_enabled: Optional[pulumi.Input[bool]] = None,
+                 kerberos5p_read_write_enabled: Optional[pulumi.Input[bool]] = None,
                  protocols_enabled: Optional[pulumi.Input[str]] = None,
                  root_access_enabled: Optional[pulumi.Input[bool]] = None,
                  unix_read_only: Optional[pulumi.Input[bool]] = None,
@@ -659,6 +665,12 @@ class VolumeExportPolicyRuleArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_clients: A list of allowed clients IPv4 addresses.
         :param pulumi.Input[int] rule_index: The index number of the rule.
+        :param pulumi.Input[bool] kerberos5_read_only_enabled: Is Kerberos 5 read-only access permitted to this volume?
+        :param pulumi.Input[bool] kerberos5_read_write_enabled: Is Kerberos 5 read/write permitted to this volume?
+        :param pulumi.Input[bool] kerberos5i_read_only_enabled: Is Kerberos 5i read-only permitted to this volume?
+        :param pulumi.Input[bool] kerberos5i_read_write_enabled: Is Kerberos 5i read/write permitted to this volume?
+        :param pulumi.Input[bool] kerberos5p_read_only_enabled: Is Kerberos 5p read-only permitted to this volume?
+        :param pulumi.Input[bool] kerberos5p_read_write_enabled: Is Kerberos 5p read/write permitted to this volume?
         :param pulumi.Input[str] protocols_enabled: A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
         :param pulumi.Input[bool] root_access_enabled: Is root access permitted to this volume?
         :param pulumi.Input[bool] unix_read_only: Is the file system on unix read only?
@@ -666,6 +678,18 @@ class VolumeExportPolicyRuleArgs:
         """
         pulumi.set(__self__, "allowed_clients", allowed_clients)
         pulumi.set(__self__, "rule_index", rule_index)
+        if kerberos5_read_only_enabled is not None:
+            pulumi.set(__self__, "kerberos5_read_only_enabled", kerberos5_read_only_enabled)
+        if kerberos5_read_write_enabled is not None:
+            pulumi.set(__self__, "kerberos5_read_write_enabled", kerberos5_read_write_enabled)
+        if kerberos5i_read_only_enabled is not None:
+            pulumi.set(__self__, "kerberos5i_read_only_enabled", kerberos5i_read_only_enabled)
+        if kerberos5i_read_write_enabled is not None:
+            pulumi.set(__self__, "kerberos5i_read_write_enabled", kerberos5i_read_write_enabled)
+        if kerberos5p_read_only_enabled is not None:
+            pulumi.set(__self__, "kerberos5p_read_only_enabled", kerberos5p_read_only_enabled)
+        if kerberos5p_read_write_enabled is not None:
+            pulumi.set(__self__, "kerberos5p_read_write_enabled", kerberos5p_read_write_enabled)
         if protocols_enabled is not None:
             pulumi.set(__self__, "protocols_enabled", protocols_enabled)
         if root_access_enabled is not None:
@@ -698,6 +722,78 @@ class VolumeExportPolicyRuleArgs:
     @rule_index.setter
     def rule_index(self, value: pulumi.Input[int]):
         pulumi.set(self, "rule_index", value)
+
+    @property
+    @pulumi.getter(name="kerberos5ReadOnlyEnabled")
+    def kerberos5_read_only_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Kerberos 5 read-only access permitted to this volume?
+        """
+        return pulumi.get(self, "kerberos5_read_only_enabled")
+
+    @kerberos5_read_only_enabled.setter
+    def kerberos5_read_only_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "kerberos5_read_only_enabled", value)
+
+    @property
+    @pulumi.getter(name="kerberos5ReadWriteEnabled")
+    def kerberos5_read_write_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Kerberos 5 read/write permitted to this volume?
+        """
+        return pulumi.get(self, "kerberos5_read_write_enabled")
+
+    @kerberos5_read_write_enabled.setter
+    def kerberos5_read_write_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "kerberos5_read_write_enabled", value)
+
+    @property
+    @pulumi.getter(name="kerberos5iReadOnlyEnabled")
+    def kerberos5i_read_only_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Kerberos 5i read-only permitted to this volume?
+        """
+        return pulumi.get(self, "kerberos5i_read_only_enabled")
+
+    @kerberos5i_read_only_enabled.setter
+    def kerberos5i_read_only_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "kerberos5i_read_only_enabled", value)
+
+    @property
+    @pulumi.getter(name="kerberos5iReadWriteEnabled")
+    def kerberos5i_read_write_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Kerberos 5i read/write permitted to this volume?
+        """
+        return pulumi.get(self, "kerberos5i_read_write_enabled")
+
+    @kerberos5i_read_write_enabled.setter
+    def kerberos5i_read_write_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "kerberos5i_read_write_enabled", value)
+
+    @property
+    @pulumi.getter(name="kerberos5pReadOnlyEnabled")
+    def kerberos5p_read_only_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Kerberos 5p read-only permitted to this volume?
+        """
+        return pulumi.get(self, "kerberos5p_read_only_enabled")
+
+    @kerberos5p_read_only_enabled.setter
+    def kerberos5p_read_only_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "kerberos5p_read_only_enabled", value)
+
+    @property
+    @pulumi.getter(name="kerberos5pReadWriteEnabled")
+    def kerberos5p_read_write_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Kerberos 5p read/write permitted to this volume?
+        """
+        return pulumi.get(self, "kerberos5p_read_write_enabled")
+
+    @kerberos5p_read_write_enabled.setter
+    def kerberos5p_read_write_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "kerberos5p_read_write_enabled", value)
 
     @property
     @pulumi.getter(name="protocolsEnabled")

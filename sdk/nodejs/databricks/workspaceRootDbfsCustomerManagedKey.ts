@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Customer Managed Key for the Databricks Workspaces root Databricks File System(DBFS)
+ * Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System(DBFS)
  *
  * ## Example Usage
  *
@@ -95,7 +95,7 @@ import * as utilities from "../utilities";
  * ## Example HCL Configurations
  *
  * * Databricks Workspace with Root Databricks File System Customer Managed Keys
- * * Databricks Workspace with Customer Managed Keys for Managed Services
+ * * Databricks Workspace with Root Databricks File System Customer Managed Keys in a Different Subscription
  * * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Root Databricks File System Customer Managed Keys
  *
  * ## Import
@@ -134,6 +134,7 @@ export class WorkspaceRootDbfsCustomerManagedKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceRootDbfsCustomerManagedKey.__pulumiType;
     }
 
+    public readonly keyVaultId!: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the Key Vault Key to be used.
      */
@@ -156,6 +157,7 @@ export class WorkspaceRootDbfsCustomerManagedKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceRootDbfsCustomerManagedKeyState | undefined;
+            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
             resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
@@ -166,6 +168,7 @@ export class WorkspaceRootDbfsCustomerManagedKey extends pulumi.CustomResource {
             if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
+            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
@@ -178,6 +181,7 @@ export class WorkspaceRootDbfsCustomerManagedKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WorkspaceRootDbfsCustomerManagedKey resources.
  */
 export interface WorkspaceRootDbfsCustomerManagedKeyState {
+    keyVaultId?: pulumi.Input<string>;
     /**
      * The resource ID of the Key Vault Key to be used.
      */
@@ -192,6 +196,7 @@ export interface WorkspaceRootDbfsCustomerManagedKeyState {
  * The set of arguments for constructing a WorkspaceRootDbfsCustomerManagedKey resource.
  */
 export interface WorkspaceRootDbfsCustomerManagedKeyArgs {
+    keyVaultId?: pulumi.Input<string>;
     /**
      * The resource ID of the Key Vault Key to be used.
      */

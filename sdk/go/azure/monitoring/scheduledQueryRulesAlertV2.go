@@ -23,6 +23,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -51,6 +52,22 @@ import (
 //				Name:              pulumi.String("example-mag"),
 //				ResourceGroupName: example.Name,
 //				ShortName:         pulumi.String("test mag"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				Name:              pulumi.String("example-uai"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//				Scope:              exampleInsights.ID(),
+//				RoleDefinitionName: pulumi.String("Reader"),
+//				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
 //			})
 //			if err != nil {
 //				return err
@@ -102,6 +119,12 @@ import (
 //						"key2": pulumi.String("value2"),
 //					},
 //				},
+//				Identity: &monitoring.ScheduledQueryRulesAlertV2IdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID(),
+//					},
+//				},
 //				Tags: pulumi.StringMap{
 //					"key":  pulumi.String("value"),
 //					"key2": pulumi.String("value2"),
@@ -147,6 +170,8 @@ type ScheduledQueryRulesAlertV2 struct {
 	//
 	// > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
 	EvaluationFrequency pulumi.StringPtrOutput `pulumi:"evaluationFrequency"`
+	// An `identity` block as defined below.
+	Identity ScheduledQueryRulesAlertV2IdentityPtrOutput `pulumi:"identity"`
 	// True if this alert rule is a legacy Log Analytic Rule.
 	IsALegacyLogAnalyticsRule pulumi.BoolOutput `pulumi:"isALegacyLogAnalyticsRule"`
 	// The flag indicates whether this Scheduled Query Rule has been configured to be stored in the customer's storage.
@@ -246,6 +271,8 @@ type scheduledQueryRulesAlertV2State struct {
 	//
 	// > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
 	EvaluationFrequency *string `pulumi:"evaluationFrequency"`
+	// An `identity` block as defined below.
+	Identity *ScheduledQueryRulesAlertV2Identity `pulumi:"identity"`
 	// True if this alert rule is a legacy Log Analytic Rule.
 	IsALegacyLogAnalyticsRule *bool `pulumi:"isALegacyLogAnalyticsRule"`
 	// The flag indicates whether this Scheduled Query Rule has been configured to be stored in the customer's storage.
@@ -301,6 +328,8 @@ type ScheduledQueryRulesAlertV2State struct {
 	//
 	// > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
 	EvaluationFrequency pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity ScheduledQueryRulesAlertV2IdentityPtrInput
 	// True if this alert rule is a legacy Log Analytic Rule.
 	IsALegacyLogAnalyticsRule pulumi.BoolPtrInput
 	// The flag indicates whether this Scheduled Query Rule has been configured to be stored in the customer's storage.
@@ -358,6 +387,8 @@ type scheduledQueryRulesAlertV2Args struct {
 	//
 	// > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
 	EvaluationFrequency *string `pulumi:"evaluationFrequency"`
+	// An `identity` block as defined below.
+	Identity *ScheduledQueryRulesAlertV2Identity `pulumi:"identity"`
 	// Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
@@ -408,6 +439,8 @@ type ScheduledQueryRulesAlertV2Args struct {
 	//
 	// > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
 	EvaluationFrequency pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity ScheduledQueryRulesAlertV2IdentityPtrInput
 	// Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
@@ -567,6 +600,11 @@ func (o ScheduledQueryRulesAlertV2Output) Enabled() pulumi.BoolPtrOutput {
 // > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
 func (o ScheduledQueryRulesAlertV2Output) EvaluationFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringPtrOutput { return v.EvaluationFrequency }).(pulumi.StringPtrOutput)
+}
+
+// An `identity` block as defined below.
+func (o ScheduledQueryRulesAlertV2Output) Identity() ScheduledQueryRulesAlertV2IdentityPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) ScheduledQueryRulesAlertV2IdentityPtrOutput { return v.Identity }).(ScheduledQueryRulesAlertV2IdentityPtrOutput)
 }
 
 // True if this alert rule is a legacy Log Analytic Rule.

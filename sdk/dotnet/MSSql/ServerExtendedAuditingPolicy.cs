@@ -205,6 +205,12 @@ namespace Pulumi.Azure.MSSql
     public partial class ServerExtendedAuditingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// A list of Actions-Groups and Actions to audit.
+        /// </summary>
+        [Output("auditActionsAndGroups")]
+        public Output<ImmutableArray<string>> AuditActionsAndGroups { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
         /// 
         /// -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
@@ -217,6 +223,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("logMonitoringEnabled")]
         public Output<bool?> LogMonitoringEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies condition of where clause when creating an audit.
+        /// </summary>
+        [Output("predicateExpression")]
+        public Output<string?> PredicateExpression { get; private set; } = null!;
 
         /// <summary>
         /// The number of days to retain logs for in the storage account. Defaults to `0`.
@@ -305,6 +317,18 @@ namespace Pulumi.Azure.MSSql
 
     public sealed class ServerExtendedAuditingPolicyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("auditActionsAndGroups")]
+        private InputList<string>? _auditActionsAndGroups;
+
+        /// <summary>
+        /// A list of Actions-Groups and Actions to audit.
+        /// </summary>
+        public InputList<string> AuditActionsAndGroups
+        {
+            get => _auditActionsAndGroups ?? (_auditActionsAndGroups = new InputList<string>());
+            set => _auditActionsAndGroups = value;
+        }
+
         /// <summary>
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
         /// 
@@ -318,6 +342,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies condition of where clause when creating an audit.
+        /// </summary>
+        [Input("predicateExpression")]
+        public Input<string>? PredicateExpression { get; set; }
 
         /// <summary>
         /// The number of days to retain logs for in the storage account. Defaults to `0`.
@@ -383,6 +413,18 @@ namespace Pulumi.Azure.MSSql
 
     public sealed class ServerExtendedAuditingPolicyState : global::Pulumi.ResourceArgs
     {
+        [Input("auditActionsAndGroups")]
+        private InputList<string>? _auditActionsAndGroups;
+
+        /// <summary>
+        /// A list of Actions-Groups and Actions to audit.
+        /// </summary>
+        public InputList<string> AuditActionsAndGroups
+        {
+            get => _auditActionsAndGroups ?? (_auditActionsAndGroups = new InputList<string>());
+            set => _auditActionsAndGroups = value;
+        }
+
         /// <summary>
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
         /// 
@@ -396,6 +438,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies condition of where clause when creating an audit.
+        /// </summary>
+        [Input("predicateExpression")]
+        public Input<string>? PredicateExpression { get; set; }
 
         /// <summary>
         /// The number of days to retain logs for in the storage account. Defaults to `0`.
