@@ -14968,6 +14968,16 @@
                             }
                         }
                     },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "scopes": {
                         "maxItemsOne": true
                     },
@@ -15230,7 +15240,12 @@
             },
             "azurerm_mssql_server_extended_auditing_policy": {
                 "current": "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "audit_actions_and_groups": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_mssql_server_microsoft_support_auditing_policy": {
                 "current": "azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy",
@@ -17194,6 +17209,14 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "azurerm_redis_cache_access_policy": {
+                "current": "azure:redis/cacheAccessPolicy:CacheAccessPolicy",
+                "majorVersion": 5
+            },
+            "azurerm_redis_cache_access_policy_assignment": {
+                "current": "azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment",
+                "majorVersion": 5
             },
             "azurerm_redis_enterprise_cluster": {
                 "current": "azure:redis/enterpriseCluster:EnterpriseCluster",
@@ -19571,6 +19594,10 @@
             },
             "azurerm_static_web_app_custom_domain": {
                 "current": "azure:appservice/staticWebAppCustomDomain:StaticWebAppCustomDomain",
+                "majorVersion": 5
+            },
+            "azurerm_static_web_app_function_app_registration": {
+                "current": "azure:appservice/staticWebAppFunctionAppRegistration:StaticWebAppFunctionAppRegistration",
                 "majorVersion": 5
             },
             "azurerm_storage_account": {
@@ -23395,6 +23422,22 @@
                     },
                     "storage_account": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_workloads_sap_discovery_virtual_instance": {
+                "current": "azure:workloadssap/discoveryVirtualInstance:DiscoveryVirtualInstance",
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -29587,6 +29630,15 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "azurerm_system_center_virtual_machine_manager_inventory_items": {
+                "current": "azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems",
+                "majorVersion": 5,
+                "fields": {
+                    "inventory_items": {
+                        "maxItemsOne": false
                     }
                 }
             },

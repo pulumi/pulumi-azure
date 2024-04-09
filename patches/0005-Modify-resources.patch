@@ -391,7 +391,7 @@ index 9d8cafbd14..9ad34c43b4 100644
  			},
  
 diff --git a/internal/services/containers/container_group_resource.go b/internal/services/containers/container_group_resource.go
-index d3a87501ae..7294b71876 100644
+index 225f109cdf..4c38ca5abb 100644
 --- a/internal/services/containers/container_group_resource.go
 +++ b/internal/services/containers/container_group_resource.go
 @@ -7,6 +7,8 @@ import (
@@ -540,10 +540,10 @@ index 4001cad641..835aecb2d8 100644
  								string(databaseAccountCapabilitiesEnableAggregationPipeline),
  								string(databaseAccountCapabilitiesEnableCassandra),
 diff --git a/internal/services/cosmos/cosmosdb_cassandra_cluster_resource_test.go b/internal/services/cosmos/cosmosdb_cassandra_cluster_resource_test.go
-index e6a2b93e01..f9665d9631 100644
+index e6a2b93e01..53efd0fc1f 100644
 --- a/internal/services/cosmos/cosmosdb_cassandra_cluster_resource_test.go
 +++ b/internal/services/cosmos/cosmosdb_cassandra_cluster_resource_test.go
-@@ -18,6 +18,17 @@ import (
+@@ -18,6 +18,18 @@ import (
  
  type CassandraClusterResource struct{}
  
@@ -553,7 +553,8 @@ index e6a2b93e01..f9665d9631 100644
 +		"basic": {
 +			"basic":          testAccCassandraCluster_basic,
 +			"requiresImport": testAccCassandraCluster_requiresImport,
-+			"tags":           testAccCassandraCluster_tags,
++			"complete":       testAccCassandraCluster_complete,
++			"update":         testAccCassandraCluster_update,
 +		},
 +	})
 +}
@@ -807,7 +808,7 @@ index 90e02d8080..8970530193 100644
  									"reuse_key": {
  										Type:     pluginsdk.TypeBool,
 diff --git a/internal/services/legacy/virtual_machine_resource.go b/internal/services/legacy/virtual_machine_resource.go
-index a1fb4be0c7..74f605b536 100644
+index 7f9d197b2c..b8e12f04fc 100644
 --- a/internal/services/legacy/virtual_machine_resource.go
 +++ b/internal/services/legacy/virtual_machine_resource.go
 @@ -9,6 +9,7 @@ import (
@@ -1264,7 +1265,7 @@ index 2766565528..b7af892e01 100644
  									},
  									"hours": {
 diff --git a/internal/services/mssql/mssql_database_resource.go b/internal/services/mssql/mssql_database_resource.go
-index 6e880faf79..2f8dbd1493 100644
+index bf746a51b7..59b2cb83ec 100644
 --- a/internal/services/mssql/mssql_database_resource.go
 +++ b/internal/services/mssql/mssql_database_resource.go
 @@ -6,6 +6,7 @@ package mssql
@@ -1275,7 +1276,7 @@ index 6e880faf79..2f8dbd1493 100644
  	"log"
  	"strings"
  	"time"
-@@ -1629,7 +1630,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1657,7 +1658,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  								"Sql_Injection",
  								"Sql_Injection_Vulnerability",
  								"Access_Anomaly",
@@ -1285,7 +1286,7 @@ index 6e880faf79..2f8dbd1493 100644
  						},
  					},
  
-@@ -1640,7 +1642,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1668,7 +1670,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						Optional: true,
  						Default:  EmailAccountAdminsStatusDisabled,
  						ValidateFunc: validation.StringInSlice(PossibleValuesForEmailAccountAdminsStatus(),
@@ -1294,7 +1295,7 @@ index 6e880faf79..2f8dbd1493 100644
  					},
  
  					"email_addresses": {
-@@ -1668,7 +1670,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1696,7 +1698,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						Optional: true,
  						Default:  string(serversecurityalertpolicies.SecurityAlertsPolicyStateDisabled),
  						ValidateFunc: validation.StringInSlice(serversecurityalertpolicies.PossibleValuesForSecurityAlertsPolicyState(),
@@ -1304,7 +1305,7 @@ index 6e880faf79..2f8dbd1493 100644
  
  					"storage_account_access_key": {
 diff --git a/internal/services/mssql/mssql_elasticpool_resource.go b/internal/services/mssql/mssql_elasticpool_resource.go
-index bd774c2e88..d33d270134 100644
+index a78b061fe0..d484e990ba 100644
 --- a/internal/services/mssql/mssql_elasticpool_resource.go
 +++ b/internal/services/mssql/mssql_elasticpool_resource.go
 @@ -6,6 +6,8 @@ package mssql
@@ -1870,63 +1871,6 @@ index 780d029fc3..2802730704 100644
  						},
  					},
  				},
-diff --git a/internal/services/network/virtual_network_resource_test.go b/internal/services/network/virtual_network_resource_test.go
-index d2434c6189..200bc2d5a6 100644
---- a/internal/services/network/virtual_network_resource_test.go
-+++ b/internal/services/network/virtual_network_resource_test.go
-@@ -342,6 +342,52 @@ resource "azurerm_virtual_network" "test" {
- }
- `, data.RandomInteger, data.Locations.Primary, data.RandomInteger)
- }
-+func TestVirtualNetworkResource_tagCount(t *testing.T) {
-+	data := acceptance.BuildTestData(t, "azurerm_virtual_network", "test")
-+	r := VirtualNetworkResource{}
-+
-+	data.ResourceTest(t, r, []acceptance.TestStep{
-+		{
-+			Config: r.tagCount(data),
-+			Check: acceptance.ComposeTestCheckFunc(
-+				check.That(data.ResourceName).ExistsInAzure(r),
-+			),
-+		},
-+		data.ImportStep(),
-+	})
-+}
-+func (r VirtualNetworkResource) tagCount(data acceptance.TestData) string {
-+	tags := ""
-+	for i := 0; i < 50; i++ {
-+		tags += fmt.Sprintf("t%d = \"v%d\"\n", i, i)
-+	}
-+
-+	return fmt.Sprintf(`
-+provider "azurerm" {
-+  features {}
-+}
-+
-+resource "azurerm_resource_group" "test" {
-+  name     = "acctestRG-%d"
-+  location = "%s"
-+}
-+
-+resource "azurerm_virtual_network" "test" {
-+  name                = "acctestvirtnet%d"
-+  address_space       = ["10.0.0.0/16"]
-+  location            = azurerm_resource_group.test.location
-+  resource_group_name = azurerm_resource_group.test.name
-+
-+  subnet {
-+    name           = "subnet1"
-+    address_prefix = "10.0.1.0/24"
-+  }
-+  tags = {
-+                                    %s
-+  }
-+}
-+`, data.RandomInteger, data.Locations.Primary, data.RandomInteger, tags)
-+}
- 
- func (r VirtualNetworkResource) tagCount(data acceptance.TestData) string {
- 	tags := ""
 diff --git a/internal/services/notificationhub/notification_hub_namespace_resource.go b/internal/services/notificationhub/notification_hub_namespace_resource.go
 index abd8c6b3f6..55bc1b0b1d 100644
 --- a/internal/services/notificationhub/notification_hub_namespace_resource.go
@@ -2035,7 +1979,7 @@ index d68d5963fa..5da4ee2bdc 100644
  
  			"administrator_login": {
 diff --git a/internal/services/recoveryservices/recovery_services_vault_resource.go b/internal/services/recoveryservices/recovery_services_vault_resource.go
-index 2e968cb727..91ee3db17d 100644
+index 3adbbcfa45..5551e72662 100644
 --- a/internal/services/recoveryservices/recovery_services_vault_resource.go
 +++ b/internal/services/recoveryservices/recovery_services_vault_resource.go
 @@ -10,6 +10,8 @@ import (
@@ -2047,7 +1991,7 @@ index 2e968cb727..91ee3db17d 100644
  	"github.com/hashicorp/go-azure-helpers/lang/pointer"
  	"github.com/hashicorp/go-azure-helpers/lang/response"
  	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
-@@ -120,7 +122,7 @@ func resourceRecoveryServicesVault() *pluginsdk.Resource {
+@@ -121,7 +123,7 @@ func resourceRecoveryServicesVault() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(vaults.SkuNameRSZero),
  					string(vaults.SkuNameStandard),
@@ -2057,7 +2001,7 @@ index 2e968cb727..91ee3db17d 100644
  
  			"storage_mode_type": {
 diff --git a/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go b/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go
-index 3c73bae3bc..41759ee1ea 100644
+index 32b5de4a99..081e69a07f 100644
 --- a/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go
 +++ b/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go
 @@ -229,7 +229,7 @@ func resourceSiteRecoveryReplicatedVM() *pluginsdk.Resource {
@@ -2079,7 +2023,7 @@ index 3c73bae3bc..41759ee1ea 100644
  
  						"target_disk_encryption_set_id": {
 diff --git a/internal/services/redis/redis_cache_resource.go b/internal/services/redis/redis_cache_resource.go
-index 3914c1ae20..c52a8fc9d6 100644
+index 528b79961e..fc7196b399 100644
 --- a/internal/services/redis/redis_cache_resource.go
 +++ b/internal/services/redis/redis_cache_resource.go
 @@ -6,6 +6,7 @@ package redis
@@ -2482,7 +2426,7 @@ index 16797800a2..6d74e94b4f 100644
  
  						"storage_account_access_key": {
 diff --git a/internal/services/storage/storage_account_data_source.go b/internal/services/storage/storage_account_data_source.go
-index b215edff58..af572b05db 100644
+index b215edff58..4381151544 100644
 --- a/internal/services/storage/storage_account_data_source.go
 +++ b/internal/services/storage/storage_account_data_source.go
 @@ -37,7 +37,8 @@ func dataSourceStorageAccount() *pluginsdk.Resource {
@@ -2510,14 +2454,14 @@ index b215edff58..af572b05db 100644
 +	if rg, ok := d.GetOk("resource_group_name"); ok {
 +		resourceGroup = rg.(string)
 +	} else {
-+		account, err := storageClient.FindAccount(ctx, name)
++		account, err := storageClient.FindAccount(ctx, subscriptionId, name)
 +		if err != nil {
 +			return fmt.Errorf("Error retrieving Account %q: %s", name, err)
 +		}
 +		if account == nil {
 +			return fmt.Errorf("Unable to locate Account %q", name)
 +		}
-+		resourceGroup = account.ResourceGroup
++		resourceGroup = account.StorageAccountId.ResourceGroupName
 +		d.Set("resource_group_name", resourceGroup)
 +	}
 +
@@ -2525,19 +2469,20 @@ index b215edff58..af572b05db 100644
  	if !ok {
  		return fmt.Errorf("could not determine Storage domain suffix for environment %q", meta.(*clients.Client).Account.Environment.Name)
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index fd2f273fcc..0b964acf68 100644
+index c6f3f221b2..6c460dddfe 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
-@@ -6,6 +6,8 @@ package storage
- import (
- 	"context"
- 	"fmt"
+@@ -13,6 +13,9 @@ import (
+ 	"strings"
+ 	"time"
+ 
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
- 	"log"
- 	"net/http"
- 	"net/url"
-@@ -139,8 +141,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
++
+ 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2021-09-01/storage" // nolint: staticcheck
+ 	azautorest "github.com/Azure/go-autorest/autorest"
+ 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+@@ -139,8 +142,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
  					string(storage.KindBlockBlobStorage),
  					string(storage.KindFileStorage),
  					string(storage.KindStorageV2),
@@ -2549,17 +2494,17 @@ index fd2f273fcc..0b964acf68 100644
  			},
  
  			"account_tier": {
-@@ -150,7 +153,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -150,7 +154,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
- 					"Standard",
- 					"Premium",
+ 					string(storage.SkuTierStandard),
+ 					string(storage.SkuTierPremium),
 -				}, false),
 +				}, features.CaseInsensitive()),
 +				DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  			},
  
  			"account_replication_type": {
-@@ -163,7 +167,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -163,7 +168,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  					"RAGRS",
  					"GZRS",
  					"RAGZRS",
@@ -2569,7 +2514,7 @@ index fd2f273fcc..0b964acf68 100644
  			},
  
  			// Only valid for FileStorage, BlobStorage & StorageV2 accounts, defaults to "Hot" in create function
-@@ -174,7 +179,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -174,7 +180,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(storage.AccessTierCool),
  					string(storage.AccessTierHot),
@@ -2579,7 +2524,7 @@ index fd2f273fcc..0b964acf68 100644
  			},
  
  			"azure_files_authentication": {
-@@ -403,7 +409,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -403,7 +410,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  									string(storage.BypassLogging),
  									string(storage.BypassMetrics),
  									string(storage.BypassNone),
@@ -2744,7 +2689,7 @@ index f5dac4de88..e85775dadd 100644
  						"VS2017",
  						"VS2019",
 diff --git a/internal/services/web/app_service_certificate_order_resource.go b/internal/services/web/app_service_certificate_order_resource.go
-index 415467db71..65c6a3299c 100644
+index cf219be2e2..de18a1e028 100644
 --- a/internal/services/web/app_service_certificate_order_resource.go
 +++ b/internal/services/web/app_service_certificate_order_resource.go
 @@ -5,6 +5,7 @@ package web
@@ -2755,7 +2700,7 @@ index 415467db71..65c6a3299c 100644
  	"log"
  	"time"
  
-@@ -113,7 +114,7 @@ func resourceAppServiceCertificateOrder() *pluginsdk.Resource {
+@@ -119,7 +120,7 @@ func resourceAppServiceCertificateOrder() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					"Standard",
  					"WildCard",
