@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     name: "test.localhost",
  *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,
- *     contentEmbedded: `instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
+ *     contentEmbedded: `instance of MSFT_FileDirectoryConfiguration as MSFT_FileDirectoryConfiguration1ref
  * {
  *   ResourceID = "[File]bla";
  *   Ensure = "Present";
