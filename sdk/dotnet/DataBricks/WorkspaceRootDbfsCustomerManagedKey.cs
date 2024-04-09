@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataBricks
 {
     /// <summary>
-    /// Manages a Customer Managed Key for the Databricks Workspaces root Databricks File System(DBFS)
+    /// Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System(DBFS)
     /// 
     /// ## Example Usage
     /// 
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.DataBricks
     /// ## Example HCL Configurations
     /// 
     /// * Databricks Workspace with Root Databricks File System Customer Managed Keys
-    /// * Databricks Workspace with Customer Managed Keys for Managed Services
+    /// * Databricks Workspace with Root Databricks File System Customer Managed Keys in a Different Subscription
     /// * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Root Databricks File System Customer Managed Keys
     /// 
     /// ## Import
@@ -138,6 +138,9 @@ namespace Pulumi.Azure.DataBricks
     [AzureResourceType("azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey")]
     public partial class WorkspaceRootDbfsCustomerManagedKey : global::Pulumi.CustomResource
     {
+        [Output("keyVaultId")]
+        public Output<string?> KeyVaultId { get; private set; } = null!;
+
         /// <summary>
         /// The resource ID of the Key Vault Key to be used.
         /// </summary>
@@ -196,6 +199,9 @@ namespace Pulumi.Azure.DataBricks
 
     public sealed class WorkspaceRootDbfsCustomerManagedKeyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("keyVaultId")]
+        public Input<string>? KeyVaultId { get; set; }
+
         /// <summary>
         /// The resource ID of the Key Vault Key to be used.
         /// </summary>
@@ -216,6 +222,9 @@ namespace Pulumi.Azure.DataBricks
 
     public sealed class WorkspaceRootDbfsCustomerManagedKeyState : global::Pulumi.ResourceArgs
     {
+        [Input("keyVaultId")]
+        public Input<string>? KeyVaultId { get; set; }
+
         /// <summary>
         /// The resource ID of the Key Vault Key to be used.
         /// </summary>

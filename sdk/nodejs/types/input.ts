@@ -14,6 +14,7 @@ export interface ProviderFeatures {
     logAnalyticsWorkspace?: pulumi.Input<inputs.ProviderFeaturesLogAnalyticsWorkspace>;
     managedDisk?: pulumi.Input<inputs.ProviderFeaturesManagedDisk>;
     postgresqlFlexibleServer?: pulumi.Input<inputs.ProviderFeaturesPostgresqlFlexibleServer>;
+    recoveryService?: pulumi.Input<inputs.ProviderFeaturesRecoveryService>;
     resourceGroup?: pulumi.Input<inputs.ProviderFeaturesResourceGroup>;
     subscription?: pulumi.Input<inputs.ProviderFeaturesSubscription>;
     templateDeployment?: pulumi.Input<inputs.ProviderFeaturesTemplateDeployment>;
@@ -88,6 +89,11 @@ export interface ProviderFeaturesManagedDisk {
 
 export interface ProviderFeaturesPostgresqlFlexibleServer {
     restartServerOnConfigurationValueChange?: pulumi.Input<boolean>;
+}
+
+export interface ProviderFeaturesRecoveryService {
+    purgeProtectedItemsFromVaultOnDestroy?: pulumi.Input<boolean>;
+    vmBackupStopProtectionAndRetainDataOnDestroy?: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesResourceGroup {
@@ -17884,7 +17890,7 @@ export namespace compute {
 
     export interface CapacityReservationSku {
         /**
-         * Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+         * Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription.
          */
         capacity: pulumi.Input<number>;
         /**
@@ -21726,15 +21732,29 @@ export namespace containerapp {
 
     export interface AppSecret {
         /**
-         * The Secret name.
+         * The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+         *
+         * !> **Note:** `identity` must be used together with `keyVaultSecretId`
+         */
+        identity?: pulumi.Input<string>;
+        /**
+         * The ID of a Key Vault secret. This can be a versioned or version-less ID.
+         *
+         * !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
+         */
+        keyVaultSecretId?: pulumi.Input<string>;
+        /**
+         * The secret name.
          */
         name: pulumi.Input<string>;
         /**
          * The value for this secret.
          *
+         * !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
+         *
          * !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
          */
-        value: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
     }
 
     export interface AppTemplate {
@@ -22236,13 +22256,21 @@ export namespace containerapp {
 
     export interface EnvironmentDaprComponentSecret {
         /**
+         * The identity to use for accessing key vault reference.
+         */
+        identity?: pulumi.Input<string>;
+        /**
+         * The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+         */
+        keyVaultSecretId?: pulumi.Input<string>;
+        /**
          * The Secret name.
          */
         name: pulumi.Input<string>;
         /**
          * The value for this secret.
          */
-        value: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
     }
 
     export interface EnvironmentWorkloadProfile {
@@ -26365,7 +26393,7 @@ export namespace databricks {
         /**
          * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
          *
-         * > **NOTE** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+         * > **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
          */
         noPublicIp?: pulumi.Input<boolean>;
         /**
@@ -26403,7 +26431,7 @@ export namespace databricks {
         /**
          * Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
          *
-         * > **NOTE** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
+         * > **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
          */
         vnetAddressPrefix?: pulumi.Input<string>;
     }
@@ -41762,6 +41790,27 @@ export namespace monitoring {
         numberOfEvaluationPeriods: pulumi.Input<number>;
     }
 
+    export interface ScheduledQueryRulesAlertV2Identity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
+         *
+         * > **NOTE:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Scheduled Query Rule. Possible values are `SystemAssigned`, `UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface ScheduledQueryRulesLogCriteria {
         /**
          * A `dimension` block as defined below.
@@ -42797,6 +42846,30 @@ export namespace netapp {
          * A list of allowed clients IPv4 addresses.
          */
         allowedClients: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Is Kerberos 5 read-only access permitted to this volume?
+         */
+        kerberos5ReadOnlyEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is Kerberos 5 read/write permitted to this volume?
+         */
+        kerberos5ReadWriteEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is Kerberos 5i read-only permitted to this volume?
+         */
+        kerberos5iReadOnlyEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is Kerberos 5i read/write permitted to this volume?
+         */
+        kerberos5iReadWriteEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is Kerberos 5p read-only permitted to this volume?
+         */
+        kerberos5pReadOnlyEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is Kerberos 5p read/write permitted to this volume?
+         */
+        kerberos5pReadWriteEnabled?: pulumi.Input<boolean>;
         /**
          * A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
          */
@@ -46617,7 +46690,7 @@ export namespace nginx {
 
     export interface DeploymentFrontendPublic {
         /**
-         * Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+         * Specifies a list of Public IP Resource ID to this Nginx Deployment.
          */
         ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -52083,6 +52156,9 @@ export namespace synapse {
     }
 }
 
+export namespace systemcenter {
+}
+
 export namespace trafficmanager {
     export interface ProfileDnsConfig {
         /**
@@ -52551,6 +52627,17 @@ export namespace webpubsub {
 }
 
 export namespace workloadssap {
+    export interface DiscoveryVirtualInstanceIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this SAP Discovery Virtual Instance.
+         */
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of Managed Service Identity that should be configured on this SAP Discovery Virtual Instance. The only possible value is `UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface SingleNodeVirtualInstanceIdentity {
         /**
          * A list of User Assigned Managed Identity IDs to be assigned to this SAP Single Node Virtual Instance.

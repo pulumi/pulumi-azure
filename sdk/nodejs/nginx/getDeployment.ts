@@ -117,7 +117,7 @@ export interface GetDeploymentResult {
     readonly nginxVersion: string;
     readonly resourceGroupName: string;
     /**
-     * Name of the SKU for this Nginx Deployment.
+     * The Nginx Deployment SKU. Possible values include `standard_Monthly`.
      */
     readonly sku: string;
     /**

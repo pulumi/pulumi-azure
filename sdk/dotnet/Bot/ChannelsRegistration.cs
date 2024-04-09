@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages a Bot Channels Registration.
     /// 
+    /// &gt; **Note:** Bot Channels Registration has been [deprecated by Azure](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-resources-faq-azure?view=azure-bot-service-4.0#why-are-web-app-bot-and-bot-channel-registration-being-deprecated). New implementations should use the `azure.bot.ServiceAzureBot` resource.
+    /// 
     /// ## Example Usage
     /// 
     /// &lt;!--Start PulumiCodeChooser --&gt;

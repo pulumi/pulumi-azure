@@ -235,6 +235,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy")
 public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomResource {
     /**
+     * A list of Actions-Groups and Actions to audit.
+     * 
+     */
+    @Export(name="auditActionsAndGroups", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> auditActionsAndGroups;
+
+    /**
+     * @return A list of Actions-Groups and Actions to audit.
+     * 
+     */
+    public Output<List<String>> auditActionsAndGroups() {
+        return this.auditActionsAndGroups;
+    }
+    /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
      * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
@@ -265,6 +279,20 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
      */
     public Output<Optional<Boolean>> logMonitoringEnabled() {
         return Codegen.optional(this.logMonitoringEnabled);
+    }
+    /**
+     * Specifies condition of where clause when creating an audit.
+     * 
+     */
+    @Export(name="predicateExpression", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> predicateExpression;
+
+    /**
+     * @return Specifies condition of where clause when creating an audit.
+     * 
+     */
+    public Output<Optional<String>> predicateExpression() {
+        return Codegen.optional(this.predicateExpression);
     }
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.

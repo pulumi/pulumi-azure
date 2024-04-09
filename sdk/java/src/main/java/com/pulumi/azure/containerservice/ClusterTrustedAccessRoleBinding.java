@@ -103,6 +103,7 @@ import javax.annotation.Nullable;
  *                 .nodeCount(&#34;example-value&#34;)
  *                 .vmSize(&#34;example-value&#34;)
  *                 .build())
+ *             .upgradeSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .identity(KubernetesClusterIdentityArgs.builder()
  *                 .type(&#34;example-value&#34;)
  *                 .build())

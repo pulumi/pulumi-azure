@@ -185,7 +185,7 @@ namespace Pulumi.Azure.Nginx
         public readonly string NginxVersion;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// Name of the SKU for this Nginx Deployment.
+        /// The Nginx Deployment SKU. Possible values include `standard_Monthly`.
         /// </summary>
         public readonly string Sku;
         /// <summary>

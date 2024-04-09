@@ -21801,6 +21801,208 @@ func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) NumberOfEvalu
 	}).(pulumi.IntPtrOutput)
 }
 
+type ScheduledQueryRulesAlertV2Identity struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Scheduled Query Rule. Possible values are `SystemAssigned`, `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// ScheduledQueryRulesAlertV2IdentityInput is an input type that accepts ScheduledQueryRulesAlertV2IdentityArgs and ScheduledQueryRulesAlertV2IdentityOutput values.
+// You can construct a concrete instance of `ScheduledQueryRulesAlertV2IdentityInput` via:
+//
+//	ScheduledQueryRulesAlertV2IdentityArgs{...}
+type ScheduledQueryRulesAlertV2IdentityInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertV2IdentityOutput() ScheduledQueryRulesAlertV2IdentityOutput
+	ToScheduledQueryRulesAlertV2IdentityOutputWithContext(context.Context) ScheduledQueryRulesAlertV2IdentityOutput
+}
+
+type ScheduledQueryRulesAlertV2IdentityArgs struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Scheduled Query Rule. Possible values are `SystemAssigned`, `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ScheduledQueryRulesAlertV2IdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertV2Identity)(nil)).Elem()
+}
+
+func (i ScheduledQueryRulesAlertV2IdentityArgs) ToScheduledQueryRulesAlertV2IdentityOutput() ScheduledQueryRulesAlertV2IdentityOutput {
+	return i.ToScheduledQueryRulesAlertV2IdentityOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesAlertV2IdentityArgs) ToScheduledQueryRulesAlertV2IdentityOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2IdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2IdentityOutput)
+}
+
+func (i ScheduledQueryRulesAlertV2IdentityArgs) ToScheduledQueryRulesAlertV2IdentityPtrOutput() ScheduledQueryRulesAlertV2IdentityPtrOutput {
+	return i.ToScheduledQueryRulesAlertV2IdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesAlertV2IdentityArgs) ToScheduledQueryRulesAlertV2IdentityPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2IdentityOutput).ToScheduledQueryRulesAlertV2IdentityPtrOutputWithContext(ctx)
+}
+
+// ScheduledQueryRulesAlertV2IdentityPtrInput is an input type that accepts ScheduledQueryRulesAlertV2IdentityArgs, ScheduledQueryRulesAlertV2IdentityPtr and ScheduledQueryRulesAlertV2IdentityPtrOutput values.
+// You can construct a concrete instance of `ScheduledQueryRulesAlertV2IdentityPtrInput` via:
+//
+//	        ScheduledQueryRulesAlertV2IdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScheduledQueryRulesAlertV2IdentityPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertV2IdentityPtrOutput() ScheduledQueryRulesAlertV2IdentityPtrOutput
+	ToScheduledQueryRulesAlertV2IdentityPtrOutputWithContext(context.Context) ScheduledQueryRulesAlertV2IdentityPtrOutput
+}
+
+type scheduledQueryRulesAlertV2IdentityPtrType ScheduledQueryRulesAlertV2IdentityArgs
+
+func ScheduledQueryRulesAlertV2IdentityPtr(v *ScheduledQueryRulesAlertV2IdentityArgs) ScheduledQueryRulesAlertV2IdentityPtrInput {
+	return (*scheduledQueryRulesAlertV2IdentityPtrType)(v)
+}
+
+func (*scheduledQueryRulesAlertV2IdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesAlertV2Identity)(nil)).Elem()
+}
+
+func (i *scheduledQueryRulesAlertV2IdentityPtrType) ToScheduledQueryRulesAlertV2IdentityPtrOutput() ScheduledQueryRulesAlertV2IdentityPtrOutput {
+	return i.ToScheduledQueryRulesAlertV2IdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQueryRulesAlertV2IdentityPtrType) ToScheduledQueryRulesAlertV2IdentityPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2IdentityPtrOutput)
+}
+
+type ScheduledQueryRulesAlertV2IdentityOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertV2IdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertV2Identity)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesAlertV2IdentityOutput) ToScheduledQueryRulesAlertV2IdentityOutput() ScheduledQueryRulesAlertV2IdentityOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2IdentityOutput) ToScheduledQueryRulesAlertV2IdentityOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2IdentityOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2IdentityOutput) ToScheduledQueryRulesAlertV2IdentityPtrOutput() ScheduledQueryRulesAlertV2IdentityPtrOutput {
+	return o.ToScheduledQueryRulesAlertV2IdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryRulesAlertV2IdentityOutput) ToScheduledQueryRulesAlertV2IdentityPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2IdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRulesAlertV2Identity) *ScheduledQueryRulesAlertV2Identity {
+		return &v
+	}).(ScheduledQueryRulesAlertV2IdentityPtrOutput)
+}
+
+// A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+func (o ScheduledQueryRulesAlertV2IdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Identity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+func (o ScheduledQueryRulesAlertV2IdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Identity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+func (o ScheduledQueryRulesAlertV2IdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Identity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Scheduled Query Rule. Possible values are `SystemAssigned`, `UserAssigned`.
+func (o ScheduledQueryRulesAlertV2IdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Identity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ScheduledQueryRulesAlertV2IdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertV2IdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesAlertV2Identity)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesAlertV2IdentityPtrOutput) ToScheduledQueryRulesAlertV2IdentityPtrOutput() ScheduledQueryRulesAlertV2IdentityPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2IdentityPtrOutput) ToScheduledQueryRulesAlertV2IdentityPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2IdentityPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2IdentityPtrOutput) Elem() ScheduledQueryRulesAlertV2IdentityOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2Identity) ScheduledQueryRulesAlertV2Identity {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryRulesAlertV2Identity
+		return ret
+	}).(ScheduledQueryRulesAlertV2IdentityOutput)
+}
+
+// A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+func (o ScheduledQueryRulesAlertV2IdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2Identity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+func (o ScheduledQueryRulesAlertV2IdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2Identity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+func (o ScheduledQueryRulesAlertV2IdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2Identity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Scheduled Query Rule. Possible values are `SystemAssigned`, `UserAssigned`.
+func (o ScheduledQueryRulesAlertV2IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2Identity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ScheduledQueryRulesLogCriteria struct {
 	// A `dimension` block as defined below.
 	Dimensions []ScheduledQueryRulesLogCriteriaDimension `pulumi:"dimensions"`
@@ -28091,6 +28293,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertV2CriteriaDimensionArrayInput)(nil)).Elem(), ScheduledQueryRulesAlertV2CriteriaDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertV2CriteriaFailingPeriodsInput)(nil)).Elem(), ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrInput)(nil)).Elem(), ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertV2IdentityInput)(nil)).Elem(), ScheduledQueryRulesAlertV2IdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertV2IdentityPtrInput)(nil)).Elem(), ScheduledQueryRulesAlertV2IdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesLogCriteriaInput)(nil)).Elem(), ScheduledQueryRulesLogCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesLogCriteriaPtrInput)(nil)).Elem(), ScheduledQueryRulesLogCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesLogCriteriaDimensionInput)(nil)).Elem(), ScheduledQueryRulesLogCriteriaDimensionArgs{})
@@ -28468,6 +28672,8 @@ func init() {
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertV2IdentityOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertV2IdentityPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaDimensionOutput{})

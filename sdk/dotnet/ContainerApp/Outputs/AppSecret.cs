@@ -14,22 +14,42 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class AppSecret
     {
         /// <summary>
-        /// The Secret name.
+        /// The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+        /// 
+        /// !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
+        /// </summary>
+        public readonly string? Identity;
+        /// <summary>
+        /// The ID of a Key Vault secret. This can be a versioned or version-less ID.
+        /// 
+        /// !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+        /// </summary>
+        public readonly string? KeyVaultSecretId;
+        /// <summary>
+        /// The secret name.
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// The value for this secret.
         /// 
+        /// !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+        /// 
         /// !&gt; **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
         /// </summary>
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private AppSecret(
+            string? identity,
+
+            string? keyVaultSecretId,
+
             string name,
 
-            string value)
+            string? value)
         {
+            Identity = identity;
+            KeyVaultSecretId = keyVaultSecretId;
             Name = name;
             Value = value;
         }

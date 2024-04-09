@@ -27,6 +27,7 @@ class ScheduledQueryRulesAlertV2Args:
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  evaluation_frequency: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mute_actions_after_alert_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -52,6 +53,7 @@ class ScheduledQueryRulesAlertV2Args:
                > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
                
                > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
+        :param pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mute_actions_after_alert_duration: Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
                
@@ -82,6 +84,8 @@ class ScheduledQueryRulesAlertV2Args:
             pulumi.set(__self__, "enabled", enabled)
         if evaluation_frequency is not None:
             pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if mute_actions_after_alert_duration is not None:
@@ -237,6 +241,18 @@ class ScheduledQueryRulesAlertV2Args:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
@@ -347,6 +363,7 @@ class _ScheduledQueryRulesAlertV2State:
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  evaluation_frequency: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs']] = None,
                  is_a_legacy_log_analytics_rule: Optional[pulumi.Input[bool]] = None,
                  is_workspace_alerts_storage_configured: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -375,6 +392,7 @@ class _ScheduledQueryRulesAlertV2State:
                > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
                
                > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
+        :param pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_a_legacy_log_analytics_rule: True if this alert rule is a legacy Log Analytic Rule.
         :param pulumi.Input[bool] is_workspace_alerts_storage_configured: The flag indicates whether this Scheduled Query Rule has been configured to be stored in the customer's storage.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
@@ -410,6 +428,8 @@ class _ScheduledQueryRulesAlertV2State:
             pulumi.set(__self__, "enabled", enabled)
         if evaluation_frequency is not None:
             pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if is_a_legacy_log_analytics_rule is not None:
             pulumi.set(__self__, "is_a_legacy_log_analytics_rule", is_a_legacy_log_analytics_rule)
         if is_workspace_alerts_storage_configured is not None:
@@ -538,6 +558,18 @@ class _ScheduledQueryRulesAlertV2State:
     @evaluation_frequency.setter
     def evaluation_frequency(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "evaluation_frequency", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="isALegacyLogAnalyticsRule")
@@ -724,6 +756,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  evaluation_frequency: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mute_actions_after_alert_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -759,6 +792,14 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
             name="example-mag",
             resource_group_name=example.name,
             short_name="test mag")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-uai",
+            location=example.location,
+            resource_group_name=example.name)
+        example_assignment = azure.authorization.Assignment("example",
+            scope=example_insights.id,
+            role_definition_name="Reader",
+            principal_id=example_user_assigned_identity.principal_id)
         example_scheduled_query_rules_alert_v2 = azure.monitoring.ScheduledQueryRulesAlertV2("example",
             name="example-msqrv2",
             resource_group_name=example.name,
@@ -800,6 +841,10 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                     "key2": "value2",
                 },
             ),
+            identity=azure.monitoring.ScheduledQueryRulesAlertV2IdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
+            ),
             tags={
                 "key": "value",
                 "key2": "value2",
@@ -828,6 +873,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
                
                > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
+        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2IdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mute_actions_after_alert_duration: Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
                
@@ -873,6 +919,14 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
             name="example-mag",
             resource_group_name=example.name,
             short_name="test mag")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-uai",
+            location=example.location,
+            resource_group_name=example.name)
+        example_assignment = azure.authorization.Assignment("example",
+            scope=example_insights.id,
+            role_definition_name="Reader",
+            principal_id=example_user_assigned_identity.principal_id)
         example_scheduled_query_rules_alert_v2 = azure.monitoring.ScheduledQueryRulesAlertV2("example",
             name="example-msqrv2",
             resource_group_name=example.name,
@@ -914,6 +968,10 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                     "key2": "value2",
                 },
             ),
+            identity=azure.monitoring.ScheduledQueryRulesAlertV2IdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
+            ),
             tags={
                 "key": "value",
                 "key2": "value2",
@@ -951,6 +1009,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  evaluation_frequency: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mute_actions_after_alert_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -981,6 +1040,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["evaluation_frequency"] = evaluation_frequency
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["mute_actions_after_alert_duration"] = mute_actions_after_alert_duration
             __props__.__dict__["name"] = name
@@ -1022,6 +1082,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
             display_name: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             evaluation_frequency: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2IdentityArgs']]] = None,
             is_a_legacy_log_analytics_rule: Optional[pulumi.Input[bool]] = None,
             is_workspace_alerts_storage_configured: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -1055,6 +1116,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
                
                > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
+        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2IdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_a_legacy_log_analytics_rule: True if this alert rule is a legacy Log Analytic Rule.
         :param pulumi.Input[bool] is_workspace_alerts_storage_configured: The flag indicates whether this Scheduled Query Rule has been configured to be stored in the customer's storage.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
@@ -1086,6 +1148,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["evaluation_frequency"] = evaluation_frequency
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["is_a_legacy_log_analytics_rule"] = is_a_legacy_log_analytics_rule
         __props__.__dict__["is_workspace_alerts_storage_configured"] = is_workspace_alerts_storage_configured
         __props__.__dict__["location"] = location
@@ -1169,6 +1232,14 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
         """
         return pulumi.get(self, "evaluation_frequency")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ScheduledQueryRulesAlertV2Identity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="isALegacyLogAnalyticsRule")

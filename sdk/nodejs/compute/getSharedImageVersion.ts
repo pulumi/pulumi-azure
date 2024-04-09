@@ -34,6 +34,7 @@ export function getSharedImageVersion(args: GetSharedImageVersionArgs, opts?: pu
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "sortVersionsBySemver": args.sortVersionsBySemver,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -65,6 +66,10 @@ export interface GetSharedImageVersionArgs {
      * Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
      */
     sortVersionsBySemver?: boolean;
+    /**
+     * A mapping of tags assigned to the Shared Image.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -106,7 +111,7 @@ export interface GetSharedImageVersionResult {
     /**
      * A mapping of tags assigned to the Shared Image.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * One or more `targetRegion` blocks as documented below.
      */
@@ -163,4 +168,8 @@ export interface GetSharedImageVersionOutputArgs {
      * Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
      */
     sortVersionsBySemver?: pulumi.Input<boolean>;
+    /**
+     * A mapping of tags assigned to the Shared Image.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -168,40 +168,6 @@ class FleetMember(pulumi.CustomResource):
 
         Manages a Kubernetes Fleet Member.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.containerservice.KubernetesCluster("example",
-            name="example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            dns_prefix="acctestaksexample",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="example-value",
-                node_count="example-value",
-                vm_size="example-value",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="example-value",
-            ))
-        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
-            name="example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_fleet_member = azure.containerservice.FleetMember("example",
-            kubernetes_cluster_id=example.id,
-            kubernetes_fleet_id=example_kubernetes_fleet_manager.id,
-            name="example")
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         An existing Kubernetes Fleet Member can be imported into Terraform using the `resource id`, e.g.
@@ -235,40 +201,6 @@ class FleetMember(pulumi.CustomResource):
         <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
 
         Manages a Kubernetes Fleet Member.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.containerservice.KubernetesCluster("example",
-            name="example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            dns_prefix="acctestaksexample",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="example-value",
-                node_count="example-value",
-                vm_size="example-value",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="example-value",
-            ))
-        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
-            name="example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_fleet_member = azure.containerservice.FleetMember("example",
-            kubernetes_cluster_id=example.id,
-            kubernetes_fleet_id=example_kubernetes_fleet_manager.id,
-            name="example")
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

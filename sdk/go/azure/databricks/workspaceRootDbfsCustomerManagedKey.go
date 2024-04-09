@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Customer Managed Key for the Databricks Workspaces root Databricks File System(DBFS)
+// Manages a Customer Managed Key for the Databricks Workspaces Root Databricks File System(DBFS)
 //
 // ## Example Usage
 //
@@ -144,7 +144,7 @@ import (
 // ## Example HCL Configurations
 //
 // * Databricks Workspace with Root Databricks File System Customer Managed Keys
-// * Databricks Workspace with Customer Managed Keys for Managed Services
+// * Databricks Workspace with Root Databricks File System Customer Managed Keys in a Different Subscription
 // * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Root Databricks File System Customer Managed Keys
 //
 // ## Import
@@ -157,6 +157,7 @@ import (
 type WorkspaceRootDbfsCustomerManagedKey struct {
 	pulumi.CustomResourceState
 
+	KeyVaultId pulumi.StringPtrOutput `pulumi:"keyVaultId"`
 	// The resource ID of the Key Vault Key to be used.
 	KeyVaultKeyId pulumi.StringOutput `pulumi:"keyVaultKeyId"`
 	// The resource ID of the Databricks Workspace.
@@ -199,6 +200,7 @@ func GetWorkspaceRootDbfsCustomerManagedKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceRootDbfsCustomerManagedKey resources.
 type workspaceRootDbfsCustomerManagedKeyState struct {
+	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The resource ID of the Key Vault Key to be used.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// The resource ID of the Databricks Workspace.
@@ -206,6 +208,7 @@ type workspaceRootDbfsCustomerManagedKeyState struct {
 }
 
 type WorkspaceRootDbfsCustomerManagedKeyState struct {
+	KeyVaultId pulumi.StringPtrInput
 	// The resource ID of the Key Vault Key to be used.
 	KeyVaultKeyId pulumi.StringPtrInput
 	// The resource ID of the Databricks Workspace.
@@ -217,6 +220,7 @@ func (WorkspaceRootDbfsCustomerManagedKeyState) ElementType() reflect.Type {
 }
 
 type workspaceRootDbfsCustomerManagedKeyArgs struct {
+	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The resource ID of the Key Vault Key to be used.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 	// The resource ID of the Databricks Workspace.
@@ -225,6 +229,7 @@ type workspaceRootDbfsCustomerManagedKeyArgs struct {
 
 // The set of arguments for constructing a WorkspaceRootDbfsCustomerManagedKey resource.
 type WorkspaceRootDbfsCustomerManagedKeyArgs struct {
+	KeyVaultId pulumi.StringPtrInput
 	// The resource ID of the Key Vault Key to be used.
 	KeyVaultKeyId pulumi.StringInput
 	// The resource ID of the Databricks Workspace.
@@ -316,6 +321,10 @@ func (o WorkspaceRootDbfsCustomerManagedKeyOutput) ToWorkspaceRootDbfsCustomerMa
 
 func (o WorkspaceRootDbfsCustomerManagedKeyOutput) ToWorkspaceRootDbfsCustomerManagedKeyOutputWithContext(ctx context.Context) WorkspaceRootDbfsCustomerManagedKeyOutput {
 	return o
+}
+
+func (o WorkspaceRootDbfsCustomerManagedKeyOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRootDbfsCustomerManagedKey) pulumi.StringPtrOutput { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
 // The resource ID of the Key Vault Key to be used.

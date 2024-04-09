@@ -16,14 +16,14 @@ public final class CapacityReservationSkuArgs extends com.pulumi.resources.Resou
     public static final CapacityReservationSkuArgs Empty = new CapacityReservationSkuArgs();
 
     /**
-     * Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+     * Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription.
      * 
      */
     @Import(name="capacity", required=true)
     private Output<Integer> capacity;
 
     /**
-     * @return Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+     * @return Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription.
      * 
      */
     public Output<Integer> capacity() {
@@ -71,7 +71,7 @@ public final class CapacityReservationSkuArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param capacity Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+         * @param capacity Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class CapacityReservationSkuArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param capacity Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+         * @param capacity Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription.
          * 
          * @return builder
          * 

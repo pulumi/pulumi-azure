@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DiscoveryVirtualInstanceArgs, DiscoveryVirtualInstanceState } from "./discoveryVirtualInstance";
+export type DiscoveryVirtualInstance = import("./discoveryVirtualInstance").DiscoveryVirtualInstance;
+export const DiscoveryVirtualInstance: typeof import("./discoveryVirtualInstance").DiscoveryVirtualInstance = null as any;
+utilities.lazyLoad(exports, ["DiscoveryVirtualInstance"], () => require("./discoveryVirtualInstance"));
+
 export { SingleNodeVirtualInstanceArgs, SingleNodeVirtualInstanceState } from "./singleNodeVirtualInstance";
 export type SingleNodeVirtualInstance = import("./singleNodeVirtualInstance").SingleNodeVirtualInstance;
 export const SingleNodeVirtualInstance: typeof import("./singleNodeVirtualInstance").SingleNodeVirtualInstance = null as any;
@@ -20,6 +25,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:workloadssap/discoveryVirtualInstance:DiscoveryVirtualInstance":
+                return new DiscoveryVirtualInstance(name, <any>undefined, { urn })
             case "azure:workloadssap/singleNodeVirtualInstance:SingleNodeVirtualInstance":
                 return new SingleNodeVirtualInstance(name, <any>undefined, { urn })
             case "azure:workloadssap/threeTierVirtualInstance:ThreeTierVirtualInstance":
@@ -29,5 +36,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "workloadssap/discoveryVirtualInstance", _module)
 pulumi.runtime.registerResourceModule("azure", "workloadssap/singleNodeVirtualInstance", _module)
 pulumi.runtime.registerResourceModule("azure", "workloadssap/threeTierVirtualInstance", _module)

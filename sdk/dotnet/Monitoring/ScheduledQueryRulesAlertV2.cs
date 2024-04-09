@@ -44,6 +44,20 @@ namespace Pulumi.Azure.Monitoring
     ///         ShortName = "test mag",
     ///     });
     /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     {
+    ///         Name = "example-uai",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+    ///     {
+    ///         Scope = exampleInsights.Id,
+    ///         RoleDefinitionName = "Reader",
+    ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///     });
+    /// 
     ///     var exampleScheduledQueryRulesAlertV2 = new Azure.Monitoring.ScheduledQueryRulesAlertV2("example", new()
     ///     {
     ///         Name = "example-msqrv2",
@@ -101,6 +115,14 @@ namespace Pulumi.Azure.Monitoring
     ///             {
     ///                 { "key", "value" },
     ///                 { "key2", "value2" },
+    ///             },
+    ///         },
+    ///         Identity = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2IdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
     ///             },
     ///         },
     ///         Tags = 
@@ -176,6 +198,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Output("evaluationFrequency")]
         public Output<string?> EvaluationFrequency { get; private set; } = null!;
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ScheduledQueryRulesAlertV2Identity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// True if this alert rule is a legacy Log Analytic Rule.
@@ -364,6 +392,12 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? EvaluationFrequency { get; set; }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ScheduledQueryRulesAlertV2IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -516,6 +550,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("evaluationFrequency")]
         public Input<string>? EvaluationFrequency { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ScheduledQueryRulesAlertV2IdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// True if this alert rule is a legacy Log Analytic Rule.

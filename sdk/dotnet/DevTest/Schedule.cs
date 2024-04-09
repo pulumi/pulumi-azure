@@ -42,6 +42,7 @@ namespace Pulumi.Azure.DevTest
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         LabName = exampleLab.Name,
+    ///         Status = "Enabled",
     ///         WeeklyRecurrence = new Azure.DevTest.Inputs.ScheduleWeeklyRecurrenceArgs
     ///         {
     ///             Time = "1100",

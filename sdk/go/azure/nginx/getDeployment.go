@@ -95,7 +95,7 @@ type LookupDeploymentResult struct {
 	// NGINX version of the Nginx Deployment.
 	NginxVersion      string `pulumi:"nginxVersion"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the SKU for this Nginx Deployment.
+	// The Nginx Deployment SKU. Possible values include `standard_Monthly`.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags assigned to the Nginx Deployment.
 	Tags map[string]string `pulumi:"tags"`
@@ -225,7 +225,7 @@ func (o LookupDeploymentResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Name of the SKU for this Nginx Deployment.
+// The Nginx Deployment SKU. Possible values include `standard_Monthly`.
 func (o LookupDeploymentResultOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.Sku }).(pulumi.StringOutput)
 }

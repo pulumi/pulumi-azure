@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class CapacityReservationSku {
     /**
-     * @return Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+     * @return Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription.
      * 
      */
     private Integer capacity;
@@ -24,7 +24,7 @@ public final class CapacityReservationSku {
 
     private CapacityReservationSku() {}
     /**
-     * @return Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+     * @return Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription.
      * 
      */
     public Integer capacity() {

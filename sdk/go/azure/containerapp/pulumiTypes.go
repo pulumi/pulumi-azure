@@ -1257,12 +1257,22 @@ func (o AppRegistryArrayOutput) Index(i pulumi.IntInput) AppRegistryOutput {
 }
 
 type AppSecret struct {
-	// The Secret name.
+	// The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+	//
+	// !> **Note:** `identity` must be used together with `keyVaultSecretId`
+	Identity *string `pulumi:"identity"`
+	// The ID of a Key Vault secret. This can be a versioned or version-less ID.
+	//
+	// !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
+	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
+	// The secret name.
 	Name string `pulumi:"name"`
 	// The value for this secret.
 	//
+	// !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
+	//
 	// !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // AppSecretInput is an input type that accepts AppSecretArgs and AppSecretOutput values.
@@ -1277,12 +1287,22 @@ type AppSecretInput interface {
 }
 
 type AppSecretArgs struct {
-	// The Secret name.
+	// The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+	//
+	// !> **Note:** `identity` must be used together with `keyVaultSecretId`
+	Identity pulumi.StringPtrInput `pulumi:"identity"`
+	// The ID of a Key Vault secret. This can be a versioned or version-less ID.
+	//
+	// !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
+	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
+	// The secret name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value for this secret.
 	//
+	// !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
+	//
 	// !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (AppSecretArgs) ElementType() reflect.Type {
@@ -1336,16 +1356,32 @@ func (o AppSecretOutput) ToAppSecretOutputWithContext(ctx context.Context) AppSe
 	return o
 }
 
-// The Secret name.
+// The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+//
+// !> **Note:** `identity` must be used together with `keyVaultSecretId`
+func (o AppSecretOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppSecret) *string { return v.Identity }).(pulumi.StringPtrOutput)
+}
+
+// The ID of a Key Vault secret. This can be a versioned or version-less ID.
+//
+// !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
+func (o AppSecretOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppSecret) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
+}
+
+// The secret name.
 func (o AppSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppSecret) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The value for this secret.
 //
+// !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
+//
 // !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
-func (o AppSecretOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v AppSecret) string { return v.Value }).(pulumi.StringOutput)
+func (o AppSecretOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppSecret) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type AppSecretArrayOutput struct{ *pulumi.OutputState }
@@ -4504,10 +4540,14 @@ func (o EnvironmentDaprComponentMetadataArrayOutput) Index(i pulumi.IntInput) En
 }
 
 type EnvironmentDaprComponentSecret struct {
+	// The identity to use for accessing key vault reference.
+	Identity *string `pulumi:"identity"`
+	// The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The Secret name.
 	Name string `pulumi:"name"`
 	// The value for this secret.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // EnvironmentDaprComponentSecretInput is an input type that accepts EnvironmentDaprComponentSecretArgs and EnvironmentDaprComponentSecretOutput values.
@@ -4522,10 +4562,14 @@ type EnvironmentDaprComponentSecretInput interface {
 }
 
 type EnvironmentDaprComponentSecretArgs struct {
+	// The identity to use for accessing key vault reference.
+	Identity pulumi.StringPtrInput `pulumi:"identity"`
+	// The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
 	// The Secret name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value for this secret.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (EnvironmentDaprComponentSecretArgs) ElementType() reflect.Type {
@@ -4579,14 +4623,24 @@ func (o EnvironmentDaprComponentSecretOutput) ToEnvironmentDaprComponentSecretOu
 	return o
 }
 
+// The identity to use for accessing key vault reference.
+func (o EnvironmentDaprComponentSecretOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentDaprComponentSecret) *string { return v.Identity }).(pulumi.StringPtrOutput)
+}
+
+// The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+func (o EnvironmentDaprComponentSecretOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentDaprComponentSecret) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
+}
+
 // The Secret name.
 func (o EnvironmentDaprComponentSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentDaprComponentSecret) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The value for this secret.
-func (o EnvironmentDaprComponentSecretOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentDaprComponentSecret) string { return v.Value }).(pulumi.StringOutput)
+func (o EnvironmentDaprComponentSecretOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentDaprComponentSecret) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type EnvironmentDaprComponentSecretArrayOutput struct{ *pulumi.OutputState }
@@ -5635,6 +5689,10 @@ func (o GetAppRegistryArrayOutput) Index(i pulumi.IntInput) GetAppRegistryOutput
 }
 
 type GetAppSecret struct {
+	// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+	Identity string `pulumi:"identity"`
+	// The ID of a Key Vault secret.
+	KeyVaultSecretId string `pulumi:"keyVaultSecretId"`
 	// The name of the Container App.
 	Name string `pulumi:"name"`
 	// The HTTP Header value.
@@ -5653,6 +5711,10 @@ type GetAppSecretInput interface {
 }
 
 type GetAppSecretArgs struct {
+	// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+	Identity pulumi.StringInput `pulumi:"identity"`
+	// The ID of a Key Vault secret.
+	KeyVaultSecretId pulumi.StringInput `pulumi:"keyVaultSecretId"`
 	// The name of the Container App.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The HTTP Header value.
@@ -5708,6 +5770,16 @@ func (o GetAppSecretOutput) ToGetAppSecretOutput() GetAppSecretOutput {
 
 func (o GetAppSecretOutput) ToGetAppSecretOutputWithContext(ctx context.Context) GetAppSecretOutput {
 	return o
+}
+
+// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+func (o GetAppSecretOutput) Identity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppSecret) string { return v.Identity }).(pulumi.StringOutput)
+}
+
+// The ID of a Key Vault secret.
+func (o GetAppSecretOutput) KeyVaultSecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppSecret) string { return v.KeyVaultSecretId }).(pulumi.StringOutput)
 }
 
 // The name of the Container App.

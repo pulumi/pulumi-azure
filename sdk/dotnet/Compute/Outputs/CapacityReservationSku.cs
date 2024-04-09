@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class CapacityReservationSku
     {
         /// <summary>
-        /// Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+        /// Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription.
         /// </summary>
         public readonly int Capacity;
         /// <summary>

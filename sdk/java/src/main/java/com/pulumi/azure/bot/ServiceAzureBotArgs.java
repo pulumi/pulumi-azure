@@ -20,6 +20,25 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
     public static final ServiceAzureBotArgs Empty = new ServiceAzureBotArgs();
 
     /**
+     * The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+     * 
+     * &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `soft_delete_enabled` and `purge_protection_enabled` on the `azure.keyvault.KeyVault` that `cmk_key_vault_key_url` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+     * 
+     */
+    @Import(name="cmkKeyVaultKeyUrl")
+    private @Nullable Output<String> cmkKeyVaultKeyUrl;
+
+    /**
+     * @return The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+     * 
+     * &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `soft_delete_enabled` and `purge_protection_enabled` on the `azure.keyvault.KeyVault` that `cmk_key_vault_key_url` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+     * 
+     */
+    public Optional<Output<String>> cmkKeyVaultKeyUrl() {
+        return Optional.ofNullable(this.cmkKeyVaultKeyUrl);
+    }
+
+    /**
      * The Application Insights API Key to associate with this Azure Bot Service.
      * 
      */
@@ -322,6 +341,7 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
     private ServiceAzureBotArgs() {}
 
     private ServiceAzureBotArgs(ServiceAzureBotArgs $) {
+        this.cmkKeyVaultKeyUrl = $.cmkKeyVaultKeyUrl;
         this.developerAppInsightsApiKey = $.developerAppInsightsApiKey;
         this.developerAppInsightsApplicationId = $.developerAppInsightsApplicationId;
         this.developerAppInsightsKey = $.developerAppInsightsKey;
@@ -360,6 +380,31 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(ServiceAzureBotArgs defaults) {
             $ = new ServiceAzureBotArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param cmkKeyVaultKeyUrl The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+         * 
+         * &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `soft_delete_enabled` and `purge_protection_enabled` on the `azure.keyvault.KeyVault` that `cmk_key_vault_key_url` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cmkKeyVaultKeyUrl(@Nullable Output<String> cmkKeyVaultKeyUrl) {
+            $.cmkKeyVaultKeyUrl = cmkKeyVaultKeyUrl;
+            return this;
+        }
+
+        /**
+         * @param cmkKeyVaultKeyUrl The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+         * 
+         * &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `soft_delete_enabled` and `purge_protection_enabled` on the `azure.keyvault.KeyVault` that `cmk_key_vault_key_url` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cmkKeyVaultKeyUrl(String cmkKeyVaultKeyUrl) {
+            return cmkKeyVaultKeyUrl(Output.of(cmkKeyVaultKeyUrl));
         }
 
         /**

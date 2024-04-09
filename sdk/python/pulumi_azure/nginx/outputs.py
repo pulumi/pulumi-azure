@@ -411,7 +411,7 @@ class DeploymentFrontendPublic(dict):
     def __init__(__self__, *,
                  ip_addresses: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] ip_addresses: Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+        :param Sequence[str] ip_addresses: Specifies a list of Public IP Resource ID to this Nginx Deployment.
         """
         if ip_addresses is not None:
             pulumi.set(__self__, "ip_addresses", ip_addresses)
@@ -420,7 +420,7 @@ class DeploymentFrontendPublic(dict):
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+        Specifies a list of Public IP Resource ID to this Nginx Deployment.
         """
         return pulumi.get(self, "ip_addresses")
 

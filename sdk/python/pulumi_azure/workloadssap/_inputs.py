@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'DiscoveryVirtualInstanceIdentityArgs',
     'SingleNodeVirtualInstanceIdentityArgs',
     'SingleNodeVirtualInstanceSingleServerConfigurationArgs',
     'SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs',
@@ -48,6 +49,43 @@ __all__ = [
     'ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs',
     'ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs',
 ]
+
+@pulumi.input_type
+class DiscoveryVirtualInstanceIdentityArgs:
+    def __init__(__self__, *,
+                 identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this SAP Discovery Virtual Instance.
+        :param pulumi.Input[str] type: The type of Managed Service Identity that should be configured on this SAP Discovery Virtual Instance. The only possible value is `UserAssigned`.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this SAP Discovery Virtual Instance.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of Managed Service Identity that should be configured on this SAP Discovery Virtual Instance. The only possible value is `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
 
 @pulumi.input_type
 class SingleNodeVirtualInstanceIdentityArgs:

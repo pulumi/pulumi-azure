@@ -222,7 +222,7 @@ type WorkspaceCustomParameters struct {
 	NatGatewayName *string `pulumi:"natGatewayName"`
 	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
 	//
-	// > **NOTE** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+	// > **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
 	NoPublicIp *bool `pulumi:"noPublicIp"`
 	// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PrivateSubnetName *string `pulumi:"privateSubnetName"`
@@ -242,7 +242,7 @@ type WorkspaceCustomParameters struct {
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 	// Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
+	// > **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
 	VnetAddressPrefix *string `pulumi:"vnetAddressPrefix"`
 }
 
@@ -264,7 +264,7 @@ type WorkspaceCustomParametersArgs struct {
 	NatGatewayName pulumi.StringPtrInput `pulumi:"natGatewayName"`
 	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
 	//
-	// > **NOTE** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+	// > **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
 	NoPublicIp pulumi.BoolPtrInput `pulumi:"noPublicIp"`
 	// The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PrivateSubnetName pulumi.StringPtrInput `pulumi:"privateSubnetName"`
@@ -284,7 +284,7 @@ type WorkspaceCustomParametersArgs struct {
 	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
 	// Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
+	// > **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
 	VnetAddressPrefix pulumi.StringPtrInput `pulumi:"vnetAddressPrefix"`
 }
 
@@ -377,7 +377,7 @@ func (o WorkspaceCustomParametersOutput) NatGatewayName() pulumi.StringPtrOutput
 
 // Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
 //
-// > **NOTE** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+// > **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
 func (o WorkspaceCustomParametersOutput) NoPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *bool { return v.NoPublicIp }).(pulumi.BoolPtrOutput)
 }
@@ -424,7 +424,7 @@ func (o WorkspaceCustomParametersOutput) VirtualNetworkId() pulumi.StringPtrOutp
 
 // Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
 //
-// > **NOTE** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
+// > **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
 func (o WorkspaceCustomParametersOutput) VnetAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.VnetAddressPrefix }).(pulumi.StringPtrOutput)
 }
@@ -475,7 +475,7 @@ func (o WorkspaceCustomParametersPtrOutput) NatGatewayName() pulumi.StringPtrOut
 
 // Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
 //
-// > **NOTE** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+// > **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
 func (o WorkspaceCustomParametersPtrOutput) NoPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *bool {
 		if v == nil {
@@ -567,7 +567,7 @@ func (o WorkspaceCustomParametersPtrOutput) VirtualNetworkId() pulumi.StringPtrO
 
 // Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
 //
-// > **NOTE** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
+// > **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
 func (o WorkspaceCustomParametersPtrOutput) VnetAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
 		if v == nil {

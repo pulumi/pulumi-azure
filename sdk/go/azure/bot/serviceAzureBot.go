@@ -98,6 +98,10 @@ import (
 type ServiceAzureBot struct {
 	pulumi.CustomResourceState
 
+	// The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+	//
+	// > **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+	CmkKeyVaultKeyUrl pulumi.StringPtrOutput `pulumi:"cmkKeyVaultKeyUrl"`
 	// The Application Insights API Key to associate with this Azure Bot Service.
 	DeveloperAppInsightsApiKey pulumi.StringPtrOutput `pulumi:"developerAppInsightsApiKey"`
 	// The resource ID of the Application Insights instance to associate with this Azure Bot Service.
@@ -190,6 +194,10 @@ func GetServiceAzureBot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceAzureBot resources.
 type serviceAzureBotState struct {
+	// The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+	//
+	// > **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+	CmkKeyVaultKeyUrl *string `pulumi:"cmkKeyVaultKeyUrl"`
 	// The Application Insights API Key to associate with this Azure Bot Service.
 	DeveloperAppInsightsApiKey *string `pulumi:"developerAppInsightsApiKey"`
 	// The resource ID of the Application Insights instance to associate with this Azure Bot Service.
@@ -233,6 +241,10 @@ type serviceAzureBotState struct {
 }
 
 type ServiceAzureBotState struct {
+	// The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+	//
+	// > **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+	CmkKeyVaultKeyUrl pulumi.StringPtrInput
 	// The Application Insights API Key to associate with this Azure Bot Service.
 	DeveloperAppInsightsApiKey pulumi.StringPtrInput
 	// The resource ID of the Application Insights instance to associate with this Azure Bot Service.
@@ -280,6 +292,10 @@ func (ServiceAzureBotState) ElementType() reflect.Type {
 }
 
 type serviceAzureBotArgs struct {
+	// The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+	//
+	// > **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+	CmkKeyVaultKeyUrl *string `pulumi:"cmkKeyVaultKeyUrl"`
 	// The Application Insights API Key to associate with this Azure Bot Service.
 	DeveloperAppInsightsApiKey *string `pulumi:"developerAppInsightsApiKey"`
 	// The resource ID of the Application Insights instance to associate with this Azure Bot Service.
@@ -324,6 +340,10 @@ type serviceAzureBotArgs struct {
 
 // The set of arguments for constructing a ServiceAzureBot resource.
 type ServiceAzureBotArgs struct {
+	// The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+	//
+	// > **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+	CmkKeyVaultKeyUrl pulumi.StringPtrInput
 	// The Application Insights API Key to associate with this Azure Bot Service.
 	DeveloperAppInsightsApiKey pulumi.StringPtrInput
 	// The resource ID of the Application Insights instance to associate with this Azure Bot Service.
@@ -451,6 +471,13 @@ func (o ServiceAzureBotOutput) ToServiceAzureBotOutput() ServiceAzureBotOutput {
 
 func (o ServiceAzureBotOutput) ToServiceAzureBotOutputWithContext(ctx context.Context) ServiceAzureBotOutput {
 	return o
+}
+
+// The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
+//
+// > **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+func (o ServiceAzureBotOutput) CmkKeyVaultKeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAzureBot) pulumi.StringPtrOutput { return v.CmkKeyVaultKeyUrl }).(pulumi.StringPtrOutput)
 }
 
 // The Application Insights API Key to associate with this Azure Bot Service.

@@ -17,14 +17,14 @@ public final class DeploymentFrontendPublicArgs extends com.pulumi.resources.Res
     public static final DeploymentFrontendPublicArgs Empty = new DeploymentFrontendPublicArgs();
 
     /**
-     * Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+     * Specifies a list of Public IP Resource ID to this Nginx Deployment.
      * 
      */
     @Import(name="ipAddresses")
     private @Nullable Output<List<String>> ipAddresses;
 
     /**
-     * @return Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+     * @return Specifies a list of Public IP Resource ID to this Nginx Deployment.
      * 
      */
     public Optional<Output<List<String>>> ipAddresses() {
@@ -56,7 +56,7 @@ public final class DeploymentFrontendPublicArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param ipAddresses Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+         * @param ipAddresses Specifies a list of Public IP Resource ID to this Nginx Deployment.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class DeploymentFrontendPublicArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param ipAddresses Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+         * @param ipAddresses Specifies a list of Public IP Resource ID to this Nginx Deployment.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class DeploymentFrontendPublicArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param ipAddresses Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+         * @param ipAddresses Specifies a list of Public IP Resource ID to this Nginx Deployment.
          * 
          * @return builder
          * 

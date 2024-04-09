@@ -102,18 +102,18 @@ public class HciCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.automanageConfigurationId);
     }
     /**
-     * The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+     * The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="clientId", refs={String.class}, tree="[0]")
-    private Output<String> clientId;
+    private Output</* @Nullable */ String> clientId;
 
     /**
-     * @return The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+     * @return The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> clientId() {
-        return this.clientId;
+    public Output<Optional<String>> clientId() {
+        return Codegen.optional(this.clientId);
     }
     /**
      * An immutable UUID for the Azure Stack HCI Cluster.

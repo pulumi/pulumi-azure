@@ -1435,6 +1435,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appservice/staticWebAppFunctionAppRegistration",
+  "fqn": "pulumi_azure.appservice",
+  "classes": {
+   "azure:appservice/staticWebAppFunctionAppRegistration:StaticWebAppFunctionAppRegistration": "StaticWebAppFunctionAppRegistration"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appservice/virtualNetworkSwiftConnection",
   "fqn": "pulumi_azure.appservice",
   "classes": {
@@ -7691,6 +7699,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "redis/cacheAccessPolicy",
+  "fqn": "pulumi_azure.redis",
+  "classes": {
+   "azure:redis/cacheAccessPolicy:CacheAccessPolicy": "CacheAccessPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "redis/cacheAccessPolicyAssignment",
+  "fqn": "pulumi_azure.redis",
+  "classes": {
+   "azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment": "CacheAccessPolicyAssignment"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "redis/enterpriseCluster",
   "fqn": "pulumi_azure.redis",
   "classes": {
@@ -9183,6 +9207,14 @@ _utilities.register(
   "fqn": "pulumi_azure.webpubsub",
   "classes": {
    "azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource": "SharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "workloadssap/discoveryVirtualInstance",
+  "fqn": "pulumi_azure.workloadssap",
+  "classes": {
+   "azure:workloadssap/discoveryVirtualInstance:DiscoveryVirtualInstance": "DiscoveryVirtualInstance"
   }
  },
  {

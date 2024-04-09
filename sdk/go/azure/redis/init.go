@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:redis/cache:Cache":
 		r = &Cache{}
+	case "azure:redis/cacheAccessPolicy:CacheAccessPolicy":
+		r = &CacheAccessPolicy{}
+	case "azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment":
+		r = &CacheAccessPolicyAssignment{}
 	case "azure:redis/enterpriseCluster:EnterpriseCluster":
 		r = &EnterpriseCluster{}
 	case "azure:redis/enterpriseDatabase:EnterpriseDatabase":
@@ -47,6 +51,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"redis/cache",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"redis/cacheAccessPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"redis/cacheAccessPolicyAssignment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

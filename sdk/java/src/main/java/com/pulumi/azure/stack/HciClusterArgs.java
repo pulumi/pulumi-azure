@@ -34,18 +34,18 @@ public final class HciClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+     * The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="clientId", required=true)
-    private Output<String> clientId;
+    @Import(name="clientId")
+    private @Nullable Output<String> clientId;
 
     /**
-     * @return The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+     * @return The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> clientId() {
-        return this.clientId;
+    public Optional<Output<String>> clientId() {
+        return Optional.ofNullable(this.clientId);
     }
 
     /**
@@ -195,18 +195,18 @@ public final class HciClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientId The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+         * @param clientId The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder clientId(Output<String> clientId) {
+        public Builder clientId(@Nullable Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
         /**
-         * @param clientId The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+         * @param clientId The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -346,9 +346,6 @@ public final class HciClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public HciClusterArgs build() {
-            if ($.clientId == null) {
-                throw new MissingRequiredPropertyException("HciClusterArgs", "clientId");
-            }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("HciClusterArgs", "resourceGroupName");
             }

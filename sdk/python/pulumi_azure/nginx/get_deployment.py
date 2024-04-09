@@ -218,7 +218,7 @@ class GetDeploymentResult:
     @pulumi.getter
     def sku(self) -> str:
         """
-        Name of the SKU for this Nginx Deployment.
+        The Nginx Deployment SKU. Possible values include `standard_Monthly`.
         """
         return pulumi.get(self, "sku")
 

@@ -15,6 +15,13 @@ public final class WorkspaceRootDbfsCustomerManagedKeyState extends com.pulumi.r
 
     public static final WorkspaceRootDbfsCustomerManagedKeyState Empty = new WorkspaceRootDbfsCustomerManagedKeyState();
 
+    @Import(name="keyVaultId")
+    private @Nullable Output<String> keyVaultId;
+
+    public Optional<Output<String>> keyVaultId() {
+        return Optional.ofNullable(this.keyVaultId);
+    }
+
     /**
      * The resource ID of the Key Vault Key to be used.
      * 
@@ -48,6 +55,7 @@ public final class WorkspaceRootDbfsCustomerManagedKeyState extends com.pulumi.r
     private WorkspaceRootDbfsCustomerManagedKeyState() {}
 
     private WorkspaceRootDbfsCustomerManagedKeyState(WorkspaceRootDbfsCustomerManagedKeyState $) {
+        this.keyVaultId = $.keyVaultId;
         this.keyVaultKeyId = $.keyVaultKeyId;
         this.workspaceId = $.workspaceId;
     }
@@ -68,6 +76,15 @@ public final class WorkspaceRootDbfsCustomerManagedKeyState extends com.pulumi.r
 
         public Builder(WorkspaceRootDbfsCustomerManagedKeyState defaults) {
             $ = new WorkspaceRootDbfsCustomerManagedKeyState(Objects.requireNonNull(defaults));
+        }
+
+        public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
+            $.keyVaultId = keyVaultId;
+            return this;
+        }
+
+        public Builder keyVaultId(String keyVaultId) {
+            return keyVaultId(Output.of(keyVaultId));
         }
 
         /**

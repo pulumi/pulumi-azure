@@ -236,12 +236,16 @@ import (
 type ServerExtendedAuditingPolicy struct {
 	pulumi.CustomResourceState
 
+	// A list of Actions-Groups and Actions to audit.
+	AuditActionsAndGroups pulumi.StringArrayOutput `pulumi:"auditActionsAndGroups"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	//
 	// ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrOutput `pulumi:"logMonitoringEnabled"`
+	// Specifies condition of where clause when creating an audit.
+	PredicateExpression pulumi.StringPtrOutput `pulumi:"predicateExpression"`
 	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -300,12 +304,16 @@ func GetServerExtendedAuditingPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerExtendedAuditingPolicy resources.
 type serverExtendedAuditingPolicyState struct {
+	// A list of Actions-Groups and Actions to audit.
+	AuditActionsAndGroups []string `pulumi:"auditActionsAndGroups"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	//
 	// ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
 	Enabled *bool `pulumi:"enabled"`
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
+	// Specifies condition of where clause when creating an audit.
+	PredicateExpression *string `pulumi:"predicateExpression"`
 	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -321,12 +329,16 @@ type serverExtendedAuditingPolicyState struct {
 }
 
 type ServerExtendedAuditingPolicyState struct {
+	// A list of Actions-Groups and Actions to audit.
+	AuditActionsAndGroups pulumi.StringArrayInput
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	//
 	// ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
 	Enabled pulumi.BoolPtrInput
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrInput
+	// Specifies condition of where clause when creating an audit.
+	PredicateExpression pulumi.StringPtrInput
 	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays pulumi.IntPtrInput
 	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -346,12 +358,16 @@ func (ServerExtendedAuditingPolicyState) ElementType() reflect.Type {
 }
 
 type serverExtendedAuditingPolicyArgs struct {
+	// A list of Actions-Groups and Actions to audit.
+	AuditActionsAndGroups []string `pulumi:"auditActionsAndGroups"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	//
 	// ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
 	Enabled *bool `pulumi:"enabled"`
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
+	// Specifies condition of where clause when creating an audit.
+	PredicateExpression *string `pulumi:"predicateExpression"`
 	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -368,12 +384,16 @@ type serverExtendedAuditingPolicyArgs struct {
 
 // The set of arguments for constructing a ServerExtendedAuditingPolicy resource.
 type ServerExtendedAuditingPolicyArgs struct {
+	// A list of Actions-Groups and Actions to audit.
+	AuditActionsAndGroups pulumi.StringArrayInput
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	//
 	// ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
 	Enabled pulumi.BoolPtrInput
 	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrInput
+	// Specifies condition of where clause when creating an audit.
+	PredicateExpression pulumi.StringPtrInput
 	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays pulumi.IntPtrInput
 	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -475,6 +495,11 @@ func (o ServerExtendedAuditingPolicyOutput) ToServerExtendedAuditingPolicyOutput
 	return o
 }
 
+// A list of Actions-Groups and Actions to audit.
+func (o ServerExtendedAuditingPolicyOutput) AuditActionsAndGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) pulumi.StringArrayOutput { return v.AuditActionsAndGroups }).(pulumi.StringArrayOutput)
+}
+
 // Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 //
 // ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
@@ -485,6 +510,11 @@ func (o ServerExtendedAuditingPolicyOutput) Enabled() pulumi.BoolPtrOutput {
 // Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 func (o ServerExtendedAuditingPolicyOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) pulumi.BoolPtrOutput { return v.LogMonitoringEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies condition of where clause when creating an audit.
+func (o ServerExtendedAuditingPolicyOutput) PredicateExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) pulumi.StringPtrOutput { return v.PredicateExpression }).(pulumi.StringPtrOutput)
 }
 
 // The number of days to retain logs for in the storage account. Defaults to `0`.

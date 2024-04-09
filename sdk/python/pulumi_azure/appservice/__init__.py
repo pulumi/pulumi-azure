@@ -55,6 +55,7 @@ from .static_site import *
 from .static_site_custom_domain import *
 from .static_web_app import *
 from .static_web_app_custom_domain import *
+from .static_web_app_function_app_registration import *
 from .virtual_network_swift_connection import *
 from .web_app_active_slot import *
 from .web_app_hybrid_connection import *

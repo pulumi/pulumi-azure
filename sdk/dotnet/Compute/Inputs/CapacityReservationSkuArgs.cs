@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class CapacityReservationSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
+        /// Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription.
         /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;

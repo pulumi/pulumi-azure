@@ -9,6 +9,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class ServerExtendedAuditingPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServerExtendedAuditingPolicyArgs Empty = new ServerExtendedAuditingPolicyArgs();
+
+    /**
+     * A list of Actions-Groups and Actions to audit.
+     * 
+     */
+    @Import(name="auditActionsAndGroups")
+    private @Nullable Output<List<String>> auditActionsAndGroups;
+
+    /**
+     * @return A list of Actions-Groups and Actions to audit.
+     * 
+     */
+    public Optional<Output<List<String>>> auditActionsAndGroups() {
+        return Optional.ofNullable(this.auditActionsAndGroups);
+    }
 
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
@@ -50,6 +66,21 @@ public final class ServerExtendedAuditingPolicyArgs extends com.pulumi.resources
      */
     public Optional<Output<Boolean>> logMonitoringEnabled() {
         return Optional.ofNullable(this.logMonitoringEnabled);
+    }
+
+    /**
+     * Specifies condition of where clause when creating an audit.
+     * 
+     */
+    @Import(name="predicateExpression")
+    private @Nullable Output<String> predicateExpression;
+
+    /**
+     * @return Specifies condition of where clause when creating an audit.
+     * 
+     */
+    public Optional<Output<String>> predicateExpression() {
+        return Optional.ofNullable(this.predicateExpression);
     }
 
     /**
@@ -145,8 +176,10 @@ public final class ServerExtendedAuditingPolicyArgs extends com.pulumi.resources
     private ServerExtendedAuditingPolicyArgs() {}
 
     private ServerExtendedAuditingPolicyArgs(ServerExtendedAuditingPolicyArgs $) {
+        this.auditActionsAndGroups = $.auditActionsAndGroups;
         this.enabled = $.enabled;
         this.logMonitoringEnabled = $.logMonitoringEnabled;
+        this.predicateExpression = $.predicateExpression;
         this.retentionInDays = $.retentionInDays;
         this.serverId = $.serverId;
         this.storageAccountAccessKey = $.storageAccountAccessKey;
@@ -171,6 +204,37 @@ public final class ServerExtendedAuditingPolicyArgs extends com.pulumi.resources
 
         public Builder(ServerExtendedAuditingPolicyArgs defaults) {
             $ = new ServerExtendedAuditingPolicyArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param auditActionsAndGroups A list of Actions-Groups and Actions to audit.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auditActionsAndGroups(@Nullable Output<List<String>> auditActionsAndGroups) {
+            $.auditActionsAndGroups = auditActionsAndGroups;
+            return this;
+        }
+
+        /**
+         * @param auditActionsAndGroups A list of Actions-Groups and Actions to audit.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auditActionsAndGroups(List<String> auditActionsAndGroups) {
+            return auditActionsAndGroups(Output.of(auditActionsAndGroups));
+        }
+
+        /**
+         * @param auditActionsAndGroups A list of Actions-Groups and Actions to audit.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auditActionsAndGroups(String... auditActionsAndGroups) {
+            return auditActionsAndGroups(List.of(auditActionsAndGroups));
         }
 
         /**
@@ -217,6 +281,27 @@ public final class ServerExtendedAuditingPolicyArgs extends com.pulumi.resources
          */
         public Builder logMonitoringEnabled(Boolean logMonitoringEnabled) {
             return logMonitoringEnabled(Output.of(logMonitoringEnabled));
+        }
+
+        /**
+         * @param predicateExpression Specifies condition of where clause when creating an audit.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder predicateExpression(@Nullable Output<String> predicateExpression) {
+            $.predicateExpression = predicateExpression;
+            return this;
+        }
+
+        /**
+         * @param predicateExpression Specifies condition of where clause when creating an audit.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder predicateExpression(String predicateExpression) {
+            return predicateExpression(Output.of(predicateExpression));
         }
 
         /**

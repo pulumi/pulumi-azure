@@ -14,20 +14,34 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class EnvironmentDaprComponentSecret
     {
         /// <summary>
+        /// The identity to use for accessing key vault reference.
+        /// </summary>
+        public readonly string? Identity;
+        /// <summary>
+        /// The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        /// </summary>
+        public readonly string? KeyVaultSecretId;
+        /// <summary>
         /// The Secret name.
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// The value for this secret.
         /// </summary>
-        public readonly string Value;
+        public readonly string? Value;
 
         [OutputConstructor]
         private EnvironmentDaprComponentSecret(
+            string? identity,
+
+            string? keyVaultSecretId,
+
             string name,
 
-            string value)
+            string? value)
         {
+            Identity = identity;
+            KeyVaultSecretId = keyVaultSecretId;
             Name = name;
             Value = value;
         }

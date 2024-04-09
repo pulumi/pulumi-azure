@@ -326,7 +326,7 @@ class DeploymentFrontendPublicArgs:
     def __init__(__self__, *,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: Specifies a list of Public IP Resource ID to this Nginx Deployment.
         """
         if ip_addresses is not None:
             pulumi.set(__self__, "ip_addresses", ip_addresses)
@@ -335,7 +335,7 @@ class DeploymentFrontendPublicArgs:
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+        Specifies a list of Public IP Resource ID to this Nginx Deployment.
         """
         return pulumi.get(self, "ip_addresses")
 

@@ -18,6 +18,30 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedClients;
         /// <summary>
+        /// Is Kerberos 5 read-only access permitted to this volume?
+        /// </summary>
+        public readonly bool? Kerberos5ReadOnlyEnabled;
+        /// <summary>
+        /// Is Kerberos 5 read/write permitted to this volume?
+        /// </summary>
+        public readonly bool? Kerberos5ReadWriteEnabled;
+        /// <summary>
+        /// Is Kerberos 5i read-only permitted to this volume?
+        /// </summary>
+        public readonly bool? Kerberos5iReadOnlyEnabled;
+        /// <summary>
+        /// Is Kerberos 5i read/write permitted to this volume?
+        /// </summary>
+        public readonly bool? Kerberos5iReadWriteEnabled;
+        /// <summary>
+        /// Is Kerberos 5p read-only permitted to this volume?
+        /// </summary>
+        public readonly bool? Kerberos5pReadOnlyEnabled;
+        /// <summary>
+        /// Is Kerberos 5p read/write permitted to this volume?
+        /// </summary>
+        public readonly bool? Kerberos5pReadWriteEnabled;
+        /// <summary>
         /// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
         /// </summary>
         public readonly string? ProtocolsEnabled;
@@ -42,6 +66,18 @@ namespace Pulumi.Azure.NetApp.Outputs
         private VolumeExportPolicyRule(
             ImmutableArray<string> allowedClients,
 
+            bool? kerberos5ReadOnlyEnabled,
+
+            bool? kerberos5ReadWriteEnabled,
+
+            bool? kerberos5iReadOnlyEnabled,
+
+            bool? kerberos5iReadWriteEnabled,
+
+            bool? kerberos5pReadOnlyEnabled,
+
+            bool? kerberos5pReadWriteEnabled,
+
             string? protocolsEnabled,
 
             bool? rootAccessEnabled,
@@ -53,6 +89,12 @@ namespace Pulumi.Azure.NetApp.Outputs
             bool? unixReadWrite)
         {
             AllowedClients = allowedClients;
+            Kerberos5ReadOnlyEnabled = kerberos5ReadOnlyEnabled;
+            Kerberos5ReadWriteEnabled = kerberos5ReadWriteEnabled;
+            Kerberos5iReadOnlyEnabled = kerberos5iReadOnlyEnabled;
+            Kerberos5iReadWriteEnabled = kerberos5iReadWriteEnabled;
+            Kerberos5pReadOnlyEnabled = kerberos5pReadOnlyEnabled;
+            Kerberos5pReadWriteEnabled = kerberos5pReadWriteEnabled;
             ProtocolsEnabled = protocolsEnabled;
             RootAccessEnabled = rootAccessEnabled;
             RuleIndex = ruleIndex;

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetVirtualMachineManagerInventoryItemsArgs, GetVirtualMachineManagerInventoryItemsResult, GetVirtualMachineManagerInventoryItemsOutputArgs } from "./getVirtualMachineManagerInventoryItems";
+export const getVirtualMachineManagerInventoryItems: typeof import("./getVirtualMachineManagerInventoryItems").getVirtualMachineManagerInventoryItems = null as any;
+export const getVirtualMachineManagerInventoryItemsOutput: typeof import("./getVirtualMachineManagerInventoryItems").getVirtualMachineManagerInventoryItemsOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMachineManagerInventoryItems","getVirtualMachineManagerInventoryItemsOutput"], () => require("./getVirtualMachineManagerInventoryItems"));
+
 export { VirtualMachineManagerAvailabilitySetArgs, VirtualMachineManagerAvailabilitySetState } from "./virtualMachineManagerAvailabilitySet";
 export type VirtualMachineManagerAvailabilitySet = import("./virtualMachineManagerAvailabilitySet").VirtualMachineManagerAvailabilitySet;
 export const VirtualMachineManagerAvailabilitySet: typeof import("./virtualMachineManagerAvailabilitySet").VirtualMachineManagerAvailabilitySet = null as any;

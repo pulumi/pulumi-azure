@@ -14,52 +14,6 @@ namespace Pulumi.Azure.ChaosStudio
     /// 
     /// Manages a Chaos Studio Target.
     /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var example = new Azure.ContainerService.KubernetesCluster("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         DnsPrefix = "acctestaksexample",
-    ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
-    ///         {
-    ///             Name = "example-value",
-    ///             NodeCount = "example-value",
-    ///             VmSize = "example-value",
-    ///         },
-    ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
-    ///         {
-    ///             Type = "example-value",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleTarget = new Azure.ChaosStudio.Target("example", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         TargetResourceId = example.Id,
-    ///         TargetType = "example-value",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// An existing Chaos Studio Target can be imported into Terraform using the `resource id`, e.g.

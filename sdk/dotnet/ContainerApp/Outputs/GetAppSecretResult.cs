@@ -14,6 +14,14 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class GetAppSecretResult
     {
         /// <summary>
+        /// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+        /// </summary>
+        public readonly string Identity;
+        /// <summary>
+        /// The ID of a Key Vault secret.
+        /// </summary>
+        public readonly string KeyVaultSecretId;
+        /// <summary>
         /// The name of the Container App.
         /// </summary>
         public readonly string Name;
@@ -24,10 +32,16 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
         [OutputConstructor]
         private GetAppSecretResult(
+            string identity,
+
+            string keyVaultSecretId,
+
             string name,
 
             string value)
         {
+            Identity = identity;
+            KeyVaultSecretId = keyVaultSecretId;
             Name = name;
             Value = value;
         }

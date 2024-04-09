@@ -64,6 +64,13 @@ namespace Pulumi.Azure.NetApp
         public Output<ImmutableArray<Outputs.VolumeExportPolicyRule>> ExportPolicyRules { get; private set; } = null!;
 
         /// <summary>
+        /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
+        /// `azurerm_netapp_account` having a defined AD connection.
+        /// </summary>
+        [Output("kerberosEnabled")]
+        public Output<bool?> KerberosEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("keyVaultPrivateEndpointId")]
@@ -128,6 +135,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Output("smbAccessBasedEnumerationEnabled")]
         public Output<bool?> SmbAccessBasedEnumerationEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable SMB Continuous Availability.
+        /// </summary>
+        [Output("smbContinuousAvailabilityEnabled")]
+        public Output<bool?> SmbContinuousAvailabilityEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
@@ -274,6 +287,13 @@ namespace Pulumi.Azure.NetApp
         }
 
         /// <summary>
+        /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
+        /// `azurerm_netapp_account` having a defined AD connection.
+        /// </summary>
+        [Input("kerberosEnabled")]
+        public Input<bool>? KerberosEnabled { get; set; }
+
+        /// <summary>
         /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultPrivateEndpointId")]
@@ -338,6 +358,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("smbAccessBasedEnumerationEnabled")]
         public Input<bool>? SmbAccessBasedEnumerationEnabled { get; set; }
+
+        /// <summary>
+        /// Enable SMB Continuous Availability.
+        /// </summary>
+        [Input("smbContinuousAvailabilityEnabled")]
+        public Input<bool>? SmbContinuousAvailabilityEnabled { get; set; }
 
         /// <summary>
         /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
@@ -452,6 +478,13 @@ namespace Pulumi.Azure.NetApp
         }
 
         /// <summary>
+        /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent
+        /// `azurerm_netapp_account` having a defined AD connection.
+        /// </summary>
+        [Input("kerberosEnabled")]
+        public Input<bool>? KerberosEnabled { get; set; }
+
+        /// <summary>
         /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultPrivateEndpointId")]
@@ -528,6 +561,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("smbAccessBasedEnumerationEnabled")]
         public Input<bool>? SmbAccessBasedEnumerationEnabled { get; set; }
+
+        /// <summary>
+        /// Enable SMB Continuous Availability.
+        /// </summary>
+        [Input("smbContinuousAvailabilityEnabled")]
+        public Input<bool>? SmbContinuousAvailabilityEnabled { get; set; }
 
         /// <summary>
         /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)

@@ -21,6 +21,36 @@ public final class VolumeExportPolicyRule {
      */
     private List<String> allowedClients;
     /**
+     * @return Is Kerberos 5 read-only access permitted to this volume?
+     * 
+     */
+    private @Nullable Boolean kerberos5ReadOnlyEnabled;
+    /**
+     * @return Is Kerberos 5 read/write permitted to this volume?
+     * 
+     */
+    private @Nullable Boolean kerberos5ReadWriteEnabled;
+    /**
+     * @return Is Kerberos 5i read-only permitted to this volume?
+     * 
+     */
+    private @Nullable Boolean kerberos5iReadOnlyEnabled;
+    /**
+     * @return Is Kerberos 5i read/write permitted to this volume?
+     * 
+     */
+    private @Nullable Boolean kerberos5iReadWriteEnabled;
+    /**
+     * @return Is Kerberos 5p read-only permitted to this volume?
+     * 
+     */
+    private @Nullable Boolean kerberos5pReadOnlyEnabled;
+    /**
+     * @return Is Kerberos 5p read/write permitted to this volume?
+     * 
+     */
+    private @Nullable Boolean kerberos5pReadWriteEnabled;
+    /**
      * @return A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
      * 
      */
@@ -53,6 +83,48 @@ public final class VolumeExportPolicyRule {
      */
     public List<String> allowedClients() {
         return this.allowedClients;
+    }
+    /**
+     * @return Is Kerberos 5 read-only access permitted to this volume?
+     * 
+     */
+    public Optional<Boolean> kerberos5ReadOnlyEnabled() {
+        return Optional.ofNullable(this.kerberos5ReadOnlyEnabled);
+    }
+    /**
+     * @return Is Kerberos 5 read/write permitted to this volume?
+     * 
+     */
+    public Optional<Boolean> kerberos5ReadWriteEnabled() {
+        return Optional.ofNullable(this.kerberos5ReadWriteEnabled);
+    }
+    /**
+     * @return Is Kerberos 5i read-only permitted to this volume?
+     * 
+     */
+    public Optional<Boolean> kerberos5iReadOnlyEnabled() {
+        return Optional.ofNullable(this.kerberos5iReadOnlyEnabled);
+    }
+    /**
+     * @return Is Kerberos 5i read/write permitted to this volume?
+     * 
+     */
+    public Optional<Boolean> kerberos5iReadWriteEnabled() {
+        return Optional.ofNullable(this.kerberos5iReadWriteEnabled);
+    }
+    /**
+     * @return Is Kerberos 5p read-only permitted to this volume?
+     * 
+     */
+    public Optional<Boolean> kerberos5pReadOnlyEnabled() {
+        return Optional.ofNullable(this.kerberos5pReadOnlyEnabled);
+    }
+    /**
+     * @return Is Kerberos 5p read/write permitted to this volume?
+     * 
+     */
+    public Optional<Boolean> kerberos5pReadWriteEnabled() {
+        return Optional.ofNullable(this.kerberos5pReadWriteEnabled);
     }
     /**
      * @return A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
@@ -100,6 +172,12 @@ public final class VolumeExportPolicyRule {
     @CustomType.Builder
     public static final class Builder {
         private List<String> allowedClients;
+        private @Nullable Boolean kerberos5ReadOnlyEnabled;
+        private @Nullable Boolean kerberos5ReadWriteEnabled;
+        private @Nullable Boolean kerberos5iReadOnlyEnabled;
+        private @Nullable Boolean kerberos5iReadWriteEnabled;
+        private @Nullable Boolean kerberos5pReadOnlyEnabled;
+        private @Nullable Boolean kerberos5pReadWriteEnabled;
         private @Nullable String protocolsEnabled;
         private @Nullable Boolean rootAccessEnabled;
         private Integer ruleIndex;
@@ -109,6 +187,12 @@ public final class VolumeExportPolicyRule {
         public Builder(VolumeExportPolicyRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedClients = defaults.allowedClients;
+    	      this.kerberos5ReadOnlyEnabled = defaults.kerberos5ReadOnlyEnabled;
+    	      this.kerberos5ReadWriteEnabled = defaults.kerberos5ReadWriteEnabled;
+    	      this.kerberos5iReadOnlyEnabled = defaults.kerberos5iReadOnlyEnabled;
+    	      this.kerberos5iReadWriteEnabled = defaults.kerberos5iReadWriteEnabled;
+    	      this.kerberos5pReadOnlyEnabled = defaults.kerberos5pReadOnlyEnabled;
+    	      this.kerberos5pReadWriteEnabled = defaults.kerberos5pReadWriteEnabled;
     	      this.protocolsEnabled = defaults.protocolsEnabled;
     	      this.rootAccessEnabled = defaults.rootAccessEnabled;
     	      this.ruleIndex = defaults.ruleIndex;
@@ -126,6 +210,42 @@ public final class VolumeExportPolicyRule {
         }
         public Builder allowedClients(String... allowedClients) {
             return allowedClients(List.of(allowedClients));
+        }
+        @CustomType.Setter
+        public Builder kerberos5ReadOnlyEnabled(@Nullable Boolean kerberos5ReadOnlyEnabled) {
+
+            this.kerberos5ReadOnlyEnabled = kerberos5ReadOnlyEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder kerberos5ReadWriteEnabled(@Nullable Boolean kerberos5ReadWriteEnabled) {
+
+            this.kerberos5ReadWriteEnabled = kerberos5ReadWriteEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder kerberos5iReadOnlyEnabled(@Nullable Boolean kerberos5iReadOnlyEnabled) {
+
+            this.kerberos5iReadOnlyEnabled = kerberos5iReadOnlyEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder kerberos5iReadWriteEnabled(@Nullable Boolean kerberos5iReadWriteEnabled) {
+
+            this.kerberos5iReadWriteEnabled = kerberos5iReadWriteEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder kerberos5pReadOnlyEnabled(@Nullable Boolean kerberos5pReadOnlyEnabled) {
+
+            this.kerberos5pReadOnlyEnabled = kerberos5pReadOnlyEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder kerberos5pReadWriteEnabled(@Nullable Boolean kerberos5pReadWriteEnabled) {
+
+            this.kerberos5pReadWriteEnabled = kerberos5pReadWriteEnabled;
+            return this;
         }
         @CustomType.Setter
         public Builder protocolsEnabled(@Nullable String protocolsEnabled) {
@@ -162,6 +282,12 @@ public final class VolumeExportPolicyRule {
         public VolumeExportPolicyRule build() {
             final var _resultValue = new VolumeExportPolicyRule();
             _resultValue.allowedClients = allowedClients;
+            _resultValue.kerberos5ReadOnlyEnabled = kerberos5ReadOnlyEnabled;
+            _resultValue.kerberos5ReadWriteEnabled = kerberos5ReadWriteEnabled;
+            _resultValue.kerberos5iReadOnlyEnabled = kerberos5iReadOnlyEnabled;
+            _resultValue.kerberos5iReadWriteEnabled = kerberos5iReadWriteEnabled;
+            _resultValue.kerberos5pReadOnlyEnabled = kerberos5pReadOnlyEnabled;
+            _resultValue.kerberos5pReadWriteEnabled = kerberos5pReadWriteEnabled;
             _resultValue.protocolsEnabled = protocolsEnabled;
             _resultValue.rootAccessEnabled = rootAccessEnabled;
             _resultValue.ruleIndex = ruleIndex;

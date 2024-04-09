@@ -448,6 +448,7 @@ class Schedule(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             lab_name=example_lab.name,
+            status="Enabled",
             weekly_recurrence=azure.devtest.ScheduleWeeklyRecurrenceArgs(
                 time="1100",
                 week_days=[
@@ -515,6 +516,7 @@ class Schedule(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             lab_name=example_lab.name,
+            status="Enabled",
             weekly_recurrence=azure.devtest.ScheduleWeeklyRecurrenceArgs(
                 time="1100",
                 week_days=[

@@ -847,7 +847,7 @@ func (o DeploymentFrontendPrivateArrayOutput) Index(i pulumi.IntInput) Deploymen
 }
 
 type DeploymentFrontendPublic struct {
-	// Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+	// Specifies a list of Public IP Resource ID to this Nginx Deployment.
 	IpAddresses []string `pulumi:"ipAddresses"`
 }
 
@@ -863,7 +863,7 @@ type DeploymentFrontendPublicInput interface {
 }
 
 type DeploymentFrontendPublicArgs struct {
-	// Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+	// Specifies a list of Public IP Resource ID to this Nginx Deployment.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 }
 
@@ -944,7 +944,7 @@ func (o DeploymentFrontendPublicOutput) ToDeploymentFrontendPublicPtrOutputWithC
 	}).(DeploymentFrontendPublicPtrOutput)
 }
 
-// Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+// Specifies a list of Public IP Resource ID to this Nginx Deployment.
 func (o DeploymentFrontendPublicOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeploymentFrontendPublic) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
@@ -973,7 +973,7 @@ func (o DeploymentFrontendPublicPtrOutput) Elem() DeploymentFrontendPublicOutput
 	}).(DeploymentFrontendPublicOutput)
 }
 
-// Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+// Specifies a list of Public IP Resource ID to this Nginx Deployment.
 func (o DeploymentFrontendPublicPtrOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeploymentFrontendPublic) []string {
 		if v == nil {

@@ -35,6 +35,96 @@ public final class VolumeExportPolicyRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Is Kerberos 5 read-only access permitted to this volume?
+     * 
+     */
+    @Import(name="kerberos5ReadOnlyEnabled")
+    private @Nullable Output<Boolean> kerberos5ReadOnlyEnabled;
+
+    /**
+     * @return Is Kerberos 5 read-only access permitted to this volume?
+     * 
+     */
+    public Optional<Output<Boolean>> kerberos5ReadOnlyEnabled() {
+        return Optional.ofNullable(this.kerberos5ReadOnlyEnabled);
+    }
+
+    /**
+     * Is Kerberos 5 read/write permitted to this volume?
+     * 
+     */
+    @Import(name="kerberos5ReadWriteEnabled")
+    private @Nullable Output<Boolean> kerberos5ReadWriteEnabled;
+
+    /**
+     * @return Is Kerberos 5 read/write permitted to this volume?
+     * 
+     */
+    public Optional<Output<Boolean>> kerberos5ReadWriteEnabled() {
+        return Optional.ofNullable(this.kerberos5ReadWriteEnabled);
+    }
+
+    /**
+     * Is Kerberos 5i read-only permitted to this volume?
+     * 
+     */
+    @Import(name="kerberos5iReadOnlyEnabled")
+    private @Nullable Output<Boolean> kerberos5iReadOnlyEnabled;
+
+    /**
+     * @return Is Kerberos 5i read-only permitted to this volume?
+     * 
+     */
+    public Optional<Output<Boolean>> kerberos5iReadOnlyEnabled() {
+        return Optional.ofNullable(this.kerberos5iReadOnlyEnabled);
+    }
+
+    /**
+     * Is Kerberos 5i read/write permitted to this volume?
+     * 
+     */
+    @Import(name="kerberos5iReadWriteEnabled")
+    private @Nullable Output<Boolean> kerberos5iReadWriteEnabled;
+
+    /**
+     * @return Is Kerberos 5i read/write permitted to this volume?
+     * 
+     */
+    public Optional<Output<Boolean>> kerberos5iReadWriteEnabled() {
+        return Optional.ofNullable(this.kerberos5iReadWriteEnabled);
+    }
+
+    /**
+     * Is Kerberos 5p read-only permitted to this volume?
+     * 
+     */
+    @Import(name="kerberos5pReadOnlyEnabled")
+    private @Nullable Output<Boolean> kerberos5pReadOnlyEnabled;
+
+    /**
+     * @return Is Kerberos 5p read-only permitted to this volume?
+     * 
+     */
+    public Optional<Output<Boolean>> kerberos5pReadOnlyEnabled() {
+        return Optional.ofNullable(this.kerberos5pReadOnlyEnabled);
+    }
+
+    /**
+     * Is Kerberos 5p read/write permitted to this volume?
+     * 
+     */
+    @Import(name="kerberos5pReadWriteEnabled")
+    private @Nullable Output<Boolean> kerberos5pReadWriteEnabled;
+
+    /**
+     * @return Is Kerberos 5p read/write permitted to this volume?
+     * 
+     */
+    public Optional<Output<Boolean>> kerberos5pReadWriteEnabled() {
+        return Optional.ofNullable(this.kerberos5pReadWriteEnabled);
+    }
+
+    /**
      * A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
      * 
      */
@@ -113,6 +203,12 @@ public final class VolumeExportPolicyRuleArgs extends com.pulumi.resources.Resou
 
     private VolumeExportPolicyRuleArgs(VolumeExportPolicyRuleArgs $) {
         this.allowedClients = $.allowedClients;
+        this.kerberos5ReadOnlyEnabled = $.kerberos5ReadOnlyEnabled;
+        this.kerberos5ReadWriteEnabled = $.kerberos5ReadWriteEnabled;
+        this.kerberos5iReadOnlyEnabled = $.kerberos5iReadOnlyEnabled;
+        this.kerberos5iReadWriteEnabled = $.kerberos5iReadWriteEnabled;
+        this.kerberos5pReadOnlyEnabled = $.kerberos5pReadOnlyEnabled;
+        this.kerberos5pReadWriteEnabled = $.kerberos5pReadWriteEnabled;
         this.protocolsEnabled = $.protocolsEnabled;
         this.rootAccessEnabled = $.rootAccessEnabled;
         this.ruleIndex = $.ruleIndex;
@@ -167,6 +263,132 @@ public final class VolumeExportPolicyRuleArgs extends com.pulumi.resources.Resou
          */
         public Builder allowedClients(String... allowedClients) {
             return allowedClients(List.of(allowedClients));
+        }
+
+        /**
+         * @param kerberos5ReadOnlyEnabled Is Kerberos 5 read-only access permitted to this volume?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberos5ReadOnlyEnabled(@Nullable Output<Boolean> kerberos5ReadOnlyEnabled) {
+            $.kerberos5ReadOnlyEnabled = kerberos5ReadOnlyEnabled;
+            return this;
+        }
+
+        /**
+         * @param kerberos5ReadOnlyEnabled Is Kerberos 5 read-only access permitted to this volume?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberos5ReadOnlyEnabled(Boolean kerberos5ReadOnlyEnabled) {
+            return kerberos5ReadOnlyEnabled(Output.of(kerberos5ReadOnlyEnabled));
+        }
+
+        /**
+         * @param kerberos5ReadWriteEnabled Is Kerberos 5 read/write permitted to this volume?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberos5ReadWriteEnabled(@Nullable Output<Boolean> kerberos5ReadWriteEnabled) {
+            $.kerberos5ReadWriteEnabled = kerberos5ReadWriteEnabled;
+            return this;
+        }
+
+        /**
+         * @param kerberos5ReadWriteEnabled Is Kerberos 5 read/write permitted to this volume?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberos5ReadWriteEnabled(Boolean kerberos5ReadWriteEnabled) {
+            return kerberos5ReadWriteEnabled(Output.of(kerberos5ReadWriteEnabled));
+        }
+
+        /**
+         * @param kerberos5iReadOnlyEnabled Is Kerberos 5i read-only permitted to this volume?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberos5iReadOnlyEnabled(@Nullable Output<Boolean> kerberos5iReadOnlyEnabled) {
+            $.kerberos5iReadOnlyEnabled = kerberos5iReadOnlyEnabled;
+            return this;
+        }
+
+        /**
+         * @param kerberos5iReadOnlyEnabled Is Kerberos 5i read-only permitted to this volume?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberos5iReadOnlyEnabled(Boolean kerberos5iReadOnlyEnabled) {
+            return kerberos5iReadOnlyEnabled(Output.of(kerberos5iReadOnlyEnabled));
+        }
+
+        /**
+         * @param kerberos5iReadWriteEnabled Is Kerberos 5i read/write permitted to this volume?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberos5iReadWriteEnabled(@Nullable Output<Boolean> kerberos5iReadWriteEnabled) {
+            $.kerberos5iReadWriteEnabled = kerberos5iReadWriteEnabled;
+            return this;
+        }
+
+        /**
+         * @param kerberos5iReadWriteEnabled Is Kerberos 5i read/write permitted to this volume?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberos5iReadWriteEnabled(Boolean kerberos5iReadWriteEnabled) {
+            return kerberos5iReadWriteEnabled(Output.of(kerberos5iReadWriteEnabled));
+        }
+
+        /**
+         * @param kerberos5pReadOnlyEnabled Is Kerberos 5p read-only permitted to this volume?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberos5pReadOnlyEnabled(@Nullable Output<Boolean> kerberos5pReadOnlyEnabled) {
+            $.kerberos5pReadOnlyEnabled = kerberos5pReadOnlyEnabled;
+            return this;
+        }
+
+        /**
+         * @param kerberos5pReadOnlyEnabled Is Kerberos 5p read-only permitted to this volume?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberos5pReadOnlyEnabled(Boolean kerberos5pReadOnlyEnabled) {
+            return kerberos5pReadOnlyEnabled(Output.of(kerberos5pReadOnlyEnabled));
+        }
+
+        /**
+         * @param kerberos5pReadWriteEnabled Is Kerberos 5p read/write permitted to this volume?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberos5pReadWriteEnabled(@Nullable Output<Boolean> kerberos5pReadWriteEnabled) {
+            $.kerberos5pReadWriteEnabled = kerberos5pReadWriteEnabled;
+            return this;
+        }
+
+        /**
+         * @param kerberos5pReadWriteEnabled Is Kerberos 5p read/write permitted to this volume?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberos5pReadWriteEnabled(Boolean kerberos5pReadWriteEnabled) {
+            return kerberos5pReadWriteEnabled(Output.of(kerberos5pReadWriteEnabled));
         }
 
         /**

@@ -41,6 +41,7 @@ class DatabaseArgs:
                  restore_long_term_retention_backup_id: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sample_name: Optional[pulumi.Input[str]] = None,
+                 secondary_type: Optional[pulumi.Input[str]] = None,
                  short_term_retention_policy: Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArgs']] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
@@ -62,11 +63,13 @@ class DatabaseArgs:
                
                > **NOTE:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
-        :param pulumi.Input[str] enclave_type: Specifies the type of enclave to be used by the database. Possible value `VBS`.
+        :param pulumi.Input[str] enclave_type: Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
                
                > **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
                
                > **NOTE:** Geo Replicated and Failover databases must have the same `enclave_type`.
+               
+               > **NOTE:** The default value for the `enclave_type` field is unset not `Default`.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **NOTE:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
@@ -91,6 +94,7 @@ class DatabaseArgs:
         :param pulumi.Input[str] restore_long_term_retention_backup_id: The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
+        :param pulumi.Input[str] secondary_type: How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
         :param pulumi.Input['DatabaseShortTermRetentionPolicyArgs'] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
                
@@ -156,6 +160,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
         if sample_name is not None:
             pulumi.set(__self__, "sample_name", sample_name)
+        if secondary_type is not None:
+            pulumi.set(__self__, "secondary_type", secondary_type)
         if short_term_retention_policy is not None:
             pulumi.set(__self__, "short_term_retention_policy", short_term_retention_policy)
         if sku_name is not None:
@@ -255,11 +261,13 @@ class DatabaseArgs:
     @pulumi.getter(name="enclaveType")
     def enclave_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the type of enclave to be used by the database. Possible value `VBS`.
+        Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
 
         > **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
 
         > **NOTE:** Geo Replicated and Failover databases must have the same `enclave_type`.
+
+        > **NOTE:** The default value for the `enclave_type` field is unset not `Default`.
         """
         return pulumi.get(self, "enclave_type")
 
@@ -488,6 +496,18 @@ class DatabaseArgs:
     @sample_name.setter
     def sample_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sample_name", value)
+
+    @property
+    @pulumi.getter(name="secondaryType")
+    def secondary_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secondary_type")
+
+    @secondary_type.setter
+    def secondary_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_type", value)
 
     @property
     @pulumi.getter(name="shortTermRetentionPolicy")
@@ -631,6 +651,7 @@ class _DatabaseState:
                  restore_long_term_retention_backup_id: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sample_name: Optional[pulumi.Input[str]] = None,
+                 secondary_type: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  short_term_retention_policy: Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArgs']] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -650,11 +671,13 @@ class _DatabaseState:
                
                > **NOTE:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
-        :param pulumi.Input[str] enclave_type: Specifies the type of enclave to be used by the database. Possible value `VBS`.
+        :param pulumi.Input[str] enclave_type: Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
                
                > **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
                
                > **NOTE:** Geo Replicated and Failover databases must have the same `enclave_type`.
+               
+               > **NOTE:** The default value for the `enclave_type` field is unset not `Default`.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **NOTE:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
@@ -679,6 +702,7 @@ class _DatabaseState:
         :param pulumi.Input[str] restore_long_term_retention_backup_id: The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
+        :param pulumi.Input[str] secondary_type: How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
                
                > **NOTE:** This setting is still required for "Serverless" SKUs
@@ -746,6 +770,8 @@ class _DatabaseState:
             pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
         if sample_name is not None:
             pulumi.set(__self__, "sample_name", sample_name)
+        if secondary_type is not None:
+            pulumi.set(__self__, "secondary_type", secondary_type)
         if server_id is not None:
             pulumi.set(__self__, "server_id", server_id)
         if short_term_retention_policy is not None:
@@ -833,11 +859,13 @@ class _DatabaseState:
     @pulumi.getter(name="enclaveType")
     def enclave_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the type of enclave to be used by the database. Possible value `VBS`.
+        Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
 
         > **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
 
         > **NOTE:** Geo Replicated and Failover databases must have the same `enclave_type`.
+
+        > **NOTE:** The default value for the `enclave_type` field is unset not `Default`.
         """
         return pulumi.get(self, "enclave_type")
 
@@ -1066,6 +1094,18 @@ class _DatabaseState:
     @sample_name.setter
     def sample_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sample_name", value)
+
+    @property
+    @pulumi.getter(name="secondaryType")
+    def secondary_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secondary_type")
+
+    @secondary_type.setter
+    def secondary_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_type", value)
 
     @property
     @pulumi.getter(name="serverId")
@@ -1225,6 +1265,7 @@ class Database(pulumi.CustomResource):
                  restore_long_term_retention_backup_id: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sample_name: Optional[pulumi.Input[str]] = None,
+                 secondary_type: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  short_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -1384,11 +1425,13 @@ class Database(pulumi.CustomResource):
                
                > **NOTE:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
-        :param pulumi.Input[str] enclave_type: Specifies the type of enclave to be used by the database. Possible value `VBS`.
+        :param pulumi.Input[str] enclave_type: Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
                
                > **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
                
                > **NOTE:** Geo Replicated and Failover databases must have the same `enclave_type`.
+               
+               > **NOTE:** The default value for the `enclave_type` field is unset not `Default`.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **NOTE:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
@@ -1413,6 +1456,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] restore_long_term_retention_backup_id: The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
+        :param pulumi.Input[str] secondary_type: How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
                
                > **NOTE:** This setting is still required for "Serverless" SKUs
@@ -1616,6 +1660,7 @@ class Database(pulumi.CustomResource):
                  restore_long_term_retention_backup_id: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sample_name: Optional[pulumi.Input[str]] = None,
+                 secondary_type: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  short_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -1659,6 +1704,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["restore_long_term_retention_backup_id"] = restore_long_term_retention_backup_id
             __props__.__dict__["restore_point_in_time"] = restore_point_in_time
             __props__.__dict__["sample_name"] = sample_name
+            __props__.__dict__["secondary_type"] = secondary_type
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__.__dict__["server_id"] = server_id
@@ -1705,6 +1751,7 @@ class Database(pulumi.CustomResource):
             restore_long_term_retention_backup_id: Optional[pulumi.Input[str]] = None,
             restore_point_in_time: Optional[pulumi.Input[str]] = None,
             sample_name: Optional[pulumi.Input[str]] = None,
+            secondary_type: Optional[pulumi.Input[str]] = None,
             server_id: Optional[pulumi.Input[str]] = None,
             short_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
@@ -1729,11 +1776,13 @@ class Database(pulumi.CustomResource):
                
                > **NOTE:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
-        :param pulumi.Input[str] enclave_type: Specifies the type of enclave to be used by the database. Possible value `VBS`.
+        :param pulumi.Input[str] enclave_type: Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
                
                > **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
                
                > **NOTE:** Geo Replicated and Failover databases must have the same `enclave_type`.
+               
+               > **NOTE:** The default value for the `enclave_type` field is unset not `Default`.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **NOTE:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
@@ -1758,6 +1807,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] restore_long_term_retention_backup_id: The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
+        :param pulumi.Input[str] secondary_type: How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
                
                > **NOTE:** This setting is still required for "Serverless" SKUs
@@ -1805,6 +1855,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["restore_long_term_retention_backup_id"] = restore_long_term_retention_backup_id
         __props__.__dict__["restore_point_in_time"] = restore_point_in_time
         __props__.__dict__["sample_name"] = sample_name
+        __props__.__dict__["secondary_type"] = secondary_type
         __props__.__dict__["server_id"] = server_id
         __props__.__dict__["short_term_retention_policy"] = short_term_retention_policy
         __props__.__dict__["sku_name"] = sku_name
@@ -1861,13 +1912,15 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enclaveType")
-    def enclave_type(self) -> pulumi.Output[Optional[str]]:
+    def enclave_type(self) -> pulumi.Output[str]:
         """
-        Specifies the type of enclave to be used by the database. Possible value `VBS`.
+        Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
 
         > **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
 
         > **NOTE:** Geo Replicated and Failover databases must have the same `enclave_type`.
+
+        > **NOTE:** The default value for the `enclave_type` field is unset not `Default`.
         """
         return pulumi.get(self, "enclave_type")
 
@@ -2020,6 +2073,14 @@ class Database(pulumi.CustomResource):
         Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         """
         return pulumi.get(self, "sample_name")
+
+    @property
+    @pulumi.getter(name="secondaryType")
+    def secondary_type(self) -> pulumi.Output[str]:
+        """
+        How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secondary_type")
 
     @property
     @pulumi.getter(name="serverId")

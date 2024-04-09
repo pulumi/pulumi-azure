@@ -72,10 +72,10 @@ namespace Pulumi.Azure.Stack
         public Output<string?> AutomanageConfigurationId { get; private set; } = null!;
 
         /// <summary>
-        /// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+        /// The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Output("clientId")]
-        public Output<string> ClientId { get; private set; } = null!;
+        public Output<string?> ClientId { get; private set; } = null!;
 
         /// <summary>
         /// An immutable UUID for the Azure Stack HCI Cluster.
@@ -186,10 +186,10 @@ namespace Pulumi.Azure.Stack
         public Input<string>? AutomanageConfigurationId { get; set; }
 
         /// <summary>
-        /// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+        /// The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("clientId", required: true)]
-        public Input<string> ClientId { get; set; } = null!;
+        [Input("clientId")]
+        public Input<string>? ClientId { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.Stack
         public Input<string>? AutomanageConfigurationId { get; set; }
 
         /// <summary>
-        /// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+        /// The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
