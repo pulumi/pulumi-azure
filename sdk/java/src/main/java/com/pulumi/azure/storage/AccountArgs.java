@@ -485,7 +485,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `queue_properties` block as defined below.
      * 
-     * &gt; **NOTE:** `queue_properties` cannot be set when the `account_kind` is set to `BlobStorage`
+     * &gt; **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
      * 
      */
     @Import(name="queueProperties")
@@ -494,7 +494,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A `queue_properties` block as defined below.
      * 
-     * &gt; **NOTE:** `queue_properties` cannot be set when the `account_kind` is set to `BlobStorage`
+     * &gt; **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
      * 
      */
     public Optional<Output<AccountQueuePropertiesArgs>> queueProperties() {
@@ -568,12 +568,16 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `share_properties` block as defined below.
      * 
+     * &gt; **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
+     * 
      */
     @Import(name="shareProperties")
     private @Nullable Output<AccountSharePropertiesArgs> shareProperties;
 
     /**
      * @return A `share_properties` block as defined below.
+     * 
+     * &gt; **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
      * 
      */
     public Optional<Output<AccountSharePropertiesArgs>> shareProperties() {
@@ -1324,7 +1328,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param queueProperties A `queue_properties` block as defined below.
          * 
-         * &gt; **NOTE:** `queue_properties` cannot be set when the `account_kind` is set to `BlobStorage`
+         * &gt; **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
          * 
          * @return builder
          * 
@@ -1337,7 +1341,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param queueProperties A `queue_properties` block as defined below.
          * 
-         * &gt; **NOTE:** `queue_properties` cannot be set when the `account_kind` is set to `BlobStorage`
+         * &gt; **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
          * 
          * @return builder
          * 
@@ -1437,6 +1441,8 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param shareProperties A `share_properties` block as defined below.
          * 
+         * &gt; **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
+         * 
          * @return builder
          * 
          */
@@ -1447,6 +1453,8 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param shareProperties A `share_properties` block as defined below.
+         * 
+         * &gt; **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
          * 
          * @return builder
          * 

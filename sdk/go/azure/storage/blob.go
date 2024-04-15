@@ -90,6 +90,8 @@ type Blob struct {
 	ContentMd5 pulumi.StringPtrOutput `pulumi:"contentMd5"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
+	// The encryption scope to use for this blob.
+	EncryptionScope pulumi.StringPtrOutput `pulumi:"encryptionScope"`
 	// A map of custom blob metadata.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
@@ -165,6 +167,8 @@ type blobState struct {
 	ContentMd5 *string `pulumi:"contentMd5"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType *string `pulumi:"contentType"`
+	// The encryption scope to use for this blob.
+	EncryptionScope *string `pulumi:"encryptionScope"`
 	// A map of custom blob metadata.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
@@ -202,6 +206,8 @@ type BlobState struct {
 	ContentMd5 pulumi.StringPtrInput
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrInput
+	// The encryption scope to use for this blob.
+	EncryptionScope pulumi.StringPtrInput
 	// A map of custom blob metadata.
 	Metadata pulumi.StringMapInput
 	// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
@@ -243,6 +249,8 @@ type blobArgs struct {
 	ContentMd5 *string `pulumi:"contentMd5"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType *string `pulumi:"contentType"`
+	// The encryption scope to use for this blob.
+	EncryptionScope *string `pulumi:"encryptionScope"`
 	// A map of custom blob metadata.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
@@ -279,6 +287,8 @@ type BlobArgs struct {
 	ContentMd5 pulumi.StringPtrInput
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrInput
+	// The encryption scope to use for this blob.
+	EncryptionScope pulumi.StringPtrInput
 	// A map of custom blob metadata.
 	Metadata pulumi.StringMapInput
 	// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
@@ -410,6 +420,11 @@ func (o BlobOutput) ContentMd5() pulumi.StringPtrOutput {
 // The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 func (o BlobOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Blob) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// The encryption scope to use for this blob.
+func (o BlobOutput) EncryptionScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Blob) pulumi.StringPtrOutput { return v.EncryptionScope }).(pulumi.StringPtrOutput)
 }
 
 // A map of custom blob metadata.

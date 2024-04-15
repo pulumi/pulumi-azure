@@ -74,6 +74,12 @@ namespace Pulumi.Azure.Storage
         public Output<ImmutableArray<Outputs.DataLakeGen2FilesystemAce>> Aces { get; private set; } = null!;
 
         /// <summary>
+        /// The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("defaultEncryptionScope")]
+        public Output<string> DefaultEncryptionScope { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         /// 
         /// &gt; **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
@@ -164,6 +170,12 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
+        /// The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("defaultEncryptionScope")]
+        public Input<string>? DefaultEncryptionScope { get; set; }
+
+        /// <summary>
         /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         /// 
         /// &gt; **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
@@ -220,6 +232,12 @@ namespace Pulumi.Azure.Storage
             get => _aces ?? (_aces = new InputList<Inputs.DataLakeGen2FilesystemAceGetArgs>());
             set => _aces = value;
         }
+
+        /// <summary>
+        /// The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("defaultEncryptionScope")]
+        public Input<string>? DefaultEncryptionScope { get; set; }
 
         /// <summary>
         /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.

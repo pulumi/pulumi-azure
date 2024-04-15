@@ -65,15 +65,14 @@ type LookupPublicIpPrefixArgs struct {
 // A collection of values returned by getPublicIpPrefix.
 type LookupPublicIpPrefixResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id       string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The Public IP address range, in CIDR notation.
 	IpPrefix string `pulumi:"ipPrefix"`
 	// The supported Azure location where the resource exists.
 	Location string `pulumi:"location"`
-	// The name of the Public IP prefix resource.
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// The number of bits of the prefix.
-	PrefixLength int `pulumi:"prefixLength"`
-	// The name of the resource group in which to create the public IP.
+	PrefixLength      int    `pulumi:"prefixLength"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the Public IP Prefix.
 	Sku string `pulumi:"sku"`
@@ -128,6 +127,7 @@ func (o LookupPublicIpPrefixResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPublicIpPrefixResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The Public IP address range, in CIDR notation.
 func (o LookupPublicIpPrefixResultOutput) IpPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPublicIpPrefixResult) string { return v.IpPrefix }).(pulumi.StringOutput)
 }
@@ -137,7 +137,6 @@ func (o LookupPublicIpPrefixResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPublicIpPrefixResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the Public IP prefix resource.
 func (o LookupPublicIpPrefixResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPublicIpPrefixResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -147,7 +146,6 @@ func (o LookupPublicIpPrefixResultOutput) PrefixLength() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupPublicIpPrefixResult) int { return v.PrefixLength }).(pulumi.IntOutput)
 }
 
-// The name of the resource group in which to create the public IP.
 func (o LookupPublicIpPrefixResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPublicIpPrefixResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

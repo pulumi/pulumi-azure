@@ -64,7 +64,8 @@ namespace Pulumi.Azure
         public Output<string?> ClientSecretFilePath { get; private set; } = null!;
 
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+        /// used and should not be specified when `metadata_host` is specified.
         /// </summary>
         [Output("environment")]
         public Output<string?> Environment { get; private set; } = null!;
@@ -309,7 +310,8 @@ namespace Pulumi.Azure
         public Input<bool>? DisableTerraformPartnerId { get; set; }
 
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+        /// used and should not be specified when `metadata_host` is specified.
         /// </summary>
         [Input("environment")]
         public Input<string>? Environment { get; set; }

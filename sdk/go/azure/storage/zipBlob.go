@@ -21,6 +21,7 @@ type ZipBlob struct {
 	Content              pulumi.ArchiveOutput   `pulumi:"content"`
 	ContentMd5           pulumi.StringPtrOutput `pulumi:"contentMd5"`
 	ContentType          pulumi.StringPtrOutput `pulumi:"contentType"`
+	EncryptionScope      pulumi.StringPtrOutput `pulumi:"encryptionScope"`
 	Metadata             pulumi.StringMapOutput `pulumi:"metadata"`
 	Name                 pulumi.StringOutput    `pulumi:"name"`
 	Parallelism          pulumi.IntPtrOutput    `pulumi:"parallelism"`
@@ -77,6 +78,7 @@ type zipBlobState struct {
 	Content              pulumi.Archive    `pulumi:"content"`
 	ContentMd5           *string           `pulumi:"contentMd5"`
 	ContentType          *string           `pulumi:"contentType"`
+	EncryptionScope      *string           `pulumi:"encryptionScope"`
 	Metadata             map[string]string `pulumi:"metadata"`
 	Name                 *string           `pulumi:"name"`
 	Parallelism          *int              `pulumi:"parallelism"`
@@ -95,6 +97,7 @@ type ZipBlobState struct {
 	Content              pulumi.ArchiveInput
 	ContentMd5           pulumi.StringPtrInput
 	ContentType          pulumi.StringPtrInput
+	EncryptionScope      pulumi.StringPtrInput
 	Metadata             pulumi.StringMapInput
 	Name                 pulumi.StringPtrInput
 	Parallelism          pulumi.IntPtrInput
@@ -117,6 +120,7 @@ type zipBlobArgs struct {
 	Content              pulumi.Archive    `pulumi:"content"`
 	ContentMd5           *string           `pulumi:"contentMd5"`
 	ContentType          *string           `pulumi:"contentType"`
+	EncryptionScope      *string           `pulumi:"encryptionScope"`
 	Metadata             map[string]string `pulumi:"metadata"`
 	Name                 *string           `pulumi:"name"`
 	Parallelism          *int              `pulumi:"parallelism"`
@@ -135,6 +139,7 @@ type ZipBlobArgs struct {
 	Content              pulumi.ArchiveInput
 	ContentMd5           pulumi.StringPtrInput
 	ContentType          pulumi.StringPtrInput
+	EncryptionScope      pulumi.StringPtrInput
 	Metadata             pulumi.StringMapInput
 	Name                 pulumi.StringPtrInput
 	Parallelism          pulumi.IntPtrInput
@@ -251,6 +256,10 @@ func (o ZipBlobOutput) ContentMd5() pulumi.StringPtrOutput {
 
 func (o ZipBlobOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ZipBlob) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+func (o ZipBlobOutput) EncryptionScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ZipBlob) pulumi.StringPtrOutput { return v.EncryptionScope }).(pulumi.StringPtrOutput)
 }
 
 func (o ZipBlobOutput) Metadata() pulumi.StringMapOutput {

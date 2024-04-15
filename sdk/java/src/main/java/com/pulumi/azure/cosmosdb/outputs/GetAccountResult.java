@@ -18,36 +18,54 @@ import java.util.Objects;
 @CustomType
 public final class GetAccountResult {
     /**
+     * @return If automatic failover is enabled for this CosmosDB Account.
+     * 
+     */
+    private Boolean automaticFailoverEnabled;
+    /**
      * @return Capabilities enabled on this Cosmos DB account.
      * 
      */
     private List<GetAccountCapability> capabilities;
     /**
-     * @return A list of connection strings available for this CosmosDB account.
+     * @deprecated
+     * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
     private List<String> connectionStrings;
     private List<GetAccountConsistencyPolicy> consistencyPolicies;
     /**
-     * @return If automatic failover is enabled for this CosmosDB Account.
+     * @deprecated
+     * This property has been renamed to `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* This property has been renamed to `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM provider */
     private Boolean enableAutomaticFailover;
     /**
-     * @return If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
+     * @deprecated
+     * This property has been renamed to `free_tier_enabled` and will be removed in v4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* This property has been renamed to `free_tier_enabled` and will be removed in v4.0 of the AzureRM provider */
     private Boolean enableFreeTier;
     /**
-     * @return If multiple write locations are enabled for this Cosmos DB account.
+     * @deprecated
+     * This property has been renamed to `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* This property has been renamed to `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM provider */
     private Boolean enableMultipleWriteLocations;
     /**
      * @return The endpoint used to connect to the CosmosDB account.
      * 
      */
     private String endpoint;
+    /**
+     * @return If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
+     * 
+     */
+    private Boolean freeTierEnabled;
     private List<GetAccountGeoLocation> geoLocations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -79,6 +97,11 @@ public final class GetAccountResult {
      * 
      */
     private String location;
+    /**
+     * @return If multiple write locations are enabled for this Cosmos DB account.
+     * 
+     */
+    private Boolean multipleWriteLocationsEnabled;
     private String name;
     /**
      * @return The Offer Type to used by this CosmosDB Account.
@@ -169,6 +192,13 @@ public final class GetAccountResult {
 
     private GetAccountResult() {}
     /**
+     * @return If automatic failover is enabled for this CosmosDB Account.
+     * 
+     */
+    public Boolean automaticFailoverEnabled() {
+        return this.automaticFailoverEnabled;
+    }
+    /**
      * @return Capabilities enabled on this Cosmos DB account.
      * 
      */
@@ -176,9 +206,11 @@ public final class GetAccountResult {
         return this.capabilities;
     }
     /**
-     * @return A list of connection strings available for this CosmosDB account.
+     * @deprecated
+     * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
     public List<String> connectionStrings() {
         return this.connectionStrings;
     }
@@ -186,23 +218,29 @@ public final class GetAccountResult {
         return this.consistencyPolicies;
     }
     /**
-     * @return If automatic failover is enabled for this CosmosDB Account.
+     * @deprecated
+     * This property has been renamed to `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* This property has been renamed to `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM provider */
     public Boolean enableAutomaticFailover() {
         return this.enableAutomaticFailover;
     }
     /**
-     * @return If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
+     * @deprecated
+     * This property has been renamed to `free_tier_enabled` and will be removed in v4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* This property has been renamed to `free_tier_enabled` and will be removed in v4.0 of the AzureRM provider */
     public Boolean enableFreeTier() {
         return this.enableFreeTier;
     }
     /**
-     * @return If multiple write locations are enabled for this Cosmos DB account.
+     * @deprecated
+     * This property has been renamed to `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* This property has been renamed to `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM provider */
     public Boolean enableMultipleWriteLocations() {
         return this.enableMultipleWriteLocations;
     }
@@ -212,6 +250,13 @@ public final class GetAccountResult {
      */
     public String endpoint() {
         return this.endpoint;
+    }
+    /**
+     * @return If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
+     * 
+     */
+    public Boolean freeTierEnabled() {
+        return this.freeTierEnabled;
     }
     public List<GetAccountGeoLocation> geoLocations() {
         return this.geoLocations;
@@ -257,6 +302,13 @@ public final class GetAccountResult {
      */
     public String location() {
         return this.location;
+    }
+    /**
+     * @return If multiple write locations are enabled for this Cosmos DB account.
+     * 
+     */
+    public Boolean multipleWriteLocationsEnabled() {
+        return this.multipleWriteLocationsEnabled;
     }
     public String name() {
         return this.name;
@@ -393,6 +445,7 @@ public final class GetAccountResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean automaticFailoverEnabled;
         private List<GetAccountCapability> capabilities;
         private List<String> connectionStrings;
         private List<GetAccountConsistencyPolicy> consistencyPolicies;
@@ -400,6 +453,7 @@ public final class GetAccountResult {
         private Boolean enableFreeTier;
         private Boolean enableMultipleWriteLocations;
         private String endpoint;
+        private Boolean freeTierEnabled;
         private List<GetAccountGeoLocation> geoLocations;
         private String id;
         private String ipRangeFilter;
@@ -407,6 +461,7 @@ public final class GetAccountResult {
         private String keyVaultKeyId;
         private String kind;
         private String location;
+        private Boolean multipleWriteLocationsEnabled;
         private String name;
         private String offerType;
         private String primaryKey;
@@ -429,6 +484,7 @@ public final class GetAccountResult {
         public Builder() {}
         public Builder(GetAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.automaticFailoverEnabled = defaults.automaticFailoverEnabled;
     	      this.capabilities = defaults.capabilities;
     	      this.connectionStrings = defaults.connectionStrings;
     	      this.consistencyPolicies = defaults.consistencyPolicies;
@@ -436,6 +492,7 @@ public final class GetAccountResult {
     	      this.enableFreeTier = defaults.enableFreeTier;
     	      this.enableMultipleWriteLocations = defaults.enableMultipleWriteLocations;
     	      this.endpoint = defaults.endpoint;
+    	      this.freeTierEnabled = defaults.freeTierEnabled;
     	      this.geoLocations = defaults.geoLocations;
     	      this.id = defaults.id;
     	      this.ipRangeFilter = defaults.ipRangeFilter;
@@ -443,6 +500,7 @@ public final class GetAccountResult {
     	      this.keyVaultKeyId = defaults.keyVaultKeyId;
     	      this.kind = defaults.kind;
     	      this.location = defaults.location;
+    	      this.multipleWriteLocationsEnabled = defaults.multipleWriteLocationsEnabled;
     	      this.name = defaults.name;
     	      this.offerType = defaults.offerType;
     	      this.primaryKey = defaults.primaryKey;
@@ -464,6 +522,14 @@ public final class GetAccountResult {
     	      this.writeEndpoints = defaults.writeEndpoints;
         }
 
+        @CustomType.Setter
+        public Builder automaticFailoverEnabled(Boolean automaticFailoverEnabled) {
+            if (automaticFailoverEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "automaticFailoverEnabled");
+            }
+            this.automaticFailoverEnabled = automaticFailoverEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder capabilities(List<GetAccountCapability> capabilities) {
             if (capabilities == null) {
@@ -530,6 +596,14 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder freeTierEnabled(Boolean freeTierEnabled) {
+            if (freeTierEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "freeTierEnabled");
+            }
+            this.freeTierEnabled = freeTierEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder geoLocations(List<GetAccountGeoLocation> geoLocations) {
             if (geoLocations == null) {
               throw new MissingRequiredPropertyException("GetAccountResult", "geoLocations");
@@ -586,6 +660,14 @@ public final class GetAccountResult {
               throw new MissingRequiredPropertyException("GetAccountResult", "location");
             }
             this.location = location;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder multipleWriteLocationsEnabled(Boolean multipleWriteLocationsEnabled) {
+            if (multipleWriteLocationsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "multipleWriteLocationsEnabled");
+            }
+            this.multipleWriteLocationsEnabled = multipleWriteLocationsEnabled;
             return this;
         }
         @CustomType.Setter
@@ -751,6 +833,7 @@ public final class GetAccountResult {
         }
         public GetAccountResult build() {
             final var _resultValue = new GetAccountResult();
+            _resultValue.automaticFailoverEnabled = automaticFailoverEnabled;
             _resultValue.capabilities = capabilities;
             _resultValue.connectionStrings = connectionStrings;
             _resultValue.consistencyPolicies = consistencyPolicies;
@@ -758,6 +841,7 @@ public final class GetAccountResult {
             _resultValue.enableFreeTier = enableFreeTier;
             _resultValue.enableMultipleWriteLocations = enableMultipleWriteLocations;
             _resultValue.endpoint = endpoint;
+            _resultValue.freeTierEnabled = freeTierEnabled;
             _resultValue.geoLocations = geoLocations;
             _resultValue.id = id;
             _resultValue.ipRangeFilter = ipRangeFilter;
@@ -765,6 +849,7 @@ public final class GetAccountResult {
             _resultValue.keyVaultKeyId = keyVaultKeyId;
             _resultValue.kind = kind;
             _resultValue.location = location;
+            _resultValue.multipleWriteLocationsEnabled = multipleWriteLocationsEnabled;
             _resultValue.name = name;
             _resultValue.offerType = offerType;
             _resultValue.primaryKey = primaryKey;

@@ -21,7 +21,7 @@ class GetBlobResult:
     """
     A collection of values returned by getBlob.
     """
-    def __init__(__self__, access_tier=None, content_md5=None, content_type=None, id=None, metadata=None, name=None, storage_account_name=None, storage_container_name=None, type=None, url=None):
+    def __init__(__self__, access_tier=None, content_md5=None, content_type=None, encryption_scope=None, id=None, metadata=None, name=None, storage_account_name=None, storage_container_name=None, type=None, url=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -31,6 +31,9 @@ class GetBlobResult:
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
+        if encryption_scope and not isinstance(encryption_scope, str):
+            raise TypeError("Expected argument 'encryption_scope' to be a str")
+        pulumi.set(__self__, "encryption_scope", encryption_scope)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -76,6 +79,14 @@ class GetBlobResult:
         The content type of the storage blob.
         """
         return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="encryptionScope")
+    def encryption_scope(self) -> str:
+        """
+        The encryption scope for this blob.
+        """
+        return pulumi.get(self, "encryption_scope")
 
     @property
     @pulumi.getter
@@ -134,6 +145,7 @@ class AwaitableGetBlobResult(GetBlobResult):
             access_tier=self.access_tier,
             content_md5=self.content_md5,
             content_type=self.content_type,
+            encryption_scope=self.encryption_scope,
             id=self.id,
             metadata=self.metadata,
             name=self.name,
@@ -182,6 +194,7 @@ def get_blob(metadata: Optional[Mapping[str, str]] = None,
         access_tier=pulumi.get(__ret__, 'access_tier'),
         content_md5=pulumi.get(__ret__, 'content_md5'),
         content_type=pulumi.get(__ret__, 'content_type'),
+        encryption_scope=pulumi.get(__ret__, 'encryption_scope'),
         id=pulumi.get(__ret__, 'id'),
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),

@@ -27,6 +27,11 @@ public final class GetBlobResult {
      */
     private String contentType;
     /**
+     * @return The encryption scope for this blob.
+     * 
+     */
+    private String encryptionScope;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -71,6 +76,13 @@ public final class GetBlobResult {
      */
     public String contentType() {
         return this.contentType;
+    }
+    /**
+     * @return The encryption scope for this blob.
+     * 
+     */
+    public String encryptionScope() {
+        return this.encryptionScope;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -122,6 +134,7 @@ public final class GetBlobResult {
         private String accessTier;
         private String contentMd5;
         private String contentType;
+        private String encryptionScope;
         private String id;
         private Map<String,String> metadata;
         private String name;
@@ -135,6 +148,7 @@ public final class GetBlobResult {
     	      this.accessTier = defaults.accessTier;
     	      this.contentMd5 = defaults.contentMd5;
     	      this.contentType = defaults.contentType;
+    	      this.encryptionScope = defaults.encryptionScope;
     	      this.id = defaults.id;
     	      this.metadata = defaults.metadata;
     	      this.name = defaults.name;
@@ -166,6 +180,14 @@ public final class GetBlobResult {
               throw new MissingRequiredPropertyException("GetBlobResult", "contentType");
             }
             this.contentType = contentType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder encryptionScope(String encryptionScope) {
+            if (encryptionScope == null) {
+              throw new MissingRequiredPropertyException("GetBlobResult", "encryptionScope");
+            }
+            this.encryptionScope = encryptionScope;
             return this;
         }
         @CustomType.Setter
@@ -229,6 +251,7 @@ public final class GetBlobResult {
             _resultValue.accessTier = accessTier;
             _resultValue.contentMd5 = contentMd5;
             _resultValue.contentType = contentType;
+            _resultValue.encryptionScope = encryptionScope;
             _resultValue.id = id;
             _resultValue.metadata = metadata;
             _resultValue.name = name;

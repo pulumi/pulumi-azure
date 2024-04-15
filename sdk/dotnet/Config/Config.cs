@@ -131,7 +131,8 @@ namespace Pulumi.Azure
 
         private static readonly __Value<string?> _environment = new __Value<string?>(() => __config.Get("environment") ?? Utilities.GetEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") ?? "public");
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+        /// used and should not be specified when `metadata_host` is specified.
         /// </summary>
         public static string? Environment
         {

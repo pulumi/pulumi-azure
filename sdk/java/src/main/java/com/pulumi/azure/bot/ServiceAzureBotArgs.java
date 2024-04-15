@@ -264,14 +264,14 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Whether public network access is allowed for this server. Defaults to `true`.
+     * Whether public network access is enabled. Defaults to `true`.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether public network access is allowed for this server. Defaults to `true`.
+     * @return Whether public network access is enabled. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -733,7 +733,7 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether public network access is allowed for this server. Defaults to `true`.
+         * @param publicNetworkAccessEnabled Whether public network access is enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -744,7 +744,7 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether public network access is allowed for this server. Defaults to `true`.
+         * @param publicNetworkAccessEnabled Whether public network access is enabled. Defaults to `true`.
          * 
          * @return builder
          * 

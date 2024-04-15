@@ -65,6 +65,10 @@ type GetStorageContainerArgs struct {
 type GetStorageContainerResult struct {
 	// The Access Level configured for this Container.
 	ContainerAccessType string `pulumi:"containerAccessType"`
+	// The default encryption scope in use for blobs uploaded to this container.
+	DefaultEncryptionScope string `pulumi:"defaultEncryptionScope"`
+	// Whether blobs are allowed to override the default encryption scope for this container.
+	EncryptionScopeOverrideEnabled bool `pulumi:"encryptionScopeOverrideEnabled"`
 	// Is there an Immutability Policy configured on this Storage Container?
 	HasImmutabilityPolicy bool `pulumi:"hasImmutabilityPolicy"`
 	// Is there a Legal Hold configured on this Storage Container?
@@ -124,6 +128,16 @@ func (o GetStorageContainerResultOutput) ToGetStorageContainerResultOutputWithCo
 // The Access Level configured for this Container.
 func (o GetStorageContainerResultOutput) ContainerAccessType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStorageContainerResult) string { return v.ContainerAccessType }).(pulumi.StringOutput)
+}
+
+// The default encryption scope in use for blobs uploaded to this container.
+func (o GetStorageContainerResultOutput) DefaultEncryptionScope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageContainerResult) string { return v.DefaultEncryptionScope }).(pulumi.StringOutput)
+}
+
+// Whether blobs are allowed to override the default encryption scope for this container.
+func (o GetStorageContainerResultOutput) EncryptionScopeOverrideEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStorageContainerResult) bool { return v.EncryptionScopeOverrideEnabled }).(pulumi.BoolOutput)
 }
 
 // Is there an Immutability Policy configured on this Storage Container?

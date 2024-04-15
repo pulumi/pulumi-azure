@@ -56,7 +56,8 @@ class ProviderArgs:
                using a Client Secret.
         :param pulumi.Input[bool] disable_correlation_request_id: This will disable the x-ms-correlation-request-id header.
         :param pulumi.Input[bool] disable_terraform_partner_id: This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
-        :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+               used and should not be specified when `metadata_host` is specified.
         :param pulumi.Input[str] metadata_host: The Hostname which should be used for the Azure Metadata Service.
         :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
                automatically.
@@ -266,7 +267,8 @@ class ProviderArgs:
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input[str]]:
         """
-        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+        used and should not be specified when `metadata_host` is specified.
         """
         return pulumi.get(self, "environment")
 
@@ -521,7 +523,8 @@ class Provider(pulumi.ProviderResource):
                using a Client Secret.
         :param pulumi.Input[bool] disable_correlation_request_id: This will disable the x-ms-correlation-request-id header.
         :param pulumi.Input[bool] disable_terraform_partner_id: This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
-        :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+               used and should not be specified when `metadata_host` is specified.
         :param pulumi.Input[str] metadata_host: The Hostname which should be used for the Azure Metadata Service.
         :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
                automatically.
@@ -713,7 +716,8 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def environment(self) -> pulumi.Output[Optional[str]]:
         """
-        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+        used and should not be specified when `metadata_host` is specified.
         """
         return pulumi.get(self, "environment")
 

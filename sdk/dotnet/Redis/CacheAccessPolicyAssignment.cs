@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Redis
         public Output<string> ObjectId { get; private set; } = null!;
 
         /// <summary>
-        /// The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+        /// The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         /// </summary>
         [Output("objectIdAlias")]
         public Output<string> ObjectIdAlias { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.Redis
         public Input<string> ObjectId { get; set; } = null!;
 
         /// <summary>
-        /// The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+        /// The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         /// </summary>
         [Input("objectIdAlias", required: true)]
         public Input<string> ObjectIdAlias { get; set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.Redis
         public Input<string>? ObjectId { get; set; }
 
         /// <summary>
-        /// The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+        /// The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         /// </summary>
         [Input("objectIdAlias")]
         public Input<string>? ObjectIdAlias { get; set; }

@@ -54,6 +54,13 @@ public final class ZipBlobArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.contentType);
     }
 
+    @Import(name="encryptionScope")
+    private @Nullable Output<String> encryptionScope;
+
+    public Optional<Output<String>> encryptionScope() {
+        return Optional.ofNullable(this.encryptionScope);
+    }
+
     @Import(name="metadata")
     private @Nullable Output<Map<String,String>> metadata;
 
@@ -125,6 +132,7 @@ public final class ZipBlobArgs extends com.pulumi.resources.ResourceArgs {
         this.content = $.content;
         this.contentMd5 = $.contentMd5;
         this.contentType = $.contentType;
+        this.encryptionScope = $.encryptionScope;
         this.metadata = $.metadata;
         this.name = $.name;
         this.parallelism = $.parallelism;
@@ -197,6 +205,15 @@ public final class ZipBlobArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder contentType(String contentType) {
             return contentType(Output.of(contentType));
+        }
+
+        public Builder encryptionScope(@Nullable Output<String> encryptionScope) {
+            $.encryptionScope = encryptionScope;
+            return this;
+        }
+
+        public Builder encryptionScope(String encryptionScope) {
+            return encryptionScope(Output.of(encryptionScope));
         }
 
         public Builder metadata(@Nullable Output<Map<String,String>> metadata) {

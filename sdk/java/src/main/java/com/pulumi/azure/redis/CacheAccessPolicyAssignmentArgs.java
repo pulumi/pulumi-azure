@@ -62,14 +62,14 @@ public final class CacheAccessPolicyAssignmentArgs extends com.pulumi.resources.
     }
 
     /**
-     * The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+     * The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      * 
      */
     @Import(name="objectIdAlias", required=true)
     private Output<String> objectIdAlias;
 
     /**
-     * @return The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+     * @return The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      * 
      */
     public Output<String> objectIdAlias() {
@@ -183,7 +183,7 @@ public final class CacheAccessPolicyAssignmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param objectIdAlias The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+         * @param objectIdAlias The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class CacheAccessPolicyAssignmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param objectIdAlias The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+         * @param objectIdAlias The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
          * 
          * @return builder
          * 

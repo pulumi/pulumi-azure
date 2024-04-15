@@ -92,7 +92,7 @@ export class CacheAccessPolicyAssignment extends pulumi.CustomResource {
      */
     public readonly objectId!: pulumi.Output<string>;
     /**
-     * The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+     * The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      */
     public readonly objectIdAlias!: pulumi.Output<string>;
     /**
@@ -160,7 +160,7 @@ export interface CacheAccessPolicyAssignmentState {
      */
     objectId?: pulumi.Input<string>;
     /**
-     * The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+     * The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      */
     objectIdAlias?: pulumi.Input<string>;
     /**
@@ -186,7 +186,7 @@ export interface CacheAccessPolicyAssignmentArgs {
      */
     objectId: pulumi.Input<string>;
     /**
-     * The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+     * The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      */
     objectIdAlias: pulumi.Input<string>;
     /**

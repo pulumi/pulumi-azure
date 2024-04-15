@@ -18,6 +18,7 @@ class DataLakeGen2FilesystemArgs:
     def __init__(__self__, *,
                  storage_account_id: pulumi.Input[str],
                  aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]] = None,
+                 default_encryption_scope: Optional[pulumi.Input[str]] = None,
                  group: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,7 @@ class DataLakeGen2FilesystemArgs:
         The set of arguments for constructing a DataLakeGen2Filesystem resource.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        :param pulumi.Input[str] default_encryption_scope: The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
         :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
                
                > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
@@ -36,6 +38,8 @@ class DataLakeGen2FilesystemArgs:
         pulumi.set(__self__, "storage_account_id", storage_account_id)
         if aces is not None:
             pulumi.set(__self__, "aces", aces)
+        if default_encryption_scope is not None:
+            pulumi.set(__self__, "default_encryption_scope", default_encryption_scope)
         if group is not None:
             pulumi.set(__self__, "group", group)
         if name is not None:
@@ -68,6 +72,18 @@ class DataLakeGen2FilesystemArgs:
     @aces.setter
     def aces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]):
         pulumi.set(self, "aces", value)
+
+    @property
+    @pulumi.getter(name="defaultEncryptionScope")
+    def default_encryption_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "default_encryption_scope")
+
+    @default_encryption_scope.setter
+    def default_encryption_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_encryption_scope", value)
 
     @property
     @pulumi.getter
@@ -124,6 +140,7 @@ class DataLakeGen2FilesystemArgs:
 class _DataLakeGen2FilesystemState:
     def __init__(__self__, *,
                  aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]] = None,
+                 default_encryption_scope: Optional[pulumi.Input[str]] = None,
                  group: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -132,6 +149,7 @@ class _DataLakeGen2FilesystemState:
         """
         Input properties used for looking up and filtering DataLakeGen2Filesystem resources.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        :param pulumi.Input[str] default_encryption_scope: The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
         :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
                
                > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
@@ -142,6 +160,8 @@ class _DataLakeGen2FilesystemState:
         """
         if aces is not None:
             pulumi.set(__self__, "aces", aces)
+        if default_encryption_scope is not None:
+            pulumi.set(__self__, "default_encryption_scope", default_encryption_scope)
         if group is not None:
             pulumi.set(__self__, "group", group)
         if name is not None:
@@ -164,6 +184,18 @@ class _DataLakeGen2FilesystemState:
     @aces.setter
     def aces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]):
         pulumi.set(self, "aces", value)
+
+    @property
+    @pulumi.getter(name="defaultEncryptionScope")
+    def default_encryption_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "default_encryption_scope")
+
+    @default_encryption_scope.setter
+    def default_encryption_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_encryption_scope", value)
 
     @property
     @pulumi.getter
@@ -234,6 +266,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArgs']]]]] = None,
+                 default_encryption_scope: Optional[pulumi.Input[str]] = None,
                  group: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -283,6 +316,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArgs']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        :param pulumi.Input[str] default_encryption_scope: The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
         :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
                
                > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
@@ -353,6 +387,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArgs']]]]] = None,
+                 default_encryption_scope: Optional[pulumi.Input[str]] = None,
                  group: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -368,6 +403,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
             __props__ = DataLakeGen2FilesystemArgs.__new__(DataLakeGen2FilesystemArgs)
 
             __props__.__dict__["aces"] = aces
+            __props__.__dict__["default_encryption_scope"] = default_encryption_scope
             __props__.__dict__["group"] = group
             __props__.__dict__["name"] = name
             __props__.__dict__["owner"] = owner
@@ -386,6 +422,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             aces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArgs']]]]] = None,
+            default_encryption_scope: Optional[pulumi.Input[str]] = None,
             group: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
@@ -399,6 +436,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArgs']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        :param pulumi.Input[str] default_encryption_scope: The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
         :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
                
                > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
@@ -412,6 +450,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         __props__ = _DataLakeGen2FilesystemState.__new__(_DataLakeGen2FilesystemState)
 
         __props__.__dict__["aces"] = aces
+        __props__.__dict__["default_encryption_scope"] = default_encryption_scope
         __props__.__dict__["group"] = group
         __props__.__dict__["name"] = name
         __props__.__dict__["owner"] = owner
@@ -426,6 +465,14 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         """
         return pulumi.get(self, "aces")
+
+    @property
+    @pulumi.getter(name="defaultEncryptionScope")
+    def default_encryption_scope(self) -> pulumi.Output[str]:
+        """
+        The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "default_encryption_scope")
 
     @property
     @pulumi.getter

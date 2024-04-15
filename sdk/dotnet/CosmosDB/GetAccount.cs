@@ -120,30 +120,26 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// If automatic failover is enabled for this CosmosDB Account.
+        /// </summary>
+        public readonly bool AutomaticFailoverEnabled;
+        /// <summary>
         /// Capabilities enabled on this Cosmos DB account.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountCapabilityResult> Capabilities;
-        /// <summary>
-        /// A list of connection strings available for this CosmosDB account.
-        /// </summary>
         public readonly ImmutableArray<string> ConnectionStrings;
         public readonly ImmutableArray<Outputs.GetAccountConsistencyPolicyResult> ConsistencyPolicies;
-        /// <summary>
-        /// If automatic failover is enabled for this CosmosDB Account.
-        /// </summary>
         public readonly bool EnableAutomaticFailover;
-        /// <summary>
-        /// If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
-        /// </summary>
         public readonly bool EnableFreeTier;
-        /// <summary>
-        /// If multiple write locations are enabled for this Cosmos DB account.
-        /// </summary>
         public readonly bool EnableMultipleWriteLocations;
         /// <summary>
         /// The endpoint used to connect to the CosmosDB account.
         /// </summary>
         public readonly string Endpoint;
+        /// <summary>
+        /// If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
+        /// </summary>
+        public readonly bool FreeTierEnabled;
         public readonly ImmutableArray<Outputs.GetAccountGeoLocationResult> GeoLocations;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -169,6 +165,10 @@ namespace Pulumi.Azure.CosmosDB
         /// The name of the Azure region hosting replicated data.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// If multiple write locations are enabled for this Cosmos DB account.
+        /// </summary>
+        public readonly bool MultipleWriteLocationsEnabled;
         public readonly string Name;
         /// <summary>
         /// The Offer Type to used by this CosmosDB Account.
@@ -242,6 +242,8 @@ namespace Pulumi.Azure.CosmosDB
 
         [OutputConstructor]
         private GetAccountResult(
+            bool automaticFailoverEnabled,
+
             ImmutableArray<Outputs.GetAccountCapabilityResult> capabilities,
 
             ImmutableArray<string> connectionStrings,
@@ -256,6 +258,8 @@ namespace Pulumi.Azure.CosmosDB
 
             string endpoint,
 
+            bool freeTierEnabled,
+
             ImmutableArray<Outputs.GetAccountGeoLocationResult> geoLocations,
 
             string id,
@@ -269,6 +273,8 @@ namespace Pulumi.Azure.CosmosDB
             string kind,
 
             string location,
+
+            bool multipleWriteLocationsEnabled,
 
             string name,
 
@@ -308,6 +314,7 @@ namespace Pulumi.Azure.CosmosDB
 
             ImmutableArray<string> writeEndpoints)
         {
+            AutomaticFailoverEnabled = automaticFailoverEnabled;
             Capabilities = capabilities;
             ConnectionStrings = connectionStrings;
             ConsistencyPolicies = consistencyPolicies;
@@ -315,6 +322,7 @@ namespace Pulumi.Azure.CosmosDB
             EnableFreeTier = enableFreeTier;
             EnableMultipleWriteLocations = enableMultipleWriteLocations;
             Endpoint = endpoint;
+            FreeTierEnabled = freeTierEnabled;
             GeoLocations = geoLocations;
             Id = id;
             IpRangeFilter = ipRangeFilter;
@@ -322,6 +330,7 @@ namespace Pulumi.Azure.CosmosDB
             KeyVaultKeyId = keyVaultKeyId;
             Kind = kind;
             Location = location;
+            MultipleWriteLocationsEnabled = multipleWriteLocationsEnabled;
             Name = name;
             OfferType = offerType;
             PrimaryKey = primaryKey;

@@ -41,6 +41,7 @@ export class ZipBlob extends pulumi.CustomResource {
     public readonly content!: pulumi.Output<pulumi.asset.Archive | undefined>;
     public readonly contentMd5!: pulumi.Output<string | undefined>;
     public readonly contentType!: pulumi.Output<string | undefined>;
+    public readonly encryptionScope!: pulumi.Output<string | undefined>;
     public readonly metadata!: pulumi.Output<{[key: string]: string}>;
     public readonly name!: pulumi.Output<string>;
     public readonly parallelism!: pulumi.Output<number | undefined>;
@@ -73,6 +74,7 @@ export class ZipBlob extends pulumi.CustomResource {
             resourceInputs["content"] = state ? state.content : undefined;
             resourceInputs["contentMd5"] = state ? state.contentMd5 : undefined;
             resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["encryptionScope"] = state ? state.encryptionScope : undefined;
             resourceInputs["metadata"] = state ? state.metadata : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parallelism"] = state ? state.parallelism : undefined;
@@ -99,6 +101,7 @@ export class ZipBlob extends pulumi.CustomResource {
             resourceInputs["content"] = args ? args.content : undefined;
             resourceInputs["contentMd5"] = args ? args.contentMd5 : undefined;
             resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["encryptionScope"] = args ? args.encryptionScope : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parallelism"] = args ? args.parallelism : undefined;
@@ -124,6 +127,7 @@ export interface ZipBlobState {
     content?: pulumi.Input<pulumi.asset.Archive>;
     contentMd5?: pulumi.Input<string>;
     contentType?: pulumi.Input<string>;
+    encryptionScope?: pulumi.Input<string>;
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     name?: pulumi.Input<string>;
     parallelism?: pulumi.Input<number>;
@@ -145,6 +149,7 @@ export interface ZipBlobArgs {
     content?: pulumi.Input<pulumi.asset.Archive>;
     contentMd5?: pulumi.Input<string>;
     contentType?: pulumi.Input<string>;
+    encryptionScope?: pulumi.Input<string>;
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     name?: pulumi.Input<string>;
     parallelism?: pulumi.Input<number>;

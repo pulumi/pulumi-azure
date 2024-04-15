@@ -95,8 +95,10 @@ export class KeyVault extends pulumi.CustomResource {
      * > **Note:** This field can only be set once user has `managecontacts` certificate permission.
      *
      * > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you'll need to import the `azure.keyvault.CertificateContacts` manually.
+     *
+     * @deprecated As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `azure.keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.
      */
-    public readonly contacts!: pulumi.Output<outputs.keyvault.KeyVaultContact[] | undefined>;
+    public readonly contacts!: pulumi.Output<outputs.keyvault.KeyVaultContact[]>;
     /**
      * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
      */
@@ -147,6 +149,8 @@ export class KeyVault extends pulumi.CustomResource {
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
      *
      * > **Note:** This field can only be configured one time and cannot be updated.
+     *
+     * <!-- TODO: Remove `contact` and Notes in 4.0 -->
      */
     public readonly softDeleteRetentionDays!: pulumi.Output<number | undefined>;
     /**
@@ -242,6 +246,8 @@ export interface KeyVaultState {
      * > **Note:** This field can only be set once user has `managecontacts` certificate permission.
      *
      * > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you'll need to import the `azure.keyvault.CertificateContacts` manually.
+     *
+     * @deprecated As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `azure.keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.
      */
     contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
     /**
@@ -294,6 +300,8 @@ export interface KeyVaultState {
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
      *
      * > **Note:** This field can only be configured one time and cannot be updated.
+     *
+     * <!-- TODO: Remove `contact` and Notes in 4.0 -->
      */
     softDeleteRetentionDays?: pulumi.Input<number>;
     /**
@@ -326,6 +334,8 @@ export interface KeyVaultArgs {
      * > **Note:** This field can only be set once user has `managecontacts` certificate permission.
      *
      * > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you'll need to import the `azure.keyvault.CertificateContacts` manually.
+     *
+     * @deprecated As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `azure.keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.
      */
     contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
     /**
@@ -378,6 +388,8 @@ export interface KeyVaultArgs {
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
      *
      * > **Note:** This field can only be configured one time and cannot be updated.
+     *
+     * <!-- TODO: Remove `contact` and Notes in 4.0 -->
      */
     softDeleteRetentionDays?: pulumi.Input<number>;
     /**

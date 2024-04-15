@@ -127,22 +127,19 @@ namespace Pulumi.Azure.Network
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The Public IP address range, in CIDR notation.
+        /// </summary>
         public readonly string IpPrefix;
         /// <summary>
         /// The supported Azure location where the resource exists.
         /// </summary>
         public readonly string Location;
-        /// <summary>
-        /// The name of the Public IP prefix resource.
-        /// </summary>
         public readonly string Name;
         /// <summary>
         /// The number of bits of the prefix.
         /// </summary>
         public readonly int PrefixLength;
-        /// <summary>
-        /// The name of the resource group in which to create the public IP.
-        /// </summary>
         public readonly string ResourceGroupName;
         /// <summary>
         /// The SKU of the Public IP Prefix.

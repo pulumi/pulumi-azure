@@ -155,7 +155,7 @@ export class ServiceAzureBot extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Whether public network access is allowed for this server. Defaults to `true`.
+     * Whether public network access is enabled. Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -320,7 +320,7 @@ export interface ServiceAzureBotState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether public network access is allowed for this server. Defaults to `true`.
+     * Whether public network access is enabled. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -412,7 +412,7 @@ export interface ServiceAzureBotArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether public network access is allowed for this server. Defaults to `true`.
+     * Whether public network access is enabled. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**

@@ -389,7 +389,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * A `queueProperties` block as defined below.
      *
-     * > **NOTE:** `queueProperties` cannot be set when the `accountKind` is set to `BlobStorage`
+     * > **NOTE:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
      */
     public readonly queueProperties!: pulumi.Output<outputs.storage.AccountQueueProperties>;
     /**
@@ -556,6 +556,8 @@ export class Account extends pulumi.CustomResource {
     public readonly sftpEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A `shareProperties` block as defined below.
+     *
+     * > **NOTE:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
      */
     public readonly shareProperties!: pulumi.Output<outputs.storage.AccountShareProperties>;
     public readonly sharedAccessKeyEnabled!: pulumi.Output<boolean | undefined>;
@@ -1107,7 +1109,7 @@ export interface AccountState {
     /**
      * A `queueProperties` block as defined below.
      *
-     * > **NOTE:** `queueProperties` cannot be set when the `accountKind` is set to `BlobStorage`
+     * > **NOTE:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
      */
     queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties>;
     /**
@@ -1274,6 +1276,8 @@ export interface AccountState {
     sftpEnabled?: pulumi.Input<boolean>;
     /**
      * A `shareProperties` block as defined below.
+     *
+     * > **NOTE:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
      */
     shareProperties?: pulumi.Input<inputs.storage.AccountShareProperties>;
     sharedAccessKeyEnabled?: pulumi.Input<boolean>;
@@ -1430,7 +1434,7 @@ export interface AccountArgs {
     /**
      * A `queueProperties` block as defined below.
      *
-     * > **NOTE:** `queueProperties` cannot be set when the `accountKind` is set to `BlobStorage`
+     * > **NOTE:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
      */
     queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties>;
     /**
@@ -1453,6 +1457,8 @@ export interface AccountArgs {
     sftpEnabled?: pulumi.Input<boolean>;
     /**
      * A `shareProperties` block as defined below.
+     *
+     * > **NOTE:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
      */
     shareProperties?: pulumi.Input<inputs.storage.AccountShareProperties>;
     sharedAccessKeyEnabled?: pulumi.Input<boolean>;

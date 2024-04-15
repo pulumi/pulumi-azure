@@ -16,6 +16,8 @@ class ContainerArgs:
     def __init__(__self__, *,
                  storage_account_name: pulumi.Input[str],
                  container_access_type: Optional[pulumi.Input[str]] = None,
+                 default_encryption_scope: Optional[pulumi.Input[str]] = None,
+                 encryption_scope_override_enabled: Optional[pulumi.Input[bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -24,12 +26,18 @@ class ContainerArgs:
         :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
                
                > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+        :param pulumi.Input[str] default_encryption_scope: The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] encryption_scope_override_enabled: Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
         :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "storage_account_name", storage_account_name)
         if container_access_type is not None:
             pulumi.set(__self__, "container_access_type", container_access_type)
+        if default_encryption_scope is not None:
+            pulumi.set(__self__, "default_encryption_scope", default_encryption_scope)
+        if encryption_scope_override_enabled is not None:
+            pulumi.set(__self__, "encryption_scope_override_enabled", encryption_scope_override_enabled)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
@@ -62,6 +70,30 @@ class ContainerArgs:
         pulumi.set(self, "container_access_type", value)
 
     @property
+    @pulumi.getter(name="defaultEncryptionScope")
+    def default_encryption_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "default_encryption_scope")
+
+    @default_encryption_scope.setter
+    def default_encryption_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_encryption_scope", value)
+
+    @property
+    @pulumi.getter(name="encryptionScopeOverrideEnabled")
+    def encryption_scope_override_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "encryption_scope_override_enabled")
+
+    @encryption_scope_override_enabled.setter
+    def encryption_scope_override_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encryption_scope_override_enabled", value)
+
+    @property
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -90,6 +122,8 @@ class ContainerArgs:
 class _ContainerState:
     def __init__(__self__, *,
                  container_access_type: Optional[pulumi.Input[str]] = None,
+                 default_encryption_scope: Optional[pulumi.Input[str]] = None,
+                 encryption_scope_override_enabled: Optional[pulumi.Input[bool]] = None,
                  has_immutability_policy: Optional[pulumi.Input[bool]] = None,
                  has_legal_hold: Optional[pulumi.Input[bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -101,6 +135,8 @@ class _ContainerState:
         :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
                
                > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+        :param pulumi.Input[str] default_encryption_scope: The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] encryption_scope_override_enabled: Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] has_immutability_policy: Is there an Immutability Policy configured on this Storage Container?
         :param pulumi.Input[bool] has_legal_hold: Is there a Legal Hold configured on this Storage Container?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
@@ -110,6 +146,10 @@ class _ContainerState:
         """
         if container_access_type is not None:
             pulumi.set(__self__, "container_access_type", container_access_type)
+        if default_encryption_scope is not None:
+            pulumi.set(__self__, "default_encryption_scope", default_encryption_scope)
+        if encryption_scope_override_enabled is not None:
+            pulumi.set(__self__, "encryption_scope_override_enabled", encryption_scope_override_enabled)
         if has_immutability_policy is not None:
             pulumi.set(__self__, "has_immutability_policy", has_immutability_policy)
         if has_legal_hold is not None:
@@ -136,6 +176,30 @@ class _ContainerState:
     @container_access_type.setter
     def container_access_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "container_access_type", value)
+
+    @property
+    @pulumi.getter(name="defaultEncryptionScope")
+    def default_encryption_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "default_encryption_scope")
+
+    @default_encryption_scope.setter
+    def default_encryption_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_encryption_scope", value)
+
+    @property
+    @pulumi.getter(name="encryptionScopeOverrideEnabled")
+    def encryption_scope_override_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "encryption_scope_override_enabled")
+
+    @encryption_scope_override_enabled.setter
+    def encryption_scope_override_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encryption_scope_override_enabled", value)
 
     @property
     @pulumi.getter(name="hasImmutabilityPolicy")
@@ -216,6 +280,8 @@ class Container(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_access_type: Optional[pulumi.Input[str]] = None,
+                 default_encryption_scope: Optional[pulumi.Input[str]] = None,
+                 encryption_scope_override_enabled: Optional[pulumi.Input[bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -262,6 +328,8 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
                
                > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+        :param pulumi.Input[str] default_encryption_scope: The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] encryption_scope_override_enabled: Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
         :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
@@ -325,6 +393,8 @@ class Container(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_access_type: Optional[pulumi.Input[str]] = None,
+                 default_encryption_scope: Optional[pulumi.Input[str]] = None,
+                 encryption_scope_override_enabled: Optional[pulumi.Input[bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -338,6 +408,8 @@ class Container(pulumi.CustomResource):
             __props__ = ContainerArgs.__new__(ContainerArgs)
 
             __props__.__dict__["container_access_type"] = container_access_type
+            __props__.__dict__["default_encryption_scope"] = default_encryption_scope
+            __props__.__dict__["encryption_scope_override_enabled"] = encryption_scope_override_enabled
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name
             if storage_account_name is None and not opts.urn:
@@ -357,6 +429,8 @@ class Container(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             container_access_type: Optional[pulumi.Input[str]] = None,
+            default_encryption_scope: Optional[pulumi.Input[str]] = None,
+            encryption_scope_override_enabled: Optional[pulumi.Input[bool]] = None,
             has_immutability_policy: Optional[pulumi.Input[bool]] = None,
             has_legal_hold: Optional[pulumi.Input[bool]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -373,6 +447,8 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
                
                > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+        :param pulumi.Input[str] default_encryption_scope: The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] encryption_scope_override_enabled: Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] has_immutability_policy: Is there an Immutability Policy configured on this Storage Container?
         :param pulumi.Input[bool] has_legal_hold: Is there a Legal Hold configured on this Storage Container?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
@@ -385,6 +461,8 @@ class Container(pulumi.CustomResource):
         __props__ = _ContainerState.__new__(_ContainerState)
 
         __props__.__dict__["container_access_type"] = container_access_type
+        __props__.__dict__["default_encryption_scope"] = default_encryption_scope
+        __props__.__dict__["encryption_scope_override_enabled"] = encryption_scope_override_enabled
         __props__.__dict__["has_immutability_policy"] = has_immutability_policy
         __props__.__dict__["has_legal_hold"] = has_legal_hold
         __props__.__dict__["metadata"] = metadata
@@ -402,6 +480,22 @@ class Container(pulumi.CustomResource):
         > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         """
         return pulumi.get(self, "container_access_type")
+
+    @property
+    @pulumi.getter(name="defaultEncryptionScope")
+    def default_encryption_scope(self) -> pulumi.Output[str]:
+        """
+        The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "default_encryption_scope")
+
+    @property
+    @pulumi.getter(name="encryptionScopeOverrideEnabled")
+    def encryption_scope_override_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "encryption_scope_override_enabled")
 
     @property
     @pulumi.getter(name="hasImmutabilityPolicy")

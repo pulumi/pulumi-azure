@@ -103,6 +103,14 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+     */
+    public readonly networkAccessPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -146,6 +154,8 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["incrementalEnabled"] = state ? state.incrementalEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkAccessPolicy"] = state ? state.networkAccessPolicy : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sourceResourceId"] = state ? state.sourceResourceId : undefined;
             resourceInputs["sourceUri"] = state ? state.sourceUri : undefined;
@@ -166,6 +176,8 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["incrementalEnabled"] = args ? args.incrementalEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
             resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
@@ -210,6 +222,14 @@ export interface SnapshotState {
      * Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+     */
+    networkAccessPolicy?: pulumi.Input<string>;
+    /**
+     * Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
      */
@@ -268,6 +288,14 @@ export interface SnapshotArgs {
      * Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+     */
+    networkAccessPolicy?: pulumi.Input<string>;
+    /**
+     * Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
      */

@@ -28,6 +28,9 @@ namespace Pulumi.Azure.Storage
         [Output("contentType")]
         public Output<string?> ContentType { get; private set; } = null!;
 
+        [Output("encryptionScope")]
+        public Output<string?> EncryptionScope { get; private set; } = null!;
+
         [Output("metadata")]
         public Output<ImmutableDictionary<string, string>> Metadata { get; private set; } = null!;
 
@@ -119,6 +122,9 @@ namespace Pulumi.Azure.Storage
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
+        [Input("encryptionScope")]
+        public Input<string>? EncryptionScope { get; set; }
+
         [Input("metadata")]
         private InputMap<string>? _metadata;
         public InputMap<string> Metadata
@@ -173,6 +179,9 @@ namespace Pulumi.Azure.Storage
 
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
+
+        [Input("encryptionScope")]
+        public Input<string>? EncryptionScope { get; set; }
 
         [Input("metadata")]
         private InputMap<string>? _metadata;

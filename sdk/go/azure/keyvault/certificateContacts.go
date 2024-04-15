@@ -16,6 +16,7 @@ import (
 //
 // ## Disclaimers
 //
+// <!-- TODO: Remove Note in 4.0 -->
 // > **Note:** It's possible to define Key Vault Certificate Contacts both within the `keyvault.KeyVault` resource via the `contact` block and by using the `keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
 //
 // ## Example Usage
@@ -106,6 +107,7 @@ type CertificateContacts struct {
 	pulumi.CustomResourceState
 
 	// One or more `contact` blocks as defined below.
+	// -->
 	Contacts CertificateContactsContactArrayOutput `pulumi:"contacts"`
 	// The ID of the Key Vault. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
@@ -148,6 +150,7 @@ func GetCertificateContacts(ctx *pulumi.Context,
 // Input properties used for looking up and filtering CertificateContacts resources.
 type certificateContactsState struct {
 	// One or more `contact` blocks as defined below.
+	// -->
 	Contacts []CertificateContactsContact `pulumi:"contacts"`
 	// The ID of the Key Vault. Changing this forces a new resource to be created.
 	KeyVaultId *string `pulumi:"keyVaultId"`
@@ -155,6 +158,7 @@ type certificateContactsState struct {
 
 type CertificateContactsState struct {
 	// One or more `contact` blocks as defined below.
+	// -->
 	Contacts CertificateContactsContactArrayInput
 	// The ID of the Key Vault. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringPtrInput
@@ -166,6 +170,7 @@ func (CertificateContactsState) ElementType() reflect.Type {
 
 type certificateContactsArgs struct {
 	// One or more `contact` blocks as defined below.
+	// -->
 	Contacts []CertificateContactsContact `pulumi:"contacts"`
 	// The ID of the Key Vault. Changing this forces a new resource to be created.
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -174,6 +179,7 @@ type certificateContactsArgs struct {
 // The set of arguments for constructing a CertificateContacts resource.
 type CertificateContactsArgs struct {
 	// One or more `contact` blocks as defined below.
+	// -->
 	Contacts CertificateContactsContactArrayInput
 	// The ID of the Key Vault. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringInput
@@ -267,6 +273,7 @@ func (o CertificateContactsOutput) ToCertificateContactsOutputWithContext(ctx co
 }
 
 // One or more `contact` blocks as defined below.
+// -->
 func (o CertificateContactsOutput) Contacts() CertificateContactsContactArrayOutput {
 	return o.ApplyT(func(v *CertificateContacts) CertificateContactsContactArrayOutput { return v.Contacts }).(CertificateContactsContactArrayOutput)
 }

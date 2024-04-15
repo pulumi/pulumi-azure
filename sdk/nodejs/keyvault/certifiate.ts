@@ -9,11 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Key Vault Certificate.
  *
- * <<<<<<< HEAD
- * > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedCertificatesOnDestroy` for more information.
- *
- * =======
- * > > > > > > > 8d78c87098 (Update-documentation)
  * ## Example Usage
  *
  * ### Importing A PFX)

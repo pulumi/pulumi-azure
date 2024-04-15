@@ -59,7 +59,8 @@ disableTerraformPartnerId: Optional[bool]
 
 environment: str
 """
-The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+used and should not be specified when `metadata_host` is specified.
 """
 
 features: Optional[str]

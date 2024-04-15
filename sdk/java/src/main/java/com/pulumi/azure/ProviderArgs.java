@@ -168,14 +168,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+     * used and should not be specified when `metadata_host` is specified.
      * 
      */
     @Import(name="environment")
     private @Nullable Output<String> environment;
 
     /**
-     * @return The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+     * @return The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+     * used and should not be specified when `metadata_host` is specified.
      * 
      */
     public Optional<Output<String>> environment() {
@@ -681,7 +683,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environment The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+         * @param environment The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+         * used and should not be specified when `metadata_host` is specified.
          * 
          * @return builder
          * 
@@ -692,7 +695,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environment The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+         * @param environment The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+         * used and should not be specified when `metadata_host` is specified.
          * 
          * @return builder
          * 

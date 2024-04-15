@@ -55,22 +55,19 @@ export interface GetPublicIpPrefixResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The Public IP address range, in CIDR notation.
+     */
     readonly ipPrefix: string;
     /**
      * The supported Azure location where the resource exists.
      */
     readonly location: string;
-    /**
-     * The name of the Public IP prefix resource.
-     */
     readonly name: string;
     /**
      * The number of bits of the prefix.
      */
     readonly prefixLength: number;
-    /**
-     * The name of the resource group in which to create the public IP.
-     */
     readonly resourceGroupName: string;
     /**
      * The SKU of the Public IP Prefix.

@@ -22,11 +22,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Key Vault Certificate.
  * 
- * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
- * &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_certificates_on_destroy` for more information.
- * 
- * =======
- * &gt; &gt; &gt; &gt; &gt; &gt; &gt; 8d78c87098 (Update-documentation)
  * ## Example Usage
  * 
  * ### Importing A PFX)

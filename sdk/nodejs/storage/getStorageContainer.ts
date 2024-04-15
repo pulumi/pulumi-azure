@@ -58,6 +58,14 @@ export interface GetStorageContainerResult {
      */
     readonly containerAccessType: string;
     /**
+     * The default encryption scope in use for blobs uploaded to this container.
+     */
+    readonly defaultEncryptionScope: string;
+    /**
+     * Whether blobs are allowed to override the default encryption scope for this container.
+     */
+    readonly encryptionScopeOverrideEnabled: boolean;
+    /**
      * Is there an Immutability Policy configured on this Storage Container?
      */
     readonly hasImmutabilityPolicy: boolean;

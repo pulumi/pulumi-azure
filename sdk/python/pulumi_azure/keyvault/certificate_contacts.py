@@ -21,6 +21,7 @@ class CertificateContactsArgs:
         """
         The set of arguments for constructing a CertificateContacts resource.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]] contacts: One or more `contact` blocks as defined below.
+               -->
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "contacts", contacts)
@@ -31,6 +32,7 @@ class CertificateContactsArgs:
     def contacts(self) -> pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]:
         """
         One or more `contact` blocks as defined below.
+        -->
         """
         return pulumi.get(self, "contacts")
 
@@ -59,6 +61,7 @@ class _CertificateContactsState:
         """
         Input properties used for looking up and filtering CertificateContacts resources.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]] contacts: One or more `contact` blocks as defined below.
+               -->
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         """
         if contacts is not None:
@@ -71,6 +74,7 @@ class _CertificateContactsState:
     def contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]]:
         """
         One or more `contact` blocks as defined below.
+        -->
         """
         return pulumi.get(self, "contacts")
 
@@ -104,6 +108,7 @@ class CertificateContacts(pulumi.CustomResource):
 
         ## Disclaimers
 
+        <!-- TODO: Remove Note in 4.0 -->
         > **Note:** It's possible to define Key Vault Certificate Contacts both within the `keyvault.KeyVault` resource via the `contact` block and by using the `keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
 
         ## Example Usage
@@ -156,6 +161,7 @@ class CertificateContacts(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArgs']]]] contacts: One or more `contact` blocks as defined below.
+               -->
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         """
         ...
@@ -169,6 +175,7 @@ class CertificateContacts(pulumi.CustomResource):
 
         ## Disclaimers
 
+        <!-- TODO: Remove Note in 4.0 -->
         > **Note:** It's possible to define Key Vault Certificate Contacts both within the `keyvault.KeyVault` resource via the `contact` block and by using the `keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
 
         ## Example Usage
@@ -270,6 +277,7 @@ class CertificateContacts(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArgs']]]] contacts: One or more `contact` blocks as defined below.
+               -->
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -285,6 +293,7 @@ class CertificateContacts(pulumi.CustomResource):
     def contacts(self) -> pulumi.Output[Sequence['outputs.CertificateContactsContact']]:
         """
         One or more `contact` blocks as defined below.
+        -->
         """
         return pulumi.get(self, "contacts")
 

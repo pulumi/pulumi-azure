@@ -186,6 +186,8 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
      * 
      * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
      * 
+     * &gt; **NOTE:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
+     * 
      */
     @Import(name="javaVersion")
     private @Nullable Output<String> javaVersion;
@@ -194,6 +196,8 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
      * @return The Version of Java to use. Possible values include `8`, `11`, and `17`.
      * 
      * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+     * 
+     * &gt; **NOTE:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -537,6 +541,8 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
          * 
          * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
          * 
+         * &gt; **NOTE:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
+         * 
          * @return builder
          * 
          */
@@ -549,6 +555,8 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
          * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, and `17`.
          * 
          * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+         * 
+         * &gt; **NOTE:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
          * 
          * @return builder
          * 

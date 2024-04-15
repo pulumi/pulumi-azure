@@ -21,6 +21,7 @@ class BlobArgs:
                  cache_control: Optional[pulumi.Input[str]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
+                 encryption_scope: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parallelism: Optional[pulumi.Input[int]] = None,
@@ -37,6 +38,7 @@ class BlobArgs:
         :param pulumi.Input[str] cache_control: Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
         :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+        :param pulumi.Input[str] encryption_scope: The encryption scope to use for this blob.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
@@ -60,6 +62,8 @@ class BlobArgs:
             pulumi.set(__self__, "content_md5", content_md5)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
+        if encryption_scope is not None:
+            pulumi.set(__self__, "encryption_scope", encryption_scope)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
@@ -160,6 +164,18 @@ class BlobArgs:
         pulumi.set(self, "content_type", value)
 
     @property
+    @pulumi.getter(name="encryptionScope")
+    def encryption_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encryption scope to use for this blob.
+        """
+        return pulumi.get(self, "encryption_scope")
+
+    @encryption_scope.setter
+    def encryption_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_scope", value)
+
+    @property
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -255,6 +271,7 @@ class _BlobState:
                  cache_control: Optional[pulumi.Input[str]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
+                 encryption_scope: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parallelism: Optional[pulumi.Input[int]] = None,
@@ -272,6 +289,7 @@ class _BlobState:
         :param pulumi.Input[str] cache_control: Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
         :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+        :param pulumi.Input[str] encryption_scope: The encryption scope to use for this blob.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
@@ -296,6 +314,8 @@ class _BlobState:
             pulumi.set(__self__, "content_md5", content_md5)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
+        if encryption_scope is not None:
+            pulumi.set(__self__, "encryption_scope", encryption_scope)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
@@ -366,6 +386,18 @@ class _BlobState:
     @content_type.setter
     def content_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter(name="encryptionScope")
+    def encryption_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encryption scope to use for this blob.
+        """
+        return pulumi.get(self, "encryption_scope")
+
+    @encryption_scope.setter
+    def encryption_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_scope", value)
 
     @property
     @pulumi.getter
@@ -513,6 +545,7 @@ class Blob(pulumi.CustomResource):
                  cache_control: Optional[pulumi.Input[str]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
+                 encryption_scope: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parallelism: Optional[pulumi.Input[int]] = None,
@@ -570,6 +603,7 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[str] cache_control: Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
         :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+        :param pulumi.Input[str] encryption_scope: The encryption scope to use for this blob.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
@@ -650,6 +684,7 @@ class Blob(pulumi.CustomResource):
                  cache_control: Optional[pulumi.Input[str]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
+                 encryption_scope: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parallelism: Optional[pulumi.Input[int]] = None,
@@ -673,6 +708,7 @@ class Blob(pulumi.CustomResource):
             __props__.__dict__["cache_control"] = cache_control
             __props__.__dict__["content_md5"] = content_md5
             __props__.__dict__["content_type"] = content_type
+            __props__.__dict__["encryption_scope"] = encryption_scope
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name
             __props__.__dict__["parallelism"] = parallelism
@@ -704,6 +740,7 @@ class Blob(pulumi.CustomResource):
             cache_control: Optional[pulumi.Input[str]] = None,
             content_md5: Optional[pulumi.Input[str]] = None,
             content_type: Optional[pulumi.Input[str]] = None,
+            encryption_scope: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parallelism: Optional[pulumi.Input[int]] = None,
@@ -726,6 +763,7 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[str] cache_control: Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
         :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+        :param pulumi.Input[str] encryption_scope: The encryption scope to use for this blob.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
@@ -750,6 +788,7 @@ class Blob(pulumi.CustomResource):
         __props__.__dict__["cache_control"] = cache_control
         __props__.__dict__["content_md5"] = content_md5
         __props__.__dict__["content_type"] = content_type
+        __props__.__dict__["encryption_scope"] = encryption_scope
         __props__.__dict__["metadata"] = metadata
         __props__.__dict__["name"] = name
         __props__.__dict__["parallelism"] = parallelism
@@ -794,6 +833,14 @@ class Blob(pulumi.CustomResource):
         The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         """
         return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="encryptionScope")
+    def encryption_scope(self) -> pulumi.Output[Optional[str]]:
+        """
+        The encryption scope to use for this blob.
+        """
+        return pulumi.get(self, "encryption_scope")
 
     @property
     @pulumi.getter

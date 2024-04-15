@@ -17,14 +17,14 @@ public final class WindowsWebAppLogsHttpLogsArgs extends com.pulumi.resources.Re
     public static final WindowsWebAppLogsHttpLogsArgs Empty = new WindowsWebAppLogsHttpLogsArgs();
 
     /**
-     * A `azure_blob_storage_http` block as defined above.
+     * A `azure_blob_storage_http` block as defined below.
      * 
      */
     @Import(name="azureBlobStorage")
     private @Nullable Output<WindowsWebAppLogsHttpLogsAzureBlobStorageArgs> azureBlobStorage;
 
     /**
-     * @return A `azure_blob_storage_http` block as defined above.
+     * @return A `azure_blob_storage_http` block as defined below.
      * 
      */
     public Optional<Output<WindowsWebAppLogsHttpLogsAzureBlobStorageArgs>> azureBlobStorage() {
@@ -72,7 +72,7 @@ public final class WindowsWebAppLogsHttpLogsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param azureBlobStorage A `azure_blob_storage_http` block as defined above.
+         * @param azureBlobStorage A `azure_blob_storage_http` block as defined below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class WindowsWebAppLogsHttpLogsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param azureBlobStorage A `azure_blob_storage_http` block as defined above.
+         * @param azureBlobStorage A `azure_blob_storage_http` block as defined below.
          * 
          * @return builder
          * 

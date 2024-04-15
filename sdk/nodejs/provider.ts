@@ -59,7 +59,8 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly clientSecretFilePath!: pulumi.Output<string | undefined>;
     /**
-     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+     * used and should not be specified when `metadata_host` is specified.
      */
     public readonly environment!: pulumi.Output<string | undefined>;
     /**
@@ -193,7 +194,8 @@ export interface ProviderArgs {
      */
     disableTerraformPartnerId?: pulumi.Input<boolean>;
     /**
-     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+     * used and should not be specified when `metadata_host` is specified.
      */
     environment?: pulumi.Input<string>;
     features?: pulumi.Input<inputs.ProviderFeatures>;

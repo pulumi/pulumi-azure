@@ -162,6 +162,10 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string ContentType;
         /// <summary>
+        /// The encryption scope for this blob.
+        /// </summary>
+        public readonly string EncryptionScope;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -189,6 +193,8 @@ namespace Pulumi.Azure.Storage
 
             string contentType,
 
+            string encryptionScope,
+
             string id,
 
             ImmutableDictionary<string, string> metadata,
@@ -206,6 +212,7 @@ namespace Pulumi.Azure.Storage
             AccessTier = accessTier;
             ContentMd5 = contentMd5;
             ContentType = contentType;
+            EncryptionScope = encryptionScope;
             Id = id;
             Metadata = metadata;
             Name = name;

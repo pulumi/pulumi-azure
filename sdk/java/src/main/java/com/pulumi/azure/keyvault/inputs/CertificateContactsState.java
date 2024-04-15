@@ -19,6 +19,7 @@ public final class CertificateContactsState extends com.pulumi.resources.Resourc
 
     /**
      * One or more `contact` blocks as defined below.
+     * --&gt;
      * 
      */
     @Import(name="contacts")
@@ -26,6 +27,7 @@ public final class CertificateContactsState extends com.pulumi.resources.Resourc
 
     /**
      * @return One or more `contact` blocks as defined below.
+     * --&gt;
      * 
      */
     public Optional<Output<List<CertificateContactsContactArgs>>> contacts() {
@@ -74,6 +76,7 @@ public final class CertificateContactsState extends com.pulumi.resources.Resourc
 
         /**
          * @param contacts One or more `contact` blocks as defined below.
+         * --&gt;
          * 
          * @return builder
          * 
@@ -85,6 +88,7 @@ public final class CertificateContactsState extends com.pulumi.resources.Resourc
 
         /**
          * @param contacts One or more `contact` blocks as defined below.
+         * --&gt;
          * 
          * @return builder
          * 
@@ -95,6 +99,7 @@ public final class CertificateContactsState extends com.pulumi.resources.Resourc
 
         /**
          * @param contacts One or more `contact` blocks as defined below.
+         * --&gt;
          * 
          * @return builder
          * 

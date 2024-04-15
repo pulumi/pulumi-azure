@@ -186,6 +186,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<bool?> AnalyticalStorageEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Enable automatic failover for this Cosmos DB account.
+        /// </summary>
+        [Output("automaticFailoverEnabled")]
+        public Output<bool> AutomaticFailoverEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `backup` block as defined below.
         /// </summary>
         [Output("backup")]
@@ -203,9 +209,6 @@ namespace Pulumi.Azure.CosmosDB
         [Output("capacity")]
         public Output<Outputs.AccountCapacity> Capacity { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of connection strings available for this CosmosDB account.
-        /// </summary>
         [Output("connectionStrings")]
         public Output<ImmutableArray<string>> ConnectionStrings { get; private set; } = null!;
 
@@ -235,29 +238,26 @@ namespace Pulumi.Azure.CosmosDB
         [Output("defaultIdentityType")]
         public Output<string?> DefaultIdentityType { get; private set; } = null!;
 
-        /// <summary>
-        /// Enable automatic failover for this Cosmos DB account.
-        /// </summary>
         [Output("enableAutomaticFailover")]
-        public Output<bool?> EnableAutomaticFailover { get; private set; } = null!;
+        public Output<bool> EnableAutomaticFailover { get; private set; } = null!;
 
-        /// <summary>
-        /// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("enableFreeTier")]
-        public Output<bool?> EnableFreeTier { get; private set; } = null!;
+        public Output<bool> EnableFreeTier { get; private set; } = null!;
 
-        /// <summary>
-        /// Enable multiple write locations for this Cosmos DB account.
-        /// </summary>
         [Output("enableMultipleWriteLocations")]
-        public Output<bool?> EnableMultipleWriteLocations { get; private set; } = null!;
+        public Output<bool> EnableMultipleWriteLocations { get; private set; } = null!;
 
         /// <summary>
         /// The endpoint used to connect to the CosmosDB account.
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("freeTierEnabled")]
+        public Output<bool> FreeTierEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
@@ -326,6 +326,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Output("mongoServerVersion")]
         public Output<string> MongoServerVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable multiple write locations for this Cosmos DB account.
+        /// </summary>
+        [Output("multipleWriteLocationsEnabled")]
+        public Output<bool> MultipleWriteLocationsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -554,6 +560,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? AnalyticalStorageEnabled { get; set; }
 
         /// <summary>
+        /// Enable automatic failover for this Cosmos DB account.
+        /// </summary>
+        [Input("automaticFailoverEnabled")]
+        public Input<bool>? AutomaticFailoverEnabled { get; set; }
+
+        /// <summary>
         /// A `backup` block as defined below.
         /// </summary>
         [Input("backup")]
@@ -603,23 +615,20 @@ namespace Pulumi.Azure.CosmosDB
         [Input("defaultIdentityType")]
         public Input<string>? DefaultIdentityType { get; set; }
 
-        /// <summary>
-        /// Enable automatic failover for this Cosmos DB account.
-        /// </summary>
         [Input("enableAutomaticFailover")]
         public Input<bool>? EnableAutomaticFailover { get; set; }
+
+        [Input("enableFreeTier")]
+        public Input<bool>? EnableFreeTier { get; set; }
+
+        [Input("enableMultipleWriteLocations")]
+        public Input<bool>? EnableMultipleWriteLocations { get; set; }
 
         /// <summary>
         /// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("enableFreeTier")]
-        public Input<bool>? EnableFreeTier { get; set; }
-
-        /// <summary>
-        /// Enable multiple write locations for this Cosmos DB account.
-        /// </summary>
-        [Input("enableMultipleWriteLocations")]
-        public Input<bool>? EnableMultipleWriteLocations { get; set; }
+        [Input("freeTierEnabled")]
+        public Input<bool>? FreeTierEnabled { get; set; }
 
         [Input("geoLocations", required: true)]
         private InputList<Inputs.AccountGeoLocationArgs>? _geoLocations;
@@ -694,6 +703,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("mongoServerVersion")]
         public Input<string>? MongoServerVersion { get; set; }
+
+        /// <summary>
+        /// Enable multiple write locations for this Cosmos DB account.
+        /// </summary>
+        [Input("multipleWriteLocationsEnabled")]
+        public Input<bool>? MultipleWriteLocationsEnabled { get; set; }
 
         /// <summary>
         /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -802,6 +817,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? AnalyticalStorageEnabled { get; set; }
 
         /// <summary>
+        /// Enable automatic failover for this Cosmos DB account.
+        /// </summary>
+        [Input("automaticFailoverEnabled")]
+        public Input<bool>? AutomaticFailoverEnabled { get; set; }
+
+        /// <summary>
         /// A `backup` block as defined below.
         /// </summary>
         [Input("backup")]
@@ -827,10 +848,7 @@ namespace Pulumi.Azure.CosmosDB
 
         [Input("connectionStrings")]
         private InputList<string>? _connectionStrings;
-
-        /// <summary>
-        /// A list of connection strings available for this CosmosDB account.
-        /// </summary>
+        [Obsolete(@"This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider")]
         public InputList<string> ConnectionStrings
         {
             get => _connectionStrings ?? (_connectionStrings = new InputList<string>());
@@ -867,21 +885,12 @@ namespace Pulumi.Azure.CosmosDB
         [Input("defaultIdentityType")]
         public Input<string>? DefaultIdentityType { get; set; }
 
-        /// <summary>
-        /// Enable automatic failover for this Cosmos DB account.
-        /// </summary>
         [Input("enableAutomaticFailover")]
         public Input<bool>? EnableAutomaticFailover { get; set; }
 
-        /// <summary>
-        /// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("enableFreeTier")]
         public Input<bool>? EnableFreeTier { get; set; }
 
-        /// <summary>
-        /// Enable multiple write locations for this Cosmos DB account.
-        /// </summary>
         [Input("enableMultipleWriteLocations")]
         public Input<bool>? EnableMultipleWriteLocations { get; set; }
 
@@ -890,6 +899,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("freeTierEnabled")]
+        public Input<bool>? FreeTierEnabled { get; set; }
 
         [Input("geoLocations")]
         private InputList<Inputs.AccountGeoLocationGetArgs>? _geoLocations;
@@ -964,6 +979,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("mongoServerVersion")]
         public Input<string>? MongoServerVersion { get; set; }
+
+        /// <summary>
+        /// Enable multiple write locations for this Cosmos DB account.
+        /// </summary>
+        [Input("multipleWriteLocationsEnabled")]
+        public Input<bool>? MultipleWriteLocationsEnabled { get; set; }
 
         /// <summary>
         /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.

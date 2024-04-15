@@ -102,6 +102,20 @@ public class DataLakeGen2Filesystem extends com.pulumi.resources.CustomResource 
         return this.aces;
     }
     /**
+     * The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="defaultEncryptionScope", refs={String.class}, tree="[0]")
+    private Output<String> defaultEncryptionScope;
+
+    /**
+     * @return The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> defaultEncryptionScope() {
+        return this.defaultEncryptionScope;
+    }
+    /**
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
      * 
      * &gt; **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.

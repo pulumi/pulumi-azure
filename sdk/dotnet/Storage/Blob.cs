@@ -94,6 +94,12 @@ namespace Pulumi.Azure.Storage
         public Output<string?> ContentType { get; private set; } = null!;
 
         /// <summary>
+        /// The encryption scope to use for this blob.
+        /// </summary>
+        [Output("encryptionScope")]
+        public Output<string?> EncryptionScope { get; private set; } = null!;
+
+        /// <summary>
         /// A map of custom blob metadata.
         /// </summary>
         [Output("metadata")]
@@ -233,6 +239,12 @@ namespace Pulumi.Azure.Storage
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
+        /// <summary>
+        /// The encryption scope to use for this blob.
+        /// </summary>
+        [Input("encryptionScope")]
+        public Input<string>? EncryptionScope { get; set; }
+
         [Input("metadata")]
         private InputMap<string>? _metadata;
 
@@ -334,6 +346,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
+
+        /// <summary>
+        /// The encryption scope to use for this blob.
+        /// </summary>
+        [Input("encryptionScope")]
+        public Input<string>? EncryptionScope { get; set; }
 
         [Input("metadata")]
         private InputMap<string>? _metadata;

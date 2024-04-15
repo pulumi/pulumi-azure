@@ -34,6 +34,21 @@ public final class DataLakeGen2FilesystemState extends com.pulumi.resources.Reso
     }
 
     /**
+     * The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="defaultEncryptionScope")
+    private @Nullable Output<String> defaultEncryptionScope;
+
+    /**
+     * @return The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> defaultEncryptionScope() {
+        return Optional.ofNullable(this.defaultEncryptionScope);
+    }
+
+    /**
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
      * 
      * &gt; **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
@@ -116,6 +131,7 @@ public final class DataLakeGen2FilesystemState extends com.pulumi.resources.Reso
 
     private DataLakeGen2FilesystemState(DataLakeGen2FilesystemState $) {
         this.aces = $.aces;
+        this.defaultEncryptionScope = $.defaultEncryptionScope;
         this.group = $.group;
         this.name = $.name;
         this.owner = $.owner;
@@ -170,6 +186,27 @@ public final class DataLakeGen2FilesystemState extends com.pulumi.resources.Reso
          */
         public Builder aces(DataLakeGen2FilesystemAceArgs... aces) {
             return aces(List.of(aces));
+        }
+
+        /**
+         * @param defaultEncryptionScope The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultEncryptionScope(@Nullable Output<String> defaultEncryptionScope) {
+            $.defaultEncryptionScope = defaultEncryptionScope;
+            return this;
+        }
+
+        /**
+         * @param defaultEncryptionScope The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultEncryptionScope(String defaultEncryptionScope) {
+            return defaultEncryptionScope(Output.of(defaultEncryptionScope));
         }
 
         /**
