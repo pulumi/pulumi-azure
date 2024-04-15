@@ -325,10 +325,10 @@ index fa43f4e9c8..9ddf246435 100644
  					string(disks.OperatingSystemTypesLinux),
  				}, false),
 diff --git a/internal/services/compute/snapshot_resource.go b/internal/services/compute/snapshot_resource.go
-index 0b0cd11d72..1918f4e937 100644
+index 539c138df6..5446846a89 100644
 --- a/internal/services/compute/snapshot_resource.go
 +++ b/internal/services/compute/snapshot_resource.go
-@@ -67,7 +67,7 @@ func resourceSnapshot() *pluginsdk.Resource {
+@@ -68,7 +68,7 @@ func resourceSnapshot() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(snapshots.DiskCreateOptionCopy),
  					string(snapshots.DiskCreateOptionImport),
@@ -488,7 +488,7 @@ index b141d14cfd..0e3d2fd1b2 100644
  						string(documentdb.IndexingModeConsistent),
  						string(documentdb.IndexingModeNone),
 diff --git a/internal/services/cosmos/cosmosdb_account_resource.go b/internal/services/cosmos/cosmosdb_account_resource.go
-index 4001cad641..835aecb2d8 100644
+index bdbf31ad05..fb941af76c 100644
 --- a/internal/services/cosmos/cosmosdb_account_resource.go
 +++ b/internal/services/cosmos/cosmosdb_account_resource.go
 @@ -13,6 +13,8 @@ import (
@@ -509,7 +509,7 @@ index 4001cad641..835aecb2d8 100644
  			},
  
  			"analytical_storage": {
-@@ -286,7 +288,7 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
+@@ -291,7 +293,7 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
  					string(cosmosdb.DatabaseAccountKindGlobalDocumentDB),
  					string(cosmosdb.DatabaseAccountKindMongoDB),
  					string(cosmosdb.DatabaseAccountKindParse),
@@ -518,7 +518,7 @@ index 4001cad641..835aecb2d8 100644
  			},
  
  			"ip_range_filter": func() *schema.Schema {
-@@ -360,7 +362,7 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
+@@ -387,7 +389,7 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
  								string(cosmosdb.DefaultConsistencyLevelEventual),
  								string(cosmosdb.DefaultConsistencyLevelSession),
  								string(cosmosdb.DefaultConsistencyLevelStrong),
@@ -527,7 +527,7 @@ index 4001cad641..835aecb2d8 100644
  						},
  
  						// This value can only change if the 'consistency_level' is set to 'BoundedStaleness'
-@@ -419,8 +421,9 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
+@@ -446,8 +448,9 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
  				Elem: &pluginsdk.Resource{
  					Schema: map[string]*pluginsdk.Schema{
  						"name": {
@@ -2469,7 +2469,7 @@ index b215edff58..4381151544 100644
  	if !ok {
  		return fmt.Errorf("could not determine Storage domain suffix for environment %q", meta.(*clients.Client).Account.Environment.Name)
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index c6f3f221b2..6c460dddfe 100644
+index e3acc874e6..53984fe280 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
 @@ -13,6 +13,9 @@ import (
@@ -2482,7 +2482,7 @@ index c6f3f221b2..6c460dddfe 100644
  	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2021-09-01/storage" // nolint: staticcheck
  	azautorest "github.com/Azure/go-autorest/autorest"
  	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-@@ -139,8 +142,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -138,8 +141,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
  					string(storage.KindBlockBlobStorage),
  					string(storage.KindFileStorage),
  					string(storage.KindStorageV2),
@@ -2494,7 +2494,7 @@ index c6f3f221b2..6c460dddfe 100644
  			},
  
  			"account_tier": {
-@@ -150,7 +154,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -149,7 +153,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(storage.SkuTierStandard),
  					string(storage.SkuTierPremium),
@@ -2504,7 +2504,7 @@ index c6f3f221b2..6c460dddfe 100644
  			},
  
  			"account_replication_type": {
-@@ -163,7 +168,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -162,7 +167,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  					"RAGRS",
  					"GZRS",
  					"RAGZRS",
@@ -2514,7 +2514,7 @@ index c6f3f221b2..6c460dddfe 100644
  			},
  
  			// Only valid for FileStorage, BlobStorage & StorageV2 accounts, defaults to "Hot" in create function
-@@ -174,7 +180,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -173,7 +179,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(storage.AccessTierCool),
  					string(storage.AccessTierHot),
@@ -2524,7 +2524,7 @@ index c6f3f221b2..6c460dddfe 100644
  			},
  
  			"azure_files_authentication": {
-@@ -403,7 +410,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -402,7 +409,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  									string(storage.BypassLogging),
  									string(storage.BypassMetrics),
  									string(storage.BypassNone),

@@ -1011,7 +1011,7 @@ index aeaa4514d6..0c02bc4313 100644
  
  ```hcl
 diff --git a/website/docs/r/cosmosdb_account.html.markdown b/website/docs/r/cosmosdb_account.html.markdown
-index 0970ddbe7e..51f934438d 100644
+index e15f6badcf..84b98f43a1 100644
 --- a/website/docs/r/cosmosdb_account.html.markdown
 +++ b/website/docs/r/cosmosdb_account.html.markdown
 @@ -13,9 +13,9 @@ Manages a CosmosDB (formally DocumentDB) Account.
@@ -1700,16 +1700,17 @@ index d9c71a1023..c1c041691e 100644
    eventhub_endpoint_name = "events"
    resource_group_name    = azurerm_resource_group.example.name
 diff --git a/website/docs/r/key_vault.html.markdown b/website/docs/r/key_vault.html.markdown
-index 9413715a49..1b5b764080 100644
+index 2b480185e6..42864de069 100644
 --- a/website/docs/r/key_vault.html.markdown
 +++ b/website/docs/r/key_vault.html.markdown
-@@ -12,11 +12,9 @@ Manages a Key Vault.
+@@ -12,12 +12,9 @@ Manages a Key Vault.
  
  ## Disclaimers
  
 -~> **Note:** It's possible to define Key Vault Access Policies both within [the `azurerm_key_vault` resource](key_vault.html) via the `access_policy` block and by using [the `azurerm_key_vault_access_policy` resource](key_vault_access_policy.html). However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
 +~> **Note:** It's possible to define Key Vault Access Policies both within the `azurerm_key_vault` resource via the `access_policy` block and by using the `azurerm_key_vault_access_policy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
  
+-<!-- TODO: Remove Note in 4.0 -->
 -~> **Note:** It's possible to define Key Vault Certificate Contacts both within [the `azurerm_key_vault` resource](key_vault.html) via the `contact` block and by using [the `azurerm_key_vault_certificate_contacts` resource](key_vault_certificate_contacts.html). However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
 -
 -~> **Note:** Terraform will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` block within the Provider block.
@@ -1717,7 +1718,7 @@ index 9413715a49..1b5b764080 100644
  
  ## Example Usage
  
-@@ -83,7 +81,7 @@ The following arguments are supported:
+@@ -84,7 +81,7 @@ The following arguments are supported:
  
  ---
  
@@ -1726,7 +1727,7 @@ index 9413715a49..1b5b764080 100644
  
  -> **NOTE** Since `access_policy` can be configured both inline and via the separate `azurerm_key_vault_access_policy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
  
-@@ -99,7 +97,7 @@ The following arguments are supported:
+@@ -100,7 +97,7 @@ The following arguments are supported:
  
  * `purge_protection_enabled` - (Optional) Is Purge Protection enabled for this Key Vault? 
  
@@ -1755,22 +1756,19 @@ index 84fbd56f53..e46bf51e6c 100644
 --> **NOTE:** Both Identifiers are unique to Terraform and don't map to an existing object within Azure.
 +-> **NOTE:** Both Identifiers are unique to this provider and don't map to an existing object within Azure.
 diff --git a/website/docs/r/key_vault_certificate.html.markdown b/website/docs/r/key_vault_certificate.html.markdown
-index 89198d584b..d2c3bee09a 100644
+index 89198d584b..f2ec1a778a 100644
 --- a/website/docs/r/key_vault_certificate.html.markdown
 +++ b/website/docs/r/key_vault_certificate.html.markdown
-@@ -11,8 +11,11 @@ description: |-
+@@ -11,8 +11,6 @@ description: |-
  
  Manages a Key Vault Certificate.
  
-+<<<<<<< HEAD
- ~> **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See [`purge_soft_deleted_certificates_on_destroy`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block#purge_soft_deleted_certificates_on_destroy) for more information. 
- 
-+=======
-+>>>>>>> 8d78c87098 (Update-documentation)
+-~> **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See [`purge_soft_deleted_certificates_on_destroy`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block#purge_soft_deleted_certificates_on_destroy) for more information. 
+-
  ## Example Usage (Importing a PFX)
  
  ~> **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
-@@ -103,7 +106,7 @@ resource "azurerm_key_vault_certificate" "example" {
+@@ -103,7 +101,7 @@ resource "azurerm_key_vault_certificate" "example" {
  }
  ```
  
@@ -1780,21 +1778,18 @@ index 89198d584b..d2c3bee09a 100644
  ```hcl
  data "azurerm_client_config" "current" {}
 diff --git a/website/docs/r/key_vault_secret.html.markdown b/website/docs/r/key_vault_secret.html.markdown
-index c6387f8e37..10ac1d0ad4 100644
+index c6387f8e37..ab11365777 100644
 --- a/website/docs/r/key_vault_secret.html.markdown
 +++ b/website/docs/r/key_vault_secret.html.markdown
-@@ -11,11 +11,14 @@ description: |-
+@@ -11,11 +11,6 @@ description: |-
  
  Manages a Key Vault Secret.
  
-+<<<<<<< HEAD
- ~> **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
- [Read more about sensitive data in state](/docs/state/sensitive-data.html).
- 
- ~> **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Secret resource on destroy, rather than the default soft-delete. See [`purge_soft_deleted_secrets_on_destroy`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block#purge_soft_deleted_secrets_on_destroy) for more information.
- 
-+=======
-+>>>>>>> 8d78c87098 (Update-documentation)
+-~> **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+-[Read more about sensitive data in state](/docs/state/sensitive-data.html).
+-
+-~> **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Secret resource on destroy, rather than the default soft-delete. See [`purge_soft_deleted_secrets_on_destroy`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block#purge_soft_deleted_secrets_on_destroy) for more information.
+-
  ## Example Usage
  
  ```hcl
@@ -2711,7 +2706,7 @@ index 06660e1381..3562812668 100644
  -> **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
  
 diff --git a/website/docs/r/signalr_service.html.markdown b/website/docs/r/signalr_service.html.markdown
-index f2e1549d43..4836c3ef0a 100644
+index ea6e5aa12e..596c16baba 100644
 --- a/website/docs/r/signalr_service.html.markdown
 +++ b/website/docs/r/signalr_service.html.markdown
 @@ -14,8 +14,8 @@ Manages an Azure SignalR service.
@@ -2754,7 +2749,7 @@ index 8f57c91d06..e08781fa67 100644
  
  ```hcl
 diff --git a/website/docs/r/storage_blob.html.markdown b/website/docs/r/storage_blob.html.markdown
-index 04ca0f76e5..f0d311a601 100644
+index d5b970d394..34cf87d1ae 100644
 --- a/website/docs/r/storage_blob.html.markdown
 +++ b/website/docs/r/storage_blob.html.markdown
 @@ -65,8 +65,6 @@ The following arguments are supported:
@@ -2763,9 +2758,9 @@ index 04ca0f76e5..f0d311a601 100644
  
 -~> **NOTE:** This property is intended to be used with the Terraform internal [filemd5](https://www.terraform.io/docs/configuration/functions/filemd5.html) and [md5](https://www.terraform.io/docs/configuration/functions/md5.html) functions when `source` or `source_content`, respectively, are defined.
 -
- * `source` - (Optional) An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+ * `encryption_scope` - (Optional) The encryption scope to use for this blob.
  
- * `source_content` - (Optional) The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
+ * `source` - (Optional) An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
 diff --git a/website/docs/r/storage_data_lake_gen2_path.html.markdown b/website/docs/r/storage_data_lake_gen2_path.html.markdown
 index 6786f8eb01..38823a0fd4 100644
 --- a/website/docs/r/storage_data_lake_gen2_path.html.markdown
@@ -2780,7 +2775,7 @@ index 6786f8eb01..38823a0fd4 100644
    name     = "example-resources"
    location = "West Europe"
 diff --git a/website/docs/r/subnet.html.markdown b/website/docs/r/subnet.html.markdown
-index febf934234..d8187c43d6 100644
+index eb2020be7a..6f8b64b8c3 100644
 --- a/website/docs/r/subnet.html.markdown
 +++ b/website/docs/r/subnet.html.markdown
 @@ -11,7 +11,7 @@ description: |-
