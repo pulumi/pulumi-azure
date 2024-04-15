@@ -21,10 +21,16 @@ class GetStorageContainerResult:
     """
     A collection of values returned by getStorageContainer.
     """
-    def __init__(__self__, container_access_type=None, has_immutability_policy=None, has_legal_hold=None, id=None, metadata=None, name=None, resource_manager_id=None, storage_account_name=None):
+    def __init__(__self__, container_access_type=None, default_encryption_scope=None, encryption_scope_override_enabled=None, has_immutability_policy=None, has_legal_hold=None, id=None, metadata=None, name=None, resource_manager_id=None, storage_account_name=None):
         if container_access_type and not isinstance(container_access_type, str):
             raise TypeError("Expected argument 'container_access_type' to be a str")
         pulumi.set(__self__, "container_access_type", container_access_type)
+        if default_encryption_scope and not isinstance(default_encryption_scope, str):
+            raise TypeError("Expected argument 'default_encryption_scope' to be a str")
+        pulumi.set(__self__, "default_encryption_scope", default_encryption_scope)
+        if encryption_scope_override_enabled and not isinstance(encryption_scope_override_enabled, bool):
+            raise TypeError("Expected argument 'encryption_scope_override_enabled' to be a bool")
+        pulumi.set(__self__, "encryption_scope_override_enabled", encryption_scope_override_enabled)
         if has_immutability_policy and not isinstance(has_immutability_policy, bool):
             raise TypeError("Expected argument 'has_immutability_policy' to be a bool")
         pulumi.set(__self__, "has_immutability_policy", has_immutability_policy)
@@ -54,6 +60,22 @@ class GetStorageContainerResult:
         The Access Level configured for this Container.
         """
         return pulumi.get(self, "container_access_type")
+
+    @property
+    @pulumi.getter(name="defaultEncryptionScope")
+    def default_encryption_scope(self) -> str:
+        """
+        The default encryption scope in use for blobs uploaded to this container.
+        """
+        return pulumi.get(self, "default_encryption_scope")
+
+    @property
+    @pulumi.getter(name="encryptionScopeOverrideEnabled")
+    def encryption_scope_override_enabled(self) -> bool:
+        """
+        Whether blobs are allowed to override the default encryption scope for this container.
+        """
+        return pulumi.get(self, "encryption_scope_override_enabled")
 
     @property
     @pulumi.getter(name="hasImmutabilityPolicy")
@@ -113,6 +135,8 @@ class AwaitableGetStorageContainerResult(GetStorageContainerResult):
             yield self
         return GetStorageContainerResult(
             container_access_type=self.container_access_type,
+            default_encryption_scope=self.default_encryption_scope,
+            encryption_scope_override_enabled=self.encryption_scope_override_enabled,
             has_immutability_policy=self.has_immutability_policy,
             has_legal_hold=self.has_legal_hold,
             id=self.id,
@@ -155,6 +179,8 @@ def get_storage_container(metadata: Optional[Mapping[str, str]] = None,
 
     return AwaitableGetStorageContainerResult(
         container_access_type=pulumi.get(__ret__, 'container_access_type'),
+        default_encryption_scope=pulumi.get(__ret__, 'default_encryption_scope'),
+        encryption_scope_override_enabled=pulumi.get(__ret__, 'encryption_scope_override_enabled'),
         has_immutability_policy=pulumi.get(__ret__, 'has_immutability_policy'),
         has_legal_hold=pulumi.get(__ret__, 'has_legal_hold'),
         id=pulumi.get(__ret__, 'id'),

@@ -72,6 +72,8 @@ type LookupBlobResult struct {
 	ContentMd5 string `pulumi:"contentMd5"`
 	// The content type of the storage blob.
 	ContentType string `pulumi:"contentType"`
+	// The encryption scope for this blob.
+	EncryptionScope string `pulumi:"encryptionScope"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A map of custom blob metadata.
@@ -142,6 +144,11 @@ func (o LookupBlobResultOutput) ContentMd5() pulumi.StringOutput {
 // The content type of the storage blob.
 func (o LookupBlobResultOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBlobResult) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// The encryption scope for this blob.
+func (o LookupBlobResultOutput) EncryptionScope() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobResult) string { return v.EncryptionScope }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

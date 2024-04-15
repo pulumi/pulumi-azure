@@ -91,6 +91,10 @@ type Snapshot struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+	NetworkAccessPolicy pulumi.StringPtrOutput `pulumi:"networkAccessPolicy"`
+	// Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
@@ -157,6 +161,10 @@ type snapshotState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
+	// Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
@@ -188,6 +196,10 @@ type SnapshotState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+	NetworkAccessPolicy pulumi.StringPtrInput
+	// Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
@@ -223,6 +235,10 @@ type snapshotArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
+	// Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
@@ -253,6 +269,10 @@ type SnapshotArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+	NetworkAccessPolicy pulumi.StringPtrInput
+	// Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
@@ -384,6 +404,16 @@ func (o SnapshotOutput) Location() pulumi.StringOutput {
 // Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
 func (o SnapshotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+func (o SnapshotOutput) NetworkAccessPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.NetworkAccessPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+func (o SnapshotOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.

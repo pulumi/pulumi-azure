@@ -18,26 +18,22 @@ public final class GetPublicIpPrefixResult {
      * 
      */
     private String id;
+    /**
+     * @return The Public IP address range, in CIDR notation.
+     * 
+     */
     private String ipPrefix;
     /**
      * @return The supported Azure location where the resource exists.
      * 
      */
     private String location;
-    /**
-     * @return The name of the Public IP prefix resource.
-     * 
-     */
     private String name;
     /**
      * @return The number of bits of the prefix.
      * 
      */
     private Integer prefixLength;
-    /**
-     * @return The name of the resource group in which to create the public IP.
-     * 
-     */
     private String resourceGroupName;
     /**
      * @return The SKU of the Public IP Prefix.
@@ -63,6 +59,10 @@ public final class GetPublicIpPrefixResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The Public IP address range, in CIDR notation.
+     * 
+     */
     public String ipPrefix() {
         return this.ipPrefix;
     }
@@ -73,10 +73,6 @@ public final class GetPublicIpPrefixResult {
     public String location() {
         return this.location;
     }
-    /**
-     * @return The name of the Public IP prefix resource.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -87,10 +83,6 @@ public final class GetPublicIpPrefixResult {
     public Integer prefixLength() {
         return this.prefixLength;
     }
-    /**
-     * @return The name of the resource group in which to create the public IP.
-     * 
-     */
     public String resourceGroupName() {
         return this.resourceGroupName;
     }

@@ -74,6 +74,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enable automatic failover for this Cosmos DB account.
+     * 
+     */
+    @Import(name="automaticFailoverEnabled")
+    private @Nullable Output<Boolean> automaticFailoverEnabled;
+
+    /**
+     * @return Enable automatic failover for this Cosmos DB account.
+     * 
+     */
+    public Optional<Output<Boolean>> automaticFailoverEnabled() {
+        return Optional.ofNullable(this.automaticFailoverEnabled);
+    }
+
+    /**
      * A `backup` block as defined below.
      * 
      */
@@ -119,16 +134,20 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of connection strings available for this CosmosDB account.
+     * @deprecated
+     * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
     @Import(name="connectionStrings")
     private @Nullable Output<List<String>> connectionStrings;
 
     /**
-     * @return A list of connection strings available for this CosmosDB account.
+     * @deprecated
+     * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
     public Optional<Output<List<String>>> connectionStrings() {
         return Optional.ofNullable(this.connectionStrings);
     }
@@ -198,46 +217,58 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable automatic failover for this Cosmos DB account.
+     * @deprecated
+     * This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider */
     @Import(name="enableAutomaticFailover")
     private @Nullable Output<Boolean> enableAutomaticFailover;
 
     /**
-     * @return Enable automatic failover for this Cosmos DB account.
+     * @deprecated
+     * This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider */
     public Optional<Output<Boolean>> enableAutomaticFailover() {
         return Optional.ofNullable(this.enableAutomaticFailover);
     }
 
     /**
-     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * @deprecated
+     * This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider */
     @Import(name="enableFreeTier")
     private @Nullable Output<Boolean> enableFreeTier;
 
     /**
-     * @return Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * @deprecated
+     * This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider */
     public Optional<Output<Boolean>> enableFreeTier() {
         return Optional.ofNullable(this.enableFreeTier);
     }
 
     /**
-     * Enable multiple write locations for this Cosmos DB account.
+     * @deprecated
+     * This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider */
     @Import(name="enableMultipleWriteLocations")
     private @Nullable Output<Boolean> enableMultipleWriteLocations;
 
     /**
-     * @return Enable multiple write locations for this Cosmos DB account.
+     * @deprecated
+     * This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider */
     public Optional<Output<Boolean>> enableMultipleWriteLocations() {
         return Optional.ofNullable(this.enableMultipleWriteLocations);
     }
@@ -255,6 +286,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> endpoint() {
         return Optional.ofNullable(this.endpoint);
+    }
+
+    /**
+     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="freeTierEnabled")
+    private @Nullable Output<Boolean> freeTierEnabled;
+
+    /**
+     * @return Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> freeTierEnabled() {
+        return Optional.ofNullable(this.freeTierEnabled);
     }
 
     /**
@@ -421,6 +467,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> mongoServerVersion() {
         return Optional.ofNullable(this.mongoServerVersion);
+    }
+
+    /**
+     * Enable multiple write locations for this Cosmos DB account.
+     * 
+     */
+    @Import(name="multipleWriteLocationsEnabled")
+    private @Nullable Output<Boolean> multipleWriteLocationsEnabled;
+
+    /**
+     * @return Enable multiple write locations for this Cosmos DB account.
+     * 
+     */
+    public Optional<Output<Boolean>> multipleWriteLocationsEnabled() {
+        return Optional.ofNullable(this.multipleWriteLocationsEnabled);
     }
 
     /**
@@ -793,6 +854,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.accessKeyMetadataWritesEnabled = $.accessKeyMetadataWritesEnabled;
         this.analyticalStorage = $.analyticalStorage;
         this.analyticalStorageEnabled = $.analyticalStorageEnabled;
+        this.automaticFailoverEnabled = $.automaticFailoverEnabled;
         this.backup = $.backup;
         this.capabilities = $.capabilities;
         this.capacity = $.capacity;
@@ -805,6 +867,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.enableFreeTier = $.enableFreeTier;
         this.enableMultipleWriteLocations = $.enableMultipleWriteLocations;
         this.endpoint = $.endpoint;
+        this.freeTierEnabled = $.freeTierEnabled;
         this.geoLocations = $.geoLocations;
         this.identity = $.identity;
         this.ipRangeFilter = $.ipRangeFilter;
@@ -815,6 +878,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.location = $.location;
         this.minimalTlsVersion = $.minimalTlsVersion;
         this.mongoServerVersion = $.mongoServerVersion;
+        this.multipleWriteLocationsEnabled = $.multipleWriteLocationsEnabled;
         this.name = $.name;
         this.networkAclBypassForAzureServices = $.networkAclBypassForAzureServices;
         this.networkAclBypassIds = $.networkAclBypassIds;
@@ -923,6 +987,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param automaticFailoverEnabled Enable automatic failover for this Cosmos DB account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automaticFailoverEnabled(@Nullable Output<Boolean> automaticFailoverEnabled) {
+            $.automaticFailoverEnabled = automaticFailoverEnabled;
+            return this;
+        }
+
+        /**
+         * @param automaticFailoverEnabled Enable automatic failover for this Cosmos DB account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automaticFailoverEnabled(Boolean automaticFailoverEnabled) {
+            return automaticFailoverEnabled(Output.of(automaticFailoverEnabled));
+        }
+
+        /**
          * @param backup A `backup` block as defined below.
          * 
          * @return builder
@@ -996,32 +1081,38 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings A list of connection strings available for this CosmosDB account.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
         public Builder connectionStrings(@Nullable Output<List<String>> connectionStrings) {
             $.connectionStrings = connectionStrings;
             return this;
         }
 
         /**
-         * @param connectionStrings A list of connection strings available for this CosmosDB account.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
         public Builder connectionStrings(List<String> connectionStrings) {
             return connectionStrings(Output.of(connectionStrings));
         }
 
         /**
-         * @param connectionStrings A list of connection strings available for this CosmosDB account.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
         public Builder connectionStrings(String... connectionStrings) {
             return connectionStrings(List.of(connectionStrings));
         }
@@ -1115,64 +1206,76 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableAutomaticFailover Enable automatic failover for this Cosmos DB account.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider */
         public Builder enableAutomaticFailover(@Nullable Output<Boolean> enableAutomaticFailover) {
             $.enableAutomaticFailover = enableAutomaticFailover;
             return this;
         }
 
         /**
-         * @param enableAutomaticFailover Enable automatic failover for this Cosmos DB account.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider */
         public Builder enableAutomaticFailover(Boolean enableAutomaticFailover) {
             return enableAutomaticFailover(Output.of(enableAutomaticFailover));
         }
 
         /**
-         * @param enableFreeTier Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider */
         public Builder enableFreeTier(@Nullable Output<Boolean> enableFreeTier) {
             $.enableFreeTier = enableFreeTier;
             return this;
         }
 
         /**
-         * @param enableFreeTier Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider */
         public Builder enableFreeTier(Boolean enableFreeTier) {
             return enableFreeTier(Output.of(enableFreeTier));
         }
 
         /**
-         * @param enableMultipleWriteLocations Enable multiple write locations for this Cosmos DB account.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider */
         public Builder enableMultipleWriteLocations(@Nullable Output<Boolean> enableMultipleWriteLocations) {
             $.enableMultipleWriteLocations = enableMultipleWriteLocations;
             return this;
         }
 
         /**
-         * @param enableMultipleWriteLocations Enable multiple write locations for this Cosmos DB account.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider */
         public Builder enableMultipleWriteLocations(Boolean enableMultipleWriteLocations) {
             return enableMultipleWriteLocations(Output.of(enableMultipleWriteLocations));
         }
@@ -1196,6 +1299,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
+        }
+
+        /**
+         * @param freeTierEnabled Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder freeTierEnabled(@Nullable Output<Boolean> freeTierEnabled) {
+            $.freeTierEnabled = freeTierEnabled;
+            return this;
+        }
+
+        /**
+         * @param freeTierEnabled Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder freeTierEnabled(Boolean freeTierEnabled) {
+            return freeTierEnabled(Output.of(freeTierEnabled));
         }
 
         /**
@@ -1432,6 +1556,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder mongoServerVersion(String mongoServerVersion) {
             return mongoServerVersion(Output.of(mongoServerVersion));
+        }
+
+        /**
+         * @param multipleWriteLocationsEnabled Enable multiple write locations for this Cosmos DB account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multipleWriteLocationsEnabled(@Nullable Output<Boolean> multipleWriteLocationsEnabled) {
+            $.multipleWriteLocationsEnabled = multipleWriteLocationsEnabled;
+            return this;
+        }
+
+        /**
+         * @param multipleWriteLocationsEnabled Enable multiple write locations for this Cosmos DB account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multipleWriteLocationsEnabled(Boolean multipleWriteLocationsEnabled) {
+            return multipleWriteLocationsEnabled(Output.of(multipleWriteLocationsEnabled));
         }
 
         /**

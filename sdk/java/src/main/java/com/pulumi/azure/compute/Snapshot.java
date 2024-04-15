@@ -180,6 +180,34 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+     * 
+     */
+    @Export(name="networkAccessPolicy", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> networkAccessPolicy;
+
+    /**
+     * @return Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+     * 
+     */
+    public Output<Optional<String>> networkAccessPolicy() {
+        return Codegen.optional(this.networkAccessPolicy);
+    }
+    /**
+     * Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+     * 
+     */
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
+    }
+    /**
      * The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
      * 
      */

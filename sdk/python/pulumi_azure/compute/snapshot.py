@@ -23,6 +23,8 @@ class SnapshotArgs:
                  incremental_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_access_policy: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -40,6 +42,8 @@ class SnapshotArgs:
         :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+        :param pulumi.Input[bool] public_network_access_enabled: Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] source_resource_id: Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_uri: Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
@@ -57,6 +61,10 @@ class SnapshotArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_access_policy is not None:
+            pulumi.set(__self__, "network_access_policy", network_access_policy)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
         if source_uri is not None:
@@ -155,6 +163,30 @@ class SnapshotArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="networkAccessPolicy")
+    def network_access_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+        """
+        return pulumi.get(self, "network_access_policy")
+
+    @network_access_policy.setter
+    def network_access_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_access_policy", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -212,6 +244,8 @@ class _SnapshotState:
                  incremental_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_access_policy: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
@@ -230,6 +264,8 @@ class _SnapshotState:
         :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+        :param pulumi.Input[bool] public_network_access_enabled: Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_resource_id: Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_uri: Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
@@ -249,6 +285,10 @@ class _SnapshotState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_access_policy is not None:
+            pulumi.set(__self__, "network_access_policy", network_access_policy)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if source_resource_id is not None:
@@ -339,6 +379,30 @@ class _SnapshotState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="networkAccessPolicy")
+    def network_access_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+        """
+        return pulumi.get(self, "network_access_policy")
+
+    @network_access_policy.setter
+    def network_access_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_access_policy", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -422,6 +486,8 @@ class Snapshot(pulumi.CustomResource):
                  incremental_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_access_policy: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
@@ -477,6 +543,8 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+        :param pulumi.Input[bool] public_network_access_enabled: Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_resource_id: Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_uri: Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
@@ -547,6 +615,8 @@ class Snapshot(pulumi.CustomResource):
                  incremental_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_access_policy: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
@@ -569,6 +639,8 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["incremental_enabled"] = incremental_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_access_policy"] = network_access_policy
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -593,6 +665,8 @@ class Snapshot(pulumi.CustomResource):
             incremental_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            network_access_policy: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             source_resource_id: Optional[pulumi.Input[str]] = None,
             source_uri: Optional[pulumi.Input[str]] = None,
@@ -616,6 +690,8 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+        :param pulumi.Input[bool] public_network_access_enabled: Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_resource_id: Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_uri: Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
@@ -633,6 +709,8 @@ class Snapshot(pulumi.CustomResource):
         __props__.__dict__["incremental_enabled"] = incremental_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_access_policy"] = network_access_policy
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["source_resource_id"] = source_resource_id
         __props__.__dict__["source_uri"] = source_uri
@@ -692,6 +770,22 @@ class Snapshot(pulumi.CustomResource):
         Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkAccessPolicy")
+    def network_access_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+        """
+        return pulumi.get(self, "network_access_policy")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

@@ -52,30 +52,38 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
+     * If automatic failover is enabled for this CosmosDB Account.
+     */
+    readonly automaticFailoverEnabled: boolean;
+    /**
      * Capabilities enabled on this Cosmos DB account.
      */
     readonly capabilities: outputs.cosmosdb.GetAccountCapability[];
     /**
-     * A list of connection strings available for this CosmosDB account.
+     * @deprecated This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
      */
     readonly connectionStrings: string[];
     readonly consistencyPolicies: outputs.cosmosdb.GetAccountConsistencyPolicy[];
     /**
-     * If automatic failover is enabled for this CosmosDB Account.
+     * @deprecated This property has been renamed to `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM provider
      */
     readonly enableAutomaticFailover: boolean;
     /**
-     * If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
+     * @deprecated This property has been renamed to `freeTierEnabled` and will be removed in v4.0 of the AzureRM provider
      */
     readonly enableFreeTier: boolean;
     /**
-     * If multiple write locations are enabled for this Cosmos DB account.
+     * @deprecated This property has been renamed to `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM provider
      */
     readonly enableMultipleWriteLocations: boolean;
     /**
      * The endpoint used to connect to the CosmosDB account.
      */
     readonly endpoint: string;
+    /**
+     * If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
+     */
+    readonly freeTierEnabled: boolean;
     readonly geoLocations: outputs.cosmosdb.GetAccountGeoLocation[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -101,6 +109,10 @@ export interface GetAccountResult {
      * The name of the Azure region hosting replicated data.
      */
     readonly location: string;
+    /**
+     * If multiple write locations are enabled for this Cosmos DB account.
+     */
+    readonly multipleWriteLocationsEnabled: boolean;
     readonly name: string;
     /**
      * The Offer Type to used by this CosmosDB Account.

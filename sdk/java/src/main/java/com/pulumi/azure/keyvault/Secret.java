@@ -19,14 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Key Vault Secret.
  * 
- * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
- * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
- * &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Secret resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_secrets_on_destroy` for more information.
- * 
- * =======
- * &gt; &gt; &gt; &gt; &gt; &gt; &gt; 8d78c87098 (Update-documentation)
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

@@ -183,13 +183,15 @@ type Account struct {
 	AnalyticalStorage AccountAnalyticalStorageOutput `pulumi:"analyticalStorage"`
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
 	AnalyticalStorageEnabled pulumi.BoolPtrOutput `pulumi:"analyticalStorageEnabled"`
+	// Enable automatic failover for this Cosmos DB account.
+	AutomaticFailoverEnabled pulumi.BoolOutput `pulumi:"automaticFailoverEnabled"`
 	// A `backup` block as defined below.
 	Backup AccountBackupOutput `pulumi:"backup"`
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
 	Capabilities AccountCapabilityArrayOutput `pulumi:"capabilities"`
 	// A `capacity` block as defined below.
 	Capacity AccountCapacityOutput `pulumi:"capacity"`
-	// A list of connection strings available for this CosmosDB account.
+	// Deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
 	ConnectionStrings pulumi.StringArrayOutput `pulumi:"connectionStrings"`
 	// Specifies one `consistencyPolicy` block as defined below, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicyOutput `pulumi:"consistencyPolicy"`
@@ -201,14 +203,16 @@ type Account struct {
 	CreateMode pulumi.StringOutput `pulumi:"createMode"`
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
 	DefaultIdentityType pulumi.StringPtrOutput `pulumi:"defaultIdentityType"`
-	// Enable automatic failover for this Cosmos DB account.
-	EnableAutomaticFailover pulumi.BoolPtrOutput `pulumi:"enableAutomaticFailover"`
-	// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-	EnableFreeTier pulumi.BoolPtrOutput `pulumi:"enableFreeTier"`
-	// Enable multiple write locations for this Cosmos DB account.
-	EnableMultipleWriteLocations pulumi.BoolPtrOutput `pulumi:"enableMultipleWriteLocations"`
+	// Deprecated: This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
+	EnableAutomaticFailover pulumi.BoolOutput `pulumi:"enableAutomaticFailover"`
+	// Deprecated: This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
+	EnableFreeTier pulumi.BoolOutput `pulumi:"enableFreeTier"`
+	// Deprecated: This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
+	EnableMultipleWriteLocations pulumi.BoolOutput `pulumi:"enableMultipleWriteLocations"`
 	// The endpoint used to connect to the CosmosDB account.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	FreeTierEnabled pulumi.BoolOutput `pulumi:"freeTierEnabled"`
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
 	GeoLocations AccountGeoLocationArrayOutput `pulumi:"geoLocations"`
 	// An `identity` block as defined below.
@@ -237,6 +241,8 @@ type Account struct {
 	MinimalTlsVersion pulumi.StringOutput `pulumi:"minimalTlsVersion"`
 	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion pulumi.StringOutput `pulumi:"mongoServerVersion"`
+	// Enable multiple write locations for this Cosmos DB account.
+	MultipleWriteLocationsEnabled pulumi.BoolOutput `pulumi:"multipleWriteLocationsEnabled"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// If Azure services can bypass ACLs. Defaults to `false`.
@@ -353,13 +359,15 @@ type accountState struct {
 	AnalyticalStorage *AccountAnalyticalStorage `pulumi:"analyticalStorage"`
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
 	AnalyticalStorageEnabled *bool `pulumi:"analyticalStorageEnabled"`
+	// Enable automatic failover for this Cosmos DB account.
+	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
 	// A `backup` block as defined below.
 	Backup *AccountBackup `pulumi:"backup"`
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
 	Capabilities []AccountCapability `pulumi:"capabilities"`
 	// A `capacity` block as defined below.
 	Capacity *AccountCapacity `pulumi:"capacity"`
-	// A list of connection strings available for this CosmosDB account.
+	// Deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
 	ConnectionStrings []string `pulumi:"connectionStrings"`
 	// Specifies one `consistencyPolicy` block as defined below, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy *AccountConsistencyPolicy `pulumi:"consistencyPolicy"`
@@ -371,14 +379,16 @@ type accountState struct {
 	CreateMode *string `pulumi:"createMode"`
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
 	DefaultIdentityType *string `pulumi:"defaultIdentityType"`
-	// Enable automatic failover for this Cosmos DB account.
+	// Deprecated: This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
-	// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	// Deprecated: This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
 	EnableFreeTier *bool `pulumi:"enableFreeTier"`
-	// Enable multiple write locations for this Cosmos DB account.
+	// Deprecated: This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
 	// The endpoint used to connect to the CosmosDB account.
 	Endpoint *string `pulumi:"endpoint"`
+	// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	FreeTierEnabled *bool `pulumi:"freeTierEnabled"`
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
 	GeoLocations []AccountGeoLocation `pulumi:"geoLocations"`
 	// An `identity` block as defined below.
@@ -407,6 +417,8 @@ type accountState struct {
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion *string `pulumi:"mongoServerVersion"`
+	// Enable multiple write locations for this Cosmos DB account.
+	MultipleWriteLocationsEnabled *bool `pulumi:"multipleWriteLocationsEnabled"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// If Azure services can bypass ACLs. Defaults to `false`.
@@ -466,13 +478,15 @@ type AccountState struct {
 	AnalyticalStorage AccountAnalyticalStoragePtrInput
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
 	AnalyticalStorageEnabled pulumi.BoolPtrInput
+	// Enable automatic failover for this Cosmos DB account.
+	AutomaticFailoverEnabled pulumi.BoolPtrInput
 	// A `backup` block as defined below.
 	Backup AccountBackupPtrInput
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
 	Capabilities AccountCapabilityArrayInput
 	// A `capacity` block as defined below.
 	Capacity AccountCapacityPtrInput
-	// A list of connection strings available for this CosmosDB account.
+	// Deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
 	ConnectionStrings pulumi.StringArrayInput
 	// Specifies one `consistencyPolicy` block as defined below, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicyPtrInput
@@ -484,14 +498,16 @@ type AccountState struct {
 	CreateMode pulumi.StringPtrInput
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
 	DefaultIdentityType pulumi.StringPtrInput
-	// Enable automatic failover for this Cosmos DB account.
+	// Deprecated: This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
 	EnableAutomaticFailover pulumi.BoolPtrInput
-	// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	// Deprecated: This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
 	EnableFreeTier pulumi.BoolPtrInput
-	// Enable multiple write locations for this Cosmos DB account.
+	// Deprecated: This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
 	EnableMultipleWriteLocations pulumi.BoolPtrInput
 	// The endpoint used to connect to the CosmosDB account.
 	Endpoint pulumi.StringPtrInput
+	// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	FreeTierEnabled pulumi.BoolPtrInput
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
 	GeoLocations AccountGeoLocationArrayInput
 	// An `identity` block as defined below.
@@ -520,6 +536,8 @@ type AccountState struct {
 	MinimalTlsVersion pulumi.StringPtrInput
 	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion pulumi.StringPtrInput
+	// Enable multiple write locations for this Cosmos DB account.
+	MultipleWriteLocationsEnabled pulumi.BoolPtrInput
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// If Azure services can bypass ACLs. Defaults to `false`.
@@ -583,6 +601,8 @@ type accountArgs struct {
 	AnalyticalStorage *AccountAnalyticalStorage `pulumi:"analyticalStorage"`
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
 	AnalyticalStorageEnabled *bool `pulumi:"analyticalStorageEnabled"`
+	// Enable automatic failover for this Cosmos DB account.
+	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
 	// A `backup` block as defined below.
 	Backup *AccountBackup `pulumi:"backup"`
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
@@ -599,12 +619,14 @@ type accountArgs struct {
 	CreateMode *string `pulumi:"createMode"`
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
 	DefaultIdentityType *string `pulumi:"defaultIdentityType"`
-	// Enable automatic failover for this Cosmos DB account.
+	// Deprecated: This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
-	// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	// Deprecated: This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
 	EnableFreeTier *bool `pulumi:"enableFreeTier"`
-	// Enable multiple write locations for this Cosmos DB account.
+	// Deprecated: This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
+	// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	FreeTierEnabled *bool `pulumi:"freeTierEnabled"`
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
 	GeoLocations []AccountGeoLocation `pulumi:"geoLocations"`
 	// An `identity` block as defined below.
@@ -633,6 +655,8 @@ type accountArgs struct {
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion *string `pulumi:"mongoServerVersion"`
+	// Enable multiple write locations for this Cosmos DB account.
+	MultipleWriteLocationsEnabled *bool `pulumi:"multipleWriteLocationsEnabled"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// If Azure services can bypass ACLs. Defaults to `false`.
@@ -665,6 +689,8 @@ type AccountArgs struct {
 	AnalyticalStorage AccountAnalyticalStoragePtrInput
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
 	AnalyticalStorageEnabled pulumi.BoolPtrInput
+	// Enable automatic failover for this Cosmos DB account.
+	AutomaticFailoverEnabled pulumi.BoolPtrInput
 	// A `backup` block as defined below.
 	Backup AccountBackupPtrInput
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
@@ -681,12 +707,14 @@ type AccountArgs struct {
 	CreateMode pulumi.StringPtrInput
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
 	DefaultIdentityType pulumi.StringPtrInput
-	// Enable automatic failover for this Cosmos DB account.
+	// Deprecated: This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
 	EnableAutomaticFailover pulumi.BoolPtrInput
-	// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	// Deprecated: This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
 	EnableFreeTier pulumi.BoolPtrInput
-	// Enable multiple write locations for this Cosmos DB account.
+	// Deprecated: This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
 	EnableMultipleWriteLocations pulumi.BoolPtrInput
+	// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	FreeTierEnabled pulumi.BoolPtrInput
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
 	GeoLocations AccountGeoLocationArrayInput
 	// An `identity` block as defined below.
@@ -715,6 +743,8 @@ type AccountArgs struct {
 	MinimalTlsVersion pulumi.StringPtrInput
 	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion pulumi.StringPtrInput
+	// Enable multiple write locations for this Cosmos DB account.
+	MultipleWriteLocationsEnabled pulumi.BoolPtrInput
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// If Azure services can bypass ACLs. Defaults to `false`.
@@ -841,6 +871,11 @@ func (o AccountOutput) AnalyticalStorageEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.AnalyticalStorageEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Enable automatic failover for this Cosmos DB account.
+func (o AccountOutput) AutomaticFailoverEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.AutomaticFailoverEnabled }).(pulumi.BoolOutput)
+}
+
 // A `backup` block as defined below.
 func (o AccountOutput) Backup() AccountBackupOutput {
 	return o.ApplyT(func(v *Account) AccountBackupOutput { return v.Backup }).(AccountBackupOutput)
@@ -856,7 +891,7 @@ func (o AccountOutput) Capacity() AccountCapacityOutput {
 	return o.ApplyT(func(v *Account) AccountCapacityOutput { return v.Capacity }).(AccountCapacityOutput)
 }
 
-// A list of connection strings available for this CosmosDB account.
+// Deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
 func (o AccountOutput) ConnectionStrings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringArrayOutput { return v.ConnectionStrings }).(pulumi.StringArrayOutput)
 }
@@ -883,24 +918,29 @@ func (o AccountOutput) DefaultIdentityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.DefaultIdentityType }).(pulumi.StringPtrOutput)
 }
 
-// Enable automatic failover for this Cosmos DB account.
-func (o AccountOutput) EnableAutomaticFailover() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.EnableAutomaticFailover }).(pulumi.BoolPtrOutput)
+// Deprecated: This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
+func (o AccountOutput) EnableAutomaticFailover() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.EnableAutomaticFailover }).(pulumi.BoolOutput)
 }
 
-// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-func (o AccountOutput) EnableFreeTier() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.EnableFreeTier }).(pulumi.BoolPtrOutput)
+// Deprecated: This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
+func (o AccountOutput) EnableFreeTier() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.EnableFreeTier }).(pulumi.BoolOutput)
 }
 
-// Enable multiple write locations for this Cosmos DB account.
-func (o AccountOutput) EnableMultipleWriteLocations() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.EnableMultipleWriteLocations }).(pulumi.BoolPtrOutput)
+// Deprecated: This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
+func (o AccountOutput) EnableMultipleWriteLocations() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.EnableMultipleWriteLocations }).(pulumi.BoolOutput)
 }
 
 // The endpoint used to connect to the CosmosDB account.
 func (o AccountOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+func (o AccountOutput) FreeTierEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.FreeTierEnabled }).(pulumi.BoolOutput)
 }
 
 // Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
@@ -959,6 +999,11 @@ func (o AccountOutput) MinimalTlsVersion() pulumi.StringOutput {
 // The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 func (o AccountOutput) MongoServerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.MongoServerVersion }).(pulumi.StringOutput)
+}
+
+// Enable multiple write locations for this Cosmos DB account.
+func (o AccountOutput) MultipleWriteLocationsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.MultipleWriteLocationsEnabled }).(pulumi.BoolOutput)
 }
 
 // Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.

@@ -72,6 +72,10 @@ export interface GetBlobResult {
      */
     readonly contentType: string;
     /**
+     * The encryption scope for this blob.
+     */
+    readonly encryptionScope: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

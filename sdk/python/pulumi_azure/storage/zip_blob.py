@@ -22,6 +22,7 @@ class ZipBlobArgs:
                  content: Optional[pulumi.Input[pulumi.Archive]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
+                 encryption_scope: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parallelism: Optional[pulumi.Input[int]] = None,
@@ -44,6 +45,8 @@ class ZipBlobArgs:
             pulumi.set(__self__, "content_md5", content_md5)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
+        if encryption_scope is not None:
+            pulumi.set(__self__, "encryption_scope", encryption_scope)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
@@ -130,6 +133,15 @@ class ZipBlobArgs:
         pulumi.set(self, "content_type", value)
 
     @property
+    @pulumi.getter(name="encryptionScope")
+    def encryption_scope(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "encryption_scope")
+
+    @encryption_scope.setter
+    def encryption_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_scope", value)
+
+    @property
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "metadata")
@@ -192,6 +204,7 @@ class _ZipBlobState:
                  content: Optional[pulumi.Input[pulumi.Archive]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
+                 encryption_scope: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parallelism: Optional[pulumi.Input[int]] = None,
@@ -215,6 +228,8 @@ class _ZipBlobState:
             pulumi.set(__self__, "content_md5", content_md5)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
+        if encryption_scope is not None:
+            pulumi.set(__self__, "encryption_scope", encryption_scope)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
@@ -280,6 +295,15 @@ class _ZipBlobState:
     @content_type.setter
     def content_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter(name="encryptionScope")
+    def encryption_scope(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "encryption_scope")
+
+    @encryption_scope.setter
+    def encryption_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_scope", value)
 
     @property
     @pulumi.getter
@@ -387,6 +411,7 @@ class ZipBlob(pulumi.CustomResource):
                  content: Optional[pulumi.Input[pulumi.Archive]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
+                 encryption_scope: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parallelism: Optional[pulumi.Input[int]] = None,
@@ -430,6 +455,7 @@ class ZipBlob(pulumi.CustomResource):
                  content: Optional[pulumi.Input[pulumi.Archive]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
+                 encryption_scope: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parallelism: Optional[pulumi.Input[int]] = None,
@@ -454,6 +480,7 @@ class ZipBlob(pulumi.CustomResource):
             __props__.__dict__["content"] = content
             __props__.__dict__["content_md5"] = content_md5
             __props__.__dict__["content_type"] = content_type
+            __props__.__dict__["encryption_scope"] = encryption_scope
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name
             __props__.__dict__["parallelism"] = parallelism
@@ -485,6 +512,7 @@ class ZipBlob(pulumi.CustomResource):
             content: Optional[pulumi.Input[pulumi.Archive]] = None,
             content_md5: Optional[pulumi.Input[str]] = None,
             content_type: Optional[pulumi.Input[str]] = None,
+            encryption_scope: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parallelism: Optional[pulumi.Input[int]] = None,
@@ -512,6 +540,7 @@ class ZipBlob(pulumi.CustomResource):
         __props__.__dict__["content"] = content
         __props__.__dict__["content_md5"] = content_md5
         __props__.__dict__["content_type"] = content_type
+        __props__.__dict__["encryption_scope"] = encryption_scope
         __props__.__dict__["metadata"] = metadata
         __props__.__dict__["name"] = name
         __props__.__dict__["parallelism"] = parallelism
@@ -548,6 +577,11 @@ class ZipBlob(pulumi.CustomResource):
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="encryptionScope")
+    def encryption_scope(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "encryption_scope")
 
     @property
     @pulumi.getter

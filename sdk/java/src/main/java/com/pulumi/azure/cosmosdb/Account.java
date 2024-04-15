@@ -230,6 +230,20 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.analyticalStorageEnabled);
     }
     /**
+     * Enable automatic failover for this Cosmos DB account.
+     * 
+     */
+    @Export(name="automaticFailoverEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> automaticFailoverEnabled;
+
+    /**
+     * @return Enable automatic failover for this Cosmos DB account.
+     * 
+     */
+    public Output<Boolean> automaticFailoverEnabled() {
+        return this.automaticFailoverEnabled;
+    }
+    /**
      * A `backup` block as defined below.
      * 
      */
@@ -272,16 +286,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.capacity;
     }
     /**
-     * A list of connection strings available for this CosmosDB account.
+     * @deprecated
+     * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
     @Export(name="connectionStrings", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> connectionStrings;
 
-    /**
-     * @return A list of connection strings available for this CosmosDB account.
-     * 
-     */
     public Output<List<String>> connectionStrings() {
         return this.connectionStrings;
     }
@@ -346,46 +358,40 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultIdentityType);
     }
     /**
-     * Enable automatic failover for this Cosmos DB account.
+     * @deprecated
+     * This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider */
     @Export(name="enableAutomaticFailover", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableAutomaticFailover;
+    private Output<Boolean> enableAutomaticFailover;
 
-    /**
-     * @return Enable automatic failover for this Cosmos DB account.
-     * 
-     */
-    public Output<Optional<Boolean>> enableAutomaticFailover() {
-        return Codegen.optional(this.enableAutomaticFailover);
+    public Output<Boolean> enableAutomaticFailover() {
+        return this.enableAutomaticFailover;
     }
     /**
-     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * @deprecated
+     * This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider */
     @Export(name="enableFreeTier", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableFreeTier;
+    private Output<Boolean> enableFreeTier;
 
-    /**
-     * @return Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-     * 
-     */
-    public Output<Optional<Boolean>> enableFreeTier() {
-        return Codegen.optional(this.enableFreeTier);
+    public Output<Boolean> enableFreeTier() {
+        return this.enableFreeTier;
     }
     /**
-     * Enable multiple write locations for this Cosmos DB account.
+     * @deprecated
+     * This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider */
     @Export(name="enableMultipleWriteLocations", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableMultipleWriteLocations;
+    private Output<Boolean> enableMultipleWriteLocations;
 
-    /**
-     * @return Enable multiple write locations for this Cosmos DB account.
-     * 
-     */
-    public Output<Optional<Boolean>> enableMultipleWriteLocations() {
-        return Codegen.optional(this.enableMultipleWriteLocations);
+    public Output<Boolean> enableMultipleWriteLocations() {
+        return this.enableMultipleWriteLocations;
     }
     /**
      * The endpoint used to connect to the CosmosDB account.
@@ -400,6 +406,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<String> endpoint() {
         return this.endpoint;
+    }
+    /**
+     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="freeTierEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> freeTierEnabled;
+
+    /**
+     * @return Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Boolean> freeTierEnabled() {
+        return this.freeTierEnabled;
     }
     /**
      * Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
@@ -556,6 +576,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<String> mongoServerVersion() {
         return this.mongoServerVersion;
+    }
+    /**
+     * Enable multiple write locations for this Cosmos DB account.
+     * 
+     */
+    @Export(name="multipleWriteLocationsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> multipleWriteLocationsEnabled;
+
+    /**
+     * @return Enable multiple write locations for this Cosmos DB account.
+     * 
+     */
+    public Output<Boolean> multipleWriteLocationsEnabled() {
+        return this.multipleWriteLocationsEnabled;
     }
     /**
      * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.

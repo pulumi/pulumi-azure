@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxWebAppLogsHttpLogs
     {
         /// <summary>
-        /// A `azure_blob_storage_http` block as defined below.
+        /// A `azure_blob_storage_http` block as defined above.
         /// </summary>
         public readonly Outputs.LinuxWebAppLogsHttpLogsAzureBlobStorage? AzureBlobStorage;
         /// <summary>

@@ -16364,7 +16364,7 @@ class LinuxWebAppLogsHttpLogs(dict):
                  azure_blob_storage: Optional['outputs.LinuxWebAppLogsHttpLogsAzureBlobStorage'] = None,
                  file_system: Optional['outputs.LinuxWebAppLogsHttpLogsFileSystem'] = None):
         """
-        :param 'LinuxWebAppLogsHttpLogsAzureBlobStorageArgs' azure_blob_storage: A `azure_blob_storage_http` block as defined below.
+        :param 'LinuxWebAppLogsHttpLogsAzureBlobStorageArgs' azure_blob_storage: A `azure_blob_storage_http` block as defined above.
         :param 'LinuxWebAppLogsHttpLogsFileSystemArgs' file_system: A `file_system` block as defined above.
         """
         if azure_blob_storage is not None:
@@ -16376,7 +16376,7 @@ class LinuxWebAppLogsHttpLogs(dict):
     @pulumi.getter(name="azureBlobStorage")
     def azure_blob_storage(self) -> Optional['outputs.LinuxWebAppLogsHttpLogsAzureBlobStorage']:
         """
-        A `azure_blob_storage_http` block as defined below.
+        A `azure_blob_storage_http` block as defined above.
         """
         return pulumi.get(self, "azure_blob_storage")
 
@@ -17049,6 +17049,8 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         :param str java_version: The Version of Java to use. Possible values include `8`, `11`, and `17`.
                
                > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+               
+               > **NOTE:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
         :param str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `java_version`.
                
                > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
@@ -17180,6 +17182,8 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         The Version of Java to use. Possible values include `8`, `11`, and `17`.
 
         > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+
+        > **NOTE:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
         """
         return pulumi.get(self, "java_version")
 
@@ -34885,7 +34889,7 @@ class WindowsWebAppLogsHttpLogs(dict):
                  azure_blob_storage: Optional['outputs.WindowsWebAppLogsHttpLogsAzureBlobStorage'] = None,
                  file_system: Optional['outputs.WindowsWebAppLogsHttpLogsFileSystem'] = None):
         """
-        :param 'WindowsWebAppLogsHttpLogsAzureBlobStorageArgs' azure_blob_storage: A `azure_blob_storage_http` block as defined above.
+        :param 'WindowsWebAppLogsHttpLogsAzureBlobStorageArgs' azure_blob_storage: A `azure_blob_storage_http` block as defined below.
         :param 'WindowsWebAppLogsHttpLogsFileSystemArgs' file_system: A `file_system` block as defined above.
         """
         if azure_blob_storage is not None:
@@ -34897,7 +34901,7 @@ class WindowsWebAppLogsHttpLogs(dict):
     @pulumi.getter(name="azureBlobStorage")
     def azure_blob_storage(self) -> Optional['outputs.WindowsWebAppLogsHttpLogsAzureBlobStorage']:
         """
-        A `azure_blob_storage_http` block as defined above.
+        A `azure_blob_storage_http` block as defined below.
         """
         return pulumi.get(self, "azure_blob_storage")
 

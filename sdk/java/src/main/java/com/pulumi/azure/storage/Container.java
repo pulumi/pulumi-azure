@@ -102,6 +102,34 @@ public class Container extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.containerAccessType);
     }
     /**
+     * The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="defaultEncryptionScope", refs={String.class}, tree="[0]")
+    private Output<String> defaultEncryptionScope;
+
+    /**
+     * @return The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> defaultEncryptionScope() {
+        return this.defaultEncryptionScope;
+    }
+    /**
+     * Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="encryptionScopeOverrideEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> encryptionScopeOverrideEnabled;
+
+    /**
+     * @return Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> encryptionScopeOverrideEnabled() {
+        return Codegen.optional(this.encryptionScopeOverrideEnabled);
+    }
+    /**
      * Is there an Immutability Policy configured on this Storage Container?
      * 
      */

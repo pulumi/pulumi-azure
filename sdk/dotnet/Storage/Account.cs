@@ -533,7 +533,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// A `queue_properties` block as defined below.
         /// 
-        /// &gt; **NOTE:** `queue_properties` cannot be set when the `account_kind` is set to `BlobStorage`
+        /// &gt; **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         /// </summary>
         [Output("queueProperties")]
         public Output<Outputs.AccountQueueProperties> QueueProperties { get; private set; } = null!;
@@ -782,6 +782,8 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// A `share_properties` block as defined below.
+        /// 
+        /// &gt; **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
         /// </summary>
         [Output("shareProperties")]
         public Output<Outputs.AccountShareProperties> ShareProperties { get; private set; } = null!;
@@ -1053,7 +1055,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// A `queue_properties` block as defined below.
         /// 
-        /// &gt; **NOTE:** `queue_properties` cannot be set when the `account_kind` is set to `BlobStorage`
+        /// &gt; **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         /// </summary>
         [Input("queueProperties")]
         public Input<Inputs.AccountQueuePropertiesArgs>? QueueProperties { get; set; }
@@ -1086,6 +1088,8 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// A `share_properties` block as defined below.
+        /// 
+        /// &gt; **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
         /// </summary>
         [Input("shareProperties")]
         public Input<Inputs.AccountSharePropertiesArgs>? ShareProperties { get; set; }
@@ -1562,7 +1566,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// A `queue_properties` block as defined below.
         /// 
-        /// &gt; **NOTE:** `queue_properties` cannot be set when the `account_kind` is set to `BlobStorage`
+        /// &gt; **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         /// </summary>
         [Input("queueProperties")]
         public Input<Inputs.AccountQueuePropertiesGetArgs>? QueueProperties { get; set; }
@@ -1841,6 +1845,8 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// A `share_properties` block as defined below.
+        /// 
+        /// &gt; **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
         /// </summary>
         [Input("shareProperties")]
         public Input<Inputs.AccountSharePropertiesGetArgs>? ShareProperties { get; set; }

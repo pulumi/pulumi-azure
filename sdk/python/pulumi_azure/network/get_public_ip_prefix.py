@@ -61,6 +61,9 @@ class GetPublicIpPrefixResult:
     @property
     @pulumi.getter(name="ipPrefix")
     def ip_prefix(self) -> str:
+        """
+        The Public IP address range, in CIDR notation.
+        """
         return pulumi.get(self, "ip_prefix")
 
     @property
@@ -74,9 +77,6 @@ class GetPublicIpPrefixResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of the Public IP prefix resource.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -90,9 +90,6 @@ class GetPublicIpPrefixResult:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
-        """
-        The name of the resource group in which to create the public IP.
-        """
         return pulumi.get(self, "resource_group_name")
 
     @property

@@ -151,6 +151,20 @@ public class Blob extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.contentType);
     }
     /**
+     * The encryption scope to use for this blob.
+     * 
+     */
+    @Export(name="encryptionScope", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> encryptionScope;
+
+    /**
+     * @return The encryption scope to use for this blob.
+     * 
+     */
+    public Output<Optional<String>> encryptionScope() {
+        return Codegen.optional(this.encryptionScope);
+    }
+    /**
      * A map of custom blob metadata.
      * 
      */

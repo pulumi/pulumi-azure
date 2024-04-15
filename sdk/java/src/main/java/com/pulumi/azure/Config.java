@@ -80,7 +80,8 @@ public final class Config {
         return Codegen.booleanProp("disableTerraformPartnerId").config(config).get();
     }
 /**
- * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+ * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+ * used and should not be specified when `metadata_host` is specified.
  * 
  */
     public String environment() {

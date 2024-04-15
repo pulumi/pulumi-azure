@@ -79,6 +79,21 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The encryption scope to use for this blob.
+     * 
+     */
+    @Import(name="encryptionScope")
+    private @Nullable Output<String> encryptionScope;
+
+    /**
+     * @return The encryption scope to use for this blob.
+     * 
+     */
+    public Optional<Output<String>> encryptionScope() {
+        return Optional.ofNullable(this.encryptionScope);
+    }
+
+    /**
      * A map of custom blob metadata.
      * 
      */
@@ -258,6 +273,7 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
         this.cacheControl = $.cacheControl;
         this.contentMd5 = $.contentMd5;
         this.contentType = $.contentType;
+        this.encryptionScope = $.encryptionScope;
         this.metadata = $.metadata;
         this.name = $.name;
         this.parallelism = $.parallelism;
@@ -371,6 +387,27 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder contentType(String contentType) {
             return contentType(Output.of(contentType));
+        }
+
+        /**
+         * @param encryptionScope The encryption scope to use for this blob.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionScope(@Nullable Output<String> encryptionScope) {
+            $.encryptionScope = encryptionScope;
+            return this;
+        }
+
+        /**
+         * @param encryptionScope The encryption scope to use for this blob.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionScope(String encryptionScope) {
+            return encryptionScope(Output.of(encryptionScope));
         }
 
         /**

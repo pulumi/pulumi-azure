@@ -71,7 +71,9 @@ namespace Pulumi.Azure.WebPubSub
         public Output<bool?> AadAuthEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        /// Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+        /// 
+        /// &gt; **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
         /// </summary>
         [Output("capacity")]
         public Output<int?> Capacity { get; private set; } = null!;
@@ -167,7 +169,7 @@ namespace Pulumi.Azure.WebPubSub
         public Output<int> ServerPort { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
+        /// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -247,7 +249,9 @@ namespace Pulumi.Azure.WebPubSub
         public Input<bool>? AadAuthEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        /// Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+        /// 
+        /// &gt; **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
@@ -295,7 +299,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
+        /// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -333,7 +337,9 @@ namespace Pulumi.Azure.WebPubSub
         public Input<bool>? AadAuthEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+        /// Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+        /// 
+        /// &gt; **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
@@ -469,7 +475,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<int>? ServerPort { get; set; }
 
         /// <summary>
-        /// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
+        /// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

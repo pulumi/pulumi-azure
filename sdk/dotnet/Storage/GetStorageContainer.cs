@@ -140,6 +140,14 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string ContainerAccessType;
         /// <summary>
+        /// The default encryption scope in use for blobs uploaded to this container.
+        /// </summary>
+        public readonly string DefaultEncryptionScope;
+        /// <summary>
+        /// Whether blobs are allowed to override the default encryption scope for this container.
+        /// </summary>
+        public readonly bool EncryptionScopeOverrideEnabled;
+        /// <summary>
         /// Is there an Immutability Policy configured on this Storage Container?
         /// </summary>
         public readonly bool HasImmutabilityPolicy;
@@ -166,6 +174,10 @@ namespace Pulumi.Azure.Storage
         private GetStorageContainerResult(
             string containerAccessType,
 
+            string defaultEncryptionScope,
+
+            bool encryptionScopeOverrideEnabled,
+
             bool hasImmutabilityPolicy,
 
             bool hasLegalHold,
@@ -181,6 +193,8 @@ namespace Pulumi.Azure.Storage
             string storageAccountName)
         {
             ContainerAccessType = containerAccessType;
+            DefaultEncryptionScope = defaultEncryptionScope;
+            EncryptionScopeOverrideEnabled = encryptionScopeOverrideEnabled;
             HasImmutabilityPolicy = hasImmutabilityPolicy;
             HasLegalHold = hasLegalHold;
             Id = id;

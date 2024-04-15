@@ -79,6 +79,14 @@ export class Container extends pulumi.CustomResource {
      */
     public readonly containerAccessType!: pulumi.Output<string | undefined>;
     /**
+     * The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+     */
+    public readonly defaultEncryptionScope!: pulumi.Output<string>;
+    /**
+     * Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `defaultEncryptionScope`. Defaults to `true`. Changing this forces a new resource to be created.
+     */
+    public readonly encryptionScopeOverrideEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Is there an Immutability Policy configured on this Storage Container?
      */
     public /*out*/ readonly hasImmutabilityPolicy!: pulumi.Output<boolean>;
@@ -117,6 +125,8 @@ export class Container extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ContainerState | undefined;
             resourceInputs["containerAccessType"] = state ? state.containerAccessType : undefined;
+            resourceInputs["defaultEncryptionScope"] = state ? state.defaultEncryptionScope : undefined;
+            resourceInputs["encryptionScopeOverrideEnabled"] = state ? state.encryptionScopeOverrideEnabled : undefined;
             resourceInputs["hasImmutabilityPolicy"] = state ? state.hasImmutabilityPolicy : undefined;
             resourceInputs["hasLegalHold"] = state ? state.hasLegalHold : undefined;
             resourceInputs["metadata"] = state ? state.metadata : undefined;
@@ -129,6 +139,8 @@ export class Container extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageAccountName'");
             }
             resourceInputs["containerAccessType"] = args ? args.containerAccessType : undefined;
+            resourceInputs["defaultEncryptionScope"] = args ? args.defaultEncryptionScope : undefined;
+            resourceInputs["encryptionScopeOverrideEnabled"] = args ? args.encryptionScopeOverrideEnabled : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
@@ -151,6 +163,14 @@ export interface ContainerState {
      * > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      */
     containerAccessType?: pulumi.Input<string>;
+    /**
+     * The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+     */
+    defaultEncryptionScope?: pulumi.Input<string>;
+    /**
+     * Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `defaultEncryptionScope`. Defaults to `true`. Changing this forces a new resource to be created.
+     */
+    encryptionScopeOverrideEnabled?: pulumi.Input<boolean>;
     /**
      * Is there an Immutability Policy configured on this Storage Container?
      */
@@ -187,6 +207,14 @@ export interface ContainerArgs {
      * > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      */
     containerAccessType?: pulumi.Input<string>;
+    /**
+     * The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+     */
+    defaultEncryptionScope?: pulumi.Input<string>;
+    /**
+     * Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `defaultEncryptionScope`. Defaults to `true`. Changing this forces a new resource to be created.
+     */
+    encryptionScopeOverrideEnabled?: pulumi.Input<boolean>;
     /**
      * A mapping of MetaData for this Container. All metadata keys should be lowercase.
      */

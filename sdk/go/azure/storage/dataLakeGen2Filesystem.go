@@ -80,6 +80,8 @@ type DataLakeGen2Filesystem struct {
 
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces DataLakeGen2FilesystemAceArrayOutput `pulumi:"aces"`
+	// The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+	DefaultEncryptionScope pulumi.StringOutput `pulumi:"defaultEncryptionScope"`
 	// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
 	//
 	// > **NOTE:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
@@ -129,6 +131,8 @@ func GetDataLakeGen2Filesystem(ctx *pulumi.Context,
 type dataLakeGen2FilesystemState struct {
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces []DataLakeGen2FilesystemAce `pulumi:"aces"`
+	// The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+	DefaultEncryptionScope *string `pulumi:"defaultEncryptionScope"`
 	// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
 	//
 	// > **NOTE:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
@@ -146,6 +150,8 @@ type dataLakeGen2FilesystemState struct {
 type DataLakeGen2FilesystemState struct {
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces DataLakeGen2FilesystemAceArrayInput
+	// The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+	DefaultEncryptionScope pulumi.StringPtrInput
 	// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
 	//
 	// > **NOTE:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
@@ -167,6 +173,8 @@ func (DataLakeGen2FilesystemState) ElementType() reflect.Type {
 type dataLakeGen2FilesystemArgs struct {
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces []DataLakeGen2FilesystemAce `pulumi:"aces"`
+	// The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+	DefaultEncryptionScope *string `pulumi:"defaultEncryptionScope"`
 	// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
 	//
 	// > **NOTE:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
@@ -185,6 +193,8 @@ type dataLakeGen2FilesystemArgs struct {
 type DataLakeGen2FilesystemArgs struct {
 	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 	Aces DataLakeGen2FilesystemAceArrayInput
+	// The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+	DefaultEncryptionScope pulumi.StringPtrInput
 	// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
 	//
 	// > **NOTE:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
@@ -289,6 +299,11 @@ func (o DataLakeGen2FilesystemOutput) ToDataLakeGen2FilesystemOutputWithContext(
 // One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
 func (o DataLakeGen2FilesystemOutput) Aces() DataLakeGen2FilesystemAceArrayOutput {
 	return o.ApplyT(func(v *DataLakeGen2Filesystem) DataLakeGen2FilesystemAceArrayOutput { return v.Aces }).(DataLakeGen2FilesystemAceArrayOutput)
+}
+
+// The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+func (o DataLakeGen2FilesystemOutput) DefaultEncryptionScope() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataLakeGen2Filesystem) pulumi.StringOutput { return v.DefaultEncryptionScope }).(pulumi.StringOutput)
 }
 
 // Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.

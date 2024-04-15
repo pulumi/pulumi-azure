@@ -93,6 +93,10 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly contentType!: pulumi.Output<string | undefined>;
     /**
+     * The encryption scope to use for this blob.
+     */
+    public readonly encryptionScope!: pulumi.Output<string | undefined>;
+    /**
      * A map of custom blob metadata.
      */
     public readonly metadata!: pulumi.Output<{[key: string]: string}>;
@@ -158,6 +162,7 @@ export class Blob extends pulumi.CustomResource {
             resourceInputs["cacheControl"] = state ? state.cacheControl : undefined;
             resourceInputs["contentMd5"] = state ? state.contentMd5 : undefined;
             resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["encryptionScope"] = state ? state.encryptionScope : undefined;
             resourceInputs["metadata"] = state ? state.metadata : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parallelism"] = state ? state.parallelism : undefined;
@@ -184,6 +189,7 @@ export class Blob extends pulumi.CustomResource {
             resourceInputs["cacheControl"] = args ? args.cacheControl : undefined;
             resourceInputs["contentMd5"] = args ? args.contentMd5 : undefined;
             resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["encryptionScope"] = args ? args.encryptionScope : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parallelism"] = args ? args.parallelism : undefined;
@@ -221,6 +227,10 @@ export interface BlobState {
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
     contentType?: pulumi.Input<string>;
+    /**
+     * The encryption scope to use for this blob.
+     */
+    encryptionScope?: pulumi.Input<string>;
     /**
      * A map of custom blob metadata.
      */
@@ -291,6 +301,10 @@ export interface BlobArgs {
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
     contentType?: pulumi.Input<string>;
+    /**
+     * The encryption scope to use for this blob.
+     */
+    encryptionScope?: pulumi.Input<string>;
     /**
      * A map of custom blob metadata.
      */

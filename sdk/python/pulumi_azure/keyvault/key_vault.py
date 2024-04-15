@@ -59,6 +59,8 @@ class KeyVaultArgs:
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
                
                > **Note:** This field can only be configured one time and cannot be updated.
+               
+               <!-- TODO: Remove `contact` and Notes in 4.0 -->
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -66,6 +68,9 @@ class KeyVaultArgs:
         pulumi.set(__self__, "tenant_id", tenant_id)
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
+        if contacts is not None:
+            warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""")
         if contacts is not None:
             pulumi.set(__self__, "contacts", contacts)
         if enable_rbac_authorization is not None:
@@ -151,6 +156,9 @@ class KeyVaultArgs:
 
         > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         """
+        warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "contacts")
 
     @contacts.setter
@@ -274,6 +282,8 @@ class KeyVaultArgs:
         The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 
         > **Note:** This field can only be configured one time and cannot be updated.
+
+        <!-- TODO: Remove `contact` and Notes in 4.0 -->
         """
         return pulumi.get(self, "soft_delete_retention_days")
 
@@ -340,12 +350,17 @@ class _KeyVaultState:
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
                
                > **Note:** This field can only be configured one time and cannot be updated.
+               
+               <!-- TODO: Remove `contact` and Notes in 4.0 -->
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[str] vault_uri: The URI of the Key Vault, used for performing operations on keys and secrets.
         """
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
+        if contacts is not None:
+            warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""")
         if contacts is not None:
             pulumi.set(__self__, "contacts", contacts)
         if enable_rbac_authorization is not None:
@@ -403,6 +418,9 @@ class _KeyVaultState:
 
         > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         """
+        warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "contacts")
 
     @contacts.setter
@@ -550,6 +568,8 @@ class _KeyVaultState:
         The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 
         > **Note:** This field can only be configured one time and cannot be updated.
+
+        <!-- TODO: Remove `contact` and Notes in 4.0 -->
         """
         return pulumi.get(self, "soft_delete_retention_days")
 
@@ -689,6 +709,8 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
                
                > **Note:** This field can only be configured one time and cannot be updated.
+               
+               <!-- TODO: Remove `contact` and Notes in 4.0 -->
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         """
@@ -866,6 +888,8 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
                
                > **Note:** This field can only be configured one time and cannot be updated.
+               
+               <!-- TODO: Remove `contact` and Notes in 4.0 -->
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[str] vault_uri: The URI of the Key Vault, used for performing operations on keys and secrets.
@@ -905,7 +929,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def contacts(self) -> pulumi.Output[Optional[Sequence['outputs.KeyVaultContact']]]:
+    def contacts(self) -> pulumi.Output[Sequence['outputs.KeyVaultContact']]:
         """
         One or more `contact` block as defined below.
 
@@ -913,6 +937,9 @@ class KeyVault(pulumi.CustomResource):
 
         > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
         """
+        warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "contacts")
 
     @property
@@ -1012,6 +1039,8 @@ class KeyVault(pulumi.CustomResource):
         The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 
         > **Note:** This field can only be configured one time and cannot be updated.
+
+        <!-- TODO: Remove `contact` and Notes in 4.0 -->
         """
         return pulumi.get(self, "soft_delete_retention_days")
 

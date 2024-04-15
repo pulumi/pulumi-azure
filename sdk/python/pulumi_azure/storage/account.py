@@ -103,13 +103,15 @@ class AccountArgs:
         :param pulumi.Input[str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
                
-               > **NOTE:** `queue_properties` cannot be set when the `account_kind` is set to `BlobStorage`
+               > **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         :param pulumi.Input['AccountRoutingArgs'] routing: A `routing` block as defined below.
         :param pulumi.Input['AccountSasPolicyArgs'] sas_policy: A `sas_policy` block as defined below.
         :param pulumi.Input[bool] sftp_enabled: Boolean, enable SFTP for the storage account
                
                > **NOTE:** SFTP support requires `is_hns_enabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
         :param pulumi.Input['AccountSharePropertiesArgs'] share_properties: A `share_properties` block as defined below.
+               
+               > **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
         :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
                
                > **NOTE:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
@@ -562,7 +564,7 @@ class AccountArgs:
         """
         A `queue_properties` block as defined below.
 
-        > **NOTE:** `queue_properties` cannot be set when the `account_kind` is set to `BlobStorage`
+        > **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         """
         return pulumi.get(self, "queue_properties")
 
@@ -613,6 +615,8 @@ class AccountArgs:
     def share_properties(self) -> Optional[pulumi.Input['AccountSharePropertiesArgs']]:
         """
         A `share_properties` block as defined below.
+
+        > **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
         """
         return pulumi.get(self, "share_properties")
 
@@ -867,7 +871,7 @@ class _AccountState:
         :param pulumi.Input[str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
                
-               > **NOTE:** `queue_properties` cannot be set when the `account_kind` is set to `BlobStorage`
+               > **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountRoutingArgs'] routing: A `routing` block as defined below.
         :param pulumi.Input['AccountSasPolicyArgs'] sas_policy: A `sas_policy` block as defined below.
@@ -911,6 +915,8 @@ class _AccountState:
                
                > **NOTE:** SFTP support requires `is_hns_enabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
         :param pulumi.Input['AccountSharePropertiesArgs'] share_properties: A `share_properties` block as defined below.
+               
+               > **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
         :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
                
                > **NOTE:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
@@ -1930,7 +1936,7 @@ class _AccountState:
         """
         A `queue_properties` block as defined below.
 
-        > **NOTE:** `queue_properties` cannot be set when the `account_kind` is set to `BlobStorage`
+        > **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         """
         return pulumi.get(self, "queue_properties")
 
@@ -2425,6 +2431,8 @@ class _AccountState:
     def share_properties(self) -> Optional[pulumi.Input['AccountSharePropertiesArgs']]:
         """
         A `share_properties` block as defined below.
+
+        > **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
         """
         return pulumi.get(self, "share_properties")
 
@@ -2648,7 +2656,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']] queue_properties: A `queue_properties` block as defined below.
                
-               > **NOTE:** `queue_properties` cannot be set when the `account_kind` is set to `BlobStorage`
+               > **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountRoutingArgs']] routing: A `routing` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountSasPolicyArgs']] sas_policy: A `sas_policy` block as defined below.
@@ -2656,6 +2664,8 @@ class Account(pulumi.CustomResource):
                
                > **NOTE:** SFTP support requires `is_hns_enabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
         :param pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']] share_properties: A `share_properties` block as defined below.
+               
+               > **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
         :param pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']] static_website: A `static_website` block as defined below.
                
                > **NOTE:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
@@ -3133,7 +3143,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']] queue_properties: A `queue_properties` block as defined below.
                
-               > **NOTE:** `queue_properties` cannot be set when the `account_kind` is set to `BlobStorage`
+               > **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountRoutingArgs']] routing: A `routing` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountSasPolicyArgs']] sas_policy: A `sas_policy` block as defined below.
@@ -3177,6 +3187,8 @@ class Account(pulumi.CustomResource):
                
                > **NOTE:** SFTP support requires `is_hns_enabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
         :param pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']] share_properties: A `share_properties` block as defined below.
+               
+               > **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
         :param pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']] static_website: A `static_website` block as defined below.
                
                > **NOTE:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
@@ -3835,7 +3847,7 @@ class Account(pulumi.CustomResource):
         """
         A `queue_properties` block as defined below.
 
-        > **NOTE:** `queue_properties` cannot be set when the `account_kind` is set to `BlobStorage`
+        > **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         """
         return pulumi.get(self, "queue_properties")
 
@@ -4166,6 +4178,8 @@ class Account(pulumi.CustomResource):
     def share_properties(self) -> pulumi.Output['outputs.AccountShareProperties']:
         """
         A `share_properties` block as defined below.
+
+        > **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
         """
         return pulumi.get(self, "share_properties")
 

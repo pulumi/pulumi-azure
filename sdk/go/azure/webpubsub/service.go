@@ -75,7 +75,9 @@ type Service struct {
 
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled pulumi.BoolPtrOutput `pulumi:"aadAuthEnabled"`
-	// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+	// Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+	//
+	// > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
 	// The publicly accessible IP of the Web PubSub service.
 	ExternalIp pulumi.StringOutput `pulumi:"externalIp"`
@@ -107,7 +109,7 @@ type Service struct {
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
 	// The publicly accessible port of the Web PubSub service which is designed for customer server side use.
 	ServerPort pulumi.IntOutput `pulumi:"serverPort"`
-	// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
+	// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -161,7 +163,9 @@ func GetService(ctx *pulumi.Context,
 type serviceState struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`
-	// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+	// Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+	//
+	// > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
 	Capacity *int `pulumi:"capacity"`
 	// The publicly accessible IP of the Web PubSub service.
 	ExternalIp *string `pulumi:"externalIp"`
@@ -193,7 +197,7 @@ type serviceState struct {
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 	// The publicly accessible port of the Web PubSub service which is designed for customer server side use.
 	ServerPort *int `pulumi:"serverPort"`
-	// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
+	// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -205,7 +209,9 @@ type serviceState struct {
 type ServiceState struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled pulumi.BoolPtrInput
-	// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+	// Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+	//
+	// > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
 	Capacity pulumi.IntPtrInput
 	// The publicly accessible IP of the Web PubSub service.
 	ExternalIp pulumi.StringPtrInput
@@ -237,7 +243,7 @@ type ServiceState struct {
 	SecondaryConnectionString pulumi.StringPtrInput
 	// The publicly accessible port of the Web PubSub service which is designed for customer server side use.
 	ServerPort pulumi.IntPtrInput
-	// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
+	// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -253,7 +259,9 @@ func (ServiceState) ElementType() reflect.Type {
 type serviceArgs struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`
-	// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+	// Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+	//
+	// > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
 	Capacity *int `pulumi:"capacity"`
 	// An `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
@@ -269,7 +277,7 @@ type serviceArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
+	// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -281,7 +289,9 @@ type serviceArgs struct {
 type ServiceArgs struct {
 	// Whether to enable AAD auth? Defaults to `true`.
 	AadAuthEnabled pulumi.BoolPtrInput
-	// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+	// Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+	//
+	// > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
 	Capacity pulumi.IntPtrInput
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
@@ -297,7 +307,7 @@ type ServiceArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
+	// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -397,7 +407,9 @@ func (o ServiceOutput) AadAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.AadAuthEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+// Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+//
+// > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
 func (o ServiceOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.IntPtrOutput { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -477,7 +489,7 @@ func (o ServiceOutput) ServerPort() pulumi.IntOutput {
 	return o.ApplyT(func(v *Service) pulumi.IntOutput { return v.ServerPort }).(pulumi.IntOutput)
 }
 
-// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
+// Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
 func (o ServiceOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }

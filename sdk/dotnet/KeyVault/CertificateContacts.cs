@@ -14,6 +14,7 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// ## Disclaimers
     /// 
+    /// &lt;!-- TODO: Remove Note in 4.0 --&gt;
     /// &gt; **Note:** It's possible to define Key Vault Certificate Contacts both within the `azure.keyvault.KeyVault` resource via the `contact` block and by using the `azure.keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
     /// 
     /// ## Example Usage
@@ -98,6 +99,7 @@ namespace Pulumi.Azure.KeyVault
     {
         /// <summary>
         /// One or more `contact` blocks as defined below.
+        /// --&gt;
         /// </summary>
         [Output("contacts")]
         public Output<ImmutableArray<Outputs.CertificateContactsContact>> Contacts { get; private set; } = null!;
@@ -159,6 +161,7 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// One or more `contact` blocks as defined below.
+        /// --&gt;
         /// </summary>
         public InputList<Inputs.CertificateContactsContactArgs> Contacts
         {
@@ -185,6 +188,7 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// One or more `contact` blocks as defined below.
+        /// --&gt;
         /// </summary>
         public InputList<Inputs.CertificateContactsContactGetArgs> Contacts
         {

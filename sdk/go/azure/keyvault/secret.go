@@ -14,14 +14,6 @@ import (
 
 // Manages a Key Vault Secret.
 //
-// <<<<<<< HEAD
-// > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-//
-// > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Secret resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedSecretsOnDestroy` for more information.
-//
-// =======
-// > > > > > > > 8d78c87098 (Update-documentation)
 // ## Example Usage
 //
 // <!--Start PulumiCodeChooser -->

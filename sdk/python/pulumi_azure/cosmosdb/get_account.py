@@ -22,7 +22,10 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, capabilities=None, connection_strings=None, consistency_policies=None, enable_automatic_failover=None, enable_free_tier=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, id=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, key_vault_key_id=None, kind=None, location=None, name=None, offer_type=None, primary_key=None, primary_mongodb_connection_string=None, primary_readonly_key=None, primary_readonly_mongodb_connection_string=None, primary_readonly_sql_connection_string=None, primary_sql_connection_string=None, read_endpoints=None, resource_group_name=None, secondary_key=None, secondary_mongodb_connection_string=None, secondary_readonly_key=None, secondary_readonly_mongodb_connection_string=None, secondary_readonly_sql_connection_string=None, secondary_sql_connection_string=None, tags=None, virtual_network_rules=None, write_endpoints=None):
+    def __init__(__self__, automatic_failover_enabled=None, capabilities=None, connection_strings=None, consistency_policies=None, enable_automatic_failover=None, enable_free_tier=None, enable_multiple_write_locations=None, endpoint=None, free_tier_enabled=None, geo_locations=None, id=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, key_vault_key_id=None, kind=None, location=None, multiple_write_locations_enabled=None, name=None, offer_type=None, primary_key=None, primary_mongodb_connection_string=None, primary_readonly_key=None, primary_readonly_mongodb_connection_string=None, primary_readonly_sql_connection_string=None, primary_sql_connection_string=None, read_endpoints=None, resource_group_name=None, secondary_key=None, secondary_mongodb_connection_string=None, secondary_readonly_key=None, secondary_readonly_mongodb_connection_string=None, secondary_readonly_sql_connection_string=None, secondary_sql_connection_string=None, tags=None, virtual_network_rules=None, write_endpoints=None):
+        if automatic_failover_enabled and not isinstance(automatic_failover_enabled, bool):
+            raise TypeError("Expected argument 'automatic_failover_enabled' to be a bool")
+        pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
         if capabilities and not isinstance(capabilities, list):
             raise TypeError("Expected argument 'capabilities' to be a list")
         pulumi.set(__self__, "capabilities", capabilities)
@@ -44,6 +47,9 @@ class GetAccountResult:
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if free_tier_enabled and not isinstance(free_tier_enabled, bool):
+            raise TypeError("Expected argument 'free_tier_enabled' to be a bool")
+        pulumi.set(__self__, "free_tier_enabled", free_tier_enabled)
         if geo_locations and not isinstance(geo_locations, list):
             raise TypeError("Expected argument 'geo_locations' to be a list")
         pulumi.set(__self__, "geo_locations", geo_locations)
@@ -65,6 +71,9 @@ class GetAccountResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if multiple_write_locations_enabled and not isinstance(multiple_write_locations_enabled, bool):
+            raise TypeError("Expected argument 'multiple_write_locations_enabled' to be a bool")
+        pulumi.set(__self__, "multiple_write_locations_enabled", multiple_write_locations_enabled)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -124,6 +133,14 @@ class GetAccountResult:
         pulumi.set(__self__, "write_endpoints", write_endpoints)
 
     @property
+    @pulumi.getter(name="automaticFailoverEnabled")
+    def automatic_failover_enabled(self) -> bool:
+        """
+        If automatic failover is enabled for this CosmosDB Account.
+        """
+        return pulumi.get(self, "automatic_failover_enabled")
+
+    @property
     @pulumi.getter
     def capabilities(self) -> Sequence['outputs.GetAccountCapabilityResult']:
         """
@@ -134,9 +151,9 @@ class GetAccountResult:
     @property
     @pulumi.getter(name="connectionStrings")
     def connection_strings(self) -> Sequence[str]:
-        """
-        A list of connection strings available for this CosmosDB account.
-        """
+        warnings.warn("""This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
+        pulumi.log.warn("""connection_strings is deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider""")
+
         return pulumi.get(self, "connection_strings")
 
     @property
@@ -147,25 +164,25 @@ class GetAccountResult:
     @property
     @pulumi.getter(name="enableAutomaticFailover")
     def enable_automatic_failover(self) -> bool:
-        """
-        If automatic failover is enabled for this CosmosDB Account.
-        """
+        warnings.warn("""This property has been renamed to `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
+        pulumi.log.warn("""enable_automatic_failover is deprecated: This property has been renamed to `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM provider""")
+
         return pulumi.get(self, "enable_automatic_failover")
 
     @property
     @pulumi.getter(name="enableFreeTier")
     def enable_free_tier(self) -> bool:
-        """
-        If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
-        """
+        warnings.warn("""This property has been renamed to `free_tier_enabled` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
+        pulumi.log.warn("""enable_free_tier is deprecated: This property has been renamed to `free_tier_enabled` and will be removed in v4.0 of the AzureRM provider""")
+
         return pulumi.get(self, "enable_free_tier")
 
     @property
     @pulumi.getter(name="enableMultipleWriteLocations")
     def enable_multiple_write_locations(self) -> bool:
-        """
-        If multiple write locations are enabled for this Cosmos DB account.
-        """
+        warnings.warn("""This property has been renamed to `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
+        pulumi.log.warn("""enable_multiple_write_locations is deprecated: This property has been renamed to `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM provider""")
+
         return pulumi.get(self, "enable_multiple_write_locations")
 
     @property
@@ -175,6 +192,14 @@ class GetAccountResult:
         The endpoint used to connect to the CosmosDB account.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="freeTierEnabled")
+    def free_tier_enabled(self) -> bool:
+        """
+        If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
+        """
+        return pulumi.get(self, "free_tier_enabled")
 
     @property
     @pulumi.getter(name="geoLocations")
@@ -228,6 +253,14 @@ class GetAccountResult:
         The name of the Azure region hosting replicated data.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="multipleWriteLocationsEnabled")
+    def multiple_write_locations_enabled(self) -> bool:
+        """
+        If multiple write locations are enabled for this Cosmos DB account.
+        """
+        return pulumi.get(self, "multiple_write_locations_enabled")
 
     @property
     @pulumi.getter
@@ -382,6 +415,7 @@ class AwaitableGetAccountResult(GetAccountResult):
         if False:
             yield self
         return GetAccountResult(
+            automatic_failover_enabled=self.automatic_failover_enabled,
             capabilities=self.capabilities,
             connection_strings=self.connection_strings,
             consistency_policies=self.consistency_policies,
@@ -389,6 +423,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             enable_free_tier=self.enable_free_tier,
             enable_multiple_write_locations=self.enable_multiple_write_locations,
             endpoint=self.endpoint,
+            free_tier_enabled=self.free_tier_enabled,
             geo_locations=self.geo_locations,
             id=self.id,
             ip_range_filter=self.ip_range_filter,
@@ -396,6 +431,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             key_vault_key_id=self.key_vault_key_id,
             kind=self.kind,
             location=self.location,
+            multiple_write_locations_enabled=self.multiple_write_locations_enabled,
             name=self.name,
             offer_type=self.offer_type,
             primary_key=self.primary_key,
@@ -447,6 +483,7 @@ def get_account(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:cosmosdb/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
+        automatic_failover_enabled=pulumi.get(__ret__, 'automatic_failover_enabled'),
         capabilities=pulumi.get(__ret__, 'capabilities'),
         connection_strings=pulumi.get(__ret__, 'connection_strings'),
         consistency_policies=pulumi.get(__ret__, 'consistency_policies'),
@@ -454,6 +491,7 @@ def get_account(name: Optional[str] = None,
         enable_free_tier=pulumi.get(__ret__, 'enable_free_tier'),
         enable_multiple_write_locations=pulumi.get(__ret__, 'enable_multiple_write_locations'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
+        free_tier_enabled=pulumi.get(__ret__, 'free_tier_enabled'),
         geo_locations=pulumi.get(__ret__, 'geo_locations'),
         id=pulumi.get(__ret__, 'id'),
         ip_range_filter=pulumi.get(__ret__, 'ip_range_filter'),
@@ -461,6 +499,7 @@ def get_account(name: Optional[str] = None,
         key_vault_key_id=pulumi.get(__ret__, 'key_vault_key_id'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
+        multiple_write_locations_enabled=pulumi.get(__ret__, 'multiple_write_locations_enabled'),
         name=pulumi.get(__ret__, 'name'),
         offer_type=pulumi.get(__ret__, 'offer_type'),
         primary_key=pulumi.get(__ret__, 'primary_key'),

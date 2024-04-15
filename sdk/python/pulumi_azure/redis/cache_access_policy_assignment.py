@@ -23,7 +23,7 @@ class CacheAccessPolicyAssignmentArgs:
         The set of arguments for constructing a CacheAccessPolicyAssignment resource.
         :param pulumi.Input[str] access_policy_name: The name of the Access Policy to be assigned. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[str] object_id: The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
-        :param pulumi.Input[str] object_id_alias: The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+        :param pulumi.Input[str] object_id_alias: The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[str] redis_cache_id: The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[str] name: The name of the Redis Cache Access Policy Assignment. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         """
@@ -62,7 +62,7 @@ class CacheAccessPolicyAssignmentArgs:
     @pulumi.getter(name="objectIdAlias")
     def object_id_alias(self) -> pulumi.Input[str]:
         """
-        The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+        The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         """
         return pulumi.get(self, "object_id_alias")
 
@@ -108,7 +108,7 @@ class _CacheAccessPolicyAssignmentState:
         :param pulumi.Input[str] access_policy_name: The name of the Access Policy to be assigned. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[str] name: The name of the Redis Cache Access Policy Assignment. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[str] object_id: The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
-        :param pulumi.Input[str] object_id_alias: The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+        :param pulumi.Input[str] object_id_alias: The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[str] redis_cache_id: The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         """
         if access_policy_name is not None:
@@ -162,7 +162,7 @@ class _CacheAccessPolicyAssignmentState:
     @pulumi.getter(name="objectIdAlias")
     def object_id_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+        The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         """
         return pulumi.get(self, "object_id_alias")
 
@@ -243,7 +243,7 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] access_policy_name: The name of the Access Policy to be assigned. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[str] name: The name of the Redis Cache Access Policy Assignment. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[str] object_id: The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
-        :param pulumi.Input[str] object_id_alias: The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+        :param pulumi.Input[str] object_id_alias: The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[str] redis_cache_id: The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         """
         ...
@@ -363,7 +363,7 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] access_policy_name: The name of the Access Policy to be assigned. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[str] name: The name of the Redis Cache Access Policy Assignment. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[str] object_id: The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
-        :param pulumi.Input[str] object_id_alias: The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+        :param pulumi.Input[str] object_id_alias: The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[str] redis_cache_id: The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -405,7 +405,7 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
     @pulumi.getter(name="objectIdAlias")
     def object_id_alias(self) -> pulumi.Output[str]:
         """
-        The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+        The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         """
         return pulumi.get(self, "object_id_alias")
 

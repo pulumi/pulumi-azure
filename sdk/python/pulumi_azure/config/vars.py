@@ -86,7 +86,8 @@ class _ExportableConfig(types.ModuleType):
     @property
     def environment(self) -> str:
         """
-        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+        used and should not be specified when `metadata_host` is specified.
         """
         return __config__.get('environment') or (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
 

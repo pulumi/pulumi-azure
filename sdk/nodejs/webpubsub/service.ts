@@ -80,7 +80,9 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly aadAuthEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+     * Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+     *
+     * > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
      */
     public readonly capacity!: pulumi.Output<number | undefined>;
     /**
@@ -144,7 +146,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly serverPort!: pulumi.Output<number>;
     /**
-     * Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
+     * Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
      */
     public readonly sku!: pulumi.Output<string>;
     /**
@@ -237,7 +239,9 @@ export interface ServiceState {
      */
     aadAuthEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+     * Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+     *
+     * > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
      */
     capacity?: pulumi.Input<number>;
     /**
@@ -301,7 +305,7 @@ export interface ServiceState {
      */
     serverPort?: pulumi.Input<number>;
     /**
-     * Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
+     * Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -324,7 +328,9 @@ export interface ServiceArgs {
      */
     aadAuthEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
+     * Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+     *
+     * > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
      */
     capacity?: pulumi.Input<number>;
     /**
@@ -356,7 +362,7 @@ export interface ServiceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
+     * Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
      */
     sku: pulumi.Input<string>;
     /**

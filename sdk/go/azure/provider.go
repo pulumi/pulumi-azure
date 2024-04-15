@@ -35,7 +35,8 @@ type Provider struct {
 	// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
 	// using a Client Secret.
 	ClientSecretFilePath pulumi.StringPtrOutput `pulumi:"clientSecretFilePath"`
-	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+	// used and should not be specified when `metadata_host` is specified.
 	Environment pulumi.StringPtrOutput `pulumi:"environment"`
 	// The Hostname which should be used for the Azure Metadata Service.
 	MetadataHost pulumi.StringPtrOutput `pulumi:"metadataHost"`
@@ -178,7 +179,8 @@ type providerArgs struct {
 	DisableCorrelationRequestId *bool `pulumi:"disableCorrelationRequestId"`
 	// This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
 	DisableTerraformPartnerId *bool `pulumi:"disableTerraformPartnerId"`
-	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+	// used and should not be specified when `metadata_host` is specified.
 	Environment *string           `pulumi:"environment"`
 	Features    *ProviderFeatures `pulumi:"features"`
 	// The Hostname which should be used for the Azure Metadata Service.
@@ -241,7 +243,8 @@ type ProviderArgs struct {
 	DisableCorrelationRequestId pulumi.BoolPtrInput
 	// This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
 	DisableTerraformPartnerId pulumi.BoolPtrInput
-	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+	// used and should not be specified when `metadata_host` is specified.
 	Environment pulumi.StringPtrInput
 	Features    ProviderFeaturesPtrInput
 	// The Hostname which should be used for the Azure Metadata Service.
@@ -355,7 +358,8 @@ func (o ProviderOutput) ClientSecretFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientSecretFilePath }).(pulumi.StringPtrOutput)
 }
 
-// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
+// used and should not be specified when `metadata_host` is specified.
 func (o ProviderOutput) Environment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Environment }).(pulumi.StringPtrOutput)
 }

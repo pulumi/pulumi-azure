@@ -158,6 +158,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly analyticalStorageEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Enable automatic failover for this Cosmos DB account.
+     */
+    public readonly automaticFailoverEnabled!: pulumi.Output<boolean>;
+    /**
      * A `backup` block as defined below.
      */
     public readonly backup!: pulumi.Output<outputs.cosmosdb.AccountBackup>;
@@ -170,7 +174,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly capacity!: pulumi.Output<outputs.cosmosdb.AccountCapacity>;
     /**
-     * A list of connection strings available for this CosmosDB account.
+     * @deprecated This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
      */
     public /*out*/ readonly connectionStrings!: pulumi.Output<string[]>;
     /**
@@ -192,21 +196,25 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly defaultIdentityType!: pulumi.Output<string | undefined>;
     /**
-     * Enable automatic failover for this Cosmos DB account.
+     * @deprecated This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
      */
-    public readonly enableAutomaticFailover!: pulumi.Output<boolean | undefined>;
+    public readonly enableAutomaticFailover!: pulumi.Output<boolean>;
     /**
-     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * @deprecated This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
      */
-    public readonly enableFreeTier!: pulumi.Output<boolean | undefined>;
+    public readonly enableFreeTier!: pulumi.Output<boolean>;
     /**
-     * Enable multiple write locations for this Cosmos DB account.
+     * @deprecated This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
      */
-    public readonly enableMultipleWriteLocations!: pulumi.Output<boolean | undefined>;
+    public readonly enableMultipleWriteLocations!: pulumi.Output<boolean>;
     /**
      * The endpoint used to connect to the CosmosDB account.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    public readonly freeTierEnabled!: pulumi.Output<boolean>;
     /**
      * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
      */
@@ -255,6 +263,10 @@ export class Account extends pulumi.CustomResource {
      * The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
      */
     public readonly mongoServerVersion!: pulumi.Output<string>;
+    /**
+     * Enable multiple write locations for this Cosmos DB account.
+     */
+    public readonly multipleWriteLocationsEnabled!: pulumi.Output<boolean>;
     /**
      * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      */
@@ -370,6 +382,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["accessKeyMetadataWritesEnabled"] = state ? state.accessKeyMetadataWritesEnabled : undefined;
             resourceInputs["analyticalStorage"] = state ? state.analyticalStorage : undefined;
             resourceInputs["analyticalStorageEnabled"] = state ? state.analyticalStorageEnabled : undefined;
+            resourceInputs["automaticFailoverEnabled"] = state ? state.automaticFailoverEnabled : undefined;
             resourceInputs["backup"] = state ? state.backup : undefined;
             resourceInputs["capabilities"] = state ? state.capabilities : undefined;
             resourceInputs["capacity"] = state ? state.capacity : undefined;
@@ -382,6 +395,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["enableFreeTier"] = state ? state.enableFreeTier : undefined;
             resourceInputs["enableMultipleWriteLocations"] = state ? state.enableMultipleWriteLocations : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["freeTierEnabled"] = state ? state.freeTierEnabled : undefined;
             resourceInputs["geoLocations"] = state ? state.geoLocations : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["ipRangeFilter"] = state ? state.ipRangeFilter : undefined;
@@ -392,6 +406,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["minimalTlsVersion"] = state ? state.minimalTlsVersion : undefined;
             resourceInputs["mongoServerVersion"] = state ? state.mongoServerVersion : undefined;
+            resourceInputs["multipleWriteLocationsEnabled"] = state ? state.multipleWriteLocationsEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkAclBypassForAzureServices"] = state ? state.networkAclBypassForAzureServices : undefined;
             resourceInputs["networkAclBypassIds"] = state ? state.networkAclBypassIds : undefined;
@@ -433,6 +448,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["accessKeyMetadataWritesEnabled"] = args ? args.accessKeyMetadataWritesEnabled : undefined;
             resourceInputs["analyticalStorage"] = args ? args.analyticalStorage : undefined;
             resourceInputs["analyticalStorageEnabled"] = args ? args.analyticalStorageEnabled : undefined;
+            resourceInputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
             resourceInputs["backup"] = args ? args.backup : undefined;
             resourceInputs["capabilities"] = args ? args.capabilities : undefined;
             resourceInputs["capacity"] = args ? args.capacity : undefined;
@@ -443,6 +459,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
             resourceInputs["enableFreeTier"] = args ? args.enableFreeTier : undefined;
             resourceInputs["enableMultipleWriteLocations"] = args ? args.enableMultipleWriteLocations : undefined;
+            resourceInputs["freeTierEnabled"] = args ? args.freeTierEnabled : undefined;
             resourceInputs["geoLocations"] = args ? args.geoLocations : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["ipRangeFilter"] = args ? args.ipRangeFilter : undefined;
@@ -453,6 +470,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minimalTlsVersion"] = args ? args.minimalTlsVersion : undefined;
             resourceInputs["mongoServerVersion"] = args ? args.mongoServerVersion : undefined;
+            resourceInputs["multipleWriteLocationsEnabled"] = args ? args.multipleWriteLocationsEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkAclBypassForAzureServices"] = args ? args.networkAclBypassForAzureServices : undefined;
             resourceInputs["networkAclBypassIds"] = args ? args.networkAclBypassIds : undefined;
@@ -504,6 +522,10 @@ export interface AccountState {
      */
     analyticalStorageEnabled?: pulumi.Input<boolean>;
     /**
+     * Enable automatic failover for this Cosmos DB account.
+     */
+    automaticFailoverEnabled?: pulumi.Input<boolean>;
+    /**
      * A `backup` block as defined below.
      */
     backup?: pulumi.Input<inputs.cosmosdb.AccountBackup>;
@@ -516,7 +538,7 @@ export interface AccountState {
      */
     capacity?: pulumi.Input<inputs.cosmosdb.AccountCapacity>;
     /**
-     * A list of connection strings available for this CosmosDB account.
+     * @deprecated This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
      */
     connectionStrings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -538,21 +560,25 @@ export interface AccountState {
      */
     defaultIdentityType?: pulumi.Input<string>;
     /**
-     * Enable automatic failover for this Cosmos DB account.
+     * @deprecated This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
      */
     enableAutomaticFailover?: pulumi.Input<boolean>;
     /**
-     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * @deprecated This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
      */
     enableFreeTier?: pulumi.Input<boolean>;
     /**
-     * Enable multiple write locations for this Cosmos DB account.
+     * @deprecated This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
      */
     enableMultipleWriteLocations?: pulumi.Input<boolean>;
     /**
      * The endpoint used to connect to the CosmosDB account.
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    freeTierEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
      */
@@ -601,6 +627,10 @@ export interface AccountState {
      * The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
      */
     mongoServerVersion?: pulumi.Input<string>;
+    /**
+     * Enable multiple write locations for this Cosmos DB account.
+     */
+    multipleWriteLocationsEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      */
@@ -718,6 +748,10 @@ export interface AccountArgs {
      */
     analyticalStorageEnabled?: pulumi.Input<boolean>;
     /**
+     * Enable automatic failover for this Cosmos DB account.
+     */
+    automaticFailoverEnabled?: pulumi.Input<boolean>;
+    /**
      * A `backup` block as defined below.
      */
     backup?: pulumi.Input<inputs.cosmosdb.AccountBackup>;
@@ -748,17 +782,21 @@ export interface AccountArgs {
      */
     defaultIdentityType?: pulumi.Input<string>;
     /**
-     * Enable automatic failover for this Cosmos DB account.
+     * @deprecated This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
      */
     enableAutomaticFailover?: pulumi.Input<boolean>;
     /**
-     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * @deprecated This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
      */
     enableFreeTier?: pulumi.Input<boolean>;
     /**
-     * Enable multiple write locations for this Cosmos DB account.
+     * @deprecated This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
      */
     enableMultipleWriteLocations?: pulumi.Input<boolean>;
+    /**
+     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    freeTierEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
      */
@@ -807,6 +845,10 @@ export interface AccountArgs {
      * The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
      */
     mongoServerVersion?: pulumi.Input<string>;
+    /**
+     * Enable multiple write locations for this Cosmos DB account.
+     */
+    multipleWriteLocationsEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      */

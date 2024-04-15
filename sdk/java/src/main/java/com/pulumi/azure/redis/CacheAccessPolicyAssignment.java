@@ -135,14 +135,14 @@ public class CacheAccessPolicyAssignment extends com.pulumi.resources.CustomReso
         return this.objectId;
     }
     /**
-     * The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+     * The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      * 
      */
     @Export(name="objectIdAlias", refs={String.class}, tree="[0]")
     private Output<String> objectIdAlias;
 
     /**
-     * @return The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+     * @return The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      * 
      */
     public Output<String> objectIdAlias() {

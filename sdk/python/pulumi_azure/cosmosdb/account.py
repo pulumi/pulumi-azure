@@ -23,6 +23,7 @@ class AccountArgs:
                  access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
                  analytical_storage: Optional[pulumi.Input['AccountAnalyticalStorageArgs']] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
+                 automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  backup: Optional[pulumi.Input['AccountBackupArgs']] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
                  capacity: Optional[pulumi.Input['AccountCapacityArgs']] = None,
@@ -32,6 +33,7 @@ class AccountArgs:
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
+                 free_tier_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  ip_range_filter: Optional[pulumi.Input[str]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
@@ -41,6 +43,7 @@ class AccountArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
+                 multiple_write_locations_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
                  network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -58,6 +61,7 @@ class AccountArgs:
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input['AccountAnalyticalStorageArgs'] analytical_storage: An `analytical_storage` block as defined below.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
+        :param pulumi.Input[bool] automatic_failover_enabled: Enable automatic failover for this Cosmos DB account.
         :param pulumi.Input['AccountBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input['AccountCapacityArgs'] capacity: A `capacity` block as defined below.
@@ -66,9 +70,7 @@ class AccountArgs:
                
                > **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
         :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
-        :param pulumi.Input[bool] enable_automatic_failover: Enable automatic failover for this Cosmos DB account.
-        :param pulumi.Input[bool] enable_free_tier: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
+        :param pulumi.Input[bool] free_tier_enabled: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
                
@@ -86,6 +88,7 @@ class AccountArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
+        :param pulumi.Input[bool] multiple_write_locations_enabled: Enable multiple write locations for this Cosmos DB account.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
@@ -107,6 +110,8 @@ class AccountArgs:
             pulumi.set(__self__, "analytical_storage", analytical_storage)
         if analytical_storage_enabled is not None:
             pulumi.set(__self__, "analytical_storage_enabled", analytical_storage_enabled)
+        if automatic_failover_enabled is not None:
+            pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
         if capabilities is not None:
@@ -120,11 +125,22 @@ class AccountArgs:
         if default_identity_type is not None:
             pulumi.set(__self__, "default_identity_type", default_identity_type)
         if enable_automatic_failover is not None:
+            warnings.warn("""This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_automatic_failover is deprecated: This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""")
+        if enable_automatic_failover is not None:
             pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
+        if enable_free_tier is not None:
+            warnings.warn("""This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_free_tier is deprecated: This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""")
         if enable_free_tier is not None:
             pulumi.set(__self__, "enable_free_tier", enable_free_tier)
         if enable_multiple_write_locations is not None:
+            warnings.warn("""This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_multiple_write_locations is deprecated: This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""")
+        if enable_multiple_write_locations is not None:
             pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
+        if free_tier_enabled is not None:
+            pulumi.set(__self__, "free_tier_enabled", free_tier_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if ip_range_filter is not None:
@@ -143,6 +159,8 @@ class AccountArgs:
             pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
         if mongo_server_version is not None:
             pulumi.set(__self__, "mongo_server_version", mongo_server_version)
+        if multiple_write_locations_enabled is not None:
+            pulumi.set(__self__, "multiple_write_locations_enabled", multiple_write_locations_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_acl_bypass_for_azure_services is not None:
@@ -245,6 +263,18 @@ class AccountArgs:
         pulumi.set(self, "analytical_storage_enabled", value)
 
     @property
+    @pulumi.getter(name="automaticFailoverEnabled")
+    def automatic_failover_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable automatic failover for this Cosmos DB account.
+        """
+        return pulumi.get(self, "automatic_failover_enabled")
+
+    @automatic_failover_enabled.setter
+    def automatic_failover_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic_failover_enabled", value)
+
+    @property
     @pulumi.getter
     def backup(self) -> Optional[pulumi.Input['AccountBackupArgs']]:
         """
@@ -321,9 +351,9 @@ class AccountArgs:
     @property
     @pulumi.getter(name="enableAutomaticFailover")
     def enable_automatic_failover(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable automatic failover for this Cosmos DB account.
-        """
+        warnings.warn("""This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""enable_automatic_failover is deprecated: This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "enable_automatic_failover")
 
     @enable_automatic_failover.setter
@@ -333,9 +363,9 @@ class AccountArgs:
     @property
     @pulumi.getter(name="enableFreeTier")
     def enable_free_tier(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        """
+        warnings.warn("""This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""enable_free_tier is deprecated: This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "enable_free_tier")
 
     @enable_free_tier.setter
@@ -345,14 +375,26 @@ class AccountArgs:
     @property
     @pulumi.getter(name="enableMultipleWriteLocations")
     def enable_multiple_write_locations(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable multiple write locations for this Cosmos DB account.
-        """
+        warnings.warn("""This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""enable_multiple_write_locations is deprecated: This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "enable_multiple_write_locations")
 
     @enable_multiple_write_locations.setter
     def enable_multiple_write_locations(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_multiple_write_locations", value)
+
+    @property
+    @pulumi.getter(name="freeTierEnabled")
+    def free_tier_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "free_tier_enabled")
+
+    @free_tier_enabled.setter
+    def free_tier_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "free_tier_enabled", value)
 
     @property
     @pulumi.getter
@@ -471,6 +513,18 @@ class AccountArgs:
         pulumi.set(self, "mongo_server_version", value)
 
     @property
+    @pulumi.getter(name="multipleWriteLocationsEnabled")
+    def multiple_write_locations_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable multiple write locations for this Cosmos DB account.
+        """
+        return pulumi.get(self, "multiple_write_locations_enabled")
+
+    @multiple_write_locations_enabled.setter
+    def multiple_write_locations_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multiple_write_locations_enabled", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -575,6 +629,7 @@ class _AccountState:
                  access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
                  analytical_storage: Optional[pulumi.Input['AccountAnalyticalStorageArgs']] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
+                 automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  backup: Optional[pulumi.Input['AccountBackupArgs']] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
                  capacity: Optional[pulumi.Input['AccountCapacityArgs']] = None,
@@ -587,6 +642,7 @@ class _AccountState:
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 free_tier_enabled: Optional[pulumi.Input[bool]] = None,
                  geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  ip_range_filter: Optional[pulumi.Input[str]] = None,
@@ -597,6 +653,7 @@ class _AccountState:
                  location: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
+                 multiple_write_locations_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
                  network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -626,20 +683,18 @@ class _AccountState:
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input['AccountAnalyticalStorageArgs'] analytical_storage: An `analytical_storage` block as defined below.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
+        :param pulumi.Input[bool] automatic_failover_enabled: Enable automatic failover for this Cosmos DB account.
         :param pulumi.Input['AccountBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input['AccountCapacityArgs'] capacity: A `capacity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
         :param pulumi.Input['AccountConsistencyPolicyArgs'] consistency_policy: Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
                
                > **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
         :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
-        :param pulumi.Input[bool] enable_automatic_failover: Enable automatic failover for this Cosmos DB account.
-        :param pulumi.Input[bool] enable_free_tier: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the CosmosDB account.
+        :param pulumi.Input[bool] free_tier_enabled: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
@@ -658,6 +713,7 @@ class _AccountState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
+        :param pulumi.Input[bool] multiple_write_locations_enabled: Enable multiple write locations for this Cosmos DB account.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
@@ -691,12 +747,17 @@ class _AccountState:
             pulumi.set(__self__, "analytical_storage", analytical_storage)
         if analytical_storage_enabled is not None:
             pulumi.set(__self__, "analytical_storage_enabled", analytical_storage_enabled)
+        if automatic_failover_enabled is not None:
+            pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if connection_strings is not None:
+            warnings.warn("""This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""connection_strings is deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider""")
         if connection_strings is not None:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if consistency_policy is not None:
@@ -708,13 +769,24 @@ class _AccountState:
         if default_identity_type is not None:
             pulumi.set(__self__, "default_identity_type", default_identity_type)
         if enable_automatic_failover is not None:
+            warnings.warn("""This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_automatic_failover is deprecated: This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""")
+        if enable_automatic_failover is not None:
             pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
         if enable_free_tier is not None:
+            warnings.warn("""This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_free_tier is deprecated: This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""")
+        if enable_free_tier is not None:
             pulumi.set(__self__, "enable_free_tier", enable_free_tier)
+        if enable_multiple_write_locations is not None:
+            warnings.warn("""This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_multiple_write_locations is deprecated: This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""")
         if enable_multiple_write_locations is not None:
             pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if free_tier_enabled is not None:
+            pulumi.set(__self__, "free_tier_enabled", free_tier_enabled)
         if geo_locations is not None:
             pulumi.set(__self__, "geo_locations", geo_locations)
         if identity is not None:
@@ -735,6 +807,8 @@ class _AccountState:
             pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
         if mongo_server_version is not None:
             pulumi.set(__self__, "mongo_server_version", mongo_server_version)
+        if multiple_write_locations_enabled is not None:
+            pulumi.set(__self__, "multiple_write_locations_enabled", multiple_write_locations_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_acl_bypass_for_azure_services is not None:
@@ -821,6 +895,18 @@ class _AccountState:
         pulumi.set(self, "analytical_storage_enabled", value)
 
     @property
+    @pulumi.getter(name="automaticFailoverEnabled")
+    def automatic_failover_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable automatic failover for this Cosmos DB account.
+        """
+        return pulumi.get(self, "automatic_failover_enabled")
+
+    @automatic_failover_enabled.setter
+    def automatic_failover_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic_failover_enabled", value)
+
+    @property
     @pulumi.getter
     def backup(self) -> Optional[pulumi.Input['AccountBackupArgs']]:
         """
@@ -859,9 +945,9 @@ class _AccountState:
     @property
     @pulumi.getter(name="connectionStrings")
     def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of connection strings available for this CosmosDB account.
-        """
+        warnings.warn("""This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
+        pulumi.log.warn("""connection_strings is deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider""")
+
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
@@ -921,9 +1007,9 @@ class _AccountState:
     @property
     @pulumi.getter(name="enableAutomaticFailover")
     def enable_automatic_failover(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable automatic failover for this Cosmos DB account.
-        """
+        warnings.warn("""This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""enable_automatic_failover is deprecated: This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "enable_automatic_failover")
 
     @enable_automatic_failover.setter
@@ -933,9 +1019,9 @@ class _AccountState:
     @property
     @pulumi.getter(name="enableFreeTier")
     def enable_free_tier(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        """
+        warnings.warn("""This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""enable_free_tier is deprecated: This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "enable_free_tier")
 
     @enable_free_tier.setter
@@ -945,9 +1031,9 @@ class _AccountState:
     @property
     @pulumi.getter(name="enableMultipleWriteLocations")
     def enable_multiple_write_locations(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable multiple write locations for this Cosmos DB account.
-        """
+        warnings.warn("""This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""enable_multiple_write_locations is deprecated: This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "enable_multiple_write_locations")
 
     @enable_multiple_write_locations.setter
@@ -965,6 +1051,18 @@ class _AccountState:
     @endpoint.setter
     def endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="freeTierEnabled")
+    def free_tier_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "free_tier_enabled")
+
+    @free_tier_enabled.setter
+    def free_tier_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "free_tier_enabled", value)
 
     @property
     @pulumi.getter(name="geoLocations")
@@ -1093,6 +1191,18 @@ class _AccountState:
     @mongo_server_version.setter
     def mongo_server_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mongo_server_version", value)
+
+    @property
+    @pulumi.getter(name="multipleWriteLocationsEnabled")
+    def multiple_write_locations_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable multiple write locations for this Cosmos DB account.
+        """
+        return pulumi.get(self, "multiple_write_locations_enabled")
+
+    @multiple_write_locations_enabled.setter
+    def multiple_write_locations_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multiple_write_locations_enabled", value)
 
     @property
     @pulumi.getter
@@ -1393,6 +1503,7 @@ class Account(pulumi.CustomResource):
                  access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
                  analytical_storage: Optional[pulumi.Input[pulumi.InputType['AccountAnalyticalStorageArgs']]] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
+                 automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['AccountBackupArgs']]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]]] = None,
                  capacity: Optional[pulumi.Input[pulumi.InputType['AccountCapacityArgs']]] = None,
@@ -1403,6 +1514,7 @@ class Account(pulumi.CustomResource):
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
+                 free_tier_enabled: Optional[pulumi.Input[bool]] = None,
                  geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  ip_range_filter: Optional[pulumi.Input[str]] = None,
@@ -1413,6 +1525,7 @@ class Account(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
+                 multiple_write_locations_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
                  network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1533,6 +1646,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountAnalyticalStorageArgs']] analytical_storage: An `analytical_storage` block as defined below.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
+        :param pulumi.Input[bool] automatic_failover_enabled: Enable automatic failover for this Cosmos DB account.
         :param pulumi.Input[pulumi.InputType['AccountBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountCapacityArgs']] capacity: A `capacity` block as defined below.
@@ -1542,9 +1656,7 @@ class Account(pulumi.CustomResource):
                
                > **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
         :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
-        :param pulumi.Input[bool] enable_automatic_failover: Enable automatic failover for this Cosmos DB account.
-        :param pulumi.Input[bool] enable_free_tier: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
+        :param pulumi.Input[bool] free_tier_enabled: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
@@ -1563,6 +1675,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
+        :param pulumi.Input[bool] multiple_write_locations_enabled: Enable multiple write locations for this Cosmos DB account.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
@@ -1704,6 +1817,7 @@ class Account(pulumi.CustomResource):
                  access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
                  analytical_storage: Optional[pulumi.Input[pulumi.InputType['AccountAnalyticalStorageArgs']]] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
+                 automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['AccountBackupArgs']]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]]] = None,
                  capacity: Optional[pulumi.Input[pulumi.InputType['AccountCapacityArgs']]] = None,
@@ -1714,6 +1828,7 @@ class Account(pulumi.CustomResource):
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
+                 free_tier_enabled: Optional[pulumi.Input[bool]] = None,
                  geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  ip_range_filter: Optional[pulumi.Input[str]] = None,
@@ -1724,6 +1839,7 @@ class Account(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
+                 multiple_write_locations_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
                  network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1746,6 +1862,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["access_key_metadata_writes_enabled"] = access_key_metadata_writes_enabled
             __props__.__dict__["analytical_storage"] = analytical_storage
             __props__.__dict__["analytical_storage_enabled"] = analytical_storage_enabled
+            __props__.__dict__["automatic_failover_enabled"] = automatic_failover_enabled
             __props__.__dict__["backup"] = backup
             __props__.__dict__["capabilities"] = capabilities
             __props__.__dict__["capacity"] = capacity
@@ -1758,6 +1875,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["enable_automatic_failover"] = enable_automatic_failover
             __props__.__dict__["enable_free_tier"] = enable_free_tier
             __props__.__dict__["enable_multiple_write_locations"] = enable_multiple_write_locations
+            __props__.__dict__["free_tier_enabled"] = free_tier_enabled
             if geo_locations is None and not opts.urn:
                 raise TypeError("Missing required property 'geo_locations'")
             __props__.__dict__["geo_locations"] = geo_locations
@@ -1770,6 +1888,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["minimal_tls_version"] = minimal_tls_version
             __props__.__dict__["mongo_server_version"] = mongo_server_version
+            __props__.__dict__["multiple_write_locations_enabled"] = multiple_write_locations_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["network_acl_bypass_for_azure_services"] = network_acl_bypass_for_azure_services
             __props__.__dict__["network_acl_bypass_ids"] = network_acl_bypass_ids
@@ -1815,6 +1934,7 @@ class Account(pulumi.CustomResource):
             access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
             analytical_storage: Optional[pulumi.Input[pulumi.InputType['AccountAnalyticalStorageArgs']]] = None,
             analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
+            automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
             backup: Optional[pulumi.Input[pulumi.InputType['AccountBackupArgs']]] = None,
             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]]] = None,
             capacity: Optional[pulumi.Input[pulumi.InputType['AccountCapacityArgs']]] = None,
@@ -1827,6 +1947,7 @@ class Account(pulumi.CustomResource):
             enable_free_tier: Optional[pulumi.Input[bool]] = None,
             enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
+            free_tier_enabled: Optional[pulumi.Input[bool]] = None,
             geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
             ip_range_filter: Optional[pulumi.Input[str]] = None,
@@ -1837,6 +1958,7 @@ class Account(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             minimal_tls_version: Optional[pulumi.Input[str]] = None,
             mongo_server_version: Optional[pulumi.Input[str]] = None,
+            multiple_write_locations_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
             network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1871,20 +1993,18 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountAnalyticalStorageArgs']] analytical_storage: An `analytical_storage` block as defined below.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
+        :param pulumi.Input[bool] automatic_failover_enabled: Enable automatic failover for this Cosmos DB account.
         :param pulumi.Input[pulumi.InputType['AccountBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountCapacityArgs']] capacity: A `capacity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
                
                > **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
         :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
-        :param pulumi.Input[bool] enable_automatic_failover: Enable automatic failover for this Cosmos DB account.
-        :param pulumi.Input[bool] enable_free_tier: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the CosmosDB account.
+        :param pulumi.Input[bool] free_tier_enabled: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
@@ -1903,6 +2023,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
+        :param pulumi.Input[bool] multiple_write_locations_enabled: Enable multiple write locations for this Cosmos DB account.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
@@ -1937,6 +2058,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["access_key_metadata_writes_enabled"] = access_key_metadata_writes_enabled
         __props__.__dict__["analytical_storage"] = analytical_storage
         __props__.__dict__["analytical_storage_enabled"] = analytical_storage_enabled
+        __props__.__dict__["automatic_failover_enabled"] = automatic_failover_enabled
         __props__.__dict__["backup"] = backup
         __props__.__dict__["capabilities"] = capabilities
         __props__.__dict__["capacity"] = capacity
@@ -1949,6 +2071,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["enable_free_tier"] = enable_free_tier
         __props__.__dict__["enable_multiple_write_locations"] = enable_multiple_write_locations
         __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["free_tier_enabled"] = free_tier_enabled
         __props__.__dict__["geo_locations"] = geo_locations
         __props__.__dict__["identity"] = identity
         __props__.__dict__["ip_range_filter"] = ip_range_filter
@@ -1959,6 +2082,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["minimal_tls_version"] = minimal_tls_version
         __props__.__dict__["mongo_server_version"] = mongo_server_version
+        __props__.__dict__["multiple_write_locations_enabled"] = multiple_write_locations_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["network_acl_bypass_for_azure_services"] = network_acl_bypass_for_azure_services
         __props__.__dict__["network_acl_bypass_ids"] = network_acl_bypass_ids
@@ -2010,6 +2134,14 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "analytical_storage_enabled")
 
     @property
+    @pulumi.getter(name="automaticFailoverEnabled")
+    def automatic_failover_enabled(self) -> pulumi.Output[bool]:
+        """
+        Enable automatic failover for this Cosmos DB account.
+        """
+        return pulumi.get(self, "automatic_failover_enabled")
+
+    @property
     @pulumi.getter
     def backup(self) -> pulumi.Output['outputs.AccountBackup']:
         """
@@ -2036,9 +2168,9 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="connectionStrings")
     def connection_strings(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of connection strings available for this CosmosDB account.
-        """
+        warnings.warn("""This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
+        pulumi.log.warn("""connection_strings is deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider""")
+
         return pulumi.get(self, "connection_strings")
 
     @property
@@ -2077,26 +2209,26 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableAutomaticFailover")
-    def enable_automatic_failover(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Enable automatic failover for this Cosmos DB account.
-        """
+    def enable_automatic_failover(self) -> pulumi.Output[bool]:
+        warnings.warn("""This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""enable_automatic_failover is deprecated: This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "enable_automatic_failover")
 
     @property
     @pulumi.getter(name="enableFreeTier")
-    def enable_free_tier(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        """
+    def enable_free_tier(self) -> pulumi.Output[bool]:
+        warnings.warn("""This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""enable_free_tier is deprecated: This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "enable_free_tier")
 
     @property
     @pulumi.getter(name="enableMultipleWriteLocations")
-    def enable_multiple_write_locations(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Enable multiple write locations for this Cosmos DB account.
-        """
+    def enable_multiple_write_locations(self) -> pulumi.Output[bool]:
+        warnings.warn("""This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""enable_multiple_write_locations is deprecated: This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "enable_multiple_write_locations")
 
     @property
@@ -2106,6 +2238,14 @@ class Account(pulumi.CustomResource):
         The endpoint used to connect to the CosmosDB account.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="freeTierEnabled")
+    def free_tier_enabled(self) -> pulumi.Output[bool]:
+        """
+        Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "free_tier_enabled")
 
     @property
     @pulumi.getter(name="geoLocations")
@@ -2194,6 +2334,14 @@ class Account(pulumi.CustomResource):
         The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
         """
         return pulumi.get(self, "mongo_server_version")
+
+    @property
+    @pulumi.getter(name="multipleWriteLocationsEnabled")
+    def multiple_write_locations_enabled(self) -> pulumi.Output[bool]:
+        """
+        Enable multiple write locations for this Cosmos DB account.
+        """
+        return pulumi.get(self, "multiple_write_locations_enabled")
 
     @property
     @pulumi.getter

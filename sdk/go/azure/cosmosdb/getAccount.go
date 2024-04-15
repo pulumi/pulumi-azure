@@ -62,20 +62,24 @@ type LookupAccountArgs struct {
 
 // A collection of values returned by getAccount.
 type LookupAccountResult struct {
+	// If automatic failover is enabled for this CosmosDB Account.
+	AutomaticFailoverEnabled bool `pulumi:"automaticFailoverEnabled"`
 	// Capabilities enabled on this Cosmos DB account.
 	Capabilities []GetAccountCapability `pulumi:"capabilities"`
-	// A list of connection strings available for this CosmosDB account.
+	// Deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
 	ConnectionStrings   []string                      `pulumi:"connectionStrings"`
 	ConsistencyPolicies []GetAccountConsistencyPolicy `pulumi:"consistencyPolicies"`
-	// If automatic failover is enabled for this CosmosDB Account.
+	// Deprecated: This property has been renamed to `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM provider
 	EnableAutomaticFailover bool `pulumi:"enableAutomaticFailover"`
-	// If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
+	// Deprecated: This property has been renamed to `freeTierEnabled` and will be removed in v4.0 of the AzureRM provider
 	EnableFreeTier bool `pulumi:"enableFreeTier"`
-	// If multiple write locations are enabled for this Cosmos DB account.
+	// Deprecated: This property has been renamed to `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM provider
 	EnableMultipleWriteLocations bool `pulumi:"enableMultipleWriteLocations"`
 	// The endpoint used to connect to the CosmosDB account.
-	Endpoint     string                  `pulumi:"endpoint"`
-	GeoLocations []GetAccountGeoLocation `pulumi:"geoLocations"`
+	Endpoint string `pulumi:"endpoint"`
+	// If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
+	FreeTierEnabled bool                    `pulumi:"freeTierEnabled"`
+	GeoLocations    []GetAccountGeoLocation `pulumi:"geoLocations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The current IP Filter for this CosmosDB account
@@ -88,7 +92,9 @@ type LookupAccountResult struct {
 	Kind string `pulumi:"kind"`
 	// The name of the Azure region hosting replicated data.
 	Location string `pulumi:"location"`
-	Name     string `pulumi:"name"`
+	// If multiple write locations are enabled for this Cosmos DB account.
+	MultipleWriteLocationsEnabled bool   `pulumi:"multipleWriteLocationsEnabled"`
+	Name                          string `pulumi:"name"`
 	// The Offer Type to used by this CosmosDB Account.
 	OfferType string `pulumi:"offerType"`
 	// The primary key for the CosmosDB account.
@@ -166,12 +172,17 @@ func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx co
 	return o
 }
 
+// If automatic failover is enabled for this CosmosDB Account.
+func (o LookupAccountResultOutput) AutomaticFailoverEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.AutomaticFailoverEnabled }).(pulumi.BoolOutput)
+}
+
 // Capabilities enabled on this Cosmos DB account.
 func (o LookupAccountResultOutput) Capabilities() GetAccountCapabilityArrayOutput {
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountCapability { return v.Capabilities }).(GetAccountCapabilityArrayOutput)
 }
 
-// A list of connection strings available for this CosmosDB account.
+// Deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
 func (o LookupAccountResultOutput) ConnectionStrings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAccountResult) []string { return v.ConnectionStrings }).(pulumi.StringArrayOutput)
 }
@@ -180,17 +191,17 @@ func (o LookupAccountResultOutput) ConsistencyPolicies() GetAccountConsistencyPo
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountConsistencyPolicy { return v.ConsistencyPolicies }).(GetAccountConsistencyPolicyArrayOutput)
 }
 
-// If automatic failover is enabled for this CosmosDB Account.
+// Deprecated: This property has been renamed to `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM provider
 func (o LookupAccountResultOutput) EnableAutomaticFailover() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupAccountResult) bool { return v.EnableAutomaticFailover }).(pulumi.BoolOutput)
 }
 
-// If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
+// Deprecated: This property has been renamed to `freeTierEnabled` and will be removed in v4.0 of the AzureRM provider
 func (o LookupAccountResultOutput) EnableFreeTier() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupAccountResult) bool { return v.EnableFreeTier }).(pulumi.BoolOutput)
 }
 
-// If multiple write locations are enabled for this Cosmos DB account.
+// Deprecated: This property has been renamed to `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM provider
 func (o LookupAccountResultOutput) EnableMultipleWriteLocations() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupAccountResult) bool { return v.EnableMultipleWriteLocations }).(pulumi.BoolOutput)
 }
@@ -198,6 +209,11 @@ func (o LookupAccountResultOutput) EnableMultipleWriteLocations() pulumi.BoolOut
 // The endpoint used to connect to the CosmosDB account.
 func (o LookupAccountResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
+func (o LookupAccountResultOutput) FreeTierEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.FreeTierEnabled }).(pulumi.BoolOutput)
 }
 
 func (o LookupAccountResultOutput) GeoLocations() GetAccountGeoLocationArrayOutput {
@@ -232,6 +248,11 @@ func (o LookupAccountResultOutput) Kind() pulumi.StringOutput {
 // The name of the Azure region hosting replicated data.
 func (o LookupAccountResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// If multiple write locations are enabled for this Cosmos DB account.
+func (o LookupAccountResultOutput) MultipleWriteLocationsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.MultipleWriteLocationsEnabled }).(pulumi.BoolOutput)
 }
 
 func (o LookupAccountResultOutput) Name() pulumi.StringOutput {

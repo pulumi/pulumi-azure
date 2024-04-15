@@ -73,6 +73,18 @@ namespace Pulumi.Azure.Storage
         public Output<string?> ContainerAccessType { get; private set; } = null!;
 
         /// <summary>
+        /// The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("defaultEncryptionScope")]
+        public Output<string> DefaultEncryptionScope { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("encryptionScopeOverrideEnabled")]
+        public Output<bool?> EncryptionScopeOverrideEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Is there an Immutability Policy configured on this Storage Container?
         /// </summary>
         [Output("hasImmutabilityPolicy")]
@@ -162,6 +174,18 @@ namespace Pulumi.Azure.Storage
         [Input("containerAccessType")]
         public Input<string>? ContainerAccessType { get; set; }
 
+        /// <summary>
+        /// The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("defaultEncryptionScope")]
+        public Input<string>? DefaultEncryptionScope { get; set; }
+
+        /// <summary>
+        /// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("encryptionScopeOverrideEnabled")]
+        public Input<bool>? EncryptionScopeOverrideEnabled { get; set; }
+
         [Input("metadata")]
         private InputMap<string>? _metadata;
 
@@ -201,6 +225,18 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("containerAccessType")]
         public Input<string>? ContainerAccessType { get; set; }
+
+        /// <summary>
+        /// The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("defaultEncryptionScope")]
+        public Input<string>? DefaultEncryptionScope { get; set; }
+
+        /// <summary>
+        /// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("encryptionScopeOverrideEnabled")]
+        public Input<bool>? EncryptionScopeOverrideEnabled { get; set; }
 
         /// <summary>
         /// Is there an Immutability Policy configured on this Storage Container?

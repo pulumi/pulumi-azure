@@ -82,6 +82,10 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
      */
     public readonly aces!: pulumi.Output<outputs.storage.DataLakeGen2FilesystemAce[]>;
     /**
+     * The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+     */
+    public readonly defaultEncryptionScope!: pulumi.Output<string>;
+    /**
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
      *
      * > **NOTE:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
@@ -118,6 +122,7 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DataLakeGen2FilesystemState | undefined;
             resourceInputs["aces"] = state ? state.aces : undefined;
+            resourceInputs["defaultEncryptionScope"] = state ? state.defaultEncryptionScope : undefined;
             resourceInputs["group"] = state ? state.group : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
@@ -129,6 +134,7 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageAccountId'");
             }
             resourceInputs["aces"] = args ? args.aces : undefined;
+            resourceInputs["defaultEncryptionScope"] = args ? args.defaultEncryptionScope : undefined;
             resourceInputs["group"] = args ? args.group : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["owner"] = args ? args.owner : undefined;
@@ -148,6 +154,10 @@ export interface DataLakeGen2FilesystemState {
      * One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
      */
     aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2FilesystemAce>[]>;
+    /**
+     * The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+     */
+    defaultEncryptionScope?: pulumi.Input<string>;
     /**
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
      *
@@ -180,6 +190,10 @@ export interface DataLakeGen2FilesystemArgs {
      * One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
      */
     aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2FilesystemAce>[]>;
+    /**
+     * The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
+     */
+    defaultEncryptionScope?: pulumi.Input<string>;
     /**
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
      *

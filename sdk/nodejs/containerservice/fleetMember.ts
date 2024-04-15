@@ -9,6 +9,47 @@ import * as utilities from "../utilities";
  *
  * Manages a Kubernetes Fleet Member.
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = new azure.containerservice.KubernetesCluster("example", {
+ *     name: "example",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dnsPrefix: "acctestaksexample",
+ *     defaultNodePool: {
+ *         name: "example-value",
+ *         nodeCount: "example-value",
+ *         vmSize: "example-value",
+ *         upgradeSettings: {
+ *             maxSurge: "example-value",
+ *         },
+ *     },
+ *     identity: {
+ *         type: "example-value",
+ *     },
+ * });
+ * const exampleKubernetesFleetManager = new azure.containerservice.KubernetesFleetManager("example", {
+ *     name: "example",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleFleetMember = new azure.containerservice.FleetMember("example", {
+ *     kubernetesClusterId: example.id,
+ *     kubernetesFleetId: exampleKubernetesFleetManager.id,
+ *     name: "example",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * An existing Kubernetes Fleet Member can be imported into Terraform using the `resource id`, e.g.

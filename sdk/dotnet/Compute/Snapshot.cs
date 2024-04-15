@@ -104,6 +104,18 @@ namespace Pulumi.Azure.Compute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+        /// </summary>
+        [Output("networkAccessPolicy")]
+        public Output<string?> NetworkAccessPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -226,6 +238,18 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+        /// </summary>
+        [Input("networkAccessPolicy")]
+        public Input<string>? NetworkAccessPolicy { get; set; }
+
+        /// <summary>
+        /// Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -308,6 +332,18 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+        /// </summary>
+        [Input("networkAccessPolicy")]
+        public Input<string>? NetworkAccessPolicy { get; set; }
+
+        /// <summary>
+        /// Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.

@@ -91,7 +91,7 @@ type CacheAccessPolicyAssignment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	ObjectId pulumi.StringOutput `pulumi:"objectId"`
-	// The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+	// The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	ObjectIdAlias pulumi.StringOutput `pulumi:"objectIdAlias"`
 	// The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	RedisCacheId pulumi.StringOutput `pulumi:"redisCacheId"`
@@ -145,7 +145,7 @@ type cacheAccessPolicyAssignmentState struct {
 	Name *string `pulumi:"name"`
 	// The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	ObjectId *string `pulumi:"objectId"`
-	// The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+	// The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	ObjectIdAlias *string `pulumi:"objectIdAlias"`
 	// The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	RedisCacheId *string `pulumi:"redisCacheId"`
@@ -158,7 +158,7 @@ type CacheAccessPolicyAssignmentState struct {
 	Name pulumi.StringPtrInput
 	// The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	ObjectId pulumi.StringPtrInput
-	// The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+	// The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	ObjectIdAlias pulumi.StringPtrInput
 	// The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	RedisCacheId pulumi.StringPtrInput
@@ -175,7 +175,7 @@ type cacheAccessPolicyAssignmentArgs struct {
 	Name *string `pulumi:"name"`
 	// The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	ObjectId string `pulumi:"objectId"`
-	// The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+	// The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	ObjectIdAlias string `pulumi:"objectIdAlias"`
 	// The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	RedisCacheId string `pulumi:"redisCacheId"`
@@ -189,7 +189,7 @@ type CacheAccessPolicyAssignmentArgs struct {
 	Name pulumi.StringPtrInput
 	// The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	ObjectId pulumi.StringInput
-	// The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+	// The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	ObjectIdAlias pulumi.StringInput
 	// The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 	RedisCacheId pulumi.StringInput
@@ -297,7 +297,7 @@ func (o CacheAccessPolicyAssignmentOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CacheAccessPolicyAssignment) pulumi.StringOutput { return v.ObjectId }).(pulumi.StringOutput)
 }
 
-// The alias of the principal ID. Possible values are `ServicePrincipal` and `UserMSI`. Changing this forces a new Redis Cache Access Policy Assignment to be created.
+// The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
 func (o CacheAccessPolicyAssignmentOutput) ObjectIdAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v *CacheAccessPolicyAssignment) pulumi.StringOutput { return v.ObjectIdAlias }).(pulumi.StringOutput)
 }

@@ -55,6 +55,12 @@ public class ZipBlob extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> contentType() {
         return Codegen.optional(this.contentType);
     }
+    @Export(name="encryptionScope", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> encryptionScope;
+
+    public Output<Optional<String>> encryptionScope() {
+        return Codegen.optional(this.encryptionScope);
+    }
     @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> metadata;
 

@@ -48,7 +48,11 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you&#39;ll need to import the `azure.keyvault.CertificateContacts` manually.
      * 
+     * @deprecated
+     * As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `azure.keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `azure.keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider. */
     @Import(name="contacts")
     private @Nullable Output<List<KeyVaultContactArgs>> contacts;
 
@@ -59,7 +63,11 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you&#39;ll need to import the `azure.keyvault.CertificateContacts` manually.
      * 
+     * @deprecated
+     * As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `azure.keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `azure.keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider. */
     public Optional<Output<List<KeyVaultContactArgs>>> contacts() {
         return Optional.ofNullable(this.contacts);
     }
@@ -238,6 +246,8 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** This field can only be configured one time and cannot be updated.
      * 
+     * &lt;!-- TODO: Remove `contact` and Notes in 4.0 --&gt;
+     * 
      */
     @Import(name="softDeleteRetentionDays")
     private @Nullable Output<Integer> softDeleteRetentionDays;
@@ -246,6 +256,8 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
      * @return The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
      * 
      * &gt; **Note:** This field can only be configured one time and cannot be updated.
+     * 
+     * &lt;!-- TODO: Remove `contact` and Notes in 4.0 --&gt;
      * 
      */
     public Optional<Output<Integer>> softDeleteRetentionDays() {
@@ -383,7 +395,11 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `azure.keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `azure.keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider. */
         public Builder contacts(@Nullable Output<List<KeyVaultContactArgs>> contacts) {
             $.contacts = contacts;
             return this;
@@ -398,7 +414,11 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `azure.keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `azure.keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider. */
         public Builder contacts(List<KeyVaultContactArgs> contacts) {
             return contacts(Output.of(contacts));
         }
@@ -412,7 +432,11 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `azure.keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, `contact` will be removed in favour of the `azure.keyvault.CertificateContacts` resource in version 4.0 of the AzureRM Provider. */
         public Builder contacts(KeyVaultContactArgs... contacts) {
             return contacts(List.of(contacts));
         }
@@ -657,6 +681,8 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **Note:** This field can only be configured one time and cannot be updated.
          * 
+         * &lt;!-- TODO: Remove `contact` and Notes in 4.0 --&gt;
+         * 
          * @return builder
          * 
          */
@@ -669,6 +695,8 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
          * @param softDeleteRetentionDays The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
          * 
          * &gt; **Note:** This field can only be configured one time and cannot be updated.
+         * 
+         * &lt;!-- TODO: Remove `contact` and Notes in 4.0 --&gt;
          * 
          * @return builder
          * 

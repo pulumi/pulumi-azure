@@ -37,6 +37,36 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="defaultEncryptionScope")
+    private @Nullable Output<String> defaultEncryptionScope;
+
+    /**
+     * @return The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> defaultEncryptionScope() {
+        return Optional.ofNullable(this.defaultEncryptionScope);
+    }
+
+    /**
+     * Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="encryptionScopeOverrideEnabled")
+    private @Nullable Output<Boolean> encryptionScopeOverrideEnabled;
+
+    /**
+     * @return Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> encryptionScopeOverrideEnabled() {
+        return Optional.ofNullable(this.encryptionScopeOverrideEnabled);
+    }
+
+    /**
      * Is there an Immutability Policy configured on this Storage Container?
      * 
      */
@@ -130,6 +160,8 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
 
     private ContainerState(ContainerState $) {
         this.containerAccessType = $.containerAccessType;
+        this.defaultEncryptionScope = $.defaultEncryptionScope;
+        this.encryptionScopeOverrideEnabled = $.encryptionScopeOverrideEnabled;
         this.hasImmutabilityPolicy = $.hasImmutabilityPolicy;
         this.hasLegalHold = $.hasLegalHold;
         this.metadata = $.metadata;
@@ -179,6 +211,48 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder containerAccessType(String containerAccessType) {
             return containerAccessType(Output.of(containerAccessType));
+        }
+
+        /**
+         * @param defaultEncryptionScope The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultEncryptionScope(@Nullable Output<String> defaultEncryptionScope) {
+            $.defaultEncryptionScope = defaultEncryptionScope;
+            return this;
+        }
+
+        /**
+         * @param defaultEncryptionScope The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultEncryptionScope(String defaultEncryptionScope) {
+            return defaultEncryptionScope(Output.of(defaultEncryptionScope));
+        }
+
+        /**
+         * @param encryptionScopeOverrideEnabled Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionScopeOverrideEnabled(@Nullable Output<Boolean> encryptionScopeOverrideEnabled) {
+            $.encryptionScopeOverrideEnabled = encryptionScopeOverrideEnabled;
+            return this;
+        }
+
+        /**
+         * @param encryptionScopeOverrideEnabled Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionScopeOverrideEnabled(Boolean encryptionScopeOverrideEnabled) {
+            return encryptionScopeOverrideEnabled(Output.of(encryptionScopeOverrideEnabled));
         }
 
         /**

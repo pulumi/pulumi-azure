@@ -79,6 +79,10 @@ type Container struct {
 	//
 	// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 	ContainerAccessType pulumi.StringPtrOutput `pulumi:"containerAccessType"`
+	// The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+	DefaultEncryptionScope pulumi.StringOutput `pulumi:"defaultEncryptionScope"`
+	// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `defaultEncryptionScope`. Defaults to `true`. Changing this forces a new resource to be created.
+	EncryptionScopeOverrideEnabled pulumi.BoolPtrOutput `pulumi:"encryptionScopeOverrideEnabled"`
 	// Is there an Immutability Policy configured on this Storage Container?
 	HasImmutabilityPolicy pulumi.BoolOutput `pulumi:"hasImmutabilityPolicy"`
 	// Is there a Legal Hold configured on this Storage Container?
@@ -130,6 +134,10 @@ type containerState struct {
 	//
 	// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 	ContainerAccessType *string `pulumi:"containerAccessType"`
+	// The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+	DefaultEncryptionScope *string `pulumi:"defaultEncryptionScope"`
+	// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `defaultEncryptionScope`. Defaults to `true`. Changing this forces a new resource to be created.
+	EncryptionScopeOverrideEnabled *bool `pulumi:"encryptionScopeOverrideEnabled"`
 	// Is there an Immutability Policy configured on this Storage Container?
 	HasImmutabilityPolicy *bool `pulumi:"hasImmutabilityPolicy"`
 	// Is there a Legal Hold configured on this Storage Container?
@@ -149,6 +157,10 @@ type ContainerState struct {
 	//
 	// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 	ContainerAccessType pulumi.StringPtrInput
+	// The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+	DefaultEncryptionScope pulumi.StringPtrInput
+	// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `defaultEncryptionScope`. Defaults to `true`. Changing this forces a new resource to be created.
+	EncryptionScopeOverrideEnabled pulumi.BoolPtrInput
 	// Is there an Immutability Policy configured on this Storage Container?
 	HasImmutabilityPolicy pulumi.BoolPtrInput
 	// Is there a Legal Hold configured on this Storage Container?
@@ -172,6 +184,10 @@ type containerArgs struct {
 	//
 	// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 	ContainerAccessType *string `pulumi:"containerAccessType"`
+	// The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+	DefaultEncryptionScope *string `pulumi:"defaultEncryptionScope"`
+	// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `defaultEncryptionScope`. Defaults to `true`. Changing this forces a new resource to be created.
+	EncryptionScopeOverrideEnabled *bool `pulumi:"encryptionScopeOverrideEnabled"`
 	// A mapping of MetaData for this Container. All metadata keys should be lowercase.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
@@ -186,6 +202,10 @@ type ContainerArgs struct {
 	//
 	// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 	ContainerAccessType pulumi.StringPtrInput
+	// The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+	DefaultEncryptionScope pulumi.StringPtrInput
+	// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `defaultEncryptionScope`. Defaults to `true`. Changing this forces a new resource to be created.
+	EncryptionScopeOverrideEnabled pulumi.BoolPtrInput
 	// A mapping of MetaData for this Container. All metadata keys should be lowercase.
 	Metadata pulumi.StringMapInput
 	// The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
@@ -286,6 +306,16 @@ func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) Conta
 // > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 func (o ContainerOutput) ContainerAccessType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringPtrOutput { return v.ContainerAccessType }).(pulumi.StringPtrOutput)
+}
+
+// The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
+func (o ContainerOutput) DefaultEncryptionScope() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.DefaultEncryptionScope }).(pulumi.StringOutput)
+}
+
+// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `defaultEncryptionScope`. Defaults to `true`. Changing this forces a new resource to be created.
+func (o ContainerOutput) EncryptionScopeOverrideEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Container) pulumi.BoolPtrOutput { return v.EncryptionScopeOverrideEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Is there an Immutability Policy configured on this Storage Container?

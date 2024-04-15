@@ -18,6 +18,16 @@ public final class GetStorageContainerResult {
      */
     private String containerAccessType;
     /**
+     * @return The default encryption scope in use for blobs uploaded to this container.
+     * 
+     */
+    private String defaultEncryptionScope;
+    /**
+     * @return Whether blobs are allowed to override the default encryption scope for this container.
+     * 
+     */
+    private Boolean encryptionScopeOverrideEnabled;
+    /**
      * @return Is there an Immutability Policy configured on this Storage Container?
      * 
      */
@@ -52,6 +62,20 @@ public final class GetStorageContainerResult {
      */
     public String containerAccessType() {
         return this.containerAccessType;
+    }
+    /**
+     * @return The default encryption scope in use for blobs uploaded to this container.
+     * 
+     */
+    public String defaultEncryptionScope() {
+        return this.defaultEncryptionScope;
+    }
+    /**
+     * @return Whether blobs are allowed to override the default encryption scope for this container.
+     * 
+     */
+    public Boolean encryptionScopeOverrideEnabled() {
+        return this.encryptionScopeOverrideEnabled;
     }
     /**
      * @return Is there an Immutability Policy configured on this Storage Container?
@@ -105,6 +129,8 @@ public final class GetStorageContainerResult {
     @CustomType.Builder
     public static final class Builder {
         private String containerAccessType;
+        private String defaultEncryptionScope;
+        private Boolean encryptionScopeOverrideEnabled;
         private Boolean hasImmutabilityPolicy;
         private Boolean hasLegalHold;
         private String id;
@@ -116,6 +142,8 @@ public final class GetStorageContainerResult {
         public Builder(GetStorageContainerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.containerAccessType = defaults.containerAccessType;
+    	      this.defaultEncryptionScope = defaults.defaultEncryptionScope;
+    	      this.encryptionScopeOverrideEnabled = defaults.encryptionScopeOverrideEnabled;
     	      this.hasImmutabilityPolicy = defaults.hasImmutabilityPolicy;
     	      this.hasLegalHold = defaults.hasLegalHold;
     	      this.id = defaults.id;
@@ -131,6 +159,22 @@ public final class GetStorageContainerResult {
               throw new MissingRequiredPropertyException("GetStorageContainerResult", "containerAccessType");
             }
             this.containerAccessType = containerAccessType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder defaultEncryptionScope(String defaultEncryptionScope) {
+            if (defaultEncryptionScope == null) {
+              throw new MissingRequiredPropertyException("GetStorageContainerResult", "defaultEncryptionScope");
+            }
+            this.defaultEncryptionScope = defaultEncryptionScope;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder encryptionScopeOverrideEnabled(Boolean encryptionScopeOverrideEnabled) {
+            if (encryptionScopeOverrideEnabled == null) {
+              throw new MissingRequiredPropertyException("GetStorageContainerResult", "encryptionScopeOverrideEnabled");
+            }
+            this.encryptionScopeOverrideEnabled = encryptionScopeOverrideEnabled;
             return this;
         }
         @CustomType.Setter
@@ -192,6 +236,8 @@ public final class GetStorageContainerResult {
         public GetStorageContainerResult build() {
             final var _resultValue = new GetStorageContainerResult();
             _resultValue.containerAccessType = containerAccessType;
+            _resultValue.defaultEncryptionScope = defaultEncryptionScope;
+            _resultValue.encryptionScopeOverrideEnabled = encryptionScopeOverrideEnabled;
             _resultValue.hasImmutabilityPolicy = hasImmutabilityPolicy;
             _resultValue.hasLegalHold = hasLegalHold;
             _resultValue.id = id;

@@ -118,6 +118,36 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+     * 
+     */
+    @Import(name="networkAccessPolicy")
+    private @Nullable Output<String> networkAccessPolicy;
+
+    /**
+     * @return Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+     * 
+     */
+    public Optional<Output<String>> networkAccessPolicy() {
+        return Optional.ofNullable(this.networkAccessPolicy);
+    }
+
+    /**
+     * Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+     * 
+     */
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
+    /**
      * The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
      * 
      */
@@ -216,6 +246,8 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         this.incrementalEnabled = $.incrementalEnabled;
         this.location = $.location;
         this.name = $.name;
+        this.networkAccessPolicy = $.networkAccessPolicy;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.sourceResourceId = $.sourceResourceId;
         this.sourceUri = $.sourceUri;
@@ -374,6 +406,48 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param networkAccessPolicy Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkAccessPolicy(@Nullable Output<String> networkAccessPolicy) {
+            $.networkAccessPolicy = networkAccessPolicy;
+            return this;
+        }
+
+        /**
+         * @param networkAccessPolicy Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkAccessPolicy(String networkAccessPolicy) {
+            return networkAccessPolicy(Output.of(networkAccessPolicy));
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

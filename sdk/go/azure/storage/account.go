@@ -292,7 +292,7 @@ type Account struct {
 	QueueEncryptionKeyType pulumi.StringPtrOutput `pulumi:"queueEncryptionKeyType"`
 	// A `queueProperties` block as defined below.
 	//
-	// > **NOTE:** `queueProperties` cannot be set when the `accountKind` is set to `BlobStorage`
+	// > **NOTE:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
 	QueueProperties AccountQueuePropertiesOutput `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -377,6 +377,8 @@ type Account struct {
 	// > **NOTE:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
 	SftpEnabled pulumi.BoolPtrOutput `pulumi:"sftpEnabled"`
 	// A `shareProperties` block as defined below.
+	//
+	// > **NOTE:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
 	ShareProperties        AccountSharePropertiesOutput `pulumi:"shareProperties"`
 	SharedAccessKeyEnabled pulumi.BoolPtrOutput         `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
@@ -585,7 +587,7 @@ type accountState struct {
 	QueueEncryptionKeyType *string `pulumi:"queueEncryptionKeyType"`
 	// A `queueProperties` block as defined below.
 	//
-	// > **NOTE:** `queueProperties` cannot be set when the `accountKind` is set to `BlobStorage`
+	// > **NOTE:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
 	QueueProperties *AccountQueueProperties `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -670,6 +672,8 @@ type accountState struct {
 	// > **NOTE:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
 	SftpEnabled *bool `pulumi:"sftpEnabled"`
 	// A `shareProperties` block as defined below.
+	//
+	// > **NOTE:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
 	ShareProperties        *AccountShareProperties `pulumi:"shareProperties"`
 	SharedAccessKeyEnabled *bool                   `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
@@ -831,7 +835,7 @@ type AccountState struct {
 	QueueEncryptionKeyType pulumi.StringPtrInput
 	// A `queueProperties` block as defined below.
 	//
-	// > **NOTE:** `queueProperties` cannot be set when the `accountKind` is set to `BlobStorage`
+	// > **NOTE:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
 	QueueProperties AccountQueuePropertiesPtrInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -916,6 +920,8 @@ type AccountState struct {
 	// > **NOTE:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
 	SftpEnabled pulumi.BoolPtrInput
 	// A `shareProperties` block as defined below.
+	//
+	// > **NOTE:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
 	ShareProperties        AccountSharePropertiesPtrInput
 	SharedAccessKeyEnabled pulumi.BoolPtrInput
 	// A `staticWebsite` block as defined below.
@@ -1009,7 +1015,7 @@ type accountArgs struct {
 	QueueEncryptionKeyType *string `pulumi:"queueEncryptionKeyType"`
 	// A `queueProperties` block as defined below.
 	//
-	// > **NOTE:** `queueProperties` cannot be set when the `accountKind` is set to `BlobStorage`
+	// > **NOTE:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
 	QueueProperties *AccountQueueProperties `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -1022,6 +1028,8 @@ type accountArgs struct {
 	// > **NOTE:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
 	SftpEnabled *bool `pulumi:"sftpEnabled"`
 	// A `shareProperties` block as defined below.
+	//
+	// > **NOTE:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
 	ShareProperties        *AccountShareProperties `pulumi:"shareProperties"`
 	SharedAccessKeyEnabled *bool                   `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
@@ -1112,7 +1120,7 @@ type AccountArgs struct {
 	QueueEncryptionKeyType pulumi.StringPtrInput
 	// A `queueProperties` block as defined below.
 	//
-	// > **NOTE:** `queueProperties` cannot be set when the `accountKind` is set to `BlobStorage`
+	// > **NOTE:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
 	QueueProperties AccountQueuePropertiesPtrInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -1125,6 +1133,8 @@ type AccountArgs struct {
 	// > **NOTE:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
 	SftpEnabled pulumi.BoolPtrInput
 	// A `shareProperties` block as defined below.
+	//
+	// > **NOTE:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
 	ShareProperties        AccountSharePropertiesPtrInput
 	SharedAccessKeyEnabled pulumi.BoolPtrInput
 	// A `staticWebsite` block as defined below.
@@ -1564,7 +1574,7 @@ func (o AccountOutput) QueueEncryptionKeyType() pulumi.StringPtrOutput {
 
 // A `queueProperties` block as defined below.
 //
-// > **NOTE:** `queueProperties` cannot be set when the `accountKind` is set to `BlobStorage`
+// > **NOTE:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
 func (o AccountOutput) QueueProperties() AccountQueuePropertiesOutput {
 	return o.ApplyT(func(v *Account) AccountQueuePropertiesOutput { return v.QueueProperties }).(AccountQueuePropertiesOutput)
 }
@@ -1772,6 +1782,8 @@ func (o AccountOutput) SftpEnabled() pulumi.BoolPtrOutput {
 }
 
 // A `shareProperties` block as defined below.
+//
+// > **NOTE:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
 func (o AccountOutput) ShareProperties() AccountSharePropertiesOutput {
 	return o.ApplyT(func(v *Account) AccountSharePropertiesOutput { return v.ShareProperties }).(AccountSharePropertiesOutput)
 }

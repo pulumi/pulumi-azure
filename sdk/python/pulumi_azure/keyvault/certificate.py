@@ -370,11 +370,6 @@ class Certificate(pulumi.CustomResource):
         """
         Manages a Key Vault Certificate.
 
-        <<<<<<< HEAD
-        > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_certificates_on_destroy` for more information.
-
-        =======
-        > > > > > > > 8d78c87098 (Update-documentation)
         ## Example Usage
 
         ### Importing A PFX)
@@ -592,11 +587,6 @@ class Certificate(pulumi.CustomResource):
         """
         Manages a Key Vault Certificate.
 
-        <<<<<<< HEAD
-        > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_certificates_on_destroy` for more information.
-
-        =======
-        > > > > > > > 8d78c87098 (Update-documentation)
         ## Example Usage
 
         ### Importing A PFX)
