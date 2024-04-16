@@ -60,9 +60,9 @@ import * as utilities from "../utilities";
  *         evaluationInterval: "PT15M",
  *         formula: `      startingNumberOfVMs = 1;
  *       maxNumberofVMs = 25;
- *       pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
- *       pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 *   TimeInterval_Second));
- *       $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+ *       pendingTaskSamplePercent = PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+ *       pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg(PendingTasks.GetSample(180 *   TimeInterval_Second));
+ *       TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
  * `,
  *     },
  *     storageImageReference: {
