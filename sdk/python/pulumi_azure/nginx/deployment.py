@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -688,11 +693,11 @@ class Deployment(pulumi.CustomResource):
         \"\"\").result
         protected_content = std.base64encode(input="user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1\\n").result
         sub_config_content = std.base64encode(input=\"\"\"location /bbb {
-        	default_type text/html;
-        	return 200 '<!doctype html><html lang="en"><head></head><body>
-        		<div>this one will be updated</div>
-        		<div>at 10:38 am</div>
-        	</body></html>';
+        \\x09default_type text/html;
+        \\x09return 200 '<!doctype html><html lang="en"><head></head><body>
+        \\x09\\x09<div>this one will be updated</div>
+        \\x09\\x09<div>at 10:38 am</div>
+        \\x09</body></html>';
         }
         \"\"\").result
         example_deployment = azure.nginx.Deployment("example",
@@ -821,11 +826,11 @@ class Deployment(pulumi.CustomResource):
         \"\"\").result
         protected_content = std.base64encode(input="user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1\\n").result
         sub_config_content = std.base64encode(input=\"\"\"location /bbb {
-        	default_type text/html;
-        	return 200 '<!doctype html><html lang="en"><head></head><body>
-        		<div>this one will be updated</div>
-        		<div>at 10:38 am</div>
-        	</body></html>';
+        \\x09default_type text/html;
+        \\x09return 200 '<!doctype html><html lang="en"><head></head><body>
+        \\x09\\x09<div>this one will be updated</div>
+        \\x09\\x09<div>at 10:38 am</div>
+        \\x09</body></html>';
         }
         \"\"\").result
         example_deployment = azure.nginx.Deployment("example",
