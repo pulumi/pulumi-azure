@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     managementGroupId: example.then(example => example.id),
  *     templateContent: `{
- *   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+ *   "schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
  *   "contentVersion": "1.0.0.0",
  *   "parameters": {
  *     "policyAssignmentName": {
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     parametersContent: `{
- *   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+ *   "schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
  *   "contentVersion": "1.0.0.0",
  *   "parameters": {
  *     "policyDefinitionID": {
