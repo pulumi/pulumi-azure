@@ -587,7 +587,6 @@ class Insights(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -603,11 +602,9 @@ class Insights(pulumi.CustomResource):
         pulumi.export("instrumentationKey", example_insights.instrumentation_key)
         pulumi.export("appId", example_insights.app_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Workspace Mode
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -630,7 +627,6 @@ class Insights(pulumi.CustomResource):
         pulumi.export("instrumentationKey", example_insights.instrumentation_key)
         pulumi.export("appId", example_insights.app_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -671,7 +667,6 @@ class Insights(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -687,11 +682,9 @@ class Insights(pulumi.CustomResource):
         pulumi.export("instrumentationKey", example_insights.instrumentation_key)
         pulumi.export("appId", example_insights.app_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Workspace Mode
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -714,7 +707,6 @@ class Insights(pulumi.CustomResource):
         pulumi.export("instrumentationKey", example_insights.instrumentation_key)
         pulumi.export("appId", example_insights.app_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupBudgetResourceGroup(ctx *pulumi.Context, args *LookupBudgetResourceGroupArgs, opts ...pulumi.InvokeOption) (*LookupBudgetResourceGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBudgetResourceGroupResult

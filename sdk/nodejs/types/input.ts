@@ -19518,7 +19518,6 @@ export namespace compute {
         /**
          * Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
          *
-         * <!--Start PulumiCodeChooser -->
          * ```typescript
          * import * as pulumi from "@pulumi/pulumi";
          * import * as azure from "@pulumi/azure";
@@ -19545,7 +19544,6 @@ export namespace compute {
          * });
          * export const principalId = example.identity.apply(identity => identity.principalId);
          * ```
-         * <!--End PulumiCodeChooser -->
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         principalId?: pulumi.Input<string>;
@@ -23064,7 +23062,6 @@ export namespace containerservice {
          *
          * > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
          *
-         * <!--Start PulumiCodeChooser -->
          * ```typescript
          * import * as pulumi from "@pulumi/pulumi";
          * import * as azure from "@pulumi/azure";
@@ -23077,7 +23074,6 @@ export namespace containerservice {
          *     },
          * }]});
          * ```
-         * <!--End PulumiCodeChooser -->
          */
         subnetName: pulumi.Input<string>;
     }

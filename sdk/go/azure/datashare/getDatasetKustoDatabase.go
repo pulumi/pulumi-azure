@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupDatasetKustoDatabase(ctx *pulumi.Context, args *LookupDatasetKustoDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatasetKustoDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatasetKustoDatabaseResult

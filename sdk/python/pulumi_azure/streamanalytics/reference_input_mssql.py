@@ -426,7 +426,6 @@ class ReferenceInputMssql(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -461,7 +460,6 @@ class ReferenceInputMssql(pulumi.CustomResource):
             FROM [YourInputAlias]
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -497,7 +495,6 @@ class ReferenceInputMssql(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -532,7 +529,6 @@ class ReferenceInputMssql(pulumi.CustomResource):
             FROM [YourInputAlias]
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

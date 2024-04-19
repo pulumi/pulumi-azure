@@ -386,7 +386,6 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -432,7 +431,6 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
             policy_assignment_id=example_resource_group_policy_assignment.id,
             location_filters=["West Europe"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -468,7 +466,6 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -514,7 +511,6 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
             policy_assignment_id=example_resource_group_policy_assignment.id,
             location_filters=["West Europe"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

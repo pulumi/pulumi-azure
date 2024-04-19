@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -92,10 +91,10 @@ import * as utilities from "../utilities";
  *     scriptContent: `.create table TestTable(Id:string, Name:string, _ts:long, _timestamp:datetime)
  * .create table TestTable ingestion json mapping "TestMapping"
  * '['
- * '    {"column":"Id","path":"$.id"},'
- * '    {"column":"Name","path":"$.name"},'
- * '    {"column":"_ts","path":"$._ts"},'
- * '    {"column":"_timestamp","path":"$._ts", "transform":"DateTimeFromUnixSeconds"}'
+ * '    {"column":"Id","path":".id"},'
+ * '    {"column":"Name","path":".name"},'
+ * '    {"column":"_ts","path":"._ts"},'
+ * '    {"column":"_timestamp","path":"._ts", "transform":"DateTimeFromUnixSeconds"}'
  * ']'
  * .alter table TestTable policy ingestionbatching "{'MaximumBatchingTimeSpan': '0:0:10', 'MaximumNumberOfItems': 10000}"
  * `,
@@ -111,7 +110,6 @@ import * as utilities from "../utilities";
  *     retrievalStartDate: "2023-06-26T12:00:00.6554616Z",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

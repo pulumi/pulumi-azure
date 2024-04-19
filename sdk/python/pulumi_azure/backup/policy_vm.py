@@ -441,7 +441,6 @@ class PolicyVM(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -493,7 +492,6 @@ class PolicyVM(pulumi.CustomResource):
                 months=["January"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -531,7 +529,6 @@ class PolicyVM(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -583,7 +580,6 @@ class PolicyVM(pulumi.CustomResource):
                 months=["January"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

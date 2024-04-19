@@ -433,7 +433,6 @@ class Assignment(pulumi.CustomResource):
 
         ### Using A Built-In Role)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -445,11 +444,9 @@ class Assignment(pulumi.CustomResource):
             role_definition_name="Reader",
             principal_id=example.object_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Role & Service Principal)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -471,11 +468,9 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example.object_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Role & User)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -497,11 +492,9 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example.object_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Role & Management Group)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -524,7 +517,6 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example.object_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -579,7 +571,6 @@ class Assignment(pulumi.CustomResource):
 
         ### Using A Built-In Role)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -591,11 +582,9 @@ class Assignment(pulumi.CustomResource):
             role_definition_name="Reader",
             principal_id=example.object_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Role & Service Principal)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -617,11 +606,9 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example.object_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Role & User)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -643,11 +630,9 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example.object_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Role & Management Group)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -670,7 +655,6 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example.object_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

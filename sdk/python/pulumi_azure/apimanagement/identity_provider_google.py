@@ -166,7 +166,6 @@ class IdentityProviderGoogle(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -187,7 +186,6 @@ class IdentityProviderGoogle(pulumi.CustomResource):
             client_id="00000000.apps.googleusercontent.com",
             client_secret="00000000000000000000000000000000")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -215,7 +213,6 @@ class IdentityProviderGoogle(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -236,7 +233,6 @@ class IdentityProviderGoogle(pulumi.CustomResource):
             client_id="00000000.apps.googleusercontent.com",
             client_secret="00000000000000000000000000000000")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

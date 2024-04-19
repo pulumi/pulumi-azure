@@ -334,7 +334,6 @@ class FluxConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -372,7 +371,6 @@ class FluxConfiguration(pulumi.CustomResource):
                 name="kustomization-1",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -405,7 +403,6 @@ class FluxConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -443,7 +440,6 @@ class FluxConfiguration(pulumi.CustomResource):
                 name="kustomization-1",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -2036,7 +2036,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
         This example provisions a basic Linux Virtual Machine Scale Set on an internal network.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -2086,7 +2085,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                 )],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -2206,7 +2204,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
         This example provisions a basic Linux Virtual Machine Scale Set on an internal network.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -2256,7 +2253,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                 )],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -268,7 +268,6 @@ class SpringCloudConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -324,7 +323,6 @@ class SpringCloudConnection(pulumi.CustomResource):
                 type="systemAssignedIdentity",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -355,7 +353,6 @@ class SpringCloudConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -411,7 +408,6 @@ class SpringCloudConnection(pulumi.CustomResource):
                 type="systemAssignedIdentity",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

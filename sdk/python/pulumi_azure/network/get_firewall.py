@@ -216,7 +216,6 @@ def get_firewall(dns_proxy_enabled: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -225,7 +224,6 @@ def get_firewall(dns_proxy_enabled: Optional[bool] = None,
         resource_group_name="firewall-RG")
     pulumi.export("firewallPrivateIp", example.ip_configurations[0].private_ip_address)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
@@ -267,7 +265,6 @@ def get_firewall_output(dns_proxy_enabled: Optional[pulumi.Input[Optional[bool]]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -276,7 +273,6 @@ def get_firewall_output(dns_proxy_enabled: Optional[pulumi.Input[Optional[bool]]
         resource_group_name="firewall-RG")
     pulumi.export("firewallPrivateIp", example.ip_configurations[0].private_ip_address)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.

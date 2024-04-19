@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -35,11 +34,11 @@ import * as utilities from "../utilities";
  *     cleanupPreference: "OnSuccess",
  *     forceUpdateTag: "1",
  *     timeout: "PT30M",
- *     scriptContent: `          param([string] $name)
- *             $output = 'Hello {0}.' -f $name
- *             Write-Output $output
- *             $DeploymentScriptOutputs = @{}
- *             $DeploymentScriptOutputs['text'] = $output
+ *     scriptContent: `          param([string] name)
+ *             output = 'Hello {0}.' -f name
+ *             Write-Output output
+ *             DeploymentScriptOutputs = @{}
+ *             DeploymentScriptOutputs['text'] = output
  * `,
  *     identity: {
  *         type: "UserAssigned",
@@ -50,7 +49,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

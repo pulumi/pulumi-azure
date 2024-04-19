@@ -381,7 +381,6 @@ class Certifiate(pulumi.CustomResource):
 
         > **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -451,11 +450,9 @@ class Certifiate(pulumi.CustomResource):
                 password="",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Generating a new certificate
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -563,7 +560,6 @@ class Certifiate(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -598,7 +594,6 @@ class Certifiate(pulumi.CustomResource):
 
         > **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -668,11 +663,9 @@ class Certifiate(pulumi.CustomResource):
                 password="",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Generating a new certificate
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -780,7 +773,6 @@ class Certifiate(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

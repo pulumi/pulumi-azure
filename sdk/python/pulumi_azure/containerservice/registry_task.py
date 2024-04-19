@@ -649,7 +649,6 @@ class RegistryTask(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -675,7 +674,6 @@ class RegistryTask(pulumi.CustomResource):
                 image_names=["helloworld:{{.Run.ID}}"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -721,7 +719,6 @@ class RegistryTask(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -747,7 +744,6 @@ class RegistryTask(pulumi.CustomResource):
                 image_names=["helloworld:{{.Run.ID}}"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

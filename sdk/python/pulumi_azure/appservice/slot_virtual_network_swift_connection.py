@@ -134,7 +134,6 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -183,7 +182,6 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
             app_service_id=example_app_service.id,
             subnet_id=example_subnet.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -210,7 +208,6 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -259,7 +256,6 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
             app_service_id=example_app_service.id,
             subnet_id=example_subnet.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

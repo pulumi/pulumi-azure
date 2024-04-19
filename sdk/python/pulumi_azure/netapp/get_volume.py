@@ -267,7 +267,6 @@ def get_volume(account_name: Optional[str] = None,
 
     ## NetApp Volume Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -278,7 +277,6 @@ def get_volume(account_name: Optional[str] = None,
         name="example-volume")
     pulumi.export("netappVolumeId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the NetApp account where the NetApp pool exists.
@@ -331,7 +329,6 @@ def get_volume_output(account_name: Optional[pulumi.Input[str]] = None,
 
     ## NetApp Volume Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -342,7 +339,6 @@ def get_volume_output(account_name: Optional[pulumi.Input[str]] = None,
         name="example-volume")
     pulumi.export("netappVolumeId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the NetApp account where the NetApp pool exists.

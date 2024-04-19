@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -27,7 +26,6 @@ import * as utilities from "../utilities";
  * export const backendAddressPoolId = exampleGetBackendAddressPool.then(exampleGetBackendAddressPool => exampleGetBackendAddressPool.id);
  * export const backendIpConfigurationIds = beap.backendIpConfigurations.map(__item => __item.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBackendAddressPool(args: GetBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendAddressPoolResult> {
 
@@ -91,7 +89,6 @@ export interface GetBackendAddressPoolResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -107,7 +104,6 @@ export interface GetBackendAddressPoolResult {
  * export const backendAddressPoolId = exampleGetBackendAddressPool.then(exampleGetBackendAddressPool => exampleGetBackendAddressPool.id);
  * export const backendIpConfigurationIds = beap.backendIpConfigurations.map(__item => __item.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBackendAddressPoolOutput(args: GetBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackendAddressPoolResult> {
     return pulumi.output(args).apply((a: any) => getBackendAddressPool(a, opts))

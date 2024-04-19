@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Cdn
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Azure.Cdn
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFrontdoorFirewallPolicyResult> InvokeAsync(GetFrontdoorFirewallPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorFirewallPolicyResult>("azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy", args ?? new GetFrontdoorFirewallPolicyArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Azure.Cdn
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Azure.Cdn
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFrontdoorFirewallPolicyResult> Invoke(GetFrontdoorFirewallPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorFirewallPolicyResult>("azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy", args ?? new GetFrontdoorFirewallPolicyInvokeArgs(), options.WithDefaults());

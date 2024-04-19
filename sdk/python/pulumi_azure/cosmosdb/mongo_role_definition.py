@@ -178,7 +178,6 @@ class MongoRoleDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -215,7 +214,6 @@ class MongoRoleDefinition(pulumi.CustomResource):
             cosmos_mongo_database_id=example_mongo_database.id,
             role_name="example-roledefinition")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -245,7 +243,6 @@ class MongoRoleDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -282,7 +279,6 @@ class MongoRoleDefinition(pulumi.CustomResource):
             cosmos_mongo_database_id=example_mongo_database.id,
             role_name="example-roledefinition")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

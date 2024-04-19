@@ -22,7 +22,6 @@ import (
 //
 // ### NET 4.X)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -115,11 +114,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Java 1.8)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -196,7 +193,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

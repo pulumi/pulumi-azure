@@ -105,7 +105,6 @@ class SpringCloudApplicationLiveView(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -122,7 +121,6 @@ class SpringCloudApplicationLiveView(pulumi.CustomResource):
             name="default",
             spring_cloud_service_id=example_spring_cloud_service.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -152,7 +150,6 @@ class SpringCloudApplicationLiveView(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -169,7 +166,6 @@ class SpringCloudApplicationLiveView(pulumi.CustomResource):
             name="default",
             spring_cloud_service_id=example_spring_cloud_service.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

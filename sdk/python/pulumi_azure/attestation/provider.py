@@ -421,7 +421,6 @@ class Provider(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -436,7 +435,6 @@ class Provider(pulumi.CustomResource):
             location=example.location,
             policy_signing_certificate_data=std.file(input="./example/cert.pem").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -473,7 +471,6 @@ class Provider(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -488,7 +485,6 @@ class Provider(pulumi.CustomResource):
             location=example.location,
             policy_signing_certificate_data=std.file(input="./example/cert.pem").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

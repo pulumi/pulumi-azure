@@ -272,7 +272,6 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -306,7 +305,6 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
                 "Env": "Staging",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -339,7 +337,6 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -373,7 +370,6 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
                 "Env": "Staging",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

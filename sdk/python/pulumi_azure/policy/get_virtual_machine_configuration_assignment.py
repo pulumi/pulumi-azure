@@ -152,7 +152,6 @@ def get_virtual_machine_configuration_assignment(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -162,7 +161,6 @@ def get_virtual_machine_configuration_assignment(name: Optional[str] = None,
         virtual_machine_name="example-vm")
     pulumi.export("complianceStatus", example.compliance_status)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Guest Configuration Assignment.
@@ -199,7 +197,6 @@ def get_virtual_machine_configuration_assignment_output(name: Optional[pulumi.In
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -209,7 +206,6 @@ def get_virtual_machine_configuration_assignment_output(name: Optional[pulumi.In
         virtual_machine_name="example-vm")
     pulumi.export("complianceStatus", example.compliance_status)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Guest Configuration Assignment.

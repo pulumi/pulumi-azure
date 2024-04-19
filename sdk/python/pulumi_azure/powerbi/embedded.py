@@ -266,7 +266,6 @@ class Embedded(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -281,7 +280,6 @@ class Embedded(pulumi.CustomResource):
             sku_name="A1",
             administrators=["azsdktest@microsoft.com"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -312,7 +310,6 @@ class Embedded(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -327,7 +324,6 @@ class Embedded(pulumi.CustomResource):
             sku_name="A1",
             administrators=["azsdktest@microsoft.com"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

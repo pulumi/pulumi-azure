@@ -80,7 +80,6 @@ def get_policy_vm(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -89,7 +88,6 @@ def get_policy_vm(name: Optional[str] = None,
         recovery_vault_name="recovery_vault",
         resource_group_name="resource_group")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the VM Backup Policy.
@@ -120,7 +118,6 @@ def get_policy_vm_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -129,7 +126,6 @@ def get_policy_vm_output(name: Optional[pulumi.Input[str]] = None,
         recovery_vault_name="recovery_vault",
         resource_group_name="resource_group")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the VM Backup Policy.

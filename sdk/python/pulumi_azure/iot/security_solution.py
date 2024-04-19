@@ -532,7 +532,6 @@ class SecuritySolution(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -555,7 +554,6 @@ class SecuritySolution(pulumi.CustomResource):
             display_name="Iot Security Solution",
             iothub_ids=[example_io_t_hub.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -594,7 +592,6 @@ class SecuritySolution(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -617,7 +614,6 @@ class SecuritySolution(pulumi.CustomResource):
             display_name="Iot Security Solution",
             iothub_ids=[example_io_t_hub.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

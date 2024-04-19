@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const firewallPrivateIp = example.then(example => example.ipConfigurations?.[0]?.privateIpAddress);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
 
@@ -116,7 +114,6 @@ export interface GetFirewallResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -127,7 +124,6 @@ export interface GetFirewallResult {
  * });
  * export const firewallPrivateIp = example.then(example => example.ipConfigurations?.[0]?.privateIpAddress);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
     return pulumi.output(args).apply((a: any) => getFirewall(a, opts))

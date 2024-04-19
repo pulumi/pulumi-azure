@@ -202,7 +202,6 @@ class NetworkDataNetwork(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -225,7 +224,6 @@ class NetworkDataNetwork(pulumi.CustomResource):
                 "key": "value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -254,7 +252,6 @@ class NetworkDataNetwork(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -277,7 +274,6 @@ class NetworkDataNetwork(pulumi.CustomResource):
                 "key": "value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -283,7 +283,6 @@ class TenantTemplateDeployment(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -296,7 +295,6 @@ class TenantTemplateDeployment(pulumi.CustomResource):
             location="West Europe",
             template_spec_version_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -325,7 +323,6 @@ class TenantTemplateDeployment(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -338,7 +335,6 @@ class TenantTemplateDeployment(pulumi.CustomResource):
             location="West Europe",
             template_spec_version_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

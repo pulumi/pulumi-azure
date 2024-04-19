@@ -16,7 +16,6 @@ namespace Pulumi.Azure.ContainerApp
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Azure.ContainerApp
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEnvironmentCertificateResult> InvokeAsync(GetEnvironmentCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentCertificateResult>("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", args ?? new GetEnvironmentCertificateArgs(), options.WithDefaults());
@@ -49,7 +47,6 @@ namespace Pulumi.Azure.ContainerApp
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -72,7 +69,6 @@ namespace Pulumi.Azure.ContainerApp
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEnvironmentCertificateResult> Invoke(GetEnvironmentCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentCertificateResult>("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", args ?? new GetEnvironmentCertificateInvokeArgs(), options.WithDefaults());

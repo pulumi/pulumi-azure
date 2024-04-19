@@ -209,7 +209,6 @@ class FirewallRule(pulumi.CustomResource):
 
         ### Single IP Address)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -221,11 +220,9 @@ class FirewallRule(pulumi.CustomResource):
             start_ip_address="40.112.8.12",
             end_ip_address="40.112.8.12")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### IP Range)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -237,7 +234,6 @@ class FirewallRule(pulumi.CustomResource):
             start_ip_address="40.112.0.0",
             end_ip_address="40.112.255.255")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -270,7 +266,6 @@ class FirewallRule(pulumi.CustomResource):
 
         ### Single IP Address)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -282,11 +277,9 @@ class FirewallRule(pulumi.CustomResource):
             start_ip_address="40.112.8.12",
             end_ip_address="40.112.8.12")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### IP Range)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -298,7 +291,6 @@ class FirewallRule(pulumi.CustomResource):
             start_ip_address="40.112.0.0",
             end_ip_address="40.112.255.255")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

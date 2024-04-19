@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Network
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,7 +66,6 @@ namespace Pulumi.Azure.Network
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetNetworkManagerNetworkGroupResult> InvokeAsync(GetNetworkManagerNetworkGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkManagerNetworkGroupResult>("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", args ?? new GetNetworkManagerNetworkGroupArgs(), options.WithDefaults());
@@ -77,7 +75,6 @@ namespace Pulumi.Azure.Network
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -128,7 +125,6 @@ namespace Pulumi.Azure.Network
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetNetworkManagerNetworkGroupResult> Invoke(GetNetworkManagerNetworkGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerNetworkGroupResult>("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", args ?? new GetNetworkManagerNetworkGroupInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     mobileNetworkPacketCoreControlPlaneId: example.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkPacketCoreDataPlane(args: GetNetworkPacketCoreDataPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkPacketCoreDataPlaneResult> {
 
@@ -88,7 +86,6 @@ export interface GetNetworkPacketCoreDataPlaneResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -102,7 +99,6 @@ export interface GetNetworkPacketCoreDataPlaneResult {
  *     mobileNetworkPacketCoreControlPlaneId: example.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkPacketCoreDataPlaneOutput(args: GetNetworkPacketCoreDataPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkPacketCoreDataPlaneResult> {
     return pulumi.output(args).apply((a: any) => getNetworkPacketCoreDataPlane(a, opts))

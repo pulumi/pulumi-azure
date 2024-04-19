@@ -167,7 +167,6 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -195,7 +194,6 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -222,7 +220,6 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -250,7 +247,6 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

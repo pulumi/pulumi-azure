@@ -104,7 +104,6 @@ def get_kubernetes_service_versions(include_preview: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -113,7 +112,6 @@ def get_kubernetes_service_versions(include_preview: Optional[bool] = None,
     pulumi.export("versions", current.versions)
     pulumi.export("latestVersion", current.latest_version)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool include_preview: Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
@@ -146,7 +144,6 @@ def get_kubernetes_service_versions_output(include_preview: Optional[pulumi.Inpu
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -155,7 +152,6 @@ def get_kubernetes_service_versions_output(include_preview: Optional[pulumi.Inpu
     pulumi.export("versions", current.versions)
     pulumi.export("latestVersion", current.latest_version)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool include_preview: Should Preview versions of Kubernetes in AKS be included? Defaults to `true`

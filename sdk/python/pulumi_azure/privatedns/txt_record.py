@@ -250,7 +250,6 @@ class TxtRecord(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -270,7 +269,6 @@ class TxtRecord(pulumi.CustomResource):
                 value="v=spf1 mx ~all",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -300,7 +298,6 @@ class TxtRecord(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -320,7 +317,6 @@ class TxtRecord(pulumi.CustomResource):
                 value="v=spf1 mx ~all",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

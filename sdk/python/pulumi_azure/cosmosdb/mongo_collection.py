@@ -367,7 +367,6 @@ class MongoCollection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -391,7 +390,6 @@ class MongoCollection(pulumi.CustomResource):
                 unique=True,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -423,7 +421,6 @@ class MongoCollection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -447,7 +444,6 @@ class MongoCollection(pulumi.CustomResource):
                 unique=True,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

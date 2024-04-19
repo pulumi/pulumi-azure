@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -94,11 +93,9 @@ import * as utilities from "../utilities";
  *     principalId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With Automatic Key Rotation Enabled
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -180,7 +177,6 @@ import * as utilities from "../utilities";
  *     principalId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

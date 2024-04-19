@@ -177,7 +177,6 @@ class WorkspaceKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -256,7 +255,6 @@ class WorkspaceKey(pulumi.CustomResource):
             active=True,
             customer_managed_key_name="enckey")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -288,7 +286,6 @@ class WorkspaceKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -367,7 +364,6 @@ class WorkspaceKey(pulumi.CustomResource):
             active=True,
             customer_managed_key_name="enckey")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

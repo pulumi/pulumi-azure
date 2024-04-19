@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -60,11 +59,9 @@ import * as utilities from "../utilities";
  *     regenerationPeriod: "P1D",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Automatically Regenerate Storage Account Access Key)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -124,7 +121,6 @@ import * as utilities from "../utilities";
  *     regenerationPeriod: "P1D",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

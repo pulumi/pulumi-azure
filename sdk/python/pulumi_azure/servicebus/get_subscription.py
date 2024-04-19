@@ -229,7 +229,6 @@ def get_subscription(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -238,7 +237,6 @@ def get_subscription(name: Optional[str] = None,
         topic_id="exampletopic")
     pulumi.export("servicebusSubscription", example_azurerm_servicebus_namespace)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the ServiceBus Subscription.
@@ -289,7 +287,6 @@ def get_subscription_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -298,7 +295,6 @@ def get_subscription_output(name: Optional[pulumi.Input[str]] = None,
         topic_id="exampletopic")
     pulumi.export("servicebusSubscription", example_azurerm_servicebus_namespace)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the ServiceBus Subscription.

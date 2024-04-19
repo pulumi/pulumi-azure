@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  * });
  * export const name = existing.then(existing => existing.configs?.[0]?.name);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPublicConfigurations(args?: GetPublicConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicConfigurationsResult> {
     args = args || {};
@@ -81,7 +79,6 @@ export interface GetPublicConfigurationsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -93,7 +90,6 @@ export interface GetPublicConfigurationsResult {
  * });
  * export const name = existing.then(existing => existing.configs?.[0]?.name);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPublicConfigurationsOutput(args?: GetPublicConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicConfigurationsResult> {
     return pulumi.output(args).apply((a: any) => getPublicConfigurations(a, opts))

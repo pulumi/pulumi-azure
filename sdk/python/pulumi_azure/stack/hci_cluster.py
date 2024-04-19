@@ -359,7 +359,6 @@ class HciCluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -380,7 +379,6 @@ class HciCluster(pulumi.CustomResource):
                 type="SystemAssigned",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -414,7 +412,6 @@ class HciCluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -435,7 +432,6 @@ class HciCluster(pulumi.CustomResource):
                 type="SystemAssigned",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

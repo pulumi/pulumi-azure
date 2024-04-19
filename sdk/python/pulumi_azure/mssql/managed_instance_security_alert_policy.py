@@ -341,7 +341,6 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -514,7 +513,6 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
             ],
             retention_days=20)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -549,7 +547,6 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -722,7 +719,6 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
             ],
             retention_days=20)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### `Kv` Type
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -40,11 +39,9 @@ import * as utilities from "../utilities";
  *     value: "a test",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### `Vault` Type
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -100,7 +97,6 @@ import * as utilities from "../utilities";
  *     vaultKeyReference: kvs.versionlessId,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

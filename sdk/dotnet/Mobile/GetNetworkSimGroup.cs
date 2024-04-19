@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetNetworkSimGroupResult> InvokeAsync(GetNetworkSimGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSimGroupResult>("azure:mobile/getNetworkSimGroup:getNetworkSimGroup", args ?? new GetNetworkSimGroupArgs(), options.WithDefaults());
@@ -49,7 +47,6 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -72,7 +69,6 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetNetworkSimGroupResult> Invoke(GetNetworkSimGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSimGroupResult>("azure:mobile/getNetworkSimGroup:getNetworkSimGroup", args ?? new GetNetworkSimGroupInvokeArgs(), options.WithDefaults());

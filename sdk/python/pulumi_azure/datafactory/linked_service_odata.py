@@ -337,7 +337,6 @@ class LinkedServiceOdata(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -362,7 +361,6 @@ class LinkedServiceOdata(pulumi.CustomResource):
                 password="Ch4ngeM3!",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -397,7 +395,6 @@ class LinkedServiceOdata(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -422,7 +419,6 @@ class LinkedServiceOdata(pulumi.CustomResource):
                 password="Ch4ngeM3!",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -183,7 +183,6 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -193,7 +192,6 @@ class Workspace(pulumi.CustomResource):
             resource_group_name="tfex-resource_group",
             location="east us")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -221,7 +219,6 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -231,7 +228,6 @@ class Workspace(pulumi.CustomResource):
             resource_group_name="tfex-resource_group",
             location="east us")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

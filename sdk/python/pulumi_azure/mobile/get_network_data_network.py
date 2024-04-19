@@ -106,7 +106,6 @@ def get_network_data_network(mobile_network_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -116,7 +115,6 @@ def get_network_data_network(mobile_network_id: Optional[str] = None,
     example_get_network_data_network = azure.mobile.get_network_data_network(name="example-mndn",
         mobile_network_id=example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str mobile_network_id: Specifies the ID of the Mobile Network.
@@ -146,7 +144,6 @@ def get_network_data_network_output(mobile_network_id: Optional[pulumi.Input[str
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -156,7 +153,6 @@ def get_network_data_network_output(mobile_network_id: Optional[pulumi.Input[str
     example_get_network_data_network = azure.mobile.get_network_data_network(name="example-mndn",
         mobile_network_id=example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str mobile_network_id: Specifies the ID of the Mobile Network.

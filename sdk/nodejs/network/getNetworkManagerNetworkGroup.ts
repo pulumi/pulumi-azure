@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -41,7 +40,6 @@ import * as utilities from "../utilities";
  *     networkManagerId: exampleNetworkManager.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkManagerNetworkGroup(args: GetNetworkManagerNetworkGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkManagerNetworkGroupResult> {
 
@@ -86,7 +84,6 @@ export interface GetNetworkManagerNetworkGroupResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -118,7 +115,6 @@ export interface GetNetworkManagerNetworkGroupResult {
  *     networkManagerId: exampleNetworkManager.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkManagerNetworkGroupOutput(args: GetNetworkManagerNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerNetworkGroupResult> {
     return pulumi.output(args).apply((a: any) => getNetworkManagerNetworkGroup(a, opts))

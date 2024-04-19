@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -26,7 +25,6 @@ import * as utilities from "../utilities";
  * }));
  * export const examplePem = exampleGetCertificateData.then(exampleGetCertificateData => exampleGetCertificateData.pem);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCertificateData(args: GetCertificateDataArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateDataResult> {
 
@@ -105,7 +103,6 @@ export interface GetCertificateDataResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -120,7 +117,6 @@ export interface GetCertificateDataResult {
  * }));
  * export const examplePem = exampleGetCertificateData.then(exampleGetCertificateData => exampleGetCertificateData.pem);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCertificateDataOutput(args: GetCertificateDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateDataResult> {
     return pulumi.output(args).apply((a: any) => getCertificateData(a, opts))

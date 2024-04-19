@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -26,7 +25,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     managementGroupId: example.then(example => example.id),
  *     templateContent: `{
- *   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+ *   "schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
  *   "contentVersion": "1.0.0.0",
  *   "parameters": {
  *     "policyAssignmentName": {
@@ -57,7 +56,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     parametersContent: `{
- *   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+ *   "schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
  *   "contentVersion": "1.0.0.0",
  *   "parameters": {
  *     "policyDefinitionID": {
@@ -68,9 +67,7 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -91,9 +88,7 @@ import * as utilities from "../utilities";
  *     }).then(invoke => invoke.result),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -113,7 +108,6 @@ import * as utilities from "../utilities";
  *     templateSpecVersionId: exampleGetTemplateSpecVersion.then(exampleGetTemplateSpecVersion => exampleGetTemplateSpecVersion.id),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

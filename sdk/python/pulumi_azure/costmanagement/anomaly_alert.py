@@ -235,7 +235,6 @@ class AnomalyAlert(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -247,7 +246,6 @@ class AnomalyAlert(pulumi.CustomResource):
             email_subject="My Test Anomaly Alert",
             email_addresses=["example@test.net"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -279,7 +277,6 @@ class AnomalyAlert(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -291,7 +288,6 @@ class AnomalyAlert(pulumi.CustomResource):
             email_subject="My Test Anomaly Alert",
             email_addresses=["example@test.net"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

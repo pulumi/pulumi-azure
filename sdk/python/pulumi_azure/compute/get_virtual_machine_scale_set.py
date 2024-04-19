@@ -122,7 +122,6 @@ def get_virtual_machine_scale_set(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -131,7 +130,6 @@ def get_virtual_machine_scale_set(name: Optional[str] = None,
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Virtual Machine Scale Set.
@@ -162,7 +160,6 @@ def get_virtual_machine_scale_set_output(name: Optional[pulumi.Input[str]] = Non
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -171,7 +168,6 @@ def get_virtual_machine_scale_set_output(name: Optional[pulumi.Input[str]] = Non
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Virtual Machine Scale Set.

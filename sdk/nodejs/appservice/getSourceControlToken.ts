@@ -7,7 +7,6 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -17,7 +16,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = exampleAzurermAppServiceGithubToken.id;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSourceControlToken(args: GetSourceControlTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlTokenResult> {
 
@@ -55,7 +53,6 @@ export interface GetSourceControlTokenResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -65,7 +62,6 @@ export interface GetSourceControlTokenResult {
  * });
  * export const id = exampleAzurermAppServiceGithubToken.id;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSourceControlTokenOutput(args: GetSourceControlTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlTokenResult> {
     return pulumi.output(args).apply((a: any) => getSourceControlToken(a, opts))

@@ -226,7 +226,6 @@ class ApiConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -253,7 +252,6 @@ class ApiConnection(pulumi.CustomResource):
                 "Hello": "World",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -282,7 +280,6 @@ class ApiConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -309,7 +306,6 @@ class ApiConnection(pulumi.CustomResource):
                 "Hello": "World",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

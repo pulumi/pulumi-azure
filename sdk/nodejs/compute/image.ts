@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** For a more complete example, see the `examples/image` directory within the GitHub Repository.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -29,7 +28,6 @@ import * as utilities from "../utilities";
  *     sourceVirtualMachineId: example.then(example => example.id),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -316,7 +316,6 @@ class AssessmentPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -326,7 +325,6 @@ class AssessmentPolicy(pulumi.CustomResource):
             severity="Medium",
             description="Test Description")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -358,7 +356,6 @@ class AssessmentPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -368,7 +365,6 @@ class AssessmentPolicy(pulumi.CustomResource):
             severity="Medium",
             description="Test Description")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

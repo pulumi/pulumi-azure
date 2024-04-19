@@ -220,7 +220,6 @@ def get_elasticsearch(logs: Optional[Sequence[pulumi.InputType['GetElasticsearch
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -230,7 +229,6 @@ def get_elasticsearch(logs: Optional[Sequence[pulumi.InputType['GetElasticsearch
     pulumi.export("elasticsearchEndpoint", example.elasticsearch_service_url)
     pulumi.export("kibanaEndpoint", example.kibana_service_url)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetElasticsearchLogArgs']] logs: A `logs` block as defined below.
@@ -272,7 +270,6 @@ def get_elasticsearch_output(logs: Optional[pulumi.Input[Optional[Sequence[pulum
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -282,7 +279,6 @@ def get_elasticsearch_output(logs: Optional[pulumi.Input[Optional[Sequence[pulum
     pulumi.export("elasticsearchEndpoint", example.elasticsearch_service_url)
     pulumi.export("kibanaEndpoint", example.kibana_service_url)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetElasticsearchLogArgs']] logs: A `logs` block as defined below.

@@ -16,7 +16,6 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVolumeGroupSapHanaResult> InvokeAsync(GetVolumeGroupSapHanaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeGroupSapHanaResult>("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", args ?? new GetVolumeGroupSapHanaArgs(), options.WithDefaults());
@@ -48,7 +46,6 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,7 +67,6 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVolumeGroupSapHanaResult> Invoke(GetVolumeGroupSapHanaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupSapHanaResult>("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", args ?? new GetVolumeGroupSapHanaInvokeArgs(), options.WithDefaults());

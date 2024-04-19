@@ -310,7 +310,6 @@ class EndpointServicebusQueue(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -350,7 +349,6 @@ class EndpointServicebusQueue(pulumi.CustomResource):
             name="example",
             connection_string=example_queue_authorization_rule.primary_connection_string)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -388,7 +386,6 @@ class EndpointServicebusQueue(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -428,7 +425,6 @@ class EndpointServicebusQueue(pulumi.CustomResource):
             name="example",
             connection_string=example_queue_authorization_rule.primary_connection_string)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

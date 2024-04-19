@@ -1948,7 +1948,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
         This example provisions a basic Windows Virtual Machine on an internal network.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1994,7 +1993,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                 version="latest",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -2110,7 +2108,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
         This example provisions a basic Windows Virtual Machine on an internal network.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -2156,7 +2153,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                 version="latest",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

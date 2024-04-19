@@ -462,7 +462,6 @@ class ServicePlan(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -477,7 +476,6 @@ class ServicePlan(pulumi.CustomResource):
             os_type="Linux",
             sku_name="P1v2")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -520,7 +518,6 @@ class ServicePlan(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -535,7 +532,6 @@ class ServicePlan(pulumi.CustomResource):
             os_type="Linux",
             sku_name="P1v2")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

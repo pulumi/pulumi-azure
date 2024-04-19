@@ -232,7 +232,6 @@ class BackupInstanceDisk(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -277,7 +276,6 @@ class BackupInstanceDisk(pulumi.CustomResource):
             snapshot_resource_group_name=example.name,
             backup_policy_id=example_backup_policy_disk.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -307,7 +305,6 @@ class BackupInstanceDisk(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -352,7 +349,6 @@ class BackupInstanceDisk(pulumi.CustomResource):
             snapshot_resource_group_name=example.name,
             backup_policy_id=example_backup_policy_disk.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -339,7 +339,6 @@ class Pool(pulumi.CustomResource):
 
         ## NetApp Pool Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -359,7 +358,6 @@ class Pool(pulumi.CustomResource):
             service_level="Premium",
             size_in_tb=4)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -394,7 +392,6 @@ class Pool(pulumi.CustomResource):
 
         ## NetApp Pool Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -414,7 +411,6 @@ class Pool(pulumi.CustomResource):
             service_level="Premium",
             size_in_tb=4)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

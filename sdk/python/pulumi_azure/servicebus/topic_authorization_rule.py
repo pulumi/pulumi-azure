@@ -306,7 +306,6 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -332,7 +331,6 @@ class TopicAuthorizationRule(pulumi.CustomResource):
             send=False,
             manage=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -363,7 +361,6 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -389,7 +386,6 @@ class TopicAuthorizationRule(pulumi.CustomResource):
             send=False,
             manage=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

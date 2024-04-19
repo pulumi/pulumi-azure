@@ -16,7 +16,6 @@ namespace Pulumi.Azure.DataFactory
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Azure.DataFactory
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTriggerSchedulesResult> InvokeAsync(GetTriggerSchedulesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTriggerSchedulesResult>("azure:datafactory/getTriggerSchedules:getTriggerSchedules", args ?? new GetTriggerSchedulesArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Azure.DataFactory
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Azure.DataFactory
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTriggerSchedulesResult> Invoke(GetTriggerSchedulesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTriggerSchedulesResult>("azure:datafactory/getTriggerSchedules:getTriggerSchedules", args ?? new GetTriggerSchedulesInvokeArgs(), options.WithDefaults());

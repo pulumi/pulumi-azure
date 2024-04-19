@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  * export const azurermDataProtectionBackupVaultId = exampleAzurermVpnGateway.id;
  * export const azurermDataProtectionBackupVaultPrincipalId = example.then(example => example.identities?.[0]?.principalId);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupVaultResult> {
 
@@ -84,7 +82,6 @@ export interface GetBackupVaultResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -96,7 +93,6 @@ export interface GetBackupVaultResult {
  * export const azurermDataProtectionBackupVaultId = exampleAzurermVpnGateway.id;
  * export const azurermDataProtectionBackupVaultPrincipalId = example.then(example => example.identities?.[0]?.principalId);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupVaultResult> {
     return pulumi.output(args).apply((a: any) => getBackupVault(a, opts))

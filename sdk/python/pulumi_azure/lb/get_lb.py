@@ -146,7 +146,6 @@ def get_lb(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -155,7 +154,6 @@ def get_lb(name: Optional[str] = None,
         resource_group_name="example-resources")
     pulumi.export("loadbalancerId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Load Balancer.
@@ -188,7 +186,6 @@ def get_lb_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -197,7 +194,6 @@ def get_lb_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="example-resources")
     pulumi.export("loadbalancerId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Load Balancer.

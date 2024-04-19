@@ -91,7 +91,6 @@ def get_kubernetes_node_pool_snapshot(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -99,7 +98,6 @@ def get_kubernetes_node_pool_snapshot(name: Optional[str] = None,
     example = azure.containerservice.get_kubernetes_node_pool_snapshot(name="example",
         resource_group_name="example-resources")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Kubernetes Node Pool Snapshot.
@@ -128,7 +126,6 @@ def get_kubernetes_node_pool_snapshot_output(name: Optional[pulumi.Input[str]] =
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -136,7 +133,6 @@ def get_kubernetes_node_pool_snapshot_output(name: Optional[pulumi.Input[str]] =
     example = azure.containerservice.get_kubernetes_node_pool_snapshot(name="example",
         resource_group_name="example-resources")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Kubernetes Node Pool Snapshot.

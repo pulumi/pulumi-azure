@@ -20,7 +20,6 @@ import (
 //
 // ### Dedicated)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,11 +57,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Shared / Consumption Plan)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -101,11 +98,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Linux)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -145,11 +140,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Windows Container)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -189,7 +182,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

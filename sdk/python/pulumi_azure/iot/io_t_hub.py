@@ -778,7 +778,6 @@ class IoTHub(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -876,7 +875,6 @@ class IoTHub(pulumi.CustomResource):
                 "purpose": "testing",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -930,7 +928,6 @@ class IoTHub(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1028,7 +1025,6 @@ class IoTHub(pulumi.CustomResource):
                 "purpose": "testing",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

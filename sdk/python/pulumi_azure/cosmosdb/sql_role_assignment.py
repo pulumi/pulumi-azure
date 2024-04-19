@@ -231,7 +231,6 @@ class SqlRoleAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -270,7 +269,6 @@ class SqlRoleAssignment(pulumi.CustomResource):
             principal_id=current.object_id,
             scope=example_account.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -300,7 +298,6 @@ class SqlRoleAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -339,7 +336,6 @@ class SqlRoleAssignment(pulumi.CustomResource):
             principal_id=current.object_id,
             scope=example_account.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

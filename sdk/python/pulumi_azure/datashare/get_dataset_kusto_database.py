@@ -106,7 +106,6 @@ def get_dataset_kusto_database(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -115,7 +114,6 @@ def get_dataset_kusto_database(name: Optional[str] = None,
         share_id="example-share-id")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Data Share Kusto Database Dataset.
@@ -145,7 +143,6 @@ def get_dataset_kusto_database_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -154,7 +151,6 @@ def get_dataset_kusto_database_output(name: Optional[pulumi.Input[str]] = None,
         share_id="example-share-id")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Data Share Kusto Database Dataset.

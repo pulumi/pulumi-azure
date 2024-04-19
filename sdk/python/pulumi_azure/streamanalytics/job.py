@@ -672,7 +672,6 @@ class Job(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -699,7 +698,6 @@ class Job(pulumi.CustomResource):
             FROM [YourInputAlias]
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -747,7 +745,6 @@ class Job(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -774,7 +771,6 @@ class Job(pulumi.CustomResource):
             FROM [YourInputAlias]
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

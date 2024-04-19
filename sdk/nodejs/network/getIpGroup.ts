@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  * });
  * export const cidrs = example.then(example => example.cidrs);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIpGroup(args: GetIpGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIpGroupResult> {
 
@@ -73,7 +71,6 @@ export interface GetIpGroupResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -84,7 +81,6 @@ export interface GetIpGroupResult {
  * });
  * export const cidrs = example.then(example => example.cidrs);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIpGroupOutput(args: GetIpGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpGroupResult> {
     return pulumi.output(args).apply((a: any) => getIpGroup(a, opts))

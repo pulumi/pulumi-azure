@@ -202,7 +202,6 @@ class NetworkManagerDeployment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -250,11 +249,9 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             scope_access="Connectivity",
             configuration_ids=[example_network_manager_connectivity_configuration.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Triggers)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -320,7 +317,6 @@ class NetworkManagerDeployment(pulumi.CustomResource):
                     input=source_port_ranges)).apply(lambda invoke: invoke.result),
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -351,7 +347,6 @@ class NetworkManagerDeployment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -399,11 +394,9 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             scope_access="Connectivity",
             configuration_ids=[example_network_manager_connectivity_configuration.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Triggers)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -469,7 +462,6 @@ class NetworkManagerDeployment(pulumi.CustomResource):
                     input=source_port_ranges)).apply(lambda invoke: invoke.result),
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -2867,7 +2867,6 @@ class KubernetesClusterAciConnectorLinuxArgs:
                
                > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
                
-               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_azure as azure
@@ -2880,7 +2879,6 @@ class KubernetesClusterAciConnectorLinuxArgs:
                    ),
                )])
                ```
-               <!--End PulumiCodeChooser -->
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs']]] connector_identities: A `connector_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "subnet_name", subnet_name)
@@ -2897,7 +2895,6 @@ class KubernetesClusterAciConnectorLinuxArgs:
 
         > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -2910,7 +2907,6 @@ class KubernetesClusterAciConnectorLinuxArgs:
             ),
         )])
         ```
-        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "subnet_name")
 

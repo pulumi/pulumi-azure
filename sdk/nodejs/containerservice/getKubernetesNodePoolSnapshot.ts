@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getKubernetesNodePoolSnapshot(args: GetKubernetesNodePoolSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesNodePoolSnapshotResult> {
 
@@ -65,7 +63,6 @@ export interface GetKubernetesNodePoolSnapshotResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -75,7 +72,6 @@ export interface GetKubernetesNodePoolSnapshotResult {
  *     resourceGroupName: "example-resources",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getKubernetesNodePoolSnapshotOutput(args: GetKubernetesNodePoolSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesNodePoolSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getKubernetesNodePoolSnapshot(a, opts))

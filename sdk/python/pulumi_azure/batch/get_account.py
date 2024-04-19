@@ -184,7 +184,6 @@ def get_account(encryption: Optional[pulumi.InputType['GetAccountEncryptionArgs'
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -193,7 +192,6 @@ def get_account(encryption: Optional[pulumi.InputType['GetAccountEncryptionArgs'
         resource_group_name="test")
     pulumi.export("poolAllocationMode", example.pool_allocation_mode)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetAccountEncryptionArgs'] encryption: The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
@@ -232,7 +230,6 @@ def get_account_output(encryption: Optional[pulumi.Input[Optional[pulumi.InputTy
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -241,7 +238,6 @@ def get_account_output(encryption: Optional[pulumi.Input[Optional[pulumi.InputTy
         resource_group_name="test")
     pulumi.export("poolAllocationMode", example.pool_allocation_mode)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetAccountEncryptionArgs'] encryption: The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.

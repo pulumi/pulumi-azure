@@ -104,7 +104,6 @@ def get_event_hub(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -114,7 +113,6 @@ def get_event_hub(name: Optional[str] = None,
         namespace_name="search-eventhubns")
     pulumi.export("eventhubId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this EventHub.
@@ -147,7 +145,6 @@ def get_event_hub_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -157,7 +154,6 @@ def get_event_hub_output(name: Optional[pulumi.Input[str]] = None,
         namespace_name="search-eventhubns")
     pulumi.export("eventhubId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this EventHub.

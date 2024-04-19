@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOrchestratedVirtualMachineScaleSet(args: GetOrchestratedVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetOrchestratedVirtualMachineScaleSetResult> {
 
@@ -78,7 +76,6 @@ export interface GetOrchestratedVirtualMachineScaleSetResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -89,7 +86,6 @@ export interface GetOrchestratedVirtualMachineScaleSetResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOrchestratedVirtualMachineScaleSetOutput(args: GetOrchestratedVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrchestratedVirtualMachineScaleSetResult> {
     return pulumi.output(args).apply((a: any) => getOrchestratedVirtualMachineScaleSet(a, opts))

@@ -110,7 +110,6 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -192,7 +191,6 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
             cdn_frontdoor_custom_domain_id=example_frontdoor_custom_domain.id,
             cdn_frontdoor_route_ids=[example_frontdoor_route.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -220,7 +218,6 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -302,7 +299,6 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
             cdn_frontdoor_custom_domain_id=example_frontdoor_custom_domain.id,
             cdn_frontdoor_route_ids=[example_frontdoor_route.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

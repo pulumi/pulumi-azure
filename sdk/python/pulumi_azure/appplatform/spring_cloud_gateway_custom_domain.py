@@ -138,7 +138,6 @@ class SpringCloudGatewayCustomDomain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -158,7 +157,6 @@ class SpringCloudGatewayCustomDomain(pulumi.CustomResource):
             name="example.com",
             spring_cloud_gateway_id=example_spring_cloud_gateway.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -187,7 +185,6 @@ class SpringCloudGatewayCustomDomain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -207,7 +204,6 @@ class SpringCloudGatewayCustomDomain(pulumi.CustomResource):
             name="example.com",
             spring_cloud_gateway_id=example_spring_cloud_gateway.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

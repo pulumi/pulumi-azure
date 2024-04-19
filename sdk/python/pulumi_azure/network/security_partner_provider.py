@@ -234,7 +234,6 @@ class SecurityPartnerProvider(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -267,7 +266,6 @@ class SecurityPartnerProvider(pulumi.CustomResource):
                 "ENV": "Prod",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -297,7 +295,6 @@ class SecurityPartnerProvider(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -330,7 +327,6 @@ class SecurityPartnerProvider(pulumi.CustomResource):
                 "ENV": "Prod",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

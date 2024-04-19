@@ -7,7 +7,6 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  * });
  * export const dnsSoaRecordId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSoaRecord(args: GetSoaRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetSoaRecordResult> {
 
@@ -106,7 +104,6 @@ export interface GetSoaRecordResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -117,7 +114,6 @@ export interface GetSoaRecordResult {
  * });
  * export const dnsSoaRecordId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSoaRecordOutput(args: GetSoaRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoaRecordResult> {
     return pulumi.output(args).apply((a: any) => getSoaRecord(a, opts))

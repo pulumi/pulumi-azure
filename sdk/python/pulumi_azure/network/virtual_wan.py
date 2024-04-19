@@ -301,7 +301,6 @@ class VirtualWan(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -314,7 +313,6 @@ class VirtualWan(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -346,7 +344,6 @@ class VirtualWan(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -359,7 +356,6 @@ class VirtualWan(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

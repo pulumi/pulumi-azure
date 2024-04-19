@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### World)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  * });
  * export const locationCode = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTrafficManager(args: GetTrafficManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerResult> {
 
@@ -58,7 +56,6 @@ export interface GetTrafficManagerResult {
  *
  * ### World)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -68,7 +65,6 @@ export interface GetTrafficManagerResult {
  * });
  * export const locationCode = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTrafficManagerOutput(args: GetTrafficManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficManagerResult> {
     return pulumi.output(args).apply((a: any) => getTrafficManager(a, opts))

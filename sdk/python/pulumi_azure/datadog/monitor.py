@@ -351,7 +351,6 @@ class Monitor(pulumi.CustomResource):
 
         ### Monitor creation with linking to Datadog organization
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -376,7 +375,6 @@ class Monitor(pulumi.CustomResource):
                 type="SystemAssigned",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Role Assignment
 
@@ -384,7 +382,6 @@ class Monitor(pulumi.CustomResource):
 
         ### Role assignment on the monitor created
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -396,7 +393,6 @@ class Monitor(pulumi.CustomResource):
             role_definition_id=monitoring_reader.role_definition_id,
             principal_id=example_azurerm_datadog_monitor["identity"][0]["principalId"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -431,7 +427,6 @@ class Monitor(pulumi.CustomResource):
 
         ### Monitor creation with linking to Datadog organization
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -456,7 +451,6 @@ class Monitor(pulumi.CustomResource):
                 type="SystemAssigned",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Role Assignment
 
@@ -464,7 +458,6 @@ class Monitor(pulumi.CustomResource):
 
         ### Role assignment on the monitor created
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -476,7 +469,6 @@ class Monitor(pulumi.CustomResource):
             role_definition_id=monitoring_reader.role_definition_id,
             principal_id=example_azurerm_datadog_monitor["identity"][0]["principalId"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

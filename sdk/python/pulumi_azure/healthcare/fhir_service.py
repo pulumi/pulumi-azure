@@ -482,7 +482,6 @@ class FhirService(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -526,7 +525,6 @@ class FhirService(pulumi.CustomResource):
             ),
             configuration_export_storage_account_name="storage_account_name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -563,7 +561,6 @@ class FhirService(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -607,7 +604,6 @@ class FhirService(pulumi.CustomResource):
             ),
             configuration_export_storage_account_name="storage_account_name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

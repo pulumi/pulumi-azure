@@ -647,7 +647,6 @@ class KeyVault(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -673,7 +672,6 @@ class KeyVault(pulumi.CustomResource):
                 storage_permissions=["Get"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -731,7 +729,6 @@ class KeyVault(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -757,7 +754,6 @@ class KeyVault(pulumi.CustomResource):
                 storage_permissions=["Get"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

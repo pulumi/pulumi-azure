@@ -136,7 +136,6 @@ class PrivateLinkScope(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -148,7 +147,6 @@ class PrivateLinkScope(pulumi.CustomResource):
             name="example-ampls",
             resource_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -175,7 +173,6 @@ class PrivateLinkScope(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -187,7 +184,6 @@ class PrivateLinkScope(pulumi.CustomResource):
             name="example-ampls",
             resource_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

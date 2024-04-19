@@ -135,7 +135,6 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -164,7 +163,6 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
             maintenance_configuration_id=example_configuration.id,
             dedicated_host_id=example_dedicated_host.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -191,7 +189,6 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -220,7 +217,6 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
             maintenance_configuration_id=example_configuration.id,
             dedicated_host_id=example_dedicated_host.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

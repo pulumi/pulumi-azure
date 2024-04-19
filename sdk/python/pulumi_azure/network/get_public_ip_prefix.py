@@ -144,7 +144,6 @@ def get_public_ip_prefix(name: Optional[str] = None,
 
     ### Reference An Existing)
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -153,7 +152,6 @@ def get_public_ip_prefix(name: Optional[str] = None,
         resource_group_name="name_of_resource_group")
     pulumi.export("publicIpPrefix", example.ip_prefix)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the public IP prefix.
@@ -188,7 +186,6 @@ def get_public_ip_prefix_output(name: Optional[pulumi.Input[str]] = None,
 
     ### Reference An Existing)
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -197,7 +194,6 @@ def get_public_ip_prefix_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="name_of_resource_group")
     pulumi.export("publicIpPrefix", example.ip_prefix)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the public IP prefix.

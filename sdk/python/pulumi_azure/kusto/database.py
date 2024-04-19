@@ -248,7 +248,6 @@ class Database(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -272,7 +271,6 @@ class Database(pulumi.CustomResource):
             hot_cache_period="P7D",
             soft_delete_period="P31D")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -300,7 +298,6 @@ class Database(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -324,7 +321,6 @@ class Database(pulumi.CustomResource):
             hot_cache_period="P7D",
             soft_delete_period="P31D")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

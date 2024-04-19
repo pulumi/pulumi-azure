@@ -300,7 +300,6 @@ class Ledger(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -320,7 +319,6 @@ class Ledger(pulumi.CustomResource):
                 ledger_role_name="Administrator",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -351,7 +349,6 @@ class Ledger(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -371,7 +368,6 @@ class Ledger(pulumi.CustomResource):
                 ledger_role_name="Administrator",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

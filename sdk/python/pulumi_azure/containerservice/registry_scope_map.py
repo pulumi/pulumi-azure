@@ -198,7 +198,6 @@ class RegistryScopeMap(pulumi.CustomResource):
         """
         Manages an Azure Container Registry scope map.  Scope Maps are a preview feature only available in Premium SKU Container registries.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -229,7 +228,6 @@ class RegistryScopeMap(pulumi.CustomResource):
                 "repositories/repo1/content/write",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -256,7 +254,6 @@ class RegistryScopeMap(pulumi.CustomResource):
         """
         Manages an Azure Container Registry scope map.  Scope Maps are a preview feature only available in Premium SKU Container registries.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -287,7 +284,6 @@ class RegistryScopeMap(pulumi.CustomResource):
                 "repositories/repo1/content/write",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

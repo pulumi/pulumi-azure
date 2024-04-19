@@ -270,7 +270,6 @@ class TagRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -308,7 +307,6 @@ class TagRule(pulumi.CustomResource):
                 value="value",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -339,7 +337,6 @@ class TagRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -377,7 +374,6 @@ class TagRule(pulumi.CustomResource):
                 value="value",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

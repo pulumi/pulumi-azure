@@ -234,7 +234,6 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -266,7 +265,6 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
             partner_namespace_id=secondary.id,
             alias_authorization_rule_id=example_namespace_authorization_rule.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -296,7 +294,6 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -328,7 +325,6 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
             partner_namespace_id=secondary.id,
             alias_authorization_rule_id=example_namespace_authorization_rule.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -406,7 +406,6 @@ class OutputServiceBusQueue(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -438,7 +437,6 @@ class OutputServiceBusQueue(pulumi.CustomResource):
                 format="Array",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -475,7 +473,6 @@ class OutputServiceBusQueue(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -507,7 +504,6 @@ class OutputServiceBusQueue(pulumi.CustomResource):
                 format="Array",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -1542,7 +1542,6 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1591,11 +1590,9 @@ class Account(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## User Assigned Identity Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1631,7 +1628,6 @@ class Account(pulumi.CustomResource):
                 identity_ids=[example.id],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1700,7 +1696,6 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1749,11 +1744,9 @@ class Account(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## User Assigned Identity Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1789,7 +1782,6 @@ class Account(pulumi.CustomResource):
                 identity_ids=[example.id],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

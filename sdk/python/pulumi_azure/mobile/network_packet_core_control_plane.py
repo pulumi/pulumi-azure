@@ -597,7 +597,6 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -645,7 +644,6 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
                 "key": "value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -686,7 +684,6 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -734,7 +731,6 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
                 "key": "value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

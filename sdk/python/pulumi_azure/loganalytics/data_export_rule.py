@@ -248,7 +248,6 @@ class DataExportRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -276,7 +275,6 @@ class DataExportRule(pulumi.CustomResource):
             table_names=["Heartbeat"],
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -306,7 +304,6 @@ class DataExportRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -334,7 +331,6 @@ class DataExportRule(pulumi.CustomResource):
             table_names=["Heartbeat"],
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

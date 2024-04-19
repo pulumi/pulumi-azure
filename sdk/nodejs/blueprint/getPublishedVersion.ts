@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     version: "dev_v2.3",
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPublishedVersion(args: GetPublishedVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPublishedVersionResult> {
 
@@ -90,7 +88,6 @@ export interface GetPublishedVersionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -102,7 +99,6 @@ export interface GetPublishedVersionResult {
  *     version: "dev_v2.3",
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPublishedVersionOutput(args: GetPublishedVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublishedVersionResult> {
     return pulumi.output(args).apply((a: any) => getPublishedVersion(a, opts))

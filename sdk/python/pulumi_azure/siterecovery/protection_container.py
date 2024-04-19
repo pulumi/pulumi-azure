@@ -167,7 +167,6 @@ class ProtectionContainer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -194,7 +193,6 @@ class ProtectionContainer(pulumi.CustomResource):
             recovery_vault_name=vault.name,
             recovery_fabric_name=fabric.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -222,7 +220,6 @@ class ProtectionContainer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -249,7 +246,6 @@ class ProtectionContainer(pulumi.CustomResource):
             recovery_vault_name=vault.name,
             recovery_fabric_name=fabric.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

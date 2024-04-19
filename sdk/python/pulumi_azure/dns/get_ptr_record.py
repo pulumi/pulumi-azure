@@ -126,7 +126,6 @@ def get_ptr_record(name: Optional[str] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -136,7 +135,6 @@ def get_ptr_record(name: Optional[str] = None,
         resource_group_name="test-rg")
     pulumi.export("dnsPtrRecordId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the DNS PTR Record.
@@ -169,7 +167,6 @@ def get_ptr_record_output(name: Optional[pulumi.Input[str]] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -179,7 +176,6 @@ def get_ptr_record_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="test-rg")
     pulumi.export("dnsPtrRecordId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the DNS PTR Record.

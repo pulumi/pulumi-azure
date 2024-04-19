@@ -134,7 +134,6 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -187,7 +186,6 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
             ip_configuration_name="testconfiguration1",
             nat_rule_id=example_nat_rule.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -214,7 +212,6 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -267,7 +264,6 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
             ip_configuration_name="testconfiguration1",
             nat_rule_id=example_nat_rule.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

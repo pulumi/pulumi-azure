@@ -233,7 +233,6 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -256,7 +255,6 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
                 type="bigint",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -286,7 +284,6 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -309,7 +306,6 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
                 type="bigint",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

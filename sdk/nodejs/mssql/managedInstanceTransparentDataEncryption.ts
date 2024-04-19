@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ### With Service Managed Key
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -64,11 +63,9 @@ import * as utilities from "../utilities";
  * });
  * const exampleManagedInstanceTransparentDataEncryption = new azure.mssql.ManagedInstanceTransparentDataEncryption("example", {managedInstanceId: exampleManagedInstance.id});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With Customer Managed Key
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -167,7 +164,6 @@ import * as utilities from "../utilities";
  *     keyVaultKeyId: exampleKey.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

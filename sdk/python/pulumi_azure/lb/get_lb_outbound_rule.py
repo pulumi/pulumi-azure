@@ -146,7 +146,6 @@ def get_lb_outbound_rule(loadbalancer_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -155,7 +154,6 @@ def get_lb_outbound_rule(loadbalancer_id: Optional[str] = None,
         loadbalancer_id="existing_load_balancer_id")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str loadbalancer_id: The ID of the Load Balancer in which the Outbound Rule exists.
@@ -188,7 +186,6 @@ def get_lb_outbound_rule_output(loadbalancer_id: Optional[pulumi.Input[str]] = N
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -197,7 +194,6 @@ def get_lb_outbound_rule_output(loadbalancer_id: Optional[pulumi.Input[str]] = N
         loadbalancer_id="existing_load_balancer_id")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str loadbalancer_id: The ID of the Load Balancer in which the Outbound Rule exists.

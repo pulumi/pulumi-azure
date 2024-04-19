@@ -14,7 +14,6 @@ namespace Pulumi.Azure.NetApp
     /// 
     /// ## NetApp Snapshot Policy Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,7 +81,6 @@ namespace Pulumi.Azure.NetApp
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

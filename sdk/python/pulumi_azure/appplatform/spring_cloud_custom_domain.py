@@ -169,7 +169,6 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -202,7 +201,6 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
                 ]).apply(lambda invoke: invoke.result),
             spring_cloud_app_id=example_spring_cloud_app.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -230,7 +228,6 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -263,7 +260,6 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
                 ]).apply(lambda invoke: invoke.result),
             spring_cloud_app_id=example_spring_cloud_app.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

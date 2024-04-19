@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -24,7 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const apiManagementApiId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
 
@@ -125,7 +123,6 @@ export interface GetApiResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -138,7 +135,6 @@ export interface GetApiResult {
  * });
  * export const apiManagementApiId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
     return pulumi.output(args).apply((a: any) => getApi(a, opts))

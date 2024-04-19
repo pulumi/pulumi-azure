@@ -166,7 +166,6 @@ def get_virtual_network(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -175,7 +174,6 @@ def get_virtual_network(name: Optional[str] = None,
         resource_group_name="networking")
     pulumi.export("virtualNetworkId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Virtual Network.
@@ -210,7 +208,6 @@ def get_virtual_network_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -219,7 +216,6 @@ def get_virtual_network_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="networking")
     pulumi.export("virtualNetworkId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Virtual Network.

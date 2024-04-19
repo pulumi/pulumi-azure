@@ -5880,7 +5880,6 @@ type KubernetesClusterAciConnectorLinux struct {
 	//
 	// > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -5911,7 +5910,6 @@ type KubernetesClusterAciConnectorLinux struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	SubnetName string `pulumi:"subnetName"`
 }
 
@@ -5935,7 +5933,6 @@ type KubernetesClusterAciConnectorLinuxArgs struct {
 	//
 	// > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -5966,7 +5963,6 @@ type KubernetesClusterAciConnectorLinuxArgs struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	SubnetName pulumi.StringInput `pulumi:"subnetName"`
 }
 
@@ -6060,7 +6056,6 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ConnectorIdentities() Kubernet
 //
 // > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -6094,7 +6089,6 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ConnectorIdentities() Kubernet
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func (o KubernetesClusterAciConnectorLinuxOutput) SubnetName() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterAciConnectorLinux) string { return v.SubnetName }).(pulumi.StringOutput)
 }
@@ -6139,7 +6133,6 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) ConnectorIdentities() Kuber
 //
 // > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -6173,7 +6166,6 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) ConnectorIdentities() Kuber
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func (o KubernetesClusterAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAciConnectorLinux) *string {
 		if v == nil {

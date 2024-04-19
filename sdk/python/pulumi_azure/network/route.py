@@ -236,7 +236,6 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -255,7 +254,6 @@ class Route(pulumi.CustomResource):
             address_prefix="10.1.0.0/16",
             next_hop_type="VnetLocal")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -289,7 +287,6 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -308,7 +305,6 @@ class Route(pulumi.CustomResource):
             address_prefix="10.1.0.0/16",
             next_hop_type="VnetLocal")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -471,7 +471,6 @@ class FrontdoorOrigin(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -499,11 +498,9 @@ class FrontdoorOrigin(pulumi.CustomResource):
             priority=1,
             weight=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Private Link
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -548,11 +545,9 @@ class FrontdoorOrigin(pulumi.CustomResource):
                 private_link_target_id=example_account.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Private Link Service
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -627,7 +622,6 @@ class FrontdoorOrigin(pulumi.CustomResource):
                 private_link_target_id=example_link_service.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example HCL Configurations
 
@@ -679,7 +673,6 @@ class FrontdoorOrigin(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -707,11 +700,9 @@ class FrontdoorOrigin(pulumi.CustomResource):
             priority=1,
             weight=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Private Link
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -756,11 +747,9 @@ class FrontdoorOrigin(pulumi.CustomResource):
                 private_link_target_id=example_account.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Private Link Service
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -835,7 +824,6 @@ class FrontdoorOrigin(pulumi.CustomResource):
                 private_link_target_id=example_link_service.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example HCL Configurations
 

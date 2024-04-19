@@ -169,7 +169,6 @@ class Assessment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -229,7 +228,6 @@ class Assessment(pulumi.CustomResource):
                 code="Healthy",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -257,7 +255,6 @@ class Assessment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -317,7 +314,6 @@ class Assessment(pulumi.CustomResource):
                 code="Healthy",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

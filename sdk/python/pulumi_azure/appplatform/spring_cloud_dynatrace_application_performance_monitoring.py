@@ -333,7 +333,6 @@ class SpringCloudDynatraceApplicationPerformanceMonitoring(pulumi.CustomResource
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -357,7 +356,6 @@ class SpringCloudDynatraceApplicationPerformanceMonitoring(pulumi.CustomResource
             tenant_token="dt0s01.AAAAAAAAAAAAAAAAAAAAAAAA.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
             connection_point="https://example.live.dynatrace.com:443")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -392,7 +390,6 @@ class SpringCloudDynatraceApplicationPerformanceMonitoring(pulumi.CustomResource
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -416,7 +413,6 @@ class SpringCloudDynatraceApplicationPerformanceMonitoring(pulumi.CustomResource
             tenant_token="dt0s01.AAAAAAAAAAAAAAAAAAAAAAAA.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
             connection_point="https://example.live.dynatrace.com:443")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

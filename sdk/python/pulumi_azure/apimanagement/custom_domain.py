@@ -241,7 +241,6 @@ class CustomDomain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -312,7 +311,6 @@ class CustomDomain(pulumi.CustomResource):
                 key_vault_id=example_certificate.versionless_secret_id,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -346,7 +344,6 @@ class CustomDomain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -417,7 +414,6 @@ class CustomDomain(pulumi.CustomResource):
                 key_vault_id=example_certificate.versionless_secret_id,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

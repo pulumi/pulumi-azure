@@ -266,7 +266,6 @@ class Watchlist(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -286,7 +285,6 @@ class Watchlist(pulumi.CustomResource):
             display_name="example-wl",
             item_search_key="Key")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -317,7 +315,6 @@ class Watchlist(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -337,7 +334,6 @@ class Watchlist(pulumi.CustomResource):
             display_name="example-wl",
             item_search_key="Key")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -136,7 +136,6 @@ class MoverProject(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -153,7 +152,6 @@ class MoverProject(pulumi.CustomResource):
             storage_mover_id=example_mover.id,
             description="Example Project Description")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -180,7 +178,6 @@ class MoverProject(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -197,7 +194,6 @@ class MoverProject(pulumi.CustomResource):
             storage_mover_id=example_mover.id,
             description="Example Project Description")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

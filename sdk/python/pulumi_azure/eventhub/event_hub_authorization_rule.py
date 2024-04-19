@@ -375,7 +375,6 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -407,7 +406,6 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
             send=False,
             manage=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -440,7 +438,6 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -472,7 +469,6 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
             send=False,
             manage=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

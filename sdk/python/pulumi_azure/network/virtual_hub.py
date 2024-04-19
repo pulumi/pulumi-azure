@@ -417,7 +417,6 @@ class VirtualHub(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -436,7 +435,6 @@ class VirtualHub(pulumi.CustomResource):
             virtual_wan_id=example_virtual_wan.id,
             address_prefix="10.0.0.0/23")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -470,7 +468,6 @@ class VirtualHub(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -489,7 +486,6 @@ class VirtualHub(pulumi.CustomResource):
             virtual_wan_id=example_virtual_wan.id,
             address_prefix="10.0.0.0/23")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

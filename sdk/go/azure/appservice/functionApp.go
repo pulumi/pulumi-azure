@@ -23,7 +23,6 @@ import (
 //
 // ### With App Service Plan)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,11 +82,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### In A Consumption Plan)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -148,11 +145,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Linux)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -216,7 +211,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
 //

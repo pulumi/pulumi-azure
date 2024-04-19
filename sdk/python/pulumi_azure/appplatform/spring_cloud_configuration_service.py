@@ -206,7 +206,6 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -236,7 +235,6 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
                 password="H@Sh1CoR3!",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -267,7 +265,6 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -297,7 +294,6 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
                 password="H@Sh1CoR3!",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

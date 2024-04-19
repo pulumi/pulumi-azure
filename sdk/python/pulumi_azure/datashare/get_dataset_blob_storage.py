@@ -134,7 +134,6 @@ def get_dataset_blob_storage(data_share_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -143,7 +142,6 @@ def get_dataset_blob_storage(data_share_id: Optional[str] = None,
         data_share_id="example-share-id")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str data_share_id: The ID of the Data Share in which this Data Share Blob Storage Dataset should be created.
@@ -175,7 +173,6 @@ def get_dataset_blob_storage_output(data_share_id: Optional[pulumi.Input[str]] =
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -184,7 +181,6 @@ def get_dataset_blob_storage_output(data_share_id: Optional[pulumi.Input[str]] =
         data_share_id="example-share-id")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str data_share_id: The ID of the Data Share in which this Data Share Blob Storage Dataset should be created.

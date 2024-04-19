@@ -1145,7 +1145,6 @@ def get_account(min_tls_version: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -1154,7 +1153,6 @@ def get_account(min_tls_version: Optional[str] = None,
         resource_group_name="packer-storage")
     pulumi.export("storageAccountTier", example.account_tier)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str min_tls_version: The minimum supported TLS version for this storage account.
@@ -1273,7 +1271,6 @@ def get_account_output(min_tls_version: Optional[pulumi.Input[Optional[str]]] = 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -1282,7 +1279,6 @@ def get_account_output(min_tls_version: Optional[pulumi.Input[Optional[str]]] = 
         resource_group_name="packer-storage")
     pulumi.export("storageAccountTier", example.account_tier)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str min_tls_version: The minimum supported TLS version for this storage account.

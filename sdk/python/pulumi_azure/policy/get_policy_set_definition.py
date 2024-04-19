@@ -171,7 +171,6 @@ def get_policy_set_definition(display_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -179,7 +178,6 @@ def get_policy_set_definition(display_name: Optional[str] = None,
     example = azure.policy.get_policy_set_definition(display_name="Policy Set Definition Example")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: Specifies the display name of the Policy Set Definition. Conflicts with `name`.
@@ -219,7 +217,6 @@ def get_policy_set_definition_output(display_name: Optional[pulumi.Input[Optiona
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -227,7 +224,6 @@ def get_policy_set_definition_output(display_name: Optional[pulumi.Input[Optiona
     example = azure.policy.get_policy_set_definition(display_name="Policy Set Definition Example")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: Specifies the display name of the Policy Set Definition. Conflicts with `name`.

@@ -14,7 +14,6 @@ namespace Pulumi.Azure.AnalysisServices
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,7 +56,6 @@ namespace Pulumi.Azure.AnalysisServices
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
     /// 

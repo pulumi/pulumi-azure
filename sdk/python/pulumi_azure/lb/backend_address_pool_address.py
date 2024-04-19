@@ -230,7 +230,6 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -257,7 +256,6 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
             backend_address_pool_id=backend_pool_cr.id,
             backend_address_ip_configuration_id=backend_lb__r2["frontendIpConfiguration"][0]["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -290,7 +288,6 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -317,7 +314,6 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
             backend_address_pool_id=backend_pool_cr.id,
             backend_address_ip_configuration_id=backend_lb__r2["frontendIpConfiguration"][0]["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

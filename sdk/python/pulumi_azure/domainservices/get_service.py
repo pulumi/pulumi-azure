@@ -242,7 +242,6 @@ def get_service(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -250,7 +249,6 @@ def get_service(name: Optional[str] = None,
     example = azure.domainservices.get_service(name="example-aadds",
         resource_group_name="example-aadds-rg")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
@@ -297,7 +295,6 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -305,7 +302,6 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.domainservices.get_service(name="example-aadds",
         resource_group_name="example-aadds-rg")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.

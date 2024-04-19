@@ -155,7 +155,6 @@ def get_storage_container(metadata: Optional[Mapping[str, str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -163,7 +162,6 @@ def get_storage_container(metadata: Optional[Mapping[str, str]] = None,
     example = azure.storage.get_storage_container(name="example-container-name",
         storage_account_name="example-storage-account-name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] metadata: A mapping of MetaData for this Container.
@@ -200,7 +198,6 @@ def get_storage_container_output(metadata: Optional[pulumi.Input[Optional[Mappin
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -208,7 +205,6 @@ def get_storage_container_output(metadata: Optional[pulumi.Input[Optional[Mappin
     example = azure.storage.get_storage_container(name="example-container-name",
         storage_account_name="example-storage-account-name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] metadata: A mapping of MetaData for this Container.

@@ -335,7 +335,6 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -442,7 +441,6 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             notes="examplenote",
             output_workspace_resource_ids=[example_analytics_workspace.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -477,7 +475,6 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -584,7 +581,6 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             notes="examplenote",
             output_workspace_resource_ids=[example_analytics_workspace.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

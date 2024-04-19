@@ -432,7 +432,6 @@ class StreamingLocator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -471,7 +470,6 @@ class StreamingLocator(pulumi.CustomResource):
             streaming_policy_name="Predefined_ClearStreamingOnly",
             filter_names=[example_account_filter.name])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -507,7 +505,6 @@ class StreamingLocator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -546,7 +543,6 @@ class StreamingLocator(pulumi.CustomResource):
             streaming_policy_name="Predefined_ClearStreamingOnly",
             filter_names=[example_account_filter.name])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

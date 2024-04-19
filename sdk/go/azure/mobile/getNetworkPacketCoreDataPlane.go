@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,7 +46,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupNetworkPacketCoreDataPlane(ctx *pulumi.Context, args *LookupNetworkPacketCoreDataPlaneArgs, opts ...pulumi.InvokeOption) (*LookupNetworkPacketCoreDataPlaneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkPacketCoreDataPlaneResult

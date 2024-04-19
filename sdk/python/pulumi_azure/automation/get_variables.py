@@ -142,7 +142,6 @@ def get_variables(automation_account_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -152,7 +151,6 @@ def get_variables(automation_account_id: Optional[str] = None,
     example_get_variables = azure.automation.get_variables(automation_account_id=example.id)
     pulumi.export("stringVars", example_azurerm_automation_variable_string["string"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str automation_account_id: The resource ID of the automation account.
@@ -182,7 +180,6 @@ def get_variables_output(automation_account_id: Optional[pulumi.Input[str]] = No
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -192,7 +189,6 @@ def get_variables_output(automation_account_id: Optional[pulumi.Input[str]] = No
     example_get_variables = azure.automation.get_variables(automation_account_id=example.id)
     pulumi.export("stringVars", example_azurerm_automation_variable_string["string"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str automation_account_id: The resource ID of the automation account.

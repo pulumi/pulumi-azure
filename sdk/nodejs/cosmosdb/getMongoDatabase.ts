@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMongoDatabase(args: GetMongoDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDatabaseResult> {
 
@@ -72,7 +70,6 @@ export interface GetMongoDatabaseResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -84,7 +81,6 @@ export interface GetMongoDatabaseResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMongoDatabaseOutput(args: GetMongoDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getMongoDatabase(a, opts))

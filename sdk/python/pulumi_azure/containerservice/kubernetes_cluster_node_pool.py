@@ -1565,7 +1565,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
         This example provisions a basic Kubernetes Node Pool.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1596,7 +1595,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                 "Environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1693,7 +1691,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
         This example provisions a basic Kubernetes Node Pool.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1724,7 +1721,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                 "Environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

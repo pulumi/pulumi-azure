@@ -382,7 +382,6 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -427,7 +426,6 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
             workspace_id=example_workspace.id,
             storage_container_id=example_container.resource_manager_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -461,7 +459,6 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -506,7 +503,6 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
             workspace_id=example_workspace.id,
             storage_container_id=example_container.resource_manager_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

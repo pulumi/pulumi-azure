@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     containerAppEnvironmentId: example.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEnvironmentCertificate(args: GetEnvironmentCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentCertificateResult> {
 
@@ -88,7 +86,6 @@ export interface GetEnvironmentCertificateResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -102,7 +99,6 @@ export interface GetEnvironmentCertificateResult {
  *     containerAppEnvironmentId: example.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEnvironmentCertificateOutput(args: GetEnvironmentCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentCertificateResult> {
     return pulumi.output(args).apply((a: any) => getEnvironmentCertificate(a, opts))

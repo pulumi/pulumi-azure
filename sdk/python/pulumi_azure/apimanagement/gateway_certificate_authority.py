@@ -167,7 +167,6 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -204,7 +203,6 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
             gateway_name=example_gateway.name,
             is_trusted=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -232,7 +230,6 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -269,7 +266,6 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
             gateway_name=example_gateway.name,
             is_trusted=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -122,7 +122,6 @@ def get_share(account_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -133,7 +132,6 @@ def get_share(account_id: Optional[str] = None,
         account_id=example.id)
     pulumi.export("id", example_get_share.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_id: The ID of the Data Share account in which the Data Share is created.
@@ -164,7 +162,6 @@ def get_share_output(account_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -175,7 +172,6 @@ def get_share_output(account_id: Optional[pulumi.Input[str]] = None,
         account_id=example.id)
     pulumi.export("id", example_get_share.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_id: The ID of the Data Share account in which the Data Share is created.

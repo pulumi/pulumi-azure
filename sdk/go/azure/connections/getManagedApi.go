@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetManagedApi(ctx *pulumi.Context, args *GetManagedApiArgs, opts ...pulumi.InvokeOption) (*GetManagedApiResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetManagedApiResult

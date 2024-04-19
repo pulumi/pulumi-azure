@@ -429,7 +429,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -461,7 +460,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
             ],
             linked_database_group_nickname="tftestGeoGroup")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -499,7 +497,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -531,7 +528,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
             ],
             linked_database_group_nickname="tftestGeoGroup")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

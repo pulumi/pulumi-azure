@@ -234,7 +234,6 @@ class SpringCloudElasticApplicationPerformanceMonitoring(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -258,7 +257,6 @@ class SpringCloudElasticApplicationPerformanceMonitoring(pulumi.CustomResource):
             service_name="example-service-name",
             server_url="http://127.0.0.1:8200")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -290,7 +288,6 @@ class SpringCloudElasticApplicationPerformanceMonitoring(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -314,7 +311,6 @@ class SpringCloudElasticApplicationPerformanceMonitoring(pulumi.CustomResource):
             service_name="example-service-name",
             server_url="http://127.0.0.1:8200")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

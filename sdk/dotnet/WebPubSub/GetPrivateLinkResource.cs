@@ -16,7 +16,6 @@ namespace Pulumi.Azure.WebPubSub
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -47,7 +46,6 @@ namespace Pulumi.Azure.WebPubSub
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPrivateLinkResourceResult> InvokeAsync(GetPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkResourceResult>("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args ?? new GetPrivateLinkResourceArgs(), options.WithDefaults());
@@ -57,7 +55,6 @@ namespace Pulumi.Azure.WebPubSub
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -88,7 +85,6 @@ namespace Pulumi.Azure.WebPubSub
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPrivateLinkResourceResult> Invoke(GetPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkResourceResult>("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args ?? new GetPrivateLinkResourceInvokeArgs(), options.WithDefaults());

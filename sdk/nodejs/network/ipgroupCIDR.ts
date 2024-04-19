@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -32,7 +31,6 @@ import * as utilities from "../utilities";
  *     cidr: "10.10.10.0/24",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

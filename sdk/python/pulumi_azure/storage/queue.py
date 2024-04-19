@@ -152,7 +152,6 @@ class Queue(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -170,7 +169,6 @@ class Queue(pulumi.CustomResource):
             name="mysamplequeue",
             storage_account_name=example_account.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -197,7 +195,6 @@ class Queue(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -215,7 +212,6 @@ class Queue(pulumi.CustomResource):
             name="mysamplequeue",
             storage_account_name=example_account.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

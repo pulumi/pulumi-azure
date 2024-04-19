@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Cdn
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Azure.Cdn
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFrontdoorRuleSetResult> InvokeAsync(GetFrontdoorRuleSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorRuleSetResult>("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args ?? new GetFrontdoorRuleSetArgs(), options.WithDefaults());
@@ -44,7 +42,6 @@ namespace Pulumi.Azure.Cdn
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Azure.Cdn
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFrontdoorRuleSetResult> Invoke(GetFrontdoorRuleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorRuleSetResult>("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args ?? new GetFrontdoorRuleSetInvokeArgs(), options.WithDefaults());

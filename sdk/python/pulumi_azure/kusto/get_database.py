@@ -128,7 +128,6 @@ def get_database(cluster_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -137,7 +136,6 @@ def get_database(cluster_name: Optional[str] = None,
         resource_group_name="test_resource_group",
         cluster_name="test_cluster")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_name: The name of the Kusto Cluster this database is added to.
@@ -172,7 +170,6 @@ def get_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -181,7 +178,6 @@ def get_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
         resource_group_name="test_resource_group",
         cluster_name="test_cluster")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_name: The name of the Kusto Cluster this database is added to.

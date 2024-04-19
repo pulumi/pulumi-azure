@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,7 +46,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupNetworkAttachedDataNetwork(ctx *pulumi.Context, args *LookupNetworkAttachedDataNetworkArgs, opts ...pulumi.InvokeOption) (*LookupNetworkAttachedDataNetworkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkAttachedDataNetworkResult

@@ -300,7 +300,6 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -352,7 +351,6 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
             member_name="dbo",
             start_time="12:00")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -384,7 +382,6 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -436,7 +433,6 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
             member_name="dbo",
             start_time="12:00")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

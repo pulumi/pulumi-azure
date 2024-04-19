@@ -264,7 +264,6 @@ class TemplateDeployment(pulumi.CustomResource):
 
         > **Note:** This example uses Storage Accounts and Public IP's which are natively supported by this provider - we'd highly recommend using the Native Resources where possible instead rather than an ARM Template, for the reasons outlined above.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -337,7 +336,6 @@ class TemplateDeployment(pulumi.CustomResource):
             deployment_mode="Incremental")
         pulumi.export("storageAccountName", example_template_deployment.outputs["storageAccountName"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Note
 
@@ -371,7 +369,6 @@ class TemplateDeployment(pulumi.CustomResource):
 
         > **Note:** This example uses Storage Accounts and Public IP's which are natively supported by this provider - we'd highly recommend using the Native Resources where possible instead rather than an ARM Template, for the reasons outlined above.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -444,7 +441,6 @@ class TemplateDeployment(pulumi.CustomResource):
             deployment_mode="Incremental")
         pulumi.export("storageAccountName", example_template_deployment.outputs["storageAccountName"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Note
 

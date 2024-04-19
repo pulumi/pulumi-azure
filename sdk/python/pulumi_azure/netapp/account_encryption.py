@@ -170,7 +170,6 @@ class AccountEncryption(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -243,7 +242,6 @@ class AccountEncryption(pulumi.CustomResource):
             user_assigned_identity_id=example_user_assigned_identity.id,
             encryption_key=example_key.versionless_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -273,7 +271,6 @@ class AccountEncryption(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -346,7 +343,6 @@ class AccountEncryption(pulumi.CustomResource):
             user_assigned_identity_id=example_user_assigned_identity.id,
             encryption_key=example_key.versionless_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

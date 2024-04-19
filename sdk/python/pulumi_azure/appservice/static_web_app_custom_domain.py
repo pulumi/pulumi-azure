@@ -142,7 +142,6 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
 
         ### CNAME validation
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -165,11 +164,9 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
             domain_name=pulumi.Output.all(example_c_name_record.name, example_c_name_record.zone_name).apply(lambda name, zone_name: f"{name}.{zone_name}"),
             validation_type="cname-delegation")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### TXT validation
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -194,7 +191,6 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
                 value=example_static_web_app_custom_domain.validation_token,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -220,7 +216,6 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
 
         ### CNAME validation
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -243,11 +238,9 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
             domain_name=pulumi.Output.all(example_c_name_record.name, example_c_name_record.zone_name).apply(lambda name, zone_name: f"{name}.{zone_name}"),
             validation_type="cname-delegation")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### TXT validation
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -272,7 +265,6 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
                 value=example_static_web_app_custom_domain.validation_token,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
