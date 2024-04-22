@@ -81,6 +81,21 @@ public final class ActivityLogAlertState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+     * 
+     */
+    @Import(name="location")
+    private @Nullable Output<String> location;
+
+    /**
+     * @return The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+     * 
+     */
+    public Optional<Output<String>> location() {
+        return Optional.ofNullable(this.location);
+    }
+
+    /**
      * The name of the activity log alert. Changing this forces a new resource to be created.
      * 
      */
@@ -147,6 +162,7 @@ public final class ActivityLogAlertState extends com.pulumi.resources.ResourceAr
         this.criteria = $.criteria;
         this.description = $.description;
         this.enabled = $.enabled;
+        this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.scopes = $.scopes;
@@ -263,6 +279,27 @@ public final class ActivityLogAlertState extends com.pulumi.resources.ResourceAr
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param location The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder location(@Nullable Output<String> location) {
+            $.location = location;
+            return this;
+        }
+
+        /**
+         * @param location The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder location(String location) {
+            return location(Output.of(location));
         }
 
         /**

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterMaintenanceWindowAutoUpgradeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+        /// The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
         /// </summary>
         [Input("dayOfMonth")]
         public Input<int>? DayOfMonth { get; set; }

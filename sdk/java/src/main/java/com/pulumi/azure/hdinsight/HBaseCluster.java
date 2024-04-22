@@ -14,6 +14,7 @@ import com.pulumi.azure.hdinsight.outputs.HBaseClusterGateway;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterMetastores;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterMonitor;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterNetwork;
+import com.pulumi.azure.hdinsight.outputs.HBaseClusterPrivateLinkConfiguration;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterRoles;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterSecurityProfile;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterStorageAccount;
@@ -308,6 +309,20 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<HBaseClusterNetwork>> network() {
         return Codegen.optional(this.network);
+    }
+    /**
+     * A `private_link_configuration` block as defined below.
+     * 
+     */
+    @Export(name="privateLinkConfiguration", refs={HBaseClusterPrivateLinkConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ HBaseClusterPrivateLinkConfiguration> privateLinkConfiguration;
+
+    /**
+     * @return A `private_link_configuration` block as defined below.
+     * 
+     */
+    public Output<Optional<HBaseClusterPrivateLinkConfiguration>> privateLinkConfiguration() {
+        return Codegen.optional(this.privateLinkConfiguration);
     }
     /**
      * Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.

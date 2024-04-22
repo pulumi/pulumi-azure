@@ -239,6 +239,93 @@ import (
 // ```
 // <!--End PulumiCodeChooser -->
 //
+// ### ABAC Condition)
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			builtin, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
+//				Name: pulumi.StringRef("Reader"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeBasename, err := std.Basename(ctx, &std.BasenameArgs{
+//				Input: builtin.RoleDefinitionId,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeBasename1, err := std.Basename(ctx, &std.BasenameArgs{
+//				Input: builtin.RoleDefinitionId,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//				RoleDefinitionName: pulumi.String("Role Based Access Control Administrator"),
+//				Scope:              pulumi.String(primary.Id),
+//				PrincipalId:        pulumi.String(example.ObjectId),
+//				PrincipalType:      pulumi.String("ServicePrincipal"),
+//				Description:        pulumi.String("Role Based Access Control Administrator role assignment with ABAC Condition."),
+//				ConditionVersion:   pulumi.String("2.0"),
+//				Condition: pulumi.String(fmt.Sprintf(`(
+//	 (
+//	  !(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})
+//	 )
+//	 OR
+//	 (
+//	  @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {%v}
+//	 )
+//
+// )
+// AND
+// (
+//
+//	(
+//	 !(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})
+//	)
+//	OR
+//	(
+//	 @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {%v}
+//	)
+//
+// )
+// `, invokeBasename.Result, invokeBasename1.Result)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Role Assignments can be imported using the `resource id`, e.g.

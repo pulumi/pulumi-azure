@@ -11,6 +11,7 @@ import com.pulumi.azure.hdinsight.inputs.SparkClusterGatewayArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterMetastoresArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterMonitorArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterNetworkArgs;
+import com.pulumi.azure.hdinsight.inputs.SparkClusterPrivateLinkConfigurationArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterRolesArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterSecurityProfileArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterStorageAccountArgs;
@@ -226,6 +227,21 @@ public final class SparkClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `private_link_configuration` block as defined below.
+     * 
+     */
+    @Import(name="privateLinkConfiguration")
+    private @Nullable Output<SparkClusterPrivateLinkConfigurationArgs> privateLinkConfiguration;
+
+    /**
+     * @return A `private_link_configuration` block as defined below.
+     * 
+     */
+    public Optional<Output<SparkClusterPrivateLinkConfigurationArgs>> privateLinkConfiguration() {
+        return Optional.ofNullable(this.privateLinkConfiguration);
+    }
+
+    /**
      * Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -380,6 +396,7 @@ public final class SparkClusterState extends com.pulumi.resources.ResourceArgs {
         this.monitor = $.monitor;
         this.name = $.name;
         this.network = $.network;
+        this.privateLinkConfiguration = $.privateLinkConfiguration;
         this.resourceGroupName = $.resourceGroupName;
         this.roles = $.roles;
         this.securityProfile = $.securityProfile;
@@ -690,6 +707,27 @@ public final class SparkClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder network(SparkClusterNetworkArgs network) {
             return network(Output.of(network));
+        }
+
+        /**
+         * @param privateLinkConfiguration A `private_link_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateLinkConfiguration(@Nullable Output<SparkClusterPrivateLinkConfigurationArgs> privateLinkConfiguration) {
+            $.privateLinkConfiguration = privateLinkConfiguration;
+            return this;
+        }
+
+        /**
+         * @param privateLinkConfiguration A `private_link_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateLinkConfiguration(SparkClusterPrivateLinkConfigurationArgs privateLinkConfiguration) {
+            return privateLinkConfiguration(Output.of(privateLinkConfiguration));
         }
 
         /**

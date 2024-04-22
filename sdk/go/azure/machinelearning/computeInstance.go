@@ -122,7 +122,6 @@ import (
 //			}
 //			_, err = machinelearning.NewComputeInstance(ctx, "example", &machinelearning.ComputeInstanceArgs{
 //				Name:                       pulumi.String("example"),
-//				Location:                   example.Location,
 //				MachineLearningWorkspaceId: exampleWorkspace.ID(),
 //				VirtualMachineSize:         pulumi.String("STANDARD_DS2_V2"),
 //				AuthorizationType:          pulumi.String("personal"),
@@ -165,7 +164,11 @@ type ComputeInstance struct {
 	Identity ComputeInstanceIdentityPtrOutput `pulumi:"identity"`
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
 	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
-	// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
+	// The Azure Region where the Machine Learning Compute Instance should exist.
+	//
+	// > **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&tabs=python).
+	//
+	// Deprecated: The `machinelearning.ComputeInstance` must be deployed to the same location as the associated `machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
 	MachineLearningWorkspaceId pulumi.StringOutput `pulumi:"machineLearningWorkspaceId"`
@@ -229,7 +232,11 @@ type computeInstanceState struct {
 	Identity *ComputeInstanceIdentity `pulumi:"identity"`
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
-	// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
+	// The Azure Region where the Machine Learning Compute Instance should exist.
+	//
+	// > **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&tabs=python).
+	//
+	// Deprecated: The `machinelearning.ComputeInstance` must be deployed to the same location as the associated `machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
 	Location *string `pulumi:"location"`
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
 	MachineLearningWorkspaceId *string `pulumi:"machineLearningWorkspaceId"`
@@ -258,7 +265,11 @@ type ComputeInstanceState struct {
 	Identity ComputeInstanceIdentityPtrInput
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
 	LocalAuthEnabled pulumi.BoolPtrInput
-	// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
+	// The Azure Region where the Machine Learning Compute Instance should exist.
+	//
+	// > **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&tabs=python).
+	//
+	// Deprecated: The `machinelearning.ComputeInstance` must be deployed to the same location as the associated `machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
 	Location pulumi.StringPtrInput
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
 	MachineLearningWorkspaceId pulumi.StringPtrInput
@@ -291,7 +302,11 @@ type computeInstanceArgs struct {
 	Identity *ComputeInstanceIdentity `pulumi:"identity"`
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
-	// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
+	// The Azure Region where the Machine Learning Compute Instance should exist.
+	//
+	// > **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&tabs=python).
+	//
+	// Deprecated: The `machinelearning.ComputeInstance` must be deployed to the same location as the associated `machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
 	Location *string `pulumi:"location"`
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
 	MachineLearningWorkspaceId string `pulumi:"machineLearningWorkspaceId"`
@@ -321,7 +336,11 @@ type ComputeInstanceArgs struct {
 	Identity ComputeInstanceIdentityPtrInput
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
 	LocalAuthEnabled pulumi.BoolPtrInput
-	// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
+	// The Azure Region where the Machine Learning Compute Instance should exist.
+	//
+	// > **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&tabs=python).
+	//
+	// Deprecated: The `machinelearning.ComputeInstance` must be deployed to the same location as the associated `machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
 	Location pulumi.StringPtrInput
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
 	MachineLearningWorkspaceId pulumi.StringInput
@@ -451,7 +470,11 @@ func (o ComputeInstanceOutput) LocalAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ComputeInstance) pulumi.BoolPtrOutput { return v.LocalAuthEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
+// The Azure Region where the Machine Learning Compute Instance should exist.
+//
+// > **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&tabs=python).
+//
+// Deprecated: The `machinelearning.ComputeInstance` must be deployed to the same location as the associated `machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
 func (o ComputeInstanceOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeInstance) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

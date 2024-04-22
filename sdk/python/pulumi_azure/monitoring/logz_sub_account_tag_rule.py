@@ -202,6 +202,8 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
         """
         Manages a Logz Sub Account Tag Rule.
 
+        !> **Note:** Logz REST API is being deprecated by Azure and new resources cannot be created. This resource will be removed in version 4.0 of the provider.
+
         ## Example Usage
 
         <!--Start PulumiCodeChooser -->
@@ -280,6 +282,8 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logz Sub Account Tag Rule.
+
+        !> **Note:** Logz REST API is being deprecated by Azure and new resources cannot be created. This resource will be removed in version 4.0 of the provider.
 
         ## Example Usage
 

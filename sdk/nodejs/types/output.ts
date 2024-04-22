@@ -5940,7 +5940,7 @@ export namespace appservice {
          */
         nameClaimType: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         * The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
          */
         openidConfigurationEndpoint: string;
         /**
@@ -6887,7 +6887,7 @@ export namespace appservice {
          */
         nameClaimType: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         * The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
          */
         openidConfigurationEndpoint: string;
         /**
@@ -8028,7 +8028,7 @@ export namespace appservice {
          */
         nameClaimType: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         * The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
          */
         openidConfigurationEndpoint: string;
         /**
@@ -8939,7 +8939,7 @@ export namespace appservice {
          */
         nameClaimType: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         * The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
          */
         openidConfigurationEndpoint: string;
         /**
@@ -9294,6 +9294,10 @@ export namespace appservice {
          */
         ftpsState: string;
         /**
+         * A `handlerMapping` block as defined below.
+         */
+        handlerMappings: outputs.appservice.GetWindowsWebAppSiteConfigHandlerMapping[];
+        /**
          * (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          */
         healthCheckEvictionTimeInMin: number;
@@ -9560,6 +9564,21 @@ export namespace appservice {
          * Whether CORS requests with credentials are allowed.
          */
         supportCredentials: boolean;
+    }
+
+    export interface GetWindowsWebAppSiteConfigHandlerMapping {
+        /**
+         * The command-line arguments to be passed to the script processor.
+         */
+        arguments: string;
+        /**
+         * The extension to be handled by the specified FastCGI application.
+         */
+        extension: string;
+        /**
+         * The absolute path to the FastCGI application.
+         */
+        scriptProcessorPath: string;
     }
 
     export interface GetWindowsWebAppSiteConfigIpRestriction {
@@ -17532,6 +17551,10 @@ export namespace appservice {
         detailedErrorLoggingEnabled: boolean;
         ftpsState?: string;
         /**
+         * One or more `handlerMapping` blocks as defined below.
+         */
+        handlerMappings?: outputs.appservice.WindowsWebAppSiteConfigHandlerMapping[];
+        /**
          * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          */
         healthCheckEvictionTimeInMin: number;
@@ -17840,6 +17863,21 @@ export namespace appservice {
          * Whether CORS requests with credentials are allowed. Defaults to `false`
          */
         supportCredentials?: boolean;
+    }
+
+    export interface WindowsWebAppSiteConfigHandlerMapping {
+        /**
+         * Specifies the command-line arguments to be passed to the script processor.
+         */
+        arguments?: string;
+        /**
+         * Specifies which extension to be handled by the specified FastCGI application.
+         */
+        extension: string;
+        /**
+         * Specifies the absolute path to the FastCGI application.
+         */
+        scriptProcessorPath: string;
     }
 
     export interface WindowsWebAppSiteConfigIpRestriction {
@@ -18749,6 +18787,10 @@ export namespace appservice {
         detailedErrorLoggingEnabled: boolean;
         ftpsState?: string;
         /**
+         * One or more `handlerMapping` blocks as defined below.
+         */
+        handlerMappings?: outputs.appservice.WindowsWebAppSlotSiteConfigHandlerMapping[];
+        /**
          * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          */
         healthCheckEvictionTimeInMin: number;
@@ -19045,6 +19087,21 @@ export namespace appservice {
          * Whether CORS requests with credentials are allowed. Defaults to `false`
          */
         supportCredentials?: boolean;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigHandlerMapping {
+        /**
+         * Specify the command-line arguments to be passed to the script processor.
+         */
+        arguments?: string;
+        /**
+         * Specify which extension to be handled by the specified FastCGI application.
+         */
+        extension: string;
+        /**
+         * Specify the absolute path to the FastCGI application.
+         */
+        scriptProcessorPath: string;
     }
 
     export interface WindowsWebAppSlotSiteConfigIpRestriction {
@@ -24385,6 +24442,14 @@ export namespace compute {
          */
         identityIds: string[];
         /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+         */
+        tenantId: string;
+        /**
          * The Type of IP Tag.
          */
         type: string;
@@ -28020,6 +28085,7 @@ export namespace config {
         cognitiveAccount?: outputs.config.FeaturesCognitiveAccount;
         keyVault?: outputs.config.FeaturesKeyVault;
         logAnalyticsWorkspace?: outputs.config.FeaturesLogAnalyticsWorkspace;
+        machineLearning?: outputs.config.FeaturesMachineLearning;
         managedDisk?: outputs.config.FeaturesManagedDisk;
         postgresqlFlexibleServer?: outputs.config.FeaturesPostgresqlFlexibleServer;
         recoveryService?: outputs.config.FeaturesRecoveryService;
@@ -28089,6 +28155,10 @@ export namespace config {
 
     export interface FeaturesLogAnalyticsWorkspace {
         permanentlyDeleteOnDestroy?: boolean;
+    }
+
+    export interface FeaturesMachineLearning {
+        purgeSoftDeletedWorkspaceOnDestroy?: boolean;
     }
 
     export interface FeaturesManagedDisk {
@@ -28869,7 +28939,7 @@ export namespace containerapp {
          */
         description?: string;
         /**
-         * CIDR notation to match incoming IP address.
+         * The incoming IP address or range of IP addresses (in CIDR notation).
          */
         ipAddressRange: string;
         /**
@@ -31403,18 +31473,26 @@ export namespace containerservice {
         azureRbacEnabled?: boolean;
         /**
          * The Client ID of an Azure Active Directory Application.
+         *
+         * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
          */
         clientAppId?: string;
         /**
          * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+         *
+         * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
          */
         managed?: boolean;
         /**
          * The Server ID of an Azure Active Directory Application.
+         *
+         * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
          */
         serverAppId?: string;
         /**
          * The Server Secret of an Azure Active Directory Application.
+         *
+         * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
          */
         serverAppSecret?: string;
         /**
@@ -32118,7 +32196,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterMaintenanceWindowAutoUpgrade {
         /**
-         * The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+         * The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
          */
         dayOfMonth?: number;
         /**
@@ -32173,7 +32251,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterMaintenanceWindowNodeOs {
         /**
-         * The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+         * The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
          */
         dayOfMonth?: number;
         /**
@@ -40764,6 +40842,41 @@ export namespace hdinsight {
         privateLinkEnabled?: boolean;
     }
 
+    export interface HBaseClusterPrivateLinkConfiguration {
+        /**
+         * The ID of the private link service group.
+         */
+        groupId: string;
+        ipConfiguration: outputs.hdinsight.HBaseClusterPrivateLinkConfigurationIpConfiguration;
+        /**
+         * The name of the private link configuration.
+         */
+        name: string;
+    }
+
+    export interface HBaseClusterPrivateLinkConfigurationIpConfiguration {
+        /**
+         * Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * Indicates whether this IP configuration is primary.
+         */
+        primary?: boolean;
+        /**
+         * The private IP address of the IP configuration.
+         */
+        privateIpAddress?: string;
+        /**
+         * The private IP allocation method. The only possible value now is `Dynamic`.
+         */
+        privateIpAllocationMethod?: string;
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
+        subnetId?: string;
+    }
+
     export interface HBaseClusterRoles {
         /**
          * A `headNode` block as defined above.
@@ -41204,6 +41317,41 @@ export namespace hdinsight {
          * Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
          */
         privateLinkEnabled?: boolean;
+    }
+
+    export interface HadoopClusterPrivateLinkConfiguration {
+        /**
+         * The ID of the private link service group.
+         */
+        groupId: string;
+        ipConfiguration: outputs.hdinsight.HadoopClusterPrivateLinkConfigurationIpConfiguration;
+        /**
+         * The name of the private link configuration.
+         */
+        name: string;
+    }
+
+    export interface HadoopClusterPrivateLinkConfigurationIpConfiguration {
+        /**
+         * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * Indicates whether this IP configuration is primary.
+         */
+        primary?: boolean;
+        /**
+         * The private ip address of the endpoint.
+         */
+        privateIpAddress?: string;
+        /**
+         * The private IP allocation method. The only possible value now is `Dynamic`.
+         */
+        privateIpAllocationMethod?: string;
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
+        subnetId?: string;
     }
 
     export interface HadoopClusterRoles {
@@ -41743,6 +41891,41 @@ export namespace hdinsight {
         privateLinkEnabled?: boolean;
     }
 
+    export interface InteractiveQueryClusterPrivateLinkConfiguration {
+        /**
+         * The ID of the private link service group.
+         */
+        groupId: string;
+        ipConfiguration: outputs.hdinsight.InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration;
+        /**
+         * The name of the private link configuration.
+         */
+        name: string;
+    }
+
+    export interface InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration {
+        /**
+         * Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * Indicates whether this IP configuration is primary.
+         */
+        primary?: boolean;
+        /**
+         * The private IP address of the IP configuration.
+         */
+        privateIpAddress?: string;
+        /**
+         * The private IP allocation method. The only possible value now is `Dynamic`.
+         */
+        privateIpAllocationMethod?: string;
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
+        subnetId?: string;
+    }
+
     export interface InteractiveQueryClusterRoles {
         /**
          * A `headNode` block as defined above.
@@ -42194,6 +42377,41 @@ export namespace hdinsight {
          * Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
          */
         privateLinkEnabled?: boolean;
+    }
+
+    export interface KafkaClusterPrivateLinkConfiguration {
+        /**
+         * The ID of the private link service group.
+         */
+        groupId: string;
+        ipConfiguration: outputs.hdinsight.KafkaClusterPrivateLinkConfigurationIpConfiguration;
+        /**
+         * The name of the private link configuration.
+         */
+        name: string;
+    }
+
+    export interface KafkaClusterPrivateLinkConfigurationIpConfiguration {
+        /**
+         * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * Indicates whether this IP configuration is primary.
+         */
+        primary?: boolean;
+        /**
+         * The private IP address of the IP configuration.
+         */
+        privateIpAddress?: string;
+        /**
+         * The private IP allocation method. The only possible value now is `Dynamic`.
+         */
+        privateIpAllocationMethod?: string;
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
+        subnetId?: string;
     }
 
     export interface KafkaClusterRestProxy {
@@ -42670,6 +42888,41 @@ export namespace hdinsight {
          * Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
          */
         privateLinkEnabled?: boolean;
+    }
+
+    export interface SparkClusterPrivateLinkConfiguration {
+        /**
+         * The ID of the private link service group.
+         */
+        groupId: string;
+        ipConfiguration: outputs.hdinsight.SparkClusterPrivateLinkConfigurationIpConfiguration;
+        /**
+         * The name of the private link configuration.
+         */
+        name: string;
+    }
+
+    export interface SparkClusterPrivateLinkConfigurationIpConfiguration {
+        /**
+         * Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * Indicates whether this IP configuration is primary.
+         */
+        primary?: boolean;
+        /**
+         * The private IP address of the IP configuration.
+         */
+        privateIpAddress?: string;
+        /**
+         * The private IP allocation method. The only possible value now is `Dynamic`.
+         */
+        privateIpAllocationMethod?: string;
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
+        subnetId?: string;
     }
 
     export interface SparkClusterRoles {
@@ -60924,7 +61177,9 @@ export namespace privatelink {
          */
         privateIpAddress: string;
         /**
-         * A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
+         * A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
+         *
+         * > **NOTE:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
          */
         requestMessage?: string;
         /**
@@ -64259,6 +64514,8 @@ export namespace storage {
          * A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
          *
          * > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+         *
+         * > **NOTE:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
          */
         restorePolicy?: outputs.storage.AccountBlobPropertiesRestorePolicy;
         /**

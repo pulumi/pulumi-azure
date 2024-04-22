@@ -861,7 +861,7 @@ type AppIngressIpSecurityRestriction struct {
 	Action string `pulumi:"action"`
 	// Describe the IP restriction rule that is being sent to the container-app.
 	Description *string `pulumi:"description"`
-	// CIDR notation to match incoming IP address.
+	// The incoming IP address or range of IP addresses (in CIDR notation).
 	IpAddressRange string `pulumi:"ipAddressRange"`
 	// Name for the IP restriction rule.
 	Name string `pulumi:"name"`
@@ -885,7 +885,7 @@ type AppIngressIpSecurityRestrictionArgs struct {
 	Action pulumi.StringInput `pulumi:"action"`
 	// Describe the IP restriction rule that is being sent to the container-app.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// CIDR notation to match incoming IP address.
+	// The incoming IP address or range of IP addresses (in CIDR notation).
 	IpAddressRange pulumi.StringInput `pulumi:"ipAddressRange"`
 	// Name for the IP restriction rule.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -954,7 +954,7 @@ func (o AppIngressIpSecurityRestrictionOutput) Description() pulumi.StringPtrOut
 	return o.ApplyT(func(v AppIngressIpSecurityRestriction) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// CIDR notation to match incoming IP address.
+// The incoming IP address or range of IP addresses (in CIDR notation).
 func (o AppIngressIpSecurityRestrictionOutput) IpAddressRange() pulumi.StringOutput {
 	return o.ApplyT(func(v AppIngressIpSecurityRestriction) string { return v.IpAddressRange }).(pulumi.StringOutput)
 }

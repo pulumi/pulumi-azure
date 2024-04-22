@@ -161,6 +161,10 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
      */
     public readonly network!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterNetwork | undefined>;
     /**
+     * A `privateLinkConfiguration` block as defined below.
+     */
+    public readonly privateLinkConfiguration!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterPrivateLinkConfiguration | undefined>;
+    /**
      * Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -225,6 +229,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
             resourceInputs["monitor"] = state ? state.monitor : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["network"] = state ? state.network : undefined;
+            resourceInputs["privateLinkConfiguration"] = state ? state.privateLinkConfiguration : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["securityProfile"] = state ? state.securityProfile : undefined;
@@ -266,6 +271,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
             resourceInputs["monitor"] = args ? args.monitor : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["network"] = args ? args.network : undefined;
+            resourceInputs["privateLinkConfiguration"] = args ? args.privateLinkConfiguration : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
@@ -338,6 +344,10 @@ export interface InteractiveQueryClusterState {
      * A `network` block as defined below.
      */
     network?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterNetwork>;
+    /**
+     * A `privateLinkConfiguration` block as defined below.
+     */
+    privateLinkConfiguration?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterPrivateLinkConfiguration>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -430,6 +440,10 @@ export interface InteractiveQueryClusterArgs {
      * A `network` block as defined below.
      */
     network?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterNetwork>;
+    /**
+     * A `privateLinkConfiguration` block as defined below.
+     */
+    privateLinkConfiguration?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterPrivateLinkConfiguration>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
      */

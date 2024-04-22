@@ -182,6 +182,12 @@ namespace Pulumi.Azure.HDInsight
         public Output<Outputs.HBaseClusterNetwork?> Network { get; private set; } = null!;
 
         /// <summary>
+        /// A `private_link_configuration` block as defined below.
+        /// </summary>
+        [Output("privateLinkConfiguration")]
+        public Output<Outputs.HBaseClusterPrivateLinkConfiguration?> PrivateLinkConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -356,6 +362,12 @@ namespace Pulumi.Azure.HDInsight
         public Input<Inputs.HBaseClusterNetworkArgs>? Network { get; set; }
 
         /// <summary>
+        /// A `private_link_configuration` block as defined below.
+        /// </summary>
+        [Input("privateLinkConfiguration")]
+        public Input<Inputs.HBaseClusterPrivateLinkConfigurationArgs>? PrivateLinkConfiguration { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -502,6 +514,12 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("network")]
         public Input<Inputs.HBaseClusterNetworkGetArgs>? Network { get; set; }
+
+        /// <summary>
+        /// A `private_link_configuration` block as defined below.
+        /// </summary>
+        [Input("privateLinkConfiguration")]
+        public Input<Inputs.HBaseClusterPrivateLinkConfigurationGetArgs>? PrivateLinkConfiguration { get; set; }
 
         /// <summary>
         /// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.

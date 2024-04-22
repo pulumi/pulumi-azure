@@ -64,6 +64,8 @@ public final class AccountBlobProperties {
      * 
      * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
+     * &gt; **NOTE:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
+     * 
      */
     private @Nullable AccountBlobPropertiesRestorePolicy restorePolicy;
     /**
@@ -134,6 +136,8 @@ public final class AccountBlobProperties {
      * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
      * 
      * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * 
+     * &gt; **NOTE:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
      * 
      */
     public Optional<AccountBlobPropertiesRestorePolicy> restorePolicy() {

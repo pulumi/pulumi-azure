@@ -6,6 +6,7 @@ package com.pulumi.azure.appservice.outputs;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigApplicationStack;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigAutoHealSetting;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigCor;
+import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigHandlerMapping;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigIpRestriction;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigScmIpRestriction;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigVirtualApplication;
@@ -84,6 +85,11 @@ public final class GetWindowsWebAppSiteConfig {
      * 
      */
     private String ftpsState;
+    /**
+     * @return A `handler_mapping` block as defined below.
+     * 
+     */
+    private List<GetWindowsWebAppSiteConfigHandlerMapping> handlerMappings;
     /**
      * @return (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
      * 
@@ -284,6 +290,13 @@ public final class GetWindowsWebAppSiteConfig {
         return this.ftpsState;
     }
     /**
+     * @return A `handler_mapping` block as defined below.
+     * 
+     */
+    public List<GetWindowsWebAppSiteConfigHandlerMapping> handlerMappings() {
+        return this.handlerMappings;
+    }
+    /**
      * @return (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
      * 
      */
@@ -456,6 +469,7 @@ public final class GetWindowsWebAppSiteConfig {
         private List<String> defaultDocuments;
         private Boolean detailedErrorLoggingEnabled;
         private String ftpsState;
+        private List<GetWindowsWebAppSiteConfigHandlerMapping> handlerMappings;
         private Integer healthCheckEvictionTimeInMin;
         private String healthCheckPath;
         private Boolean http2Enabled;
@@ -494,6 +508,7 @@ public final class GetWindowsWebAppSiteConfig {
     	      this.defaultDocuments = defaults.defaultDocuments;
     	      this.detailedErrorLoggingEnabled = defaults.detailedErrorLoggingEnabled;
     	      this.ftpsState = defaults.ftpsState;
+    	      this.handlerMappings = defaults.handlerMappings;
     	      this.healthCheckEvictionTimeInMin = defaults.healthCheckEvictionTimeInMin;
     	      this.healthCheckPath = defaults.healthCheckPath;
     	      this.http2Enabled = defaults.http2Enabled;
@@ -633,6 +648,17 @@ public final class GetWindowsWebAppSiteConfig {
             }
             this.ftpsState = ftpsState;
             return this;
+        }
+        @CustomType.Setter
+        public Builder handlerMappings(List<GetWindowsWebAppSiteConfigHandlerMapping> handlerMappings) {
+            if (handlerMappings == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "handlerMappings");
+            }
+            this.handlerMappings = handlerMappings;
+            return this;
+        }
+        public Builder handlerMappings(GetWindowsWebAppSiteConfigHandlerMapping... handlerMappings) {
+            return handlerMappings(List.of(handlerMappings));
         }
         @CustomType.Setter
         public Builder healthCheckEvictionTimeInMin(Integer healthCheckEvictionTimeInMin) {
@@ -834,6 +860,7 @@ public final class GetWindowsWebAppSiteConfig {
             _resultValue.defaultDocuments = defaultDocuments;
             _resultValue.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
             _resultValue.ftpsState = ftpsState;
+            _resultValue.handlerMappings = handlerMappings;
             _resultValue.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
             _resultValue.healthCheckPath = healthCheckPath;
             _resultValue.http2Enabled = http2Enabled;

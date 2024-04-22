@@ -520,6 +520,20 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return Codegen.optional(this.peerVirtualNetworkGatewayId);
     }
     /**
+     * Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
+     * 
+     */
+    @Export(name="privateLinkFastPathEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> privateLinkFastPathEnabled;
+
+    /**
+     * @return Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> privateLinkFastPathEnabled() {
+        return Codegen.optional(this.privateLinkFastPathEnabled);
+    }
+    /**
      * The name of the resource group in which to create the connection Changing this forces a new resource to be created.
      * 
      */

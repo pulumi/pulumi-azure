@@ -43,6 +43,11 @@ public final class GetGroupResult {
      * 
      */
     private List<String> subscriptionIds;
+    /**
+     * @return The Management Group ID with the Tenant ID prefix.
+     * 
+     */
+    private String tenantScopedId;
 
     private GetGroupResult() {}
     /**
@@ -93,6 +98,13 @@ public final class GetGroupResult {
     public List<String> subscriptionIds() {
         return this.subscriptionIds;
     }
+    /**
+     * @return The Management Group ID with the Tenant ID prefix.
+     * 
+     */
+    public String tenantScopedId() {
+        return this.tenantScopedId;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -111,6 +123,7 @@ public final class GetGroupResult {
         private String name;
         private String parentManagementGroupId;
         private List<String> subscriptionIds;
+        private String tenantScopedId;
         public Builder() {}
         public Builder(GetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -122,6 +135,7 @@ public final class GetGroupResult {
     	      this.name = defaults.name;
     	      this.parentManagementGroupId = defaults.parentManagementGroupId;
     	      this.subscriptionIds = defaults.subscriptionIds;
+    	      this.tenantScopedId = defaults.tenantScopedId;
         }
 
         @CustomType.Setter
@@ -200,6 +214,14 @@ public final class GetGroupResult {
         public Builder subscriptionIds(String... subscriptionIds) {
             return subscriptionIds(List.of(subscriptionIds));
         }
+        @CustomType.Setter
+        public Builder tenantScopedId(String tenantScopedId) {
+            if (tenantScopedId == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "tenantScopedId");
+            }
+            this.tenantScopedId = tenantScopedId;
+            return this;
+        }
         public GetGroupResult build() {
             final var _resultValue = new GetGroupResult();
             _resultValue.allManagementGroupIds = allManagementGroupIds;
@@ -210,6 +232,7 @@ public final class GetGroupResult {
             _resultValue.name = name;
             _resultValue.parentManagementGroupId = parentManagementGroupId;
             _resultValue.subscriptionIds = subscriptionIds;
+            _resultValue.tenantScopedId = tenantScopedId;
             return _resultValue;
         }
     }

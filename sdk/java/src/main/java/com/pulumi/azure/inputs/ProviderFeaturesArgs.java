@@ -9,6 +9,7 @@ import com.pulumi.azure.inputs.ProviderFeaturesApplicationInsightsArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesCognitiveAccountArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesKeyVaultArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesLogAnalyticsWorkspaceArgs;
+import com.pulumi.azure.inputs.ProviderFeaturesMachineLearningArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesManagedDiskArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesPostgresqlFlexibleServerArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesRecoveryServiceArgs;
@@ -68,6 +69,13 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<ProviderFeaturesLogAnalyticsWorkspaceArgs>> logAnalyticsWorkspace() {
         return Optional.ofNullable(this.logAnalyticsWorkspace);
+    }
+
+    @Import(name="machineLearning")
+    private @Nullable Output<ProviderFeaturesMachineLearningArgs> machineLearning;
+
+    public Optional<Output<ProviderFeaturesMachineLearningArgs>> machineLearning() {
+        return Optional.ofNullable(this.machineLearning);
     }
 
     @Import(name="managedDisk")
@@ -135,6 +143,7 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         this.cognitiveAccount = $.cognitiveAccount;
         this.keyVault = $.keyVault;
         this.logAnalyticsWorkspace = $.logAnalyticsWorkspace;
+        this.machineLearning = $.machineLearning;
         this.managedDisk = $.managedDisk;
         this.postgresqlFlexibleServer = $.postgresqlFlexibleServer;
         this.recoveryService = $.recoveryService;
@@ -215,6 +224,15 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
         public Builder logAnalyticsWorkspace(ProviderFeaturesLogAnalyticsWorkspaceArgs logAnalyticsWorkspace) {
             return logAnalyticsWorkspace(Output.of(logAnalyticsWorkspace));
+        }
+
+        public Builder machineLearning(@Nullable Output<ProviderFeaturesMachineLearningArgs> machineLearning) {
+            $.machineLearning = machineLearning;
+            return this;
+        }
+
+        public Builder machineLearning(ProviderFeaturesMachineLearningArgs machineLearning) {
+            return machineLearning(Output.of(machineLearning));
         }
 
         public Builder managedDisk(@Nullable Output<ProviderFeaturesManagedDiskArgs> managedDisk) {

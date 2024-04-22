@@ -235,6 +235,81 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### ABAC Condition)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+ * import com.pulumi.azure.authorization.AuthorizationFunctions;
+ * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var primary = CoreFunctions.getSubscription();
+ * 
+ *         final var example = CoreFunctions.getClientConfig();
+ * 
+ *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+ *             .name(&#34;Reader&#34;)
+ *             .build());
+ * 
+ *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+ *             .roleDefinitionName(&#34;Role Based Access Control Administrator&#34;)
+ *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .principalId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .principalType(&#34;ServicePrincipal&#34;)
+ *             .description(&#34;Role Based Access Control Administrator role assignment with ABAC Condition.&#34;)
+ *             .conditionVersion(&#34;2.0&#34;)
+ *             .condition(&#34;&#34;&#34;
+ * (
+ *  (
+ *   !(ActionMatches{&#39;Microsoft.Authorization/roleAssignments/write&#39;})
+ *  )
+ *  OR
+ *  (
+ *   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {%s}
+ *  )
+ * )
+ * AND
+ * (
+ *  (
+ *   !(ActionMatches{&#39;Microsoft.Authorization/roleAssignments/delete&#39;})
+ *  )
+ *  OR
+ *  (
+ *   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {%s}
+ *  )
+ * )
+ * &#34;, StdFunctions.basename(BasenameArgs.builder()
+ *                 .input(builtin.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.roleDefinitionId()))
+ *                 .build()).result(),StdFunctions.basename(BasenameArgs.builder()
+ *                 .input(builtin.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.roleDefinitionId()))
+ *                 .build()).result()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Role Assignments can be imported using the `resource id`, e.g.

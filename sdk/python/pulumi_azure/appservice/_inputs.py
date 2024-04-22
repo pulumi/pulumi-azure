@@ -364,6 +364,7 @@ __all__ = [
     'WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs',
     'WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs',
     'WindowsWebAppSiteConfigCorsArgs',
+    'WindowsWebAppSiteConfigHandlerMappingArgs',
     'WindowsWebAppSiteConfigIpRestrictionArgs',
     'WindowsWebAppSiteConfigIpRestrictionHeadersArgs',
     'WindowsWebAppSiteConfigScmIpRestrictionArgs',
@@ -409,6 +410,7 @@ __all__ = [
     'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs',
     'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs',
     'WindowsWebAppSlotSiteConfigCorsArgs',
+    'WindowsWebAppSlotSiteConfigHandlerMappingArgs',
     'WindowsWebAppSlotSiteConfigIpRestrictionArgs',
     'WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs',
     'WindowsWebAppSlotSiteConfigScmIpRestrictionArgs',
@@ -34820,6 +34822,7 @@ class WindowsWebAppSiteConfigArgs:
                  default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
+                 handler_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigHandlerMappingArgs']]]] = None,
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
@@ -34857,6 +34860,7 @@ class WindowsWebAppSiteConfigArgs:
         :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param pulumi.Input['WindowsWebAppSiteConfigCorsArgs'] cors: A `cors` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Windows Web App.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigHandlerMappingArgs']]] handler_mappings: One or more `handler_mapping` blocks as defined below.
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to the Health Check.
         :param pulumi.Input[bool] http2_enabled: Should the HTTP2 be enabled?
@@ -34904,6 +34908,8 @@ class WindowsWebAppSiteConfigArgs:
             pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
         if ftps_state is not None:
             pulumi.set(__self__, "ftps_state", ftps_state)
+        if handler_mappings is not None:
+            pulumi.set(__self__, "handler_mappings", handler_mappings)
         if health_check_eviction_time_in_min is not None:
             pulumi.set(__self__, "health_check_eviction_time_in_min", health_check_eviction_time_in_min)
         if health_check_path is not None:
@@ -35102,6 +35108,18 @@ class WindowsWebAppSiteConfigArgs:
     @ftps_state.setter
     def ftps_state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ftps_state", value)
+
+    @property
+    @pulumi.getter(name="handlerMappings")
+    def handler_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigHandlerMappingArgs']]]]:
+        """
+        One or more `handler_mapping` blocks as defined below.
+        """
+        return pulumi.get(self, "handler_mappings")
+
+    @handler_mappings.setter
+    def handler_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigHandlerMappingArgs']]]]):
+        pulumi.set(self, "handler_mappings", value)
 
     @property
     @pulumi.getter(name="healthCheckEvictionTimeInMin")
@@ -36178,6 +36196,59 @@ class WindowsWebAppSiteConfigCorsArgs:
     @support_credentials.setter
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigHandlerMappingArgs:
+    def __init__(__self__, *,
+                 extension: pulumi.Input[str],
+                 script_processor_path: pulumi.Input[str],
+                 arguments: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] extension: Specifies which extension to be handled by the specified FastCGI application.
+        :param pulumi.Input[str] script_processor_path: Specifies the absolute path to the FastCGI application.
+        :param pulumi.Input[str] arguments: Specifies the command-line arguments to be passed to the script processor.
+        """
+        pulumi.set(__self__, "extension", extension)
+        pulumi.set(__self__, "script_processor_path", script_processor_path)
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+
+    @property
+    @pulumi.getter
+    def extension(self) -> pulumi.Input[str]:
+        """
+        Specifies which extension to be handled by the specified FastCGI application.
+        """
+        return pulumi.get(self, "extension")
+
+    @extension.setter
+    def extension(self, value: pulumi.Input[str]):
+        pulumi.set(self, "extension", value)
+
+    @property
+    @pulumi.getter(name="scriptProcessorPath")
+    def script_processor_path(self) -> pulumi.Input[str]:
+        """
+        Specifies the absolute path to the FastCGI application.
+        """
+        return pulumi.get(self, "script_processor_path")
+
+    @script_processor_path.setter
+    def script_processor_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "script_processor_path", value)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the command-line arguments to be passed to the script processor.
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arguments", value)
 
 
 @pulumi.input_type
@@ -39325,6 +39396,7 @@ class WindowsWebAppSlotSiteConfigArgs:
                  default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
+                 handler_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigHandlerMappingArgs']]]] = None,
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
@@ -39362,6 +39434,7 @@ class WindowsWebAppSlotSiteConfigArgs:
         :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param pulumi.Input['WindowsWebAppSlotSiteConfigCorsArgs'] cors: A `cors` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Windows Web App Slot.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigHandlerMappingArgs']]] handler_mappings: One or more `handler_mapping` blocks as defined below.
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to the Health Check.
         :param pulumi.Input[bool] http2_enabled: Should the HTTP2 be enabled?
@@ -39411,6 +39484,8 @@ class WindowsWebAppSlotSiteConfigArgs:
             pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
         if ftps_state is not None:
             pulumi.set(__self__, "ftps_state", ftps_state)
+        if handler_mappings is not None:
+            pulumi.set(__self__, "handler_mappings", handler_mappings)
         if health_check_eviction_time_in_min is not None:
             pulumi.set(__self__, "health_check_eviction_time_in_min", health_check_eviction_time_in_min)
         if health_check_path is not None:
@@ -39619,6 +39694,18 @@ class WindowsWebAppSlotSiteConfigArgs:
     @ftps_state.setter
     def ftps_state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ftps_state", value)
+
+    @property
+    @pulumi.getter(name="handlerMappings")
+    def handler_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigHandlerMappingArgs']]]]:
+        """
+        One or more `handler_mapping` blocks as defined below.
+        """
+        return pulumi.get(self, "handler_mappings")
+
+    @handler_mappings.setter
+    def handler_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigHandlerMappingArgs']]]]):
+        pulumi.set(self, "handler_mappings", value)
 
     @property
     @pulumi.getter(name="healthCheckEvictionTimeInMin")
@@ -40664,6 +40751,59 @@ class WindowsWebAppSlotSiteConfigCorsArgs:
     @support_credentials.setter
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigHandlerMappingArgs:
+    def __init__(__self__, *,
+                 extension: pulumi.Input[str],
+                 script_processor_path: pulumi.Input[str],
+                 arguments: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] extension: Specify which extension to be handled by the specified FastCGI application.
+        :param pulumi.Input[str] script_processor_path: Specify the absolute path to the FastCGI application.
+        :param pulumi.Input[str] arguments: Specify the command-line arguments to be passed to the script processor.
+        """
+        pulumi.set(__self__, "extension", extension)
+        pulumi.set(__self__, "script_processor_path", script_processor_path)
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+
+    @property
+    @pulumi.getter
+    def extension(self) -> pulumi.Input[str]:
+        """
+        Specify which extension to be handled by the specified FastCGI application.
+        """
+        return pulumi.get(self, "extension")
+
+    @extension.setter
+    def extension(self, value: pulumi.Input[str]):
+        pulumi.set(self, "extension", value)
+
+    @property
+    @pulumi.getter(name="scriptProcessorPath")
+    def script_processor_path(self) -> pulumi.Input[str]:
+        """
+        Specify the absolute path to the FastCGI application.
+        """
+        return pulumi.get(self, "script_processor_path")
+
+    @script_processor_path.setter
+    def script_processor_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "script_processor_path", value)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the command-line arguments to be passed to the script processor.
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arguments", value)
 
 
 @pulumi.input_type

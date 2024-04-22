@@ -31,6 +31,7 @@ class InteractiveQueryClusterArgs:
                  monitor: Optional[pulumi.Input['InteractiveQueryClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['InteractiveQueryClusterNetworkArgs']] = None,
+                 private_link_configuration: Optional[pulumi.Input['InteractiveQueryClusterPrivateLinkConfigurationArgs']] = None,
                  security_profile: Optional[pulumi.Input['InteractiveQueryClusterSecurityProfileArgs']] = None,
                  storage_account_gen2: Optional[pulumi.Input['InteractiveQueryClusterStorageAccountGen2Args']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterStorageAccountArgs']]]] = None,
@@ -53,6 +54,7 @@ class InteractiveQueryClusterArgs:
         :param pulumi.Input['InteractiveQueryClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterNetworkArgs'] network: A `network` block as defined below.
+        :param pulumi.Input['InteractiveQueryClusterPrivateLinkConfigurationArgs'] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input['InteractiveQueryClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
@@ -85,6 +87,8 @@ class InteractiveQueryClusterArgs:
             pulumi.set(__self__, "name", name)
         if network is not None:
             pulumi.set(__self__, "network", network)
+        if private_link_configuration is not None:
+            pulumi.set(__self__, "private_link_configuration", private_link_configuration)
         if security_profile is not None:
             pulumi.set(__self__, "security_profile", security_profile)
         if storage_account_gen2 is not None:
@@ -277,6 +281,18 @@ class InteractiveQueryClusterArgs:
         pulumi.set(self, "network", value)
 
     @property
+    @pulumi.getter(name="privateLinkConfiguration")
+    def private_link_configuration(self) -> Optional[pulumi.Input['InteractiveQueryClusterPrivateLinkConfigurationArgs']]:
+        """
+        A `private_link_configuration` block as defined below.
+        """
+        return pulumi.get(self, "private_link_configuration")
+
+    @private_link_configuration.setter
+    def private_link_configuration(self, value: Optional[pulumi.Input['InteractiveQueryClusterPrivateLinkConfigurationArgs']]):
+        pulumi.set(self, "private_link_configuration", value)
+
+    @property
     @pulumi.getter(name="securityProfile")
     def security_profile(self) -> Optional[pulumi.Input['InteractiveQueryClusterSecurityProfileArgs']]:
         """
@@ -355,6 +371,7 @@ class _InteractiveQueryClusterState:
                  monitor: Optional[pulumi.Input['InteractiveQueryClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['InteractiveQueryClusterNetworkArgs']] = None,
+                 private_link_configuration: Optional[pulumi.Input['InteractiveQueryClusterPrivateLinkConfigurationArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input['InteractiveQueryClusterRolesArgs']] = None,
                  security_profile: Optional[pulumi.Input['InteractiveQueryClusterSecurityProfileArgs']] = None,
@@ -379,6 +396,7 @@ class _InteractiveQueryClusterState:
         :param pulumi.Input['InteractiveQueryClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterNetworkArgs'] network: A `network` block as defined below.
+        :param pulumi.Input['InteractiveQueryClusterPrivateLinkConfigurationArgs'] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterRolesArgs'] roles: A `roles` block as defined below.
         :param pulumi.Input['InteractiveQueryClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
@@ -417,6 +435,8 @@ class _InteractiveQueryClusterState:
             pulumi.set(__self__, "name", name)
         if network is not None:
             pulumi.set(__self__, "network", network)
+        if private_link_configuration is not None:
+            pulumi.set(__self__, "private_link_configuration", private_link_configuration)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if roles is not None:
@@ -593,6 +613,18 @@ class _InteractiveQueryClusterState:
         pulumi.set(self, "network", value)
 
     @property
+    @pulumi.getter(name="privateLinkConfiguration")
+    def private_link_configuration(self) -> Optional[pulumi.Input['InteractiveQueryClusterPrivateLinkConfigurationArgs']]:
+        """
+        A `private_link_configuration` block as defined below.
+        """
+        return pulumi.get(self, "private_link_configuration")
+
+    @private_link_configuration.setter
+    def private_link_configuration(self, value: Optional[pulumi.Input['InteractiveQueryClusterPrivateLinkConfigurationArgs']]):
+        pulumi.set(self, "private_link_configuration", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -720,6 +752,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                  monitor: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']]] = None,
+                 private_link_configuration: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterPrivateLinkConfigurationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']]] = None,
                  security_profile: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterSecurityProfileArgs']]] = None,
@@ -813,6 +846,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']] network: A `network` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterPrivateLinkConfigurationArgs']] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
@@ -927,6 +961,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                  monitor: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']]] = None,
+                 private_link_configuration: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterPrivateLinkConfigurationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']]] = None,
                  security_profile: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterSecurityProfileArgs']]] = None,
@@ -962,6 +997,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["name"] = name
             __props__.__dict__["network"] = network
+            __props__.__dict__["private_link_configuration"] = private_link_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1001,6 +1037,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             monitor: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']]] = None,
+            private_link_configuration: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterPrivateLinkConfigurationArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']]] = None,
             security_profile: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterSecurityProfileArgs']]] = None,
@@ -1030,6 +1067,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']] network: A `network` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterPrivateLinkConfigurationArgs']] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
@@ -1059,6 +1097,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         __props__.__dict__["monitor"] = monitor
         __props__.__dict__["name"] = name
         __props__.__dict__["network"] = network
+        __props__.__dict__["private_link_configuration"] = private_link_configuration
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["roles"] = roles
         __props__.__dict__["security_profile"] = security_profile
@@ -1173,6 +1212,14 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         A `network` block as defined below.
         """
         return pulumi.get(self, "network")
+
+    @property
+    @pulumi.getter(name="privateLinkConfiguration")
+    def private_link_configuration(self) -> pulumi.Output[Optional['outputs.InteractiveQueryClusterPrivateLinkConfiguration']]:
+        """
+        A `private_link_configuration` block as defined below.
+        """
+        return pulumi.get(self, "private_link_configuration")
 
     @property
     @pulumi.getter(name="resourceGroupName")

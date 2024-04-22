@@ -188,6 +188,12 @@ namespace Pulumi.Azure.HDInsight
         public Output<Outputs.SparkClusterNetwork?> Network { get; private set; } = null!;
 
         /// <summary>
+        /// A `private_link_configuration` block as defined below.
+        /// </summary>
+        [Output("privateLinkConfiguration")]
+        public Output<Outputs.SparkClusterPrivateLinkConfiguration?> PrivateLinkConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -368,6 +374,12 @@ namespace Pulumi.Azure.HDInsight
         public Input<Inputs.SparkClusterNetworkArgs>? Network { get; set; }
 
         /// <summary>
+        /// A `private_link_configuration` block as defined below.
+        /// </summary>
+        [Input("privateLinkConfiguration")]
+        public Input<Inputs.SparkClusterPrivateLinkConfigurationArgs>? PrivateLinkConfiguration { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -520,6 +532,12 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("network")]
         public Input<Inputs.SparkClusterNetworkGetArgs>? Network { get; set; }
+
+        /// <summary>
+        /// A `private_link_configuration` block as defined below.
+        /// </summary>
+        [Input("privateLinkConfiguration")]
+        public Input<Inputs.SparkClusterPrivateLinkConfigurationGetArgs>? PrivateLinkConfiguration { get; set; }
 
         /// <summary>
         /// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.

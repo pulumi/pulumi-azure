@@ -36,7 +36,9 @@ namespace Pulumi.Azure.PrivateLink.Outputs
         /// </summary>
         public readonly string? PrivateIpAddress;
         /// <summary>
-        /// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
+        /// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
+        /// 
+        /// &gt; **NOTE:** When connected to an SQL resource the `request_message` maximum length is `128`.
         /// </summary>
         public readonly string? RequestMessage;
         /// <summary>

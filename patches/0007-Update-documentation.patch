@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Venelin <venelin@pulumi.com>
 Date: Fri, 1 Mar 2024 16:55:56 +0000
-Subject: [PATCH 7/9] Update-documentation
+Subject: [PATCH] Update-documentation
 
 
 diff --git a/website/docs/d/function_app_host_keys.html.markdown b/website/docs/d/function_app_host_keys.html.markdown
@@ -108,14 +108,14 @@ index 29cdea762b..fb16b7aaa3 100644
  
  A `linux_profile` block exports the following:
 diff --git a/website/docs/d/management_group.html.markdown b/website/docs/d/management_group.html.markdown
-index 9cf191cf62..28c31a08a4 100644
+index 7cb6a50006..0f4645b9e9 100644
 --- a/website/docs/d/management_group.html.markdown
 +++ b/website/docs/d/management_group.html.markdown
 @@ -30,7 +30,7 @@ The following arguments are supported:
  
  * `display_name` - Specifies the display name of this Management Group.
  
--~> **NOTE** Whilst multiple management groups may share the same display name, when filtering Terraform expects a single management group to be found with this name.  
+-~> **NOTE** Whilst multiple management groups may share the same display name, when filtering Terraform expects a single management group to be found with this name.
 +~> **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.  
  
  ## Attributes Reference
@@ -1563,7 +1563,7 @@ index 39b679a016..575b9a8f57 100644
  ~> **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
  
 diff --git a/website/docs/r/hdinsight_hadoop_cluster.html.markdown b/website/docs/r/hdinsight_hadoop_cluster.html.markdown
-index b1c655dfed..f64bf8e9a2 100644
+index 6219fe0a3a..e31c7aff8e 100644
 --- a/website/docs/r/hdinsight_hadoop_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_hadoop_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_hadoop_cluster" "example" {
@@ -1576,7 +1576,7 @@ index b1c655dfed..f64bf8e9a2 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_hbase_cluster.html.markdown b/website/docs/r/hdinsight_hbase_cluster.html.markdown
-index aecac3a4c4..b5fb8f27f7 100644
+index 54c1879a24..ed13a86242 100644
 --- a/website/docs/r/hdinsight_hbase_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_hbase_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_hbase_cluster" "example" {
@@ -1589,7 +1589,7 @@ index aecac3a4c4..b5fb8f27f7 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_interactive_query_cluster.html.markdown b/website/docs/r/hdinsight_interactive_query_cluster.html.markdown
-index 9da8dcc0b8..245535834d 100644
+index 0bcd622fd0..cacb16e835 100644
 --- a/website/docs/r/hdinsight_interactive_query_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_interactive_query_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_interactive_query_cluster" "example" {
@@ -1602,7 +1602,7 @@ index 9da8dcc0b8..245535834d 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_kafka_cluster.html.markdown b/website/docs/r/hdinsight_kafka_cluster.html.markdown
-index 573256da1d..fdbe962bc6 100644
+index e2a425211a..cfcb898069 100644
 --- a/website/docs/r/hdinsight_kafka_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_kafka_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_kafka_cluster" "example" {
@@ -1615,7 +1615,7 @@ index 573256da1d..fdbe962bc6 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_spark_cluster.html.markdown b/website/docs/r/hdinsight_spark_cluster.html.markdown
-index 42d7dd4c1e..acd6b62db5 100644
+index 9a74d30bce..3b05d302bf 100644
 --- a/website/docs/r/hdinsight_spark_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_spark_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_spark_cluster" "example" {
@@ -1794,7 +1794,7 @@ index c6387f8e37..ab11365777 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 17f9fae3e1..cf5c154844 100644
+index fced2e6d2c..dbbd8ca642 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -2117,7 +2117,7 @@ index 7c909a8c31..796cef0b18 100644
  ## Attributes Reference
  
 diff --git a/website/docs/r/monitor_activity_log_alert.html.markdown b/website/docs/r/monitor_activity_log_alert.html.markdown
-index 2dada86921..e128f15b37 100644
+index 2dd9d7e10d..21e3a2d8c8 100644
 --- a/website/docs/r/monitor_activity_log_alert.html.markdown
 +++ b/website/docs/r/monitor_activity_log_alert.html.markdown
 @@ -53,7 +53,7 @@ resource "azurerm_monitor_activity_log_alert" "main" {
@@ -2140,7 +2140,7 @@ index 03f2f27deb..f48028f10c 100644
 --> **NOTE:** This is a Terraform specific Resource ID which uses the format `{resourceId}|{diagnosticSettingName}`
 +-> **NOTE:** This is an ID specific to this resource provider which uses the format `{resourceId}|{diagnosticSettingName}`
 diff --git a/website/docs/r/mssql_server.html.markdown b/website/docs/r/mssql_server.html.markdown
-index b5bb0103f7..323bde9cfc 100644
+index 90b738703a..e3a0c821ce 100644
 --- a/website/docs/r/mssql_server.html.markdown
 +++ b/website/docs/r/mssql_server.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -2364,10 +2364,10 @@ index 06e3f57418..0ac142e857 100644
  * `key_id` - (Required) The Apple Push Notifications Service (APNS) Key.
  
 diff --git a/website/docs/r/private_endpoint.html.markdown b/website/docs/r/private_endpoint.html.markdown
-index 047927201e..8784371603 100644
+index 0bfe6592c9..55518f9c85 100644
 --- a/website/docs/r/private_endpoint.html.markdown
 +++ b/website/docs/r/private_endpoint.html.markdown
-@@ -340,7 +340,7 @@ A `record_sets` block exports:
+@@ -342,7 +342,7 @@ A `record_sets` block exports:
  
  ## Example HCL Configurations
  

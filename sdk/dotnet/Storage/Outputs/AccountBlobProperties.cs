@@ -51,6 +51,8 @@ namespace Pulumi.Azure.Storage.Outputs
         /// A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
         /// 
         /// &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        /// 
+        /// &gt; **NOTE:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
         /// </summary>
         public readonly Outputs.AccountBlobPropertiesRestorePolicy? RestorePolicy;
         /// <summary>

@@ -18,6 +18,7 @@ __all__ = [
     'FeaturesCognitiveAccount',
     'FeaturesKeyVault',
     'FeaturesLogAnalyticsWorkspace',
+    'FeaturesMachineLearning',
     'FeaturesManagedDisk',
     'FeaturesPostgresqlFlexibleServer',
     'FeaturesRecoveryService',
@@ -37,6 +38,7 @@ class Features(dict):
                  cognitive_account: Optional['outputs.FeaturesCognitiveAccount'] = None,
                  key_vault: Optional['outputs.FeaturesKeyVault'] = None,
                  log_analytics_workspace: Optional['outputs.FeaturesLogAnalyticsWorkspace'] = None,
+                 machine_learning: Optional['outputs.FeaturesMachineLearning'] = None,
                  managed_disk: Optional['outputs.FeaturesManagedDisk'] = None,
                  postgresql_flexible_server: Optional['outputs.FeaturesPostgresqlFlexibleServer'] = None,
                  recovery_service: Optional['outputs.FeaturesRecoveryService'] = None,
@@ -57,6 +59,8 @@ class Features(dict):
             pulumi.set(__self__, "key_vault", key_vault)
         if log_analytics_workspace is not None:
             pulumi.set(__self__, "log_analytics_workspace", log_analytics_workspace)
+        if machine_learning is not None:
+            pulumi.set(__self__, "machine_learning", machine_learning)
         if managed_disk is not None:
             pulumi.set(__self__, "managed_disk", managed_disk)
         if postgresql_flexible_server is not None:
@@ -103,6 +107,11 @@ class Features(dict):
     @pulumi.getter(name="logAnalyticsWorkspace")
     def log_analytics_workspace(self) -> Optional['outputs.FeaturesLogAnalyticsWorkspace']:
         return pulumi.get(self, "log_analytics_workspace")
+
+    @property
+    @pulumi.getter(name="machineLearning")
+    def machine_learning(self) -> Optional['outputs.FeaturesMachineLearning']:
+        return pulumi.get(self, "machine_learning")
 
     @property
     @pulumi.getter(name="managedDisk")
@@ -339,6 +348,19 @@ class FeaturesLogAnalyticsWorkspace(dict):
     @pulumi.getter(name="permanentlyDeleteOnDestroy")
     def permanently_delete_on_destroy(self) -> Optional[bool]:
         return pulumi.get(self, "permanently_delete_on_destroy")
+
+
+@pulumi.output_type
+class FeaturesMachineLearning(dict):
+    def __init__(__self__, *,
+                 purge_soft_deleted_workspace_on_destroy: Optional[bool] = None):
+        if purge_soft_deleted_workspace_on_destroy is not None:
+            pulumi.set(__self__, "purge_soft_deleted_workspace_on_destroy", purge_soft_deleted_workspace_on_destroy)
+
+    @property
+    @pulumi.getter(name="purgeSoftDeletedWorkspaceOnDestroy")
+    def purge_soft_deleted_workspace_on_destroy(self) -> Optional[bool]:
+        return pulumi.get(self, "purge_soft_deleted_workspace_on_destroy")
 
 
 @pulumi.output_type

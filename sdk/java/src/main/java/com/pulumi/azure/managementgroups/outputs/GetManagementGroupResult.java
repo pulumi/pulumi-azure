@@ -43,6 +43,11 @@ public final class GetManagementGroupResult {
      * 
      */
     private List<String> subscriptionIds;
+    /**
+     * @return The Management Group ID with the Tenant ID prefix.
+     * 
+     */
+    private String tenantScopedId;
 
     private GetManagementGroupResult() {}
     /**
@@ -93,6 +98,13 @@ public final class GetManagementGroupResult {
     public List<String> subscriptionIds() {
         return this.subscriptionIds;
     }
+    /**
+     * @return The Management Group ID with the Tenant ID prefix.
+     * 
+     */
+    public String tenantScopedId() {
+        return this.tenantScopedId;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -111,6 +123,7 @@ public final class GetManagementGroupResult {
         private String name;
         private String parentManagementGroupId;
         private List<String> subscriptionIds;
+        private String tenantScopedId;
         public Builder() {}
         public Builder(GetManagementGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -122,6 +135,7 @@ public final class GetManagementGroupResult {
     	      this.name = defaults.name;
     	      this.parentManagementGroupId = defaults.parentManagementGroupId;
     	      this.subscriptionIds = defaults.subscriptionIds;
+    	      this.tenantScopedId = defaults.tenantScopedId;
         }
 
         @CustomType.Setter
@@ -200,6 +214,14 @@ public final class GetManagementGroupResult {
         public Builder subscriptionIds(String... subscriptionIds) {
             return subscriptionIds(List.of(subscriptionIds));
         }
+        @CustomType.Setter
+        public Builder tenantScopedId(String tenantScopedId) {
+            if (tenantScopedId == null) {
+              throw new MissingRequiredPropertyException("GetManagementGroupResult", "tenantScopedId");
+            }
+            this.tenantScopedId = tenantScopedId;
+            return this;
+        }
         public GetManagementGroupResult build() {
             final var _resultValue = new GetManagementGroupResult();
             _resultValue.allManagementGroupIds = allManagementGroupIds;
@@ -210,6 +232,7 @@ public final class GetManagementGroupResult {
             _resultValue.name = name;
             _resultValue.parentManagementGroupId = parentManagementGroupId;
             _resultValue.subscriptionIds = subscriptionIds;
+            _resultValue.tenantScopedId = tenantScopedId;
             return _resultValue;
         }
     }

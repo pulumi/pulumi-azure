@@ -27,7 +27,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// CIDR notation to match incoming IP address.
+        /// The incoming IP address or range of IP addresses (in CIDR notation).
         /// </summary>
         [Input("ipAddressRange", required: true)]
         public Input<string> IpAddressRange { get; set; } = null!;

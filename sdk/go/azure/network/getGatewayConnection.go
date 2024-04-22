@@ -98,8 +98,11 @@ type GetGatewayConnectionResult struct {
 	// network gateway when a VNet-to-VNet connection (i.e. when `type`
 	// is `Vnet2Vnet`).
 	PeerVirtualNetworkGatewayId string `pulumi:"peerVirtualNetworkGatewayId"`
-	ResourceGroupName           string `pulumi:"resourceGroupName"`
-	ResourceGuid                string `pulumi:"resourceGuid"`
+	// If `true`, data packets will bypass the Express Route gateway when accessing private-links.
+	// This is only valid for ExpressRoute connections, on the conditions described in [the relevant section in the Azure documentation](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-linkvnet-arm#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections)
+	PrivateLinkFastPathEnabled bool   `pulumi:"privateLinkFastPathEnabled"`
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
+	ResourceGuid               string `pulumi:"resourceGuid"`
 	// The routing weight.
 	RoutingWeight int `pulumi:"routingWeight"`
 	// The shared IPSec key.
@@ -241,6 +244,12 @@ func (o GetGatewayConnectionResultOutput) Name() pulumi.StringOutput {
 // is `Vnet2Vnet`).
 func (o GetGatewayConnectionResultOutput) PeerVirtualNetworkGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.PeerVirtualNetworkGatewayId }).(pulumi.StringOutput)
+}
+
+// If `true`, data packets will bypass the Express Route gateway when accessing private-links.
+// This is only valid for ExpressRoute connections, on the conditions described in [the relevant section in the Azure documentation](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-linkvnet-arm#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections)
+func (o GetGatewayConnectionResultOutput) PrivateLinkFastPathEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) bool { return v.PrivateLinkFastPathEnabled }).(pulumi.BoolOutput)
 }
 
 func (o GetGatewayConnectionResultOutput) ResourceGroupName() pulumi.StringOutput {

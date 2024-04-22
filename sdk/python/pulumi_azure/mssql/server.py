@@ -46,7 +46,7 @@ class ServerArgs:
                > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
-        :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
+        :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] transparent_data_encryption_key_vault_key_id: The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
@@ -224,7 +224,7 @@ class ServerArgs:
     @pulumi.getter(name="primaryUserAssignedIdentityId")
     def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
+        Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
         """
         return pulumi.get(self, "primary_user_assigned_identity_id")
 
@@ -309,7 +309,7 @@ class _ServerState:
                > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
-        :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
+        :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restorable_dropped_database_ids: A list of dropped restorable database IDs on the server.
@@ -484,7 +484,7 @@ class _ServerState:
     @pulumi.getter(name="primaryUserAssignedIdentityId")
     def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
+        Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
         """
         return pulumi.get(self, "primary_user_assigned_identity_id")
 
@@ -724,7 +724,7 @@ class Server(pulumi.CustomResource):
                > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
-        :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
+        :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -970,7 +970,7 @@ class Server(pulumi.CustomResource):
                > **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] outbound_network_restriction_enabled: Whether outbound network traffic is restricted for this server. Defaults to `false`.
-        :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
+        :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restorable_dropped_database_ids: A list of dropped restorable database IDs on the server.
@@ -1093,7 +1093,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="primaryUserAssignedIdentityId")
     def primary_user_assigned_identity_id(self) -> pulumi.Output[str]:
         """
-        Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
+        Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
         """
         return pulumi.get(self, "primary_user_assigned_identity_id")
 

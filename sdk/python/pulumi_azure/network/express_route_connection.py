@@ -22,6 +22,7 @@ class ExpressRouteConnectionArgs:
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_link_fast_path_enabled: Optional[pulumi.Input[bool]] = None,
                  routing: Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None):
         """
@@ -32,6 +33,7 @@ class ExpressRouteConnectionArgs:
         :param pulumi.Input[bool] enable_internet_security: Is Internet security enabled for this Express Route Connection?
         :param pulumi.Input[bool] express_route_gateway_bypass_enabled: Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_link_fast_path_enabled: Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
         :param pulumi.Input['ExpressRouteConnectionRoutingArgs'] routing: A `routing` block as defined below.
         :param pulumi.Input[int] routing_weight: The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
         """
@@ -45,6 +47,8 @@ class ExpressRouteConnectionArgs:
             pulumi.set(__self__, "express_route_gateway_bypass_enabled", express_route_gateway_bypass_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_link_fast_path_enabled is not None:
+            pulumi.set(__self__, "private_link_fast_path_enabled", private_link_fast_path_enabled)
         if routing is not None:
             pulumi.set(__self__, "routing", routing)
         if routing_weight is not None:
@@ -123,6 +127,18 @@ class ExpressRouteConnectionArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="privateLinkFastPathEnabled")
+    def private_link_fast_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+        """
+        return pulumi.get(self, "private_link_fast_path_enabled")
+
+    @private_link_fast_path_enabled.setter
+    def private_link_fast_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_link_fast_path_enabled", value)
+
+    @property
     @pulumi.getter
     def routing(self) -> Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']]:
         """
@@ -156,6 +172,7 @@ class _ExpressRouteConnectionState:
                  express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_link_fast_path_enabled: Optional[pulumi.Input[bool]] = None,
                  routing: Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None):
         """
@@ -166,6 +183,7 @@ class _ExpressRouteConnectionState:
         :param pulumi.Input[bool] express_route_gateway_bypass_enabled: Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
         :param pulumi.Input[str] express_route_gateway_id: The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_link_fast_path_enabled: Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
         :param pulumi.Input['ExpressRouteConnectionRoutingArgs'] routing: A `routing` block as defined below.
         :param pulumi.Input[int] routing_weight: The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
         """
@@ -181,6 +199,8 @@ class _ExpressRouteConnectionState:
             pulumi.set(__self__, "express_route_gateway_id", express_route_gateway_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_link_fast_path_enabled is not None:
+            pulumi.set(__self__, "private_link_fast_path_enabled", private_link_fast_path_enabled)
         if routing is not None:
             pulumi.set(__self__, "routing", routing)
         if routing_weight is not None:
@@ -259,6 +279,18 @@ class _ExpressRouteConnectionState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="privateLinkFastPathEnabled")
+    def private_link_fast_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+        """
+        return pulumi.get(self, "private_link_fast_path_enabled")
+
+    @private_link_fast_path_enabled.setter
+    def private_link_fast_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_link_fast_path_enabled", value)
+
+    @property
     @pulumi.getter
     def routing(self) -> Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']]:
         """
@@ -294,6 +326,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_link_fast_path_enabled: Optional[pulumi.Input[bool]] = None,
                  routing: Optional[pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -377,6 +410,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] express_route_gateway_bypass_enabled: Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
         :param pulumi.Input[str] express_route_gateway_id: The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_link_fast_path_enabled: Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']] routing: A `routing` block as defined below.
         :param pulumi.Input[int] routing_weight: The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
         """
@@ -479,6 +513,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_link_fast_path_enabled: Optional[pulumi.Input[bool]] = None,
                  routing: Optional[pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -500,6 +535,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'express_route_gateway_id'")
             __props__.__dict__["express_route_gateway_id"] = express_route_gateway_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["private_link_fast_path_enabled"] = private_link_fast_path_enabled
             __props__.__dict__["routing"] = routing
             __props__.__dict__["routing_weight"] = routing_weight
         super(ExpressRouteConnection, __self__).__init__(
@@ -518,6 +554,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
             express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
             express_route_gateway_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            private_link_fast_path_enabled: Optional[pulumi.Input[bool]] = None,
             routing: Optional[pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']]] = None,
             routing_weight: Optional[pulumi.Input[int]] = None) -> 'ExpressRouteConnection':
         """
@@ -533,6 +570,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] express_route_gateway_bypass_enabled: Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
         :param pulumi.Input[str] express_route_gateway_id: The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_link_fast_path_enabled: Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']] routing: A `routing` block as defined below.
         :param pulumi.Input[int] routing_weight: The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
         """
@@ -546,6 +584,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         __props__.__dict__["express_route_gateway_bypass_enabled"] = express_route_gateway_bypass_enabled
         __props__.__dict__["express_route_gateway_id"] = express_route_gateway_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["private_link_fast_path_enabled"] = private_link_fast_path_enabled
         __props__.__dict__["routing"] = routing
         __props__.__dict__["routing_weight"] = routing_weight
         return ExpressRouteConnection(resource_name, opts=opts, __props__=__props__)
@@ -597,6 +636,14 @@ class ExpressRouteConnection(pulumi.CustomResource):
         The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkFastPathEnabled")
+    def private_link_fast_path_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+        """
+        return pulumi.get(self, "private_link_fast_path_enabled")
 
     @property
     @pulumi.getter

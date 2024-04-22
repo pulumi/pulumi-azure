@@ -141,6 +141,8 @@ type InteractiveQueryCluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `network` block as defined below.
 	Network InteractiveQueryClusterNetworkPtrOutput `pulumi:"network"`
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration InteractiveQueryClusterPrivateLinkConfigurationPtrOutput `pulumi:"privateLinkConfiguration"`
 	// Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -237,6 +239,8 @@ type interactiveQueryClusterState struct {
 	Name *string `pulumi:"name"`
 	// A `network` block as defined below.
 	Network *InteractiveQueryClusterNetwork `pulumi:"network"`
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration *InteractiveQueryClusterPrivateLinkConfiguration `pulumi:"privateLinkConfiguration"`
 	// Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -286,6 +290,8 @@ type InteractiveQueryClusterState struct {
 	Name pulumi.StringPtrInput
 	// A `network` block as defined below.
 	Network InteractiveQueryClusterNetworkPtrInput
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration InteractiveQueryClusterPrivateLinkConfigurationPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roles` block as defined below.
@@ -337,6 +343,8 @@ type interactiveQueryClusterArgs struct {
 	Name *string `pulumi:"name"`
 	// A `network` block as defined below.
 	Network *InteractiveQueryClusterNetwork `pulumi:"network"`
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration *InteractiveQueryClusterPrivateLinkConfiguration `pulumi:"privateLinkConfiguration"`
 	// Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -383,6 +391,8 @@ type InteractiveQueryClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// A `network` block as defined below.
 	Network InteractiveQueryClusterNetworkPtrInput
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration InteractiveQueryClusterPrivateLinkConfigurationPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `roles` block as defined below.
@@ -559,6 +569,13 @@ func (o InteractiveQueryClusterOutput) Name() pulumi.StringOutput {
 // A `network` block as defined below.
 func (o InteractiveQueryClusterOutput) Network() InteractiveQueryClusterNetworkPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryCluster) InteractiveQueryClusterNetworkPtrOutput { return v.Network }).(InteractiveQueryClusterNetworkPtrOutput)
+}
+
+// A `privateLinkConfiguration` block as defined below.
+func (o InteractiveQueryClusterOutput) PrivateLinkConfiguration() InteractiveQueryClusterPrivateLinkConfigurationPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryCluster) InteractiveQueryClusterPrivateLinkConfigurationPtrOutput {
+		return v.PrivateLinkConfiguration
+	}).(InteractiveQueryClusterPrivateLinkConfigurationPtrOutput)
 }
 
 // Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.

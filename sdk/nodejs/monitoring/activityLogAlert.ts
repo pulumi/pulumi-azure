@@ -109,6 +109,10 @@ export class ActivityLogAlert extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+     */
+    public readonly location!: pulumi.Output<string>;
+    /**
      * The name of the activity log alert. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -142,6 +146,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             resourceInputs["criteria"] = state ? state.criteria : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["scopes"] = state ? state.scopes : undefined;
@@ -161,6 +166,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             resourceInputs["criteria"] = args ? args.criteria : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
@@ -191,6 +197,10 @@ export interface ActivityLogAlertState {
      * Should this Activity Log Alert be enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+     */
+    location?: pulumi.Input<string>;
     /**
      * The name of the activity log alert. Changing this forces a new resource to be created.
      */
@@ -229,6 +239,10 @@ export interface ActivityLogAlertArgs {
      * Should this Activity Log Alert be enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+     */
+    location?: pulumi.Input<string>;
     /**
      * The name of the activity log alert. Changing this forces a new resource to be created.
      */

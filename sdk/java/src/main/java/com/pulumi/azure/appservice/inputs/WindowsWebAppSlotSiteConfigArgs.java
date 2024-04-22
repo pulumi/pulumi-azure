@@ -6,6 +6,7 @@ package com.pulumi.azure.appservice.inputs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotSiteConfigApplicationStackArgs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotSiteConfigAutoHealSettingArgs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotSiteConfigCorsArgs;
+import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotSiteConfigHandlerMappingArgs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotSiteConfigIpRestrictionArgs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotSiteConfigScmIpRestrictionArgs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotSiteConfigVirtualApplicationArgs;
@@ -220,6 +221,21 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
 
     public Optional<Output<String>> ftpsState() {
         return Optional.ofNullable(this.ftpsState);
+    }
+
+    /**
+     * One or more `handler_mapping` blocks as defined below.
+     * 
+     */
+    @Import(name="handlerMappings")
+    private @Nullable Output<List<WindowsWebAppSlotSiteConfigHandlerMappingArgs>> handlerMappings;
+
+    /**
+     * @return One or more `handler_mapping` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<WindowsWebAppSlotSiteConfigHandlerMappingArgs>>> handlerMappings() {
+        return Optional.ofNullable(this.handlerMappings);
     }
 
     /**
@@ -553,6 +569,7 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
         this.defaultDocuments = $.defaultDocuments;
         this.detailedErrorLoggingEnabled = $.detailedErrorLoggingEnabled;
         this.ftpsState = $.ftpsState;
+        this.handlerMappings = $.handlerMappings;
         this.healthCheckEvictionTimeInMin = $.healthCheckEvictionTimeInMin;
         this.healthCheckPath = $.healthCheckPath;
         this.http2Enabled = $.http2Enabled;
@@ -877,6 +894,37 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
 
         public Builder ftpsState(String ftpsState) {
             return ftpsState(Output.of(ftpsState));
+        }
+
+        /**
+         * @param handlerMappings One or more `handler_mapping` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder handlerMappings(@Nullable Output<List<WindowsWebAppSlotSiteConfigHandlerMappingArgs>> handlerMappings) {
+            $.handlerMappings = handlerMappings;
+            return this;
+        }
+
+        /**
+         * @param handlerMappings One or more `handler_mapping` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder handlerMappings(List<WindowsWebAppSlotSiteConfigHandlerMappingArgs> handlerMappings) {
+            return handlerMappings(Output.of(handlerMappings));
+        }
+
+        /**
+         * @param handlerMappings One or more `handler_mapping` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder handlerMappings(WindowsWebAppSlotSiteConfigHandlerMappingArgs... handlerMappings) {
+            return handlerMappings(List.of(handlerMappings));
         }
 
         /**

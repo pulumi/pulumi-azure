@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:38 -0700
-Subject: [PATCH 3/9] Add-new-resources
+Subject: [PATCH] Add-new-resources
 
 
 diff --git a/internal/services/compute/parse/proximity_placement_group.go b/internal/services/compute/parse/proximity_placement_group.go

@@ -17,6 +17,16 @@ public final class GetOrchestratedVirtualMachineScaleSetIdentity {
      */
     private List<String> identityIds;
     /**
+     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+     * 
+     */
+    private String principalId;
+    /**
+     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+     * 
+     */
+    private String tenantId;
+    /**
      * @return The Type of IP Tag.
      * 
      */
@@ -29,6 +39,20 @@ public final class GetOrchestratedVirtualMachineScaleSetIdentity {
      */
     public List<String> identityIds() {
         return this.identityIds;
+    }
+    /**
+     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+     * 
+     */
+    public String principalId() {
+        return this.principalId;
+    }
+    /**
+     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+     * 
+     */
+    public String tenantId() {
+        return this.tenantId;
     }
     /**
      * @return The Type of IP Tag.
@@ -48,11 +72,15 @@ public final class GetOrchestratedVirtualMachineScaleSetIdentity {
     @CustomType.Builder
     public static final class Builder {
         private List<String> identityIds;
+        private String principalId;
+        private String tenantId;
         private String type;
         public Builder() {}
         public Builder(GetOrchestratedVirtualMachineScaleSetIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
+    	      this.principalId = defaults.principalId;
+    	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
@@ -68,6 +96,22 @@ public final class GetOrchestratedVirtualMachineScaleSetIdentity {
             return identityIds(List.of(identityIds));
         }
         @CustomType.Setter
+        public Builder principalId(String principalId) {
+            if (principalId == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetIdentity", "principalId");
+            }
+            this.principalId = principalId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tenantId(String tenantId) {
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetIdentity", "tenantId");
+            }
+            this.tenantId = tenantId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetIdentity", "type");
@@ -78,6 +122,8 @@ public final class GetOrchestratedVirtualMachineScaleSetIdentity {
         public GetOrchestratedVirtualMachineScaleSetIdentity build() {
             final var _resultValue = new GetOrchestratedVirtualMachineScaleSetIdentity();
             _resultValue.identityIds = identityIds;
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
             _resultValue.type = type;
             return _resultValue;
         }

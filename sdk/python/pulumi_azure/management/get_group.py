@@ -21,7 +21,7 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, all_management_group_ids=None, all_subscription_ids=None, display_name=None, id=None, management_group_ids=None, name=None, parent_management_group_id=None, subscription_ids=None):
+    def __init__(__self__, all_management_group_ids=None, all_subscription_ids=None, display_name=None, id=None, management_group_ids=None, name=None, parent_management_group_id=None, subscription_ids=None, tenant_scoped_id=None):
         if all_management_group_ids and not isinstance(all_management_group_ids, list):
             raise TypeError("Expected argument 'all_management_group_ids' to be a list")
         pulumi.set(__self__, "all_management_group_ids", all_management_group_ids)
@@ -46,6 +46,9 @@ class GetGroupResult:
         if subscription_ids and not isinstance(subscription_ids, list):
             raise TypeError("Expected argument 'subscription_ids' to be a list")
         pulumi.set(__self__, "subscription_ids", subscription_ids)
+        if tenant_scoped_id and not isinstance(tenant_scoped_id, str):
+            raise TypeError("Expected argument 'tenant_scoped_id' to be a str")
+        pulumi.set(__self__, "tenant_scoped_id", tenant_scoped_id)
 
     @property
     @pulumi.getter(name="allManagementGroupIds")
@@ -105,6 +108,14 @@ class GetGroupResult:
         """
         return pulumi.get(self, "subscription_ids")
 
+    @property
+    @pulumi.getter(name="tenantScopedId")
+    def tenant_scoped_id(self) -> str:
+        """
+        The Management Group ID with the Tenant ID prefix.
+        """
+        return pulumi.get(self, "tenant_scoped_id")
+
 
 class AwaitableGetGroupResult(GetGroupResult):
     # pylint: disable=using-constant-test
@@ -119,7 +130,8 @@ class AwaitableGetGroupResult(GetGroupResult):
             management_group_ids=self.management_group_ids,
             name=self.name,
             parent_management_group_id=self.parent_management_group_id,
-            subscription_ids=self.subscription_ids)
+            subscription_ids=self.subscription_ids,
+            tenant_scoped_id=self.tenant_scoped_id)
 
 
 def get_group(display_name: Optional[str] = None,
@@ -160,7 +172,8 @@ def get_group(display_name: Optional[str] = None,
         management_group_ids=pulumi.get(__ret__, 'management_group_ids'),
         name=pulumi.get(__ret__, 'name'),
         parent_management_group_id=pulumi.get(__ret__, 'parent_management_group_id'),
-        subscription_ids=pulumi.get(__ret__, 'subscription_ids'))
+        subscription_ids=pulumi.get(__ret__, 'subscription_ids'),
+        tenant_scoped_id=pulumi.get(__ret__, 'tenant_scoped_id'))
 
 
 @_utilities.lift_output_func(get_group)

@@ -375,6 +375,12 @@ namespace Pulumi.Azure.Network
         public Output<string?> PeerVirtualNetworkGatewayId { get; private set; } = null!;
 
         /// <summary>
+        /// Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
+        /// </summary>
+        [Output("privateLinkFastPathEnabled")]
+        public Output<bool?> PrivateLinkFastPathEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -599,6 +605,12 @@ namespace Pulumi.Azure.Network
         public Input<string>? PeerVirtualNetworkGatewayId { get; set; }
 
         /// <summary>
+        /// Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
+        /// </summary>
+        [Input("privateLinkFastPathEnabled")]
+        public Input<bool>? PrivateLinkFastPathEnabled { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -794,6 +806,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("peerVirtualNetworkGatewayId")]
         public Input<string>? PeerVirtualNetworkGatewayId { get; set; }
+
+        /// <summary>
+        /// Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
+        /// </summary>
+        [Input("privateLinkFastPathEnabled")]
+        public Input<bool>? PrivateLinkFastPathEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the connection Changing this forces a new resource to be created.

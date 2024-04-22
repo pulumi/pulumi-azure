@@ -427,6 +427,8 @@ type AccountBlobProperties struct {
 	// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
 	//
 	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+	//
+	// > **NOTE:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
 	RestorePolicy *AccountBlobPropertiesRestorePolicy `pulumi:"restorePolicy"`
 	// Is versioning enabled? Default to `false`.
 	//
@@ -469,6 +471,8 @@ type AccountBlobPropertiesArgs struct {
 	// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
 	//
 	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+	//
+	// > **NOTE:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
 	RestorePolicy AccountBlobPropertiesRestorePolicyPtrInput `pulumi:"restorePolicy"`
 	// Is versioning enabled? Default to `false`.
 	//
@@ -601,6 +605,8 @@ func (o AccountBlobPropertiesOutput) LastAccessTimeEnabled() pulumi.BoolPtrOutpu
 // A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
 //
 // > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+//
+// > **NOTE:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
 func (o AccountBlobPropertiesOutput) RestorePolicy() AccountBlobPropertiesRestorePolicyPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *AccountBlobPropertiesRestorePolicy { return v.RestorePolicy }).(AccountBlobPropertiesRestorePolicyPtrOutput)
 }
@@ -715,6 +721,8 @@ func (o AccountBlobPropertiesPtrOutput) LastAccessTimeEnabled() pulumi.BoolPtrOu
 // A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
 //
 // > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+//
+// > **NOTE:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
 func (o AccountBlobPropertiesPtrOutput) RestorePolicy() AccountBlobPropertiesRestorePolicyPtrOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) *AccountBlobPropertiesRestorePolicy {
 		if v == nil {

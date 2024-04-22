@@ -14,6 +14,7 @@ import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterGateway;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterMetastores;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterMonitor;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterNetwork;
+import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterPrivateLinkConfiguration;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterRoles;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterSecurityProfile;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterStorageAccount;
@@ -323,6 +324,20 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      */
     public Output<Optional<InteractiveQueryClusterNetwork>> network() {
         return Codegen.optional(this.network);
+    }
+    /**
+     * A `private_link_configuration` block as defined below.
+     * 
+     */
+    @Export(name="privateLinkConfiguration", refs={InteractiveQueryClusterPrivateLinkConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ InteractiveQueryClusterPrivateLinkConfiguration> privateLinkConfiguration;
+
+    /**
+     * @return A `private_link_configuration` block as defined below.
+     * 
+     */
+    public Output<Optional<InteractiveQueryClusterPrivateLinkConfiguration>> privateLinkConfiguration() {
+        return Codegen.optional(this.privateLinkConfiguration);
     }
     /**
      * Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.

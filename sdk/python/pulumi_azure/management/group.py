@@ -93,7 +93,8 @@ class _GroupState:
                  display_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_management_group_id: Optional[pulumi.Input[str]] = None,
-                 subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tenant_scoped_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
         :param pulumi.Input[str] display_name: A friendly name for this Management Group. If not specified, this will be the same as the `name`.
@@ -102,6 +103,7 @@ class _GroupState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subscription_ids: A list of Subscription GUIDs which should be assigned to the Management Group.
                
                > **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
+        :param pulumi.Input[str] tenant_scoped_id: The Management Group ID with the Tenant ID prefix.
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -111,6 +113,8 @@ class _GroupState:
             pulumi.set(__self__, "parent_management_group_id", parent_management_group_id)
         if subscription_ids is not None:
             pulumi.set(__self__, "subscription_ids", subscription_ids)
+        if tenant_scoped_id is not None:
+            pulumi.set(__self__, "tenant_scoped_id", tenant_scoped_id)
 
     @property
     @pulumi.getter(name="displayName")
@@ -161,6 +165,18 @@ class _GroupState:
     @subscription_ids.setter
     def subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subscription_ids", value)
+
+    @property
+    @pulumi.getter(name="tenantScopedId")
+    def tenant_scoped_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Management Group ID with the Tenant ID prefix.
+        """
+        return pulumi.get(self, "tenant_scoped_id")
+
+    @tenant_scoped_id.setter
+    def tenant_scoped_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_scoped_id", value)
 
 
 class Group(pulumi.CustomResource):
@@ -282,6 +298,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["parent_management_group_id"] = parent_management_group_id
             __props__.__dict__["subscription_ids"] = subscription_ids
+            __props__.__dict__["tenant_scoped_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:managementgroups/managementGroup:ManagementGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Group, __self__).__init__(
@@ -297,7 +314,8 @@ class Group(pulumi.CustomResource):
             display_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parent_management_group_id: Optional[pulumi.Input[str]] = None,
-            subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Group':
+            subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            tenant_scoped_id: Optional[pulumi.Input[str]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -311,6 +329,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subscription_ids: A list of Subscription GUIDs which should be assigned to the Management Group.
                
                > **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
+        :param pulumi.Input[str] tenant_scoped_id: The Management Group ID with the Tenant ID prefix.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -320,6 +339,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["parent_management_group_id"] = parent_management_group_id
         __props__.__dict__["subscription_ids"] = subscription_ids
+        __props__.__dict__["tenant_scoped_id"] = tenant_scoped_id
         return Group(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -355,4 +375,12 @@ class Group(pulumi.CustomResource):
         > **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
         """
         return pulumi.get(self, "subscription_ids")
+
+    @property
+    @pulumi.getter(name="tenantScopedId")
+    def tenant_scoped_id(self) -> pulumi.Output[str]:
+        """
+        The Management Group ID with the Tenant ID prefix.
+        """
+        return pulumi.get(self, "tenant_scoped_id")
 

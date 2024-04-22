@@ -167,6 +167,20 @@ public class ActivityLogAlert extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabled);
     }
     /**
+     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+     * 
+     */
+    @Export(name="location", refs={String.class}, tree="[0]")
+    private Output<String> location;
+
+    /**
+     * @return The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+     * 
+     */
+    public Output<String> location() {
+        return this.location;
+    }
+    /**
      * The name of the activity log alert. Changing this forces a new resource to be created.
      * 
      */

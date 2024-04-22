@@ -98,14 +98,18 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     }
 
     /**
-     * A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
+     * A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
+     * 
+     * &gt; **NOTE:** When connected to an SQL resource the `request_message` maximum length is `128`.
      * 
      */
     @Import(name="requestMessage")
     private @Nullable Output<String> requestMessage;
 
     /**
-     * @return A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
+     * @return A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
+     * 
+     * &gt; **NOTE:** When connected to an SQL resource the `request_message` maximum length is `128`.
      * 
      */
     public Optional<Output<String>> requestMessage() {
@@ -271,7 +275,9 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param requestMessage A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
+         * @param requestMessage A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
+         * 
+         * &gt; **NOTE:** When connected to an SQL resource the `request_message` maximum length is `128`.
          * 
          * @return builder
          * 
@@ -282,7 +288,9 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param requestMessage A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
+         * @param requestMessage A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
+         * 
+         * &gt; **NOTE:** When connected to an SQL resource the `request_message` maximum length is `128`.
          * 
          * @return builder
          * 

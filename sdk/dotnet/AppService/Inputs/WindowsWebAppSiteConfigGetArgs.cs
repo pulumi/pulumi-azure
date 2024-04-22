@@ -92,6 +92,18 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("ftpsState")]
         public Input<string>? FtpsState { get; set; }
 
+        [Input("handlerMappings")]
+        private InputList<Inputs.WindowsWebAppSiteConfigHandlerMappingGetArgs>? _handlerMappings;
+
+        /// <summary>
+        /// One or more `handler_mapping` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.WindowsWebAppSiteConfigHandlerMappingGetArgs> HandlerMappings
+        {
+            get => _handlerMappings ?? (_handlerMappings = new InputList<Inputs.WindowsWebAppSiteConfigHandlerMappingGetArgs>());
+            set => _handlerMappings = value;
+        }
+
         /// <summary>
         /// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         /// </summary>

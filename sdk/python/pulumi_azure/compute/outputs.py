@@ -12451,12 +12451,18 @@ class GetManagedDiskEncryptionSettingKeyEncryptionKeyResult(dict):
 class GetOrchestratedVirtualMachineScaleSetIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
+                 principal_id: str,
+                 tenant_id: str,
                  type: str):
         """
         :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Orchestrated Virtual Machine Scale Set.
+        :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
         :param str type: The Type of IP Tag.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
 
     @property
@@ -12466,6 +12472,22 @@ class GetOrchestratedVirtualMachineScaleSetIdentityResult(dict):
         The list of User Assigned Managed Identity IDs assigned to this Orchestrated Virtual Machine Scale Set.
         """
         return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "tenant_id")
 
     @property
     @pulumi.getter

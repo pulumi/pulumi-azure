@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:39 -0700
-Subject: [PATCH 6/9] Add-privatedns-parse
+Subject: [PATCH] Add-privatedns-parse
 
 
 diff --git a/internal/services/privatedns/parse/a_record.go b/internal/services/privatedns/parse/a_record.go

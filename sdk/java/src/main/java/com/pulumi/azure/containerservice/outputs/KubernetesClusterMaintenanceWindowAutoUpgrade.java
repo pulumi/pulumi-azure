@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
     /**
-     * @return The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+     * @return The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
      * 
      */
     private @Nullable Integer dayOfMonth;
@@ -69,7 +69,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
 
     private KubernetesClusterMaintenanceWindowAutoUpgrade() {}
     /**
-     * @return The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+     * @return The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
      * 
      */
     public Optional<Integer> dayOfMonth() {

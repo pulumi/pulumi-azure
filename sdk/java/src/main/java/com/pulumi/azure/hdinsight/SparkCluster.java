@@ -14,6 +14,7 @@ import com.pulumi.azure.hdinsight.outputs.SparkClusterGateway;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterMetastores;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterMonitor;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterNetwork;
+import com.pulumi.azure.hdinsight.outputs.SparkClusterPrivateLinkConfiguration;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterRoles;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterSecurityProfile;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterStorageAccount;
@@ -323,6 +324,20 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<SparkClusterNetwork>> network() {
         return Codegen.optional(this.network);
+    }
+    /**
+     * A `private_link_configuration` block as defined below.
+     * 
+     */
+    @Export(name="privateLinkConfiguration", refs={SparkClusterPrivateLinkConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ SparkClusterPrivateLinkConfiguration> privateLinkConfiguration;
+
+    /**
+     * @return A `private_link_configuration` block as defined below.
+     * 
+     */
+    public Output<Optional<SparkClusterPrivateLinkConfiguration>> privateLinkConfiguration() {
+        return Codegen.optional(this.privateLinkConfiguration);
     }
     /**
      * Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.

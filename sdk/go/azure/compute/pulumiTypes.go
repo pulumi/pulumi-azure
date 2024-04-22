@@ -30330,6 +30330,10 @@ func (o GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput) Index(i pulu
 type GetOrchestratedVirtualMachineScaleSetIdentity struct {
 	// The list of User Assigned Managed Identity IDs assigned to this Orchestrated Virtual Machine Scale Set.
 	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+	TenantId string `pulumi:"tenantId"`
 	// The Type of IP Tag.
 	Type string `pulumi:"type"`
 }
@@ -30348,6 +30352,10 @@ type GetOrchestratedVirtualMachineScaleSetIdentityInput interface {
 type GetOrchestratedVirtualMachineScaleSetIdentityArgs struct {
 	// The list of User Assigned Managed Identity IDs assigned to this Orchestrated Virtual Machine Scale Set.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// The Type of IP Tag.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -30406,6 +30414,16 @@ func (o GetOrchestratedVirtualMachineScaleSetIdentityOutput) ToGetOrchestratedVi
 // The list of User Assigned Managed Identity IDs assigned to this Orchestrated Virtual Machine Scale Set.
 func (o GetOrchestratedVirtualMachineScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+func (o GetOrchestratedVirtualMachineScaleSetIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+func (o GetOrchestratedVirtualMachineScaleSetIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 // The Type of IP Tag.

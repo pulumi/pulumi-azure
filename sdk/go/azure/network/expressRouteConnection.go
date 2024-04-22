@@ -142,6 +142,8 @@ type ExpressRouteConnection struct {
 	ExpressRouteGatewayId pulumi.StringOutput `pulumi:"expressRouteGatewayId"`
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`. Defaults to `false`.
+	PrivateLinkFastPathEnabled pulumi.BoolPtrOutput `pulumi:"privateLinkFastPathEnabled"`
 	// A `routing` block as defined below.
 	Routing ExpressRouteConnectionRoutingOutput `pulumi:"routing"`
 	// The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
@@ -196,6 +198,8 @@ type expressRouteConnectionState struct {
 	ExpressRouteGatewayId *string `pulumi:"expressRouteGatewayId"`
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`. Defaults to `false`.
+	PrivateLinkFastPathEnabled *bool `pulumi:"privateLinkFastPathEnabled"`
 	// A `routing` block as defined below.
 	Routing *ExpressRouteConnectionRouting `pulumi:"routing"`
 	// The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
@@ -215,6 +219,8 @@ type ExpressRouteConnectionState struct {
 	ExpressRouteGatewayId pulumi.StringPtrInput
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`. Defaults to `false`.
+	PrivateLinkFastPathEnabled pulumi.BoolPtrInput
 	// A `routing` block as defined below.
 	Routing ExpressRouteConnectionRoutingPtrInput
 	// The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
@@ -238,6 +244,8 @@ type expressRouteConnectionArgs struct {
 	ExpressRouteGatewayId string `pulumi:"expressRouteGatewayId"`
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`. Defaults to `false`.
+	PrivateLinkFastPathEnabled *bool `pulumi:"privateLinkFastPathEnabled"`
 	// A `routing` block as defined below.
 	Routing *ExpressRouteConnectionRouting `pulumi:"routing"`
 	// The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
@@ -258,6 +266,8 @@ type ExpressRouteConnectionArgs struct {
 	ExpressRouteGatewayId pulumi.StringInput
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`. Defaults to `false`.
+	PrivateLinkFastPathEnabled pulumi.BoolPtrInput
 	// A `routing` block as defined below.
 	Routing ExpressRouteConnectionRoutingPtrInput
 	// The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
@@ -379,6 +389,11 @@ func (o ExpressRouteConnectionOutput) ExpressRouteGatewayId() pulumi.StringOutpu
 // The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 func (o ExpressRouteConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`. Defaults to `false`.
+func (o ExpressRouteConnectionOutput) PrivateLinkFastPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.BoolPtrOutput { return v.PrivateLinkFastPathEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A `routing` block as defined below.

@@ -235,7 +235,7 @@ class SmartDetectionRule(pulumi.CustomResource):
         Application Insights Smart Detection Rules can be imported using the `resource id`, e.g.
 
         ```sh
-        $ pulumi import azure:appinsights/smartDetectionRule:SmartDetectionRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/mycomponent1/proactiveDetectionConfig/myrule1
+        $ pulumi import azure:appinsights/smartDetectionRule:SmartDetectionRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/mycomponent1/proactiveDetectionConfigs/myrule1
         ```
 
         :param str resource_name: The name of the resource.
@@ -284,7 +284,7 @@ class SmartDetectionRule(pulumi.CustomResource):
         Application Insights Smart Detection Rules can be imported using the `resource id`, e.g.
 
         ```sh
-        $ pulumi import azure:appinsights/smartDetectionRule:SmartDetectionRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/mycomponent1/proactiveDetectionConfig/myrule1
+        $ pulumi import azure:appinsights/smartDetectionRule:SmartDetectionRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/mycomponent1/proactiveDetectionConfigs/myrule1
         ```
 
         :param str resource_name: The name of the resource.

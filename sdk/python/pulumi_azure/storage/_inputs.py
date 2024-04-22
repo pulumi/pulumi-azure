@@ -231,6 +231,8 @@ class AccountBlobPropertiesArgs:
         :param pulumi.Input['AccountBlobPropertiesRestorePolicyArgs'] restore_policy: A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
                
                > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+               
+               > **NOTE:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
         :param pulumi.Input[bool] versioning_enabled: Is versioning enabled? Default to `false`.
                
                > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
@@ -351,6 +353,8 @@ class AccountBlobPropertiesArgs:
         A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
 
         > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+
+        > **NOTE:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
         """
         return pulumi.get(self, "restore_policy")
 

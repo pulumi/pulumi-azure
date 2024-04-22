@@ -135,6 +135,20 @@ public class Group extends com.pulumi.resources.CustomResource {
     public Output<List<String>> subscriptionIds() {
         return this.subscriptionIds;
     }
+    /**
+     * The Management Group ID with the Tenant ID prefix.
+     * 
+     */
+    @Export(name="tenantScopedId", refs={String.class}, tree="[0]")
+    private Output<String> tenantScopedId;
+
+    /**
+     * @return The Management Group ID with the Tenant ID prefix.
+     * 
+     */
+    public Output<String> tenantScopedId() {
+        return this.tenantScopedId;
+    }
 
     /**
      *

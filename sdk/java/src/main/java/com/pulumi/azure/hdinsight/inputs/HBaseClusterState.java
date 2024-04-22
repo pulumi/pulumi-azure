@@ -11,6 +11,7 @@ import com.pulumi.azure.hdinsight.inputs.HBaseClusterGatewayArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterMetastoresArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterMonitorArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterNetworkArgs;
+import com.pulumi.azure.hdinsight.inputs.HBaseClusterPrivateLinkConfigurationArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterRolesArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterSecurityProfileArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterStorageAccountArgs;
@@ -210,6 +211,21 @@ public final class HBaseClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `private_link_configuration` block as defined below.
+     * 
+     */
+    @Import(name="privateLinkConfiguration")
+    private @Nullable Output<HBaseClusterPrivateLinkConfigurationArgs> privateLinkConfiguration;
+
+    /**
+     * @return A `private_link_configuration` block as defined below.
+     * 
+     */
+    public Optional<Output<HBaseClusterPrivateLinkConfigurationArgs>> privateLinkConfiguration() {
+        return Optional.ofNullable(this.privateLinkConfiguration);
+    }
+
+    /**
      * Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -363,6 +379,7 @@ public final class HBaseClusterState extends com.pulumi.resources.ResourceArgs {
         this.monitor = $.monitor;
         this.name = $.name;
         this.network = $.network;
+        this.privateLinkConfiguration = $.privateLinkConfiguration;
         this.resourceGroupName = $.resourceGroupName;
         this.roles = $.roles;
         this.securityProfile = $.securityProfile;
@@ -652,6 +669,27 @@ public final class HBaseClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder network(HBaseClusterNetworkArgs network) {
             return network(Output.of(network));
+        }
+
+        /**
+         * @param privateLinkConfiguration A `private_link_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateLinkConfiguration(@Nullable Output<HBaseClusterPrivateLinkConfigurationArgs> privateLinkConfiguration) {
+            $.privateLinkConfiguration = privateLinkConfiguration;
+            return this;
+        }
+
+        /**
+         * @param privateLinkConfiguration A `private_link_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateLinkConfiguration(HBaseClusterPrivateLinkConfigurationArgs privateLinkConfiguration) {
+            return privateLinkConfiguration(Output.of(privateLinkConfiguration));
         }
 
         /**

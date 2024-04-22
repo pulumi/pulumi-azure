@@ -139,6 +139,8 @@ type HBaseCluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `network` block as defined below.
 	Network HBaseClusterNetworkPtrOutput `pulumi:"network"`
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration HBaseClusterPrivateLinkConfigurationPtrOutput `pulumi:"privateLinkConfiguration"`
 	// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -233,6 +235,8 @@ type hbaseClusterState struct {
 	Name *string `pulumi:"name"`
 	// A `network` block as defined below.
 	Network *HBaseClusterNetwork `pulumi:"network"`
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration *HBaseClusterPrivateLinkConfiguration `pulumi:"privateLinkConfiguration"`
 	// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -280,6 +284,8 @@ type HBaseClusterState struct {
 	Name pulumi.StringPtrInput
 	// A `network` block as defined below.
 	Network HBaseClusterNetworkPtrInput
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration HBaseClusterPrivateLinkConfigurationPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roles` block as defined below.
@@ -329,6 +335,8 @@ type hbaseClusterArgs struct {
 	Name *string `pulumi:"name"`
 	// A `network` block as defined below.
 	Network *HBaseClusterNetwork `pulumi:"network"`
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration *HBaseClusterPrivateLinkConfiguration `pulumi:"privateLinkConfiguration"`
 	// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -373,6 +381,8 @@ type HBaseClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// A `network` block as defined below.
 	Network HBaseClusterNetworkPtrInput
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration HBaseClusterPrivateLinkConfigurationPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `roles` block as defined below.
@@ -538,6 +548,11 @@ func (o HBaseClusterOutput) Name() pulumi.StringOutput {
 // A `network` block as defined below.
 func (o HBaseClusterOutput) Network() HBaseClusterNetworkPtrOutput {
 	return o.ApplyT(func(v *HBaseCluster) HBaseClusterNetworkPtrOutput { return v.Network }).(HBaseClusterNetworkPtrOutput)
+}
+
+// A `privateLinkConfiguration` block as defined below.
+func (o HBaseClusterOutput) PrivateLinkConfiguration() HBaseClusterPrivateLinkConfigurationPtrOutput {
+	return o.ApplyT(func(v *HBaseCluster) HBaseClusterPrivateLinkConfigurationPtrOutput { return v.PrivateLinkConfiguration }).(HBaseClusterPrivateLinkConfigurationPtrOutput)
 }
 
 // Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.

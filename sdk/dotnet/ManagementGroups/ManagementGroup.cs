@@ -88,6 +88,12 @@ namespace Pulumi.Azure.ManagementGroups
         [Output("subscriptionIds")]
         public Output<ImmutableArray<string>> SubscriptionIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The Management Group ID with the Tenant ID prefix.
+        /// </summary>
+        [Output("tenantScopedId")]
+        public Output<string> TenantScopedId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ManagementGroup resource with the given unique name, arguments, and options.
@@ -205,6 +211,12 @@ namespace Pulumi.Azure.ManagementGroups
             get => _subscriptionIds ?? (_subscriptionIds = new InputList<string>());
             set => _subscriptionIds = value;
         }
+
+        /// <summary>
+        /// The Management Group ID with the Tenant ID prefix.
+        /// </summary>
+        [Input("tenantScopedId")]
+        public Input<string>? TenantScopedId { get; set; }
 
         public ManagementGroupState()
         {

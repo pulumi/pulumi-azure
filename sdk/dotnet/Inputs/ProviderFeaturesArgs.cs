@@ -30,6 +30,9 @@ namespace Pulumi.Azure.Inputs
         [Input("logAnalyticsWorkspace")]
         public Input<Inputs.ProviderFeaturesLogAnalyticsWorkspaceArgs>? LogAnalyticsWorkspace { get; set; }
 
+        [Input("machineLearning")]
+        public Input<Inputs.ProviderFeaturesMachineLearningArgs>? MachineLearning { get; set; }
+
         [Input("managedDisk")]
         public Input<Inputs.ProviderFeaturesManagedDiskArgs>? ManagedDisk { get; set; }
 

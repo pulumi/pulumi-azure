@@ -20,14 +20,14 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
     public static final KubernetesClusterMaintenanceWindowAutoUpgradeArgs Empty = new KubernetesClusterMaintenanceWindowAutoUpgradeArgs();
 
     /**
-     * The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+     * The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
      * 
      */
     @Import(name="dayOfMonth")
     private @Nullable Output<Integer> dayOfMonth;
 
     /**
-     * @return The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+     * @return The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
      * 
      */
     public Optional<Output<Integer>> dayOfMonth() {
@@ -205,7 +205,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
         }
 
         /**
-         * @param dayOfMonth The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+         * @param dayOfMonth The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
         }
 
         /**
-         * @param dayOfMonth The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+         * @param dayOfMonth The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
          * 
          * @return builder
          * 

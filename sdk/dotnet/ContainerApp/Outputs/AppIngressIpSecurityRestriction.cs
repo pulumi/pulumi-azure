@@ -24,7 +24,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// CIDR notation to match incoming IP address.
+        /// The incoming IP address or range of IP addresses (in CIDR notation).
         /// </summary>
         public readonly string IpAddressRange;
         /// <summary>

@@ -25,7 +25,7 @@ public final class AppIngressIpSecurityRestriction {
      */
     private @Nullable String description;
     /**
-     * @return CIDR notation to match incoming IP address.
+     * @return The incoming IP address or range of IP addresses (in CIDR notation).
      * 
      */
     private String ipAddressRange;
@@ -53,7 +53,7 @@ public final class AppIngressIpSecurityRestriction {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return CIDR notation to match incoming IP address.
+     * @return The incoming IP address or range of IP addresses (in CIDR notation).
      * 
      */
     public String ipAddressRange() {

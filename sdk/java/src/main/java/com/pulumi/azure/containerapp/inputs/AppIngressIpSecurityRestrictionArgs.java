@@ -51,14 +51,14 @@ public final class AppIngressIpSecurityRestrictionArgs extends com.pulumi.resour
     }
 
     /**
-     * CIDR notation to match incoming IP address.
+     * The incoming IP address or range of IP addresses (in CIDR notation).
      * 
      */
     @Import(name="ipAddressRange", required=true)
     private Output<String> ipAddressRange;
 
     /**
-     * @return CIDR notation to match incoming IP address.
+     * @return The incoming IP address or range of IP addresses (in CIDR notation).
      * 
      */
     public Output<String> ipAddressRange() {
@@ -154,7 +154,7 @@ public final class AppIngressIpSecurityRestrictionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param ipAddressRange CIDR notation to match incoming IP address.
+         * @param ipAddressRange The incoming IP address or range of IP addresses (in CIDR notation).
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class AppIngressIpSecurityRestrictionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param ipAddressRange CIDR notation to match incoming IP address.
+         * @param ipAddressRange The incoming IP address or range of IP addresses (in CIDR notation).
          * 
          * @return builder
          * 

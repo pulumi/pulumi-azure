@@ -77,6 +77,10 @@ export interface GetGroupResult {
      * A list of Subscription IDs which are directly assigned to this Management Group.
      */
     readonly subscriptionIds: string[];
+    /**
+     * The Management Group ID with the Tenant ID prefix.
+     */
+    readonly tenantScopedId: string;
 }
 /**
  * Use this data source to access information about an existing Management Group.
