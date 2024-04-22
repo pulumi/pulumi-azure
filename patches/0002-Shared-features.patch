@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:38 -0700
-Subject: [PATCH 2/9] Shared-features
+Subject: [PATCH] Shared-features
 
 
 diff --git a/internal/features/four_point_oh.go b/internal/features/four_point_oh.go
@@ -19,10 +19,10 @@ index 4387a9c18f..4013a59e46 100644
 +	return true
 +}
 diff --git a/internal/provider/features.go b/internal/provider/features.go
-index c1df7fe4b1..f989086226 100644
+index 57238f1db2..a01fe3586c 100644
 --- a/internal/provider/features.go
 +++ b/internal/provider/features.go
-@@ -340,7 +340,7 @@ func schemaFeatures(supportLegacyTestSuite bool) *pluginsdk.Schema {
+@@ -354,7 +354,7 @@ func schemaFeatures(supportLegacyTestSuite bool) *pluginsdk.Schema {
  
  	return &pluginsdk.Schema{
  		Type:     pluginsdk.TypeList,

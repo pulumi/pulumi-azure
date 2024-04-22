@@ -8299,6 +8299,16 @@
                     "network": {
                         "maxItemsOne": true
                     },
+                    "private_link_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "ip_configuration": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
                     "roles": {
                         "maxItemsOne": true,
                         "elem": {
@@ -8457,6 +8467,16 @@
                     "network": {
                         "maxItemsOne": true
                     },
+                    "private_link_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "ip_configuration": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
                     "roles": {
                         "maxItemsOne": true,
                         "elem": {
@@ -8588,6 +8608,16 @@
                     },
                     "network": {
                         "maxItemsOne": true
+                    },
+                    "private_link_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "ip_configuration": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     },
                     "roles": {
                         "maxItemsOne": true,
@@ -8724,6 +8754,16 @@
                     "network": {
                         "maxItemsOne": true
                     },
+                    "private_link_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "ip_configuration": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
                     "rest_proxy": {
                         "maxItemsOne": true
                     },
@@ -8847,6 +8887,16 @@
                     },
                     "network": {
                         "maxItemsOne": true
+                    },
+                    "private_link_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "ip_configuration": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     },
                     "roles": {
                         "maxItemsOne": true,
@@ -22970,6 +23020,9 @@
                                 "default_documents": {
                                     "maxItemsOne": false
                                 },
+                                "handler_mapping": {
+                                    "maxItemsOne": false
+                                },
                                 "ip_restriction": {
                                     "maxItemsOne": false,
                                     "elem": {
@@ -23350,6 +23403,9 @@
                                     }
                                 },
                                 "default_documents": {
+                                    "maxItemsOne": false
+                                },
+                                "handler_mapping": {
                                     "maxItemsOne": false
                                 },
                                 "ip_restriction": {
@@ -30643,6 +30699,9 @@
                                     }
                                 },
                                 "default_documents": {
+                                    "maxItemsOne": false
+                                },
+                                "handler_mapping": {
                                     "maxItemsOne": false
                                 },
                                 "ip_restriction": {

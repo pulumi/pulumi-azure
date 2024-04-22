@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Wed, 7 Feb 2024 13:53:37 -0500
-Subject: [PATCH 5/9] Modify resources
+Subject: [PATCH] Modify resources
 
 
 diff --git a/internal/services/advisor/advisor_recommendations_data_source.go b/internal/services/advisor/advisor_recommendations_data_source.go
@@ -292,10 +292,10 @@ index d1de175cb8..d18589669e 100644
  
  						"size_gb": {
 diff --git a/internal/services/compute/linux_virtual_machine_resource.go b/internal/services/compute/linux_virtual_machine_resource.go
-index b79956b57d..4b1be52dcc 100644
+index f622c18058..288f865398 100644
 --- a/internal/services/compute/linux_virtual_machine_resource.go
 +++ b/internal/services/compute/linux_virtual_machine_resource.go
-@@ -359,11 +359,11 @@ func resourceLinuxVirtualMachine() *pluginsdk.Resource {
+@@ -360,11 +360,11 @@ func resourceLinuxVirtualMachine() *pluginsdk.Resource {
  			},
  
  			"platform_fault_domain": {
@@ -313,7 +313,7 @@ index b79956b57d..4b1be52dcc 100644
  			},
  
 diff --git a/internal/services/compute/managed_disk_resource.go b/internal/services/compute/managed_disk_resource.go
-index fa43f4e9c8..9ddf246435 100644
+index 619b11b2a3..2b87497d64 100644
 --- a/internal/services/compute/managed_disk_resource.go
 +++ b/internal/services/compute/managed_disk_resource.go
 @@ -164,6 +164,7 @@ func resourceManagedDisk() *pluginsdk.Resource {
@@ -370,10 +370,10 @@ index 4852606790..219bed8e64 100644
  
  			"write_accelerator_enabled": {
 diff --git a/internal/services/compute/windows_virtual_machine_resource.go b/internal/services/compute/windows_virtual_machine_resource.go
-index 9d8cafbd14..9ad34c43b4 100644
+index 4c6030c160..e320bb0c99 100644
 --- a/internal/services/compute/windows_virtual_machine_resource.go
 +++ b/internal/services/compute/windows_virtual_machine_resource.go
-@@ -384,11 +384,11 @@ func resourceWindowsVirtualMachine() *pluginsdk.Resource {
+@@ -383,11 +383,11 @@ func resourceWindowsVirtualMachine() *pluginsdk.Resource {
  			},
  
  			"platform_fault_domain": {
@@ -391,7 +391,7 @@ index 9d8cafbd14..9ad34c43b4 100644
  			},
  
 diff --git a/internal/services/containers/container_group_resource.go b/internal/services/containers/container_group_resource.go
-index 225f109cdf..4c38ca5abb 100644
+index ef6ae95450..3fb78d2cf8 100644
 --- a/internal/services/containers/container_group_resource.go
 +++ b/internal/services/containers/container_group_resource.go
 @@ -7,6 +7,8 @@ import (
@@ -457,10 +457,10 @@ index 46644dc374..1a8604d4a8 100644
  
  	return nil
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index 87b319ed1f..7e5386d865 100644
+index 3891945e1e..899ce51bdc 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
-@@ -1106,7 +1106,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
+@@ -1062,7 +1062,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(managedclusters.LoadBalancerSkuBasic),
  								string(managedclusters.LoadBalancerSkuStandard),
@@ -676,7 +676,7 @@ index 29d42ef784..f2f9d678ab 100644
  								"source_addresses": {
  									Type:     pluginsdk.TypeSet,
 diff --git a/internal/services/hdinsight/hdinsight_hadoop_cluster_resource.go b/internal/services/hdinsight/hdinsight_hadoop_cluster_resource.go
-index 99c958271c..3e330c5878 100644
+index 067484d622..f17abd35c9 100644
 --- a/internal/services/hdinsight/hdinsight_hadoop_cluster_resource.go
 +++ b/internal/services/hdinsight/hdinsight_hadoop_cluster_resource.go
 @@ -5,6 +5,7 @@ package hdinsight
@@ -687,7 +687,7 @@ index 99c958271c..3e330c5878 100644
  	"log"
  	"strings"
  	"time"
-@@ -145,9 +146,10 @@ func resourceHDInsightHadoopCluster() *pluginsdk.Resource {
+@@ -147,9 +148,10 @@ func resourceHDInsightHadoopCluster() *pluginsdk.Resource {
  									},
  
  									"vm_size": {
@@ -702,7 +702,7 @@ index 99c958271c..3e330c5878 100644
  
  									"install_script_action": {
 diff --git a/internal/services/hdinsight/schema.go b/internal/services/hdinsight/schema.go
-index 3aeb69702b..9f00e47439 100644
+index 36c461cbdc..da5c8b4982 100644
 --- a/internal/services/hdinsight/schema.go
 +++ b/internal/services/hdinsight/schema.go
 @@ -5,6 +5,8 @@ package hdinsight
@@ -724,7 +724,7 @@ index 3aeb69702b..9f00e47439 100644
  	}
  }
  
-@@ -1001,10 +1004,11 @@ type HDInsightNodeDefinition struct {
+@@ -1165,10 +1168,11 @@ type HDInsightNodeDefinition struct {
  func SchemaHDInsightNodeDefinition(schemaLocation string, definition HDInsightNodeDefinition, required bool) *pluginsdk.Schema {
  	result := map[string]*pluginsdk.Schema{
  		"vm_size": {
@@ -1167,7 +1167,7 @@ index 0c29d3383e..4faec6e9f7 100644
  
  				"vnet_route_all_enabled": {
 diff --git a/internal/services/logz/logz_monitor_resource.go b/internal/services/logz/logz_monitor_resource.go
-index 333b0e1d65..297aab28cc 100644
+index 4c3ad9df42..c72a31367e 100644
 --- a/internal/services/logz/logz_monitor_resource.go
 +++ b/internal/services/logz/logz_monitor_resource.go
 @@ -5,6 +5,7 @@ package logz
@@ -1178,7 +1178,7 @@ index 333b0e1d65..297aab28cc 100644
  	"log"
  	"time"
  
-@@ -93,7 +94,8 @@ func resourceLogzMonitor() *pluginsdk.Resource {
+@@ -95,7 +96,8 @@ func resourceLogzMonitor() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								"MONTHLY",
  								"WEEKLY",
@@ -1188,7 +1188,7 @@ index 333b0e1d65..297aab28cc 100644
  						},
  
  						"effective_date": {
-@@ -110,8 +112,9 @@ func resourceLogzMonitor() *pluginsdk.Resource {
+@@ -112,8 +114,9 @@ func resourceLogzMonitor() *pluginsdk.Resource {
  							ForceNew: true,
  							ValidateFunc: validation.StringInSlice([]string{
  								PlanId100gb14days,
@@ -1200,7 +1200,7 @@ index 333b0e1d65..297aab28cc 100644
  						},
  
  						"usage_type": {
-@@ -121,7 +124,8 @@ func resourceLogzMonitor() *pluginsdk.Resource {
+@@ -123,7 +126,8 @@ func resourceLogzMonitor() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								"PAYG",
  								"COMMITTED",
@@ -1755,7 +1755,7 @@ index 72be88cc09..fa4cfce350 100644
  
  						"next_hop_in_ip_address": {
 diff --git a/internal/services/network/virtual_network_gateway_connection_resource.go b/internal/services/network/virtual_network_gateway_connection_resource.go
-index f10b3261ee..f9be1aa7d4 100644
+index 5687410c2c..c265864390 100644
 --- a/internal/services/network/virtual_network_gateway_connection_resource.go
 +++ b/internal/services/network/virtual_network_gateway_connection_resource.go
 @@ -6,6 +6,8 @@ package network
@@ -1777,7 +1777,7 @@ index f10b3261ee..f9be1aa7d4 100644
  			},
  
  			"virtual_network_gateway_id": {
-@@ -245,7 +248,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+@@ -251,7 +254,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
  								string(network.DhGroupECP256),
  								string(network.DhGroupECP384),
  								string(network.DhGroupNone),
@@ -1786,7 +1786,7 @@ index f10b3261ee..f9be1aa7d4 100644
  						},
  
  						"ike_encryption": {
-@@ -259,7 +262,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+@@ -265,7 +268,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
  								string(network.IkeEncryptionDES3),
  								string(network.IkeEncryptionGCMAES128),
  								string(network.IkeEncryptionGCMAES256),
@@ -1795,7 +1795,7 @@ index f10b3261ee..f9be1aa7d4 100644
  						},
  
  						"ike_integrity": {
-@@ -272,7 +275,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+@@ -278,7 +281,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
  								string(network.IkeIntegritySHA1),
  								string(network.IkeIntegritySHA256),
  								string(network.IkeIntegritySHA384),
@@ -1804,7 +1804,7 @@ index f10b3261ee..f9be1aa7d4 100644
  						},
  
  						"ipsec_encryption": {
-@@ -288,7 +291,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+@@ -294,7 +297,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
  								string(network.IpsecEncryptionGCMAES192),
  								string(network.IpsecEncryptionGCMAES256),
  								string(network.IpsecEncryptionNone),
@@ -1813,7 +1813,7 @@ index f10b3261ee..f9be1aa7d4 100644
  						},
  
  						"ipsec_integrity": {
-@@ -301,7 +304,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+@@ -307,7 +310,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
  								string(network.IpsecIntegrityMD5),
  								string(network.IpsecIntegritySHA1),
  								string(network.IpsecIntegritySHA256),
@@ -1822,7 +1822,7 @@ index f10b3261ee..f9be1aa7d4 100644
  						},
  
  						"pfs_group": {
-@@ -317,7 +320,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+@@ -323,7 +326,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
  								string(network.PfsGroupPFS2048),
  								string(network.PfsGroupPFS24),
  								string(network.PfsGroupPFSMM),
@@ -2469,7 +2469,7 @@ index b215edff58..4381151544 100644
  	if !ok {
  		return fmt.Errorf("could not determine Storage domain suffix for environment %q", meta.(*clients.Client).Account.Environment.Name)
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index e3acc874e6..53984fe280 100644
+index 52d93d380c..c76e8b8e26 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
 @@ -13,6 +13,9 @@ import (
@@ -2482,7 +2482,7 @@ index e3acc874e6..53984fe280 100644
  	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2021-09-01/storage" // nolint: staticcheck
  	azautorest "github.com/Azure/go-autorest/autorest"
  	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-@@ -138,8 +141,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -146,8 +149,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
  					string(storage.KindBlockBlobStorage),
  					string(storage.KindFileStorage),
  					string(storage.KindStorageV2),
@@ -2494,7 +2494,7 @@ index e3acc874e6..53984fe280 100644
  			},
  
  			"account_tier": {
-@@ -149,7 +153,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -157,7 +161,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(storage.SkuTierStandard),
  					string(storage.SkuTierPremium),
@@ -2504,7 +2504,7 @@ index e3acc874e6..53984fe280 100644
  			},
  
  			"account_replication_type": {
-@@ -162,7 +167,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -170,7 +175,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  					"RAGRS",
  					"GZRS",
  					"RAGZRS",
@@ -2514,7 +2514,7 @@ index e3acc874e6..53984fe280 100644
  			},
  
  			// Only valid for FileStorage, BlobStorage & StorageV2 accounts, defaults to "Hot" in create function
-@@ -173,7 +179,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -181,7 +187,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(storage.AccessTierCool),
  					string(storage.AccessTierHot),
@@ -2524,7 +2524,7 @@ index e3acc874e6..53984fe280 100644
  			},
  
  			"azure_files_authentication": {
-@@ -402,7 +409,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -410,7 +417,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  									string(storage.BypassLogging),
  									string(storage.BypassMetrics),
  									string(storage.BypassNone),
