@@ -66,6 +66,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string FtpsState;
         /// <summary>
+        /// A `handler_mapping` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetWindowsWebAppSiteConfigHandlerMappingResult> HandlerMappings;
+        /// <summary>
         /// (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         /// </summary>
         public readonly int HealthCheckEvictionTimeInMin;
@@ -179,6 +183,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string ftpsState,
 
+            ImmutableArray<Outputs.GetWindowsWebAppSiteConfigHandlerMappingResult> handlerMappings,
+
             int healthCheckEvictionTimeInMin,
 
             string healthCheckPath,
@@ -236,6 +242,7 @@ namespace Pulumi.Azure.AppService.Outputs
             DefaultDocuments = defaultDocuments;
             DetailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
             FtpsState = ftpsState;
+            HandlerMappings = handlerMappings;
             HealthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
             HealthCheckPath = healthCheckPath;
             Http2Enabled = http2Enabled;

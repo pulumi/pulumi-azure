@@ -12,6 +12,7 @@ export interface ProviderFeatures {
     cognitiveAccount?: pulumi.Input<inputs.ProviderFeaturesCognitiveAccount>;
     keyVault?: pulumi.Input<inputs.ProviderFeaturesKeyVault>;
     logAnalyticsWorkspace?: pulumi.Input<inputs.ProviderFeaturesLogAnalyticsWorkspace>;
+    machineLearning?: pulumi.Input<inputs.ProviderFeaturesMachineLearning>;
     managedDisk?: pulumi.Input<inputs.ProviderFeaturesManagedDisk>;
     postgresqlFlexibleServer?: pulumi.Input<inputs.ProviderFeaturesPostgresqlFlexibleServer>;
     recoveryService?: pulumi.Input<inputs.ProviderFeaturesRecoveryService>;
@@ -81,6 +82,10 @@ export interface ProviderFeaturesKeyVault {
 
 export interface ProviderFeaturesLogAnalyticsWorkspace {
     permanentlyDeleteOnDestroy?: pulumi.Input<boolean>;
+}
+
+export interface ProviderFeaturesMachineLearning {
+    purgeSoftDeletedWorkspaceOnDestroy?: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesManagedDisk {
@@ -12392,6 +12397,10 @@ export namespace appservice {
         detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
         ftpsState?: pulumi.Input<string>;
         /**
+         * One or more `handlerMapping` blocks as defined below.
+         */
+        handlerMappings?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigHandlerMapping>[]>;
+        /**
          * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          */
         healthCheckEvictionTimeInMin?: pulumi.Input<number>;
@@ -12700,6 +12709,21 @@ export namespace appservice {
          * Whether CORS requests with credentials are allowed. Defaults to `false`
          */
         supportCredentials?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsWebAppSiteConfigHandlerMapping {
+        /**
+         * Specifies the command-line arguments to be passed to the script processor.
+         */
+        arguments?: pulumi.Input<string>;
+        /**
+         * Specifies which extension to be handled by the specified FastCGI application.
+         */
+        extension: pulumi.Input<string>;
+        /**
+         * Specifies the absolute path to the FastCGI application.
+         */
+        scriptProcessorPath: pulumi.Input<string>;
     }
 
     export interface WindowsWebAppSiteConfigIpRestriction {
@@ -13609,6 +13633,10 @@ export namespace appservice {
         detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
         ftpsState?: pulumi.Input<string>;
         /**
+         * One or more `handlerMapping` blocks as defined below.
+         */
+        handlerMappings?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigHandlerMapping>[]>;
+        /**
          * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          */
         healthCheckEvictionTimeInMin?: pulumi.Input<number>;
@@ -13905,6 +13933,21 @@ export namespace appservice {
          * Whether CORS requests with credentials are allowed. Defaults to `false`
          */
         supportCredentials?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigHandlerMapping {
+        /**
+         * Specify the command-line arguments to be passed to the script processor.
+         */
+        arguments?: pulumi.Input<string>;
+        /**
+         * Specify which extension to be handled by the specified FastCGI application.
+         */
+        extension: pulumi.Input<string>;
+        /**
+         * Specify the absolute path to the FastCGI application.
+         */
+        scriptProcessorPath: pulumi.Input<string>;
     }
 
     export interface WindowsWebAppSlotSiteConfigIpRestriction {
@@ -21677,7 +21720,7 @@ export namespace containerapp {
          */
         description?: pulumi.Input<string>;
         /**
-         * CIDR notation to match incoming IP address.
+         * The incoming IP address or range of IP addresses (in CIDR notation).
          */
         ipAddressRange: pulumi.Input<string>;
         /**
@@ -23198,18 +23241,26 @@ export namespace containerservice {
         azureRbacEnabled?: pulumi.Input<boolean>;
         /**
          * The Client ID of an Azure Active Directory Application.
+         *
+         * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
          */
         clientAppId?: pulumi.Input<string>;
         /**
          * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+         *
+         * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
          */
         managed?: pulumi.Input<boolean>;
         /**
          * The Server ID of an Azure Active Directory Application.
+         *
+         * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
          */
         serverAppId?: pulumi.Input<string>;
         /**
          * The Server Secret of an Azure Active Directory Application.
+         *
+         * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
          */
         serverAppSecret?: pulumi.Input<string>;
         /**
@@ -23913,7 +23964,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterMaintenanceWindowAutoUpgrade {
         /**
-         * The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+         * The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
          */
         dayOfMonth?: pulumi.Input<number>;
         /**
@@ -23968,7 +24019,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterMaintenanceWindowNodeOs {
         /**
-         * The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+         * The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
          */
         dayOfMonth?: pulumi.Input<number>;
         /**
@@ -31809,6 +31860,41 @@ export namespace hdinsight {
         privateLinkEnabled?: pulumi.Input<boolean>;
     }
 
+    export interface HBaseClusterPrivateLinkConfiguration {
+        /**
+         * The ID of the private link service group.
+         */
+        groupId: pulumi.Input<string>;
+        ipConfiguration: pulumi.Input<inputs.hdinsight.HBaseClusterPrivateLinkConfigurationIpConfiguration>;
+        /**
+         * The name of the private link configuration.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface HBaseClusterPrivateLinkConfigurationIpConfiguration {
+        /**
+         * Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Indicates whether this IP configuration is primary.
+         */
+        primary?: pulumi.Input<boolean>;
+        /**
+         * The private IP address of the IP configuration.
+         */
+        privateIpAddress?: pulumi.Input<string>;
+        /**
+         * The private IP allocation method. The only possible value now is `Dynamic`.
+         */
+        privateIpAllocationMethod?: pulumi.Input<string>;
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
+        subnetId?: pulumi.Input<string>;
+    }
+
     export interface HBaseClusterRoles {
         /**
          * A `headNode` block as defined above.
@@ -32249,6 +32335,41 @@ export namespace hdinsight {
          * Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
          */
         privateLinkEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface HadoopClusterPrivateLinkConfiguration {
+        /**
+         * The ID of the private link service group.
+         */
+        groupId: pulumi.Input<string>;
+        ipConfiguration: pulumi.Input<inputs.hdinsight.HadoopClusterPrivateLinkConfigurationIpConfiguration>;
+        /**
+         * The name of the private link configuration.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface HadoopClusterPrivateLinkConfigurationIpConfiguration {
+        /**
+         * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Indicates whether this IP configuration is primary.
+         */
+        primary?: pulumi.Input<boolean>;
+        /**
+         * The private ip address of the endpoint.
+         */
+        privateIpAddress?: pulumi.Input<string>;
+        /**
+         * The private IP allocation method. The only possible value now is `Dynamic`.
+         */
+        privateIpAllocationMethod?: pulumi.Input<string>;
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
+        subnetId?: pulumi.Input<string>;
     }
 
     export interface HadoopClusterRoles {
@@ -32788,6 +32909,41 @@ export namespace hdinsight {
         privateLinkEnabled?: pulumi.Input<boolean>;
     }
 
+    export interface InteractiveQueryClusterPrivateLinkConfiguration {
+        /**
+         * The ID of the private link service group.
+         */
+        groupId: pulumi.Input<string>;
+        ipConfiguration: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration>;
+        /**
+         * The name of the private link configuration.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration {
+        /**
+         * Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Indicates whether this IP configuration is primary.
+         */
+        primary?: pulumi.Input<boolean>;
+        /**
+         * The private IP address of the IP configuration.
+         */
+        privateIpAddress?: pulumi.Input<string>;
+        /**
+         * The private IP allocation method. The only possible value now is `Dynamic`.
+         */
+        privateIpAllocationMethod?: pulumi.Input<string>;
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
+        subnetId?: pulumi.Input<string>;
+    }
+
     export interface InteractiveQueryClusterRoles {
         /**
          * A `headNode` block as defined above.
@@ -33239,6 +33395,41 @@ export namespace hdinsight {
          * Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
          */
         privateLinkEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface KafkaClusterPrivateLinkConfiguration {
+        /**
+         * The ID of the private link service group.
+         */
+        groupId: pulumi.Input<string>;
+        ipConfiguration: pulumi.Input<inputs.hdinsight.KafkaClusterPrivateLinkConfigurationIpConfiguration>;
+        /**
+         * The name of the private link configuration.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface KafkaClusterPrivateLinkConfigurationIpConfiguration {
+        /**
+         * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Indicates whether this IP configuration is primary.
+         */
+        primary?: pulumi.Input<boolean>;
+        /**
+         * The private IP address of the IP configuration.
+         */
+        privateIpAddress?: pulumi.Input<string>;
+        /**
+         * The private IP allocation method. The only possible value now is `Dynamic`.
+         */
+        privateIpAllocationMethod?: pulumi.Input<string>;
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
+        subnetId?: pulumi.Input<string>;
     }
 
     export interface KafkaClusterRestProxy {
@@ -33715,6 +33906,41 @@ export namespace hdinsight {
          * Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
          */
         privateLinkEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface SparkClusterPrivateLinkConfiguration {
+        /**
+         * The ID of the private link service group.
+         */
+        groupId: pulumi.Input<string>;
+        ipConfiguration: pulumi.Input<inputs.hdinsight.SparkClusterPrivateLinkConfigurationIpConfiguration>;
+        /**
+         * The name of the private link configuration.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface SparkClusterPrivateLinkConfigurationIpConfiguration {
+        /**
+         * Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Indicates whether this IP configuration is primary.
+         */
+        primary?: pulumi.Input<boolean>;
+        /**
+         * The private IP address of the IP configuration.
+         */
+        privateIpAddress?: pulumi.Input<string>;
+        /**
+         * The private IP allocation method. The only possible value now is `Dynamic`.
+         */
+        privateIpAllocationMethod?: pulumi.Input<string>;
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
+        subnetId?: pulumi.Input<string>;
     }
 
     export interface SparkClusterRoles {
@@ -47783,7 +48009,9 @@ export namespace privatelink {
          */
         privateIpAddress?: pulumi.Input<string>;
         /**
-         * A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
+         * A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
+         *
+         * > **NOTE:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
          */
         requestMessage?: pulumi.Input<string>;
         /**
@@ -50602,6 +50830,8 @@ export namespace storage {
          * A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
          *
          * > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+         *
+         * > **NOTE:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
          */
         restorePolicy?: pulumi.Input<inputs.storage.AccountBlobPropertiesRestorePolicy>;
         /**

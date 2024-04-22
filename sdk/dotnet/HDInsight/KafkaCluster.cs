@@ -197,6 +197,12 @@ namespace Pulumi.Azure.HDInsight
         public Output<Outputs.KafkaClusterNetwork?> Network { get; private set; } = null!;
 
         /// <summary>
+        /// A `private_link_configuration` block as defined below.
+        /// </summary>
+        [Output("privateLinkConfiguration")]
+        public Output<Outputs.KafkaClusterPrivateLinkConfiguration?> PrivateLinkConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -383,6 +389,12 @@ namespace Pulumi.Azure.HDInsight
         public Input<Inputs.KafkaClusterNetworkArgs>? Network { get; set; }
 
         /// <summary>
+        /// A `private_link_configuration` block as defined below.
+        /// </summary>
+        [Input("privateLinkConfiguration")]
+        public Input<Inputs.KafkaClusterPrivateLinkConfigurationArgs>? PrivateLinkConfiguration { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -547,6 +559,12 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("network")]
         public Input<Inputs.KafkaClusterNetworkGetArgs>? Network { get; set; }
+
+        /// <summary>
+        /// A `private_link_configuration` block as defined below.
+        /// </summary>
+        [Input("privateLinkConfiguration")]
+        public Input<Inputs.KafkaClusterPrivateLinkConfigurationGetArgs>? PrivateLinkConfiguration { get; set; }
 
         /// <summary>
         /// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.

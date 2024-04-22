@@ -14,6 +14,7 @@ import com.pulumi.azure.hdinsight.outputs.HadoopClusterGateway;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterMetastores;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterMonitor;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterNetwork;
+import com.pulumi.azure.hdinsight.outputs.HadoopClusterPrivateLinkConfiguration;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterRoles;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterSecurityProfile;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterStorageAccount;
@@ -308,6 +309,20 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<HadoopClusterNetwork>> network() {
         return Codegen.optional(this.network);
+    }
+    /**
+     * A `private_link_configuration` block as defined below.
+     * 
+     */
+    @Export(name="privateLinkConfiguration", refs={HadoopClusterPrivateLinkConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ HadoopClusterPrivateLinkConfiguration> privateLinkConfiguration;
+
+    /**
+     * @return A `private_link_configuration` block as defined below.
+     * 
+     */
+    public Output<Optional<HadoopClusterPrivateLinkConfiguration>> privateLinkConfiguration() {
+        return Codegen.optional(this.privateLinkConfiguration);
     }
     /**
      * Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.

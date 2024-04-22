@@ -86,6 +86,10 @@ export class ManagementGroup extends pulumi.CustomResource {
      * > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
      */
     public readonly subscriptionIds!: pulumi.Output<string[]>;
+    /**
+     * The Management Group ID with the Tenant ID prefix.
+     */
+    public /*out*/ readonly tenantScopedId!: pulumi.Output<string>;
 
     /**
      * Create a ManagementGroup resource with the given unique name, arguments, and options.
@@ -107,12 +111,14 @@ export class ManagementGroup extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parentManagementGroupId"] = state ? state.parentManagementGroupId : undefined;
             resourceInputs["subscriptionIds"] = state ? state.subscriptionIds : undefined;
+            resourceInputs["tenantScopedId"] = state ? state.tenantScopedId : undefined;
         } else {
             const args = argsOrState as ManagementGroupArgs | undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parentManagementGroupId"] = args ? args.parentManagementGroupId : undefined;
             resourceInputs["subscriptionIds"] = args ? args.subscriptionIds : undefined;
+            resourceInputs["tenantScopedId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ManagementGroup.__pulumiType, name, resourceInputs, opts);
@@ -141,6 +147,10 @@ export interface ManagementGroupState {
      * > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
      */
     subscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Management Group ID with the Tenant ID prefix.
+     */
+    tenantScopedId?: pulumi.Input<string>;
 }
 
 /**

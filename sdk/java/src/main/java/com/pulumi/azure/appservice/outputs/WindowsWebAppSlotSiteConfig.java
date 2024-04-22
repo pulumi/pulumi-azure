@@ -6,6 +6,7 @@ package com.pulumi.azure.appservice.outputs;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotSiteConfigApplicationStack;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotSiteConfigAutoHealSetting;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotSiteConfigCors;
+import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotSiteConfigHandlerMapping;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotSiteConfigIpRestriction;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotSiteConfigScmIpRestriction;
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotSiteConfigVirtualApplication;
@@ -84,6 +85,11 @@ public final class WindowsWebAppSlotSiteConfig {
     private @Nullable List<String> defaultDocuments;
     private @Nullable Boolean detailedErrorLoggingEnabled;
     private @Nullable String ftpsState;
+    /**
+     * @return One or more `handler_mapping` blocks as defined below.
+     * 
+     */
+    private @Nullable List<WindowsWebAppSlotSiteConfigHandlerMapping> handlerMappings;
     /**
      * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
      * 
@@ -281,6 +287,13 @@ public final class WindowsWebAppSlotSiteConfig {
         return Optional.ofNullable(this.ftpsState);
     }
     /**
+     * @return One or more `handler_mapping` blocks as defined below.
+     * 
+     */
+    public List<WindowsWebAppSlotSiteConfigHandlerMapping> handlerMappings() {
+        return this.handlerMappings == null ? List.of() : this.handlerMappings;
+    }
+    /**
      * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
      * 
      */
@@ -450,6 +463,7 @@ public final class WindowsWebAppSlotSiteConfig {
         private @Nullable List<String> defaultDocuments;
         private @Nullable Boolean detailedErrorLoggingEnabled;
         private @Nullable String ftpsState;
+        private @Nullable List<WindowsWebAppSlotSiteConfigHandlerMapping> handlerMappings;
         private @Nullable Integer healthCheckEvictionTimeInMin;
         private @Nullable String healthCheckPath;
         private @Nullable Boolean http2Enabled;
@@ -489,6 +503,7 @@ public final class WindowsWebAppSlotSiteConfig {
     	      this.defaultDocuments = defaults.defaultDocuments;
     	      this.detailedErrorLoggingEnabled = defaults.detailedErrorLoggingEnabled;
     	      this.ftpsState = defaults.ftpsState;
+    	      this.handlerMappings = defaults.handlerMappings;
     	      this.healthCheckEvictionTimeInMin = defaults.healthCheckEvictionTimeInMin;
     	      this.healthCheckPath = defaults.healthCheckPath;
     	      this.http2Enabled = defaults.http2Enabled;
@@ -599,6 +614,15 @@ public final class WindowsWebAppSlotSiteConfig {
 
             this.ftpsState = ftpsState;
             return this;
+        }
+        @CustomType.Setter
+        public Builder handlerMappings(@Nullable List<WindowsWebAppSlotSiteConfigHandlerMapping> handlerMappings) {
+
+            this.handlerMappings = handlerMappings;
+            return this;
+        }
+        public Builder handlerMappings(WindowsWebAppSlotSiteConfigHandlerMapping... handlerMappings) {
+            return handlerMappings(List.of(handlerMappings));
         }
         @CustomType.Setter
         public Builder healthCheckEvictionTimeInMin(@Nullable Integer healthCheckEvictionTimeInMin) {
@@ -757,6 +781,7 @@ public final class WindowsWebAppSlotSiteConfig {
             _resultValue.defaultDocuments = defaultDocuments;
             _resultValue.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
             _resultValue.ftpsState = ftpsState;
+            _resultValue.handlerMappings = handlerMappings;
             _resultValue.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
             _resultValue.healthCheckPath = healthCheckPath;
             _resultValue.http2Enabled = http2Enabled;

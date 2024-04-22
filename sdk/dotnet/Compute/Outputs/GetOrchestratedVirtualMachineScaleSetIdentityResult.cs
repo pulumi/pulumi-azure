@@ -18,6 +18,14 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
+        /// The Principal ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+        /// </summary>
+        public readonly string PrincipalId;
+        /// <summary>
+        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Orchestrated Virtual Machine Scale Set.
+        /// </summary>
+        public readonly string TenantId;
+        /// <summary>
         /// The Type of IP Tag.
         /// </summary>
         public readonly string Type;
@@ -26,9 +34,15 @@ namespace Pulumi.Azure.Compute.Outputs
         private GetOrchestratedVirtualMachineScaleSetIdentityResult(
             ImmutableArray<string> identityIds,
 
+            string principalId,
+
+            string tenantId,
+
             string type)
         {
             IdentityIds = identityIds;
+            PrincipalId = principalId;
+            TenantId = tenantId;
             Type = type;
         }
     }

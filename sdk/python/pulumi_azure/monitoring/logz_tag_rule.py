@@ -202,6 +202,8 @@ class LogzTagRule(pulumi.CustomResource):
         """
         Manages a logz Tag Rule.
 
+        !> **Note:** Logz REST API is being deprecated by Azure and new resources cannot be created. This resource will be removed in version 4.0 of the provider.
+
         ## Example Usage
 
         <!--Start PulumiCodeChooser -->
@@ -271,6 +273,8 @@ class LogzTagRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a logz Tag Rule.
+
+        !> **Note:** Logz REST API is being deprecated by Azure and new resources cannot be created. This resource will be removed in version 4.0 of the provider.
 
         ## Example Usage
 

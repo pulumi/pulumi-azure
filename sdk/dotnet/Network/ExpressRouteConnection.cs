@@ -151,6 +151,12 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+        /// </summary>
+        [Output("privateLinkFastPathEnabled")]
+        public Output<bool?> PrivateLinkFastPathEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `routing` block as defined below.
         /// </summary>
         [Output("routing")]
@@ -245,6 +251,12 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+        /// </summary>
+        [Input("privateLinkFastPathEnabled")]
+        public Input<bool>? PrivateLinkFastPathEnabled { get; set; }
+
+        /// <summary>
         /// A `routing` block as defined below.
         /// </summary>
         [Input("routing")]
@@ -299,6 +311,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+        /// </summary>
+        [Input("privateLinkFastPathEnabled")]
+        public Input<bool>? PrivateLinkFastPathEnabled { get; set; }
 
         /// <summary>
         /// A `routing` block as defined below.

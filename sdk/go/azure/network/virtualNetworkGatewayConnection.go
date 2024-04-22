@@ -333,6 +333,8 @@ type VirtualNetworkGatewayConnection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	PeerVirtualNetworkGatewayId pulumi.StringPtrOutput `pulumi:"peerVirtualNetworkGatewayId"`
+	// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypass` must be set to `true`. Defaults to `false`.
+	PrivateLinkFastPathEnabled pulumi.BoolPtrOutput `pulumi:"privateLinkFastPathEnabled"`
 	// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The routing weight. Defaults to `10`.
@@ -440,6 +442,8 @@ type virtualNetworkGatewayConnectionState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	PeerVirtualNetworkGatewayId *string `pulumi:"peerVirtualNetworkGatewayId"`
+	// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypass` must be set to `true`. Defaults to `false`.
+	PrivateLinkFastPathEnabled *bool `pulumi:"privateLinkFastPathEnabled"`
 	// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The routing weight. Defaults to `10`.
@@ -498,6 +502,8 @@ type VirtualNetworkGatewayConnectionState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	PeerVirtualNetworkGatewayId pulumi.StringPtrInput
+	// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypass` must be set to `true`. Defaults to `false`.
+	PrivateLinkFastPathEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The routing weight. Defaults to `10`.
@@ -560,6 +566,8 @@ type virtualNetworkGatewayConnectionArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	PeerVirtualNetworkGatewayId *string `pulumi:"peerVirtualNetworkGatewayId"`
+	// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypass` must be set to `true`. Defaults to `false`.
+	PrivateLinkFastPathEnabled *bool `pulumi:"privateLinkFastPathEnabled"`
 	// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The routing weight. Defaults to `10`.
@@ -619,6 +627,8 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	PeerVirtualNetworkGatewayId pulumi.StringPtrInput
+	// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypass` must be set to `true`. Defaults to `false`.
+	PrivateLinkFastPathEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The routing weight. Defaults to `10`.
@@ -813,6 +823,11 @@ func (o VirtualNetworkGatewayConnectionOutput) Name() pulumi.StringOutput {
 // The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayConnectionOutput) PeerVirtualNetworkGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.PeerVirtualNetworkGatewayId }).(pulumi.StringPtrOutput)
+}
+
+// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypass` must be set to `true`. Defaults to `false`.
+func (o VirtualNetworkGatewayConnectionOutput) PrivateLinkFastPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.BoolPtrOutput { return v.PrivateLinkFastPathEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the resource group in which to create the connection Changing this forces a new resource to be created.

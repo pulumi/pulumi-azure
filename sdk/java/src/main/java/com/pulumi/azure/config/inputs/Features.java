@@ -9,6 +9,7 @@ import com.pulumi.azure.config.outputs.FeaturesApplicationInsights;
 import com.pulumi.azure.config.outputs.FeaturesCognitiveAccount;
 import com.pulumi.azure.config.outputs.FeaturesKeyVault;
 import com.pulumi.azure.config.outputs.FeaturesLogAnalyticsWorkspace;
+import com.pulumi.azure.config.outputs.FeaturesMachineLearning;
 import com.pulumi.azure.config.outputs.FeaturesManagedDisk;
 import com.pulumi.azure.config.outputs.FeaturesPostgresqlFlexibleServer;
 import com.pulumi.azure.config.outputs.FeaturesRecoveryService;
@@ -30,6 +31,7 @@ public final class Features {
     private @Nullable FeaturesCognitiveAccount cognitiveAccount;
     private @Nullable FeaturesKeyVault keyVault;
     private @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
+    private @Nullable FeaturesMachineLearning machineLearning;
     private @Nullable FeaturesManagedDisk managedDisk;
     private @Nullable FeaturesPostgresqlFlexibleServer postgresqlFlexibleServer;
     private @Nullable FeaturesRecoveryService recoveryService;
@@ -57,6 +59,9 @@ public final class Features {
     }
     public Optional<FeaturesLogAnalyticsWorkspace> logAnalyticsWorkspace() {
         return Optional.ofNullable(this.logAnalyticsWorkspace);
+    }
+    public Optional<FeaturesMachineLearning> machineLearning() {
+        return Optional.ofNullable(this.machineLearning);
     }
     public Optional<FeaturesManagedDisk> managedDisk() {
         return Optional.ofNullable(this.managedDisk);
@@ -98,6 +103,7 @@ public final class Features {
         private @Nullable FeaturesCognitiveAccount cognitiveAccount;
         private @Nullable FeaturesKeyVault keyVault;
         private @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
+        private @Nullable FeaturesMachineLearning machineLearning;
         private @Nullable FeaturesManagedDisk managedDisk;
         private @Nullable FeaturesPostgresqlFlexibleServer postgresqlFlexibleServer;
         private @Nullable FeaturesRecoveryService recoveryService;
@@ -115,6 +121,7 @@ public final class Features {
     	      this.cognitiveAccount = defaults.cognitiveAccount;
     	      this.keyVault = defaults.keyVault;
     	      this.logAnalyticsWorkspace = defaults.logAnalyticsWorkspace;
+    	      this.machineLearning = defaults.machineLearning;
     	      this.managedDisk = defaults.managedDisk;
     	      this.postgresqlFlexibleServer = defaults.postgresqlFlexibleServer;
     	      this.recoveryService = defaults.recoveryService;
@@ -159,6 +166,12 @@ public final class Features {
         public Builder logAnalyticsWorkspace(@Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace) {
 
             this.logAnalyticsWorkspace = logAnalyticsWorkspace;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder machineLearning(@Nullable FeaturesMachineLearning machineLearning) {
+
+            this.machineLearning = machineLearning;
             return this;
         }
         @CustomType.Setter
@@ -217,6 +230,7 @@ public final class Features {
             _resultValue.cognitiveAccount = cognitiveAccount;
             _resultValue.keyVault = keyVault;
             _resultValue.logAnalyticsWorkspace = logAnalyticsWorkspace;
+            _resultValue.machineLearning = machineLearning;
             _resultValue.managedDisk = managedDisk;
             _resultValue.postgresqlFlexibleServer = postgresqlFlexibleServer;
             _resultValue.recoveryService = recoveryService;

@@ -365,6 +365,7 @@ __all__ = [
     'WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest',
     'WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode',
     'WindowsWebAppSiteConfigCors',
+    'WindowsWebAppSiteConfigHandlerMapping',
     'WindowsWebAppSiteConfigIpRestriction',
     'WindowsWebAppSiteConfigIpRestrictionHeaders',
     'WindowsWebAppSiteConfigScmIpRestriction',
@@ -410,6 +411,7 @@ __all__ = [
     'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest',
     'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode',
     'WindowsWebAppSlotSiteConfigCors',
+    'WindowsWebAppSlotSiteConfigHandlerMapping',
     'WindowsWebAppSlotSiteConfigIpRestriction',
     'WindowsWebAppSlotSiteConfigIpRestrictionHeaders',
     'WindowsWebAppSlotSiteConfigScmIpRestriction',
@@ -593,6 +595,7 @@ __all__ = [
     'GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult',
     'GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult',
     'GetWindowsWebAppSiteConfigCorResult',
+    'GetWindowsWebAppSiteConfigHandlerMappingResult',
     'GetWindowsWebAppSiteConfigIpRestrictionResult',
     'GetWindowsWebAppSiteConfigIpRestrictionHeaderResult',
     'GetWindowsWebAppSiteConfigScmIpRestrictionResult',
@@ -35040,6 +35043,8 @@ class WindowsWebAppSiteConfig(dict):
             suggest = "detailed_error_logging_enabled"
         elif key == "ftpsState":
             suggest = "ftps_state"
+        elif key == "handlerMappings":
+            suggest = "handler_mappings"
         elif key == "healthCheckEvictionTimeInMin":
             suggest = "health_check_eviction_time_in_min"
         elif key == "healthCheckPath":
@@ -35112,6 +35117,7 @@ class WindowsWebAppSiteConfig(dict):
                  default_documents: Optional[Sequence[str]] = None,
                  detailed_error_logging_enabled: Optional[bool] = None,
                  ftps_state: Optional[str] = None,
+                 handler_mappings: Optional[Sequence['outputs.WindowsWebAppSiteConfigHandlerMapping']] = None,
                  health_check_eviction_time_in_min: Optional[int] = None,
                  health_check_path: Optional[str] = None,
                  http2_enabled: Optional[bool] = None,
@@ -35149,6 +35155,7 @@ class WindowsWebAppSiteConfig(dict):
         :param bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param 'WindowsWebAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: Specifies a list of Default Documents for the Windows Web App.
+        :param Sequence['WindowsWebAppSiteConfigHandlerMappingArgs'] handler_mappings: One or more `handler_mapping` blocks as defined below.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to the Health Check.
         :param bool http2_enabled: Should the HTTP2 be enabled?
@@ -35196,6 +35203,8 @@ class WindowsWebAppSiteConfig(dict):
             pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
         if ftps_state is not None:
             pulumi.set(__self__, "ftps_state", ftps_state)
+        if handler_mappings is not None:
+            pulumi.set(__self__, "handler_mappings", handler_mappings)
         if health_check_eviction_time_in_min is not None:
             pulumi.set(__self__, "health_check_eviction_time_in_min", health_check_eviction_time_in_min)
         if health_check_path is not None:
@@ -35342,6 +35351,14 @@ class WindowsWebAppSiteConfig(dict):
     @pulumi.getter(name="ftpsState")
     def ftps_state(self) -> Optional[str]:
         return pulumi.get(self, "ftps_state")
+
+    @property
+    @pulumi.getter(name="handlerMappings")
+    def handler_mappings(self) -> Optional[Sequence['outputs.WindowsWebAppSiteConfigHandlerMapping']]:
+        """
+        One or more `handler_mapping` blocks as defined below.
+        """
+        return pulumi.get(self, "handler_mappings")
 
     @property
     @pulumi.getter(name="healthCheckEvictionTimeInMin")
@@ -36288,6 +36305,64 @@ class WindowsWebAppSiteConfigCors(dict):
         Whether CORS requests with credentials are allowed. Defaults to `false`
         """
         return pulumi.get(self, "support_credentials")
+
+
+@pulumi.output_type
+class WindowsWebAppSiteConfigHandlerMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scriptProcessorPath":
+            suggest = "script_processor_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsWebAppSiteConfigHandlerMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsWebAppSiteConfigHandlerMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsWebAppSiteConfigHandlerMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 extension: str,
+                 script_processor_path: str,
+                 arguments: Optional[str] = None):
+        """
+        :param str extension: Specifies which extension to be handled by the specified FastCGI application.
+        :param str script_processor_path: Specifies the absolute path to the FastCGI application.
+        :param str arguments: Specifies the command-line arguments to be passed to the script processor.
+        """
+        pulumi.set(__self__, "extension", extension)
+        pulumi.set(__self__, "script_processor_path", script_processor_path)
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+
+    @property
+    @pulumi.getter
+    def extension(self) -> str:
+        """
+        Specifies which extension to be handled by the specified FastCGI application.
+        """
+        return pulumi.get(self, "extension")
+
+    @property
+    @pulumi.getter(name="scriptProcessorPath")
+    def script_processor_path(self) -> str:
+        """
+        Specifies the absolute path to the FastCGI application.
+        """
+        return pulumi.get(self, "script_processor_path")
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[str]:
+        """
+        Specifies the command-line arguments to be passed to the script processor.
+        """
+        return pulumi.get(self, "arguments")
 
 
 @pulumi.output_type
@@ -39524,6 +39599,8 @@ class WindowsWebAppSlotSiteConfig(dict):
             suggest = "detailed_error_logging_enabled"
         elif key == "ftpsState":
             suggest = "ftps_state"
+        elif key == "handlerMappings":
+            suggest = "handler_mappings"
         elif key == "healthCheckEvictionTimeInMin":
             suggest = "health_check_eviction_time_in_min"
         elif key == "healthCheckPath":
@@ -39595,6 +39672,7 @@ class WindowsWebAppSlotSiteConfig(dict):
                  default_documents: Optional[Sequence[str]] = None,
                  detailed_error_logging_enabled: Optional[bool] = None,
                  ftps_state: Optional[str] = None,
+                 handler_mappings: Optional[Sequence['outputs.WindowsWebAppSlotSiteConfigHandlerMapping']] = None,
                  health_check_eviction_time_in_min: Optional[int] = None,
                  health_check_path: Optional[str] = None,
                  http2_enabled: Optional[bool] = None,
@@ -39632,6 +39710,7 @@ class WindowsWebAppSlotSiteConfig(dict):
         :param bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param 'WindowsWebAppSlotSiteConfigCorsArgs' cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: Specifies a list of Default Documents for the Windows Web App Slot.
+        :param Sequence['WindowsWebAppSlotSiteConfigHandlerMappingArgs'] handler_mappings: One or more `handler_mapping` blocks as defined below.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to the Health Check.
         :param bool http2_enabled: Should the HTTP2 be enabled?
@@ -39681,6 +39760,8 @@ class WindowsWebAppSlotSiteConfig(dict):
             pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
         if ftps_state is not None:
             pulumi.set(__self__, "ftps_state", ftps_state)
+        if handler_mappings is not None:
+            pulumi.set(__self__, "handler_mappings", handler_mappings)
         if health_check_eviction_time_in_min is not None:
             pulumi.set(__self__, "health_check_eviction_time_in_min", health_check_eviction_time_in_min)
         if health_check_path is not None:
@@ -39833,6 +39914,14 @@ class WindowsWebAppSlotSiteConfig(dict):
     @pulumi.getter(name="ftpsState")
     def ftps_state(self) -> Optional[str]:
         return pulumi.get(self, "ftps_state")
+
+    @property
+    @pulumi.getter(name="handlerMappings")
+    def handler_mappings(self) -> Optional[Sequence['outputs.WindowsWebAppSlotSiteConfigHandlerMapping']]:
+        """
+        One or more `handler_mapping` blocks as defined below.
+        """
+        return pulumi.get(self, "handler_mappings")
 
     @property
     @pulumi.getter(name="healthCheckEvictionTimeInMin")
@@ -40752,6 +40841,64 @@ class WindowsWebAppSlotSiteConfigCors(dict):
         Whether CORS requests with credentials are allowed. Defaults to `false`
         """
         return pulumi.get(self, "support_credentials")
+
+
+@pulumi.output_type
+class WindowsWebAppSlotSiteConfigHandlerMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scriptProcessorPath":
+            suggest = "script_processor_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsWebAppSlotSiteConfigHandlerMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsWebAppSlotSiteConfigHandlerMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsWebAppSlotSiteConfigHandlerMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 extension: str,
+                 script_processor_path: str,
+                 arguments: Optional[str] = None):
+        """
+        :param str extension: Specify which extension to be handled by the specified FastCGI application.
+        :param str script_processor_path: Specify the absolute path to the FastCGI application.
+        :param str arguments: Specify the command-line arguments to be passed to the script processor.
+        """
+        pulumi.set(__self__, "extension", extension)
+        pulumi.set(__self__, "script_processor_path", script_processor_path)
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+
+    @property
+    @pulumi.getter
+    def extension(self) -> str:
+        """
+        Specify which extension to be handled by the specified FastCGI application.
+        """
+        return pulumi.get(self, "extension")
+
+    @property
+    @pulumi.getter(name="scriptProcessorPath")
+    def script_processor_path(self) -> str:
+        """
+        Specify the absolute path to the FastCGI application.
+        """
+        return pulumi.get(self, "script_processor_path")
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[str]:
+        """
+        Specify the command-line arguments to be passed to the script processor.
+        """
+        return pulumi.get(self, "arguments")
 
 
 @pulumi.output_type
@@ -44060,7 +44207,7 @@ class GetLinuxFunctionAppAuthSettingsV2CustomOidcV2Result(dict):
         :param str issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
         :param str name: The name which should be used for this Linux Function App.
         :param str name_claim_type: The name of the claim that contains the users name.
-        :param str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        :param str openid_configuration_endpoint: The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         :param Sequence[str] scopes: The list of the scopes that are requested while authenticating.
         :param str token_endpoint: The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
         """
@@ -44144,7 +44291,7 @@ class GetLinuxFunctionAppAuthSettingsV2CustomOidcV2Result(dict):
     @pulumi.getter(name="openidConfigurationEndpoint")
     def openid_configuration_endpoint(self) -> str:
         """
-        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         """
         return pulumi.get(self, "openid_configuration_endpoint")
 
@@ -46641,7 +46788,7 @@ class GetLinuxWebAppAuthSettingsV2CustomOidcV2Result(dict):
         :param str issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
         :param str name: The name of this Linux Web App.
         :param str name_claim_type: The name of the claim that contains the users name.
-        :param str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        :param str openid_configuration_endpoint: The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         :param Sequence[str] scopes: The list of the scopes that are requested while authenticating.
         :param str token_endpoint: The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
         """
@@ -46725,7 +46872,7 @@ class GetLinuxWebAppAuthSettingsV2CustomOidcV2Result(dict):
     @pulumi.getter(name="openidConfigurationEndpoint")
     def openid_configuration_endpoint(self) -> str:
         """
-        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         """
         return pulumi.get(self, "openid_configuration_endpoint")
 
@@ -49752,7 +49899,7 @@ class GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Result(dict):
         :param str issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
         :param str name: The name of this Windows Function App.
         :param str name_claim_type: The name of the claim that contains the users name.
-        :param str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        :param str openid_configuration_endpoint: The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         :param Sequence[str] scopes: The list of the scopes that are requested while authenticating.
         :param str token_endpoint: The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
         """
@@ -49836,7 +49983,7 @@ class GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Result(dict):
     @pulumi.getter(name="openidConfigurationEndpoint")
     def openid_configuration_endpoint(self) -> str:
         """
-        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         """
         return pulumi.get(self, "openid_configuration_endpoint")
 
@@ -52230,7 +52377,7 @@ class GetWindowsWebAppAuthSettingsV2CustomOidcV2Result(dict):
         :param str issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
         :param str name: The name of this Windows Web App.
         :param str name_claim_type: The name of the claim that contains the users name.
-        :param str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        :param str openid_configuration_endpoint: The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         :param Sequence[str] scopes: The list of the scopes that are requested while authenticating.
         :param str token_endpoint: The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
         """
@@ -52314,7 +52461,7 @@ class GetWindowsWebAppAuthSettingsV2CustomOidcV2Result(dict):
     @pulumi.getter(name="openidConfigurationEndpoint")
     def openid_configuration_endpoint(self) -> str:
         """
-        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         """
         return pulumi.get(self, "openid_configuration_endpoint")
 
@@ -53123,6 +53270,7 @@ class GetWindowsWebAppSiteConfigResult(dict):
                  default_documents: Sequence[str],
                  detailed_error_logging_enabled: bool,
                  ftps_state: str,
+                 handler_mappings: Sequence['outputs.GetWindowsWebAppSiteConfigHandlerMappingResult'],
                  health_check_eviction_time_in_min: int,
                  health_check_path: str,
                  http2_enabled: bool,
@@ -53159,6 +53307,7 @@ class GetWindowsWebAppSiteConfigResult(dict):
         :param Sequence[str] default_documents: The list of Default Documents for the Windows Web App.
         :param bool detailed_error_logging_enabled: Is Detailed Error Logging enabled.
         :param str ftps_state: The State of FTP / FTPS service.
+        :param Sequence['GetWindowsWebAppSiteConfigHandlerMappingArgs'] handler_mappings: A `handler_mapping` block as defined below.
         :param int health_check_eviction_time_in_min: (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to the Health Check endpoint.
         :param bool http2_enabled: Is HTTP2.0 enabled.
@@ -53194,6 +53343,7 @@ class GetWindowsWebAppSiteConfigResult(dict):
         pulumi.set(__self__, "default_documents", default_documents)
         pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
         pulumi.set(__self__, "ftps_state", ftps_state)
+        pulumi.set(__self__, "handler_mappings", handler_mappings)
         pulumi.set(__self__, "health_check_eviction_time_in_min", health_check_eviction_time_in_min)
         pulumi.set(__self__, "health_check_path", health_check_path)
         pulumi.set(__self__, "http2_enabled", http2_enabled)
@@ -53320,6 +53470,14 @@ class GetWindowsWebAppSiteConfigResult(dict):
         The State of FTP / FTPS service.
         """
         return pulumi.get(self, "ftps_state")
+
+    @property
+    @pulumi.getter(name="handlerMappings")
+    def handler_mappings(self) -> Sequence['outputs.GetWindowsWebAppSiteConfigHandlerMappingResult']:
+        """
+        A `handler_mapping` block as defined below.
+        """
+        return pulumi.get(self, "handler_mappings")
 
     @property
     @pulumi.getter(name="healthCheckEvictionTimeInMin")
@@ -54012,6 +54170,46 @@ class GetWindowsWebAppSiteConfigCorResult(dict):
         Whether CORS requests with credentials are allowed.
         """
         return pulumi.get(self, "support_credentials")
+
+
+@pulumi.output_type
+class GetWindowsWebAppSiteConfigHandlerMappingResult(dict):
+    def __init__(__self__, *,
+                 arguments: str,
+                 extension: str,
+                 script_processor_path: str):
+        """
+        :param str arguments: The command-line arguments to be passed to the script processor.
+        :param str extension: The extension to be handled by the specified FastCGI application.
+        :param str script_processor_path: The absolute path to the FastCGI application.
+        """
+        pulumi.set(__self__, "arguments", arguments)
+        pulumi.set(__self__, "extension", extension)
+        pulumi.set(__self__, "script_processor_path", script_processor_path)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> str:
+        """
+        The command-line arguments to be passed to the script processor.
+        """
+        return pulumi.get(self, "arguments")
+
+    @property
+    @pulumi.getter
+    def extension(self) -> str:
+        """
+        The extension to be handled by the specified FastCGI application.
+        """
+        return pulumi.get(self, "extension")
+
+    @property
+    @pulumi.getter(name="scriptProcessorPath")
+    def script_processor_path(self) -> str:
+        """
+        The absolute path to the FastCGI application.
+        """
+        return pulumi.get(self, "script_processor_path")
 
 
 @pulumi.output_type

@@ -85,6 +85,12 @@ public final class GetGatewayConnectionResult {
      * 
      */
     private String peerVirtualNetworkGatewayId;
+    /**
+     * @return If `true`, data packets will bypass the Express Route gateway when accessing private-links.
+     * This is only valid for ExpressRoute connections, on the conditions described in [the relevant section in the Azure documentation](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-linkvnet-arm#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections)
+     * 
+     */
+    private Boolean privateLinkFastPathEnabled;
     private String resourceGroupName;
     private String resourceGuid;
     /**
@@ -229,6 +235,14 @@ public final class GetGatewayConnectionResult {
     public String peerVirtualNetworkGatewayId() {
         return this.peerVirtualNetworkGatewayId;
     }
+    /**
+     * @return If `true`, data packets will bypass the Express Route gateway when accessing private-links.
+     * This is only valid for ExpressRoute connections, on the conditions described in [the relevant section in the Azure documentation](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-linkvnet-arm#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections)
+     * 
+     */
+    public Boolean privateLinkFastPathEnabled() {
+        return this.privateLinkFastPathEnabled;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -315,6 +329,7 @@ public final class GetGatewayConnectionResult {
         private String location;
         private String name;
         private String peerVirtualNetworkGatewayId;
+        private Boolean privateLinkFastPathEnabled;
         private String resourceGroupName;
         private String resourceGuid;
         private Integer routingWeight;
@@ -342,6 +357,7 @@ public final class GetGatewayConnectionResult {
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.peerVirtualNetworkGatewayId = defaults.peerVirtualNetworkGatewayId;
+    	      this.privateLinkFastPathEnabled = defaults.privateLinkFastPathEnabled;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.resourceGuid = defaults.resourceGuid;
     	      this.routingWeight = defaults.routingWeight;
@@ -477,6 +493,14 @@ public final class GetGatewayConnectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder privateLinkFastPathEnabled(Boolean privateLinkFastPathEnabled) {
+            if (privateLinkFastPathEnabled == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "privateLinkFastPathEnabled");
+            }
+            this.privateLinkFastPathEnabled = privateLinkFastPathEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             if (resourceGroupName == null) {
               throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "resourceGroupName");
@@ -568,6 +592,7 @@ public final class GetGatewayConnectionResult {
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.peerVirtualNetworkGatewayId = peerVirtualNetworkGatewayId;
+            _resultValue.privateLinkFastPathEnabled = privateLinkFastPathEnabled;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.resourceGuid = resourceGuid;
             _resultValue.routingWeight = routingWeight;

@@ -800,7 +800,9 @@ type EndpointPrivateServiceConnection struct {
 	PrivateConnectionResourceId *string `pulumi:"privateConnectionResourceId"`
 	// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
+	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
+	//
+	// > **NOTE:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
 	RequestMessage *string `pulumi:"requestMessage"`
 	// A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
 	//
@@ -832,7 +834,9 @@ type EndpointPrivateServiceConnectionArgs struct {
 	PrivateConnectionResourceId pulumi.StringPtrInput `pulumi:"privateConnectionResourceId"`
 	// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
+	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
+	//
+	// > **NOTE:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
 	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
 	// A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
 	//
@@ -944,7 +948,9 @@ func (o EndpointPrivateServiceConnectionOutput) PrivateIpAddress() pulumi.String
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
+// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
+//
+// > **NOTE:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
 func (o EndpointPrivateServiceConnectionOutput) RequestMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
 }
@@ -1032,7 +1038,9 @@ func (o EndpointPrivateServiceConnectionPtrOutput) PrivateIpAddress() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
+// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
+//
+// > **NOTE:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
 func (o EndpointPrivateServiceConnectionPtrOutput) RequestMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
 		if v == nil {

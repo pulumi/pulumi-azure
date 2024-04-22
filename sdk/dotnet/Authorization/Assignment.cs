@@ -192,6 +192,72 @@ namespace Pulumi.Azure.Authorization
     /// ```
     /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// ### ABAC Condition)
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var primary = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var builtin = Azure.Authorization.GetRoleDefinition.Invoke(new()
+    ///     {
+    ///         Name = "Reader",
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+    ///     {
+    ///         RoleDefinitionName = "Role Based Access Control Administrator",
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         PrincipalId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         PrincipalType = "ServicePrincipal",
+    ///         Description = "Role Based Access Control Administrator role assignment with ABAC Condition.",
+    ///         ConditionVersion = "2.0",
+    ///         Condition = Output.Tuple(Std.Basename.Invoke(new()
+    ///         {
+    ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
+    ///         }), Std.Basename.Invoke(new()
+    ///         {
+    ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
+    ///         })).Apply(values =&gt;
+    ///         {
+    ///             var invoke = values.Item1;
+    ///             var invoke1 = values.Item2;
+    ///             return @$"(
+    ///  (
+    ///   !(ActionMatches{{'Microsoft.Authorization/roleAssignments/write'}})
+    ///  )
+    ///  OR
+    ///  (
+    ///   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{invoke.Result}}}
+    ///  )
+    /// )
+    /// AND
+    /// (
+    ///  (
+    ///   !(ActionMatches{{'Microsoft.Authorization/roleAssignments/delete'}})
+    ///  )
+    ///  OR
+    ///  (
+    ///   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{invoke1.Result}}}
+    ///  )
+    /// )
+    /// ";
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Role Assignments can be imported using the `resource id`, e.g.

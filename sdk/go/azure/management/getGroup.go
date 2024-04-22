@@ -77,6 +77,8 @@ type LookupGroupResult struct {
 	ParentManagementGroupId string `pulumi:"parentManagementGroupId"`
 	// A list of Subscription IDs which are directly assigned to this Management Group.
 	SubscriptionIds []string `pulumi:"subscriptionIds"`
+	// The Management Group ID with the Tenant ID prefix.
+	TenantScopedId string `pulumi:"tenantScopedId"`
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
@@ -157,6 +159,11 @@ func (o LookupGroupResultOutput) ParentManagementGroupId() pulumi.StringOutput {
 // A list of Subscription IDs which are directly assigned to this Management Group.
 func (o LookupGroupResultOutput) SubscriptionIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []string { return v.SubscriptionIds }).(pulumi.StringArrayOutput)
+}
+
+// The Management Group ID with the Tenant ID prefix.
+func (o LookupGroupResultOutput) TenantScopedId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.TenantScopedId }).(pulumi.StringOutput)
 }
 
 func init() {

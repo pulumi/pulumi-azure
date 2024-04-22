@@ -384,7 +384,7 @@ class AppIngressIpSecurityRestrictionArgs:
         :param pulumi.Input[str] action: The IP-filter action. `Allow` or `Deny`.
                
                > **NOTE:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
-        :param pulumi.Input[str] ip_address_range: CIDR notation to match incoming IP address.
+        :param pulumi.Input[str] ip_address_range: The incoming IP address or range of IP addresses (in CIDR notation).
         :param pulumi.Input[str] name: Name for the IP restriction rule.
         :param pulumi.Input[str] description: Describe the IP restriction rule that is being sent to the container-app.
         """
@@ -412,7 +412,7 @@ class AppIngressIpSecurityRestrictionArgs:
     @pulumi.getter(name="ipAddressRange")
     def ip_address_range(self) -> pulumi.Input[str]:
         """
-        CIDR notation to match incoming IP address.
+        The incoming IP address or range of IP addresses (in CIDR notation).
         """
         return pulumi.get(self, "ip_address_range")
 

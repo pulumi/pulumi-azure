@@ -22,7 +22,7 @@ class GetGatewayConnectionResult:
     """
     A collection of values returned by getGatewayConnection.
     """
-    def __init__(__self__, authorization_key=None, connection_protocol=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, local_azure_ip_address_enabled=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policies=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
+    def __init__(__self__, authorization_key=None, connection_protocol=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, local_azure_ip_address_enabled=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, private_link_fast_path_enabled=None, resource_group_name=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policies=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         pulumi.set(__self__, "authorization_key", authorization_key)
@@ -68,6 +68,9 @@ class GetGatewayConnectionResult:
         if peer_virtual_network_gateway_id and not isinstance(peer_virtual_network_gateway_id, str):
             raise TypeError("Expected argument 'peer_virtual_network_gateway_id' to be a str")
         pulumi.set(__self__, "peer_virtual_network_gateway_id", peer_virtual_network_gateway_id)
+        if private_link_fast_path_enabled and not isinstance(private_link_fast_path_enabled, bool):
+            raise TypeError("Expected argument 'private_link_fast_path_enabled' to be a bool")
+        pulumi.set(__self__, "private_link_fast_path_enabled", private_link_fast_path_enabled)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -215,6 +218,15 @@ class GetGatewayConnectionResult:
         return pulumi.get(self, "peer_virtual_network_gateway_id")
 
     @property
+    @pulumi.getter(name="privateLinkFastPathEnabled")
+    def private_link_fast_path_enabled(self) -> bool:
+        """
+        If `true`, data packets will bypass the Express Route gateway when accessing private-links.
+        This is only valid for ExpressRoute connections, on the conditions described in [the relevant section in the Azure documentation](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-linkvnet-arm#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections)
+        """
+        return pulumi.get(self, "private_link_fast_path_enabled")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -308,6 +320,7 @@ class AwaitableGetGatewayConnectionResult(GetGatewayConnectionResult):
             location=self.location,
             name=self.name,
             peer_virtual_network_gateway_id=self.peer_virtual_network_gateway_id,
+            private_link_fast_path_enabled=self.private_link_fast_path_enabled,
             resource_group_name=self.resource_group_name,
             resource_guid=self.resource_guid,
             routing_weight=self.routing_weight,
@@ -364,6 +377,7 @@ def get_gateway_connection(name: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         peer_virtual_network_gateway_id=pulumi.get(__ret__, 'peer_virtual_network_gateway_id'),
+        private_link_fast_path_enabled=pulumi.get(__ret__, 'private_link_fast_path_enabled'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         routing_weight=pulumi.get(__ret__, 'routing_weight'),

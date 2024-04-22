@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterMaintenanceWindowNodeOs
     {
         /// <summary>
-        /// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+        /// The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
         /// </summary>
         public readonly int? DayOfMonth;
         /// <summary>

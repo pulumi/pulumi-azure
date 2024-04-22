@@ -139,6 +139,8 @@ type HadoopCluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `network` block as defined below.
 	Network HadoopClusterNetworkPtrOutput `pulumi:"network"`
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration HadoopClusterPrivateLinkConfigurationPtrOutput `pulumi:"privateLinkConfiguration"`
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -233,6 +235,8 @@ type hadoopClusterState struct {
 	Name *string `pulumi:"name"`
 	// A `network` block as defined below.
 	Network *HadoopClusterNetwork `pulumi:"network"`
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration *HadoopClusterPrivateLinkConfiguration `pulumi:"privateLinkConfiguration"`
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -280,6 +284,8 @@ type HadoopClusterState struct {
 	Name pulumi.StringPtrInput
 	// A `network` block as defined below.
 	Network HadoopClusterNetworkPtrInput
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration HadoopClusterPrivateLinkConfigurationPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roles` block as defined below.
@@ -329,6 +335,8 @@ type hadoopClusterArgs struct {
 	Name *string `pulumi:"name"`
 	// A `network` block as defined below.
 	Network *HadoopClusterNetwork `pulumi:"network"`
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration *HadoopClusterPrivateLinkConfiguration `pulumi:"privateLinkConfiguration"`
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -373,6 +381,8 @@ type HadoopClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// A `network` block as defined below.
 	Network HadoopClusterNetworkPtrInput
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration HadoopClusterPrivateLinkConfigurationPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `roles` block as defined below.
@@ -538,6 +548,13 @@ func (o HadoopClusterOutput) Name() pulumi.StringOutput {
 // A `network` block as defined below.
 func (o HadoopClusterOutput) Network() HadoopClusterNetworkPtrOutput {
 	return o.ApplyT(func(v *HadoopCluster) HadoopClusterNetworkPtrOutput { return v.Network }).(HadoopClusterNetworkPtrOutput)
+}
+
+// A `privateLinkConfiguration` block as defined below.
+func (o HadoopClusterOutput) PrivateLinkConfiguration() HadoopClusterPrivateLinkConfigurationPtrOutput {
+	return o.ApplyT(func(v *HadoopCluster) HadoopClusterPrivateLinkConfigurationPtrOutput {
+		return v.PrivateLinkConfiguration
+	}).(HadoopClusterPrivateLinkConfigurationPtrOutput)
 }
 
 // Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.

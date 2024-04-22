@@ -54,6 +54,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// <summary>
         /// The Server Secret of an Azure Active Directory Application.
         /// </summary>
+        [Obsolete(@"Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.")]
         public Input<string>? ServerAppSecret
         {
             get => _serverAppSecret;

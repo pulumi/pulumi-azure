@@ -30,6 +30,7 @@ class HadoopClusterArgs:
                  monitor: Optional[pulumi.Input['HadoopClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['HadoopClusterNetworkArgs']] = None,
+                 private_link_configuration: Optional[pulumi.Input['HadoopClusterPrivateLinkConfigurationArgs']] = None,
                  security_profile: Optional[pulumi.Input['HadoopClusterSecurityProfileArgs']] = None,
                  storage_account_gen2: Optional[pulumi.Input['HadoopClusterStorageAccountGen2Args']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArgs']]]] = None,
@@ -51,6 +52,7 @@ class HadoopClusterArgs:
         :param pulumi.Input['HadoopClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterNetworkArgs'] network: A `network` block as defined below.
+        :param pulumi.Input['HadoopClusterPrivateLinkConfigurationArgs'] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input['HadoopClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
@@ -81,6 +83,8 @@ class HadoopClusterArgs:
             pulumi.set(__self__, "name", name)
         if network is not None:
             pulumi.set(__self__, "network", network)
+        if private_link_configuration is not None:
+            pulumi.set(__self__, "private_link_configuration", private_link_configuration)
         if security_profile is not None:
             pulumi.set(__self__, "security_profile", security_profile)
         if storage_account_gen2 is not None:
@@ -261,6 +265,18 @@ class HadoopClusterArgs:
         pulumi.set(self, "network", value)
 
     @property
+    @pulumi.getter(name="privateLinkConfiguration")
+    def private_link_configuration(self) -> Optional[pulumi.Input['HadoopClusterPrivateLinkConfigurationArgs']]:
+        """
+        A `private_link_configuration` block as defined below.
+        """
+        return pulumi.get(self, "private_link_configuration")
+
+    @private_link_configuration.setter
+    def private_link_configuration(self, value: Optional[pulumi.Input['HadoopClusterPrivateLinkConfigurationArgs']]):
+        pulumi.set(self, "private_link_configuration", value)
+
+    @property
     @pulumi.getter(name="securityProfile")
     def security_profile(self) -> Optional[pulumi.Input['HadoopClusterSecurityProfileArgs']]:
         """
@@ -338,6 +354,7 @@ class _HadoopClusterState:
                  monitor: Optional[pulumi.Input['HadoopClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['HadoopClusterNetworkArgs']] = None,
+                 private_link_configuration: Optional[pulumi.Input['HadoopClusterPrivateLinkConfigurationArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input['HadoopClusterRolesArgs']] = None,
                  security_profile: Optional[pulumi.Input['HadoopClusterSecurityProfileArgs']] = None,
@@ -361,6 +378,7 @@ class _HadoopClusterState:
         :param pulumi.Input['HadoopClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterNetworkArgs'] network: A `network` block as defined below.
+        :param pulumi.Input['HadoopClusterPrivateLinkConfigurationArgs'] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterRolesArgs'] roles: A `roles` block as defined below.
         :param pulumi.Input['HadoopClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
@@ -397,6 +415,8 @@ class _HadoopClusterState:
             pulumi.set(__self__, "name", name)
         if network is not None:
             pulumi.set(__self__, "network", network)
+        if private_link_configuration is not None:
+            pulumi.set(__self__, "private_link_configuration", private_link_configuration)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if roles is not None:
@@ -561,6 +581,18 @@ class _HadoopClusterState:
         pulumi.set(self, "network", value)
 
     @property
+    @pulumi.getter(name="privateLinkConfiguration")
+    def private_link_configuration(self) -> Optional[pulumi.Input['HadoopClusterPrivateLinkConfigurationArgs']]:
+        """
+        A `private_link_configuration` block as defined below.
+        """
+        return pulumi.get(self, "private_link_configuration")
+
+    @private_link_configuration.setter
+    def private_link_configuration(self, value: Optional[pulumi.Input['HadoopClusterPrivateLinkConfigurationArgs']]):
+        pulumi.set(self, "private_link_configuration", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -687,6 +719,7 @@ class HadoopCluster(pulumi.CustomResource):
                  monitor: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMonitorArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['HadoopClusterNetworkArgs']]] = None,
+                 private_link_configuration: Optional[pulumi.Input[pulumi.InputType['HadoopClusterPrivateLinkConfigurationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['HadoopClusterRolesArgs']]] = None,
                  security_profile: Optional[pulumi.Input[pulumi.InputType['HadoopClusterSecurityProfileArgs']]] = None,
@@ -779,6 +812,7 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['HadoopClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HadoopClusterNetworkArgs']] network: A `network` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterPrivateLinkConfigurationArgs']] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HadoopClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[pulumi.InputType['HadoopClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
@@ -892,6 +926,7 @@ class HadoopCluster(pulumi.CustomResource):
                  monitor: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMonitorArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['HadoopClusterNetworkArgs']]] = None,
+                 private_link_configuration: Optional[pulumi.Input[pulumi.InputType['HadoopClusterPrivateLinkConfigurationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['HadoopClusterRolesArgs']]] = None,
                  security_profile: Optional[pulumi.Input[pulumi.InputType['HadoopClusterSecurityProfileArgs']]] = None,
@@ -926,6 +961,7 @@ class HadoopCluster(pulumi.CustomResource):
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["name"] = name
             __props__.__dict__["network"] = network
+            __props__.__dict__["private_link_configuration"] = private_link_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -964,6 +1000,7 @@ class HadoopCluster(pulumi.CustomResource):
             monitor: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMonitorArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network: Optional[pulumi.Input[pulumi.InputType['HadoopClusterNetworkArgs']]] = None,
+            private_link_configuration: Optional[pulumi.Input[pulumi.InputType['HadoopClusterPrivateLinkConfigurationArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[pulumi.InputType['HadoopClusterRolesArgs']]] = None,
             security_profile: Optional[pulumi.Input[pulumi.InputType['HadoopClusterSecurityProfileArgs']]] = None,
@@ -992,6 +1029,7 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['HadoopClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HadoopClusterNetworkArgs']] network: A `network` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterPrivateLinkConfigurationArgs']] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HadoopClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[pulumi.InputType['HadoopClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
@@ -1020,6 +1058,7 @@ class HadoopCluster(pulumi.CustomResource):
         __props__.__dict__["monitor"] = monitor
         __props__.__dict__["name"] = name
         __props__.__dict__["network"] = network
+        __props__.__dict__["private_link_configuration"] = private_link_configuration
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["roles"] = roles
         __props__.__dict__["security_profile"] = security_profile
@@ -1126,6 +1165,14 @@ class HadoopCluster(pulumi.CustomResource):
         A `network` block as defined below.
         """
         return pulumi.get(self, "network")
+
+    @property
+    @pulumi.getter(name="privateLinkConfiguration")
+    def private_link_configuration(self) -> pulumi.Output[Optional['outputs.HadoopClusterPrivateLinkConfiguration']]:
+        """
+        A `private_link_configuration` block as defined below.
+        """
+        return pulumi.get(self, "private_link_configuration")
 
     @property
     @pulumi.getter(name="resourceGroupName")

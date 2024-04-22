@@ -80,6 +80,21 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.subscriptionIds);
     }
 
+    /**
+     * The Management Group ID with the Tenant ID prefix.
+     * 
+     */
+    @Import(name="tenantScopedId")
+    private @Nullable Output<String> tenantScopedId;
+
+    /**
+     * @return The Management Group ID with the Tenant ID prefix.
+     * 
+     */
+    public Optional<Output<String>> tenantScopedId() {
+        return Optional.ofNullable(this.tenantScopedId);
+    }
+
     private GroupState() {}
 
     private GroupState(GroupState $) {
@@ -87,6 +102,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.parentManagementGroupId = $.parentManagementGroupId;
         this.subscriptionIds = $.subscriptionIds;
+        this.tenantScopedId = $.tenantScopedId;
     }
 
     public static Builder builder() {
@@ -205,6 +221,27 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder subscriptionIds(String... subscriptionIds) {
             return subscriptionIds(List.of(subscriptionIds));
+        }
+
+        /**
+         * @param tenantScopedId The Management Group ID with the Tenant ID prefix.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantScopedId(@Nullable Output<String> tenantScopedId) {
+            $.tenantScopedId = tenantScopedId;
+            return this;
+        }
+
+        /**
+         * @param tenantScopedId The Management Group ID with the Tenant ID prefix.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantScopedId(String tenantScopedId) {
+            return tenantScopedId(Output.of(tenantScopedId));
         }
 
         public GroupState build() {

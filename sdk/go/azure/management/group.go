@@ -81,6 +81,8 @@ type Group struct {
 	//
 	// > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
 	SubscriptionIds pulumi.StringArrayOutput `pulumi:"subscriptionIds"`
+	// The Management Group ID with the Tenant ID prefix.
+	TenantScopedId pulumi.StringOutput `pulumi:"tenantScopedId"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -129,6 +131,8 @@ type groupState struct {
 	//
 	// > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
 	SubscriptionIds []string `pulumi:"subscriptionIds"`
+	// The Management Group ID with the Tenant ID prefix.
+	TenantScopedId *string `pulumi:"tenantScopedId"`
 }
 
 type GroupState struct {
@@ -142,6 +146,8 @@ type GroupState struct {
 	//
 	// > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
 	SubscriptionIds pulumi.StringArrayInput
+	// The Management Group ID with the Tenant ID prefix.
+	TenantScopedId pulumi.StringPtrInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -282,6 +288,11 @@ func (o GroupOutput) ParentManagementGroupId() pulumi.StringOutput {
 // > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
 func (o GroupOutput) SubscriptionIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.SubscriptionIds }).(pulumi.StringArrayOutput)
+}
+
+// The Management Group ID with the Tenant ID prefix.
+func (o GroupOutput) TenantScopedId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.TenantScopedId }).(pulumi.StringOutput)
 }
 
 type GroupArrayOutput struct{ *pulumi.OutputState }

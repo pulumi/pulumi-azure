@@ -109,6 +109,11 @@ export interface GetGatewayConnectionResult {
      * is `Vnet2Vnet`).
      */
     readonly peerVirtualNetworkGatewayId: string;
+    /**
+     * If `true`, data packets will bypass the Express Route gateway when accessing private-links.
+     * This is only valid for ExpressRoute connections, on the conditions described in [the relevant section in the Azure documentation](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-linkvnet-arm#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections)
+     */
+    readonly privateLinkFastPathEnabled: boolean;
     readonly resourceGroupName: string;
     readonly resourceGuid: string;
     /**

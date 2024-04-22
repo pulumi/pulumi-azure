@@ -111,6 +111,8 @@ type ActivityLogAlert struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Should this Activity Log Alert be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the activity log alert. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
@@ -168,6 +170,8 @@ type activityLogAlertState struct {
 	Description *string `pulumi:"description"`
 	// Should this Activity Log Alert be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+	Location *string `pulumi:"location"`
 	// The name of the activity log alert. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
@@ -187,6 +191,8 @@ type ActivityLogAlertState struct {
 	Description pulumi.StringPtrInput
 	// Should this Activity Log Alert be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+	Location pulumi.StringPtrInput
 	// The name of the activity log alert. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
@@ -210,6 +216,8 @@ type activityLogAlertArgs struct {
 	Description *string `pulumi:"description"`
 	// Should this Activity Log Alert be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+	Location *string `pulumi:"location"`
 	// The name of the activity log alert. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
@@ -230,6 +238,8 @@ type ActivityLogAlertArgs struct {
 	Description pulumi.StringPtrInput
 	// Should this Activity Log Alert be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+	Location pulumi.StringPtrInput
 	// The name of the activity log alert. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
@@ -345,6 +355,11 @@ func (o ActivityLogAlertOutput) Description() pulumi.StringPtrOutput {
 // Should this Activity Log Alert be enabled? Defaults to `true`.
 func (o ActivityLogAlertOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ActivityLogAlert) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+func (o ActivityLogAlertOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
 // The name of the activity log alert. Changing this forces a new resource to be created.

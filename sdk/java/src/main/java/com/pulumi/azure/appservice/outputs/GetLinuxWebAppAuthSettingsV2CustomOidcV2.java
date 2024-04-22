@@ -52,7 +52,7 @@ public final class GetLinuxWebAppAuthSettingsV2CustomOidcV2 {
      */
     private String nameClaimType;
     /**
-     * @return The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+     * @return The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
      * 
      */
     private String openidConfigurationEndpoint;
@@ -125,7 +125,7 @@ public final class GetLinuxWebAppAuthSettingsV2CustomOidcV2 {
         return this.nameClaimType;
     }
     /**
-     * @return The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+     * @return The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
      * 
      */
     public String openidConfigurationEndpoint() {

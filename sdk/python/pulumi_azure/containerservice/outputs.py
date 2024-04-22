@@ -3384,6 +3384,9 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl(dict):
         """
         The Client ID of an Azure Active Directory Application.
         """
+        warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""client_app_id is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "client_app_id")
 
     @property
@@ -3392,6 +3395,9 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl(dict):
         """
         Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
         """
+        warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""managed is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "managed")
 
     @property
@@ -3400,6 +3406,9 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl(dict):
         """
         The Server ID of an Azure Active Directory Application.
         """
+        warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""server_app_id is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "server_app_id")
 
     @property
@@ -3408,6 +3417,9 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl(dict):
         """
         The Server Secret of an Azure Active Directory Application.
         """
+        warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""server_app_secret is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "server_app_secret")
 
     @property
@@ -6037,7 +6049,7 @@ class KubernetesClusterMaintenanceWindowAutoUpgrade(dict):
         :param int duration: The duration of the window for maintenance to run in hours.
         :param str frequency: Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
         :param int interval: The interval for maintenance runs. Depending on the frequency this interval is week or month based.
-        :param int day_of_month: The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+        :param int day_of_month: The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
         :param str day_of_week: The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param Sequence['KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs'] not_alloweds: One or more `not_allowed` block as defined below.
         :param str start_date: The date on which the maintenance window begins to take effect.
@@ -6092,7 +6104,7 @@ class KubernetesClusterMaintenanceWindowAutoUpgrade(dict):
     @pulumi.getter(name="dayOfMonth")
     def day_of_month(self) -> Optional[int]:
         """
-        The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+        The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
         """
         return pulumi.get(self, "day_of_month")
 
@@ -6221,7 +6233,7 @@ class KubernetesClusterMaintenanceWindowNodeOs(dict):
         :param int duration: The duration of the window for maintenance to run in hours.
         :param str frequency: Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
         :param int interval: The interval for maintenance runs. Depending on the frequency this interval is week or month based.
-        :param int day_of_month: The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+        :param int day_of_month: The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
         :param str day_of_week: The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param Sequence['KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs'] not_alloweds: One or more `not_allowed` block as defined below.
         :param str start_date: The date on which the maintenance window begins to take effect.
@@ -6275,7 +6287,7 @@ class KubernetesClusterMaintenanceWindowNodeOs(dict):
     @pulumi.getter(name="dayOfMonth")
     def day_of_month(self) -> Optional[int]:
         """
-        The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+        The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
         """
         return pulumi.get(self, "day_of_month")
 

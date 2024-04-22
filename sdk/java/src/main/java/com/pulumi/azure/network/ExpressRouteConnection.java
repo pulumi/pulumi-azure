@@ -227,6 +227,20 @@ public class ExpressRouteConnection extends com.pulumi.resources.CustomResource 
         return this.name;
     }
     /**
+     * Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+     * 
+     */
+    @Export(name="privateLinkFastPathEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> privateLinkFastPathEnabled;
+
+    /**
+     * @return Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> privateLinkFastPathEnabled() {
+        return Codegen.optional(this.privateLinkFastPathEnabled);
+    }
+    /**
      * A `routing` block as defined below.
      * 
      */

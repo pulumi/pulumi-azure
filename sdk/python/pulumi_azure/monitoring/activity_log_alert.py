@@ -22,6 +22,7 @@ class ActivityLogAlertArgs:
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -32,6 +33,7 @@ class ActivityLogAlertArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]] actions: One or more `action` blocks as defined below.
         :param pulumi.Input[str] description: The description of this activity log alert.
         :param pulumi.Input[bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
+        :param pulumi.Input[str] location: The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
         :param pulumi.Input[str] name: The name of the activity log alert. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -44,6 +46,8 @@ class ActivityLogAlertArgs:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -123,6 +127,18 @@ class ActivityLogAlertArgs:
 
     @property
     @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the activity log alert. Changing this forces a new resource to be created.
@@ -153,6 +169,7 @@ class _ActivityLogAlertState:
                  criteria: Optional[pulumi.Input['ActivityLogAlertCriteriaArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -163,6 +180,7 @@ class _ActivityLogAlertState:
         :param pulumi.Input['ActivityLogAlertCriteriaArgs'] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] description: The description of this activity log alert.
         :param pulumi.Input[bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
+        :param pulumi.Input[str] location: The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
         :param pulumi.Input[str] name: The name of the activity log alert. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
@@ -176,6 +194,8 @@ class _ActivityLogAlertState:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
@@ -235,6 +255,18 @@ class _ActivityLogAlertState:
 
     @property
     @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the activity log alert. Changing this forces a new resource to be created.
@@ -291,6 +323,7 @@ class ActivityLogAlert(pulumi.CustomResource):
                  criteria: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -356,6 +389,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] description: The description of this activity log alert.
         :param pulumi.Input[bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
+        :param pulumi.Input[str] location: The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
         :param pulumi.Input[str] name: The name of the activity log alert. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
@@ -440,6 +474,7 @@ class ActivityLogAlert(pulumi.CustomResource):
                  criteria: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -459,6 +494,7 @@ class ActivityLogAlert(pulumi.CustomResource):
             __props__.__dict__["criteria"] = criteria
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -481,6 +517,7 @@ class ActivityLogAlert(pulumi.CustomResource):
             criteria: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -496,6 +533,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] description: The description of this activity log alert.
         :param pulumi.Input[bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
+        :param pulumi.Input[str] location: The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
         :param pulumi.Input[str] name: The name of the activity log alert. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
@@ -509,6 +547,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         __props__.__dict__["criteria"] = criteria
         __props__.__dict__["description"] = description
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["scopes"] = scopes
@@ -546,6 +585,14 @@ class ActivityLogAlert(pulumi.CustomResource):
         Should this Activity Log Alert be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter

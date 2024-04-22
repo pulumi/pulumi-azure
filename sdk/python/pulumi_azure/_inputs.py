@@ -17,6 +17,7 @@ __all__ = [
     'ProviderFeaturesCognitiveAccountArgs',
     'ProviderFeaturesKeyVaultArgs',
     'ProviderFeaturesLogAnalyticsWorkspaceArgs',
+    'ProviderFeaturesMachineLearningArgs',
     'ProviderFeaturesManagedDiskArgs',
     'ProviderFeaturesPostgresqlFlexibleServerArgs',
     'ProviderFeaturesRecoveryServiceArgs',
@@ -36,6 +37,7 @@ class ProviderFeaturesArgs:
                  cognitive_account: Optional[pulumi.Input['ProviderFeaturesCognitiveAccountArgs']] = None,
                  key_vault: Optional[pulumi.Input['ProviderFeaturesKeyVaultArgs']] = None,
                  log_analytics_workspace: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']] = None,
+                 machine_learning: Optional[pulumi.Input['ProviderFeaturesMachineLearningArgs']] = None,
                  managed_disk: Optional[pulumi.Input['ProviderFeaturesManagedDiskArgs']] = None,
                  postgresql_flexible_server: Optional[pulumi.Input['ProviderFeaturesPostgresqlFlexibleServerArgs']] = None,
                  recovery_service: Optional[pulumi.Input['ProviderFeaturesRecoveryServiceArgs']] = None,
@@ -56,6 +58,8 @@ class ProviderFeaturesArgs:
             pulumi.set(__self__, "key_vault", key_vault)
         if log_analytics_workspace is not None:
             pulumi.set(__self__, "log_analytics_workspace", log_analytics_workspace)
+        if machine_learning is not None:
+            pulumi.set(__self__, "machine_learning", machine_learning)
         if managed_disk is not None:
             pulumi.set(__self__, "managed_disk", managed_disk)
         if postgresql_flexible_server is not None:
@@ -126,6 +130,15 @@ class ProviderFeaturesArgs:
     @log_analytics_workspace.setter
     def log_analytics_workspace(self, value: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']]):
         pulumi.set(self, "log_analytics_workspace", value)
+
+    @property
+    @pulumi.getter(name="machineLearning")
+    def machine_learning(self) -> Optional[pulumi.Input['ProviderFeaturesMachineLearningArgs']]:
+        return pulumi.get(self, "machine_learning")
+
+    @machine_learning.setter
+    def machine_learning(self, value: Optional[pulumi.Input['ProviderFeaturesMachineLearningArgs']]):
+        pulumi.set(self, "machine_learning", value)
 
     @property
     @pulumi.getter(name="managedDisk")
@@ -458,6 +471,23 @@ class ProviderFeaturesLogAnalyticsWorkspaceArgs:
     @permanently_delete_on_destroy.setter
     def permanently_delete_on_destroy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "permanently_delete_on_destroy", value)
+
+
+@pulumi.input_type
+class ProviderFeaturesMachineLearningArgs:
+    def __init__(__self__, *,
+                 purge_soft_deleted_workspace_on_destroy: Optional[pulumi.Input[bool]] = None):
+        if purge_soft_deleted_workspace_on_destroy is not None:
+            pulumi.set(__self__, "purge_soft_deleted_workspace_on_destroy", purge_soft_deleted_workspace_on_destroy)
+
+    @property
+    @pulumi.getter(name="purgeSoftDeletedWorkspaceOnDestroy")
+    def purge_soft_deleted_workspace_on_destroy(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "purge_soft_deleted_workspace_on_destroy")
+
+    @purge_soft_deleted_workspace_on_destroy.setter
+    def purge_soft_deleted_workspace_on_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "purge_soft_deleted_workspace_on_destroy", value)
 
 
 @pulumi.input_type

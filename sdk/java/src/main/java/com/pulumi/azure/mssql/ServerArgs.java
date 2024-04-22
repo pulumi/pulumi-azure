@@ -160,14 +160,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
+     * Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
      * 
      */
     @Import(name="primaryUserAssignedIdentityId")
     private @Nullable Output<String> primaryUserAssignedIdentityId;
 
     /**
-     * @return Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
+     * @return Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
      * 
      */
     public Optional<Output<String>> primaryUserAssignedIdentityId() {
@@ -493,7 +493,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryUserAssignedIdentityId Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
+         * @param primaryUserAssignedIdentityId Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryUserAssignedIdentityId Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
+         * @param primaryUserAssignedIdentityId Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
          * 
          * @return builder
          * 

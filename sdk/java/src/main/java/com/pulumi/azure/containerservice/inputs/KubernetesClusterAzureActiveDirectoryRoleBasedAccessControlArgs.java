@@ -50,14 +50,22 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
     /**
      * The Client ID of an Azure Active Directory Application.
      * 
+     * @deprecated
+     * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
     @Import(name="clientAppId")
     private @Nullable Output<String> clientAppId;
 
     /**
      * @return The Client ID of an Azure Active Directory Application.
      * 
+     * @deprecated
+     * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
     public Optional<Output<String>> clientAppId() {
         return Optional.ofNullable(this.clientAppId);
     }
@@ -65,14 +73,22 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
     /**
      * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
      * 
+     * @deprecated
+     * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
     @Import(name="managed")
     private @Nullable Output<Boolean> managed;
 
     /**
      * @return Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
      * 
+     * @deprecated
+     * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
     public Optional<Output<Boolean>> managed() {
         return Optional.ofNullable(this.managed);
     }
@@ -80,14 +96,22 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
     /**
      * The Server ID of an Azure Active Directory Application.
      * 
+     * @deprecated
+     * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
     @Import(name="serverAppId")
     private @Nullable Output<String> serverAppId;
 
     /**
      * @return The Server ID of an Azure Active Directory Application.
      * 
+     * @deprecated
+     * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
     public Optional<Output<String>> serverAppId() {
         return Optional.ofNullable(this.serverAppId);
     }
@@ -95,14 +119,22 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
     /**
      * The Server Secret of an Azure Active Directory Application.
      * 
+     * @deprecated
+     * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
     @Import(name="serverAppSecret")
     private @Nullable Output<String> serverAppSecret;
 
     /**
      * @return The Server Secret of an Azure Active Directory Application.
      * 
+     * @deprecated
+     * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
     public Optional<Output<String>> serverAppSecret() {
         return Optional.ofNullable(this.serverAppSecret);
     }
@@ -209,7 +241,11 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
          * 
          * @return builder
          * 
+         * @deprecated
+         * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
         public Builder clientAppId(@Nullable Output<String> clientAppId) {
             $.clientAppId = clientAppId;
             return this;
@@ -220,7 +256,11 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
          * 
          * @return builder
          * 
+         * @deprecated
+         * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
         public Builder clientAppId(String clientAppId) {
             return clientAppId(Output.of(clientAppId));
         }
@@ -230,7 +270,11 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
          * 
          * @return builder
          * 
+         * @deprecated
+         * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
         public Builder managed(@Nullable Output<Boolean> managed) {
             $.managed = managed;
             return this;
@@ -241,7 +285,11 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
          * 
          * @return builder
          * 
+         * @deprecated
+         * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
         public Builder managed(Boolean managed) {
             return managed(Output.of(managed));
         }
@@ -251,7 +299,11 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
          * 
          * @return builder
          * 
+         * @deprecated
+         * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
         public Builder serverAppId(@Nullable Output<String> serverAppId) {
             $.serverAppId = serverAppId;
             return this;
@@ -262,7 +314,11 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
          * 
          * @return builder
          * 
+         * @deprecated
+         * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
         public Builder serverAppId(String serverAppId) {
             return serverAppId(Output.of(serverAppId));
         }
@@ -272,7 +328,11 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
          * 
          * @return builder
          * 
+         * @deprecated
+         * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
         public Builder serverAppSecret(@Nullable Output<String> serverAppSecret) {
             $.serverAppSecret = serverAppSecret;
             return this;
@@ -283,7 +343,11 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
          * 
          * @return builder
          * 
+         * @deprecated
+         * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider. */
         public Builder serverAppSecret(String serverAppSecret) {
             return serverAppSecret(Output.of(serverAppSecret));
         }

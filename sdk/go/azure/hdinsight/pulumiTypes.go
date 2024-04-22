@@ -1827,6 +1827,394 @@ func (o HBaseClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+type HBaseClusterPrivateLinkConfiguration struct {
+	// The ID of the private link service group.
+	GroupId         string                                              `pulumi:"groupId"`
+	IpConfiguration HBaseClusterPrivateLinkConfigurationIpConfiguration `pulumi:"ipConfiguration"`
+	// The name of the private link configuration.
+	Name string `pulumi:"name"`
+}
+
+// HBaseClusterPrivateLinkConfigurationInput is an input type that accepts HBaseClusterPrivateLinkConfigurationArgs and HBaseClusterPrivateLinkConfigurationOutput values.
+// You can construct a concrete instance of `HBaseClusterPrivateLinkConfigurationInput` via:
+//
+//	HBaseClusterPrivateLinkConfigurationArgs{...}
+type HBaseClusterPrivateLinkConfigurationInput interface {
+	pulumi.Input
+
+	ToHBaseClusterPrivateLinkConfigurationOutput() HBaseClusterPrivateLinkConfigurationOutput
+	ToHBaseClusterPrivateLinkConfigurationOutputWithContext(context.Context) HBaseClusterPrivateLinkConfigurationOutput
+}
+
+type HBaseClusterPrivateLinkConfigurationArgs struct {
+	// The ID of the private link service group.
+	GroupId         pulumi.StringInput                                       `pulumi:"groupId"`
+	IpConfiguration HBaseClusterPrivateLinkConfigurationIpConfigurationInput `pulumi:"ipConfiguration"`
+	// The name of the private link configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (HBaseClusterPrivateLinkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i HBaseClusterPrivateLinkConfigurationArgs) ToHBaseClusterPrivateLinkConfigurationOutput() HBaseClusterPrivateLinkConfigurationOutput {
+	return i.ToHBaseClusterPrivateLinkConfigurationOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterPrivateLinkConfigurationArgs) ToHBaseClusterPrivateLinkConfigurationOutputWithContext(ctx context.Context) HBaseClusterPrivateLinkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterPrivateLinkConfigurationOutput)
+}
+
+func (i HBaseClusterPrivateLinkConfigurationArgs) ToHBaseClusterPrivateLinkConfigurationPtrOutput() HBaseClusterPrivateLinkConfigurationPtrOutput {
+	return i.ToHBaseClusterPrivateLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterPrivateLinkConfigurationArgs) ToHBaseClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) HBaseClusterPrivateLinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterPrivateLinkConfigurationOutput).ToHBaseClusterPrivateLinkConfigurationPtrOutputWithContext(ctx)
+}
+
+// HBaseClusterPrivateLinkConfigurationPtrInput is an input type that accepts HBaseClusterPrivateLinkConfigurationArgs, HBaseClusterPrivateLinkConfigurationPtr and HBaseClusterPrivateLinkConfigurationPtrOutput values.
+// You can construct a concrete instance of `HBaseClusterPrivateLinkConfigurationPtrInput` via:
+//
+//	        HBaseClusterPrivateLinkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type HBaseClusterPrivateLinkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToHBaseClusterPrivateLinkConfigurationPtrOutput() HBaseClusterPrivateLinkConfigurationPtrOutput
+	ToHBaseClusterPrivateLinkConfigurationPtrOutputWithContext(context.Context) HBaseClusterPrivateLinkConfigurationPtrOutput
+}
+
+type hbaseClusterPrivateLinkConfigurationPtrType HBaseClusterPrivateLinkConfigurationArgs
+
+func HBaseClusterPrivateLinkConfigurationPtr(v *HBaseClusterPrivateLinkConfigurationArgs) HBaseClusterPrivateLinkConfigurationPtrInput {
+	return (*hbaseClusterPrivateLinkConfigurationPtrType)(v)
+}
+
+func (*hbaseClusterPrivateLinkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i *hbaseClusterPrivateLinkConfigurationPtrType) ToHBaseClusterPrivateLinkConfigurationPtrOutput() HBaseClusterPrivateLinkConfigurationPtrOutput {
+	return i.ToHBaseClusterPrivateLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *hbaseClusterPrivateLinkConfigurationPtrType) ToHBaseClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) HBaseClusterPrivateLinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterPrivateLinkConfigurationPtrOutput)
+}
+
+type HBaseClusterPrivateLinkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterPrivateLinkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o HBaseClusterPrivateLinkConfigurationOutput) ToHBaseClusterPrivateLinkConfigurationOutput() HBaseClusterPrivateLinkConfigurationOutput {
+	return o
+}
+
+func (o HBaseClusterPrivateLinkConfigurationOutput) ToHBaseClusterPrivateLinkConfigurationOutputWithContext(ctx context.Context) HBaseClusterPrivateLinkConfigurationOutput {
+	return o
+}
+
+func (o HBaseClusterPrivateLinkConfigurationOutput) ToHBaseClusterPrivateLinkConfigurationPtrOutput() HBaseClusterPrivateLinkConfigurationPtrOutput {
+	return o.ToHBaseClusterPrivateLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o HBaseClusterPrivateLinkConfigurationOutput) ToHBaseClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) HBaseClusterPrivateLinkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterPrivateLinkConfiguration) *HBaseClusterPrivateLinkConfiguration {
+		return &v
+	}).(HBaseClusterPrivateLinkConfigurationPtrOutput)
+}
+
+// The ID of the private link service group.
+func (o HBaseClusterPrivateLinkConfigurationOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterPrivateLinkConfiguration) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterPrivateLinkConfigurationOutput) IpConfiguration() HBaseClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o.ApplyT(func(v HBaseClusterPrivateLinkConfiguration) HBaseClusterPrivateLinkConfigurationIpConfiguration {
+		return v.IpConfiguration
+	}).(HBaseClusterPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+// The name of the private link configuration.
+func (o HBaseClusterPrivateLinkConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterPrivateLinkConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type HBaseClusterPrivateLinkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterPrivateLinkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o HBaseClusterPrivateLinkConfigurationPtrOutput) ToHBaseClusterPrivateLinkConfigurationPtrOutput() HBaseClusterPrivateLinkConfigurationPtrOutput {
+	return o
+}
+
+func (o HBaseClusterPrivateLinkConfigurationPtrOutput) ToHBaseClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) HBaseClusterPrivateLinkConfigurationPtrOutput {
+	return o
+}
+
+func (o HBaseClusterPrivateLinkConfigurationPtrOutput) Elem() HBaseClusterPrivateLinkConfigurationOutput {
+	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfiguration) HBaseClusterPrivateLinkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterPrivateLinkConfiguration
+		return ret
+	}).(HBaseClusterPrivateLinkConfigurationOutput)
+}
+
+// The ID of the private link service group.
+func (o HBaseClusterPrivateLinkConfigurationPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HBaseClusterPrivateLinkConfigurationPtrOutput) IpConfiguration() HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfiguration) *HBaseClusterPrivateLinkConfigurationIpConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.IpConfiguration
+	}).(HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
+}
+
+// The name of the private link configuration.
+func (o HBaseClusterPrivateLinkConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type HBaseClusterPrivateLinkConfigurationIpConfiguration struct {
+	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary *bool `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
+	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
+	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// HBaseClusterPrivateLinkConfigurationIpConfigurationInput is an input type that accepts HBaseClusterPrivateLinkConfigurationIpConfigurationArgs and HBaseClusterPrivateLinkConfigurationIpConfigurationOutput values.
+// You can construct a concrete instance of `HBaseClusterPrivateLinkConfigurationIpConfigurationInput` via:
+//
+//	HBaseClusterPrivateLinkConfigurationIpConfigurationArgs{...}
+type HBaseClusterPrivateLinkConfigurationIpConfigurationInput interface {
+	pulumi.Input
+
+	ToHBaseClusterPrivateLinkConfigurationIpConfigurationOutput() HBaseClusterPrivateLinkConfigurationIpConfigurationOutput
+	ToHBaseClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(context.Context) HBaseClusterPrivateLinkConfigurationIpConfigurationOutput
+}
+
+type HBaseClusterPrivateLinkConfigurationIpConfigurationArgs struct {
+	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
+	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
+	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (HBaseClusterPrivateLinkConfigurationIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (i HBaseClusterPrivateLinkConfigurationIpConfigurationArgs) ToHBaseClusterPrivateLinkConfigurationIpConfigurationOutput() HBaseClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return i.ToHBaseClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterPrivateLinkConfigurationIpConfigurationArgs) ToHBaseClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(ctx context.Context) HBaseClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+func (i HBaseClusterPrivateLinkConfigurationIpConfigurationArgs) ToHBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput() HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return i.ToHBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterPrivateLinkConfigurationIpConfigurationArgs) ToHBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterPrivateLinkConfigurationIpConfigurationOutput).ToHBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx)
+}
+
+// HBaseClusterPrivateLinkConfigurationIpConfigurationPtrInput is an input type that accepts HBaseClusterPrivateLinkConfigurationIpConfigurationArgs, HBaseClusterPrivateLinkConfigurationIpConfigurationPtr and HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput values.
+// You can construct a concrete instance of `HBaseClusterPrivateLinkConfigurationIpConfigurationPtrInput` via:
+//
+//	        HBaseClusterPrivateLinkConfigurationIpConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type HBaseClusterPrivateLinkConfigurationIpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToHBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput() HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput
+	ToHBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Context) HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput
+}
+
+type hbaseClusterPrivateLinkConfigurationIpConfigurationPtrType HBaseClusterPrivateLinkConfigurationIpConfigurationArgs
+
+func HBaseClusterPrivateLinkConfigurationIpConfigurationPtr(v *HBaseClusterPrivateLinkConfigurationIpConfigurationArgs) HBaseClusterPrivateLinkConfigurationIpConfigurationPtrInput {
+	return (*hbaseClusterPrivateLinkConfigurationIpConfigurationPtrType)(v)
+}
+
+func (*hbaseClusterPrivateLinkConfigurationIpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (i *hbaseClusterPrivateLinkConfigurationIpConfigurationPtrType) ToHBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput() HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return i.ToHBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *hbaseClusterPrivateLinkConfigurationIpConfigurationPtrType) ToHBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
+}
+
+type HBaseClusterPrivateLinkConfigurationIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) ToHBaseClusterPrivateLinkConfigurationIpConfigurationOutput() HBaseClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o
+}
+
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) ToHBaseClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(ctx context.Context) HBaseClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o
+}
+
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) ToHBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput() HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o.ToHBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) ToHBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterPrivateLinkConfigurationIpConfiguration) *HBaseClusterPrivateLinkConfigurationIpConfiguration {
+		return &v
+	}).(HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
+}
+
+// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether this IP configuration is primary.
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HBaseClusterPrivateLinkConfigurationIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// The private IP address of the IP configuration.
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HBaseClusterPrivateLinkConfigurationIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The private IP allocation method. The only possible value now is `Dynamic`.
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HBaseClusterPrivateLinkConfigurationIpConfiguration) *string {
+		return v.PrivateIpAllocationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HBaseClusterPrivateLinkConfigurationIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) ToHBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput() HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o
+}
+
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) ToHBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o
+}
+
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Elem() HBaseClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfigurationIpConfiguration) HBaseClusterPrivateLinkConfigurationIpConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterPrivateLinkConfigurationIpConfiguration
+		return ret
+	}).(HBaseClusterPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether this IP configuration is primary.
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfigurationIpConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Primary
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The private IP address of the IP configuration.
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private IP allocation method. The only possible value now is `Dynamic`.
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAllocationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 type HBaseClusterRoles struct {
 	// A `headNode` block as defined above.
 	HeadNode HBaseClusterRolesHeadNode `pulumi:"headNode"`
@@ -6017,6 +6405,394 @@ func (o HadoopClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput
 		}
 		return v.PrivateLinkEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+type HadoopClusterPrivateLinkConfiguration struct {
+	// The ID of the private link service group.
+	GroupId         string                                               `pulumi:"groupId"`
+	IpConfiguration HadoopClusterPrivateLinkConfigurationIpConfiguration `pulumi:"ipConfiguration"`
+	// The name of the private link configuration.
+	Name string `pulumi:"name"`
+}
+
+// HadoopClusterPrivateLinkConfigurationInput is an input type that accepts HadoopClusterPrivateLinkConfigurationArgs and HadoopClusterPrivateLinkConfigurationOutput values.
+// You can construct a concrete instance of `HadoopClusterPrivateLinkConfigurationInput` via:
+//
+//	HadoopClusterPrivateLinkConfigurationArgs{...}
+type HadoopClusterPrivateLinkConfigurationInput interface {
+	pulumi.Input
+
+	ToHadoopClusterPrivateLinkConfigurationOutput() HadoopClusterPrivateLinkConfigurationOutput
+	ToHadoopClusterPrivateLinkConfigurationOutputWithContext(context.Context) HadoopClusterPrivateLinkConfigurationOutput
+}
+
+type HadoopClusterPrivateLinkConfigurationArgs struct {
+	// The ID of the private link service group.
+	GroupId         pulumi.StringInput                                        `pulumi:"groupId"`
+	IpConfiguration HadoopClusterPrivateLinkConfigurationIpConfigurationInput `pulumi:"ipConfiguration"`
+	// The name of the private link configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (HadoopClusterPrivateLinkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i HadoopClusterPrivateLinkConfigurationArgs) ToHadoopClusterPrivateLinkConfigurationOutput() HadoopClusterPrivateLinkConfigurationOutput {
+	return i.ToHadoopClusterPrivateLinkConfigurationOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterPrivateLinkConfigurationArgs) ToHadoopClusterPrivateLinkConfigurationOutputWithContext(ctx context.Context) HadoopClusterPrivateLinkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterPrivateLinkConfigurationOutput)
+}
+
+func (i HadoopClusterPrivateLinkConfigurationArgs) ToHadoopClusterPrivateLinkConfigurationPtrOutput() HadoopClusterPrivateLinkConfigurationPtrOutput {
+	return i.ToHadoopClusterPrivateLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterPrivateLinkConfigurationArgs) ToHadoopClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) HadoopClusterPrivateLinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterPrivateLinkConfigurationOutput).ToHadoopClusterPrivateLinkConfigurationPtrOutputWithContext(ctx)
+}
+
+// HadoopClusterPrivateLinkConfigurationPtrInput is an input type that accepts HadoopClusterPrivateLinkConfigurationArgs, HadoopClusterPrivateLinkConfigurationPtr and HadoopClusterPrivateLinkConfigurationPtrOutput values.
+// You can construct a concrete instance of `HadoopClusterPrivateLinkConfigurationPtrInput` via:
+//
+//	        HadoopClusterPrivateLinkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type HadoopClusterPrivateLinkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToHadoopClusterPrivateLinkConfigurationPtrOutput() HadoopClusterPrivateLinkConfigurationPtrOutput
+	ToHadoopClusterPrivateLinkConfigurationPtrOutputWithContext(context.Context) HadoopClusterPrivateLinkConfigurationPtrOutput
+}
+
+type hadoopClusterPrivateLinkConfigurationPtrType HadoopClusterPrivateLinkConfigurationArgs
+
+func HadoopClusterPrivateLinkConfigurationPtr(v *HadoopClusterPrivateLinkConfigurationArgs) HadoopClusterPrivateLinkConfigurationPtrInput {
+	return (*hadoopClusterPrivateLinkConfigurationPtrType)(v)
+}
+
+func (*hadoopClusterPrivateLinkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i *hadoopClusterPrivateLinkConfigurationPtrType) ToHadoopClusterPrivateLinkConfigurationPtrOutput() HadoopClusterPrivateLinkConfigurationPtrOutput {
+	return i.ToHadoopClusterPrivateLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *hadoopClusterPrivateLinkConfigurationPtrType) ToHadoopClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) HadoopClusterPrivateLinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterPrivateLinkConfigurationPtrOutput)
+}
+
+type HadoopClusterPrivateLinkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterPrivateLinkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o HadoopClusterPrivateLinkConfigurationOutput) ToHadoopClusterPrivateLinkConfigurationOutput() HadoopClusterPrivateLinkConfigurationOutput {
+	return o
+}
+
+func (o HadoopClusterPrivateLinkConfigurationOutput) ToHadoopClusterPrivateLinkConfigurationOutputWithContext(ctx context.Context) HadoopClusterPrivateLinkConfigurationOutput {
+	return o
+}
+
+func (o HadoopClusterPrivateLinkConfigurationOutput) ToHadoopClusterPrivateLinkConfigurationPtrOutput() HadoopClusterPrivateLinkConfigurationPtrOutput {
+	return o.ToHadoopClusterPrivateLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o HadoopClusterPrivateLinkConfigurationOutput) ToHadoopClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) HadoopClusterPrivateLinkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterPrivateLinkConfiguration) *HadoopClusterPrivateLinkConfiguration {
+		return &v
+	}).(HadoopClusterPrivateLinkConfigurationPtrOutput)
+}
+
+// The ID of the private link service group.
+func (o HadoopClusterPrivateLinkConfigurationOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterPrivateLinkConfiguration) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+func (o HadoopClusterPrivateLinkConfigurationOutput) IpConfiguration() HadoopClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o.ApplyT(func(v HadoopClusterPrivateLinkConfiguration) HadoopClusterPrivateLinkConfigurationIpConfiguration {
+		return v.IpConfiguration
+	}).(HadoopClusterPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+// The name of the private link configuration.
+func (o HadoopClusterPrivateLinkConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterPrivateLinkConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type HadoopClusterPrivateLinkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterPrivateLinkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o HadoopClusterPrivateLinkConfigurationPtrOutput) ToHadoopClusterPrivateLinkConfigurationPtrOutput() HadoopClusterPrivateLinkConfigurationPtrOutput {
+	return o
+}
+
+func (o HadoopClusterPrivateLinkConfigurationPtrOutput) ToHadoopClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) HadoopClusterPrivateLinkConfigurationPtrOutput {
+	return o
+}
+
+func (o HadoopClusterPrivateLinkConfigurationPtrOutput) Elem() HadoopClusterPrivateLinkConfigurationOutput {
+	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfiguration) HadoopClusterPrivateLinkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterPrivateLinkConfiguration
+		return ret
+	}).(HadoopClusterPrivateLinkConfigurationOutput)
+}
+
+// The ID of the private link service group.
+func (o HadoopClusterPrivateLinkConfigurationPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HadoopClusterPrivateLinkConfigurationPtrOutput) IpConfiguration() HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfiguration) *HadoopClusterPrivateLinkConfigurationIpConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.IpConfiguration
+	}).(HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
+}
+
+// The name of the private link configuration.
+func (o HadoopClusterPrivateLinkConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type HadoopClusterPrivateLinkConfigurationIpConfiguration struct {
+	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary *bool `pulumi:"primary"`
+	// The private ip address of the endpoint.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
+	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
+	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// HadoopClusterPrivateLinkConfigurationIpConfigurationInput is an input type that accepts HadoopClusterPrivateLinkConfigurationIpConfigurationArgs and HadoopClusterPrivateLinkConfigurationIpConfigurationOutput values.
+// You can construct a concrete instance of `HadoopClusterPrivateLinkConfigurationIpConfigurationInput` via:
+//
+//	HadoopClusterPrivateLinkConfigurationIpConfigurationArgs{...}
+type HadoopClusterPrivateLinkConfigurationIpConfigurationInput interface {
+	pulumi.Input
+
+	ToHadoopClusterPrivateLinkConfigurationIpConfigurationOutput() HadoopClusterPrivateLinkConfigurationIpConfigurationOutput
+	ToHadoopClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(context.Context) HadoopClusterPrivateLinkConfigurationIpConfigurationOutput
+}
+
+type HadoopClusterPrivateLinkConfigurationIpConfigurationArgs struct {
+	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The private ip address of the endpoint.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
+	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
+	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (HadoopClusterPrivateLinkConfigurationIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (i HadoopClusterPrivateLinkConfigurationIpConfigurationArgs) ToHadoopClusterPrivateLinkConfigurationIpConfigurationOutput() HadoopClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return i.ToHadoopClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterPrivateLinkConfigurationIpConfigurationArgs) ToHadoopClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(ctx context.Context) HadoopClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+func (i HadoopClusterPrivateLinkConfigurationIpConfigurationArgs) ToHadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput() HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return i.ToHadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterPrivateLinkConfigurationIpConfigurationArgs) ToHadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterPrivateLinkConfigurationIpConfigurationOutput).ToHadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx)
+}
+
+// HadoopClusterPrivateLinkConfigurationIpConfigurationPtrInput is an input type that accepts HadoopClusterPrivateLinkConfigurationIpConfigurationArgs, HadoopClusterPrivateLinkConfigurationIpConfigurationPtr and HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput values.
+// You can construct a concrete instance of `HadoopClusterPrivateLinkConfigurationIpConfigurationPtrInput` via:
+//
+//	        HadoopClusterPrivateLinkConfigurationIpConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type HadoopClusterPrivateLinkConfigurationIpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToHadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput() HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput
+	ToHadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Context) HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput
+}
+
+type hadoopClusterPrivateLinkConfigurationIpConfigurationPtrType HadoopClusterPrivateLinkConfigurationIpConfigurationArgs
+
+func HadoopClusterPrivateLinkConfigurationIpConfigurationPtr(v *HadoopClusterPrivateLinkConfigurationIpConfigurationArgs) HadoopClusterPrivateLinkConfigurationIpConfigurationPtrInput {
+	return (*hadoopClusterPrivateLinkConfigurationIpConfigurationPtrType)(v)
+}
+
+func (*hadoopClusterPrivateLinkConfigurationIpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (i *hadoopClusterPrivateLinkConfigurationIpConfigurationPtrType) ToHadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput() HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return i.ToHadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *hadoopClusterPrivateLinkConfigurationIpConfigurationPtrType) ToHadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
+}
+
+type HadoopClusterPrivateLinkConfigurationIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) ToHadoopClusterPrivateLinkConfigurationIpConfigurationOutput() HadoopClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o
+}
+
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) ToHadoopClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(ctx context.Context) HadoopClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o
+}
+
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) ToHadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput() HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o.ToHadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) ToHadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterPrivateLinkConfigurationIpConfiguration) *HadoopClusterPrivateLinkConfigurationIpConfiguration {
+		return &v
+	}).(HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
+}
+
+// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether this IP configuration is primary.
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HadoopClusterPrivateLinkConfigurationIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// The private ip address of the endpoint.
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterPrivateLinkConfigurationIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The private IP allocation method. The only possible value now is `Dynamic`.
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterPrivateLinkConfigurationIpConfiguration) *string {
+		return v.PrivateIpAllocationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterPrivateLinkConfigurationIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) ToHadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput() HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o
+}
+
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) ToHadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o
+}
+
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Elem() HadoopClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfigurationIpConfiguration) HadoopClusterPrivateLinkConfigurationIpConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterPrivateLinkConfigurationIpConfiguration
+		return ret
+	}).(HadoopClusterPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether this IP configuration is primary.
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfigurationIpConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Primary
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The private ip address of the endpoint.
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private IP allocation method. The only possible value now is `Dynamic`.
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAllocationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
 }
 
 type HadoopClusterRoles struct {
@@ -10989,6 +11765,396 @@ func (o InteractiveQueryClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+type InteractiveQueryClusterPrivateLinkConfiguration struct {
+	// The ID of the private link service group.
+	GroupId         string                                                         `pulumi:"groupId"`
+	IpConfiguration InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration `pulumi:"ipConfiguration"`
+	// The name of the private link configuration.
+	Name string `pulumi:"name"`
+}
+
+// InteractiveQueryClusterPrivateLinkConfigurationInput is an input type that accepts InteractiveQueryClusterPrivateLinkConfigurationArgs and InteractiveQueryClusterPrivateLinkConfigurationOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterPrivateLinkConfigurationInput` via:
+//
+//	InteractiveQueryClusterPrivateLinkConfigurationArgs{...}
+type InteractiveQueryClusterPrivateLinkConfigurationInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterPrivateLinkConfigurationOutput() InteractiveQueryClusterPrivateLinkConfigurationOutput
+	ToInteractiveQueryClusterPrivateLinkConfigurationOutputWithContext(context.Context) InteractiveQueryClusterPrivateLinkConfigurationOutput
+}
+
+type InteractiveQueryClusterPrivateLinkConfigurationArgs struct {
+	// The ID of the private link service group.
+	GroupId         pulumi.StringInput                                                  `pulumi:"groupId"`
+	IpConfiguration InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationInput `pulumi:"ipConfiguration"`
+	// The name of the private link configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (InteractiveQueryClusterPrivateLinkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterPrivateLinkConfigurationArgs) ToInteractiveQueryClusterPrivateLinkConfigurationOutput() InteractiveQueryClusterPrivateLinkConfigurationOutput {
+	return i.ToInteractiveQueryClusterPrivateLinkConfigurationOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterPrivateLinkConfigurationArgs) ToInteractiveQueryClusterPrivateLinkConfigurationOutputWithContext(ctx context.Context) InteractiveQueryClusterPrivateLinkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterPrivateLinkConfigurationOutput)
+}
+
+func (i InteractiveQueryClusterPrivateLinkConfigurationArgs) ToInteractiveQueryClusterPrivateLinkConfigurationPtrOutput() InteractiveQueryClusterPrivateLinkConfigurationPtrOutput {
+	return i.ToInteractiveQueryClusterPrivateLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterPrivateLinkConfigurationArgs) ToInteractiveQueryClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterPrivateLinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterPrivateLinkConfigurationOutput).ToInteractiveQueryClusterPrivateLinkConfigurationPtrOutputWithContext(ctx)
+}
+
+// InteractiveQueryClusterPrivateLinkConfigurationPtrInput is an input type that accepts InteractiveQueryClusterPrivateLinkConfigurationArgs, InteractiveQueryClusterPrivateLinkConfigurationPtr and InteractiveQueryClusterPrivateLinkConfigurationPtrOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterPrivateLinkConfigurationPtrInput` via:
+//
+//	        InteractiveQueryClusterPrivateLinkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type InteractiveQueryClusterPrivateLinkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterPrivateLinkConfigurationPtrOutput() InteractiveQueryClusterPrivateLinkConfigurationPtrOutput
+	ToInteractiveQueryClusterPrivateLinkConfigurationPtrOutputWithContext(context.Context) InteractiveQueryClusterPrivateLinkConfigurationPtrOutput
+}
+
+type interactiveQueryClusterPrivateLinkConfigurationPtrType InteractiveQueryClusterPrivateLinkConfigurationArgs
+
+func InteractiveQueryClusterPrivateLinkConfigurationPtr(v *InteractiveQueryClusterPrivateLinkConfigurationArgs) InteractiveQueryClusterPrivateLinkConfigurationPtrInput {
+	return (*interactiveQueryClusterPrivateLinkConfigurationPtrType)(v)
+}
+
+func (*interactiveQueryClusterPrivateLinkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i *interactiveQueryClusterPrivateLinkConfigurationPtrType) ToInteractiveQueryClusterPrivateLinkConfigurationPtrOutput() InteractiveQueryClusterPrivateLinkConfigurationPtrOutput {
+	return i.ToInteractiveQueryClusterPrivateLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *interactiveQueryClusterPrivateLinkConfigurationPtrType) ToInteractiveQueryClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterPrivateLinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterPrivateLinkConfigurationPtrOutput)
+}
+
+type InteractiveQueryClusterPrivateLinkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterPrivateLinkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationOutput) ToInteractiveQueryClusterPrivateLinkConfigurationOutput() InteractiveQueryClusterPrivateLinkConfigurationOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationOutput) ToInteractiveQueryClusterPrivateLinkConfigurationOutputWithContext(ctx context.Context) InteractiveQueryClusterPrivateLinkConfigurationOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationOutput) ToInteractiveQueryClusterPrivateLinkConfigurationPtrOutput() InteractiveQueryClusterPrivateLinkConfigurationPtrOutput {
+	return o.ToInteractiveQueryClusterPrivateLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationOutput) ToInteractiveQueryClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterPrivateLinkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterPrivateLinkConfiguration) *InteractiveQueryClusterPrivateLinkConfiguration {
+		return &v
+	}).(InteractiveQueryClusterPrivateLinkConfigurationPtrOutput)
+}
+
+// The ID of the private link service group.
+func (o InteractiveQueryClusterPrivateLinkConfigurationOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfiguration) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationOutput) IpConfiguration() InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfiguration) InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration {
+		return v.IpConfiguration
+	}).(InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+// The name of the private link configuration.
+func (o InteractiveQueryClusterPrivateLinkConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type InteractiveQueryClusterPrivateLinkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterPrivateLinkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationPtrOutput) ToInteractiveQueryClusterPrivateLinkConfigurationPtrOutput() InteractiveQueryClusterPrivateLinkConfigurationPtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationPtrOutput) ToInteractiveQueryClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterPrivateLinkConfigurationPtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationPtrOutput) Elem() InteractiveQueryClusterPrivateLinkConfigurationOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfiguration) InteractiveQueryClusterPrivateLinkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterPrivateLinkConfiguration
+		return ret
+	}).(InteractiveQueryClusterPrivateLinkConfigurationOutput)
+}
+
+// The ID of the private link service group.
+func (o InteractiveQueryClusterPrivateLinkConfigurationPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationPtrOutput) IpConfiguration() InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfiguration) *InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.IpConfiguration
+	}).(InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
+}
+
+// The name of the private link configuration.
+func (o InteractiveQueryClusterPrivateLinkConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration struct {
+	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary *bool `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
+	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
+	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationInput is an input type that accepts InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs and InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationInput` via:
+//
+//	InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs{...}
+type InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput() InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput
+	ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(context.Context) InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput
+}
+
+type InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs struct {
+	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
+	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
+	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs) ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput() InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return i.ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs) ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(ctx context.Context) InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+func (i InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs) ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput() InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return i.ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs) ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput).ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx)
+}
+
+// InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrInput is an input type that accepts InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs, InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtr and InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrInput` via:
+//
+//	        InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput() InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput
+	ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Context) InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput
+}
+
+type interactiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrType InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs
+
+func InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtr(v *InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs) InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrInput {
+	return (*interactiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrType)(v)
+}
+
+func (*interactiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (i *interactiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrType) ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput() InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return i.ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *interactiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrType) ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
+}
+
+type InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput() InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(ctx context.Context) InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput() InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o.ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration {
+		return &v
+	}).(InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
+}
+
+// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether this IP configuration is primary.
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// The private IP address of the IP configuration.
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string {
+		return v.PrivateIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private IP allocation method. The only possible value now is `Dynamic`.
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string {
+		return v.PrivateIpAllocationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput) ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput() InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput) ToInteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Elem() InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration
+		return ret
+	}).(InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether this IP configuration is primary.
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Primary
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The private IP address of the IP configuration.
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private IP allocation method. The only possible value now is `Dynamic`.
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAllocationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 type InteractiveQueryClusterRoles struct {
 	// A `headNode` block as defined above.
 	HeadNode InteractiveQueryClusterRolesHeadNode `pulumi:"headNode"`
@@ -15366,6 +16532,394 @@ func (o KafkaClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+type KafkaClusterPrivateLinkConfiguration struct {
+	// The ID of the private link service group.
+	GroupId         string                                              `pulumi:"groupId"`
+	IpConfiguration KafkaClusterPrivateLinkConfigurationIpConfiguration `pulumi:"ipConfiguration"`
+	// The name of the private link configuration.
+	Name string `pulumi:"name"`
+}
+
+// KafkaClusterPrivateLinkConfigurationInput is an input type that accepts KafkaClusterPrivateLinkConfigurationArgs and KafkaClusterPrivateLinkConfigurationOutput values.
+// You can construct a concrete instance of `KafkaClusterPrivateLinkConfigurationInput` via:
+//
+//	KafkaClusterPrivateLinkConfigurationArgs{...}
+type KafkaClusterPrivateLinkConfigurationInput interface {
+	pulumi.Input
+
+	ToKafkaClusterPrivateLinkConfigurationOutput() KafkaClusterPrivateLinkConfigurationOutput
+	ToKafkaClusterPrivateLinkConfigurationOutputWithContext(context.Context) KafkaClusterPrivateLinkConfigurationOutput
+}
+
+type KafkaClusterPrivateLinkConfigurationArgs struct {
+	// The ID of the private link service group.
+	GroupId         pulumi.StringInput                                       `pulumi:"groupId"`
+	IpConfiguration KafkaClusterPrivateLinkConfigurationIpConfigurationInput `pulumi:"ipConfiguration"`
+	// The name of the private link configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (KafkaClusterPrivateLinkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i KafkaClusterPrivateLinkConfigurationArgs) ToKafkaClusterPrivateLinkConfigurationOutput() KafkaClusterPrivateLinkConfigurationOutput {
+	return i.ToKafkaClusterPrivateLinkConfigurationOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterPrivateLinkConfigurationArgs) ToKafkaClusterPrivateLinkConfigurationOutputWithContext(ctx context.Context) KafkaClusterPrivateLinkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterPrivateLinkConfigurationOutput)
+}
+
+func (i KafkaClusterPrivateLinkConfigurationArgs) ToKafkaClusterPrivateLinkConfigurationPtrOutput() KafkaClusterPrivateLinkConfigurationPtrOutput {
+	return i.ToKafkaClusterPrivateLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterPrivateLinkConfigurationArgs) ToKafkaClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) KafkaClusterPrivateLinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterPrivateLinkConfigurationOutput).ToKafkaClusterPrivateLinkConfigurationPtrOutputWithContext(ctx)
+}
+
+// KafkaClusterPrivateLinkConfigurationPtrInput is an input type that accepts KafkaClusterPrivateLinkConfigurationArgs, KafkaClusterPrivateLinkConfigurationPtr and KafkaClusterPrivateLinkConfigurationPtrOutput values.
+// You can construct a concrete instance of `KafkaClusterPrivateLinkConfigurationPtrInput` via:
+//
+//	        KafkaClusterPrivateLinkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KafkaClusterPrivateLinkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKafkaClusterPrivateLinkConfigurationPtrOutput() KafkaClusterPrivateLinkConfigurationPtrOutput
+	ToKafkaClusterPrivateLinkConfigurationPtrOutputWithContext(context.Context) KafkaClusterPrivateLinkConfigurationPtrOutput
+}
+
+type kafkaClusterPrivateLinkConfigurationPtrType KafkaClusterPrivateLinkConfigurationArgs
+
+func KafkaClusterPrivateLinkConfigurationPtr(v *KafkaClusterPrivateLinkConfigurationArgs) KafkaClusterPrivateLinkConfigurationPtrInput {
+	return (*kafkaClusterPrivateLinkConfigurationPtrType)(v)
+}
+
+func (*kafkaClusterPrivateLinkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i *kafkaClusterPrivateLinkConfigurationPtrType) ToKafkaClusterPrivateLinkConfigurationPtrOutput() KafkaClusterPrivateLinkConfigurationPtrOutput {
+	return i.ToKafkaClusterPrivateLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaClusterPrivateLinkConfigurationPtrType) ToKafkaClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) KafkaClusterPrivateLinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterPrivateLinkConfigurationPtrOutput)
+}
+
+type KafkaClusterPrivateLinkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterPrivateLinkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o KafkaClusterPrivateLinkConfigurationOutput) ToKafkaClusterPrivateLinkConfigurationOutput() KafkaClusterPrivateLinkConfigurationOutput {
+	return o
+}
+
+func (o KafkaClusterPrivateLinkConfigurationOutput) ToKafkaClusterPrivateLinkConfigurationOutputWithContext(ctx context.Context) KafkaClusterPrivateLinkConfigurationOutput {
+	return o
+}
+
+func (o KafkaClusterPrivateLinkConfigurationOutput) ToKafkaClusterPrivateLinkConfigurationPtrOutput() KafkaClusterPrivateLinkConfigurationPtrOutput {
+	return o.ToKafkaClusterPrivateLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaClusterPrivateLinkConfigurationOutput) ToKafkaClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) KafkaClusterPrivateLinkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterPrivateLinkConfiguration) *KafkaClusterPrivateLinkConfiguration {
+		return &v
+	}).(KafkaClusterPrivateLinkConfigurationPtrOutput)
+}
+
+// The ID of the private link service group.
+func (o KafkaClusterPrivateLinkConfigurationOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterPrivateLinkConfiguration) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+func (o KafkaClusterPrivateLinkConfigurationOutput) IpConfiguration() KafkaClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o.ApplyT(func(v KafkaClusterPrivateLinkConfiguration) KafkaClusterPrivateLinkConfigurationIpConfiguration {
+		return v.IpConfiguration
+	}).(KafkaClusterPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+// The name of the private link configuration.
+func (o KafkaClusterPrivateLinkConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterPrivateLinkConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type KafkaClusterPrivateLinkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterPrivateLinkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o KafkaClusterPrivateLinkConfigurationPtrOutput) ToKafkaClusterPrivateLinkConfigurationPtrOutput() KafkaClusterPrivateLinkConfigurationPtrOutput {
+	return o
+}
+
+func (o KafkaClusterPrivateLinkConfigurationPtrOutput) ToKafkaClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) KafkaClusterPrivateLinkConfigurationPtrOutput {
+	return o
+}
+
+func (o KafkaClusterPrivateLinkConfigurationPtrOutput) Elem() KafkaClusterPrivateLinkConfigurationOutput {
+	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfiguration) KafkaClusterPrivateLinkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterPrivateLinkConfiguration
+		return ret
+	}).(KafkaClusterPrivateLinkConfigurationOutput)
+}
+
+// The ID of the private link service group.
+func (o KafkaClusterPrivateLinkConfigurationPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KafkaClusterPrivateLinkConfigurationPtrOutput) IpConfiguration() KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfiguration) *KafkaClusterPrivateLinkConfigurationIpConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.IpConfiguration
+	}).(KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
+}
+
+// The name of the private link configuration.
+func (o KafkaClusterPrivateLinkConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type KafkaClusterPrivateLinkConfigurationIpConfiguration struct {
+	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary *bool `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
+	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
+	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// KafkaClusterPrivateLinkConfigurationIpConfigurationInput is an input type that accepts KafkaClusterPrivateLinkConfigurationIpConfigurationArgs and KafkaClusterPrivateLinkConfigurationIpConfigurationOutput values.
+// You can construct a concrete instance of `KafkaClusterPrivateLinkConfigurationIpConfigurationInput` via:
+//
+//	KafkaClusterPrivateLinkConfigurationIpConfigurationArgs{...}
+type KafkaClusterPrivateLinkConfigurationIpConfigurationInput interface {
+	pulumi.Input
+
+	ToKafkaClusterPrivateLinkConfigurationIpConfigurationOutput() KafkaClusterPrivateLinkConfigurationIpConfigurationOutput
+	ToKafkaClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(context.Context) KafkaClusterPrivateLinkConfigurationIpConfigurationOutput
+}
+
+type KafkaClusterPrivateLinkConfigurationIpConfigurationArgs struct {
+	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
+	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
+	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (KafkaClusterPrivateLinkConfigurationIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (i KafkaClusterPrivateLinkConfigurationIpConfigurationArgs) ToKafkaClusterPrivateLinkConfigurationIpConfigurationOutput() KafkaClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return i.ToKafkaClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterPrivateLinkConfigurationIpConfigurationArgs) ToKafkaClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(ctx context.Context) KafkaClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+func (i KafkaClusterPrivateLinkConfigurationIpConfigurationArgs) ToKafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput() KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return i.ToKafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterPrivateLinkConfigurationIpConfigurationArgs) ToKafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterPrivateLinkConfigurationIpConfigurationOutput).ToKafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx)
+}
+
+// KafkaClusterPrivateLinkConfigurationIpConfigurationPtrInput is an input type that accepts KafkaClusterPrivateLinkConfigurationIpConfigurationArgs, KafkaClusterPrivateLinkConfigurationIpConfigurationPtr and KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput values.
+// You can construct a concrete instance of `KafkaClusterPrivateLinkConfigurationIpConfigurationPtrInput` via:
+//
+//	        KafkaClusterPrivateLinkConfigurationIpConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KafkaClusterPrivateLinkConfigurationIpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput() KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput
+	ToKafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Context) KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput
+}
+
+type kafkaClusterPrivateLinkConfigurationIpConfigurationPtrType KafkaClusterPrivateLinkConfigurationIpConfigurationArgs
+
+func KafkaClusterPrivateLinkConfigurationIpConfigurationPtr(v *KafkaClusterPrivateLinkConfigurationIpConfigurationArgs) KafkaClusterPrivateLinkConfigurationIpConfigurationPtrInput {
+	return (*kafkaClusterPrivateLinkConfigurationIpConfigurationPtrType)(v)
+}
+
+func (*kafkaClusterPrivateLinkConfigurationIpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (i *kafkaClusterPrivateLinkConfigurationIpConfigurationPtrType) ToKafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput() KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return i.ToKafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaClusterPrivateLinkConfigurationIpConfigurationPtrType) ToKafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
+}
+
+type KafkaClusterPrivateLinkConfigurationIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) ToKafkaClusterPrivateLinkConfigurationIpConfigurationOutput() KafkaClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o
+}
+
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) ToKafkaClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(ctx context.Context) KafkaClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o
+}
+
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) ToKafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput() KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o.ToKafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) ToKafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterPrivateLinkConfigurationIpConfiguration) *KafkaClusterPrivateLinkConfigurationIpConfiguration {
+		return &v
+	}).(KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
+}
+
+// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether this IP configuration is primary.
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KafkaClusterPrivateLinkConfigurationIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// The private IP address of the IP configuration.
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterPrivateLinkConfigurationIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The private IP allocation method. The only possible value now is `Dynamic`.
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterPrivateLinkConfigurationIpConfiguration) *string {
+		return v.PrivateIpAllocationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterPrivateLinkConfigurationIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) ToKafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput() KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o
+}
+
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) ToKafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o
+}
+
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Elem() KafkaClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfigurationIpConfiguration) KafkaClusterPrivateLinkConfigurationIpConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterPrivateLinkConfigurationIpConfiguration
+		return ret
+	}).(KafkaClusterPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether this IP configuration is primary.
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfigurationIpConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Primary
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The private IP address of the IP configuration.
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private IP allocation method. The only possible value now is `Dynamic`.
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAllocationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 type KafkaClusterRestProxy struct {
 	// The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
 	SecurityGroupId string `pulumi:"securityGroupId"`
@@ -19713,6 +21267,394 @@ func (o SparkClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+type SparkClusterPrivateLinkConfiguration struct {
+	// The ID of the private link service group.
+	GroupId         string                                              `pulumi:"groupId"`
+	IpConfiguration SparkClusterPrivateLinkConfigurationIpConfiguration `pulumi:"ipConfiguration"`
+	// The name of the private link configuration.
+	Name string `pulumi:"name"`
+}
+
+// SparkClusterPrivateLinkConfigurationInput is an input type that accepts SparkClusterPrivateLinkConfigurationArgs and SparkClusterPrivateLinkConfigurationOutput values.
+// You can construct a concrete instance of `SparkClusterPrivateLinkConfigurationInput` via:
+//
+//	SparkClusterPrivateLinkConfigurationArgs{...}
+type SparkClusterPrivateLinkConfigurationInput interface {
+	pulumi.Input
+
+	ToSparkClusterPrivateLinkConfigurationOutput() SparkClusterPrivateLinkConfigurationOutput
+	ToSparkClusterPrivateLinkConfigurationOutputWithContext(context.Context) SparkClusterPrivateLinkConfigurationOutput
+}
+
+type SparkClusterPrivateLinkConfigurationArgs struct {
+	// The ID of the private link service group.
+	GroupId         pulumi.StringInput                                       `pulumi:"groupId"`
+	IpConfiguration SparkClusterPrivateLinkConfigurationIpConfigurationInput `pulumi:"ipConfiguration"`
+	// The name of the private link configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SparkClusterPrivateLinkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i SparkClusterPrivateLinkConfigurationArgs) ToSparkClusterPrivateLinkConfigurationOutput() SparkClusterPrivateLinkConfigurationOutput {
+	return i.ToSparkClusterPrivateLinkConfigurationOutputWithContext(context.Background())
+}
+
+func (i SparkClusterPrivateLinkConfigurationArgs) ToSparkClusterPrivateLinkConfigurationOutputWithContext(ctx context.Context) SparkClusterPrivateLinkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterPrivateLinkConfigurationOutput)
+}
+
+func (i SparkClusterPrivateLinkConfigurationArgs) ToSparkClusterPrivateLinkConfigurationPtrOutput() SparkClusterPrivateLinkConfigurationPtrOutput {
+	return i.ToSparkClusterPrivateLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SparkClusterPrivateLinkConfigurationArgs) ToSparkClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) SparkClusterPrivateLinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterPrivateLinkConfigurationOutput).ToSparkClusterPrivateLinkConfigurationPtrOutputWithContext(ctx)
+}
+
+// SparkClusterPrivateLinkConfigurationPtrInput is an input type that accepts SparkClusterPrivateLinkConfigurationArgs, SparkClusterPrivateLinkConfigurationPtr and SparkClusterPrivateLinkConfigurationPtrOutput values.
+// You can construct a concrete instance of `SparkClusterPrivateLinkConfigurationPtrInput` via:
+//
+//	        SparkClusterPrivateLinkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SparkClusterPrivateLinkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSparkClusterPrivateLinkConfigurationPtrOutput() SparkClusterPrivateLinkConfigurationPtrOutput
+	ToSparkClusterPrivateLinkConfigurationPtrOutputWithContext(context.Context) SparkClusterPrivateLinkConfigurationPtrOutput
+}
+
+type sparkClusterPrivateLinkConfigurationPtrType SparkClusterPrivateLinkConfigurationArgs
+
+func SparkClusterPrivateLinkConfigurationPtr(v *SparkClusterPrivateLinkConfigurationArgs) SparkClusterPrivateLinkConfigurationPtrInput {
+	return (*sparkClusterPrivateLinkConfigurationPtrType)(v)
+}
+
+func (*sparkClusterPrivateLinkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i *sparkClusterPrivateLinkConfigurationPtrType) ToSparkClusterPrivateLinkConfigurationPtrOutput() SparkClusterPrivateLinkConfigurationPtrOutput {
+	return i.ToSparkClusterPrivateLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *sparkClusterPrivateLinkConfigurationPtrType) ToSparkClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) SparkClusterPrivateLinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterPrivateLinkConfigurationPtrOutput)
+}
+
+type SparkClusterPrivateLinkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterPrivateLinkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o SparkClusterPrivateLinkConfigurationOutput) ToSparkClusterPrivateLinkConfigurationOutput() SparkClusterPrivateLinkConfigurationOutput {
+	return o
+}
+
+func (o SparkClusterPrivateLinkConfigurationOutput) ToSparkClusterPrivateLinkConfigurationOutputWithContext(ctx context.Context) SparkClusterPrivateLinkConfigurationOutput {
+	return o
+}
+
+func (o SparkClusterPrivateLinkConfigurationOutput) ToSparkClusterPrivateLinkConfigurationPtrOutput() SparkClusterPrivateLinkConfigurationPtrOutput {
+	return o.ToSparkClusterPrivateLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SparkClusterPrivateLinkConfigurationOutput) ToSparkClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) SparkClusterPrivateLinkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterPrivateLinkConfiguration) *SparkClusterPrivateLinkConfiguration {
+		return &v
+	}).(SparkClusterPrivateLinkConfigurationPtrOutput)
+}
+
+// The ID of the private link service group.
+func (o SparkClusterPrivateLinkConfigurationOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterPrivateLinkConfiguration) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+func (o SparkClusterPrivateLinkConfigurationOutput) IpConfiguration() SparkClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o.ApplyT(func(v SparkClusterPrivateLinkConfiguration) SparkClusterPrivateLinkConfigurationIpConfiguration {
+		return v.IpConfiguration
+	}).(SparkClusterPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+// The name of the private link configuration.
+func (o SparkClusterPrivateLinkConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterPrivateLinkConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type SparkClusterPrivateLinkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterPrivateLinkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o SparkClusterPrivateLinkConfigurationPtrOutput) ToSparkClusterPrivateLinkConfigurationPtrOutput() SparkClusterPrivateLinkConfigurationPtrOutput {
+	return o
+}
+
+func (o SparkClusterPrivateLinkConfigurationPtrOutput) ToSparkClusterPrivateLinkConfigurationPtrOutputWithContext(ctx context.Context) SparkClusterPrivateLinkConfigurationPtrOutput {
+	return o
+}
+
+func (o SparkClusterPrivateLinkConfigurationPtrOutput) Elem() SparkClusterPrivateLinkConfigurationOutput {
+	return o.ApplyT(func(v *SparkClusterPrivateLinkConfiguration) SparkClusterPrivateLinkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterPrivateLinkConfiguration
+		return ret
+	}).(SparkClusterPrivateLinkConfigurationOutput)
+}
+
+// The ID of the private link service group.
+func (o SparkClusterPrivateLinkConfigurationPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterPrivateLinkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SparkClusterPrivateLinkConfigurationPtrOutput) IpConfiguration() SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o.ApplyT(func(v *SparkClusterPrivateLinkConfiguration) *SparkClusterPrivateLinkConfigurationIpConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.IpConfiguration
+	}).(SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
+}
+
+// The name of the private link configuration.
+func (o SparkClusterPrivateLinkConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterPrivateLinkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type SparkClusterPrivateLinkConfigurationIpConfiguration struct {
+	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary *bool `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
+	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
+	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// SparkClusterPrivateLinkConfigurationIpConfigurationInput is an input type that accepts SparkClusterPrivateLinkConfigurationIpConfigurationArgs and SparkClusterPrivateLinkConfigurationIpConfigurationOutput values.
+// You can construct a concrete instance of `SparkClusterPrivateLinkConfigurationIpConfigurationInput` via:
+//
+//	SparkClusterPrivateLinkConfigurationIpConfigurationArgs{...}
+type SparkClusterPrivateLinkConfigurationIpConfigurationInput interface {
+	pulumi.Input
+
+	ToSparkClusterPrivateLinkConfigurationIpConfigurationOutput() SparkClusterPrivateLinkConfigurationIpConfigurationOutput
+	ToSparkClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(context.Context) SparkClusterPrivateLinkConfigurationIpConfigurationOutput
+}
+
+type SparkClusterPrivateLinkConfigurationIpConfigurationArgs struct {
+	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
+	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
+	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (SparkClusterPrivateLinkConfigurationIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (i SparkClusterPrivateLinkConfigurationIpConfigurationArgs) ToSparkClusterPrivateLinkConfigurationIpConfigurationOutput() SparkClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return i.ToSparkClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i SparkClusterPrivateLinkConfigurationIpConfigurationArgs) ToSparkClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(ctx context.Context) SparkClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+func (i SparkClusterPrivateLinkConfigurationIpConfigurationArgs) ToSparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput() SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return i.ToSparkClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SparkClusterPrivateLinkConfigurationIpConfigurationArgs) ToSparkClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterPrivateLinkConfigurationIpConfigurationOutput).ToSparkClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx)
+}
+
+// SparkClusterPrivateLinkConfigurationIpConfigurationPtrInput is an input type that accepts SparkClusterPrivateLinkConfigurationIpConfigurationArgs, SparkClusterPrivateLinkConfigurationIpConfigurationPtr and SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput values.
+// You can construct a concrete instance of `SparkClusterPrivateLinkConfigurationIpConfigurationPtrInput` via:
+//
+//	        SparkClusterPrivateLinkConfigurationIpConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SparkClusterPrivateLinkConfigurationIpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput() SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput
+	ToSparkClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Context) SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput
+}
+
+type sparkClusterPrivateLinkConfigurationIpConfigurationPtrType SparkClusterPrivateLinkConfigurationIpConfigurationArgs
+
+func SparkClusterPrivateLinkConfigurationIpConfigurationPtr(v *SparkClusterPrivateLinkConfigurationIpConfigurationArgs) SparkClusterPrivateLinkConfigurationIpConfigurationPtrInput {
+	return (*sparkClusterPrivateLinkConfigurationIpConfigurationPtrType)(v)
+}
+
+func (*sparkClusterPrivateLinkConfigurationIpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (i *sparkClusterPrivateLinkConfigurationIpConfigurationPtrType) ToSparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput() SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return i.ToSparkClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *sparkClusterPrivateLinkConfigurationIpConfigurationPtrType) ToSparkClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
+}
+
+type SparkClusterPrivateLinkConfigurationIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterPrivateLinkConfigurationIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) ToSparkClusterPrivateLinkConfigurationIpConfigurationOutput() SparkClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o
+}
+
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) ToSparkClusterPrivateLinkConfigurationIpConfigurationOutputWithContext(ctx context.Context) SparkClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o
+}
+
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) ToSparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput() SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o.ToSparkClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) ToSparkClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterPrivateLinkConfigurationIpConfiguration) *SparkClusterPrivateLinkConfigurationIpConfiguration {
+		return &v
+	}).(SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
+}
+
+// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether this IP configuration is primary.
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SparkClusterPrivateLinkConfigurationIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// The private IP address of the IP configuration.
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkClusterPrivateLinkConfigurationIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The private IP allocation method. The only possible value now is `Dynamic`.
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkClusterPrivateLinkConfigurationIpConfiguration) *string {
+		return v.PrivateIpAllocationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkClusterPrivateLinkConfigurationIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) ToSparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput() SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o
+}
+
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) ToSparkClusterPrivateLinkConfigurationIpConfigurationPtrOutputWithContext(ctx context.Context) SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput {
+	return o
+}
+
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Elem() SparkClusterPrivateLinkConfigurationIpConfigurationOutput {
+	return o.ApplyT(func(v *SparkClusterPrivateLinkConfigurationIpConfiguration) SparkClusterPrivateLinkConfigurationIpConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterPrivateLinkConfigurationIpConfiguration
+		return ret
+	}).(SparkClusterPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether this IP configuration is primary.
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SparkClusterPrivateLinkConfigurationIpConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Primary
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The private IP address of the IP configuration.
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private IP allocation method. The only possible value now is `Dynamic`.
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAllocationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterPrivateLinkConfigurationIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 type SparkClusterRoles struct {
 	// A `headNode` block as defined above.
 	HeadNode SparkClusterRolesHeadNode `pulumi:"headNode"`
@@ -22406,6 +24348,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterMonitorPtrInput)(nil)).Elem(), HBaseClusterMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterNetworkInput)(nil)).Elem(), HBaseClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterNetworkPtrInput)(nil)).Elem(), HBaseClusterNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterPrivateLinkConfigurationInput)(nil)).Elem(), HBaseClusterPrivateLinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterPrivateLinkConfigurationPtrInput)(nil)).Elem(), HBaseClusterPrivateLinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterPrivateLinkConfigurationIpConfigurationInput)(nil)).Elem(), HBaseClusterPrivateLinkConfigurationIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterPrivateLinkConfigurationIpConfigurationPtrInput)(nil)).Elem(), HBaseClusterPrivateLinkConfigurationIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesInput)(nil)).Elem(), HBaseClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesPtrInput)(nil)).Elem(), HBaseClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesHeadNodeInput)(nil)).Elem(), HBaseClusterRolesHeadNodeArgs{})
@@ -22454,6 +24400,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterMonitorPtrInput)(nil)).Elem(), HadoopClusterMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterNetworkInput)(nil)).Elem(), HadoopClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterNetworkPtrInput)(nil)).Elem(), HadoopClusterNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterPrivateLinkConfigurationInput)(nil)).Elem(), HadoopClusterPrivateLinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterPrivateLinkConfigurationPtrInput)(nil)).Elem(), HadoopClusterPrivateLinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterPrivateLinkConfigurationIpConfigurationInput)(nil)).Elem(), HadoopClusterPrivateLinkConfigurationIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterPrivateLinkConfigurationIpConfigurationPtrInput)(nil)).Elem(), HadoopClusterPrivateLinkConfigurationIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesInput)(nil)).Elem(), HadoopClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesPtrInput)(nil)).Elem(), HadoopClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesEdgeNodeInput)(nil)).Elem(), HadoopClusterRolesEdgeNodeArgs{})
@@ -22512,6 +24462,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterMonitorPtrInput)(nil)).Elem(), InteractiveQueryClusterMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterNetworkInput)(nil)).Elem(), InteractiveQueryClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterNetworkPtrInput)(nil)).Elem(), InteractiveQueryClusterNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterPrivateLinkConfigurationInput)(nil)).Elem(), InteractiveQueryClusterPrivateLinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterPrivateLinkConfigurationPtrInput)(nil)).Elem(), InteractiveQueryClusterPrivateLinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationInput)(nil)).Elem(), InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrInput)(nil)).Elem(), InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesInput)(nil)).Elem(), InteractiveQueryClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesPtrInput)(nil)).Elem(), InteractiveQueryClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesHeadNodeInput)(nil)).Elem(), InteractiveQueryClusterRolesHeadNodeArgs{})
@@ -22562,6 +24516,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterMonitorPtrInput)(nil)).Elem(), KafkaClusterMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterNetworkInput)(nil)).Elem(), KafkaClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterNetworkPtrInput)(nil)).Elem(), KafkaClusterNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterPrivateLinkConfigurationInput)(nil)).Elem(), KafkaClusterPrivateLinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterPrivateLinkConfigurationPtrInput)(nil)).Elem(), KafkaClusterPrivateLinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterPrivateLinkConfigurationIpConfigurationInput)(nil)).Elem(), KafkaClusterPrivateLinkConfigurationIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterPrivateLinkConfigurationIpConfigurationPtrInput)(nil)).Elem(), KafkaClusterPrivateLinkConfigurationIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRestProxyInput)(nil)).Elem(), KafkaClusterRestProxyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRestProxyPtrInput)(nil)).Elem(), KafkaClusterRestProxyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesInput)(nil)).Elem(), KafkaClusterRolesArgs{})
@@ -22610,6 +24568,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterMonitorPtrInput)(nil)).Elem(), SparkClusterMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterNetworkInput)(nil)).Elem(), SparkClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterNetworkPtrInput)(nil)).Elem(), SparkClusterNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterPrivateLinkConfigurationInput)(nil)).Elem(), SparkClusterPrivateLinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterPrivateLinkConfigurationPtrInput)(nil)).Elem(), SparkClusterPrivateLinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterPrivateLinkConfigurationIpConfigurationInput)(nil)).Elem(), SparkClusterPrivateLinkConfigurationIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterPrivateLinkConfigurationIpConfigurationPtrInput)(nil)).Elem(), SparkClusterPrivateLinkConfigurationIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesInput)(nil)).Elem(), SparkClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesPtrInput)(nil)).Elem(), SparkClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesHeadNodeInput)(nil)).Elem(), SparkClusterRolesHeadNodeArgs{})
@@ -22662,6 +24624,10 @@ func init() {
 	pulumi.RegisterOutputType(HBaseClusterMonitorPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterNetworkOutput{})
 	pulumi.RegisterOutputType(HBaseClusterNetworkPtrOutput{})
+	pulumi.RegisterOutputType(HBaseClusterPrivateLinkConfigurationOutput{})
+	pulumi.RegisterOutputType(HBaseClusterPrivateLinkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(HBaseClusterPrivateLinkConfigurationIpConfigurationOutput{})
+	pulumi.RegisterOutputType(HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesHeadNodeOutput{})
@@ -22710,6 +24676,10 @@ func init() {
 	pulumi.RegisterOutputType(HadoopClusterMonitorPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterNetworkOutput{})
 	pulumi.RegisterOutputType(HadoopClusterNetworkPtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterPrivateLinkConfigurationOutput{})
+	pulumi.RegisterOutputType(HadoopClusterPrivateLinkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterPrivateLinkConfigurationIpConfigurationOutput{})
+	pulumi.RegisterOutputType(HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodeOutput{})
@@ -22768,6 +24738,10 @@ func init() {
 	pulumi.RegisterOutputType(InteractiveQueryClusterMonitorPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterNetworkOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterNetworkPtrOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterPrivateLinkConfigurationOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterPrivateLinkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesHeadNodeOutput{})
@@ -22818,6 +24792,10 @@ func init() {
 	pulumi.RegisterOutputType(KafkaClusterMonitorPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterNetworkOutput{})
 	pulumi.RegisterOutputType(KafkaClusterNetworkPtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterPrivateLinkConfigurationOutput{})
+	pulumi.RegisterOutputType(KafkaClusterPrivateLinkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterPrivateLinkConfigurationIpConfigurationOutput{})
+	pulumi.RegisterOutputType(KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRestProxyOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRestProxyPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesOutput{})
@@ -22866,6 +24844,10 @@ func init() {
 	pulumi.RegisterOutputType(SparkClusterMonitorPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterNetworkOutput{})
 	pulumi.RegisterOutputType(SparkClusterNetworkPtrOutput{})
+	pulumi.RegisterOutputType(SparkClusterPrivateLinkConfigurationOutput{})
+	pulumi.RegisterOutputType(SparkClusterPrivateLinkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SparkClusterPrivateLinkConfigurationIpConfigurationOutput{})
+	pulumi.RegisterOutputType(SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesHeadNodeOutput{})

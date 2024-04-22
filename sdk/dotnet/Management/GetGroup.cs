@@ -147,6 +147,10 @@ namespace Pulumi.Azure.Management
         /// A list of Subscription IDs which are directly assigned to this Management Group.
         /// </summary>
         public readonly ImmutableArray<string> SubscriptionIds;
+        /// <summary>
+        /// The Management Group ID with the Tenant ID prefix.
+        /// </summary>
+        public readonly string TenantScopedId;
 
         [OutputConstructor]
         private GetGroupResult(
@@ -164,7 +168,9 @@ namespace Pulumi.Azure.Management
 
             string parentManagementGroupId,
 
-            ImmutableArray<string> subscriptionIds)
+            ImmutableArray<string> subscriptionIds,
+
+            string tenantScopedId)
         {
             AllManagementGroupIds = allManagementGroupIds;
             AllSubscriptionIds = allSubscriptionIds;
@@ -174,6 +180,7 @@ namespace Pulumi.Azure.Management
             Name = name;
             ParentManagementGroupId = parentManagementGroupId;
             SubscriptionIds = subscriptionIds;
+            TenantScopedId = tenantScopedId;
         }
     }
 }

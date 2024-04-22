@@ -141,6 +141,8 @@ type SparkCluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `network` block as defined below.
 	Network SparkClusterNetworkPtrOutput `pulumi:"network"`
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration SparkClusterPrivateLinkConfigurationPtrOutput `pulumi:"privateLinkConfiguration"`
 	// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -237,6 +239,8 @@ type sparkClusterState struct {
 	Name *string `pulumi:"name"`
 	// A `network` block as defined below.
 	Network *SparkClusterNetwork `pulumi:"network"`
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration *SparkClusterPrivateLinkConfiguration `pulumi:"privateLinkConfiguration"`
 	// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -286,6 +290,8 @@ type SparkClusterState struct {
 	Name pulumi.StringPtrInput
 	// A `network` block as defined below.
 	Network SparkClusterNetworkPtrInput
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration SparkClusterPrivateLinkConfigurationPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roles` block as defined below.
@@ -337,6 +343,8 @@ type sparkClusterArgs struct {
 	Name *string `pulumi:"name"`
 	// A `network` block as defined below.
 	Network *SparkClusterNetwork `pulumi:"network"`
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration *SparkClusterPrivateLinkConfiguration `pulumi:"privateLinkConfiguration"`
 	// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -383,6 +391,8 @@ type SparkClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// A `network` block as defined below.
 	Network SparkClusterNetworkPtrInput
+	// A `privateLinkConfiguration` block as defined below.
+	PrivateLinkConfiguration SparkClusterPrivateLinkConfigurationPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `roles` block as defined below.
@@ -553,6 +563,11 @@ func (o SparkClusterOutput) Name() pulumi.StringOutput {
 // A `network` block as defined below.
 func (o SparkClusterOutput) Network() SparkClusterNetworkPtrOutput {
 	return o.ApplyT(func(v *SparkCluster) SparkClusterNetworkPtrOutput { return v.Network }).(SparkClusterNetworkPtrOutput)
+}
+
+// A `privateLinkConfiguration` block as defined below.
+func (o SparkClusterOutput) PrivateLinkConfiguration() SparkClusterPrivateLinkConfigurationPtrOutput {
+	return o.ApplyT(func(v *SparkCluster) SparkClusterPrivateLinkConfigurationPtrOutput { return v.PrivateLinkConfiguration }).(SparkClusterPrivateLinkConfigurationPtrOutput)
 }
 
 // Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.

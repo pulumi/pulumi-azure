@@ -31,6 +31,7 @@ class SparkClusterArgs:
                  monitor: Optional[pulumi.Input['SparkClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['SparkClusterNetworkArgs']] = None,
+                 private_link_configuration: Optional[pulumi.Input['SparkClusterPrivateLinkConfigurationArgs']] = None,
                  security_profile: Optional[pulumi.Input['SparkClusterSecurityProfileArgs']] = None,
                  storage_account_gen2: Optional[pulumi.Input['SparkClusterStorageAccountGen2Args']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]] = None,
@@ -53,6 +54,7 @@ class SparkClusterArgs:
         :param pulumi.Input['SparkClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['SparkClusterNetworkArgs'] network: A `network` block as defined below.
+        :param pulumi.Input['SparkClusterPrivateLinkConfigurationArgs'] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input['SparkClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['SparkClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
@@ -85,6 +87,8 @@ class SparkClusterArgs:
             pulumi.set(__self__, "name", name)
         if network is not None:
             pulumi.set(__self__, "network", network)
+        if private_link_configuration is not None:
+            pulumi.set(__self__, "private_link_configuration", private_link_configuration)
         if security_profile is not None:
             pulumi.set(__self__, "security_profile", security_profile)
         if storage_account_gen2 is not None:
@@ -277,6 +281,18 @@ class SparkClusterArgs:
         pulumi.set(self, "network", value)
 
     @property
+    @pulumi.getter(name="privateLinkConfiguration")
+    def private_link_configuration(self) -> Optional[pulumi.Input['SparkClusterPrivateLinkConfigurationArgs']]:
+        """
+        A `private_link_configuration` block as defined below.
+        """
+        return pulumi.get(self, "private_link_configuration")
+
+    @private_link_configuration.setter
+    def private_link_configuration(self, value: Optional[pulumi.Input['SparkClusterPrivateLinkConfigurationArgs']]):
+        pulumi.set(self, "private_link_configuration", value)
+
+    @property
     @pulumi.getter(name="securityProfile")
     def security_profile(self) -> Optional[pulumi.Input['SparkClusterSecurityProfileArgs']]:
         """
@@ -355,6 +371,7 @@ class _SparkClusterState:
                  monitor: Optional[pulumi.Input['SparkClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['SparkClusterNetworkArgs']] = None,
+                 private_link_configuration: Optional[pulumi.Input['SparkClusterPrivateLinkConfigurationArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input['SparkClusterRolesArgs']] = None,
                  security_profile: Optional[pulumi.Input['SparkClusterSecurityProfileArgs']] = None,
@@ -379,6 +396,7 @@ class _SparkClusterState:
         :param pulumi.Input['SparkClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['SparkClusterNetworkArgs'] network: A `network` block as defined below.
+        :param pulumi.Input['SparkClusterPrivateLinkConfigurationArgs'] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['SparkClusterRolesArgs'] roles: A `roles` block as defined below.
         :param pulumi.Input['SparkClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
@@ -417,6 +435,8 @@ class _SparkClusterState:
             pulumi.set(__self__, "name", name)
         if network is not None:
             pulumi.set(__self__, "network", network)
+        if private_link_configuration is not None:
+            pulumi.set(__self__, "private_link_configuration", private_link_configuration)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if roles is not None:
@@ -593,6 +613,18 @@ class _SparkClusterState:
         pulumi.set(self, "network", value)
 
     @property
+    @pulumi.getter(name="privateLinkConfiguration")
+    def private_link_configuration(self) -> Optional[pulumi.Input['SparkClusterPrivateLinkConfigurationArgs']]:
+        """
+        A `private_link_configuration` block as defined below.
+        """
+        return pulumi.get(self, "private_link_configuration")
+
+    @private_link_configuration.setter
+    def private_link_configuration(self, value: Optional[pulumi.Input['SparkClusterPrivateLinkConfigurationArgs']]):
+        pulumi.set(self, "private_link_configuration", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -720,6 +752,7 @@ class SparkCluster(pulumi.CustomResource):
                  monitor: Optional[pulumi.Input[pulumi.InputType['SparkClusterMonitorArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['SparkClusterNetworkArgs']]] = None,
+                 private_link_configuration: Optional[pulumi.Input[pulumi.InputType['SparkClusterPrivateLinkConfigurationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['SparkClusterRolesArgs']]] = None,
                  security_profile: Optional[pulumi.Input[pulumi.InputType['SparkClusterSecurityProfileArgs']]] = None,
@@ -813,6 +846,7 @@ class SparkCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SparkClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SparkClusterNetworkArgs']] network: A `network` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SparkClusterPrivateLinkConfigurationArgs']] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SparkClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[pulumi.InputType['SparkClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
@@ -927,6 +961,7 @@ class SparkCluster(pulumi.CustomResource):
                  monitor: Optional[pulumi.Input[pulumi.InputType['SparkClusterMonitorArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['SparkClusterNetworkArgs']]] = None,
+                 private_link_configuration: Optional[pulumi.Input[pulumi.InputType['SparkClusterPrivateLinkConfigurationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['SparkClusterRolesArgs']]] = None,
                  security_profile: Optional[pulumi.Input[pulumi.InputType['SparkClusterSecurityProfileArgs']]] = None,
@@ -962,6 +997,7 @@ class SparkCluster(pulumi.CustomResource):
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["name"] = name
             __props__.__dict__["network"] = network
+            __props__.__dict__["private_link_configuration"] = private_link_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1001,6 +1037,7 @@ class SparkCluster(pulumi.CustomResource):
             monitor: Optional[pulumi.Input[pulumi.InputType['SparkClusterMonitorArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network: Optional[pulumi.Input[pulumi.InputType['SparkClusterNetworkArgs']]] = None,
+            private_link_configuration: Optional[pulumi.Input[pulumi.InputType['SparkClusterPrivateLinkConfigurationArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[pulumi.InputType['SparkClusterRolesArgs']]] = None,
             security_profile: Optional[pulumi.Input[pulumi.InputType['SparkClusterSecurityProfileArgs']]] = None,
@@ -1030,6 +1067,7 @@ class SparkCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SparkClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SparkClusterNetworkArgs']] network: A `network` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SparkClusterPrivateLinkConfigurationArgs']] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SparkClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[pulumi.InputType['SparkClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
@@ -1059,6 +1097,7 @@ class SparkCluster(pulumi.CustomResource):
         __props__.__dict__["monitor"] = monitor
         __props__.__dict__["name"] = name
         __props__.__dict__["network"] = network
+        __props__.__dict__["private_link_configuration"] = private_link_configuration
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["roles"] = roles
         __props__.__dict__["security_profile"] = security_profile
@@ -1173,6 +1212,14 @@ class SparkCluster(pulumi.CustomResource):
         A `network` block as defined below.
         """
         return pulumi.get(self, "network")
+
+    @property
+    @pulumi.getter(name="privateLinkConfiguration")
+    def private_link_configuration(self) -> pulumi.Output[Optional['outputs.SparkClusterPrivateLinkConfiguration']]:
+        """
+        A `private_link_configuration` block as defined below.
+        """
+        return pulumi.get(self, "private_link_configuration")
 
     @property
     @pulumi.getter(name="resourceGroupName")

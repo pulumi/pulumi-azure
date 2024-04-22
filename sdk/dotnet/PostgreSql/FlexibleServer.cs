@@ -171,7 +171,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<int> BackupRetentionDays { get; private set; } = null!;
 
         /// <summary>
-        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
+        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
         /// 
         /// &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         /// </summary>
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The point in time to restore from `source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The point in time to restore from `source_server_id` when `create_mode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Output("pointInTimeRestoreTimeInUtc")]
         public Output<string?> PointInTimeRestoreTimeInUtc { get; private set; } = null!;
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Output("sourceServerId")]
         public Output<string?> SourceServerId { get; private set; } = null!;
@@ -410,7 +410,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<int>? BackupRetentionDays { get; set; }
 
         /// <summary>
-        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
+        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
         /// 
         /// &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         /// </summary>
@@ -468,7 +468,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The point in time to restore from `source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The point in time to restore from `source_server_id` when `create_mode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Input("pointInTimeRestoreTimeInUtc")]
         public Input<string>? PointInTimeRestoreTimeInUtc { get; set; }
@@ -502,7 +502,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Input("sourceServerId")]
         public Input<string>? SourceServerId { get; set; }
@@ -601,7 +601,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<int>? BackupRetentionDays { get; set; }
 
         /// <summary>
-        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
+        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
         /// 
         /// &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         /// </summary>
@@ -665,7 +665,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The point in time to restore from `source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The point in time to restore from `source_server_id` when `create_mode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Input("pointInTimeRestoreTimeInUtc")]
         public Input<string>? PointInTimeRestoreTimeInUtc { get; set; }
@@ -705,7 +705,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Input("sourceServerId")]
         public Input<string>? SourceServerId { get; set; }

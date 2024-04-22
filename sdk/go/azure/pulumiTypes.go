@@ -20,6 +20,7 @@ type ProviderFeatures struct {
 	CognitiveAccount         *ProviderFeaturesCognitiveAccount         `pulumi:"cognitiveAccount"`
 	KeyVault                 *ProviderFeaturesKeyVault                 `pulumi:"keyVault"`
 	LogAnalyticsWorkspace    *ProviderFeaturesLogAnalyticsWorkspace    `pulumi:"logAnalyticsWorkspace"`
+	MachineLearning          *ProviderFeaturesMachineLearning          `pulumi:"machineLearning"`
 	ManagedDisk              *ProviderFeaturesManagedDisk              `pulumi:"managedDisk"`
 	PostgresqlFlexibleServer *ProviderFeaturesPostgresqlFlexibleServer `pulumi:"postgresqlFlexibleServer"`
 	RecoveryService          *ProviderFeaturesRecoveryService          `pulumi:"recoveryService"`
@@ -48,6 +49,7 @@ type ProviderFeaturesArgs struct {
 	CognitiveAccount         ProviderFeaturesCognitiveAccountPtrInput         `pulumi:"cognitiveAccount"`
 	KeyVault                 ProviderFeaturesKeyVaultPtrInput                 `pulumi:"keyVault"`
 	LogAnalyticsWorkspace    ProviderFeaturesLogAnalyticsWorkspacePtrInput    `pulumi:"logAnalyticsWorkspace"`
+	MachineLearning          ProviderFeaturesMachineLearningPtrInput          `pulumi:"machineLearning"`
 	ManagedDisk              ProviderFeaturesManagedDiskPtrInput              `pulumi:"managedDisk"`
 	PostgresqlFlexibleServer ProviderFeaturesPostgresqlFlexibleServerPtrInput `pulumi:"postgresqlFlexibleServer"`
 	RecoveryService          ProviderFeaturesRecoveryServicePtrInput          `pulumi:"recoveryService"`
@@ -159,6 +161,10 @@ func (o ProviderFeaturesOutput) LogAnalyticsWorkspace() ProviderFeaturesLogAnaly
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesLogAnalyticsWorkspace { return v.LogAnalyticsWorkspace }).(ProviderFeaturesLogAnalyticsWorkspacePtrOutput)
 }
 
+func (o ProviderFeaturesOutput) MachineLearning() ProviderFeaturesMachineLearningPtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesMachineLearning { return v.MachineLearning }).(ProviderFeaturesMachineLearningPtrOutput)
+}
+
 func (o ProviderFeaturesOutput) ManagedDisk() ProviderFeaturesManagedDiskPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesManagedDisk { return v.ManagedDisk }).(ProviderFeaturesManagedDiskPtrOutput)
 }
@@ -267,6 +273,15 @@ func (o ProviderFeaturesPtrOutput) LogAnalyticsWorkspace() ProviderFeaturesLogAn
 		}
 		return v.LogAnalyticsWorkspace
 	}).(ProviderFeaturesLogAnalyticsWorkspacePtrOutput)
+}
+
+func (o ProviderFeaturesPtrOutput) MachineLearning() ProviderFeaturesMachineLearningPtrOutput {
+	return o.ApplyT(func(v *ProviderFeatures) *ProviderFeaturesMachineLearning {
+		if v == nil {
+			return nil
+		}
+		return v.MachineLearning
+	}).(ProviderFeaturesMachineLearningPtrOutput)
 }
 
 func (o ProviderFeaturesPtrOutput) ManagedDisk() ProviderFeaturesManagedDiskPtrOutput {
@@ -1322,6 +1337,139 @@ func (o ProviderFeaturesLogAnalyticsWorkspacePtrOutput) PermanentlyDeleteOnDestr
 			return nil
 		}
 		return v.PermanentlyDeleteOnDestroy
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesMachineLearning struct {
+	PurgeSoftDeletedWorkspaceOnDestroy *bool `pulumi:"purgeSoftDeletedWorkspaceOnDestroy"`
+}
+
+// ProviderFeaturesMachineLearningInput is an input type that accepts ProviderFeaturesMachineLearningArgs and ProviderFeaturesMachineLearningOutput values.
+// You can construct a concrete instance of `ProviderFeaturesMachineLearningInput` via:
+//
+//	ProviderFeaturesMachineLearningArgs{...}
+type ProviderFeaturesMachineLearningInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesMachineLearningOutput() ProviderFeaturesMachineLearningOutput
+	ToProviderFeaturesMachineLearningOutputWithContext(context.Context) ProviderFeaturesMachineLearningOutput
+}
+
+type ProviderFeaturesMachineLearningArgs struct {
+	PurgeSoftDeletedWorkspaceOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedWorkspaceOnDestroy"`
+}
+
+func (ProviderFeaturesMachineLearningArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesMachineLearning)(nil)).Elem()
+}
+
+func (i ProviderFeaturesMachineLearningArgs) ToProviderFeaturesMachineLearningOutput() ProviderFeaturesMachineLearningOutput {
+	return i.ToProviderFeaturesMachineLearningOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesMachineLearningArgs) ToProviderFeaturesMachineLearningOutputWithContext(ctx context.Context) ProviderFeaturesMachineLearningOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesMachineLearningOutput)
+}
+
+func (i ProviderFeaturesMachineLearningArgs) ToProviderFeaturesMachineLearningPtrOutput() ProviderFeaturesMachineLearningPtrOutput {
+	return i.ToProviderFeaturesMachineLearningPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesMachineLearningArgs) ToProviderFeaturesMachineLearningPtrOutputWithContext(ctx context.Context) ProviderFeaturesMachineLearningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesMachineLearningOutput).ToProviderFeaturesMachineLearningPtrOutputWithContext(ctx)
+}
+
+// ProviderFeaturesMachineLearningPtrInput is an input type that accepts ProviderFeaturesMachineLearningArgs, ProviderFeaturesMachineLearningPtr and ProviderFeaturesMachineLearningPtrOutput values.
+// You can construct a concrete instance of `ProviderFeaturesMachineLearningPtrInput` via:
+//
+//	        ProviderFeaturesMachineLearningArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderFeaturesMachineLearningPtrInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesMachineLearningPtrOutput() ProviderFeaturesMachineLearningPtrOutput
+	ToProviderFeaturesMachineLearningPtrOutputWithContext(context.Context) ProviderFeaturesMachineLearningPtrOutput
+}
+
+type providerFeaturesMachineLearningPtrType ProviderFeaturesMachineLearningArgs
+
+func ProviderFeaturesMachineLearningPtr(v *ProviderFeaturesMachineLearningArgs) ProviderFeaturesMachineLearningPtrInput {
+	return (*providerFeaturesMachineLearningPtrType)(v)
+}
+
+func (*providerFeaturesMachineLearningPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesMachineLearning)(nil)).Elem()
+}
+
+func (i *providerFeaturesMachineLearningPtrType) ToProviderFeaturesMachineLearningPtrOutput() ProviderFeaturesMachineLearningPtrOutput {
+	return i.ToProviderFeaturesMachineLearningPtrOutputWithContext(context.Background())
+}
+
+func (i *providerFeaturesMachineLearningPtrType) ToProviderFeaturesMachineLearningPtrOutputWithContext(ctx context.Context) ProviderFeaturesMachineLearningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesMachineLearningPtrOutput)
+}
+
+type ProviderFeaturesMachineLearningOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesMachineLearningOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesMachineLearning)(nil)).Elem()
+}
+
+func (o ProviderFeaturesMachineLearningOutput) ToProviderFeaturesMachineLearningOutput() ProviderFeaturesMachineLearningOutput {
+	return o
+}
+
+func (o ProviderFeaturesMachineLearningOutput) ToProviderFeaturesMachineLearningOutputWithContext(ctx context.Context) ProviderFeaturesMachineLearningOutput {
+	return o
+}
+
+func (o ProviderFeaturesMachineLearningOutput) ToProviderFeaturesMachineLearningPtrOutput() ProviderFeaturesMachineLearningPtrOutput {
+	return o.ToProviderFeaturesMachineLearningPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderFeaturesMachineLearningOutput) ToProviderFeaturesMachineLearningPtrOutputWithContext(ctx context.Context) ProviderFeaturesMachineLearningPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesMachineLearning) *ProviderFeaturesMachineLearning {
+		return &v
+	}).(ProviderFeaturesMachineLearningPtrOutput)
+}
+
+func (o ProviderFeaturesMachineLearningOutput) PurgeSoftDeletedWorkspaceOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesMachineLearning) *bool { return v.PurgeSoftDeletedWorkspaceOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesMachineLearningPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesMachineLearningPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesMachineLearning)(nil)).Elem()
+}
+
+func (o ProviderFeaturesMachineLearningPtrOutput) ToProviderFeaturesMachineLearningPtrOutput() ProviderFeaturesMachineLearningPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesMachineLearningPtrOutput) ToProviderFeaturesMachineLearningPtrOutputWithContext(ctx context.Context) ProviderFeaturesMachineLearningPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesMachineLearningPtrOutput) Elem() ProviderFeaturesMachineLearningOutput {
+	return o.ApplyT(func(v *ProviderFeaturesMachineLearning) ProviderFeaturesMachineLearning {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesMachineLearning
+		return ret
+	}).(ProviderFeaturesMachineLearningOutput)
+}
+
+func (o ProviderFeaturesMachineLearningPtrOutput) PurgeSoftDeletedWorkspaceOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesMachineLearning) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PurgeSoftDeletedWorkspaceOnDestroy
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -2496,6 +2644,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesKeyVaultPtrInput)(nil)).Elem(), ProviderFeaturesKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesLogAnalyticsWorkspaceInput)(nil)).Elem(), ProviderFeaturesLogAnalyticsWorkspaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesLogAnalyticsWorkspacePtrInput)(nil)).Elem(), ProviderFeaturesLogAnalyticsWorkspaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesMachineLearningInput)(nil)).Elem(), ProviderFeaturesMachineLearningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesMachineLearningPtrInput)(nil)).Elem(), ProviderFeaturesMachineLearningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesManagedDiskInput)(nil)).Elem(), ProviderFeaturesManagedDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesManagedDiskPtrInput)(nil)).Elem(), ProviderFeaturesManagedDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesPostgresqlFlexibleServerInput)(nil)).Elem(), ProviderFeaturesPostgresqlFlexibleServerArgs{})
@@ -2526,6 +2676,8 @@ func init() {
 	pulumi.RegisterOutputType(ProviderFeaturesKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesLogAnalyticsWorkspaceOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesLogAnalyticsWorkspacePtrOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesMachineLearningOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesMachineLearningPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesManagedDiskOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesManagedDiskPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesPostgresqlFlexibleServerOutput{})

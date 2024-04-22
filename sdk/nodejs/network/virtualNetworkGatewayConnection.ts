@@ -284,6 +284,10 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly peerVirtualNetworkGatewayId!: pulumi.Output<string | undefined>;
     /**
+     * Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypass` must be set to `true`. Defaults to `false`.
+     */
+    public readonly privateLinkFastPathEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the resource group in which to create the connection Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -347,6 +351,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["peerVirtualNetworkGatewayId"] = state ? state.peerVirtualNetworkGatewayId : undefined;
+            resourceInputs["privateLinkFastPathEnabled"] = state ? state.privateLinkFastPathEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["routingWeight"] = state ? state.routingWeight : undefined;
             resourceInputs["sharedKey"] = state ? state.sharedKey : undefined;
@@ -382,6 +387,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["peerVirtualNetworkGatewayId"] = args ? args.peerVirtualNetworkGatewayId : undefined;
+            resourceInputs["privateLinkFastPathEnabled"] = args ? args.privateLinkFastPathEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
             resourceInputs["sharedKey"] = args?.sharedKey ? pulumi.secret(args.sharedKey) : undefined;
@@ -471,6 +477,10 @@ export interface VirtualNetworkGatewayConnectionState {
      * The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
      */
     peerVirtualNetworkGatewayId?: pulumi.Input<string>;
+    /**
+     * Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypass` must be set to `true`. Defaults to `false`.
+     */
+    privateLinkFastPathEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the connection Changing this forces a new resource to be created.
      */
@@ -580,6 +590,10 @@ export interface VirtualNetworkGatewayConnectionArgs {
      * The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
      */
     peerVirtualNetworkGatewayId?: pulumi.Input<string>;
+    /**
+     * Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypass` must be set to `true`. Defaults to `false`.
+     */
+    privateLinkFastPathEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the connection Changing this forces a new resource to be created.
      */

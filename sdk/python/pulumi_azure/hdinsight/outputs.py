@@ -22,6 +22,8 @@ __all__ = [
     'HBaseClusterMetastoresOozie',
     'HBaseClusterMonitor',
     'HBaseClusterNetwork',
+    'HBaseClusterPrivateLinkConfiguration',
+    'HBaseClusterPrivateLinkConfigurationIpConfiguration',
     'HBaseClusterRoles',
     'HBaseClusterRolesHeadNode',
     'HBaseClusterRolesHeadNodeScriptAction',
@@ -46,6 +48,8 @@ __all__ = [
     'HadoopClusterMetastoresOozie',
     'HadoopClusterMonitor',
     'HadoopClusterNetwork',
+    'HadoopClusterPrivateLinkConfiguration',
+    'HadoopClusterPrivateLinkConfigurationIpConfiguration',
     'HadoopClusterRoles',
     'HadoopClusterRolesEdgeNode',
     'HadoopClusterRolesEdgeNodeHttpsEndpoint',
@@ -75,6 +79,8 @@ __all__ = [
     'InteractiveQueryClusterMetastoresOozie',
     'InteractiveQueryClusterMonitor',
     'InteractiveQueryClusterNetwork',
+    'InteractiveQueryClusterPrivateLinkConfiguration',
+    'InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration',
     'InteractiveQueryClusterRoles',
     'InteractiveQueryClusterRolesHeadNode',
     'InteractiveQueryClusterRolesHeadNodeScriptAction',
@@ -100,6 +106,8 @@ __all__ = [
     'KafkaClusterMetastoresOozie',
     'KafkaClusterMonitor',
     'KafkaClusterNetwork',
+    'KafkaClusterPrivateLinkConfiguration',
+    'KafkaClusterPrivateLinkConfigurationIpConfiguration',
     'KafkaClusterRestProxy',
     'KafkaClusterRoles',
     'KafkaClusterRolesHeadNode',
@@ -124,6 +132,8 @@ __all__ = [
     'SparkClusterMetastoresOozie',
     'SparkClusterMonitor',
     'SparkClusterNetwork',
+    'SparkClusterPrivateLinkConfiguration',
+    'SparkClusterPrivateLinkConfigurationIpConfiguration',
     'SparkClusterRoles',
     'SparkClusterRolesHeadNode',
     'SparkClusterRolesHeadNodeScriptAction',
@@ -715,6 +725,148 @@ class HBaseClusterNetwork(dict):
         Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_enabled")
+
+
+@pulumi.output_type
+class HBaseClusterPrivateLinkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "ipConfiguration":
+            suggest = "ip_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseClusterPrivateLinkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseClusterPrivateLinkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseClusterPrivateLinkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: str,
+                 ip_configuration: 'outputs.HBaseClusterPrivateLinkConfigurationIpConfiguration',
+                 name: str):
+        """
+        :param str group_id: The ID of the private link service group.
+        :param str name: The name of the private link configuration.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "ip_configuration", ip_configuration)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        The ID of the private link service group.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="ipConfiguration")
+    def ip_configuration(self) -> 'outputs.HBaseClusterPrivateLinkConfigurationIpConfiguration':
+        return pulumi.get(self, "ip_configuration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the private link configuration.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class HBaseClusterPrivateLinkConfigurationIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIpAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseClusterPrivateLinkConfigurationIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseClusterPrivateLinkConfigurationIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseClusterPrivateLinkConfigurationIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 primary: Optional[bool] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 subnet_id: Optional[str] = None):
+        """
+        :param str name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        :param bool primary: Indicates whether this IP configuration is primary.
+        :param str private_ip_address: The private IP address of the IP configuration.
+        :param str private_ip_allocation_method: The private IP allocation method. The only possible value now is `Dynamic`.
+        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[bool]:
+        """
+        Indicates whether this IP configuration is primary.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIpAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP allocation method. The only possible value now is `Dynamic`.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type
@@ -2254,6 +2406,148 @@ class HadoopClusterNetwork(dict):
         Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_enabled")
+
+
+@pulumi.output_type
+class HadoopClusterPrivateLinkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "ipConfiguration":
+            suggest = "ip_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterPrivateLinkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterPrivateLinkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterPrivateLinkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: str,
+                 ip_configuration: 'outputs.HadoopClusterPrivateLinkConfigurationIpConfiguration',
+                 name: str):
+        """
+        :param str group_id: The ID of the private link service group.
+        :param str name: The name of the private link configuration.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "ip_configuration", ip_configuration)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        The ID of the private link service group.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="ipConfiguration")
+    def ip_configuration(self) -> 'outputs.HadoopClusterPrivateLinkConfigurationIpConfiguration':
+        return pulumi.get(self, "ip_configuration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the private link configuration.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class HadoopClusterPrivateLinkConfigurationIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIpAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterPrivateLinkConfigurationIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterPrivateLinkConfigurationIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterPrivateLinkConfigurationIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 primary: Optional[bool] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 subnet_id: Optional[str] = None):
+        """
+        :param str name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        :param bool primary: Indicates whether this IP configuration is primary.
+        :param str private_ip_address: The private ip address of the endpoint.
+        :param str private_ip_allocation_method: The private IP allocation method. The only possible value now is `Dynamic`.
+        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[bool]:
+        """
+        Indicates whether this IP configuration is primary.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private ip address of the endpoint.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIpAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP allocation method. The only possible value now is `Dynamic`.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type
@@ -4150,6 +4444,148 @@ class InteractiveQueryClusterNetwork(dict):
 
 
 @pulumi.output_type
+class InteractiveQueryClusterPrivateLinkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "ipConfiguration":
+            suggest = "ip_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterPrivateLinkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterPrivateLinkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterPrivateLinkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: str,
+                 ip_configuration: 'outputs.InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration',
+                 name: str):
+        """
+        :param str group_id: The ID of the private link service group.
+        :param str name: The name of the private link configuration.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "ip_configuration", ip_configuration)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        The ID of the private link service group.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="ipConfiguration")
+    def ip_configuration(self) -> 'outputs.InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration':
+        return pulumi.get(self, "ip_configuration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the private link configuration.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIpAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 primary: Optional[bool] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 subnet_id: Optional[str] = None):
+        """
+        :param str name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        :param bool primary: Indicates whether this IP configuration is primary.
+        :param str private_ip_address: The private IP address of the IP configuration.
+        :param str private_ip_allocation_method: The private IP allocation method. The only possible value now is `Dynamic`.
+        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[bool]:
+        """
+        Indicates whether this IP configuration is primary.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIpAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP allocation method. The only possible value now is `Dynamic`.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
 class InteractiveQueryClusterRoles(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5739,6 +6175,148 @@ class KafkaClusterNetwork(dict):
         Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_enabled")
+
+
+@pulumi.output_type
+class KafkaClusterPrivateLinkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "ipConfiguration":
+            suggest = "ip_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterPrivateLinkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterPrivateLinkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterPrivateLinkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: str,
+                 ip_configuration: 'outputs.KafkaClusterPrivateLinkConfigurationIpConfiguration',
+                 name: str):
+        """
+        :param str group_id: The ID of the private link service group.
+        :param str name: The name of the private link configuration.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "ip_configuration", ip_configuration)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        The ID of the private link service group.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="ipConfiguration")
+    def ip_configuration(self) -> 'outputs.KafkaClusterPrivateLinkConfigurationIpConfiguration':
+        return pulumi.get(self, "ip_configuration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the private link configuration.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class KafkaClusterPrivateLinkConfigurationIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIpAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterPrivateLinkConfigurationIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterPrivateLinkConfigurationIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterPrivateLinkConfigurationIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 primary: Optional[bool] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 subnet_id: Optional[str] = None):
+        """
+        :param str name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        :param bool primary: Indicates whether this IP configuration is primary.
+        :param str private_ip_address: The private IP address of the IP configuration.
+        :param str private_ip_allocation_method: The private IP allocation method. The only possible value now is `Dynamic`.
+        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[bool]:
+        """
+        Indicates whether this IP configuration is primary.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIpAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP allocation method. The only possible value now is `Dynamic`.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type
@@ -7403,6 +7981,148 @@ class SparkClusterNetwork(dict):
         Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_enabled")
+
+
+@pulumi.output_type
+class SparkClusterPrivateLinkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "ipConfiguration":
+            suggest = "ip_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkClusterPrivateLinkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkClusterPrivateLinkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkClusterPrivateLinkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: str,
+                 ip_configuration: 'outputs.SparkClusterPrivateLinkConfigurationIpConfiguration',
+                 name: str):
+        """
+        :param str group_id: The ID of the private link service group.
+        :param str name: The name of the private link configuration.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "ip_configuration", ip_configuration)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        The ID of the private link service group.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="ipConfiguration")
+    def ip_configuration(self) -> 'outputs.SparkClusterPrivateLinkConfigurationIpConfiguration':
+        return pulumi.get(self, "ip_configuration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the private link configuration.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SparkClusterPrivateLinkConfigurationIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIpAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkClusterPrivateLinkConfigurationIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkClusterPrivateLinkConfigurationIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkClusterPrivateLinkConfigurationIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 primary: Optional[bool] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 subnet_id: Optional[str] = None):
+        """
+        :param str name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        :param bool primary: Indicates whether this IP configuration is primary.
+        :param str private_ip_address: The private IP address of the IP configuration.
+        :param str private_ip_allocation_method: The private IP allocation method. The only possible value now is `Dynamic`.
+        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[bool]:
+        """
+        Indicates whether this IP configuration is primary.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIpAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP allocation method. The only possible value now is `Dynamic`.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type

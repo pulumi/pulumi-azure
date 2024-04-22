@@ -109,6 +109,21 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
     }
 
     /**
+     * Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+     * 
+     */
+    @Import(name="privateLinkFastPathEnabled")
+    private @Nullable Output<Boolean> privateLinkFastPathEnabled;
+
+    /**
+     * @return Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> privateLinkFastPathEnabled() {
+        return Optional.ofNullable(this.privateLinkFastPathEnabled);
+    }
+
+    /**
      * A `routing` block as defined below.
      * 
      */
@@ -147,6 +162,7 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
         this.expressRouteGatewayBypassEnabled = $.expressRouteGatewayBypassEnabled;
         this.expressRouteGatewayId = $.expressRouteGatewayId;
         this.name = $.name;
+        this.privateLinkFastPathEnabled = $.privateLinkFastPathEnabled;
         this.routing = $.routing;
         this.routingWeight = $.routingWeight;
     }
@@ -293,6 +309,27 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param privateLinkFastPathEnabled Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateLinkFastPathEnabled(@Nullable Output<Boolean> privateLinkFastPathEnabled) {
+            $.privateLinkFastPathEnabled = privateLinkFastPathEnabled;
+            return this;
+        }
+
+        /**
+         * @param privateLinkFastPathEnabled Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateLinkFastPathEnabled(Boolean privateLinkFastPathEnabled) {
+            return privateLinkFastPathEnabled(Output.of(privateLinkFastPathEnabled));
         }
 
         /**

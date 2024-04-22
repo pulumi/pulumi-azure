@@ -6934,12 +6934,20 @@ type KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl struct {
 	// Is Role Based Access Control based on Azure AD enabled?
 	AzureRbacEnabled *bool `pulumi:"azureRbacEnabled"`
 	// The Client ID of an Azure Active Directory Application.
+	//
+	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ClientAppId *string `pulumi:"clientAppId"`
 	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+	//
+	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	Managed *bool `pulumi:"managed"`
 	// The Server ID of an Azure Active Directory Application.
+	//
+	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ServerAppId *string `pulumi:"serverAppId"`
 	// The Server Secret of an Azure Active Directory Application.
+	//
+	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ServerAppSecret *string `pulumi:"serverAppSecret"`
 	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId *string `pulumi:"tenantId"`
@@ -6962,12 +6970,20 @@ type KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs struct {
 	// Is Role Based Access Control based on Azure AD enabled?
 	AzureRbacEnabled pulumi.BoolPtrInput `pulumi:"azureRbacEnabled"`
 	// The Client ID of an Azure Active Directory Application.
+	//
+	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ClientAppId pulumi.StringPtrInput `pulumi:"clientAppId"`
 	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+	//
+	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	Managed pulumi.BoolPtrInput `pulumi:"managed"`
 	// The Server ID of an Azure Active Directory Application.
+	//
+	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ServerAppId pulumi.StringPtrInput `pulumi:"serverAppId"`
 	// The Server Secret of an Azure Active Directory Application.
+	//
+	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ServerAppSecret pulumi.StringPtrInput `pulumi:"serverAppSecret"`
 	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
@@ -7063,21 +7079,29 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) Azure
 }
 
 // The Client ID of an Azure Active Directory Application.
+//
+// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ClientAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string { return v.ClientAppId }).(pulumi.StringPtrOutput)
 }
 
 // Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+//
+// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) Managed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *bool { return v.Managed }).(pulumi.BoolPtrOutput)
 }
 
 // The Server ID of an Azure Active Directory Application.
+//
+// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ServerAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string { return v.ServerAppId }).(pulumi.StringPtrOutput)
 }
 
 // The Server Secret of an Azure Active Directory Application.
+//
+// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ServerAppSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string { return v.ServerAppSecret }).(pulumi.StringPtrOutput)
 }
@@ -7132,6 +7156,8 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Az
 }
 
 // The Client ID of an Azure Active Directory Application.
+//
+// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) ClientAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string {
 		if v == nil {
@@ -7142,6 +7168,8 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Cl
 }
 
 // Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+//
+// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Managed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *bool {
 		if v == nil {
@@ -7152,6 +7180,8 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Ma
 }
 
 // The Server ID of an Azure Active Directory Application.
+//
+// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) ServerAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string {
 		if v == nil {
@@ -7162,6 +7192,8 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Se
 }
 
 // The Server Secret of an Azure Active Directory Application.
+//
+// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) ServerAppSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string {
 		if v == nil {
@@ -12527,7 +12559,7 @@ func (o KubernetesClusterMaintenanceWindowAllowedArrayOutput) Index(i pulumi.Int
 }
 
 type KubernetesClusterMaintenanceWindowAutoUpgrade struct {
-	// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+	// The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
 	DayOfMonth *int `pulumi:"dayOfMonth"`
 	// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek *string `pulumi:"dayOfWeek"`
@@ -12562,7 +12594,7 @@ type KubernetesClusterMaintenanceWindowAutoUpgradeInput interface {
 }
 
 type KubernetesClusterMaintenanceWindowAutoUpgradeArgs struct {
-	// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+	// The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
 	DayOfMonth pulumi.IntPtrInput `pulumi:"dayOfMonth"`
 	// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek pulumi.StringPtrInput `pulumi:"dayOfWeek"`
@@ -12662,7 +12694,7 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) ToKubernetesCluster
 	}).(KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput)
 }
 
-// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+// The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
 func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) DayOfMonth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) *int { return v.DayOfMonth }).(pulumi.IntPtrOutput)
 }
@@ -12739,7 +12771,7 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) Elem() Kubernete
 	}).(KubernetesClusterMaintenanceWindowAutoUpgradeOutput)
 }
 
-// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+// The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
 func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) DayOfMonth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) *int {
 		if v == nil {
@@ -12947,7 +12979,7 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput) Inde
 }
 
 type KubernetesClusterMaintenanceWindowNodeOs struct {
-	// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+	// The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
 	DayOfMonth *int `pulumi:"dayOfMonth"`
 	// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek *string `pulumi:"dayOfWeek"`
@@ -12981,7 +13013,7 @@ type KubernetesClusterMaintenanceWindowNodeOsInput interface {
 }
 
 type KubernetesClusterMaintenanceWindowNodeOsArgs struct {
-	// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+	// The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
 	DayOfMonth pulumi.IntPtrInput `pulumi:"dayOfMonth"`
 	// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek pulumi.StringPtrInput `pulumi:"dayOfWeek"`
@@ -13080,7 +13112,7 @@ func (o KubernetesClusterMaintenanceWindowNodeOsOutput) ToKubernetesClusterMaint
 	}).(KubernetesClusterMaintenanceWindowNodeOsPtrOutput)
 }
 
-// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+// The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
 func (o KubernetesClusterMaintenanceWindowNodeOsOutput) DayOfMonth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOs) *int { return v.DayOfMonth }).(pulumi.IntPtrOutput)
 }
@@ -13156,7 +13188,7 @@ func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) Elem() KubernetesClus
 	}).(KubernetesClusterMaintenanceWindowNodeOsOutput)
 }
 
-// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+// The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
 func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) DayOfMonth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowNodeOs) *int {
 		if v == nil {

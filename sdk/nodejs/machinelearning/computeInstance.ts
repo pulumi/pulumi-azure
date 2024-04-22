@@ -72,7 +72,6 @@ import * as utilities from "../utilities";
  * const sshKey = config.get("sshKey") || "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld";
  * const exampleComputeInstance = new azure.machinelearning.ComputeInstance("example", {
  *     name: "example",
- *     location: example.location,
  *     machineLearningWorkspaceId: exampleWorkspace.id,
  *     virtualMachineSize: "STANDARD_DS2_V2",
  *     authorizationType: "personal",
@@ -145,7 +144,11 @@ export class ComputeInstance extends pulumi.CustomResource {
      */
     public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
+     * The Azure Region where the Machine Learning Compute Instance should exist.
+     *
+     * > **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&tabs=python).
+     *
+     * @deprecated The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -255,7 +258,11 @@ export interface ComputeInstanceState {
      */
     localAuthEnabled?: pulumi.Input<boolean>;
     /**
-     * The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
+     * The Azure Region where the Machine Learning Compute Instance should exist.
+     *
+     * > **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&tabs=python).
+     *
+     * @deprecated The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
      */
     location?: pulumi.Input<string>;
     /**
@@ -313,7 +320,11 @@ export interface ComputeInstanceArgs {
      */
     localAuthEnabled?: pulumi.Input<boolean>;
     /**
-     * The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
+     * The Azure Region where the Machine Learning Compute Instance should exist.
+     *
+     * > **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&tabs=python).
+     *
+     * @deprecated The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
      */
     location?: pulumi.Input<string>;
     /**

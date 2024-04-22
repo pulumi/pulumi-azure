@@ -11,6 +11,7 @@ import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterGatewayArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterMetastoresArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterMonitorArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterNetworkArgs;
+import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterPrivateLinkConfigurationArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterRolesArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterSecurityProfileArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterStorageAccountArgs;
@@ -226,6 +227,21 @@ public final class InteractiveQueryClusterState extends com.pulumi.resources.Res
     }
 
     /**
+     * A `private_link_configuration` block as defined below.
+     * 
+     */
+    @Import(name="privateLinkConfiguration")
+    private @Nullable Output<InteractiveQueryClusterPrivateLinkConfigurationArgs> privateLinkConfiguration;
+
+    /**
+     * @return A `private_link_configuration` block as defined below.
+     * 
+     */
+    public Optional<Output<InteractiveQueryClusterPrivateLinkConfigurationArgs>> privateLinkConfiguration() {
+        return Optional.ofNullable(this.privateLinkConfiguration);
+    }
+
+    /**
      * Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -380,6 +396,7 @@ public final class InteractiveQueryClusterState extends com.pulumi.resources.Res
         this.monitor = $.monitor;
         this.name = $.name;
         this.network = $.network;
+        this.privateLinkConfiguration = $.privateLinkConfiguration;
         this.resourceGroupName = $.resourceGroupName;
         this.roles = $.roles;
         this.securityProfile = $.securityProfile;
@@ -690,6 +707,27 @@ public final class InteractiveQueryClusterState extends com.pulumi.resources.Res
          */
         public Builder network(InteractiveQueryClusterNetworkArgs network) {
             return network(Output.of(network));
+        }
+
+        /**
+         * @param privateLinkConfiguration A `private_link_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateLinkConfiguration(@Nullable Output<InteractiveQueryClusterPrivateLinkConfigurationArgs> privateLinkConfiguration) {
+            $.privateLinkConfiguration = privateLinkConfiguration;
+            return this;
+        }
+
+        /**
+         * @param privateLinkConfiguration A `private_link_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateLinkConfiguration(InteractiveQueryClusterPrivateLinkConfigurationArgs privateLinkConfiguration) {
+            return privateLinkConfiguration(Output.of(privateLinkConfiguration));
         }
 
         /**

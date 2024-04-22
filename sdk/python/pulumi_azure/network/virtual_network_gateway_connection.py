@@ -35,6 +35,7 @@ class VirtualNetworkGatewayConnectionArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
+                 private_link_fast_path_enabled: Optional[pulumi.Input[bool]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -66,6 +67,7 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[str] location: The location/region where the connection is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the connection. Changing the name forces a new resource to be created.
         :param pulumi.Input[str] peer_virtual_network_gateway_id: The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_link_fast_path_enabled: Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
         :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -109,6 +111,8 @@ class VirtualNetworkGatewayConnectionArgs:
             pulumi.set(__self__, "name", name)
         if peer_virtual_network_gateway_id is not None:
             pulumi.set(__self__, "peer_virtual_network_gateway_id", peer_virtual_network_gateway_id)
+        if private_link_fast_path_enabled is not None:
+            pulumi.set(__self__, "private_link_fast_path_enabled", private_link_fast_path_enabled)
         if routing_weight is not None:
             pulumi.set(__self__, "routing_weight", routing_weight)
         if shared_key is not None:
@@ -354,6 +358,18 @@ class VirtualNetworkGatewayConnectionArgs:
         pulumi.set(self, "peer_virtual_network_gateway_id", value)
 
     @property
+    @pulumi.getter(name="privateLinkFastPathEnabled")
+    def private_link_fast_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
+        """
+        return pulumi.get(self, "private_link_fast_path_enabled")
+
+    @private_link_fast_path_enabled.setter
+    def private_link_fast_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_link_fast_path_enabled", value)
+
+    @property
     @pulumi.getter(name="routingWeight")
     def routing_weight(self) -> Optional[pulumi.Input[int]]:
         """
@@ -435,6 +451,7 @@ class _VirtualNetworkGatewayConnectionState:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
+                 private_link_fast_path_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
@@ -466,6 +483,7 @@ class _VirtualNetworkGatewayConnectionState:
         :param pulumi.Input[str] location: The location/region where the connection is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the connection. Changing the name forces a new resource to be created.
         :param pulumi.Input[str] peer_virtual_network_gateway_id: The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_link_fast_path_enabled: Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the connection Changing this forces a new resource to be created.
         :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
@@ -509,6 +527,8 @@ class _VirtualNetworkGatewayConnectionState:
             pulumi.set(__self__, "name", name)
         if peer_virtual_network_gateway_id is not None:
             pulumi.set(__self__, "peer_virtual_network_gateway_id", peer_virtual_network_gateway_id)
+        if private_link_fast_path_enabled is not None:
+            pulumi.set(__self__, "private_link_fast_path_enabled", private_link_fast_path_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if routing_weight is not None:
@@ -724,6 +744,18 @@ class _VirtualNetworkGatewayConnectionState:
         pulumi.set(self, "peer_virtual_network_gateway_id", value)
 
     @property
+    @pulumi.getter(name="privateLinkFastPathEnabled")
+    def private_link_fast_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
+        """
+        return pulumi.get(self, "private_link_fast_path_enabled")
+
+    @private_link_fast_path_enabled.setter
+    def private_link_fast_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_link_fast_path_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -843,6 +875,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
+                 private_link_fast_path_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
@@ -1036,6 +1069,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location/region where the connection is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the connection. Changing the name forces a new resource to be created.
         :param pulumi.Input[str] peer_virtual_network_gateway_id: The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_link_fast_path_enabled: Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the connection Changing this forces a new resource to be created.
         :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
@@ -1245,6 +1279,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
+                 private_link_fast_path_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
@@ -1278,6 +1313,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["peer_virtual_network_gateway_id"] = peer_virtual_network_gateway_id
+            __props__.__dict__["private_link_fast_path_enabled"] = private_link_fast_path_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1320,6 +1356,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             peer_virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
+            private_link_fast_path_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             routing_weight: Optional[pulumi.Input[int]] = None,
             shared_key: Optional[pulumi.Input[str]] = None,
@@ -1356,6 +1393,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location/region where the connection is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the connection. Changing the name forces a new resource to be created.
         :param pulumi.Input[str] peer_virtual_network_gateway_id: The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_link_fast_path_enabled: Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the connection Changing this forces a new resource to be created.
         :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
@@ -1387,6 +1425,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["peer_virtual_network_gateway_id"] = peer_virtual_network_gateway_id
+        __props__.__dict__["private_link_fast_path_enabled"] = private_link_fast_path_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["routing_weight"] = routing_weight
         __props__.__dict__["shared_key"] = shared_key
@@ -1529,6 +1568,14 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "peer_virtual_network_gateway_id")
+
+    @property
+    @pulumi.getter(name="privateLinkFastPathEnabled")
+    def private_link_fast_path_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
+        """
+        return pulumi.get(self, "private_link_fast_path_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

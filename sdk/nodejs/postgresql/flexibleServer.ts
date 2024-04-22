@@ -149,7 +149,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly backupRetentionDays!: pulumi.Output<number>;
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
      *
      * > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
      */
@@ -193,7 +193,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The point in time to restore from `sourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The point in time to restore from `sourceServerId` when `createMode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     public readonly pointInTimeRestoreTimeInUtc!: pulumi.Output<string | undefined>;
     /**
@@ -221,7 +221,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     public readonly sourceServerId!: pulumi.Output<string | undefined>;
     /**
@@ -359,7 +359,7 @@ export interface FlexibleServerState {
      */
     backupRetentionDays?: pulumi.Input<number>;
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
      *
      * > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
      */
@@ -403,7 +403,7 @@ export interface FlexibleServerState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The point in time to restore from `sourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The point in time to restore from `sourceServerId` when `createMode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     pointInTimeRestoreTimeInUtc?: pulumi.Input<string>;
     /**
@@ -431,7 +431,7 @@ export interface FlexibleServerState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     sourceServerId?: pulumi.Input<string>;
     /**
@@ -490,7 +490,7 @@ export interface FlexibleServerArgs {
      */
     backupRetentionDays?: pulumi.Input<number>;
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
      *
      * > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
      */
@@ -530,7 +530,7 @@ export interface FlexibleServerArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The point in time to restore from `sourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The point in time to restore from `sourceServerId` when `createMode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     pointInTimeRestoreTimeInUtc?: pulumi.Input<string>;
     /**
@@ -554,7 +554,7 @@ export interface FlexibleServerArgs {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     sourceServerId?: pulumi.Input<string>;
     /**

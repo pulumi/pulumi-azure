@@ -103,7 +103,6 @@ namespace Pulumi.Azure.MachineLearning
     ///     var exampleComputeInstance = new Azure.MachineLearning.ComputeInstance("example", new()
     ///     {
     ///         Name = "example",
-    ///         Location = example.Location,
     ///         MachineLearningWorkspaceId = exampleWorkspace.Id,
     ///         VirtualMachineSize = "STANDARD_DS2_V2",
     ///         AuthorizationType = "personal",
@@ -165,7 +164,9 @@ namespace Pulumi.Azure.MachineLearning
         public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// The Azure Region where the Machine Learning Compute Instance should exist.
+        /// 
+        /// &gt; **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&amp;tabs=python).
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -289,7 +290,9 @@ namespace Pulumi.Azure.MachineLearning
         public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// The Azure Region where the Machine Learning Compute Instance should exist.
+        /// 
+        /// &gt; **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&amp;tabs=python).
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -381,7 +384,9 @@ namespace Pulumi.Azure.MachineLearning
         public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// The Azure Region where the Machine Learning Compute Instance should exist.
+        /// 
+        /// &gt; **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&amp;tabs=python).
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

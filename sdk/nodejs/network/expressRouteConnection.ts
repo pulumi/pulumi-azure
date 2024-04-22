@@ -139,6 +139,10 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`. Defaults to `false`.
+     */
+    public readonly privateLinkFastPathEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A `routing` block as defined below.
      */
     public readonly routing!: pulumi.Output<outputs.network.ExpressRouteConnectionRouting>;
@@ -166,6 +170,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
             resourceInputs["expressRouteGatewayBypassEnabled"] = state ? state.expressRouteGatewayBypassEnabled : undefined;
             resourceInputs["expressRouteGatewayId"] = state ? state.expressRouteGatewayId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["privateLinkFastPathEnabled"] = state ? state.privateLinkFastPathEnabled : undefined;
             resourceInputs["routing"] = state ? state.routing : undefined;
             resourceInputs["routingWeight"] = state ? state.routingWeight : undefined;
         } else {
@@ -182,6 +187,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
             resourceInputs["expressRouteGatewayBypassEnabled"] = args ? args.expressRouteGatewayBypassEnabled : undefined;
             resourceInputs["expressRouteGatewayId"] = args ? args.expressRouteGatewayId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateLinkFastPathEnabled"] = args ? args.privateLinkFastPathEnabled : undefined;
             resourceInputs["routing"] = args ? args.routing : undefined;
             resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
         }
@@ -218,6 +224,10 @@ export interface ExpressRouteConnectionState {
      * The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`. Defaults to `false`.
+     */
+    privateLinkFastPathEnabled?: pulumi.Input<boolean>;
     /**
      * A `routing` block as defined below.
      */
@@ -256,6 +266,10 @@ export interface ExpressRouteConnectionArgs {
      * The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`. Defaults to `false`.
+     */
+    privateLinkFastPathEnabled?: pulumi.Input<boolean>;
     /**
      * A `routing` block as defined below.
      */

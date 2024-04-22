@@ -319,6 +319,7 @@ namespace Pulumi.Azure
                 public Pulumi.Azure.Config.Types.FeaturesCognitiveAccount? CognitiveAccount { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesKeyVault? KeyVault { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesLogAnalyticsWorkspace? LogAnalyticsWorkspace { get; set; } = null!;
+                public Pulumi.Azure.Config.Types.FeaturesMachineLearning? MachineLearning { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesManagedDisk? ManagedDisk { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesPostgresqlFlexibleServer? PostgresqlFlexibleServer { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesRecoveryService? RecoveryService { get; set; } = null!;
@@ -394,6 +395,11 @@ namespace Pulumi.Azure
              public class FeaturesLogAnalyticsWorkspace
              {
                 public bool? PermanentlyDeleteOnDestroy { get; set; }
+            }
+
+             public class FeaturesMachineLearning
+             {
+                public bool? PurgeSoftDeletedWorkspaceOnDestroy { get; set; }
             }
 
              public class FeaturesManagedDisk

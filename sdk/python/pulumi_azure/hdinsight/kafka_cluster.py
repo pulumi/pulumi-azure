@@ -31,6 +31,7 @@ class KafkaClusterArgs:
                  monitor: Optional[pulumi.Input['KafkaClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['KafkaClusterNetworkArgs']] = None,
+                 private_link_configuration: Optional[pulumi.Input['KafkaClusterPrivateLinkConfigurationArgs']] = None,
                  rest_proxy: Optional[pulumi.Input['KafkaClusterRestProxyArgs']] = None,
                  security_profile: Optional[pulumi.Input['KafkaClusterSecurityProfileArgs']] = None,
                  storage_account_gen2: Optional[pulumi.Input['KafkaClusterStorageAccountGen2Args']] = None,
@@ -56,6 +57,7 @@ class KafkaClusterArgs:
         :param pulumi.Input['KafkaClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterNetworkArgs'] network: A `network` block as defined below.
+        :param pulumi.Input['KafkaClusterPrivateLinkConfigurationArgs'] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input['KafkaClusterRestProxyArgs'] rest_proxy: A `rest_proxy` block as defined below.
         :param pulumi.Input['KafkaClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
@@ -90,6 +92,8 @@ class KafkaClusterArgs:
             pulumi.set(__self__, "name", name)
         if network is not None:
             pulumi.set(__self__, "network", network)
+        if private_link_configuration is not None:
+            pulumi.set(__self__, "private_link_configuration", private_link_configuration)
         if rest_proxy is not None:
             pulumi.set(__self__, "rest_proxy", rest_proxy)
         if security_profile is not None:
@@ -289,6 +293,18 @@ class KafkaClusterArgs:
         pulumi.set(self, "network", value)
 
     @property
+    @pulumi.getter(name="privateLinkConfiguration")
+    def private_link_configuration(self) -> Optional[pulumi.Input['KafkaClusterPrivateLinkConfigurationArgs']]:
+        """
+        A `private_link_configuration` block as defined below.
+        """
+        return pulumi.get(self, "private_link_configuration")
+
+    @private_link_configuration.setter
+    def private_link_configuration(self, value: Optional[pulumi.Input['KafkaClusterPrivateLinkConfigurationArgs']]):
+        pulumi.set(self, "private_link_configuration", value)
+
+    @property
     @pulumi.getter(name="restProxy")
     def rest_proxy(self) -> Optional[pulumi.Input['KafkaClusterRestProxyArgs']]:
         """
@@ -378,6 +394,7 @@ class _KafkaClusterState:
                  monitor: Optional[pulumi.Input['KafkaClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['KafkaClusterNetworkArgs']] = None,
+                 private_link_configuration: Optional[pulumi.Input['KafkaClusterPrivateLinkConfigurationArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rest_proxy: Optional[pulumi.Input['KafkaClusterRestProxyArgs']] = None,
                  roles: Optional[pulumi.Input['KafkaClusterRolesArgs']] = None,
@@ -406,6 +423,7 @@ class _KafkaClusterState:
         :param pulumi.Input['KafkaClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterNetworkArgs'] network: A `network` block as defined below.
+        :param pulumi.Input['KafkaClusterPrivateLinkConfigurationArgs'] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterRestProxyArgs'] rest_proxy: A `rest_proxy` block as defined below.
         :param pulumi.Input['KafkaClusterRolesArgs'] roles: A `roles` block as defined below.
@@ -445,6 +463,8 @@ class _KafkaClusterState:
             pulumi.set(__self__, "name", name)
         if network is not None:
             pulumi.set(__self__, "network", network)
+        if private_link_configuration is not None:
+            pulumi.set(__self__, "private_link_configuration", private_link_configuration)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if rest_proxy is not None:
@@ -640,6 +660,18 @@ class _KafkaClusterState:
         pulumi.set(self, "network", value)
 
     @property
+    @pulumi.getter(name="privateLinkConfiguration")
+    def private_link_configuration(self) -> Optional[pulumi.Input['KafkaClusterPrivateLinkConfigurationArgs']]:
+        """
+        A `private_link_configuration` block as defined below.
+        """
+        return pulumi.get(self, "private_link_configuration")
+
+    @private_link_configuration.setter
+    def private_link_configuration(self, value: Optional[pulumi.Input['KafkaClusterPrivateLinkConfigurationArgs']]):
+        pulumi.set(self, "private_link_configuration", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -780,6 +812,7 @@ class KafkaCluster(pulumi.CustomResource):
                  monitor: Optional[pulumi.Input[pulumi.InputType['KafkaClusterMonitorArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']]] = None,
+                 private_link_configuration: Optional[pulumi.Input[pulumi.InputType['KafkaClusterPrivateLinkConfigurationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rest_proxy: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']]] = None,
@@ -877,6 +910,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KafkaClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']] network: A `network` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KafkaClusterPrivateLinkConfigurationArgs']] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']] rest_proxy: A `rest_proxy` block as defined below.
         :param pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']] roles: A `roles` block as defined below.
@@ -991,6 +1025,7 @@ class KafkaCluster(pulumi.CustomResource):
                  monitor: Optional[pulumi.Input[pulumi.InputType['KafkaClusterMonitorArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']]] = None,
+                 private_link_configuration: Optional[pulumi.Input[pulumi.InputType['KafkaClusterPrivateLinkConfigurationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rest_proxy: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']]] = None,
@@ -1027,6 +1062,7 @@ class KafkaCluster(pulumi.CustomResource):
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["name"] = name
             __props__.__dict__["network"] = network
+            __props__.__dict__["private_link_configuration"] = private_link_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1069,6 +1105,7 @@ class KafkaCluster(pulumi.CustomResource):
             monitor: Optional[pulumi.Input[pulumi.InputType['KafkaClusterMonitorArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network: Optional[pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']]] = None,
+            private_link_configuration: Optional[pulumi.Input[pulumi.InputType['KafkaClusterPrivateLinkConfigurationArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             rest_proxy: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']]] = None,
             roles: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']]] = None,
@@ -1102,6 +1139,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KafkaClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']] network: A `network` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KafkaClusterPrivateLinkConfigurationArgs']] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']] rest_proxy: A `rest_proxy` block as defined below.
         :param pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']] roles: A `roles` block as defined below.
@@ -1131,6 +1169,7 @@ class KafkaCluster(pulumi.CustomResource):
         __props__.__dict__["monitor"] = monitor
         __props__.__dict__["name"] = name
         __props__.__dict__["network"] = network
+        __props__.__dict__["private_link_configuration"] = private_link_configuration
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["rest_proxy"] = rest_proxy
         __props__.__dict__["roles"] = roles
@@ -1256,6 +1295,14 @@ class KafkaCluster(pulumi.CustomResource):
         A `network` block as defined below.
         """
         return pulumi.get(self, "network")
+
+    @property
+    @pulumi.getter(name="privateLinkConfiguration")
+    def private_link_configuration(self) -> pulumi.Output[Optional['outputs.KafkaClusterPrivateLinkConfiguration']]:
+        """
+        A `private_link_configuration` block as defined below.
+        """
+        return pulumi.get(self, "private_link_configuration")
 
     @property
     @pulumi.getter(name="resourceGroupName")

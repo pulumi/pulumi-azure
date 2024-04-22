@@ -13,6 +13,233 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetLinuxWebAppSiteConfigAutoHealSettingTrigger struct {
+	// A `requests` block as defined above.
+	Requests []GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest `pulumi:"requests"`
+	// A `slowRequest` block as defined above.
+	SlowRequests []GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest `pulumi:"slowRequests"`
+	// A `statusCode` block as defined above.
+	StatusCodes []GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode `pulumi:"statusCodes"`
+}
+
+// GetLinuxWebAppSiteConfigAutoHealSettingTriggerInput is an input type that accepts GetLinuxWebAppSiteConfigAutoHealSettingTriggerArgs and GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigAutoHealSettingTriggerInput` via:
+//
+//	GetLinuxWebAppSiteConfigAutoHealSettingTriggerArgs{...}
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerOutputWithContext(context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerArgs struct {
+	// A `requests` block as defined above.
+	Requests GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayInput `pulumi:"requests"`
+	// A `slowRequest` block as defined above.
+	SlowRequests GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayInput `pulumi:"slowRequests"`
+	// A `statusCode` block as defined above.
+	StatusCodes GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayInput `pulumi:"statusCodes"`
+}
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTrigger)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerArgs) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput {
+	return i.ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerArgs) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput)
+}
+
+// GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayInput is an input type that accepts GetLinuxWebAppSiteConfigAutoHealSettingTriggerArray and GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayInput` via:
+//
+//	GetLinuxWebAppSiteConfigAutoHealSettingTriggerArray{ GetLinuxWebAppSiteConfigAutoHealSettingTriggerArgs{...} }
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutputWithContext(context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerArray []GetLinuxWebAppSiteConfigAutoHealSettingTriggerInput
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigAutoHealSettingTrigger)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerArray) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput {
+	return i.ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerArray) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput)
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTrigger)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput {
+	return o
+}
+
+// A `requests` block as defined above.
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput) Requests() GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTrigger) []GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest {
+		return v.Requests
+	}).(GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput)
+}
+
+// A `slowRequest` block as defined above.
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput) SlowRequests() GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTrigger) []GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
+		return v.SlowRequests
+	}).(GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput)
+}
+
+// A `statusCode` block as defined above.
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput) StatusCodes() GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTrigger) []GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode {
+		return v.StatusCodes
+	}).(GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput)
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigAutoHealSettingTrigger)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
+		return vs[0].([]GetLinuxWebAppSiteConfigAutoHealSettingTrigger)[vs[1].(int)]
+	}).(GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput)
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest struct {
+	// The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+	Count int `pulumi:"count"`
+	// The time interval in the form `hh:mm:ss`.
+	Interval string `pulumi:"interval"`
+}
+
+// GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestInput is an input type that accepts GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArgs and GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestInput` via:
+//
+//	GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArgs{...}
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutputWithContext(context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArgs struct {
+	// The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time interval in the form `hh:mm:ss`.
+	Interval pulumi.StringInput `pulumi:"interval"`
+}
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArgs) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput {
+	return i.ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArgs) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput)
+}
+
+// GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayInput is an input type that accepts GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArray and GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayInput` via:
+//
+//	GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArray{ GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArgs{...} }
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput
+	ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutputWithContext(context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArray []GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestInput
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArray) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput {
+	return i.ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArray) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput)
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput {
+	return o
+}
+
+// The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time interval in the form `hh:mm:ss`.
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput) Interval() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest) string { return v.Interval }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput() GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput) ToGetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest {
+		return vs[0].([]GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest)[vs[1].(int)]
+	}).(GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput)
+}
+
 type GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest struct {
 	// The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
 	Count int `pulumi:"count"`
@@ -3221,7 +3448,7 @@ type GetWindowsFunctionAppAuthSettingsV2CustomOidcV2 struct {
 	Name string `pulumi:"name"`
 	// The name of the claim that contains the users name.
 	NameClaimType string `pulumi:"nameClaimType"`
-	// The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+	// The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
 	OpenidConfigurationEndpoint string `pulumi:"openidConfigurationEndpoint"`
 	// The list of the scopes that are requested while authenticating.
 	Scopes []string `pulumi:"scopes"`
@@ -3257,7 +3484,7 @@ type GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Args struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the claim that contains the users name.
 	NameClaimType pulumi.StringInput `pulumi:"nameClaimType"`
-	// The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+	// The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
 	OpenidConfigurationEndpoint pulumi.StringInput `pulumi:"openidConfigurationEndpoint"`
 	// The list of the scopes that are requested while authenticating.
 	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
@@ -3356,7 +3583,7 @@ func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) NameClaimType() p
 	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2CustomOidcV2) string { return v.NameClaimType }).(pulumi.StringOutput)
 }
 
-// The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+// The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
 func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) OpenidConfigurationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2CustomOidcV2) string { return v.OpenidConfigurationEndpoint }).(pulumi.StringOutput)
 }
@@ -7910,7 +8137,7 @@ type GetWindowsWebAppAuthSettingsV2CustomOidcV2 struct {
 	Name string `pulumi:"name"`
 	// The name of the claim that contains the users name.
 	NameClaimType string `pulumi:"nameClaimType"`
-	// The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+	// The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
 	OpenidConfigurationEndpoint string `pulumi:"openidConfigurationEndpoint"`
 	// The list of the scopes that are requested while authenticating.
 	Scopes []string `pulumi:"scopes"`
@@ -7946,7 +8173,7 @@ type GetWindowsWebAppAuthSettingsV2CustomOidcV2Args struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the claim that contains the users name.
 	NameClaimType pulumi.StringInput `pulumi:"nameClaimType"`
-	// The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+	// The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
 	OpenidConfigurationEndpoint pulumi.StringInput `pulumi:"openidConfigurationEndpoint"`
 	// The list of the scopes that are requested while authenticating.
 	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
@@ -8045,7 +8272,7 @@ func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) NameClaimType() pulumi
 	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2CustomOidcV2) string { return v.NameClaimType }).(pulumi.StringOutput)
 }
 
-// The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+// The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
 func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) OpenidConfigurationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2CustomOidcV2) string { return v.OpenidConfigurationEndpoint }).(pulumi.StringOutput)
 }
@@ -10059,6 +10286,8 @@ type GetWindowsWebAppSiteConfig struct {
 	DetailedErrorLoggingEnabled bool `pulumi:"detailedErrorLoggingEnabled"`
 	// The State of FTP / FTPS service.
 	FtpsState string `pulumi:"ftpsState"`
+	// A `handlerMapping` block as defined below.
+	HandlerMappings []GetWindowsWebAppSiteConfigHandlerMapping `pulumi:"handlerMappings"`
 	// (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
 	HealthCheckEvictionTimeInMin int `pulumi:"healthCheckEvictionTimeInMin"`
 	// The path to the Health Check endpoint.
@@ -10142,6 +10371,8 @@ type GetWindowsWebAppSiteConfigArgs struct {
 	DetailedErrorLoggingEnabled pulumi.BoolInput `pulumi:"detailedErrorLoggingEnabled"`
 	// The State of FTP / FTPS service.
 	FtpsState pulumi.StringInput `pulumi:"ftpsState"`
+	// A `handlerMapping` block as defined below.
+	HandlerMappings GetWindowsWebAppSiteConfigHandlerMappingArrayInput `pulumi:"handlerMappings"`
 	// (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
 	HealthCheckEvictionTimeInMin pulumi.IntInput `pulumi:"healthCheckEvictionTimeInMin"`
 	// The path to the Health Check endpoint.
@@ -10305,6 +10536,13 @@ func (o GetWindowsWebAppSiteConfigOutput) DetailedErrorLoggingEnabled() pulumi.B
 // The State of FTP / FTPS service.
 func (o GetWindowsWebAppSiteConfigOutput) FtpsState() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.FtpsState }).(pulumi.StringOutput)
+}
+
+// A `handlerMapping` block as defined below.
+func (o GetWindowsWebAppSiteConfigOutput) HandlerMappings() GetWindowsWebAppSiteConfigHandlerMappingArrayOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) []GetWindowsWebAppSiteConfigHandlerMapping {
+		return v.HandlerMappings
+	}).(GetWindowsWebAppSiteConfigHandlerMappingArrayOutput)
 }
 
 // (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
@@ -11619,6 +11857,121 @@ func (o GetWindowsWebAppSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetWi
 	}).(GetWindowsWebAppSiteConfigCorOutput)
 }
 
+type GetWindowsWebAppSiteConfigHandlerMapping struct {
+	// The command-line arguments to be passed to the script processor.
+	Arguments string `pulumi:"arguments"`
+	// The extension to be handled by the specified FastCGI application.
+	Extension string `pulumi:"extension"`
+	// The absolute path to the FastCGI application.
+	ScriptProcessorPath string `pulumi:"scriptProcessorPath"`
+}
+
+// GetWindowsWebAppSiteConfigHandlerMappingInput is an input type that accepts GetWindowsWebAppSiteConfigHandlerMappingArgs and GetWindowsWebAppSiteConfigHandlerMappingOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppSiteConfigHandlerMappingInput` via:
+//
+//	GetWindowsWebAppSiteConfigHandlerMappingArgs{...}
+type GetWindowsWebAppSiteConfigHandlerMappingInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppSiteConfigHandlerMappingOutput() GetWindowsWebAppSiteConfigHandlerMappingOutput
+	ToGetWindowsWebAppSiteConfigHandlerMappingOutputWithContext(context.Context) GetWindowsWebAppSiteConfigHandlerMappingOutput
+}
+
+type GetWindowsWebAppSiteConfigHandlerMappingArgs struct {
+	// The command-line arguments to be passed to the script processor.
+	Arguments pulumi.StringInput `pulumi:"arguments"`
+	// The extension to be handled by the specified FastCGI application.
+	Extension pulumi.StringInput `pulumi:"extension"`
+	// The absolute path to the FastCGI application.
+	ScriptProcessorPath pulumi.StringInput `pulumi:"scriptProcessorPath"`
+}
+
+func (GetWindowsWebAppSiteConfigHandlerMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppSiteConfigHandlerMapping)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppSiteConfigHandlerMappingArgs) ToGetWindowsWebAppSiteConfigHandlerMappingOutput() GetWindowsWebAppSiteConfigHandlerMappingOutput {
+	return i.ToGetWindowsWebAppSiteConfigHandlerMappingOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppSiteConfigHandlerMappingArgs) ToGetWindowsWebAppSiteConfigHandlerMappingOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigHandlerMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigHandlerMappingOutput)
+}
+
+// GetWindowsWebAppSiteConfigHandlerMappingArrayInput is an input type that accepts GetWindowsWebAppSiteConfigHandlerMappingArray and GetWindowsWebAppSiteConfigHandlerMappingArrayOutput values.
+// You can construct a concrete instance of `GetWindowsWebAppSiteConfigHandlerMappingArrayInput` via:
+//
+//	GetWindowsWebAppSiteConfigHandlerMappingArray{ GetWindowsWebAppSiteConfigHandlerMappingArgs{...} }
+type GetWindowsWebAppSiteConfigHandlerMappingArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsWebAppSiteConfigHandlerMappingArrayOutput() GetWindowsWebAppSiteConfigHandlerMappingArrayOutput
+	ToGetWindowsWebAppSiteConfigHandlerMappingArrayOutputWithContext(context.Context) GetWindowsWebAppSiteConfigHandlerMappingArrayOutput
+}
+
+type GetWindowsWebAppSiteConfigHandlerMappingArray []GetWindowsWebAppSiteConfigHandlerMappingInput
+
+func (GetWindowsWebAppSiteConfigHandlerMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppSiteConfigHandlerMapping)(nil)).Elem()
+}
+
+func (i GetWindowsWebAppSiteConfigHandlerMappingArray) ToGetWindowsWebAppSiteConfigHandlerMappingArrayOutput() GetWindowsWebAppSiteConfigHandlerMappingArrayOutput {
+	return i.ToGetWindowsWebAppSiteConfigHandlerMappingArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsWebAppSiteConfigHandlerMappingArray) ToGetWindowsWebAppSiteConfigHandlerMappingArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigHandlerMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigHandlerMappingArrayOutput)
+}
+
+type GetWindowsWebAppSiteConfigHandlerMappingOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppSiteConfigHandlerMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsWebAppSiteConfigHandlerMapping)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppSiteConfigHandlerMappingOutput) ToGetWindowsWebAppSiteConfigHandlerMappingOutput() GetWindowsWebAppSiteConfigHandlerMappingOutput {
+	return o
+}
+
+func (o GetWindowsWebAppSiteConfigHandlerMappingOutput) ToGetWindowsWebAppSiteConfigHandlerMappingOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigHandlerMappingOutput {
+	return o
+}
+
+// The command-line arguments to be passed to the script processor.
+func (o GetWindowsWebAppSiteConfigHandlerMappingOutput) Arguments() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfigHandlerMapping) string { return v.Arguments }).(pulumi.StringOutput)
+}
+
+// The extension to be handled by the specified FastCGI application.
+func (o GetWindowsWebAppSiteConfigHandlerMappingOutput) Extension() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfigHandlerMapping) string { return v.Extension }).(pulumi.StringOutput)
+}
+
+// The absolute path to the FastCGI application.
+func (o GetWindowsWebAppSiteConfigHandlerMappingOutput) ScriptProcessorPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfigHandlerMapping) string { return v.ScriptProcessorPath }).(pulumi.StringOutput)
+}
+
+type GetWindowsWebAppSiteConfigHandlerMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsWebAppSiteConfigHandlerMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsWebAppSiteConfigHandlerMapping)(nil)).Elem()
+}
+
+func (o GetWindowsWebAppSiteConfigHandlerMappingArrayOutput) ToGetWindowsWebAppSiteConfigHandlerMappingArrayOutput() GetWindowsWebAppSiteConfigHandlerMappingArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppSiteConfigHandlerMappingArrayOutput) ToGetWindowsWebAppSiteConfigHandlerMappingArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigHandlerMappingArrayOutput {
+	return o
+}
+
+func (o GetWindowsWebAppSiteConfigHandlerMappingArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigHandlerMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppSiteConfigHandlerMapping {
+		return vs[0].([]GetWindowsWebAppSiteConfigHandlerMapping)[vs[1].(int)]
+	}).(GetWindowsWebAppSiteConfigHandlerMappingOutput)
+}
+
 type GetWindowsWebAppSiteConfigIpRestriction struct {
 	// A `action` block as defined above.
 	Action string `pulumi:"action"`
@@ -12772,6 +13125,10 @@ func (o GetWindowsWebAppStorageAccountArrayOutput) Index(i pulumi.IntInput) GetW
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingTriggerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs{})
@@ -12936,6 +13293,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayInput)(nil)).Elem(), GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppSiteConfigCorInput)(nil)).Elem(), GetWindowsWebAppSiteConfigCorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppSiteConfigCorArrayInput)(nil)).Elem(), GetWindowsWebAppSiteConfigCorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppSiteConfigHandlerMappingInput)(nil)).Elem(), GetWindowsWebAppSiteConfigHandlerMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppSiteConfigHandlerMappingArrayInput)(nil)).Elem(), GetWindowsWebAppSiteConfigHandlerMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppSiteConfigIpRestrictionInput)(nil)).Elem(), GetWindowsWebAppSiteConfigIpRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppSiteConfigIpRestrictionArrayInput)(nil)).Elem(), GetWindowsWebAppSiteConfigIpRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppSiteConfigIpRestrictionHeaderInput)(nil)).Elem(), GetWindowsWebAppSiteConfigIpRestrictionHeaderArgs{})
@@ -12954,6 +13313,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStickySettingArrayInput)(nil)).Elem(), GetWindowsWebAppStickySettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStorageAccountInput)(nil)).Elem(), GetWindowsWebAppStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStorageAccountArrayInput)(nil)).Elem(), GetWindowsWebAppStorageAccountArray{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingTriggerOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput{})
@@ -13118,6 +13481,8 @@ func init() {
 	pulumi.RegisterOutputType(GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput{})
 	pulumi.RegisterOutputType(GetWindowsWebAppSiteConfigCorOutput{})
 	pulumi.RegisterOutputType(GetWindowsWebAppSiteConfigCorArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppSiteConfigHandlerMappingOutput{})
+	pulumi.RegisterOutputType(GetWindowsWebAppSiteConfigHandlerMappingArrayOutput{})
 	pulumi.RegisterOutputType(GetWindowsWebAppSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(GetWindowsWebAppSiteConfigIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput{})
