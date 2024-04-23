@@ -4369,12 +4369,10 @@ func (o LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutp
 type LinuxVirtualMachineScaleSetGalleryApplication struct {
 	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri *string `pulumi:"configurationReferenceBlobUri"`
-	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
-	Order *int `pulumi:"order"`
+	Order                         *int    `pulumi:"order"`
 	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
-	PackageReferenceId string `pulumi:"packageReferenceId"`
-	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-	Tag *string `pulumi:"tag"`
+	PackageReferenceId string  `pulumi:"packageReferenceId"`
+	Tag                *string `pulumi:"tag"`
 }
 
 // LinuxVirtualMachineScaleSetGalleryApplicationInput is an input type that accepts LinuxVirtualMachineScaleSetGalleryApplicationArgs and LinuxVirtualMachineScaleSetGalleryApplicationOutput values.
@@ -4391,12 +4389,10 @@ type LinuxVirtualMachineScaleSetGalleryApplicationInput interface {
 type LinuxVirtualMachineScaleSetGalleryApplicationArgs struct {
 	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri pulumi.StringPtrInput `pulumi:"configurationReferenceBlobUri"`
-	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
-	Order pulumi.IntPtrInput `pulumi:"order"`
+	Order                         pulumi.IntPtrInput    `pulumi:"order"`
 	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
-	PackageReferenceId pulumi.StringInput `pulumi:"packageReferenceId"`
-	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	PackageReferenceId pulumi.StringInput    `pulumi:"packageReferenceId"`
+	Tag                pulumi.StringPtrInput `pulumi:"tag"`
 }
 
 func (LinuxVirtualMachineScaleSetGalleryApplicationArgs) ElementType() reflect.Type {
@@ -4455,7 +4451,6 @@ func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) ConfigurationRefere
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *string { return v.ConfigurationReferenceBlobUri }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
@@ -4465,7 +4460,6 @@ func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) PackageReferenceId(
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) string { return v.PackageReferenceId }).(pulumi.StringOutput)
 }
 
-// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *string { return v.Tag }).(pulumi.StringPtrOutput)
 }
@@ -11104,8 +11098,6 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey
 
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret struct {
 	// One or more `certificate` blocks as defined below.
-	//
-	// > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windowsConfiguration` or a `linuxConfiguration`.
 	Certificates []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate `pulumi:"certificates"`
 	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -11124,8 +11116,6 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretInput in
 
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs struct {
 	// One or more `certificate` blocks as defined below.
-	//
-	// > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windowsConfiguration` or a `linuxConfiguration`.
 	Certificates OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayInput `pulumi:"certificates"`
 	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
@@ -11183,8 +11173,6 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutpu
 }
 
 // One or more `certificate` blocks as defined below.
-//
-// > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windowsConfiguration` or a `linuxConfiguration`.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput) Certificates() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret) []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate {
 		return v.Certificates
@@ -11821,8 +11809,6 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditiona
 
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret struct {
 	// One or more `certificate` blocks as defined below.
-	//
-	// > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windowsConfiguration` or a `linuxConfiguration`.
 	Certificates []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate `pulumi:"certificates"`
 	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -11841,8 +11827,6 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretInput 
 
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs struct {
 	// One or more `certificate` blocks as defined below.
-	//
-	// > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windowsConfiguration` or a `linuxConfiguration`.
 	Certificates OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayInput `pulumi:"certificates"`
 	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
@@ -11900,8 +11884,6 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOut
 }
 
 // One or more `certificate` blocks as defined below.
-//
-// > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windowsConfiguration` or a `linuxConfiguration`.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput) Certificates() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret) []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate {
 		return v.Certificates
@@ -14475,7 +14457,6 @@ func (o ScaleSetExtensionArrayOutput) Index(i pulumi.IntInput) ScaleSetExtension
 type ScaleSetIdentity struct {
 	// Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -14518,7 +14499,6 @@ type ScaleSetIdentity struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
@@ -14539,7 +14519,6 @@ type ScaleSetIdentityInput interface {
 type ScaleSetIdentityArgs struct {
 	// Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -14582,7 +14561,6 @@ type ScaleSetIdentityArgs struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
@@ -14668,7 +14646,6 @@ func (o ScaleSetIdentityOutput) ToScaleSetIdentityPtrOutputWithContext(ctx conte
 
 // Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -14714,7 +14691,6 @@ func (o ScaleSetIdentityOutput) ToScaleSetIdentityPtrOutputWithContext(ctx conte
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func (o ScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -14754,7 +14730,6 @@ func (o ScaleSetIdentityPtrOutput) Elem() ScaleSetIdentityOutput {
 
 // Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -14800,7 +14775,6 @@ func (o ScaleSetIdentityPtrOutput) Elem() ScaleSetIdentityOutput {
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func (o ScaleSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScaleSetIdentity) []string {
 		if v == nil {
@@ -20096,9 +20070,8 @@ type VirtualMachineOsProfile struct {
 	// Specifies the name of the local administrator account.
 	AdminUsername string `pulumi:"adminUsername"`
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-	ComputerName string `pulumi:"computerName"`
-	// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
-	CustomData *string `pulumi:"customData"`
+	ComputerName string  `pulumi:"computerName"`
+	CustomData   *string `pulumi:"customData"`
 }
 
 // VirtualMachineOsProfileInput is an input type that accepts VirtualMachineOsProfileArgs and VirtualMachineOsProfileOutput values.
@@ -20120,9 +20093,8 @@ type VirtualMachineOsProfileArgs struct {
 	// Specifies the name of the local administrator account.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-	ComputerName pulumi.StringInput `pulumi:"computerName"`
-	// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
-	CustomData pulumi.StringPtrInput `pulumi:"customData"`
+	ComputerName pulumi.StringInput    `pulumi:"computerName"`
+	CustomData   pulumi.StringPtrInput `pulumi:"customData"`
 }
 
 func (VirtualMachineOsProfileArgs) ElementType() reflect.Type {
@@ -20219,7 +20191,6 @@ func (o VirtualMachineOsProfileOutput) ComputerName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineOsProfile) string { return v.ComputerName }).(pulumi.StringOutput)
 }
 
-// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
 func (o VirtualMachineOsProfileOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
@@ -20280,7 +20251,6 @@ func (o VirtualMachineOsProfilePtrOutput) ComputerName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
 func (o VirtualMachineOsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineOsProfile) *string {
 		if v == nil {
@@ -25132,12 +25102,10 @@ func (o WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOu
 type WindowsVirtualMachineScaleSetGalleryApplication struct {
 	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri *string `pulumi:"configurationReferenceBlobUri"`
-	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
-	Order *int `pulumi:"order"`
+	Order                         *int    `pulumi:"order"`
 	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
-	PackageReferenceId string `pulumi:"packageReferenceId"`
-	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-	Tag *string `pulumi:"tag"`
+	PackageReferenceId string  `pulumi:"packageReferenceId"`
+	Tag                *string `pulumi:"tag"`
 }
 
 // WindowsVirtualMachineScaleSetGalleryApplicationInput is an input type that accepts WindowsVirtualMachineScaleSetGalleryApplicationArgs and WindowsVirtualMachineScaleSetGalleryApplicationOutput values.
@@ -25154,12 +25122,10 @@ type WindowsVirtualMachineScaleSetGalleryApplicationInput interface {
 type WindowsVirtualMachineScaleSetGalleryApplicationArgs struct {
 	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri pulumi.StringPtrInput `pulumi:"configurationReferenceBlobUri"`
-	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
-	Order pulumi.IntPtrInput `pulumi:"order"`
+	Order                         pulumi.IntPtrInput    `pulumi:"order"`
 	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
-	PackageReferenceId pulumi.StringInput `pulumi:"packageReferenceId"`
-	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	PackageReferenceId pulumi.StringInput    `pulumi:"packageReferenceId"`
+	Tag                pulumi.StringPtrInput `pulumi:"tag"`
 }
 
 func (WindowsVirtualMachineScaleSetGalleryApplicationArgs) ElementType() reflect.Type {
@@ -25220,7 +25186,6 @@ func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) ConfigurationRefe
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
@@ -25230,7 +25195,6 @@ func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) PackageReferenceI
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) string { return v.PackageReferenceId }).(pulumi.StringOutput)
 }
 
-// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) *string { return v.Tag }).(pulumi.StringPtrOutput)
 }

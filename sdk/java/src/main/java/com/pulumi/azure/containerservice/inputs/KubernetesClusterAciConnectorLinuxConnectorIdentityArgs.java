@@ -16,14 +16,14 @@ public final class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs exten
     public static final KubernetesClusterAciConnectorLinuxConnectorIdentityArgs Empty = new KubernetesClusterAciConnectorLinuxConnectorIdentityArgs();
 
     /**
-     * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+     * The Client ID of the user-defined Managed Identity used for Web App Routing.
      * 
      */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
     /**
-     * @return The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+     * @return The Client ID of the user-defined Managed Identity used for Web App Routing.
      * 
      */
     public Optional<Output<String>> clientId() {
@@ -31,14 +31,14 @@ public final class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs exten
     }
 
     /**
-     * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+     * The Object ID of the user-defined Managed Identity used for Web App Routing
      * 
      */
     @Import(name="objectId")
     private @Nullable Output<String> objectId;
 
     /**
-     * @return The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+     * @return The Object ID of the user-defined Managed Identity used for Web App Routing
      * 
      */
     public Optional<Output<String>> objectId() {
@@ -46,18 +46,14 @@ public final class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs exten
     }
 
     /**
-     * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+     * The ID of the User Assigned Identity used for Web App Routing.
      * 
      */
     @Import(name="userAssignedIdentityId")
     private @Nullable Output<String> userAssignedIdentityId;
 
     /**
-     * @return The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+     * @return The ID of the User Assigned Identity used for Web App Routing.
      * 
      */
     public Optional<Output<String>> userAssignedIdentityId() {
@@ -91,7 +87,7 @@ public final class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs exten
         }
 
         /**
-         * @param clientId The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         * @param clientId The Client ID of the user-defined Managed Identity used for Web App Routing.
          * 
          * @return builder
          * 
@@ -102,7 +98,7 @@ public final class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs exten
         }
 
         /**
-         * @param clientId The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         * @param clientId The Client ID of the user-defined Managed Identity used for Web App Routing.
          * 
          * @return builder
          * 
@@ -112,7 +108,7 @@ public final class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs exten
         }
 
         /**
-         * @param objectId The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         * @param objectId The Object ID of the user-defined Managed Identity used for Web App Routing
          * 
          * @return builder
          * 
@@ -123,7 +119,7 @@ public final class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs exten
         }
 
         /**
-         * @param objectId The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         * @param objectId The Object ID of the user-defined Managed Identity used for Web App Routing
          * 
          * @return builder
          * 
@@ -133,9 +129,7 @@ public final class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs exten
         }
 
         /**
-         * @param userAssignedIdentityId The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+         * @param userAssignedIdentityId The ID of the User Assigned Identity used for Web App Routing.
          * 
          * @return builder
          * 
@@ -146,9 +140,7 @@ public final class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs exten
         }
 
         /**
-         * @param userAssignedIdentityId The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+         * @param userAssignedIdentityId The ID of the User Assigned Identity used for Web App Routing.
          * 
          * @return builder
          * 

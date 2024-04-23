@@ -17,70 +17,30 @@ public final class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs ex
 
     public static final ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs Empty = new ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs();
 
-    /**
-     * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
-     * 
-     * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-     * 
-     */
     @Import(name="fabricLocation")
     private @Nullable Output<String> fabricLocation;
 
-    /**
-     * @return The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
-     * 
-     * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-     * 
-     */
     public Optional<Output<String>> fabricLocation() {
         return Optional.ofNullable(this.fabricLocation);
     }
 
-    /**
-     * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-     * 
-     */
     @Import(name="failOverDirections", required=true)
     private Output<List<String>> failOverDirections;
 
-    /**
-     * @return Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-     * 
-     */
     public Output<List<String>> failOverDirections() {
         return this.failOverDirections;
     }
 
-    /**
-     * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-     * 
-     */
     @Import(name="failOverTypes", required=true)
     private Output<List<String>> failOverTypes;
 
-    /**
-     * @return Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-     * 
-     */
     public Output<List<String>> failOverTypes() {
         return this.failOverTypes;
     }
 
-    /**
-     * Instructions of manual action.
-     * 
-     * &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
-     * 
-     */
     @Import(name="manualActionInstruction")
     private @Nullable Output<String> manualActionInstruction;
 
-    /**
-     * @return Instructions of manual action.
-     * 
-     * &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
-     * 
-     */
     public Optional<Output<String>> manualActionInstruction() {
         return Optional.ofNullable(this.manualActionInstruction);
     }
@@ -100,55 +60,23 @@ public final class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs ex
         return this.name;
     }
 
-    /**
-     * Id of runbook.
-     * 
-     * &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-     * 
-     */
     @Import(name="runbookId")
     private @Nullable Output<String> runbookId;
 
-    /**
-     * @return Id of runbook.
-     * 
-     * &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-     * 
-     */
     public Optional<Output<String>> runbookId() {
         return Optional.ofNullable(this.runbookId);
     }
 
-    /**
-     * Path of action script.
-     * 
-     * &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
-     * 
-     */
     @Import(name="scriptPath")
     private @Nullable Output<String> scriptPath;
 
-    /**
-     * @return Path of action script.
-     * 
-     * &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
-     * 
-     */
     public Optional<Output<String>> scriptPath() {
         return Optional.ofNullable(this.scriptPath);
     }
 
-    /**
-     * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -184,114 +112,46 @@ public final class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs ex
             $ = new ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fabricLocation The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
-         * 
-         * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fabricLocation(@Nullable Output<String> fabricLocation) {
             $.fabricLocation = fabricLocation;
             return this;
         }
 
-        /**
-         * @param fabricLocation The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
-         * 
-         * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fabricLocation(String fabricLocation) {
             return fabricLocation(Output.of(fabricLocation));
         }
 
-        /**
-         * @param failOverDirections Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-         * 
-         * @return builder
-         * 
-         */
         public Builder failOverDirections(Output<List<String>> failOverDirections) {
             $.failOverDirections = failOverDirections;
             return this;
         }
 
-        /**
-         * @param failOverDirections Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-         * 
-         * @return builder
-         * 
-         */
         public Builder failOverDirections(List<String> failOverDirections) {
             return failOverDirections(Output.of(failOverDirections));
         }
 
-        /**
-         * @param failOverDirections Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-         * 
-         * @return builder
-         * 
-         */
         public Builder failOverDirections(String... failOverDirections) {
             return failOverDirections(List.of(failOverDirections));
         }
 
-        /**
-         * @param failOverTypes Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-         * 
-         * @return builder
-         * 
-         */
         public Builder failOverTypes(Output<List<String>> failOverTypes) {
             $.failOverTypes = failOverTypes;
             return this;
         }
 
-        /**
-         * @param failOverTypes Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-         * 
-         * @return builder
-         * 
-         */
         public Builder failOverTypes(List<String> failOverTypes) {
             return failOverTypes(Output.of(failOverTypes));
         }
 
-        /**
-         * @param failOverTypes Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-         * 
-         * @return builder
-         * 
-         */
         public Builder failOverTypes(String... failOverTypes) {
             return failOverTypes(List.of(failOverTypes));
         }
 
-        /**
-         * @param manualActionInstruction Instructions of manual action.
-         * 
-         * &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder manualActionInstruction(@Nullable Output<String> manualActionInstruction) {
             $.manualActionInstruction = manualActionInstruction;
             return this;
         }
 
-        /**
-         * @param manualActionInstruction Instructions of manual action.
-         * 
-         * &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder manualActionInstruction(String manualActionInstruction) {
             return manualActionInstruction(Output.of(manualActionInstruction));
         }
@@ -317,73 +177,29 @@ public final class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs ex
             return name(Output.of(name));
         }
 
-        /**
-         * @param runbookId Id of runbook.
-         * 
-         * &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runbookId(@Nullable Output<String> runbookId) {
             $.runbookId = runbookId;
             return this;
         }
 
-        /**
-         * @param runbookId Id of runbook.
-         * 
-         * &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runbookId(String runbookId) {
             return runbookId(Output.of(runbookId));
         }
 
-        /**
-         * @param scriptPath Path of action script.
-         * 
-         * &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scriptPath(@Nullable Output<String> scriptPath) {
             $.scriptPath = scriptPath;
             return this;
         }
 
-        /**
-         * @param scriptPath Path of action script.
-         * 
-         * &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scriptPath(String scriptPath) {
             return scriptPath(Output.of(scriptPath));
         }
 
-        /**
-         * @param type Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

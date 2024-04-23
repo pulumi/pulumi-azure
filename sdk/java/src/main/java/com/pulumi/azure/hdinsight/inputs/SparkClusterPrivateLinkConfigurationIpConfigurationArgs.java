@@ -32,62 +32,30 @@ public final class SparkClusterPrivateLinkConfigurationIpConfigurationArgs exten
         return this.name;
     }
 
-    /**
-     * Indicates whether this IP configuration is primary.
-     * 
-     */
     @Import(name="primary")
     private @Nullable Output<Boolean> primary;
 
-    /**
-     * @return Indicates whether this IP configuration is primary.
-     * 
-     */
     public Optional<Output<Boolean>> primary() {
         return Optional.ofNullable(this.primary);
     }
 
-    /**
-     * The private IP address of the IP configuration.
-     * 
-     */
     @Import(name="privateIpAddress")
     private @Nullable Output<String> privateIpAddress;
 
-    /**
-     * @return The private IP address of the IP configuration.
-     * 
-     */
     public Optional<Output<String>> privateIpAddress() {
         return Optional.ofNullable(this.privateIpAddress);
     }
 
-    /**
-     * The private IP allocation method. The only possible value now is `Dynamic`.
-     * 
-     */
     @Import(name="privateIpAllocationMethod")
     private @Nullable Output<String> privateIpAllocationMethod;
 
-    /**
-     * @return The private IP allocation method. The only possible value now is `Dynamic`.
-     * 
-     */
     public Optional<Output<String>> privateIpAllocationMethod() {
         return Optional.ofNullable(this.privateIpAllocationMethod);
     }
 
-    /**
-     * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
-    /**
-     * @return The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
@@ -141,86 +109,38 @@ public final class SparkClusterPrivateLinkConfigurationIpConfigurationArgs exten
             return name(Output.of(name));
         }
 
-        /**
-         * @param primary Indicates whether this IP configuration is primary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primary(@Nullable Output<Boolean> primary) {
             $.primary = primary;
             return this;
         }
 
-        /**
-         * @param primary Indicates whether this IP configuration is primary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primary(Boolean primary) {
             return primary(Output.of(primary));
         }
 
-        /**
-         * @param privateIpAddress The private IP address of the IP configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateIpAddress(@Nullable Output<String> privateIpAddress) {
             $.privateIpAddress = privateIpAddress;
             return this;
         }
 
-        /**
-         * @param privateIpAddress The private IP address of the IP configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateIpAddress(String privateIpAddress) {
             return privateIpAddress(Output.of(privateIpAddress));
         }
 
-        /**
-         * @param privateIpAllocationMethod The private IP allocation method. The only possible value now is `Dynamic`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateIpAllocationMethod(@Nullable Output<String> privateIpAllocationMethod) {
             $.privateIpAllocationMethod = privateIpAllocationMethod;
             return this;
         }
 
-        /**
-         * @param privateIpAllocationMethod The private IP allocation method. The only possible value now is `Dynamic`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateIpAllocationMethod(String privateIpAllocationMethod) {
             return privateIpAllocationMethod(Output.of(privateIpAllocationMethod));
         }
 
-        /**
-         * @param subnetId The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

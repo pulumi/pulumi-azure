@@ -150,14 +150,14 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
         return this.builtInRuleId;
     }
     /**
-     * The description of the multi select observation.
+     * The description of the Anomaly Alert Rule.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return The description of the multi select observation.
+     * @return The description of the Anomaly Alert Rule.
      * 
      */
     public Output<String> description() {
@@ -261,17 +261,9 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
     public Output<List<AlertRuleAnomalyDuplicateMultiSelectObservation>> multiSelectObservations() {
         return this.multiSelectObservations;
     }
-    /**
-     * The name of the multi select observation.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the multi select observation.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }

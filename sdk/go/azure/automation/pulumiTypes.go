@@ -1409,12 +1409,9 @@ func (o RunBookDraftPtrOutput) Parameters() RunBookDraftParameterArrayOutput {
 }
 
 type RunBookDraftContentLink struct {
-	// A `hash` block as defined below.
-	Hash *RunBookDraftContentLinkHash `pulumi:"hash"`
-	// The URI of the runbook content.
-	Uri string `pulumi:"uri"`
-	// Specifies the version of the content
-	Version *string `pulumi:"version"`
+	Hash    *RunBookDraftContentLinkHash `pulumi:"hash"`
+	Uri     string                       `pulumi:"uri"`
+	Version *string                      `pulumi:"version"`
 }
 
 // RunBookDraftContentLinkInput is an input type that accepts RunBookDraftContentLinkArgs and RunBookDraftContentLinkOutput values.
@@ -1429,12 +1426,9 @@ type RunBookDraftContentLinkInput interface {
 }
 
 type RunBookDraftContentLinkArgs struct {
-	// A `hash` block as defined below.
-	Hash RunBookDraftContentLinkHashPtrInput `pulumi:"hash"`
-	// The URI of the runbook content.
-	Uri pulumi.StringInput `pulumi:"uri"`
-	// Specifies the version of the content
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Hash    RunBookDraftContentLinkHashPtrInput `pulumi:"hash"`
+	Uri     pulumi.StringInput                  `pulumi:"uri"`
+	Version pulumi.StringPtrInput               `pulumi:"version"`
 }
 
 func (RunBookDraftContentLinkArgs) ElementType() reflect.Type {
@@ -1514,17 +1508,14 @@ func (o RunBookDraftContentLinkOutput) ToRunBookDraftContentLinkPtrOutputWithCon
 	}).(RunBookDraftContentLinkPtrOutput)
 }
 
-// A `hash` block as defined below.
 func (o RunBookDraftContentLinkOutput) Hash() RunBookDraftContentLinkHashPtrOutput {
 	return o.ApplyT(func(v RunBookDraftContentLink) *RunBookDraftContentLinkHash { return v.Hash }).(RunBookDraftContentLinkHashPtrOutput)
 }
 
-// The URI of the runbook content.
 func (o RunBookDraftContentLinkOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v RunBookDraftContentLink) string { return v.Uri }).(pulumi.StringOutput)
 }
 
-// Specifies the version of the content
 func (o RunBookDraftContentLinkOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunBookDraftContentLink) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1553,7 +1544,6 @@ func (o RunBookDraftContentLinkPtrOutput) Elem() RunBookDraftContentLinkOutput {
 	}).(RunBookDraftContentLinkOutput)
 }
 
-// A `hash` block as defined below.
 func (o RunBookDraftContentLinkPtrOutput) Hash() RunBookDraftContentLinkHashPtrOutput {
 	return o.ApplyT(func(v *RunBookDraftContentLink) *RunBookDraftContentLinkHash {
 		if v == nil {
@@ -1563,7 +1553,6 @@ func (o RunBookDraftContentLinkPtrOutput) Hash() RunBookDraftContentLinkHashPtrO
 	}).(RunBookDraftContentLinkHashPtrOutput)
 }
 
-// The URI of the runbook content.
 func (o RunBookDraftContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunBookDraftContentLink) *string {
 		if v == nil {
@@ -1573,7 +1562,6 @@ func (o RunBookDraftContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the content
 func (o RunBookDraftContentLinkPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunBookDraftContentLink) *string {
 		if v == nil {
@@ -1873,11 +1861,10 @@ func (o RunBookDraftParameterArrayOutput) Index(i pulumi.IntInput) RunBookDraftP
 }
 
 type RunBookJobSchedule struct {
-	JobScheduleId *string `pulumi:"jobScheduleId"`
-	// A list of `parameters` block as defined below.
-	Parameters   map[string]string `pulumi:"parameters"`
-	RunOn        *string           `pulumi:"runOn"`
-	ScheduleName string            `pulumi:"scheduleName"`
+	JobScheduleId *string           `pulumi:"jobScheduleId"`
+	Parameters    map[string]string `pulumi:"parameters"`
+	RunOn         *string           `pulumi:"runOn"`
+	ScheduleName  string            `pulumi:"scheduleName"`
 }
 
 // RunBookJobScheduleInput is an input type that accepts RunBookJobScheduleArgs and RunBookJobScheduleOutput values.
@@ -1893,10 +1880,9 @@ type RunBookJobScheduleInput interface {
 
 type RunBookJobScheduleArgs struct {
 	JobScheduleId pulumi.StringPtrInput `pulumi:"jobScheduleId"`
-	// A list of `parameters` block as defined below.
-	Parameters   pulumi.StringMapInput `pulumi:"parameters"`
-	RunOn        pulumi.StringPtrInput `pulumi:"runOn"`
-	ScheduleName pulumi.StringInput    `pulumi:"scheduleName"`
+	Parameters    pulumi.StringMapInput `pulumi:"parameters"`
+	RunOn         pulumi.StringPtrInput `pulumi:"runOn"`
+	ScheduleName  pulumi.StringInput    `pulumi:"scheduleName"`
 }
 
 func (RunBookJobScheduleArgs) ElementType() reflect.Type {
@@ -1954,7 +1940,6 @@ func (o RunBookJobScheduleOutput) JobScheduleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunBookJobSchedule) *string { return v.JobScheduleId }).(pulumi.StringPtrOutput)
 }
 
-// A list of `parameters` block as defined below.
 func (o RunBookJobScheduleOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RunBookJobSchedule) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }

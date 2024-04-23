@@ -639,7 +639,6 @@ class Cache(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -665,7 +664,6 @@ class Cache(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             sku_name="Standard_2G")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -714,7 +712,6 @@ class Cache(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -740,7 +737,6 @@ class Cache(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             sku_name="Standard_2G")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

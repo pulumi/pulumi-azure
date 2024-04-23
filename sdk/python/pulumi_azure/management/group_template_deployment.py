@@ -321,7 +321,6 @@ class GroupTemplateDeployment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -373,9 +372,7 @@ class GroupTemplateDeployment(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -389,9 +386,7 @@ class GroupTemplateDeployment(pulumi.CustomResource):
             template_content=std.file(input="templates/example-deploy-template.json").result,
             parameters_content=std.file(input="templates/example-deploy-params.json").result)
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -406,7 +401,6 @@ class GroupTemplateDeployment(pulumi.CustomResource):
             management_group_id=example.id,
             template_spec_version_id=example_get_template_spec_version.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -442,7 +436,6 @@ class GroupTemplateDeployment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -494,9 +487,7 @@ class GroupTemplateDeployment(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -510,9 +501,7 @@ class GroupTemplateDeployment(pulumi.CustomResource):
             template_content=std.file(input="templates/example-deploy-template.json").result,
             parameters_content=std.file(input="templates/example-deploy-params.json").result)
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -527,7 +516,6 @@ class GroupTemplateDeployment(pulumi.CustomResource):
             management_group_id=example.id,
             template_spec_version_id=example_get_template_spec_version.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

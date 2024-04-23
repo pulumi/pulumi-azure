@@ -14,30 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class MongoCollectionSystemIndex {
     /**
-     * @return Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+     * @return The list of system keys which are not settable for each Cosmos DB Mongo Collection.
      * 
      */
     private @Nullable List<String> keys;
     /**
-     * @return Is the index unique or not? Defaults to `false`.
-     * 
-     * &gt; **Note:** An index with an &#34;_id&#34; key must be specified.
+     * @return Identifies whether the table contains no duplicate values.
      * 
      */
     private @Nullable Boolean unique;
 
     private MongoCollectionSystemIndex() {}
     /**
-     * @return Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+     * @return The list of system keys which are not settable for each Cosmos DB Mongo Collection.
      * 
      */
     public List<String> keys() {
         return this.keys == null ? List.of() : this.keys;
     }
     /**
-     * @return Is the index unique or not? Defaults to `false`.
-     * 
-     * &gt; **Note:** An index with an &#34;_id&#34; key must be specified.
+     * @return Identifies whether the table contains no duplicate values.
      * 
      */
     public Optional<Boolean> unique() {

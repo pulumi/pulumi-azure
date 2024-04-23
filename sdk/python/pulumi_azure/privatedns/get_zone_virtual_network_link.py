@@ -116,7 +116,6 @@ def get_zone_virtual_network_link(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -126,7 +125,6 @@ def get_zone_virtual_network_link(name: Optional[str] = None,
         private_dns_zone_name="test-zone")
     pulumi.export("privateDnsARecordId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Private DNS Zone Virtual Network Link.
@@ -160,7 +158,6 @@ def get_zone_virtual_network_link_output(name: Optional[pulumi.Input[str]] = Non
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -170,7 +167,6 @@ def get_zone_virtual_network_link_output(name: Optional[pulumi.Input[str]] = Non
         private_dns_zone_name="test-zone")
     pulumi.export("privateDnsARecordId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Private DNS Zone Virtual Network Link.

@@ -135,7 +135,6 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -154,7 +153,6 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
             vault_id=example_backup_vault.id,
             retention_duration="P30D")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -181,7 +179,6 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -200,7 +197,6 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
             vault_id=example_backup_vault.id,
             retention_duration="P30D")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

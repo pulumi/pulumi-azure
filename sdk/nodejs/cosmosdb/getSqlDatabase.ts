@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     accountName: "tfex-cosmosdb-sql-database-account-name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSqlDatabase(args: GetSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDatabaseResult> {
 
@@ -77,7 +75,6 @@ export interface GetSqlDatabaseResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -88,7 +85,6 @@ export interface GetSqlDatabaseResult {
  *     accountName: "tfex-cosmosdb-sql-database-account-name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSqlDatabaseOutput(args: GetSqlDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getSqlDatabase(a, opts))

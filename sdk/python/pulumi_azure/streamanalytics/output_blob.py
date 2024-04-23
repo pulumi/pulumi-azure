@@ -494,7 +494,6 @@ class OutputBlob(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -530,7 +529,6 @@ class OutputBlob(pulumi.CustomResource):
                 field_delimiter=",",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -568,7 +566,6 @@ class OutputBlob(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -604,7 +601,6 @@ class OutputBlob(pulumi.CustomResource):
                 field_delimiter=",",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

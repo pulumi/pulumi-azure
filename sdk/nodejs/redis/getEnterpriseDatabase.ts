@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  * export const redisEnterpriseDatabasePrimaryKey = example.then(example => example.primaryAccessKey);
  * export const redisEnterpriseDatabaseSecondaryKey = example.then(example => example.secondaryAccessKey);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEnterpriseDatabase(args: GetEnterpriseDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseDatabaseResult> {
 
@@ -96,7 +94,6 @@ export interface GetEnterpriseDatabaseResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -109,7 +106,6 @@ export interface GetEnterpriseDatabaseResult {
  * export const redisEnterpriseDatabasePrimaryKey = example.then(example => example.primaryAccessKey);
  * export const redisEnterpriseDatabaseSecondaryKey = example.then(example => example.secondaryAccessKey);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEnterpriseDatabaseOutput(args: GetEnterpriseDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getEnterpriseDatabase(a, opts))

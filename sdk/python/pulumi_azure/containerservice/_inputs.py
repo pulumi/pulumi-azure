@@ -2867,7 +2867,6 @@ class KubernetesClusterAciConnectorLinuxArgs:
                
                > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
                
-               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_azure as azure
@@ -2880,7 +2879,6 @@ class KubernetesClusterAciConnectorLinuxArgs:
                    ),
                )])
                ```
-               <!--End PulumiCodeChooser -->
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs']]] connector_identities: A `connector_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "subnet_name", subnet_name)
@@ -2897,7 +2895,6 @@ class KubernetesClusterAciConnectorLinuxArgs:
 
         > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -2910,7 +2907,6 @@ class KubernetesClusterAciConnectorLinuxArgs:
             ),
         )])
         ```
-        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "subnet_name")
 
@@ -2938,11 +2934,9 @@ class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs:
                  object_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-               
-               > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity used for Web App Routing.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity used for Web App Routing
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity used for Web App Routing.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -2955,7 +2949,7 @@ class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        The Client ID of the user-defined Managed Identity used for Web App Routing.
         """
         return pulumi.get(self, "client_id")
 
@@ -2967,7 +2961,7 @@ class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs:
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        The Object ID of the user-defined Managed Identity used for Web App Routing
         """
         return pulumi.get(self, "object_id")
 
@@ -2979,9 +2973,7 @@ class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs:
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-
-        > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+        The ID of the User Assigned Identity used for Web App Routing.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -3339,12 +3331,7 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
                  server_app_secret: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_group_object_ids: A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-        :param pulumi.Input[bool] azure_rbac_enabled: Is Role Based Access Control based on Azure AD enabled?
-        :param pulumi.Input[str] client_app_id: The Client ID of an Azure Active Directory Application.
         :param pulumi.Input[bool] managed: Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
-        :param pulumi.Input[str] server_app_id: The Server ID of an Azure Active Directory Application.
-        :param pulumi.Input[str] server_app_secret: The Server Secret of an Azure Active Directory Application.
         :param pulumi.Input[str] tenant_id: The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         """
         if admin_group_object_ids is not None:
@@ -3377,9 +3364,6 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
     @property
     @pulumi.getter(name="adminGroupObjectIds")
     def admin_group_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-        """
         return pulumi.get(self, "admin_group_object_ids")
 
     @admin_group_object_ids.setter
@@ -3389,9 +3373,6 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
     @property
     @pulumi.getter(name="azureRbacEnabled")
     def azure_rbac_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is Role Based Access Control based on Azure AD enabled?
-        """
         return pulumi.get(self, "azure_rbac_enabled")
 
     @azure_rbac_enabled.setter
@@ -3401,9 +3382,6 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
     @property
     @pulumi.getter(name="clientAppId")
     def client_app_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Client ID of an Azure Active Directory Application.
-        """
         warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
         pulumi.log.warn("""client_app_id is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
 
@@ -3431,9 +3409,6 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
     @property
     @pulumi.getter(name="serverAppId")
     def server_app_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Server ID of an Azure Active Directory Application.
-        """
         warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
         pulumi.log.warn("""server_app_id is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
 
@@ -3446,9 +3421,6 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
     @property
     @pulumi.getter(name="serverAppSecret")
     def server_app_secret(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Server Secret of an Azure Active Directory Application.
-        """
         warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
         pulumi.log.warn("""server_app_secret is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
 
@@ -3557,15 +3529,8 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
-        :param pulumi.Input[int] max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
         :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
-        :param pulumi.Input[int] min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-        :param pulumi.Input[int] node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-               
-               > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-               
-               > **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
@@ -3846,9 +3811,6 @@ class KubernetesClusterDefaultNodePoolArgs:
     @property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-        """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
@@ -3882,9 +3844,6 @@ class KubernetesClusterDefaultNodePoolArgs:
     @property
     @pulumi.getter(name="minCount")
     def min_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-        """
         return pulumi.get(self, "min_count")
 
     @min_count.setter
@@ -3894,13 +3853,6 @@ class KubernetesClusterDefaultNodePoolArgs:
     @property
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-
-        > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-
-        > **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
-        """
         return pulumi.get(self, "node_count")
 
     @node_count.setter
@@ -5244,7 +5196,7 @@ class KubernetesClusterIdentityArgs:
                
                > **Note:** This is required when `type` is set to `UserAssigned`. Currently only one User Assigned Identity is supported.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
-        :param pulumi.Input[str] tenant_id: The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -5296,7 +5248,7 @@ class KubernetesClusterIdentityArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+        The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -5423,11 +5375,9 @@ class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentit
                  object_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-               
-               > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity used for Web App Routing.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity used for Web App Routing
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity used for Web App Routing.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -5440,7 +5390,7 @@ class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentit
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        The Client ID of the user-defined Managed Identity used for Web App Routing.
         """
         return pulumi.get(self, "client_id")
 
@@ -5452,7 +5402,7 @@ class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentit
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        The Object ID of the user-defined Managed Identity used for Web App Routing
         """
         return pulumi.get(self, "object_id")
 
@@ -5464,9 +5414,7 @@ class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentit
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-
-        > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+        The ID of the User Assigned Identity used for Web App Routing.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -5579,11 +5527,9 @@ class KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs:
                  object_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-               
-               > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity used for Web App Routing.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity used for Web App Routing
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity used for Web App Routing.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -5596,7 +5542,7 @@ class KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        The Client ID of the user-defined Managed Identity used for Web App Routing.
         """
         return pulumi.get(self, "client_id")
 
@@ -5608,7 +5554,7 @@ class KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs:
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        The Object ID of the user-defined Managed Identity used for Web App Routing
         """
         return pulumi.get(self, "object_id")
 
@@ -5620,9 +5566,7 @@ class KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs:
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-
-        > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+        The ID of the User Assigned Identity used for Web App Routing.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -5847,8 +5791,6 @@ class KubernetesClusterKubeletIdentityArgs:
         :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-               
-               > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -5886,8 +5828,6 @@ class KubernetesClusterKubeletIdentityArgs:
     def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-
-        > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -7976,11 +7916,9 @@ class KubernetesClusterOmsAgentOmsAgentIdentityArgs:
                  object_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-               
-               > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity used for Web App Routing.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity used for Web App Routing
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity used for Web App Routing.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -7993,7 +7931,7 @@ class KubernetesClusterOmsAgentOmsAgentIdentityArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        The Client ID of the user-defined Managed Identity used for Web App Routing.
         """
         return pulumi.get(self, "client_id")
 
@@ -8005,7 +7943,7 @@ class KubernetesClusterOmsAgentOmsAgentIdentityArgs:
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        The Object ID of the user-defined Managed Identity used for Web App Routing
         """
         return pulumi.get(self, "object_id")
 
@@ -8017,9 +7955,7 @@ class KubernetesClusterOmsAgentOmsAgentIdentityArgs:
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-
-        > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+        The ID of the User Assigned Identity used for Web App Routing.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -8263,11 +8199,9 @@ class KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs:
                  object_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-               
-               > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity used for Web App Routing.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity used for Web App Routing
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity used for Web App Routing.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -8280,7 +8214,7 @@ class KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        The Client ID of the user-defined Managed Identity used for Web App Routing.
         """
         return pulumi.get(self, "client_id")
 
@@ -8292,7 +8226,7 @@ class KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs:
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+        The Object ID of the user-defined Managed Identity used for Web App Routing
         """
         return pulumi.get(self, "object_id")
 
@@ -8304,9 +8238,7 @@ class KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs:
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-
-        > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+        The ID of the User Assigned Identity used for Web App Routing.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -8549,8 +8481,6 @@ class RegistryEncryptionArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] identity_client_id: The client ID of the managed identity associated with the encryption key.
-               
-               > **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identity_ids`
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key.
         :param pulumi.Input[bool] enabled: Boolean value that indicates whether encryption is enabled.
         """
@@ -8564,8 +8494,6 @@ class RegistryEncryptionArgs:
     def identity_client_id(self) -> pulumi.Input[str]:
         """
         The client ID of the managed identity associated with the encryption key.
-
-        > **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identity_ids`
         """
         return pulumi.get(self, "identity_client_id")
 
@@ -8853,18 +8781,12 @@ class RegistryNetworkRuleSetVirtualNetworkArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  subnet_id: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] action: The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
-        """
-        The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -9920,7 +9842,6 @@ class TokenPasswordPassword1Args:
                  expiry: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] expiry: The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The value of the password (Sensitive).
         """
         if expiry is not None:
@@ -9931,9 +9852,6 @@ class TokenPasswordPassword1Args:
     @property
     @pulumi.getter
     def expiry(self) -> Optional[pulumi.Input[str]]:
-        """
-        The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "expiry")
 
     @expiry.setter
@@ -9959,7 +9877,6 @@ class TokenPasswordPassword2Args:
                  expiry: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] expiry: The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The value of the password (Sensitive).
         """
         if expiry is not None:
@@ -9970,9 +9887,6 @@ class TokenPasswordPassword2Args:
     @property
     @pulumi.getter
     def expiry(self) -> Optional[pulumi.Input[str]]:
-        """
-        The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "expiry")
 
     @expiry.setter

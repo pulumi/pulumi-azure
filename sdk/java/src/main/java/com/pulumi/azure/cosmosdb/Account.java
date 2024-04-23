@@ -187,17 +187,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:cosmosdb/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
-    /**
-     * Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
-     * 
-     */
     @Export(name="accessKeyMetadataWritesEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessKeyMetadataWritesEnabled;
 
-    /**
-     * @return Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> accessKeyMetadataWritesEnabled() {
         return Codegen.optional(this.accessKeyMetadataWritesEnabled);
     }
@@ -215,59 +207,27 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<AccountAnalyticalStorage> analyticalStorage() {
         return this.analyticalStorage;
     }
-    /**
-     * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-     * 
-     */
     @Export(name="analyticalStorageEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> analyticalStorageEnabled;
 
-    /**
-     * @return Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-     * 
-     */
     public Output<Optional<Boolean>> analyticalStorageEnabled() {
         return Codegen.optional(this.analyticalStorageEnabled);
     }
-    /**
-     * Enable automatic failover for this Cosmos DB account.
-     * 
-     */
     @Export(name="automaticFailoverEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> automaticFailoverEnabled;
 
-    /**
-     * @return Enable automatic failover for this Cosmos DB account.
-     * 
-     */
     public Output<Boolean> automaticFailoverEnabled() {
         return this.automaticFailoverEnabled;
     }
-    /**
-     * A `backup` block as defined below.
-     * 
-     */
     @Export(name="backup", refs={AccountBackup.class}, tree="[0]")
     private Output<AccountBackup> backup;
 
-    /**
-     * @return A `backup` block as defined below.
-     * 
-     */
     public Output<AccountBackup> backup() {
         return this.backup;
     }
-    /**
-     * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
-     * 
-     */
     @Export(name="capabilities", refs={List.class,AccountCapability.class}, tree="[0,1]")
     private Output<List<AccountCapability>> capabilities;
 
-    /**
-     * @return The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
-     * 
-     */
     public Output<List<AccountCapability>> capabilities() {
         return this.capabilities;
     }
@@ -297,31 +257,15 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<List<String>> connectionStrings() {
         return this.connectionStrings;
     }
-    /**
-     * Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-     * 
-     */
     @Export(name="consistencyPolicy", refs={AccountConsistencyPolicy.class}, tree="[0]")
     private Output<AccountConsistencyPolicy> consistencyPolicy;
 
-    /**
-     * @return Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-     * 
-     */
     public Output<AccountConsistencyPolicy> consistencyPolicy() {
         return this.consistencyPolicy;
     }
-    /**
-     * A `cors_rule` block as defined below.
-     * 
-     */
     @Export(name="corsRule", refs={AccountCorsRule.class}, tree="[0]")
     private Output</* @Nullable */ AccountCorsRule> corsRule;
 
-    /**
-     * @return A `cors_rule` block as defined below.
-     * 
-     */
     public Output<Optional<AccountCorsRule>> corsRule() {
         return Codegen.optional(this.corsRule);
     }
@@ -407,131 +351,51 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> endpoint() {
         return this.endpoint;
     }
-    /**
-     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-     * 
-     */
     @Export(name="freeTierEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> freeTierEnabled;
 
-    /**
-     * @return Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<Boolean> freeTierEnabled() {
         return this.freeTierEnabled;
     }
-    /**
-     * Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-     * 
-     */
     @Export(name="geoLocations", refs={List.class,AccountGeoLocation.class}, tree="[0,1]")
     private Output<List<AccountGeoLocation>> geoLocations;
 
-    /**
-     * @return Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-     * 
-     */
     public Output<List<AccountGeoLocation>> geoLocations() {
         return this.geoLocations;
     }
-    /**
-     * An `identity` block as defined below.
-     * 
-     */
     @Export(name="identity", refs={AccountIdentity.class}, tree="[0]")
     private Output</* @Nullable */ AccountIdentity> identity;
 
-    /**
-     * @return An `identity` block as defined below.
-     * 
-     */
     public Output<Optional<AccountIdentity>> identity() {
         return Codegen.optional(this.identity);
     }
-    /**
-     * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-     * 
-     * &gt; **Note:** To enable the &#34;Allow access from the Azure portal&#34; behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-     * 
-     * &gt; **Note:** To enable the &#34;Accept connections from within public Azure datacenters&#34; behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-     * 
-     */
     @Export(name="ipRangeFilter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipRangeFilter;
 
-    /**
-     * @return CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-     * 
-     * &gt; **Note:** To enable the &#34;Allow access from the Azure portal&#34; behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-     * 
-     * &gt; **Note:** To enable the &#34;Accept connections from within public Azure datacenters&#34; behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-     * 
-     */
     public Output<Optional<String>> ipRangeFilter() {
         return Codegen.optional(this.ipRangeFilter);
     }
-    /**
-     * Enables virtual network filtering for this Cosmos DB account.
-     * 
-     */
     @Export(name="isVirtualNetworkFilterEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isVirtualNetworkFilterEnabled;
 
-    /**
-     * @return Enables virtual network filtering for this Cosmos DB account.
-     * 
-     */
     public Output<Optional<Boolean>> isVirtualNetworkFilterEnabled() {
         return Codegen.optional(this.isVirtualNetworkFilterEnabled);
     }
-    /**
-     * A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When referencing an `azure.keyvault.Key` resource, use `versionless_id` instead of `id`
-     * 
-     * &gt; **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-     * 
-     */
     @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyVaultKeyId;
 
-    /**
-     * @return A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When referencing an `azure.keyvault.Key` resource, use `versionless_id` instead of `id`
-     * 
-     * &gt; **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-     * 
-     */
     public Output<Optional<String>> keyVaultKeyId() {
         return Codegen.optional(this.keyVaultKeyId);
     }
-    /**
-     * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-     * 
-     */
     @Export(name="kind", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kind;
 
-    /**
-     * @return Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<Optional<String>> kind() {
         return Codegen.optional(this.kind);
     }
-    /**
-     * Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
-     * 
-     */
     @Export(name="localAuthenticationDisabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> localAuthenticationDisabled;
 
-    /**
-     * @return Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
-     * 
-     */
     public Output<Optional<Boolean>> localAuthenticationDisabled() {
         return Codegen.optional(this.localAuthenticationDisabled);
     }
@@ -563,31 +427,15 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> minimalTlsVersion() {
         return this.minimalTlsVersion;
     }
-    /**
-     * The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-     * 
-     */
     @Export(name="mongoServerVersion", refs={String.class}, tree="[0]")
     private Output<String> mongoServerVersion;
 
-    /**
-     * @return The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-     * 
-     */
     public Output<String> mongoServerVersion() {
         return this.mongoServerVersion;
     }
-    /**
-     * Enable multiple write locations for this Cosmos DB account.
-     * 
-     */
     @Export(name="multipleWriteLocationsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> multipleWriteLocationsEnabled;
 
-    /**
-     * @return Enable multiple write locations for this Cosmos DB account.
-     * 
-     */
     public Output<Boolean> multipleWriteLocationsEnabled() {
         return this.multipleWriteLocationsEnabled;
     }
@@ -605,31 +453,15 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * If Azure services can bypass ACLs. Defaults to `false`.
-     * 
-     */
     @Export(name="networkAclBypassForAzureServices", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> networkAclBypassForAzureServices;
 
-    /**
-     * @return If Azure services can bypass ACLs. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> networkAclBypassForAzureServices() {
         return Codegen.optional(this.networkAclBypassForAzureServices);
     }
-    /**
-     * The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
-     * 
-     */
     @Export(name="networkAclBypassIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkAclBypassIds;
 
-    /**
-     * @return The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
-     * 
-     */
     public Output<Optional<List<String>>> networkAclBypassIds() {
         return Codegen.optional(this.networkAclBypassIds);
     }
@@ -647,17 +479,9 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> offerType() {
         return this.offerType;
     }
-    /**
-     * Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
-     * 
-     */
     @Export(name="partitionMergeEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> partitionMergeEnabled;
 
-    /**
-     * @return Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> partitionMergeEnabled() {
         return Codegen.optional(this.partitionMergeEnabled);
     }
@@ -745,17 +569,9 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> primarySqlConnectionString() {
         return this.primarySqlConnectionString;
     }
-    /**
-     * Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
-     * 
-     */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
-    /**
-     * @return Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
@@ -787,21 +603,9 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    /**
-     * A `restore` block as defined below.
-     * 
-     * &gt; **Note:** `restore` should be set when `create_mode` is `Restore`.
-     * 
-     */
     @Export(name="restore", refs={AccountRestore.class}, tree="[0]")
     private Output</* @Nullable */ AccountRestore> restore;
 
-    /**
-     * @return A `restore` block as defined below.
-     * 
-     * &gt; **Note:** `restore` should be set when `create_mode` is `Restore`.
-     * 
-     */
     public Output<Optional<AccountRestore>> restore() {
         return Codegen.optional(this.restore);
     }
@@ -903,17 +707,9 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
-     * 
-     */
     @Export(name="virtualNetworkRules", refs={List.class,AccountVirtualNetworkRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AccountVirtualNetworkRule>> virtualNetworkRules;
 
-    /**
-     * @return Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
-     * 
-     */
     public Output<Optional<List<AccountVirtualNetworkRule>>> virtualNetworkRules() {
         return Codegen.optional(this.virtualNetworkRules);
     }

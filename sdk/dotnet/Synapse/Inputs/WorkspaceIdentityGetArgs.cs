@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Synapse.Inputs
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        /// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

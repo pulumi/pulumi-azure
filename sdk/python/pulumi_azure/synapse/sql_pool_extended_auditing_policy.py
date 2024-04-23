@@ -235,7 +235,6 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -281,7 +280,6 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
             storage_account_access_key_is_secondary=False,
             retention_in_days=6)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -311,7 +309,6 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -357,7 +354,6 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
             storage_account_access_key_is_secondary=False,
             retention_in_days=6)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

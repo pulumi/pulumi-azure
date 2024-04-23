@@ -135,7 +135,6 @@ class PostgresqlRole(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -156,7 +155,6 @@ class PostgresqlRole(pulumi.CustomResource):
             cluster_id=example_postgresql_cluster.id,
             password="H@Sh1CoR3!")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -183,7 +181,6 @@ class PostgresqlRole(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -204,7 +201,6 @@ class PostgresqlRole(pulumi.CustomResource):
             cluster_id=example_postgresql_cluster.id,
             password="H@Sh1CoR3!")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

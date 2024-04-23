@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Single IP Address)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -24,11 +23,9 @@ import * as utilities from "../utilities";
  *     endIpAddress: "40.112.8.12",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### IP Range)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -41,7 +38,6 @@ import * as utilities from "../utilities";
  *     endIpAddress: "40.112.255.255",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

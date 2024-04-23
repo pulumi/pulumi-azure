@@ -315,14 +315,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * Specify the IP Address of this private IP.
+     * The IP address of the deployment.
      * 
      */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
     /**
-     * @return Specify the IP Address of this private IP.
+     * @return The IP address of the deployment.
      * 
      */
     public Output<String> ipAddress() {

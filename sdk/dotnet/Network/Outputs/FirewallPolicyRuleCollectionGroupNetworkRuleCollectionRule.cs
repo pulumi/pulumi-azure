@@ -13,41 +13,17 @@ namespace Pulumi.Azure.Network.Outputs
     [OutputType]
     public sealed class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule
     {
-        /// <summary>
-        /// The description which should be used for this rule.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
-        /// </summary>
         public readonly ImmutableArray<string> DestinationAddresses;
-        /// <summary>
-        /// Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
-        /// </summary>
         public readonly ImmutableArray<string> DestinationFqdns;
-        /// <summary>
-        /// Specifies a list of destination IP groups.
-        /// </summary>
         public readonly ImmutableArray<string> DestinationIpGroups;
-        /// <summary>
-        /// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-        /// </summary>
         public readonly ImmutableArray<string> DestinationPorts;
         /// <summary>
         /// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// One or more `protocols` blocks as defined below.
-        /// </summary>
         public readonly ImmutableArray<string> Protocols;
-        /// <summary>
-        /// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-        /// </summary>
         public readonly ImmutableArray<string> SourceAddresses;
-        /// <summary>
-        /// Specifies a list of source IP groups.
-        /// </summary>
         public readonly ImmutableArray<string> SourceIpGroups;
 
         [OutputConstructor]

@@ -236,7 +236,6 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -259,7 +258,6 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
                 type="String",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -289,7 +287,6 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -312,7 +309,6 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
                 type="String",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

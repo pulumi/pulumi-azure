@@ -155,7 +155,6 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -178,7 +177,6 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
             vault_id=test_azurerm_recovery_services_vault["id"],
             resource_guard_id=test_azurerm_data_protection_resource_guard["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -207,7 +205,6 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -230,7 +227,6 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
             vault_id=test_azurerm_recovery_services_vault["id"],
             resource_guard_id=test_azurerm_data_protection_resource_guard["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

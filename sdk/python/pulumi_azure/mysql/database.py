@@ -197,7 +197,6 @@ class Database(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -228,7 +227,6 @@ class Database(pulumi.CustomResource):
             charset="utf8",
             collation="utf8_unicode_ci")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -255,7 +253,6 @@ class Database(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -286,7 +283,6 @@ class Database(pulumi.CustomResource):
             charset="utf8",
             collation="utf8_unicode_ci")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

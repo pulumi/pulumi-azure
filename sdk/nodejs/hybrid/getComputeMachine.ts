@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -26,7 +25,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getComputeMachine(args: GetComputeMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeMachineResult> {
 
@@ -186,7 +184,6 @@ export interface GetComputeMachineResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -197,7 +194,6 @@ export interface GetComputeMachineResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getComputeMachineOutput(args: GetComputeMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeMachineResult> {
     return pulumi.output(args).apply((a: any) => getComputeMachine(a, opts))

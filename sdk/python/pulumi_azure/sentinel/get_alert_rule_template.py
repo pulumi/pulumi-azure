@@ -117,7 +117,6 @@ def get_alert_rule_template(display_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -126,7 +125,6 @@ def get_alert_rule_template(display_name: Optional[str] = None,
         display_name="Create incidents based on Azure Security Center for IoT alerts")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
@@ -162,7 +160,6 @@ def get_alert_rule_template_output(display_name: Optional[pulumi.Input[Optional[
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -171,7 +168,6 @@ def get_alert_rule_template_output(display_name: Optional[pulumi.Input[Optional[
         display_name="Create incidents based on Azure Security Center for IoT alerts")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.

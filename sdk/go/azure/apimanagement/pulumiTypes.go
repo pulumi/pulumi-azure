@@ -6919,7 +6919,7 @@ func (o BackendServiceFabricClusterPtrOutput) ServerX509Names() BackendServiceFa
 type BackendServiceFabricClusterServerX509Name struct {
 	// The thumbprint for the issuer of the certificate.
 	IssuerCertificateThumbprint string `pulumi:"issuerCertificateThumbprint"`
-	// The name of the API Management backend. Changing this forces a new resource to be created.
+	// The common name of the certificate.
 	Name string `pulumi:"name"`
 }
 
@@ -6937,7 +6937,7 @@ type BackendServiceFabricClusterServerX509NameInput interface {
 type BackendServiceFabricClusterServerX509NameArgs struct {
 	// The thumbprint for the issuer of the certificate.
 	IssuerCertificateThumbprint pulumi.StringInput `pulumi:"issuerCertificateThumbprint"`
-	// The name of the API Management backend. Changing this forces a new resource to be created.
+	// The common name of the certificate.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -6997,7 +6997,7 @@ func (o BackendServiceFabricClusterServerX509NameOutput) IssuerCertificateThumbp
 	return o.ApplyT(func(v BackendServiceFabricClusterServerX509Name) string { return v.IssuerCertificateThumbprint }).(pulumi.StringOutput)
 }
 
-// The name of the API Management backend. Changing this forces a new resource to be created.
+// The common name of the certificate.
 func (o BackendServiceFabricClusterServerX509NameOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendServiceFabricClusterServerX509Name) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -11820,9 +11820,11 @@ func (o ServiceHostnameConfigurationPtrOutput) Scms() ServiceHostnameConfigurati
 }
 
 type ServiceHostnameConfigurationDeveloperPortal struct {
-	// One or more `certificate` blocks (up to 10) as defined below.
+	// The Base64 Encoded Certificate.
 	Certificate *string `pulumi:"certificate"`
-	// The password for the certificate.
+	// The password associated with the certificate provided above.
+	//
+	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword *string `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource *string `pulumi:"certificateSource"`
@@ -11860,9 +11862,11 @@ type ServiceHostnameConfigurationDeveloperPortalInput interface {
 }
 
 type ServiceHostnameConfigurationDeveloperPortalArgs struct {
-	// One or more `certificate` blocks (up to 10) as defined below.
+	// The Base64 Encoded Certificate.
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
-	// The password for the certificate.
+	// The password associated with the certificate provided above.
+	//
+	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
@@ -11939,12 +11943,14 @@ func (o ServiceHostnameConfigurationDeveloperPortalOutput) ToServiceHostnameConf
 	return o
 }
 
-// One or more `certificate` blocks (up to 10) as defined below.
+// The Base64 Encoded Certificate.
 func (o ServiceHostnameConfigurationDeveloperPortalOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
-// The password for the certificate.
+// The password associated with the certificate provided above.
+//
+// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
 func (o ServiceHostnameConfigurationDeveloperPortalOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
@@ -12224,9 +12230,11 @@ func (o ServiceHostnameConfigurationManagementArrayOutput) Index(i pulumi.IntInp
 }
 
 type ServiceHostnameConfigurationPortal struct {
-	// One or more `certificate` blocks (up to 10) as defined below.
+	// The Base64 Encoded Certificate.
 	Certificate *string `pulumi:"certificate"`
-	// The password for the certificate.
+	// The password associated with the certificate provided above.
+	//
+	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword *string `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource *string `pulumi:"certificateSource"`
@@ -12264,9 +12272,11 @@ type ServiceHostnameConfigurationPortalInput interface {
 }
 
 type ServiceHostnameConfigurationPortalArgs struct {
-	// One or more `certificate` blocks (up to 10) as defined below.
+	// The Base64 Encoded Certificate.
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
-	// The password for the certificate.
+	// The password associated with the certificate provided above.
+	//
+	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
@@ -12343,12 +12353,14 @@ func (o ServiceHostnameConfigurationPortalOutput) ToServiceHostnameConfiguration
 	return o
 }
 
-// One or more `certificate` blocks (up to 10) as defined below.
+// The Base64 Encoded Certificate.
 func (o ServiceHostnameConfigurationPortalOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
-// The password for the certificate.
+// The password associated with the certificate provided above.
+//
+// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
 func (o ServiceHostnameConfigurationPortalOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
@@ -12631,9 +12643,11 @@ func (o ServiceHostnameConfigurationProxyArrayOutput) Index(i pulumi.IntInput) S
 }
 
 type ServiceHostnameConfigurationScm struct {
-	// One or more `certificate` blocks (up to 10) as defined below.
+	// The Base64 Encoded Certificate.
 	Certificate *string `pulumi:"certificate"`
-	// The password for the certificate.
+	// The password associated with the certificate provided above.
+	//
+	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword *string `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource *string `pulumi:"certificateSource"`
@@ -12671,9 +12685,11 @@ type ServiceHostnameConfigurationScmInput interface {
 }
 
 type ServiceHostnameConfigurationScmArgs struct {
-	// One or more `certificate` blocks (up to 10) as defined below.
+	// The Base64 Encoded Certificate.
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
-	// The password for the certificate.
+	// The password associated with the certificate provided above.
+	//
+	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
@@ -12750,12 +12766,14 @@ func (o ServiceHostnameConfigurationScmOutput) ToServiceHostnameConfigurationScm
 	return o
 }
 
-// One or more `certificate` blocks (up to 10) as defined below.
+// The Base64 Encoded Certificate.
 func (o ServiceHostnameConfigurationScmOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
-// The password for the certificate.
+// The password associated with the certificate provided above.
+//
+// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
 func (o ServiceHostnameConfigurationScmOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }

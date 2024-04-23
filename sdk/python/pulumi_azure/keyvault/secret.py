@@ -339,7 +339,6 @@ class Secret(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -375,7 +374,6 @@ class Secret(pulumi.CustomResource):
             value="szechuan",
             key_vault_id=example_key_vault.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -408,7 +406,6 @@ class Secret(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -444,7 +441,6 @@ class Secret(pulumi.CustomResource):
             value="szechuan",
             key_vault_id=example_key_vault.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

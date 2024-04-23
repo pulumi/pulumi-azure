@@ -52,14 +52,14 @@ public final class FactoryIdentityArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the Tenant ID associated with the VSTS account.
+     * The Tenant ID associated with this Managed Service Identity.
      * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
-     * @return Specifies the Tenant ID associated with the VSTS account.
+     * @return The Tenant ID associated with this Managed Service Identity.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -167,7 +167,7 @@ public final class FactoryIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tenantId Specifies the Tenant ID associated with the VSTS account.
+         * @param tenantId The Tenant ID associated with this Managed Service Identity.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class FactoryIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tenantId Specifies the Tenant ID associated with the VSTS account.
+         * @param tenantId The Tenant ID associated with this Managed Service Identity.
          * 
          * @return builder
          * 

@@ -330,7 +330,7 @@ class _DeploymentState:
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input['DeploymentIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] ip_address: Specify the IP Address of this private IP.
+        :param pulumi.Input[str] ip_address: The IP address of the deployment.
         :param pulumi.Input[str] location: The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
         :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
@@ -494,7 +494,7 @@ class _DeploymentState:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the IP Address of this private IP.
+        The IP address of the deployment.
         """
         return pulumi.get(self, "ip_address")
 
@@ -639,7 +639,6 @@ class Deployment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -688,11 +687,11 @@ class Deployment(pulumi.CustomResource):
         \"\"\").result
         protected_content = std.base64encode(input="user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1\\n").result
         sub_config_content = std.base64encode(input=\"\"\"location /bbb {
-        	default_type text/html;
-        	return 200 '<!doctype html><html lang="en"><head></head><body>
-        		<div>this one will be updated</div>
-        		<div>at 10:38 am</div>
-        	</body></html>';
+        \\x09default_type text/html;
+        \\x09return 200 '<!doctype html><html lang="en"><head></head><body>
+        \\x09\\x09<div>this one will be updated</div>
+        \\x09\\x09<div>at 10:38 am</div>
+        \\x09</body></html>';
         }
         \"\"\").result
         example_deployment = azure.nginx.Deployment("example",
@@ -729,7 +728,6 @@ class Deployment(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -772,7 +770,6 @@ class Deployment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -821,11 +818,11 @@ class Deployment(pulumi.CustomResource):
         \"\"\").result
         protected_content = std.base64encode(input="user:$apr1$VeUA5kt.$IjjRk//8miRxDsZvD4daF1\\n").result
         sub_config_content = std.base64encode(input=\"\"\"location /bbb {
-        	default_type text/html;
-        	return 200 '<!doctype html><html lang="en"><head></head><body>
-        		<div>this one will be updated</div>
-        		<div>at 10:38 am</div>
-        	</body></html>';
+        \\x09default_type text/html;
+        \\x09return 200 '<!doctype html><html lang="en"><head></head><body>
+        \\x09\\x09<div>this one will be updated</div>
+        \\x09\\x09<div>at 10:38 am</div>
+        \\x09</body></html>';
         }
         \"\"\").result
         example_deployment = azure.nginx.Deployment("example",
@@ -862,7 +859,6 @@ class Deployment(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -983,7 +979,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[pulumi.InputType['DeploymentIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] ip_address: Specify the IP Address of this private IP.
+        :param pulumi.Input[str] ip_address: The IP address of the deployment.
         :param pulumi.Input[str] location: The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentLoggingStorageAccountArgs']]]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
         :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
@@ -1097,7 +1093,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[str]:
         """
-        Specify the IP Address of this private IP.
+        The IP address of the deployment.
         """
         return pulumi.get(self, "ip_address")
 

@@ -301,14 +301,14 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The Static IP Address which should be used.
+     * The first private IP address of the network interface.
      * 
      */
     @Export(name="privateIpAddress", refs={String.class}, tree="[0]")
     private Output<String> privateIpAddress;
 
     /**
-     * @return The Static IP Address which should be used.
+     * @return The first private IP address of the network interface.
      * 
      */
     public Output<String> privateIpAddress() {

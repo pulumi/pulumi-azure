@@ -13,21 +13,9 @@ namespace Pulumi.Azure.NetApp.Outputs
     [OutputType]
     public sealed class VolumeGroupSapHanaVolumeDataProtectionReplication
     {
-        /// <summary>
-        /// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
-        /// </summary>
         public readonly string? EndpointType;
-        /// <summary>
-        /// Location of the primary volume.
-        /// </summary>
         public readonly string RemoteVolumeLocation;
-        /// <summary>
-        /// Resource ID of the primary volume.
-        /// </summary>
         public readonly string RemoteVolumeResourceId;
-        /// <summary>
-        /// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
-        /// </summary>
         public readonly string ReplicationFrequency;
 
         [OutputConstructor]

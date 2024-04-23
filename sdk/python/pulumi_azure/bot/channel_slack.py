@@ -299,7 +299,6 @@ class ChannelSlack(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -322,7 +321,6 @@ class ChannelSlack(pulumi.CustomResource):
             client_secret="exampleSecret",
             verification_token="exampleVerificationToken")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -356,7 +354,6 @@ class ChannelSlack(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -379,7 +376,6 @@ class ChannelSlack(pulumi.CustomResource):
             client_secret="exampleSecret",
             verification_token="exampleVerificationToken")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

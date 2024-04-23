@@ -83,62 +83,30 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.computeIsolationEnabled);
     }
 
-    /**
-     * Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-     * 
-     */
     @Import(name="dynamicExecutorAllocationEnabled")
     private @Nullable Output<Boolean> dynamicExecutorAllocationEnabled;
 
-    /**
-     * @return Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> dynamicExecutorAllocationEnabled() {
         return Optional.ofNullable(this.dynamicExecutorAllocationEnabled);
     }
 
-    /**
-     * A `library_requirement` block as defined below.
-     * 
-     */
     @Import(name="libraryRequirement")
     private @Nullable Output<SparkPoolLibraryRequirementArgs> libraryRequirement;
 
-    /**
-     * @return A `library_requirement` block as defined below.
-     * 
-     */
     public Optional<Output<SparkPoolLibraryRequirementArgs>> libraryRequirement() {
         return Optional.ofNullable(this.libraryRequirement);
     }
 
-    /**
-     * The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-     * 
-     */
     @Import(name="maxExecutors")
     private @Nullable Output<Integer> maxExecutors;
 
-    /**
-     * @return The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-     * 
-     */
     public Optional<Output<Integer>> maxExecutors() {
         return Optional.ofNullable(this.maxExecutors);
     }
 
-    /**
-     * The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-     * 
-     */
     @Import(name="minExecutors")
     private @Nullable Output<Integer> minExecutors;
 
-    /**
-     * @return The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-     * 
-     */
     public Optional<Output<Integer>> minExecutors() {
         return Optional.ofNullable(this.minExecutors);
     }
@@ -203,77 +171,37 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
         return this.nodeSizeFamily;
     }
 
-    /**
-     * Indicates whether session level packages are enabled or not. Defaults to `false`.
-     * 
-     */
     @Import(name="sessionLevelPackagesEnabled")
     private @Nullable Output<Boolean> sessionLevelPackagesEnabled;
 
-    /**
-     * @return Indicates whether session level packages are enabled or not. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> sessionLevelPackagesEnabled() {
         return Optional.ofNullable(this.sessionLevelPackagesEnabled);
     }
 
-    /**
-     * A `spark_config` block as defined below.
-     * 
-     */
     @Import(name="sparkConfig")
     private @Nullable Output<SparkPoolSparkConfigArgs> sparkConfig;
 
-    /**
-     * @return A `spark_config` block as defined below.
-     * 
-     */
     public Optional<Output<SparkPoolSparkConfigArgs>> sparkConfig() {
         return Optional.ofNullable(this.sparkConfig);
     }
 
-    /**
-     * The Spark events folder. Defaults to `/events`.
-     * 
-     */
     @Import(name="sparkEventsFolder")
     private @Nullable Output<String> sparkEventsFolder;
 
-    /**
-     * @return The Spark events folder. Defaults to `/events`.
-     * 
-     */
     public Optional<Output<String>> sparkEventsFolder() {
         return Optional.ofNullable(this.sparkEventsFolder);
     }
 
-    /**
-     * The default folder where Spark logs will be written. Defaults to `/logs`.
-     * 
-     */
     @Import(name="sparkLogFolder")
     private @Nullable Output<String> sparkLogFolder;
 
-    /**
-     * @return The default folder where Spark logs will be written. Defaults to `/logs`.
-     * 
-     */
     public Optional<Output<String>> sparkLogFolder() {
         return Optional.ofNullable(this.sparkLogFolder);
     }
 
-    /**
-     * The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-     * 
-     */
     @Import(name="sparkVersion")
     private @Nullable Output<String> sparkVersion;
 
-    /**
-     * @return The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-     * 
-     */
     public Optional<Output<String>> sparkVersion() {
         return Optional.ofNullable(this.sparkVersion);
     }
@@ -293,17 +221,9 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
         return this.synapseWorkspaceId;
     }
 
-    /**
-     * A mapping of tags which should be assigned to the Synapse Spark Pool.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags which should be assigned to the Synapse Spark Pool.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -434,86 +354,38 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
             return computeIsolationEnabled(Output.of(computeIsolationEnabled));
         }
 
-        /**
-         * @param dynamicExecutorAllocationEnabled Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dynamicExecutorAllocationEnabled(@Nullable Output<Boolean> dynamicExecutorAllocationEnabled) {
             $.dynamicExecutorAllocationEnabled = dynamicExecutorAllocationEnabled;
             return this;
         }
 
-        /**
-         * @param dynamicExecutorAllocationEnabled Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dynamicExecutorAllocationEnabled(Boolean dynamicExecutorAllocationEnabled) {
             return dynamicExecutorAllocationEnabled(Output.of(dynamicExecutorAllocationEnabled));
         }
 
-        /**
-         * @param libraryRequirement A `library_requirement` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder libraryRequirement(@Nullable Output<SparkPoolLibraryRequirementArgs> libraryRequirement) {
             $.libraryRequirement = libraryRequirement;
             return this;
         }
 
-        /**
-         * @param libraryRequirement A `library_requirement` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder libraryRequirement(SparkPoolLibraryRequirementArgs libraryRequirement) {
             return libraryRequirement(Output.of(libraryRequirement));
         }
 
-        /**
-         * @param maxExecutors The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxExecutors(@Nullable Output<Integer> maxExecutors) {
             $.maxExecutors = maxExecutors;
             return this;
         }
 
-        /**
-         * @param maxExecutors The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxExecutors(Integer maxExecutors) {
             return maxExecutors(Output.of(maxExecutors));
         }
 
-        /**
-         * @param minExecutors The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minExecutors(@Nullable Output<Integer> minExecutors) {
             $.minExecutors = minExecutors;
             return this;
         }
 
-        /**
-         * @param minExecutors The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minExecutors(Integer minExecutors) {
             return minExecutors(Output.of(minExecutors));
         }
@@ -602,107 +474,47 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
             return nodeSizeFamily(Output.of(nodeSizeFamily));
         }
 
-        /**
-         * @param sessionLevelPackagesEnabled Indicates whether session level packages are enabled or not. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionLevelPackagesEnabled(@Nullable Output<Boolean> sessionLevelPackagesEnabled) {
             $.sessionLevelPackagesEnabled = sessionLevelPackagesEnabled;
             return this;
         }
 
-        /**
-         * @param sessionLevelPackagesEnabled Indicates whether session level packages are enabled or not. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionLevelPackagesEnabled(Boolean sessionLevelPackagesEnabled) {
             return sessionLevelPackagesEnabled(Output.of(sessionLevelPackagesEnabled));
         }
 
-        /**
-         * @param sparkConfig A `spark_config` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkConfig(@Nullable Output<SparkPoolSparkConfigArgs> sparkConfig) {
             $.sparkConfig = sparkConfig;
             return this;
         }
 
-        /**
-         * @param sparkConfig A `spark_config` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkConfig(SparkPoolSparkConfigArgs sparkConfig) {
             return sparkConfig(Output.of(sparkConfig));
         }
 
-        /**
-         * @param sparkEventsFolder The Spark events folder. Defaults to `/events`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkEventsFolder(@Nullable Output<String> sparkEventsFolder) {
             $.sparkEventsFolder = sparkEventsFolder;
             return this;
         }
 
-        /**
-         * @param sparkEventsFolder The Spark events folder. Defaults to `/events`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkEventsFolder(String sparkEventsFolder) {
             return sparkEventsFolder(Output.of(sparkEventsFolder));
         }
 
-        /**
-         * @param sparkLogFolder The default folder where Spark logs will be written. Defaults to `/logs`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkLogFolder(@Nullable Output<String> sparkLogFolder) {
             $.sparkLogFolder = sparkLogFolder;
             return this;
         }
 
-        /**
-         * @param sparkLogFolder The default folder where Spark logs will be written. Defaults to `/logs`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkLogFolder(String sparkLogFolder) {
             return sparkLogFolder(Output.of(sparkLogFolder));
         }
 
-        /**
-         * @param sparkVersion The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkVersion(@Nullable Output<String> sparkVersion) {
             $.sparkVersion = sparkVersion;
             return this;
         }
 
-        /**
-         * @param sparkVersion The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkVersion(String sparkVersion) {
             return sparkVersion(Output.of(sparkVersion));
         }
@@ -728,23 +540,11 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
             return synapseWorkspaceId(Output.of(synapseWorkspaceId));
         }
 
-        /**
-         * @param tags A mapping of tags which should be assigned to the Synapse Spark Pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A mapping of tags which should be assigned to the Synapse Spark Pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

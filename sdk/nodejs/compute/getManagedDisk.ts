@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = existing.then(existing => existing.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getManagedDisk(args: GetManagedDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDiskResult> {
 
@@ -124,7 +122,6 @@ export interface GetManagedDiskResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -135,7 +132,6 @@ export interface GetManagedDiskResult {
  * });
  * export const id = existing.then(existing => existing.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getManagedDiskOutput(args: GetManagedDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDiskResult> {
     return pulumi.output(args).apply((a: any) => getManagedDisk(a, opts))

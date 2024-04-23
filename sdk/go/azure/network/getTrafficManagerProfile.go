@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupTrafficManagerProfile(ctx *pulumi.Context, args *LookupTrafficManagerProfileArgs, opts ...pulumi.InvokeOption) (*LookupTrafficManagerProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTrafficManagerProfileResult

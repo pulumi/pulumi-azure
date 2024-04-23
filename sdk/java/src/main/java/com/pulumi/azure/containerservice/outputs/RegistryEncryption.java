@@ -21,8 +21,6 @@ public final class RegistryEncryption {
     /**
      * @return The client ID of the managed identity associated with the encryption key.
      * 
-     * &gt; **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identity_ids`
-     * 
      */
     private String identityClientId;
     /**
@@ -41,8 +39,6 @@ public final class RegistryEncryption {
     }
     /**
      * @return The client ID of the managed identity associated with the encryption key.
-     * 
-     * &gt; **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identity_ids`
      * 
      */
     public String identityClientId() {

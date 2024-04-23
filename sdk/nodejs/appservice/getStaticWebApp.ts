@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "existing",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getStaticWebApp(args: GetStaticWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticWebAppResult> {
 
@@ -73,7 +71,6 @@ export interface GetStaticWebAppResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -83,7 +80,6 @@ export interface GetStaticWebAppResult {
  *     resourceGroupName: "existing",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getStaticWebAppOutput(args: GetStaticWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticWebAppResult> {
     return pulumi.output(args).apply((a: any) => getStaticWebApp(a, opts))

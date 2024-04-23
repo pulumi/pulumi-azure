@@ -18,7 +18,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// This example provisions a basic Kubernetes Node Pool.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,7 +65,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -167,9 +165,6 @@ namespace Pulumi.Azure.ContainerService
         [Output("linuxOsConfig")]
         public Output<Outputs.KubernetesClusterNodePoolLinuxOsConfig?> LinuxOsConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
-        /// </summary>
         [Output("maxCount")]
         public Output<int?> MaxCount { get; private set; } = null!;
 
@@ -185,9 +180,6 @@ namespace Pulumi.Azure.ContainerService
         [Output("messageOfTheDay")]
         public Output<string?> MessageOfTheDay { get; private set; } = null!;
 
-        /// <summary>
-        /// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
-        /// </summary>
         [Output("minCount")]
         public Output<int?> MinCount { get; private set; } = null!;
 
@@ -205,9 +197,6 @@ namespace Pulumi.Azure.ContainerService
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
-        /// </summary>
         [Output("nodeCount")]
         public Output<int> NodeCount { get; private set; } = null!;
 
@@ -497,9 +486,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("linuxOsConfig")]
         public Input<Inputs.KubernetesClusterNodePoolLinuxOsConfigArgs>? LinuxOsConfig { get; set; }
 
-        /// <summary>
-        /// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
-        /// </summary>
         [Input("maxCount")]
         public Input<int>? MaxCount { get; set; }
 
@@ -515,9 +501,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("messageOfTheDay")]
         public Input<string>? MessageOfTheDay { get; set; }
 
-        /// <summary>
-        /// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
-        /// </summary>
         [Input("minCount")]
         public Input<int>? MinCount { get; set; }
 
@@ -535,9 +518,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
-        /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
 
@@ -813,9 +793,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("linuxOsConfig")]
         public Input<Inputs.KubernetesClusterNodePoolLinuxOsConfigGetArgs>? LinuxOsConfig { get; set; }
 
-        /// <summary>
-        /// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
-        /// </summary>
         [Input("maxCount")]
         public Input<int>? MaxCount { get; set; }
 
@@ -831,9 +808,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("messageOfTheDay")]
         public Input<string>? MessageOfTheDay { get; set; }
 
-        /// <summary>
-        /// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
-        /// </summary>
         [Input("minCount")]
         public Input<int>? MinCount { get; set; }
 
@@ -851,9 +825,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
-        /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
 

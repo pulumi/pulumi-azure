@@ -683,7 +683,6 @@ class AuthorizationServer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -701,7 +700,6 @@ class AuthorizationServer(pulumi.CustomResource):
             grant_types=["authorizationCode"],
             authorization_methods=["GET"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -750,7 +748,6 @@ class AuthorizationServer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -768,7 +765,6 @@ class AuthorizationServer(pulumi.CustomResource):
             grant_types=["authorizationCode"],
             authorization_methods=["GET"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

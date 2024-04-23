@@ -18,14 +18,14 @@ public final class LinuxFunctionAppAuthSettingsV2GithubV2Args extends com.pulumi
     public static final LinuxFunctionAppAuthSettingsV2GithubV2Args Empty = new LinuxFunctionAppAuthSettingsV2GithubV2Args();
 
     /**
-     * The ID of the Client to use to authenticate with Azure Active Directory.
+     * The ID of the GitHub app used for login..
      * 
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the GitHub app used for login..
      * 
      */
     public Output<String> clientId() {
@@ -33,14 +33,18 @@ public final class LinuxFunctionAppAuthSettingsV2GithubV2Args extends com.pulumi
     }
 
     /**
-     * The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * The app setting name that contains the `client_secret` value used for GitHub Login.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName", required=true)
     private Output<String> clientSecretSettingName;
 
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The app setting name that contains the `client_secret` value used for GitHub Login.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Output<String> clientSecretSettingName() {
@@ -48,14 +52,14 @@ public final class LinuxFunctionAppAuthSettingsV2GithubV2Args extends com.pulumi
     }
 
     /**
-     * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
      * 
      */
     @Import(name="loginScopes")
     private @Nullable Output<List<String>> loginScopes;
 
     /**
-     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * @return The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
      * 
      */
     public Optional<Output<List<String>>> loginScopes() {
@@ -89,7 +93,7 @@ public final class LinuxFunctionAppAuthSettingsV2GithubV2Args extends com.pulumi
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The ID of the GitHub app used for login..
          * 
          * @return builder
          * 
@@ -100,7 +104,7 @@ public final class LinuxFunctionAppAuthSettingsV2GithubV2Args extends com.pulumi
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The ID of the GitHub app used for login..
          * 
          * @return builder
          * 
@@ -110,7 +114,9 @@ public final class LinuxFunctionAppAuthSettingsV2GithubV2Args extends com.pulumi
         }
 
         /**
-         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for GitHub Login.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -121,7 +127,9 @@ public final class LinuxFunctionAppAuthSettingsV2GithubV2Args extends com.pulumi
         }
 
         /**
-         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for GitHub Login.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -131,7 +139,7 @@ public final class LinuxFunctionAppAuthSettingsV2GithubV2Args extends com.pulumi
         }
 
         /**
-         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * @param loginScopes The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
          * 
          * @return builder
          * 
@@ -142,7 +150,7 @@ public final class LinuxFunctionAppAuthSettingsV2GithubV2Args extends com.pulumi
         }
 
         /**
-         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * @param loginScopes The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
          * 
          * @return builder
          * 
@@ -152,7 +160,7 @@ public final class LinuxFunctionAppAuthSettingsV2GithubV2Args extends com.pulumi
         }
 
         /**
-         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * @param loginScopes The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
          * 
          * @return builder
          * 

@@ -6368,9 +6368,9 @@ class LinuxFunctionAppAuthSettings(dict):
         :param 'LinuxFunctionAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
-        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'LinuxFunctionAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'LinuxFunctionAppAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'LinuxFunctionAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
@@ -6378,7 +6378,7 @@ class LinuxFunctionAppAuthSettings(dict):
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'LinuxFunctionAppAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
-        :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        :param str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
         :param 'LinuxFunctionAppAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
@@ -6450,9 +6450,9 @@ class LinuxFunctionAppAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -6502,7 +6502,7 @@ class LinuxFunctionAppAuthSettings(dict):
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[str]:
         """
-        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
         """
         return pulumi.get(self, "runtime_version")
 
@@ -7390,11 +7390,13 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -7453,7 +7455,7 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -7485,7 +7487,9 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -7550,9 +7554,13 @@ class LinuxFunctionAppAuthSettingsV2AppleV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The OpenID Connect Client ID for the Apple web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+               
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -7563,7 +7571,7 @@ class LinuxFunctionAppAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Apple web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -7571,7 +7579,9 @@ class LinuxFunctionAppAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -7579,7 +7589,9 @@ class LinuxFunctionAppAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -7606,7 +7618,7 @@ class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2(dict):
     def __init__(__self__, *,
                  client_id: str):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param str client_id: The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
 
@@ -7614,7 +7626,7 @@ class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -7667,13 +7679,15 @@ class LinuxFunctionAppAuthSettingsV2CustomOidcV2(dict):
                  scopes: Optional[Sequence[str]] = None,
                  token_endpoint: Optional[str] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str name: The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        :param str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
+        :param str name: The name of the Custom OIDC Authentication Provider.
+               
+               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
         :param str client_credential_method: The Client Credential Method used.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         :param str issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
         :param str name_claim_type: The name of the claim that contains the users name.
         :param Sequence[str] scopes: The list of the scopes that should be requested while authenticating.
@@ -7703,7 +7717,7 @@ class LinuxFunctionAppAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with the Custom OIDC.
         """
         return pulumi.get(self, "client_id")
 
@@ -7711,7 +7725,9 @@ class LinuxFunctionAppAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -7751,7 +7767,7 @@ class LinuxFunctionAppAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -7824,7 +7840,7 @@ class LinuxFunctionAppAuthSettingsV2FacebookV2(dict):
                
                !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param str graph_api_version: The version of the Facebook API to be used while logging in.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param Sequence[str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
@@ -7863,7 +7879,7 @@ class LinuxFunctionAppAuthSettingsV2FacebookV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of scopes that should be requested as part of Facebook Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -7896,9 +7912,11 @@ class LinuxFunctionAppAuthSettingsV2GithubV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The ID of the GitHub app used for login..
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -7909,7 +7927,7 @@ class LinuxFunctionAppAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the GitHub app used for login..
         """
         return pulumi.get(self, "client_id")
 
@@ -7917,7 +7935,9 @@ class LinuxFunctionAppAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -7925,7 +7945,7 @@ class LinuxFunctionAppAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -7961,12 +7981,12 @@ class LinuxFunctionAppAuthSettingsV2GoogleV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OpenID Connect Client ID for the Google web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -7979,7 +7999,7 @@ class LinuxFunctionAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Google web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -7987,7 +8007,9 @@ class LinuxFunctionAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -7995,9 +8017,7 @@ class LinuxFunctionAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -8005,7 +8025,7 @@ class LinuxFunctionAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -8221,11 +8241,11 @@ class LinuxFunctionAppAuthSettingsV2MicrosoftV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -8239,7 +8259,7 @@ class LinuxFunctionAppAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OAuth 2.0 client ID that was created for the app used for authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -8247,7 +8267,9 @@ class LinuxFunctionAppAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -8255,9 +8277,7 @@ class LinuxFunctionAppAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -10012,9 +10032,9 @@ class LinuxFunctionAppSlotAuthSettings(dict):
         :param 'LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs' active_directory: an `active_directory` block as detailed below.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
-        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'LinuxFunctionAppSlotAuthSettingsFacebookArgs' facebook: a `facebook` block as detailed below.
         :param 'LinuxFunctionAppSlotAuthSettingsGithubArgs' github: a `github` block as detailed below.
         :param 'LinuxFunctionAppSlotAuthSettingsGoogleArgs' google: a `google` block as detailed below.
@@ -10022,7 +10042,7 @@ class LinuxFunctionAppSlotAuthSettings(dict):
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'LinuxFunctionAppSlotAuthSettingsMicrosoftArgs' microsoft: a `microsoft` block as detailed below.
-        :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        :param str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
         :param 'LinuxFunctionAppSlotAuthSettingsTwitterArgs' twitter: a `twitter` block as detailed below.
@@ -10094,9 +10114,9 @@ class LinuxFunctionAppSlotAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -10146,7 +10166,7 @@ class LinuxFunctionAppSlotAuthSettings(dict):
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[str]:
         """
-        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        The RuntimeVersion of the Authentication / Authorization feature in use.
         """
         return pulumi.get(self, "runtime_version")
 
@@ -11034,11 +11054,13 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -11097,7 +11119,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -11129,7 +11151,9 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -11194,9 +11218,13 @@ class LinuxFunctionAppSlotAuthSettingsV2AppleV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The OpenID Connect Client ID for the Apple web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+               
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -11207,7 +11235,7 @@ class LinuxFunctionAppSlotAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Apple web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -11215,7 +11243,9 @@ class LinuxFunctionAppSlotAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -11223,7 +11253,9 @@ class LinuxFunctionAppSlotAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -11250,7 +11282,7 @@ class LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     def __init__(__self__, *,
                  client_id: str):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param str client_id: The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
 
@@ -11258,7 +11290,7 @@ class LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -11311,13 +11343,15 @@ class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
                  scopes: Optional[Sequence[str]] = None,
                  token_endpoint: Optional[str] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str name: Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
+        :param str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
+        :param str name: The name of the Custom OIDC Authentication Provider.
+               
+               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
         :param str client_credential_method: The Client Credential Method used.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         :param str issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
         :param str name_claim_type: The name of the claim that contains the users name.
         :param Sequence[str] scopes: The list of the scopes that should be requested while authenticating.
@@ -11347,7 +11381,7 @@ class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with the Custom OIDC.
         """
         return pulumi.get(self, "client_id")
 
@@ -11355,7 +11389,9 @@ class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
+        The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -11395,7 +11431,7 @@ class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -11468,7 +11504,7 @@ class LinuxFunctionAppSlotAuthSettingsV2FacebookV2(dict):
                
                !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param str graph_api_version: The version of the Facebook API to be used while logging in.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param Sequence[str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
@@ -11507,7 +11543,7 @@ class LinuxFunctionAppSlotAuthSettingsV2FacebookV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of scopes that should be requested as part of Facebook Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -11540,9 +11576,11 @@ class LinuxFunctionAppSlotAuthSettingsV2GithubV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The ID of the GitHub app used for login..
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -11553,7 +11591,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the GitHub app used for login..
         """
         return pulumi.get(self, "client_id")
 
@@ -11561,7 +11599,9 @@ class LinuxFunctionAppSlotAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -11569,7 +11609,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -11605,12 +11645,12 @@ class LinuxFunctionAppSlotAuthSettingsV2GoogleV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OpenID Connect Client ID for the Google web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -11623,7 +11663,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Google web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -11631,7 +11671,9 @@ class LinuxFunctionAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -11639,9 +11681,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -11649,7 +11689,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -11865,11 +11905,11 @@ class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -11883,7 +11923,7 @@ class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OAuth 2.0 client ID that was created for the app used for authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -11891,7 +11931,9 @@ class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -11899,9 +11941,7 @@ class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -13906,9 +13946,9 @@ class LinuxWebAppAuthSettings(dict):
         :param 'LinuxWebAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
-        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'LinuxWebAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'LinuxWebAppAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'LinuxWebAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
@@ -13916,7 +13956,7 @@ class LinuxWebAppAuthSettings(dict):
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'LinuxWebAppAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
-        :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        :param str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
         :param 'LinuxWebAppAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
@@ -13988,9 +14028,9 @@ class LinuxWebAppAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -14040,7 +14080,7 @@ class LinuxWebAppAuthSettings(dict):
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[str]:
         """
-        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
         """
         return pulumi.get(self, "runtime_version")
 
@@ -14928,11 +14968,13 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -14991,7 +15033,7 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -15023,7 +15065,9 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -15088,9 +15132,13 @@ class LinuxWebAppAuthSettingsV2AppleV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The OpenID Connect Client ID for the Apple web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+               
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -15101,7 +15149,7 @@ class LinuxWebAppAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Apple web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -15109,7 +15157,9 @@ class LinuxWebAppAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -15117,7 +15167,9 @@ class LinuxWebAppAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -15144,7 +15196,7 @@ class LinuxWebAppAuthSettingsV2AzureStaticWebAppV2(dict):
     def __init__(__self__, *,
                  client_id: str):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param str client_id: The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
 
@@ -15152,7 +15204,7 @@ class LinuxWebAppAuthSettingsV2AzureStaticWebAppV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -15205,13 +15257,15 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2(dict):
                  scopes: Optional[Sequence[str]] = None,
                  token_endpoint: Optional[str] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
         :param str name: The name of the Custom OIDC Authentication Provider.
+               
+               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param str openid_configuration_endpoint: Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         :param str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
         :param str client_credential_method: The Client Credential Method used.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         :param str issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
         :param str name_claim_type: The name of the claim that contains the users name.
         :param Sequence[str] scopes: The list of the scopes that should be requested while authenticating.
@@ -15241,7 +15295,7 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with the Custom OIDC.
         """
         return pulumi.get(self, "client_id")
 
@@ -15250,6 +15304,8 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2(dict):
     def name(self) -> str:
         """
         The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -15289,7 +15345,7 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -15362,7 +15418,7 @@ class LinuxWebAppAuthSettingsV2FacebookV2(dict):
                
                !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param str graph_api_version: The version of the Facebook API to be used while logging in.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param Sequence[str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
@@ -15401,7 +15457,7 @@ class LinuxWebAppAuthSettingsV2FacebookV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of scopes that should be requested as part of Facebook Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -15434,9 +15490,11 @@ class LinuxWebAppAuthSettingsV2GithubV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The ID of the GitHub app used for login..
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -15447,7 +15505,7 @@ class LinuxWebAppAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the GitHub app used for login..
         """
         return pulumi.get(self, "client_id")
 
@@ -15455,7 +15513,9 @@ class LinuxWebAppAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -15463,7 +15523,7 @@ class LinuxWebAppAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -15499,12 +15559,12 @@ class LinuxWebAppAuthSettingsV2GoogleV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OpenID Connect Client ID for the Google web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -15517,7 +15577,7 @@ class LinuxWebAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Google web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -15525,7 +15585,9 @@ class LinuxWebAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -15533,9 +15595,7 @@ class LinuxWebAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -15543,7 +15603,7 @@ class LinuxWebAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -15759,11 +15819,11 @@ class LinuxWebAppAuthSettingsV2MicrosoftV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -15777,7 +15837,7 @@ class LinuxWebAppAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OAuth 2.0 client ID that was created for the app used for authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -15785,7 +15845,9 @@ class LinuxWebAppAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -15793,9 +15855,7 @@ class LinuxWebAppAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -18111,9 +18171,9 @@ class LinuxWebAppSlotAuthSettings(dict):
         :param 'LinuxWebAppSlotAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
-        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'LinuxWebAppSlotAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'LinuxWebAppSlotAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'LinuxWebAppSlotAuthSettingsGoogleArgs' google: A `google` block as defined below.
@@ -18121,7 +18181,7 @@ class LinuxWebAppSlotAuthSettings(dict):
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'LinuxWebAppSlotAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
-        :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        :param str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
         :param 'LinuxWebAppSlotAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
@@ -18193,9 +18253,9 @@ class LinuxWebAppSlotAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -18245,7 +18305,7 @@ class LinuxWebAppSlotAuthSettings(dict):
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[str]:
         """
-        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
         """
         return pulumi.get(self, "runtime_version")
 
@@ -19133,11 +19193,13 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -19196,7 +19258,7 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -19228,7 +19290,9 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -19293,9 +19357,13 @@ class LinuxWebAppSlotAuthSettingsV2AppleV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The OpenID Connect Client ID for the Apple web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+               
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -19306,7 +19374,7 @@ class LinuxWebAppSlotAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Apple web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -19314,7 +19382,9 @@ class LinuxWebAppSlotAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -19322,7 +19392,9 @@ class LinuxWebAppSlotAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -19349,7 +19421,7 @@ class LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     def __init__(__self__, *,
                  client_id: str):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param str client_id: The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
 
@@ -19357,7 +19429,7 @@ class LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -19410,13 +19482,15 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2(dict):
                  scopes: Optional[Sequence[str]] = None,
                  token_endpoint: Optional[str] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
         :param str name: The name of the Custom OIDC Authentication Provider.
+               
+               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
         :param str client_credential_method: The Client Credential Method used.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         :param str issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
         :param str name_claim_type: The name of the claim that contains the users name.
         :param Sequence[str] scopes: The list of the scopes that should be requested while authenticating.
@@ -19446,7 +19520,7 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with the Custom OIDC.
         """
         return pulumi.get(self, "client_id")
 
@@ -19455,6 +19529,8 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2(dict):
     def name(self) -> str:
         """
         The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -19494,7 +19570,7 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -19567,7 +19643,7 @@ class LinuxWebAppSlotAuthSettingsV2FacebookV2(dict):
                
                !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param str graph_api_version: The version of the Facebook API to be used while logging in.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param Sequence[str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
@@ -19606,7 +19682,7 @@ class LinuxWebAppSlotAuthSettingsV2FacebookV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of scopes that should be requested as part of Facebook Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -19639,9 +19715,11 @@ class LinuxWebAppSlotAuthSettingsV2GithubV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The ID of the GitHub app used for login..
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -19652,7 +19730,7 @@ class LinuxWebAppSlotAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the GitHub app used for login..
         """
         return pulumi.get(self, "client_id")
 
@@ -19660,7 +19738,9 @@ class LinuxWebAppSlotAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -19668,7 +19748,7 @@ class LinuxWebAppSlotAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -19704,12 +19784,12 @@ class LinuxWebAppSlotAuthSettingsV2GoogleV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OpenID Connect Client ID for the Google web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -19722,7 +19802,7 @@ class LinuxWebAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Google web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -19730,7 +19810,9 @@ class LinuxWebAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -19738,9 +19820,7 @@ class LinuxWebAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -19748,7 +19828,7 @@ class LinuxWebAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -19964,11 +20044,11 @@ class LinuxWebAppSlotAuthSettingsV2MicrosoftV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -19982,7 +20062,7 @@ class LinuxWebAppSlotAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OAuth 2.0 client ID that was created for the app used for authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -19990,7 +20070,9 @@ class LinuxWebAppSlotAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -19998,9 +20080,7 @@ class LinuxWebAppSlotAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -25191,9 +25271,9 @@ class WindowsFunctionAppAuthSettings(dict):
         :param 'WindowsFunctionAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
-        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'WindowsFunctionAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'WindowsFunctionAppAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'WindowsFunctionAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
@@ -25201,7 +25281,7 @@ class WindowsFunctionAppAuthSettings(dict):
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'WindowsFunctionAppAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
-        :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        :param str runtime_version: The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Windows Function App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
         :param 'WindowsFunctionAppAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
@@ -25273,9 +25353,9 @@ class WindowsFunctionAppAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -25325,7 +25405,7 @@ class WindowsFunctionAppAuthSettings(dict):
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[str]:
         """
-        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
         """
         return pulumi.get(self, "runtime_version")
 
@@ -26213,11 +26293,13 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -26276,7 +26358,7 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -26308,7 +26390,9 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -26373,9 +26457,13 @@ class WindowsFunctionAppAuthSettingsV2AppleV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The OpenID Connect Client ID for the Apple web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+               
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -26386,7 +26474,7 @@ class WindowsFunctionAppAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Apple web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -26394,7 +26482,9 @@ class WindowsFunctionAppAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -26402,7 +26492,9 @@ class WindowsFunctionAppAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -26429,7 +26521,7 @@ class WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2(dict):
     def __init__(__self__, *,
                  client_id: str):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param str client_id: The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
 
@@ -26437,7 +26529,7 @@ class WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -26490,13 +26582,15 @@ class WindowsFunctionAppAuthSettingsV2CustomOidcV2(dict):
                  scopes: Optional[Sequence[str]] = None,
                  token_endpoint: Optional[str] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        :param str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
+        :param str name: The name of the Custom OIDC Authentication Provider.
+               
+               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
         :param str client_credential_method: The Client Credential Method used.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         :param str issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
         :param str name_claim_type: The name of the claim that contains the users name.
         :param Sequence[str] scopes: The list of the scopes that should be requested while authenticating.
@@ -26526,7 +26620,7 @@ class WindowsFunctionAppAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with the Custom OIDC.
         """
         return pulumi.get(self, "client_id")
 
@@ -26534,7 +26628,9 @@ class WindowsFunctionAppAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -26574,7 +26670,7 @@ class WindowsFunctionAppAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -26647,7 +26743,7 @@ class WindowsFunctionAppAuthSettingsV2FacebookV2(dict):
                
                !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param str graph_api_version: The version of the Facebook API to be used while logging in.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param Sequence[str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
@@ -26686,7 +26782,7 @@ class WindowsFunctionAppAuthSettingsV2FacebookV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of scopes that should be requested as part of Facebook Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -26719,9 +26815,11 @@ class WindowsFunctionAppAuthSettingsV2GithubV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The ID of the GitHub app used for login..
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -26732,7 +26830,7 @@ class WindowsFunctionAppAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the GitHub app used for login..
         """
         return pulumi.get(self, "client_id")
 
@@ -26740,7 +26838,9 @@ class WindowsFunctionAppAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -26748,7 +26848,7 @@ class WindowsFunctionAppAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -26784,12 +26884,12 @@ class WindowsFunctionAppAuthSettingsV2GoogleV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OpenID Connect Client ID for the Google web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -26802,7 +26902,7 @@ class WindowsFunctionAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Google web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -26810,7 +26910,9 @@ class WindowsFunctionAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -26818,9 +26920,7 @@ class WindowsFunctionAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -26828,7 +26928,7 @@ class WindowsFunctionAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -27044,11 +27144,11 @@ class WindowsFunctionAppAuthSettingsV2MicrosoftV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -27062,7 +27162,7 @@ class WindowsFunctionAppAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OAuth 2.0 client ID that was created for the app used for authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -27070,7 +27170,9 @@ class WindowsFunctionAppAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -27078,9 +27180,7 @@ class WindowsFunctionAppAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -28688,9 +28788,9 @@ class WindowsFunctionAppSlotAuthSettings(dict):
         :param 'WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs' active_directory: an `active_directory` block as detailed below.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
-        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'WindowsFunctionAppSlotAuthSettingsFacebookArgs' facebook: a `facebook` block as detailed below.
         :param 'WindowsFunctionAppSlotAuthSettingsGithubArgs' github: a `github` block as detailed below.
         :param 'WindowsFunctionAppSlotAuthSettingsGoogleArgs' google: a `google` block as detailed below.
@@ -28698,7 +28798,7 @@ class WindowsFunctionAppSlotAuthSettings(dict):
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'WindowsFunctionAppSlotAuthSettingsMicrosoftArgs' microsoft: a `microsoft` block as detailed below.
-        :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        :param str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
         :param 'WindowsFunctionAppSlotAuthSettingsTwitterArgs' twitter: a `twitter` block as detailed below.
@@ -28770,9 +28870,9 @@ class WindowsFunctionAppSlotAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -28822,7 +28922,7 @@ class WindowsFunctionAppSlotAuthSettings(dict):
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[str]:
         """
-        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        The RuntimeVersion of the Authentication / Authorization feature in use.
         """
         return pulumi.get(self, "runtime_version")
 
@@ -29710,11 +29810,13 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -29773,7 +29875,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -29805,7 +29907,9 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -29870,9 +29974,13 @@ class WindowsFunctionAppSlotAuthSettingsV2AppleV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The OpenID Connect Client ID for the Apple web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+               
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -29883,7 +29991,7 @@ class WindowsFunctionAppSlotAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Apple web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -29891,7 +29999,9 @@ class WindowsFunctionAppSlotAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -29899,7 +30009,9 @@ class WindowsFunctionAppSlotAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -29926,7 +30038,7 @@ class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     def __init__(__self__, *,
                  client_id: str):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param str client_id: The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
 
@@ -29934,7 +30046,7 @@ class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -29987,13 +30099,15 @@ class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
                  scopes: Optional[Sequence[str]] = None,
                  token_endpoint: Optional[str] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str name: Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
+        :param str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
+        :param str name: The name of the Custom OIDC Authentication Provider.
+               
+               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
         :param str client_credential_method: The Client Credential Method used.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         :param str issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
         :param str name_claim_type: The name of the claim that contains the users name.
         :param Sequence[str] scopes: The list of the scopes that should be requested while authenticating.
@@ -30023,7 +30137,7 @@ class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with the Custom OIDC.
         """
         return pulumi.get(self, "client_id")
 
@@ -30031,7 +30145,9 @@ class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
+        The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -30071,7 +30187,7 @@ class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -30144,7 +30260,7 @@ class WindowsFunctionAppSlotAuthSettingsV2FacebookV2(dict):
                
                !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param str graph_api_version: The version of the Facebook API to be used while logging in.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param Sequence[str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
@@ -30183,7 +30299,7 @@ class WindowsFunctionAppSlotAuthSettingsV2FacebookV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of scopes that should be requested as part of Facebook Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -30216,9 +30332,11 @@ class WindowsFunctionAppSlotAuthSettingsV2GithubV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The ID of the GitHub app used for login..
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -30229,7 +30347,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the GitHub app used for login..
         """
         return pulumi.get(self, "client_id")
 
@@ -30237,7 +30355,9 @@ class WindowsFunctionAppSlotAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -30245,7 +30365,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -30281,12 +30401,12 @@ class WindowsFunctionAppSlotAuthSettingsV2GoogleV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OpenID Connect Client ID for the Google web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -30299,7 +30419,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Google web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -30307,7 +30427,9 @@ class WindowsFunctionAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -30315,9 +30437,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -30325,7 +30445,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -30541,11 +30661,11 @@ class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -30559,7 +30679,7 @@ class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OAuth 2.0 client ID that was created for the app used for authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -30567,7 +30687,9 @@ class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -30575,9 +30697,7 @@ class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -32431,9 +32551,9 @@ class WindowsWebAppAuthSettings(dict):
         :param 'WindowsWebAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
-        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'WindowsWebAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'WindowsWebAppAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'WindowsWebAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
@@ -32441,7 +32561,7 @@ class WindowsWebAppAuthSettings(dict):
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'WindowsWebAppAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
-        :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        :param str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
         :param 'WindowsWebAppAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
@@ -32513,9 +32633,9 @@ class WindowsWebAppAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -32565,7 +32685,7 @@ class WindowsWebAppAuthSettings(dict):
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[str]:
         """
-        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
         """
         return pulumi.get(self, "runtime_version")
 
@@ -33453,11 +33573,13 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -33516,7 +33638,7 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -33548,7 +33670,9 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -33613,9 +33737,13 @@ class WindowsWebAppAuthSettingsV2AppleV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The OpenID Connect Client ID for the Apple web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+               
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -33626,7 +33754,7 @@ class WindowsWebAppAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Apple web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -33634,7 +33762,9 @@ class WindowsWebAppAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -33642,7 +33772,9 @@ class WindowsWebAppAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -33669,7 +33801,7 @@ class WindowsWebAppAuthSettingsV2AzureStaticWebAppV2(dict):
     def __init__(__self__, *,
                  client_id: str):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param str client_id: The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
 
@@ -33677,7 +33809,7 @@ class WindowsWebAppAuthSettingsV2AzureStaticWebAppV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -33730,13 +33862,15 @@ class WindowsWebAppAuthSettingsV2CustomOidcV2(dict):
                  scopes: Optional[Sequence[str]] = None,
                  token_endpoint: Optional[str] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str name: The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+        :param str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
+        :param str name: The name of the Custom OIDC Authentication Provider.
+               
+               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
         :param str client_credential_method: The Client Credential Method used.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         :param str issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
         :param str name_claim_type: The name of the claim that contains the users name.
         :param Sequence[str] scopes: The list of the scopes that should be requested while authenticating.
@@ -33766,7 +33900,7 @@ class WindowsWebAppAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with the Custom OIDC.
         """
         return pulumi.get(self, "client_id")
 
@@ -33774,7 +33908,9 @@ class WindowsWebAppAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+        The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -33814,7 +33950,7 @@ class WindowsWebAppAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -33887,7 +34023,7 @@ class WindowsWebAppAuthSettingsV2FacebookV2(dict):
                
                !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param str graph_api_version: The version of the Facebook API to be used while logging in.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param Sequence[str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
@@ -33926,7 +34062,7 @@ class WindowsWebAppAuthSettingsV2FacebookV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of scopes that should be requested as part of Facebook Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -33959,9 +34095,11 @@ class WindowsWebAppAuthSettingsV2GithubV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The ID of the GitHub app used for login..
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -33972,7 +34110,7 @@ class WindowsWebAppAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the GitHub app used for login..
         """
         return pulumi.get(self, "client_id")
 
@@ -33980,7 +34118,9 @@ class WindowsWebAppAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -33988,7 +34128,7 @@ class WindowsWebAppAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -34024,12 +34164,12 @@ class WindowsWebAppAuthSettingsV2GoogleV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OpenID Connect Client ID for the Google web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -34042,7 +34182,7 @@ class WindowsWebAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Google web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -34050,7 +34190,9 @@ class WindowsWebAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -34058,9 +34200,7 @@ class WindowsWebAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -34068,7 +34208,7 @@ class WindowsWebAppAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -34284,11 +34424,11 @@ class WindowsWebAppAuthSettingsV2MicrosoftV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               > **Note:** The `client_id` value is always considered an allowed audience.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -34302,7 +34442,7 @@ class WindowsWebAppAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OAuth 2.0 client ID that was created for the app used for authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -34310,7 +34450,9 @@ class WindowsWebAppAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -34318,9 +34460,7 @@ class WindowsWebAppAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience.
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -36985,9 +37125,9 @@ class WindowsWebAppSlotAuthSettings(dict):
         :param 'WindowsWebAppSlotAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App Slot.
-        :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
                
-               > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+               > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         :param 'WindowsWebAppSlotAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'WindowsWebAppSlotAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'WindowsWebAppSlotAuthSettingsGoogleArgs' google: A `google` block as defined below.
@@ -36995,7 +37135,7 @@ class WindowsWebAppSlotAuthSettings(dict):
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'WindowsWebAppSlotAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
-        :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        :param str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App Slot.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Windows Web App Slot durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
         :param 'WindowsWebAppSlotAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
@@ -37067,9 +37207,9 @@ class WindowsWebAppSlotAuthSettings(dict):
     @pulumi.getter(name="defaultProvider")
     def default_provider(self) -> Optional[str]:
         """
-        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
 
-        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         """
         return pulumi.get(self, "default_provider")
 
@@ -37119,7 +37259,7 @@ class WindowsWebAppSlotAuthSettings(dict):
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[str]:
         """
-        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App Slot.
         """
         return pulumi.get(self, "runtime_version")
 
@@ -38007,11 +38147,13 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
-               > **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
@@ -38070,7 +38212,7 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         """
         Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
-        > **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -38102,7 +38244,9 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -38167,9 +38311,13 @@ class WindowsWebAppSlotAuthSettingsV2AppleV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The OpenID Connect Client ID for the Apple web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+               
+               > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -38180,7 +38328,7 @@ class WindowsWebAppSlotAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Apple web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -38188,7 +38336,9 @@ class WindowsWebAppSlotAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -38196,7 +38346,9 @@ class WindowsWebAppSlotAuthSettingsV2AppleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -38223,7 +38375,7 @@ class WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     def __init__(__self__, *,
                  client_id: str):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param str client_id: The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
 
@@ -38231,7 +38383,7 @@ class WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -38284,13 +38436,15 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2(dict):
                  scopes: Optional[Sequence[str]] = None,
                  token_endpoint: Optional[str] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param str client_id: The ID of the Client to use to authenticate with the Custom OIDC.
         :param str name: The name of the Custom OIDC Authentication Provider.
+               
+               > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         :param str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
         :param str client_credential_method: The Client Credential Method used.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        :param str client_secret_setting_name: The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         :param str issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
         :param str name_claim_type: The name of the claim that contains the users name.
         :param Sequence[str] scopes: The list of the scopes that should be requested while authenticating.
@@ -38320,7 +38474,7 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the Client to use to authenticate with the Custom OIDC.
         """
         return pulumi.get(self, "client_id")
 
@@ -38329,6 +38483,8 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2(dict):
     def name(self) -> str:
         """
         The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         """
         return pulumi.get(self, "name")
 
@@ -38368,7 +38524,7 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -38441,7 +38597,7 @@ class WindowsWebAppSlotAuthSettingsV2FacebookV2(dict):
                
                !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         :param str graph_api_version: The version of the Facebook API to be used while logging in.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param Sequence[str] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
@@ -38480,7 +38636,7 @@ class WindowsWebAppSlotAuthSettingsV2FacebookV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of scopes that should be requested as part of Facebook Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -38513,9 +38669,11 @@ class WindowsWebAppSlotAuthSettingsV2GithubV2(dict):
                  client_secret_setting_name: str,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        :param str client_id: The ID of the GitHub app used for login..
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
+               
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -38526,7 +38684,7 @@ class WindowsWebAppSlotAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The ID of the GitHub app used for login..
         """
         return pulumi.get(self, "client_id")
 
@@ -38534,7 +38692,9 @@ class WindowsWebAppSlotAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -38542,7 +38702,7 @@ class WindowsWebAppSlotAuthSettingsV2GithubV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -38578,12 +38738,12 @@ class WindowsWebAppSlotAuthSettingsV2GoogleV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OpenID Connect Client ID for the Google web application.
+        :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
                
-               > **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
-        :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        :param Sequence[str] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -38596,7 +38756,7 @@ class WindowsWebAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OpenID Connect Client ID for the Google web application.
         """
         return pulumi.get(self, "client_id")
 
@@ -38604,7 +38764,9 @@ class WindowsWebAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -38612,9 +38774,7 @@ class WindowsWebAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 
@@ -38622,7 +38782,7 @@ class WindowsWebAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="loginScopes")
     def login_scopes(self) -> Optional[Sequence[str]]:
         """
-        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         """
         return pulumi.get(self, "login_scopes")
 
@@ -38838,11 +38998,11 @@ class WindowsWebAppSlotAuthSettingsV2MicrosoftV2(dict):
                  allowed_audiences: Optional[Sequence[str]] = None,
                  login_scopes: Optional[Sequence[str]] = None):
         """
-        :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param str client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param str client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
                
-               > **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+               !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -38856,7 +39016,7 @@ class WindowsWebAppSlotAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        The ID of the Client to use to authenticate with Azure Active Directory.
+        The OAuth 2.0 client ID that was created for the app used for authentication.
         """
         return pulumi.get(self, "client_id")
 
@@ -38864,7 +39024,9 @@ class WindowsWebAppSlotAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> str:
         """
-        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -38872,9 +39034,7 @@ class WindowsWebAppSlotAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-
-        > **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         """
         return pulumi.get(self, "allowed_audiences")
 

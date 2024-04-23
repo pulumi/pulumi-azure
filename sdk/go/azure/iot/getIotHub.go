@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetIotHub(ctx *pulumi.Context, args *GetIotHubArgs, opts ...pulumi.InvokeOption) (*GetIotHubResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIotHubResult

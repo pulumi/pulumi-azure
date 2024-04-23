@@ -311,7 +311,6 @@ class HybridConnection(pulumi.CustomResource):
 
         This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -350,7 +349,6 @@ class HybridConnection(pulumi.CustomResource):
             port=8080,
             send_key_name="exampleSharedAccessKey")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -384,7 +382,6 @@ class HybridConnection(pulumi.CustomResource):
 
         This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -423,7 +420,6 @@ class HybridConnection(pulumi.CustomResource):
             port=8080,
             send_key_name="exampleSharedAccessKey")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

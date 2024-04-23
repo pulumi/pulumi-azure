@@ -2050,7 +2050,7 @@ type WorkspaceIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 	PrincipalId *string `pulumi:"principalId"`
-	// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
@@ -2074,7 +2074,7 @@ type WorkspaceIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
@@ -2169,7 +2169,7 @@ func (o WorkspaceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 func (o WorkspaceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -2225,7 +2225,7 @@ func (o WorkspaceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 func (o WorkspaceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceIdentity) *string {
 		if v == nil {

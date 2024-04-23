@@ -14,10 +14,6 @@ namespace Pulumi.Azure.Batch.Inputs
     {
         [Input("password")]
         private Input<string>? _password;
-
-        /// <summary>
-        /// The password to use for authentication against the CIFS file system.
-        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -28,21 +24,15 @@ namespace Pulumi.Azure.Batch.Inputs
             }
         }
 
-        /// <summary>
-        /// The container registry URL. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("registryServer", required: true)]
         public Input<string> RegistryServer { get; set; } = null!;
 
         /// <summary>
-        /// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+        /// The User Assigned Identity to use for Container Registry access.
         /// </summary>
         [Input("userAssignedIdentityId")]
         public Input<string>? UserAssignedIdentityId { get; set; }
 
-        /// <summary>
-        /// The user to use for authentication against the CIFS file system.
-        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 

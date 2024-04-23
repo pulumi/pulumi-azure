@@ -878,7 +878,6 @@ class VirtualMachine(pulumi.CustomResource):
 
         This example provisions a Virtual Machine with Managed Disks.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -939,7 +938,6 @@ class VirtualMachine(pulumi.CustomResource):
                 "environment": "staging",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1007,7 +1005,6 @@ class VirtualMachine(pulumi.CustomResource):
 
         This example provisions a Virtual Machine with Managed Disks.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1068,7 +1065,6 @@ class VirtualMachine(pulumi.CustomResource):
                 "environment": "staging",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

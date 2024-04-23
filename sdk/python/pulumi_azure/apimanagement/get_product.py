@@ -164,7 +164,6 @@ def get_product(api_management_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -174,7 +173,6 @@ def get_product(api_management_name: Optional[str] = None,
         resource_group_name="search-service")
     pulumi.export("productTerms", example.terms)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str api_management_name: The Name of the API Management Service in which this Product exists.
@@ -212,7 +210,6 @@ def get_product_output(api_management_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -222,7 +219,6 @@ def get_product_output(api_management_name: Optional[pulumi.Input[str]] = None,
         resource_group_name="search-service")
     pulumi.export("productTerms", example.terms)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str api_management_name: The Name of the API Management Service in which this Product exists.

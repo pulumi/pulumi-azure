@@ -18,14 +18,14 @@ public final class MongoCollectionSystemIndexArgs extends com.pulumi.resources.R
     public static final MongoCollectionSystemIndexArgs Empty = new MongoCollectionSystemIndexArgs();
 
     /**
-     * Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+     * The list of system keys which are not settable for each Cosmos DB Mongo Collection.
      * 
      */
     @Import(name="keys")
     private @Nullable Output<List<String>> keys;
 
     /**
-     * @return Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+     * @return The list of system keys which are not settable for each Cosmos DB Mongo Collection.
      * 
      */
     public Optional<Output<List<String>>> keys() {
@@ -33,18 +33,14 @@ public final class MongoCollectionSystemIndexArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Is the index unique or not? Defaults to `false`.
-     * 
-     * &gt; **Note:** An index with an &#34;_id&#34; key must be specified.
+     * Identifies whether the table contains no duplicate values.
      * 
      */
     @Import(name="unique")
     private @Nullable Output<Boolean> unique;
 
     /**
-     * @return Is the index unique or not? Defaults to `false`.
-     * 
-     * &gt; **Note:** An index with an &#34;_id&#34; key must be specified.
+     * @return Identifies whether the table contains no duplicate values.
      * 
      */
     public Optional<Output<Boolean>> unique() {
@@ -77,7 +73,7 @@ public final class MongoCollectionSystemIndexArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param keys Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+         * @param keys The list of system keys which are not settable for each Cosmos DB Mongo Collection.
          * 
          * @return builder
          * 
@@ -88,7 +84,7 @@ public final class MongoCollectionSystemIndexArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param keys Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+         * @param keys The list of system keys which are not settable for each Cosmos DB Mongo Collection.
          * 
          * @return builder
          * 
@@ -98,7 +94,7 @@ public final class MongoCollectionSystemIndexArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param keys Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+         * @param keys The list of system keys which are not settable for each Cosmos DB Mongo Collection.
          * 
          * @return builder
          * 
@@ -108,9 +104,7 @@ public final class MongoCollectionSystemIndexArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param unique Is the index unique or not? Defaults to `false`.
-         * 
-         * &gt; **Note:** An index with an &#34;_id&#34; key must be specified.
+         * @param unique Identifies whether the table contains no duplicate values.
          * 
          * @return builder
          * 
@@ -121,9 +115,7 @@ public final class MongoCollectionSystemIndexArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param unique Is the index unique or not? Defaults to `false`.
-         * 
-         * &gt; **Note:** An index with an &#34;_id&#34; key must be specified.
+         * @param unique Identifies whether the table contains no duplicate values.
          * 
          * @return builder
          * 

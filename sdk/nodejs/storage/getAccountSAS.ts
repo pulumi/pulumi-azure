@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -67,7 +66,6 @@ import * as utilities from "../utilities";
  * });
  * export const sasUrlQueryString = example.apply(example => example.sas);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountSASResult> {
 
@@ -161,7 +159,6 @@ export interface GetAccountSASResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -212,7 +209,6 @@ export interface GetAccountSASResult {
  * });
  * export const sasUrlQueryString = example.apply(example => example.sas);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAccountSASOutput(args: GetAccountSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountSASResult> {
     return pulumi.output(args).apply((a: any) => getAccountSAS(a, opts))

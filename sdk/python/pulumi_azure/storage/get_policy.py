@@ -73,7 +73,6 @@ def get_policy(storage_account_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -82,7 +81,6 @@ def get_policy(storage_account_id: Optional[str] = None,
         resource_group_name="resourcegroupname")
     example_get_policy = azure.storage.get_policy(storage_account_id=example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str storage_account_id: Specifies the id of the storage account to retrieve the management policy for.
@@ -106,7 +104,6 @@ def get_policy_output(storage_account_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -115,7 +112,6 @@ def get_policy_output(storage_account_id: Optional[pulumi.Input[str]] = None,
         resource_group_name="resourcegroupname")
     example_get_policy = azure.storage.get_policy(storage_account_id=example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str storage_account_id: Specifies the id of the storage account to retrieve the management policy for.

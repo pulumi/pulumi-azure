@@ -351,7 +351,6 @@ class DatastoreBlobstorage(pulumi.CustomResource):
 
         ### With Azure Blob
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -397,7 +396,6 @@ class DatastoreBlobstorage(pulumi.CustomResource):
             storage_container_id=example_container.resource_manager_id,
             account_key=example_account.primary_access_key)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -436,7 +434,6 @@ class DatastoreBlobstorage(pulumi.CustomResource):
 
         ### With Azure Blob
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -482,7 +479,6 @@ class DatastoreBlobstorage(pulumi.CustomResource):
             storage_container_id=example_container.resource_manager_id,
             account_key=example_account.primary_access_key)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

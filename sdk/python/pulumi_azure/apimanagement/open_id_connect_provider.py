@@ -296,7 +296,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -320,7 +319,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             display_name="Example Provider",
             metadata_endpoint="https://example.com/example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -352,7 +350,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -376,7 +373,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             display_name="Example Provider",
             metadata_endpoint="https://example.com/example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -24,17 +24,9 @@ public final class RunBookJobScheduleArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.jobScheduleId);
     }
 
-    /**
-     * A list of `parameters` block as defined below.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
-    /**
-     * @return A list of `parameters` block as defined below.
-     * 
-     */
     public Optional<Output<Map<String,String>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
@@ -89,23 +81,11 @@ public final class RunBookJobScheduleArgs extends com.pulumi.resources.ResourceA
             return jobScheduleId(Output.of(jobScheduleId));
         }
 
-        /**
-         * @param parameters A list of `parameters` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<Map<String,String>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters A list of `parameters` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(Map<String,String> parameters) {
             return parameters(Output.of(parameters));
         }

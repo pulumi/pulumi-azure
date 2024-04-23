@@ -18,21 +18,15 @@ namespace Pulumi.Azure.Waf.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
-        /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;
 
         /// <summary>
-        /// Describes field of the matchVariable collection.
+        /// When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
         /// </summary>
         [Input("selector")]
         public Input<string>? Selector { get; set; }
 
-        /// <summary>
-        /// Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
-        /// </summary>
         [Input("selectorMatchOperator")]
         public Input<string>? SelectorMatchOperator { get; set; }
 

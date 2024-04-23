@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private Input<string>? _certificate;
 
         /// <summary>
-        /// One or more `certificate` blocks (up to 10) as defined below.
+        /// The Base64 Encoded Certificate.
         /// </summary>
         public Input<string>? Certificate
         {
@@ -32,7 +32,9 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private Input<string>? _certificatePassword;
 
         /// <summary>
-        /// The password for the certificate.
+        /// The password associated with the certificate provided above.
+        /// 
+        /// &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         /// </summary>
         public Input<string>? CertificatePassword
         {

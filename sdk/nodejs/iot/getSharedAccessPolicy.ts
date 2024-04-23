@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     iothubName: exampleAzurermIothub.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSharedAccessPolicy(args: GetSharedAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedAccessPolicyResult> {
 
@@ -83,7 +81,6 @@ export interface GetSharedAccessPolicyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -94,7 +91,6 @@ export interface GetSharedAccessPolicyResult {
  *     iothubName: exampleAzurermIothub.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSharedAccessPolicyOutput(args: GetSharedAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getSharedAccessPolicy(a, opts))

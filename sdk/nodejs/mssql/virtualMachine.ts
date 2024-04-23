@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * This example provisions a brief Managed Microsoft SQL Virtual Machine.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -37,7 +36,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

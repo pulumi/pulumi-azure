@@ -96,7 +96,6 @@ def get_access_policy(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -104,7 +103,6 @@ def get_access_policy(name: Optional[str] = None,
     contributor = azure.keyvault.get_access_policy(name="Key Management")
     pulumi.export("accessPolicyKeyPermissions", contributor.key_permissions)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Management Template. Possible values are: `Key Management`,
@@ -132,7 +130,6 @@ def get_access_policy_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -140,7 +137,6 @@ def get_access_policy_output(name: Optional[pulumi.Input[str]] = None,
     contributor = azure.keyvault.get_access_policy(name="Key Management")
     pulumi.export("accessPolicyKeyPermissions", contributor.key_permissions)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Management Template. Possible values are: `Key Management`,

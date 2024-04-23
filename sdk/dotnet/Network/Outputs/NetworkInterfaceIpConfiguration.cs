@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly bool? Primary;
         /// <summary>
-        /// The Static IP Address which should be used.
+        /// The first private IP address of the network interface.
         /// </summary>
         public readonly string? PrivateIpAddress;
         /// <summary>

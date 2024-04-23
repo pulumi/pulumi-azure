@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -47,7 +46,6 @@ import * as utilities from "../utilities";
  *     iconUrl: "https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

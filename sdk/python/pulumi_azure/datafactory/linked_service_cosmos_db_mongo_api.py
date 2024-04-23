@@ -377,7 +377,6 @@ class LinkedServiceCosmosDbMongoApi(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -395,7 +394,6 @@ class LinkedServiceCosmosDbMongoApi(pulumi.CustomResource):
             connection_string="mongodb://testinstance:testkey@testinstance.documents.azure.com:10255/?ssl=true",
             database="foo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -433,7 +431,6 @@ class LinkedServiceCosmosDbMongoApi(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -451,7 +448,6 @@ class LinkedServiceCosmosDbMongoApi(pulumi.CustomResource):
             connection_string="mongodb://testinstance:testkey@testinstance.documents.azure.com:10255/?ssl=true",
             database="foo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

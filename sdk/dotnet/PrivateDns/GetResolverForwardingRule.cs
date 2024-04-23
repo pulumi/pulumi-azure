@@ -16,7 +16,6 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResolverForwardingRuleResult> InvokeAsync(GetResolverForwardingRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverForwardingRuleResult>("azure:privatedns/getResolverForwardingRule:getResolverForwardingRule", args ?? new GetResolverForwardingRuleArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResolverForwardingRuleResult> Invoke(GetResolverForwardingRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverForwardingRuleResult>("azure:privatedns/getResolverForwardingRule:getResolverForwardingRule", args ?? new GetResolverForwardingRuleInvokeArgs(), options.WithDefaults());

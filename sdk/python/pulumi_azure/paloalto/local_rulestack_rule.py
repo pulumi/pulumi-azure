@@ -669,7 +669,6 @@ class LocalRulestackRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -694,7 +693,6 @@ class LocalRulestackRule(pulumi.CustomResource):
                 cidrs=["192.168.16.0/24"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -739,7 +737,6 @@ class LocalRulestackRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -764,7 +761,6 @@ class LocalRulestackRule(pulumi.CustomResource):
                 cidrs=["192.168.16.0/24"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

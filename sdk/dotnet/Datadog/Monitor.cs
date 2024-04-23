@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Datadog
     /// 
     /// ### Monitor creation with linking to Datadog organization
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,7 +54,6 @@ namespace Pulumi.Azure.Datadog
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Role Assignment
     /// 
@@ -63,7 +61,6 @@ namespace Pulumi.Azure.Datadog
     /// 
     /// ### Role assignment on the monitor created
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -88,7 +85,6 @@ namespace Pulumi.Azure.Datadog
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

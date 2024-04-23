@@ -168,7 +168,6 @@ class ManagedDiskSasToken(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -188,7 +187,6 @@ class ManagedDiskSasToken(pulumi.CustomResource):
             duration_in_seconds=300,
             access_level="Read")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -224,7 +222,6 @@ class ManagedDiskSasToken(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -244,7 +241,6 @@ class ManagedDiskSasToken(pulumi.CustomResource):
             duration_in_seconds=300,
             access_level="Read")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

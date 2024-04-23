@@ -167,7 +167,6 @@ def get_configuration(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -176,7 +175,6 @@ def get_configuration(name: Optional[str] = None,
         resource_group_name="example-resources")
     pulumi.export("id", existing_azurerm_maintenance_configuration["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Maintenance Configuration.
@@ -211,7 +209,6 @@ def get_configuration_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -220,7 +217,6 @@ def get_configuration_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="example-resources")
     pulumi.export("id", existing_azurerm_maintenance_configuration["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Maintenance Configuration.

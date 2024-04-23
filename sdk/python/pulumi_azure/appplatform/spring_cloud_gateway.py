@@ -585,7 +585,6 @@ class SpringCloudGateway(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -634,7 +633,6 @@ class SpringCloudGateway(pulumi.CustomResource):
                 time_to_live="30s",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -676,7 +674,6 @@ class SpringCloudGateway(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -725,7 +722,6 @@ class SpringCloudGateway(pulumi.CustomResource):
                 time_to_live="30s",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

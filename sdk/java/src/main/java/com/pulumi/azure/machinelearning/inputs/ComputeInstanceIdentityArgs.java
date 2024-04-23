@@ -52,14 +52,14 @@ public final class ComputeInstanceIdentityArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * User’s AAD Tenant Id.
+     * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
      * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
-     * @return User’s AAD Tenant Id.
+     * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -167,7 +167,7 @@ public final class ComputeInstanceIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tenantId User’s AAD Tenant Id.
+         * @param tenantId The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ComputeInstanceIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tenantId User’s AAD Tenant Id.
+         * @param tenantId The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
          * 
          * @return builder
          * 

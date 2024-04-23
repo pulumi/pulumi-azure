@@ -135,7 +135,6 @@ class DomainTopic(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -155,7 +154,6 @@ class DomainTopic(pulumi.CustomResource):
             domain_name=example_domain.name,
             resource_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -182,7 +180,6 @@ class DomainTopic(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -202,7 +199,6 @@ class DomainTopic(pulumi.CustomResource):
             domain_name=example_domain.name,
             resource_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

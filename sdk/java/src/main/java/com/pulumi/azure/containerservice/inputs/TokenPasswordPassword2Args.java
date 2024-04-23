@@ -15,17 +15,9 @@ public final class TokenPasswordPassword2Args extends com.pulumi.resources.Resou
 
     public static final TokenPasswordPassword2Args Empty = new TokenPasswordPassword2Args();
 
-    /**
-     * The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="expiry")
     private @Nullable Output<String> expiry;
 
-    /**
-     * @return The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<String>> expiry() {
         return Optional.ofNullable(this.expiry);
     }
@@ -70,23 +62,11 @@ public final class TokenPasswordPassword2Args extends com.pulumi.resources.Resou
             $ = new TokenPasswordPassword2Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param expiry The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expiry(@Nullable Output<String> expiry) {
             $.expiry = expiry;
             return this;
         }
 
-        /**
-         * @param expiry The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expiry(String expiry) {
             return expiry(Output.of(expiry));
         }

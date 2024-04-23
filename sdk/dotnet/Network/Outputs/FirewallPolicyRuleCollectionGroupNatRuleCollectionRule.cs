@@ -13,47 +13,18 @@ namespace Pulumi.Azure.Network.Outputs
     [OutputType]
     public sealed class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule
     {
-        /// <summary>
-        /// The description which should be used for this rule.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The destination IP address (including CIDR).
-        /// </summary>
         public readonly string? DestinationAddress;
-        /// <summary>
-        /// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-        /// </summary>
         public readonly string? DestinationPorts;
         /// <summary>
         /// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// One or more `protocols` blocks as defined below.
-        /// </summary>
         public readonly ImmutableArray<string> Protocols;
-        /// <summary>
-        /// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-        /// </summary>
         public readonly ImmutableArray<string> SourceAddresses;
-        /// <summary>
-        /// Specifies a list of source IP groups.
-        /// </summary>
         public readonly ImmutableArray<string> SourceIpGroups;
-        /// <summary>
-        /// Specifies the translated address.
-        /// </summary>
         public readonly string? TranslatedAddress;
-        /// <summary>
-        /// Specifies the translated FQDN.
-        /// 
-        /// &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
-        /// </summary>
         public readonly string? TranslatedFqdn;
-        /// <summary>
-        /// Specifies the translated port.
-        /// </summary>
         public readonly int TranslatedPort;
 
         [OutputConstructor]

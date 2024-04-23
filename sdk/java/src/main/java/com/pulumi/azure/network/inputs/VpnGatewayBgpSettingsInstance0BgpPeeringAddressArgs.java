@@ -17,17 +17,9 @@ public final class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs extends c
 
     public static final VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs Empty = new VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs();
 
-    /**
-     * A list of custom BGP peering addresses to assign to this instance.
-     * 
-     */
     @Import(name="customIps", required=true)
     private Output<List<String>> customIps;
 
-    /**
-     * @return A list of custom BGP peering addresses to assign to this instance.
-     * 
-     */
     public Output<List<String>> customIps() {
         return this.customIps;
     }
@@ -104,33 +96,15 @@ public final class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs extends c
             $ = new VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customIps A list of custom BGP peering addresses to assign to this instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customIps(Output<List<String>> customIps) {
             $.customIps = customIps;
             return this;
         }
 
-        /**
-         * @param customIps A list of custom BGP peering addresses to assign to this instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customIps(List<String> customIps) {
             return customIps(Output.of(customIps));
         }
 
-        /**
-         * @param customIps A list of custom BGP peering addresses to assign to this instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customIps(String... customIps) {
             return customIps(List.of(customIps));
         }

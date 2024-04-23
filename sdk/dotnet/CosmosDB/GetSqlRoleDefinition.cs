@@ -16,7 +16,6 @@ namespace Pulumi.Azure.CosmosDB
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Azure.CosmosDB
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSqlRoleDefinitionResult> InvokeAsync(GetSqlRoleDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlRoleDefinitionResult>("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args ?? new GetSqlRoleDefinitionArgs(), options.WithDefaults());
@@ -44,7 +42,6 @@ namespace Pulumi.Azure.CosmosDB
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Azure.CosmosDB
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSqlRoleDefinitionResult> Invoke(GetSqlRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlRoleDefinitionResult>("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args ?? new GetSqlRoleDefinitionInvokeArgs(), options.WithDefaults());

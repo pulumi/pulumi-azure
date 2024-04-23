@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupResolverDnsForwardingRuleset(ctx *pulumi.Context, args *LookupResolverDnsForwardingRulesetArgs, opts ...pulumi.InvokeOption) (*LookupResolverDnsForwardingRulesetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverDnsForwardingRulesetResult

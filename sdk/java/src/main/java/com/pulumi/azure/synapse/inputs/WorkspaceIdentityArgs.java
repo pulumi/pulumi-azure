@@ -52,14 +52,14 @@ public final class WorkspaceIdentityArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The tenant id of the Azure AD Administrator of this Synapse Workspace.
+     * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
      * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
-     * @return The tenant id of the Azure AD Administrator of this Synapse Workspace.
+     * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -167,7 +167,7 @@ public final class WorkspaceIdentityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tenantId The tenant id of the Azure AD Administrator of this Synapse Workspace.
+         * @param tenantId The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class WorkspaceIdentityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tenantId The tenant id of the Azure AD Administrator of this Synapse Workspace.
+         * @param tenantId The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
          * 
          * @return builder
          * 

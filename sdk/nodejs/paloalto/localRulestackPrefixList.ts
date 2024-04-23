@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -29,7 +28,6 @@ import * as utilities from "../utilities";
  *     prefixLists: ["10.0.1.0/24"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

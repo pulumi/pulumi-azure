@@ -432,7 +432,6 @@ class SpringCloudAppDynamicsApplicationPerformanceMonitoring(pulumi.CustomResour
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -459,7 +458,6 @@ class SpringCloudAppDynamicsApplicationPerformanceMonitoring(pulumi.CustomResour
             controller_port=8080,
             globally_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -497,7 +495,6 @@ class SpringCloudAppDynamicsApplicationPerformanceMonitoring(pulumi.CustomResour
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -524,7 +521,6 @@ class SpringCloudAppDynamicsApplicationPerformanceMonitoring(pulumi.CustomResour
             controller_port=8080,
             globally_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -39,7 +39,6 @@ import (
 //
 // ### With App Service)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -127,11 +126,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Function App)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -232,7 +229,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

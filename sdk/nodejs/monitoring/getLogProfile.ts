@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  * });
  * export const logProfileStorageAccountId = example.then(example => example.storageAccountId);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLogProfileResult> {
 
@@ -80,7 +78,6 @@ export interface GetLogProfileResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -90,7 +87,6 @@ export interface GetLogProfileResult {
  * });
  * export const logProfileStorageAccountId = example.then(example => example.storageAccountId);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogProfileOutput(args: GetLogProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogProfileResult> {
     return pulumi.output(args).apply((a: any) => getLogProfile(a, opts))

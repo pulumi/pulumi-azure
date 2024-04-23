@@ -442,7 +442,6 @@ class ConnectedRegistry(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -481,7 +480,6 @@ class ConnectedRegistry(pulumi.CustomResource):
             container_registry_id=example_registry.id,
             sync_token_id=example_registry_token.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -519,7 +517,6 @@ class ConnectedRegistry(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -558,7 +555,6 @@ class ConnectedRegistry(pulumi.CustomResource):
             container_registry_id=example_registry.id,
             sync_token_id=example_registry_token.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

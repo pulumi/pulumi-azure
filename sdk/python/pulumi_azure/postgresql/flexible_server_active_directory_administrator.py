@@ -230,7 +230,6 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -263,7 +262,6 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
             principal_name=example.display_name,
             principal_type="ServicePrincipal")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -293,7 +291,6 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -326,7 +323,6 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
             principal_name=example.display_name,
             principal_type="ServicePrincipal")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

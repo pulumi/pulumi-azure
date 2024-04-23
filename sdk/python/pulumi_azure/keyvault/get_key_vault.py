@@ -224,7 +224,6 @@ def get_key_vault(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -233,7 +232,6 @@ def get_key_vault(name: Optional[str] = None,
         resource_group_name="some-resource-group")
     pulumi.export("vaultUri", example.vault_uri)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Key Vault.
@@ -273,7 +271,6 @@ def get_key_vault_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -282,7 +279,6 @@ def get_key_vault_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="some-resource-group")
     pulumi.export("vaultUri", example.vault_uri)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Key Vault.

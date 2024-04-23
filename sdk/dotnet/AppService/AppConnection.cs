@@ -14,7 +14,6 @@ namespace Pulumi.Azure.AppService
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -110,7 +109,6 @@ namespace Pulumi.Azure.AppService
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -131,9 +129,6 @@ namespace Pulumi.Azure.AppService
         [Output("authentication")]
         public Output<Outputs.AppConnectionAuthentication> Authentication { get; private set; } = null!;
 
-        /// <summary>
-        /// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-        /// </summary>
         [Output("clientType")]
         public Output<string?> ClientType { get; private set; } = null!;
 
@@ -149,9 +144,6 @@ namespace Pulumi.Azure.AppService
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// An option to store secret value in secure place. An `secret_store` block as defined below.
-        /// </summary>
         [Output("secretStore")]
         public Output<Outputs.AppConnectionSecretStore?> SecretStore { get; private set; } = null!;
 
@@ -161,9 +153,6 @@ namespace Pulumi.Azure.AppService
         [Output("targetResourceId")]
         public Output<string> TargetResourceId { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-        /// </summary>
         [Output("vnetSolution")]
         public Output<string?> VnetSolution { get; private set; } = null!;
 
@@ -221,9 +210,6 @@ namespace Pulumi.Azure.AppService
         [Input("authentication", required: true)]
         public Input<Inputs.AppConnectionAuthenticationArgs> Authentication { get; set; } = null!;
 
-        /// <summary>
-        /// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-        /// </summary>
         [Input("clientType")]
         public Input<string>? ClientType { get; set; }
 
@@ -239,9 +225,6 @@ namespace Pulumi.Azure.AppService
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// An option to store secret value in secure place. An `secret_store` block as defined below.
-        /// </summary>
         [Input("secretStore")]
         public Input<Inputs.AppConnectionSecretStoreArgs>? SecretStore { get; set; }
 
@@ -251,9 +234,6 @@ namespace Pulumi.Azure.AppService
         [Input("targetResourceId", required: true)]
         public Input<string> TargetResourceId { get; set; } = null!;
 
-        /// <summary>
-        /// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-        /// </summary>
         [Input("vnetSolution")]
         public Input<string>? VnetSolution { get; set; }
 
@@ -273,9 +253,6 @@ namespace Pulumi.Azure.AppService
         [Input("authentication")]
         public Input<Inputs.AppConnectionAuthenticationGetArgs>? Authentication { get; set; }
 
-        /// <summary>
-        /// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-        /// </summary>
         [Input("clientType")]
         public Input<string>? ClientType { get; set; }
 
@@ -291,9 +268,6 @@ namespace Pulumi.Azure.AppService
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// An option to store secret value in secure place. An `secret_store` block as defined below.
-        /// </summary>
         [Input("secretStore")]
         public Input<Inputs.AppConnectionSecretStoreGetArgs>? SecretStore { get; set; }
 
@@ -303,9 +277,6 @@ namespace Pulumi.Azure.AppService
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }
 
-        /// <summary>
-        /// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-        /// </summary>
         [Input("vnetSolution")]
         public Input<string>? VnetSolution { get; set; }
 

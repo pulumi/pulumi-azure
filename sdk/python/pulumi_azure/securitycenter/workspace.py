@@ -104,7 +104,6 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -121,7 +120,6 @@ class Workspace(pulumi.CustomResource):
             scope="/subscriptions/00000000-0000-0000-0000-000000000000",
             workspace_id=example_analytics_workspace.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -149,7 +147,6 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -166,7 +163,6 @@ class Workspace(pulumi.CustomResource):
             scope="/subscriptions/00000000-0000-0000-0000-000000000000",
             workspace_id=example_analytics_workspace.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

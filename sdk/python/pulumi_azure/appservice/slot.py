@@ -636,7 +636,6 @@ class Slot(pulumi.CustomResource):
 
         ### NET 4.X)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -692,11 +691,9 @@ class Slot(pulumi.CustomResource):
                 value="Server=some-server.mydomain.com;Integrated Security=SSPI",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Java 1.8)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -740,7 +737,6 @@ class Slot(pulumi.CustomResource):
                 java_container_version="9.3",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -787,7 +783,6 @@ class Slot(pulumi.CustomResource):
 
         ### NET 4.X)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -843,11 +838,9 @@ class Slot(pulumi.CustomResource):
                 value="Server=some-server.mydomain.com;Integrated Security=SSPI",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Java 1.8)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -891,7 +884,6 @@ class Slot(pulumi.CustomResource):
                 java_container_version="9.3",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

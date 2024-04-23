@@ -102,7 +102,6 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -165,7 +164,6 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             log_analytics_cluster_id=example_cluster.id,
             key_vault_key_id=example_key.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -191,7 +189,6 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -254,7 +251,6 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             log_analytics_cluster_id=example_cluster.id,
             key_vault_key_id=example_key.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

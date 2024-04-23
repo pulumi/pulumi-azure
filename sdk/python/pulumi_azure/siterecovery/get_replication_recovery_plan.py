@@ -129,7 +129,6 @@ def get_replication_recovery_plan(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -139,7 +138,6 @@ def get_replication_recovery_plan(name: Optional[str] = None,
     example = azure.siterecovery.get_replication_recovery_plan(name="example-recovery-plan",
         recovery_vault_id=vault.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Replication Plan.
@@ -171,7 +169,6 @@ def get_replication_recovery_plan_output(name: Optional[pulumi.Input[str]] = Non
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -181,7 +178,6 @@ def get_replication_recovery_plan_output(name: Optional[pulumi.Input[str]] = Non
     example = azure.siterecovery.get_replication_recovery_plan(name="example-recovery-plan",
         recovery_vault_id=vault.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Replication Plan.

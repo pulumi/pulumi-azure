@@ -283,7 +283,6 @@ class EnterpriseCluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -297,7 +296,6 @@ class EnterpriseCluster(pulumi.CustomResource):
             location=example.location,
             sku_name="EnterpriseFlash_F300-3")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -328,7 +326,6 @@ class EnterpriseCluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -342,7 +339,6 @@ class EnterpriseCluster(pulumi.CustomResource):
             location=example.location,
             sku_name="EnterpriseFlash_F300-3")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

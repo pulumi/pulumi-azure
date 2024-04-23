@@ -38,9 +38,7 @@ class IoTHubArgs:
         The set of arguments for constructing a IoTHub resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input['IoTHubSkuArgs'] sku: A `sku` block as defined below.
-        :param pulumi.Input['IoTHubCloudToDeviceArgs'] cloud_to_device: A `cloud_to_device` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]] endpoints: An `endpoint` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
         :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
         :param pulumi.Input['IoTHubFallbackRouteArgs'] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
@@ -50,12 +48,8 @@ class IoTHubArgs:
         :param pulumi.Input['IoTHubIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetArgs']]] network_rule_sets: A `network_rule_set` block as defined below.
-        :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
-        :param pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]] routes: A `route` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
@@ -119,9 +113,6 @@ class IoTHubArgs:
     @property
     @pulumi.getter(name="cloudToDevice")
     def cloud_to_device(self) -> Optional[pulumi.Input['IoTHubCloudToDeviceArgs']]:
-        """
-        A `cloud_to_device` block as defined below.
-        """
         return pulumi.get(self, "cloud_to_device")
 
     @cloud_to_device.setter
@@ -143,9 +134,6 @@ class IoTHubArgs:
     @property
     @pulumi.getter
     def enrichments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]]]:
-        """
-        A `enrichment` block as defined below.
-        """
         return pulumi.get(self, "enrichments")
 
     @enrichments.setter
@@ -241,9 +229,6 @@ class IoTHubArgs:
     @property
     @pulumi.getter(name="minTlsVersion")
     def min_tls_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "min_tls_version")
 
     @min_tls_version.setter
@@ -277,9 +262,6 @@ class IoTHubArgs:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is the IotHub resource accessible from a public network?
-        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -289,9 +271,6 @@ class IoTHubArgs:
     @property
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]]]:
-        """
-        A `route` block as defined below.
-        """
         return pulumi.get(self, "routes")
 
     @routes.setter
@@ -301,9 +280,6 @@ class IoTHubArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -342,9 +318,7 @@ class _IoTHubState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering IoTHub resources.
-        :param pulumi.Input['IoTHubCloudToDeviceArgs'] cloud_to_device: A `cloud_to_device` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]] endpoints: An `endpoint` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[str] event_hub_events_endpoint: The EventHub compatible endpoint for events data
         :param pulumi.Input[str] event_hub_events_namespace: The EventHub namespace for events data
         :param pulumi.Input[str] event_hub_events_path: The EventHub compatible path for events data
@@ -360,16 +334,11 @@ class _IoTHubState:
         :param pulumi.Input['IoTHubIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetArgs']]] network_rule_sets: A `network_rule_set` block as defined below.
-        :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]] routes: A `route` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubSharedAccessPolicyArgs']]] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
         :param pulumi.Input['IoTHubSkuArgs'] sku: A `sku` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] type: The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         """
         if cloud_to_device is not None:
             pulumi.set(__self__, "cloud_to_device", cloud_to_device)
@@ -427,9 +396,6 @@ class _IoTHubState:
     @property
     @pulumi.getter(name="cloudToDevice")
     def cloud_to_device(self) -> Optional[pulumi.Input['IoTHubCloudToDeviceArgs']]:
-        """
-        A `cloud_to_device` block as defined below.
-        """
         return pulumi.get(self, "cloud_to_device")
 
     @cloud_to_device.setter
@@ -451,9 +417,6 @@ class _IoTHubState:
     @property
     @pulumi.getter
     def enrichments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]]]:
-        """
-        A `enrichment` block as defined below.
-        """
         return pulumi.get(self, "enrichments")
 
     @enrichments.setter
@@ -621,9 +584,6 @@ class _IoTHubState:
     @property
     @pulumi.getter(name="minTlsVersion")
     def min_tls_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "min_tls_version")
 
     @min_tls_version.setter
@@ -657,9 +617,6 @@ class _IoTHubState:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is the IotHub resource accessible from a public network?
-        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -681,9 +638,6 @@ class _IoTHubState:
     @property
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]]]:
-        """
-        A `route` block as defined below.
-        """
         return pulumi.get(self, "routes")
 
     @routes.setter
@@ -717,9 +671,6 @@ class _IoTHubState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -729,9 +680,6 @@ class _IoTHubState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -778,7 +726,6 @@ class IoTHub(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -876,7 +823,6 @@ class IoTHub(pulumi.CustomResource):
                 "purpose": "testing",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -888,9 +834,7 @@ class IoTHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['IoTHubCloudToDeviceArgs']] cloud_to_device: A `cloud_to_device` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]] endpoints: An `endpoint` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
         :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
         :param pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
@@ -900,14 +844,10 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubNetworkRuleSetArgs']]]] network_rule_sets: A `network_rule_set` block as defined below.
-        :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]] routes: A `route` block as defined below.
         :param pulumi.Input[pulumi.InputType['IoTHubSkuArgs']] sku: A `sku` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
@@ -930,7 +870,6 @@ class IoTHub(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1028,7 +967,6 @@ class IoTHub(pulumi.CustomResource):
                 "purpose": "testing",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1153,9 +1091,7 @@ class IoTHub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['IoTHubCloudToDeviceArgs']] cloud_to_device: A `cloud_to_device` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]] endpoints: An `endpoint` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[str] event_hub_events_endpoint: The EventHub compatible endpoint for events data
         :param pulumi.Input[str] event_hub_events_namespace: The EventHub namespace for events data
         :param pulumi.Input[str] event_hub_events_path: The EventHub compatible path for events data
@@ -1171,16 +1107,11 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubNetworkRuleSetArgs']]]] network_rule_sets: A `network_rule_set` block as defined below.
-        :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]] routes: A `route` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubSharedAccessPolicyArgs']]]] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['IoTHubSkuArgs']] sku: A `sku` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] type: The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1217,9 +1148,6 @@ class IoTHub(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cloudToDevice")
     def cloud_to_device(self) -> pulumi.Output['outputs.IoTHubCloudToDevice']:
-        """
-        A `cloud_to_device` block as defined below.
-        """
         return pulumi.get(self, "cloud_to_device")
 
     @property
@@ -1233,9 +1161,6 @@ class IoTHub(pulumi.CustomResource):
     @property
     @pulumi.getter
     def enrichments(self) -> pulumi.Output[Sequence['outputs.IoTHubEnrichment']]:
-        """
-        A `enrichment` block as defined below.
-        """
         return pulumi.get(self, "enrichments")
 
     @property
@@ -1347,9 +1272,6 @@ class IoTHub(pulumi.CustomResource):
     @property
     @pulumi.getter(name="minTlsVersion")
     def min_tls_version(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "min_tls_version")
 
     @property
@@ -1371,9 +1293,6 @@ class IoTHub(pulumi.CustomResource):
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Is the IotHub resource accessible from a public network?
-        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @property
@@ -1387,9 +1306,6 @@ class IoTHub(pulumi.CustomResource):
     @property
     @pulumi.getter
     def routes(self) -> pulumi.Output[Sequence['outputs.IoTHubRoute']]:
-        """
-        A `route` block as defined below.
-        """
         return pulumi.get(self, "routes")
 
     @property
@@ -1411,16 +1327,10 @@ class IoTHub(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
-        """
-        The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
-        """
         return pulumi.get(self, "type")
 

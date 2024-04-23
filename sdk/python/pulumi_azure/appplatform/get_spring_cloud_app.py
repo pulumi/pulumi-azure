@@ -165,7 +165,6 @@ def get_spring_cloud_app(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -175,7 +174,6 @@ def get_spring_cloud_app(name: Optional[str] = None,
         service_name=example_azurerm_spring_cloud_app["serviceName"])
     pulumi.export("springCloudAppId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Spring Cloud Application.
@@ -213,7 +211,6 @@ def get_spring_cloud_app_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -223,7 +220,6 @@ def get_spring_cloud_app_output(name: Optional[pulumi.Input[str]] = None,
         service_name=example_azurerm_spring_cloud_app["serviceName"])
     pulumi.export("springCloudAppId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Spring Cloud Application.

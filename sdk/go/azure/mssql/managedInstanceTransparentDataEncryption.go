@@ -22,7 +22,6 @@ import (
 //
 // ### With Service Managed Key
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -108,11 +107,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Customer Managed Key
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -260,7 +257,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

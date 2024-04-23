@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -25,11 +24,9 @@ import * as utilities from "../utilities";
  *     resourceType: "VirtualMachines",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Using Extensions with Defender CSPM
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -56,7 +53,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

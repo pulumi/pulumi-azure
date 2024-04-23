@@ -247,17 +247,9 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> isSystemTask() {
         return Codegen.optional(this.isSystemTask);
     }
-    /**
-     * The template that describes the run log artifact.
-     * 
-     */
     @Export(name="logTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logTemplate;
 
-    /**
-     * @return The template that describes the run log artifact.
-     * 
-     */
     public Output<Optional<String>> logTemplate() {
         return Codegen.optional(this.logTemplate);
     }
@@ -293,17 +285,9 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
     public Output<Optional<RegistryTaskPlatform>> platform() {
         return Codegen.optional(this.platform);
     }
-    /**
-     * One `registry_credential` block as defined below.
-     * 
-     */
     @Export(name="registryCredential", refs={RegistryTaskRegistryCredential.class}, tree="[0]")
     private Output</* @Nullable */ RegistryTaskRegistryCredential> registryCredential;
 
-    /**
-     * @return One `registry_credential` block as defined below.
-     * 
-     */
     public Output<Optional<RegistryTaskRegistryCredential>> registryCredential() {
         return Codegen.optional(this.registryCredential);
     }
@@ -321,31 +305,15 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<RegistryTaskSourceTrigger>>> sourceTriggers() {
         return Codegen.optional(this.sourceTriggers);
     }
-    /**
-     * A mapping of tags which should be assigned to the Container Registry Task.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags which should be assigned to the Container Registry Task.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-     * 
-     */
     @Export(name="timeoutInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeoutInSeconds;
 
-    /**
-     * @return The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-     * 
-     */
     public Output<Optional<Integer>> timeoutInSeconds() {
         return Codegen.optional(this.timeoutInSeconds);
     }

@@ -176,7 +176,6 @@ def get_secret(key_vault_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -185,7 +184,6 @@ def get_secret(key_vault_id: Optional[str] = None,
         key_vault_id=existing["id"])
     pulumi.export("secretValue", example.value)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key_vault_id: Specifies the ID of the Key Vault instance to fetch secret names from, available on the `keyvault.KeyVault` Data Source / Resource.
@@ -226,7 +224,6 @@ def get_secret_output(key_vault_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -235,7 +232,6 @@ def get_secret_output(key_vault_id: Optional[pulumi.Input[str]] = None,
         key_vault_id=existing["id"])
     pulumi.export("secretValue", example.value)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key_vault_id: Specifies the ID of the Key Vault instance to fetch secret names from, available on the `keyvault.KeyVault` Data Source / Resource.

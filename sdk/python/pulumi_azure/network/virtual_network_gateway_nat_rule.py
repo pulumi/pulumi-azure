@@ -300,7 +300,6 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -353,7 +352,6 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
                 port_range="400",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -385,7 +383,6 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -438,7 +435,6 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
                 port_range="400",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

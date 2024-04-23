@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  * });
  * export const containerId = example.then(example => example.containers?.[0]?.resourceManagerId);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getContainers(args: GetContainersArgs, opts?: pulumi.InvokeOptions): Promise<GetContainersResult> {
 
@@ -66,7 +64,6 @@ export interface GetContainersResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -76,7 +73,6 @@ export interface GetContainersResult {
  * });
  * export const containerId = example.then(example => example.containers?.[0]?.resourceManagerId);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getContainersOutput(args: GetContainersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainersResult> {
     return pulumi.output(args).apply((a: any) => getContainers(a, opts))

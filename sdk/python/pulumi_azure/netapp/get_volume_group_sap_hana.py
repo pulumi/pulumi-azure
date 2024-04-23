@@ -132,7 +132,6 @@ def get_volume_group_sap_hana(account_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -142,7 +141,6 @@ def get_volume_group_sap_hana(account_name: Optional[str] = None,
         account_name="existing account where the application volume group belong to")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: Name of the account where the application volume group belong to.
@@ -177,7 +175,6 @@ def get_volume_group_sap_hana_output(account_name: Optional[pulumi.Input[str]] =
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -187,7 +184,6 @@ def get_volume_group_sap_hana_output(account_name: Optional[pulumi.Input[str]] =
         account_name="existing account where the application volume group belong to")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: Name of the account where the application volume group belong to.

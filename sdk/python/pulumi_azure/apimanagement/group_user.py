@@ -166,7 +166,6 @@ class GroupUser(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -180,7 +179,6 @@ class GroupUser(pulumi.CustomResource):
             resource_group_name=example.resource_group_name,
             api_management_name=example.api_management_name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -208,7 +206,6 @@ class GroupUser(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -222,7 +219,6 @@ class GroupUser(pulumi.CustomResource):
             resource_group_name=example.resource_group_name,
             api_management_name=example.api_management_name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

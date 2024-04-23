@@ -18,7 +18,6 @@ import (
 //
 // ### Basic HTTP Trigger
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -123,11 +122,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### HTTP Trigger With Code Upload
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -245,7 +242,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

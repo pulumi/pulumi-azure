@@ -121,7 +121,6 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
 
         ### Windows Function App
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -155,11 +154,9 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
             site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArgs())
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("example", slot_id=example_windows_function_app_slot.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Linux Function App
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -193,7 +190,6 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
             site_config=azure.appservice.LinuxFunctionAppSlotSiteConfigArgs())
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("example", slot_id=example_linux_function_app_slot.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -221,7 +217,6 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
 
         ### Windows Function App
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -255,11 +250,9 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
             site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArgs())
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("example", slot_id=example_windows_function_app_slot.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Linux Function App
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -293,7 +286,6 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
             site_config=azure.appservice.LinuxFunctionAppSlotSiteConfigArgs())
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("example", slot_id=example_linux_function_app_slot.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

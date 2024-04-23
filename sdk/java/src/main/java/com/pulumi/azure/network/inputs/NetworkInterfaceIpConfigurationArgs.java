@@ -63,14 +63,14 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * The Static IP Address which should be used.
+     * The first private IP address of the network interface.
      * 
      */
     @Import(name="privateIpAddress")
     private @Nullable Output<String> privateIpAddress;
 
     /**
-     * @return The Static IP Address which should be used.
+     * @return The first private IP address of the network interface.
      * 
      */
     public Optional<Output<String>> privateIpAddress() {
@@ -240,7 +240,7 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param privateIpAddress The Static IP Address which should be used.
+         * @param privateIpAddress The first private IP address of the network interface.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param privateIpAddress The Static IP Address which should be used.
+         * @param privateIpAddress The first private IP address of the network interface.
          * 
          * @return builder
          * 

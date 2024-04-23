@@ -138,7 +138,6 @@ class SpringCloudApiPortalCustomDomain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -162,7 +161,6 @@ class SpringCloudApiPortalCustomDomain(pulumi.CustomResource):
             name="example.com",
             spring_cloud_api_portal_id=example_spring_cloud_api_portal.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -191,7 +189,6 @@ class SpringCloudApiPortalCustomDomain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -215,7 +212,6 @@ class SpringCloudApiPortalCustomDomain(pulumi.CustomResource):
             name="example.com",
             spring_cloud_api_portal_id=example_spring_cloud_api_portal.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

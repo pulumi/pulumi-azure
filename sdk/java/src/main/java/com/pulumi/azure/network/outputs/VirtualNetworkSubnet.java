@@ -18,7 +18,7 @@ public final class VirtualNetworkSubnet {
      */
     private String addressPrefix;
     /**
-     * @return The ID of DDoS Protection Plan.
+     * @return The ID of this subnet.
      * 
      */
     private @Nullable String id;
@@ -42,7 +42,7 @@ public final class VirtualNetworkSubnet {
         return this.addressPrefix;
     }
     /**
-     * @return The ID of DDoS Protection Plan.
+     * @return The ID of this subnet.
      * 
      */
     public Optional<String> id() {

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2
     {
         /// <summary>
-        /// The ID of the Client to use to authenticate with Azure Active Directory.
+        /// The ID of the Client to use to authenticate with Azure Static Web App Authentication.
         /// </summary>
         public readonly string ClientId;
 

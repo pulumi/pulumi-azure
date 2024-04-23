@@ -20,7 +20,6 @@ import (
 //
 // ### `Kv` Type
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,11 +75,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### `Vault` Type
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -174,7 +171,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

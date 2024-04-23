@@ -14,7 +14,6 @@ namespace Pulumi.Azure.Nginx
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -168,7 +167,6 @@ namespace Pulumi.Azure.Nginx
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -238,7 +236,7 @@ namespace Pulumi.Azure.Nginx
         public Output<Outputs.DeploymentIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the IP Address of this private IP.
+        /// The IP address of the deployment.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
@@ -554,7 +552,7 @@ namespace Pulumi.Azure.Nginx
         public Input<Inputs.DeploymentIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Specify the IP Address of this private IP.
+        /// The IP address of the deployment.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }

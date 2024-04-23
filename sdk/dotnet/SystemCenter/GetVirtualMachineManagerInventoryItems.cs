@@ -16,7 +16,6 @@ namespace Pulumi.Azure.SystemCenter
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Azure.SystemCenter
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVirtualMachineManagerInventoryItemsResult> InvokeAsync(GetVirtualMachineManagerInventoryItemsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineManagerInventoryItemsResult>("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", args ?? new GetVirtualMachineManagerInventoryItemsArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Azure.SystemCenter
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Azure.SystemCenter
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVirtualMachineManagerInventoryItemsResult> Invoke(GetVirtualMachineManagerInventoryItemsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineManagerInventoryItemsResult>("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", args ?? new GetVirtualMachineManagerInventoryItemsInvokeArgs(), options.WithDefaults());

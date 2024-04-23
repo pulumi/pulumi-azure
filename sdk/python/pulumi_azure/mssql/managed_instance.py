@@ -759,7 +759,6 @@ class ManagedInstance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -921,7 +920,6 @@ class ManagedInstance(pulumi.CustomResource):
             administrator_login="mradministrator",
             administrator_login_password="thisIsDog11")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -968,7 +966,6 @@ class ManagedInstance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1130,7 +1127,6 @@ class ManagedInstance(pulumi.CustomResource):
             administrator_login="mradministrator",
             administrator_login_password="thisIsDog11")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

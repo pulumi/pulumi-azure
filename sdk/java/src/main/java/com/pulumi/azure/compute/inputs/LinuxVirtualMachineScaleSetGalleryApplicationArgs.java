@@ -36,17 +36,9 @@ public final class LinuxVirtualMachineScaleSetGalleryApplicationArgs extends com
         return Optional.ofNullable(this.configurationReferenceBlobUri);
     }
 
-    /**
-     * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="order")
     private @Nullable Output<Integer> order;
 
-    /**
-     * @return Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<Integer>> order() {
         return Optional.ofNullable(this.order);
     }
@@ -70,17 +62,9 @@ public final class LinuxVirtualMachineScaleSetGalleryApplicationArgs extends com
         return this.packageReferenceId;
     }
 
-    /**
-     * Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="tag")
     private @Nullable Output<String> tag;
 
-    /**
-     * @return Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<String>> tag() {
         return Optional.ofNullable(this.tag);
     }
@@ -137,23 +121,11 @@ public final class LinuxVirtualMachineScaleSetGalleryApplicationArgs extends com
             return configurationReferenceBlobUri(Output.of(configurationReferenceBlobUri));
         }
 
-        /**
-         * @param order Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder order(@Nullable Output<Integer> order) {
             $.order = order;
             return this;
         }
 
-        /**
-         * @param order Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }
@@ -183,23 +155,11 @@ public final class LinuxVirtualMachineScaleSetGalleryApplicationArgs extends com
             return packageReferenceId(Output.of(packageReferenceId));
         }
 
-        /**
-         * @param tag Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tag(@Nullable Output<String> tag) {
             $.tag = tag;
             return this;
         }
 
-        /**
-         * @param tag Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tag(String tag) {
             return tag(Output.of(tag));
         }

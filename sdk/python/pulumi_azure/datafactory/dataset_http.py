@@ -442,7 +442,6 @@ class DatasetHttp(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -467,7 +466,6 @@ class DatasetHttp(pulumi.CustomResource):
             request_body="foo=bar",
             request_method="POST")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -505,7 +503,6 @@ class DatasetHttp(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -530,7 +527,6 @@ class DatasetHttp(pulumi.CustomResource):
             request_body="foo=bar",
             request_method="POST")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

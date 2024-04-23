@@ -185,7 +185,6 @@ class FrontdoorEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -204,7 +203,6 @@ class FrontdoorEndpoint(pulumi.CustomResource):
                 "ENV": "example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -232,7 +230,6 @@ class FrontdoorEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -251,7 +248,6 @@ class FrontdoorEndpoint(pulumi.CustomResource):
                 "ENV": "example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

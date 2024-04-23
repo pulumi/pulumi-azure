@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "tfex-resource_group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFabric(args: GetFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetFabricResult> {
 
@@ -71,7 +69,6 @@ export interface GetFabricResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -82,7 +79,6 @@ export interface GetFabricResult {
  *     resourceGroupName: "tfex-resource_group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFabricOutput(args: GetFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFabricResult> {
     return pulumi.output(args).apply((a: any) => getFabric(a, opts))

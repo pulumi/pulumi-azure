@@ -16,7 +16,6 @@ namespace Pulumi.Azure.DataboxEdge
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,7 +67,6 @@ namespace Pulumi.Azure.DataboxEdge
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -94,7 +92,7 @@ namespace Pulumi.Azure.DataboxEdge
         public Output<string> DeviceName { get; private set; } = null!;
 
         /// <summary>
-        /// The contact person name. Changing this forces a new Databox Edge Order to be created.
+        /// The Name of this Databox Edge Order.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -232,7 +230,7 @@ namespace Pulumi.Azure.DataboxEdge
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// The contact person name. Changing this forces a new Databox Edge Order to be created.
+        /// The Name of this Databox Edge Order.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

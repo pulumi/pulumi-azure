@@ -400,7 +400,6 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -424,7 +423,6 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
             mode="Production",
             enabled=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -453,7 +451,6 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -477,7 +474,6 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
             mode="Production",
             enabled=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

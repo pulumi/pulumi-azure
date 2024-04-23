@@ -142,7 +142,6 @@ class ContainerStorageAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -166,7 +165,6 @@ class ContainerStorageAccount(pulumi.CustomResource):
             recovery_vault_name=vault.name,
             storage_account_id=sa.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -197,7 +195,6 @@ class ContainerStorageAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -221,7 +218,6 @@ class ContainerStorageAccount(pulumi.CustomResource):
             recovery_vault_name=vault.name,
             storage_account_id=sa.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

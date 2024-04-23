@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Network
         /// 
         /// ## Virtual Hub Route Table Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVirtualHubRouteTableResult> InvokeAsync(GetVirtualHubRouteTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubRouteTableResult>("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", args ?? new GetVirtualHubRouteTableArgs(), options.WithDefaults());
@@ -48,7 +46,6 @@ namespace Pulumi.Azure.Network
         /// 
         /// ## Virtual Hub Route Table Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,7 +67,6 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVirtualHubRouteTableResult> Invoke(GetVirtualHubRouteTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubRouteTableResult>("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", args ?? new GetVirtualHubRouteTableInvokeArgs(), options.WithDefaults());

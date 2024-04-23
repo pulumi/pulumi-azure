@@ -12,21 +12,12 @@ namespace Pulumi.Azure.Network.Inputs
 
     public sealed class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description which should be used for this rule.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The destination IP address (including CIDR).
-        /// </summary>
         [Input("destinationAddress")]
         public Input<string>? DestinationAddress { get; set; }
 
-        /// <summary>
-        /// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-        /// </summary>
         [Input("destinationPorts")]
         public Input<string>? DestinationPorts { get; set; }
 
@@ -38,10 +29,6 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("protocols", required: true)]
         private InputList<string>? _protocols;
-
-        /// <summary>
-        /// One or more `protocols` blocks as defined below.
-        /// </summary>
         public InputList<string> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<string>());
@@ -50,10 +37,6 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("sourceAddresses")]
         private InputList<string>? _sourceAddresses;
-
-        /// <summary>
-        /// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-        /// </summary>
         public InputList<string> SourceAddresses
         {
             get => _sourceAddresses ?? (_sourceAddresses = new InputList<string>());
@@ -62,33 +45,18 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("sourceIpGroups")]
         private InputList<string>? _sourceIpGroups;
-
-        /// <summary>
-        /// Specifies a list of source IP groups.
-        /// </summary>
         public InputList<string> SourceIpGroups
         {
             get => _sourceIpGroups ?? (_sourceIpGroups = new InputList<string>());
             set => _sourceIpGroups = value;
         }
 
-        /// <summary>
-        /// Specifies the translated address.
-        /// </summary>
         [Input("translatedAddress")]
         public Input<string>? TranslatedAddress { get; set; }
 
-        /// <summary>
-        /// Specifies the translated FQDN.
-        /// 
-        /// &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
-        /// </summary>
         [Input("translatedFqdn")]
         public Input<string>? TranslatedFqdn { get; set; }
 
-        /// <summary>
-        /// Specifies the translated port.
-        /// </summary>
         [Input("translatedPort", required: true)]
         public Input<int> TranslatedPort { get; set; } = null!;
 

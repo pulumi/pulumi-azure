@@ -364,7 +364,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -438,11 +437,9 @@ class DiskEncryptionSet(pulumi.CustomResource):
             role_definition_name="Key Vault Crypto Service Encryption User",
             principal_id=example_disk_encryption_set.identity.principal_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Automatic Key Rotation Enabled
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -517,7 +514,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
             role_definition_name="Key Vault Crypto Service Encryption User",
             principal_id=example_disk_encryption_set.identity.principal_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -556,7 +552,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -630,11 +625,9 @@ class DiskEncryptionSet(pulumi.CustomResource):
             role_definition_name="Key Vault Crypto Service Encryption User",
             principal_id=example_disk_encryption_set.identity.principal_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Automatic Key Rotation Enabled
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -709,7 +702,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
             role_definition_name="Key Vault Crypto Service Encryption User",
             principal_id=example_disk_encryption_set.identity.principal_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

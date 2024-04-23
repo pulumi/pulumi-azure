@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     dnsForwardingRulesetId: "example-forwarding-rulset-id",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverForwardingRule(args: GetResolverForwardingRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverForwardingRuleResult> {
 
@@ -78,7 +76,6 @@ export interface GetResolverForwardingRuleResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -88,7 +85,6 @@ export interface GetResolverForwardingRuleResult {
  *     dnsForwardingRulesetId: "example-forwarding-rulset-id",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverForwardingRuleOutput(args: GetResolverForwardingRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverForwardingRuleResult> {
     return pulumi.output(args).apply((a: any) => getResolverForwardingRule(a, opts))

@@ -16,7 +16,6 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// ### With Managed Identity &amp; New Cluster
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,11 +91,9 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With Access Token &amp; Existing Cluster
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -140,7 +137,6 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

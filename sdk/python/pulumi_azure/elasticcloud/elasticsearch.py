@@ -413,7 +413,6 @@ class Elasticsearch(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -428,7 +427,6 @@ class Elasticsearch(pulumi.CustomResource):
             sku_name="ess-consumption-2024_Monthly",
             elastic_cloud_email_address="user@example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -464,7 +462,6 @@ class Elasticsearch(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -479,7 +476,6 @@ class Elasticsearch(pulumi.CustomResource):
             sku_name="ess-consumption-2024_Monthly",
             elastic_cloud_email_address="user@example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

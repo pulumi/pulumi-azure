@@ -102,7 +102,6 @@ class IPGroupCIDR(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -118,7 +117,6 @@ class IPGroupCIDR(pulumi.CustomResource):
             ip_group_id=example_ip_group.id,
             cidr="10.10.10.0/24")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -150,7 +148,6 @@ class IPGroupCIDR(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -166,7 +163,6 @@ class IPGroupCIDR(pulumi.CustomResource):
             ip_group_id=example_ip_group.id,
             cidr="10.10.10.0/24")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

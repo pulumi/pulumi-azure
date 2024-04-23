@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const certificateOrderId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCertificateOrder(args: GetCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateOrderResult> {
 
@@ -131,7 +129,6 @@ export interface GetCertificateOrderResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -142,7 +139,6 @@ export interface GetCertificateOrderResult {
  * });
  * export const certificateOrderId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCertificateOrderOutput(args: GetCertificateOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateOrderResult> {
     return pulumi.output(args).apply((a: any) => getCertificateOrder(a, opts))

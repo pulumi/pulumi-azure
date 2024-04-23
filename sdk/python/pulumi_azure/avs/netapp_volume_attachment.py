@@ -145,7 +145,6 @@ class NetappVolumeAttachment(pulumi.CustomResource):
 
         > **NOTE :** For Azure Azure VMware Solution Private Cloud, normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -256,7 +255,6 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             netapp_volume_id=test_volume.id,
             vmware_cluster_id=test_cluster.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -287,7 +285,6 @@ class NetappVolumeAttachment(pulumi.CustomResource):
 
         > **NOTE :** For Azure Azure VMware Solution Private Cloud, normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -398,7 +395,6 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             netapp_volume_id=test_volume.id,
             vmware_cluster_id=test_cluster.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

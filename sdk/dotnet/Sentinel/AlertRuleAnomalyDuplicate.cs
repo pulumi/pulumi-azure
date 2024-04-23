@@ -14,7 +14,6 @@ namespace Pulumi.Azure.Sentinel
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,7 +67,6 @@ namespace Pulumi.Azure.Sentinel
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -100,7 +98,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> BuiltInRuleId { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the multi select observation.
+        /// The description of the Anomaly Alert Rule.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -147,9 +145,6 @@ namespace Pulumi.Azure.Sentinel
         [Output("multiSelectObservations")]
         public Output<ImmutableArray<Outputs.AlertRuleAnomalyDuplicateMultiSelectObservation>> MultiSelectObservations { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the multi select observation.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -350,7 +345,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? BuiltInRuleId { get; set; }
 
         /// <summary>
-        /// The description of the multi select observation.
+        /// The description of the Anomaly Alert Rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -403,9 +398,6 @@ namespace Pulumi.Azure.Sentinel
             set => _multiSelectObservations = value;
         }
 
-        /// <summary>
-        /// The name of the multi select observation.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

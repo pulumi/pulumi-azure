@@ -17,7 +17,6 @@ import (
 //
 // ### Reference An Existing)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,11 +43,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Retrieve The Dynamic Public IP Of A New VM)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -145,7 +142,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetPublicIP(ctx *pulumi.Context, args *GetPublicIPArgs, opts ...pulumi.InvokeOption) (*GetPublicIPResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublicIPResult

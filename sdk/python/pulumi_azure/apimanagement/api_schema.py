@@ -297,7 +297,6 @@ class ApiSchema(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -315,7 +314,6 @@ class ApiSchema(pulumi.CustomResource):
             content_type="application/vnd.ms-azure-apim.xsd+xml",
             value=std.file(input="api_management_api_schema.xml").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -347,7 +345,6 @@ class ApiSchema(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -365,7 +362,6 @@ class ApiSchema(pulumi.CustomResource):
             content_type="application/vnd.ms-azure-apim.xsd+xml",
             value=std.file(input="api_management_api_schema.xml").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

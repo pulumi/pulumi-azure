@@ -249,7 +249,6 @@ class VolumeQuotaRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -330,7 +329,6 @@ class VolumeQuotaRule(pulumi.CustomResource):
             quota_size_in_kib=1024,
             quota_type="DefaultGroupQuota")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -364,7 +362,6 @@ class VolumeQuotaRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -445,7 +442,6 @@ class VolumeQuotaRule(pulumi.CustomResource):
             quota_size_in_kib=1024,
             quota_type="DefaultGroupQuota")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

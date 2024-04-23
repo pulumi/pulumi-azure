@@ -302,7 +302,6 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -334,7 +333,6 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
             display_name="example name",
             icon_url="https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -366,7 +364,6 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -398,7 +395,6 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
             display_name="example name",
             icon_url="https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

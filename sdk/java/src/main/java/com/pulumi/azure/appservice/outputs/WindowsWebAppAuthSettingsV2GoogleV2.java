@@ -13,54 +13,54 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsWebAppAuthSettingsV2GoogleV2 {
     /**
-     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-     * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * @return Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
      * 
      */
     private @Nullable List<String> allowedAudiences;
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The OpenID Connect Client ID for the Google web application.
      * 
      */
     private String clientId;
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The app setting name that contains the `client_secret` value used for Google Login.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     private String clientSecretSettingName;
     /**
-     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * @return The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
      * 
      */
     private @Nullable List<String> loginScopes;
 
     private WindowsWebAppAuthSettingsV2GoogleV2() {}
     /**
-     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-     * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * @return Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
      * 
      */
     public List<String> allowedAudiences() {
         return this.allowedAudiences == null ? List.of() : this.allowedAudiences;
     }
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The OpenID Connect Client ID for the Google web application.
      * 
      */
     public String clientId() {
         return this.clientId;
     }
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The app setting name that contains the `client_secret` value used for Google Login.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public String clientSecretSettingName() {
         return this.clientSecretSettingName;
     }
     /**
-     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * @return The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
      * 
      */
     public List<String> loginScopes() {

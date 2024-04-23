@@ -238,7 +238,6 @@ class FallbackRoute(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -284,7 +283,6 @@ class FallbackRoute(pulumi.CustomResource):
             endpoint_names=example_endpoint_storage_container.name,
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -320,7 +318,6 @@ class FallbackRoute(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -366,7 +363,6 @@ class FallbackRoute(pulumi.CustomResource):
             endpoint_names=example_endpoint_storage_container.name,
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

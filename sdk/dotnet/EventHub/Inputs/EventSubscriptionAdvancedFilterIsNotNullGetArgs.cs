@@ -12,9 +12,6 @@ namespace Pulumi.Azure.EventHub.Inputs
 
     public sealed class EventSubscriptionAdvancedFilterIsNotNullGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

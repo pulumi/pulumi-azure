@@ -19,16 +19,12 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     /**
      * One or more `certificate` blocks as defined below.
      * 
-     * &gt; **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windows_configuration` or a `linux_configuration`.
-     * 
      */
     @Import(name="certificates", required=true)
     private Output<List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs>> certificates;
 
     /**
      * @return One or more `certificate` blocks as defined below.
-     * 
-     * &gt; **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windows_configuration` or a `linux_configuration`.
      * 
      */
     public Output<List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs>> certificates() {
@@ -78,8 +74,6 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         /**
          * @param certificates One or more `certificate` blocks as defined below.
          * 
-         * &gt; **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windows_configuration` or a `linux_configuration`.
-         * 
          * @return builder
          * 
          */
@@ -91,8 +85,6 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         /**
          * @param certificates One or more `certificate` blocks as defined below.
          * 
-         * &gt; **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windows_configuration` or a `linux_configuration`.
-         * 
          * @return builder
          * 
          */
@@ -102,8 +94,6 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
 
         /**
          * @param certificates One or more `certificate` blocks as defined below.
-         * 
-         * &gt; **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windows_configuration` or a `linux_configuration`.
          * 
          * @return builder
          * 

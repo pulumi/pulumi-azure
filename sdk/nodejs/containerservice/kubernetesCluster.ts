@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * This example provisions a basic Managed Kubernetes Cluster.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -42,7 +41,6 @@ import * as utilities from "../utilities";
  * export const clientCertificate = exampleKubernetesCluster.kubeConfigs.apply(kubeConfigs => kubeConfigs[0].clientCertificate);
  * export const kubeConfig = exampleKubernetesCluster.kubeConfigRaw;
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -319,7 +317,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
      *
      * > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
      *
-     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as azure from "@pulumi/azure";
@@ -351,7 +348,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
      *     privateDnsZoneId: exampleZone.id,
      * });
      * ```
-     * <!--End PulumiCodeChooser -->
      */
     public readonly privateClusterPublicFqdnEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -841,7 +837,6 @@ export interface KubernetesClusterState {
      *
      * > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
      *
-     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as azure from "@pulumi/azure";
@@ -873,7 +868,6 @@ export interface KubernetesClusterState {
      *     privateDnsZoneId: exampleZone.id,
      * });
      * ```
-     * <!--End PulumiCodeChooser -->
      */
     privateClusterPublicFqdnEnabled?: pulumi.Input<boolean>;
     /**
@@ -1159,7 +1153,6 @@ export interface KubernetesClusterArgs {
      *
      * > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
      *
-     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as azure from "@pulumi/azure";
@@ -1191,7 +1184,6 @@ export interface KubernetesClusterArgs {
      *     privateDnsZoneId: exampleZone.id,
      * });
      * ```
-     * <!--End PulumiCodeChooser -->
      */
     privateClusterPublicFqdnEnabled?: pulumi.Input<boolean>;
     /**

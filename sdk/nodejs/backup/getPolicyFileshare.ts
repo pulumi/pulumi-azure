@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "resource_group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPolicyFileshare(args: GetPolicyFileshareArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyFileshareResult> {
 
@@ -67,7 +65,6 @@ export interface GetPolicyFileshareResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -78,7 +75,6 @@ export interface GetPolicyFileshareResult {
  *     resourceGroupName: "resource_group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPolicyFileshareOutput(args: GetPolicyFileshareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyFileshareResult> {
     return pulumi.output(args).apply((a: any) => getPolicyFileshare(a, opts))

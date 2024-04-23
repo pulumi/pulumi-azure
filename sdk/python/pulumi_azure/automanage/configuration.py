@@ -43,7 +43,6 @@ class ConfigurationArgs:
         :param pulumi.Input[bool] log_analytics_enabled: Whether log analytics are enabled. Defaults to `false`.
         :param pulumi.Input[str] name: The name which should be used for this Automanage Configuration. Changing this forces a new Automanage Configuration to be created.
         :param pulumi.Input[bool] status_change_alert_enabled: Whether the status change alert is enabled. Defaults to `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if antimalware is not None:
@@ -218,9 +217,6 @@ class ConfigurationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -258,7 +254,6 @@ class _ConfigurationState:
         :param pulumi.Input[str] name: The name which should be used for this Automanage Configuration. Changing this forces a new Automanage Configuration to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
         :param pulumi.Input[bool] status_change_alert_enabled: Whether the status change alert is enabled. Defaults to `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if antimalware is not None:
             pulumi.set(__self__, "antimalware", antimalware)
@@ -434,9 +429,6 @@ class _ConfigurationState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -468,7 +460,6 @@ class Configuration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -536,7 +527,6 @@ class Configuration(pulumi.CustomResource):
                 "env": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -560,7 +550,6 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Automanage Configuration. Changing this forces a new Automanage Configuration to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
         :param pulumi.Input[bool] status_change_alert_enabled: Whether the status change alert is enabled. Defaults to `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
@@ -573,7 +562,6 @@ class Configuration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -641,7 +629,6 @@ class Configuration(pulumi.CustomResource):
                 "env": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -745,7 +732,6 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Automanage Configuration. Changing this forces a new Automanage Configuration to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
         :param pulumi.Input[bool] status_change_alert_enabled: Whether the status change alert is enabled. Defaults to `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -865,8 +851,5 @@ class Configuration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 

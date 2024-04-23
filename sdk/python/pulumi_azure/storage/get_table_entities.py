@@ -103,7 +103,6 @@ def get_table_entities(filter: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -112,7 +111,6 @@ def get_table_entities(filter: Optional[str] = None,
         storage_account_name="example-storage-account-name",
         filter="PartitionKey eq 'example'")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str filter: The filter used to retrieve the entities.
@@ -148,7 +146,6 @@ def get_table_entities_output(filter: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -157,7 +154,6 @@ def get_table_entities_output(filter: Optional[pulumi.Input[str]] = None,
         storage_account_name="example-storage-account-name",
         filter="PartitionKey eq 'example'")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str filter: The filter used to retrieve the entities.

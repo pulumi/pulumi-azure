@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### Monitor creation with linking to Datadog organization
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -40,7 +39,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Role Assignment
  *
@@ -48,7 +46,6 @@ import * as utilities from "../utilities";
  *
  * ### Role assignment on the monitor created
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -63,7 +60,6 @@ import * as utilities from "../utilities";
  *     principalId: exampleAzurermDatadogMonitor.identity[0].principalId,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

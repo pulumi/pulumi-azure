@@ -13,9 +13,6 @@ namespace Pulumi.Azure.EventGrid.Outputs
     [OutputType]
     public sealed class SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined
     {
-        /// <summary>
-        /// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        /// </summary>
         public readonly string Key;
 
         [OutputConstructor]

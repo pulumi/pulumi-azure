@@ -233,7 +233,6 @@ class VirtualMachineManagerAvailabilitySet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -256,7 +255,6 @@ class VirtualMachineManagerAvailabilitySet(pulumi.CustomResource):
             custom_location_id=example_virtual_machine_manager_server.custom_location_id,
             system_center_virtual_machine_manager_server_id=example_virtual_machine_manager_server.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -286,7 +284,6 @@ class VirtualMachineManagerAvailabilitySet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -309,7 +306,6 @@ class VirtualMachineManagerAvailabilitySet(pulumi.CustomResource):
             custom_location_id=example_virtual_machine_manager_server.custom_location_id,
             system_center_virtual_machine_manager_server_id=example_virtual_machine_manager_server.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

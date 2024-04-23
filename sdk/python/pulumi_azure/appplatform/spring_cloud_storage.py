@@ -167,7 +167,6 @@ class SpringCloudStorage(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -191,7 +190,6 @@ class SpringCloudStorage(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_key=example_account.primary_access_key)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -219,7 +217,6 @@ class SpringCloudStorage(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -243,7 +240,6 @@ class SpringCloudStorage(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_key=example_account.primary_access_key)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

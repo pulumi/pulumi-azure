@@ -18,7 +18,6 @@ import (
 //
 // ### With App Service Plan)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,13 +83,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### For Container Mode)
 //
 // > **Note:** You must set `appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linuxFxVersion`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -161,7 +158,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

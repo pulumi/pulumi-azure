@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupAAAARecord(ctx *pulumi.Context, args *LookupAAAARecordArgs, opts ...pulumi.InvokeOption) (*LookupAAAARecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAAAARecordResult

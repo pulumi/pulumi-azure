@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -31,7 +30,6 @@ import * as utilities from "../utilities";
  *     alertRuleTemplateGuid: "737a2ce1-70a3-4968-9e90-3e6aca836abf",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

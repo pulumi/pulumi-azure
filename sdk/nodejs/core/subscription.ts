@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ### Creating A New Alias And Subscription For An Enrollment Account
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,11 +22,9 @@ import * as utilities from "../utilities";
  *     billingScopeId: example.then(example => example.id),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Creating A New Alias And Subscription For A Microsoft Customer Account
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -42,11 +39,9 @@ import * as utilities from "../utilities";
  *     billingScopeId: example.then(example => example.id),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Creating A New Alias And Subscription For A Microsoft Partner Account
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -60,11 +55,9 @@ import * as utilities from "../utilities";
  *     billingScopeId: example.then(example => example.id),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Adding An Alias To An Existing Subscription
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -75,7 +68,6 @@ import * as utilities from "../utilities";
  *     subscriptionId: "12345678-12234-5678-9012-123456789012",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

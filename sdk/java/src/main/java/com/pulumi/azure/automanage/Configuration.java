@@ -305,17 +305,9 @@ public class Configuration extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> statusChangeAlertEnabled() {
         return Codegen.optional(this.statusChangeAlertEnabled);
     }
-    /**
-     * A mapping of tags to assign to the resource.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags to assign to the resource.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

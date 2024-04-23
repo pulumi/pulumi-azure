@@ -279,7 +279,6 @@ class ProtectedVM(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -311,7 +310,6 @@ class ProtectedVM(pulumi.CustomResource):
             source_vm_id=example.id,
             backup_policy_id=example_policy_vm.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -347,7 +345,6 @@ class ProtectedVM(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -379,7 +376,6 @@ class ProtectedVM(pulumi.CustomResource):
             source_vm_id=example.id,
             backup_policy_id=example_policy_vm.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

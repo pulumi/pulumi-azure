@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResourceGroupPolicyAssignmentResourceSelectorSelector {
-    /**
-     * @return Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
-     * 
-     */
     private @Nullable List<String> ins;
-    /**
-     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-     * 
-     */
     private String kind;
-    /**
-     * @return Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-     * 
-     */
     private @Nullable List<String> notIns;
 
     private ResourceGroupPolicyAssignmentResourceSelectorSelector() {}
-    /**
-     * @return Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
-     * 
-     */
     public List<String> ins() {
         return this.ins == null ? List.of() : this.ins;
     }
-    /**
-     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-     * 
-     */
     public String kind() {
         return this.kind;
     }
-    /**
-     * @return Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-     * 
-     */
     public List<String> notIns() {
         return this.notIns == null ? List.of() : this.notIns;
     }

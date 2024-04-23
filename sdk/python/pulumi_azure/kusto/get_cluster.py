@@ -125,7 +125,6 @@ def get_cluster(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -133,7 +132,6 @@ def get_cluster(name: Optional[str] = None,
     example = azure.kusto.get_cluster(name="kustocluster",
         resource_group_name="test_resource_group")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Kusto Cluster.
@@ -165,7 +163,6 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -173,7 +170,6 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.kusto.get_cluster(name="kustocluster",
         resource_group_name="test_resource_group")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Kusto Cluster.

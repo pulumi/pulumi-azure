@@ -169,7 +169,6 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -185,7 +184,6 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
                 "Hello": "World",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -213,7 +211,6 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -229,7 +226,6 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
                 "Hello": "World",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

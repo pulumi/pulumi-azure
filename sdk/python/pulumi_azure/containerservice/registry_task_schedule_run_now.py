@@ -70,7 +70,6 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -97,7 +96,6 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
             ))
         example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,7 +112,6 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -141,7 +138,6 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
             ))
         example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param RegistryTaskScheduleRunNowArgs args: The arguments to use to populate this resource's properties.

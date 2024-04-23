@@ -269,7 +269,6 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -328,7 +327,6 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
                 webhook_url="https://sample-webhook-url.example.com",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -363,7 +361,6 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -422,7 +419,6 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
                 webhook_url="https://sample-webhook-url.example.com",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

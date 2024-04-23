@@ -12,18 +12,11 @@ namespace Pulumi.Azure.Network.Inputs
 
     public sealed class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description which should be used for this rule.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("destinationAddresses")]
         private InputList<string>? _destinationAddresses;
-
-        /// <summary>
-        /// Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
-        /// </summary>
         public InputList<string> DestinationAddresses
         {
             get => _destinationAddresses ?? (_destinationAddresses = new InputList<string>());
@@ -32,10 +25,6 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("destinationFqdns")]
         private InputList<string>? _destinationFqdns;
-
-        /// <summary>
-        /// Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
-        /// </summary>
         public InputList<string> DestinationFqdns
         {
             get => _destinationFqdns ?? (_destinationFqdns = new InputList<string>());
@@ -44,10 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("destinationIpGroups")]
         private InputList<string>? _destinationIpGroups;
-
-        /// <summary>
-        /// Specifies a list of destination IP groups.
-        /// </summary>
         public InputList<string> DestinationIpGroups
         {
             get => _destinationIpGroups ?? (_destinationIpGroups = new InputList<string>());
@@ -56,10 +41,6 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("destinationPorts", required: true)]
         private InputList<string>? _destinationPorts;
-
-        /// <summary>
-        /// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-        /// </summary>
         public InputList<string> DestinationPorts
         {
             get => _destinationPorts ?? (_destinationPorts = new InputList<string>());
@@ -74,10 +55,6 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("protocols", required: true)]
         private InputList<string>? _protocols;
-
-        /// <summary>
-        /// One or more `protocols` blocks as defined below.
-        /// </summary>
         public InputList<string> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<string>());
@@ -86,10 +63,6 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("sourceAddresses")]
         private InputList<string>? _sourceAddresses;
-
-        /// <summary>
-        /// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-        /// </summary>
         public InputList<string> SourceAddresses
         {
             get => _sourceAddresses ?? (_sourceAddresses = new InputList<string>());
@@ -98,10 +71,6 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("sourceIpGroups")]
         private InputList<string>? _sourceIpGroups;
-
-        /// <summary>
-        /// Specifies a list of source IP groups.
-        /// </summary>
         public InputList<string> SourceIpGroups
         {
             get => _sourceIpGroups ?? (_sourceIpGroups = new InputList<string>());

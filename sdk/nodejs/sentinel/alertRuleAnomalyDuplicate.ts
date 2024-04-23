@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -46,7 +45,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -97,7 +95,7 @@ export class AlertRuleAnomalyDuplicate extends pulumi.CustomResource {
      */
     public readonly builtInRuleId!: pulumi.Output<string>;
     /**
-     * The description of the multi select observation.
+     * The description of the Anomaly Alert Rule.
      */
     public /*out*/ readonly description!: pulumi.Output<string>;
     /**
@@ -128,9 +126,6 @@ export class AlertRuleAnomalyDuplicate extends pulumi.CustomResource {
      * A list of `multiSelectObservation` blocks as defined below.
      */
     public readonly multiSelectObservations!: pulumi.Output<outputs.sentinel.AlertRuleAnomalyDuplicateMultiSelectObservation[]>;
-    /**
-     * The name of the multi select observation.
-     */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * A list of `prioritizedExcludeObservation` blocks as defined below.
@@ -254,7 +249,7 @@ export interface AlertRuleAnomalyDuplicateState {
      */
     builtInRuleId?: pulumi.Input<string>;
     /**
-     * The description of the multi select observation.
+     * The description of the Anomaly Alert Rule.
      */
     description?: pulumi.Input<string>;
     /**
@@ -285,9 +280,6 @@ export interface AlertRuleAnomalyDuplicateState {
      * A list of `multiSelectObservation` blocks as defined below.
      */
     multiSelectObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateMultiSelectObservation>[]>;
-    /**
-     * The name of the multi select observation.
-     */
     name?: pulumi.Input<string>;
     /**
      * A list of `prioritizedExcludeObservation` blocks as defined below.

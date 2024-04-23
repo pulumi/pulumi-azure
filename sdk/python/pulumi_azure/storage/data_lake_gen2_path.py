@@ -269,7 +269,6 @@ class DataLakeGen2Path(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -294,7 +293,6 @@ class DataLakeGen2Path(pulumi.CustomResource):
             storage_account_id=example_account.id,
             resource="directory")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -327,7 +325,6 @@ class DataLakeGen2Path(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -352,7 +349,6 @@ class DataLakeGen2Path(pulumi.CustomResource):
             storage_account_id=example_account.id,
             resource="directory")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

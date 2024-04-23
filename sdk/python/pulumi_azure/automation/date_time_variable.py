@@ -234,7 +234,6 @@ class DateTimeVariable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -253,7 +252,6 @@ class DateTimeVariable(pulumi.CustomResource):
             automation_account_name=example_account.name,
             value="2019-04-24T21:40:54.074Z")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -283,7 +281,6 @@ class DateTimeVariable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -302,7 +299,6 @@ class DateTimeVariable(pulumi.CustomResource):
             automation_account_name=example_account.name,
             value="2019-04-24T21:40:54.074Z")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

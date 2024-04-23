@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  *     mobileNetworkId: example.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkSimGroup(args: GetNetworkSimGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSimGroupResult> {
 
@@ -82,7 +80,6 @@ export interface GetNetworkSimGroupResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -96,7 +93,6 @@ export interface GetNetworkSimGroupResult {
  *     mobileNetworkId: example.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkSimGroupOutput(args: GetNetworkSimGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSimGroupResult> {
     return pulumi.output(args).apply((a: any) => getNetworkSimGroup(a, opts))

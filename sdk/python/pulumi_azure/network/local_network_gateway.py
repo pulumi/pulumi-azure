@@ -311,7 +311,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -326,7 +325,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
             gateway_address="12.13.14.15",
             address_spaces=["10.0.0.0/16"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -360,7 +358,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -375,7 +372,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
             gateway_address="12.13.14.15",
             address_spaces=["10.0.0.0/16"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

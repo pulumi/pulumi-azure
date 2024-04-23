@@ -187,14 +187,14 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+     * A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
      * 
      */
     @Import(name="frontendEndpointsMap")
     private @Nullable Output<Map<String,String>> frontendEndpointsMap;
 
     /**
-     * @return The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+     * @return A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
      * 
      */
     public Optional<Output<Map<String,String>>> frontendEndpointsMap() {
@@ -628,7 +628,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendEndpointsMap The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+         * @param frontendEndpointsMap A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
          * 
          * @return builder
          * 
@@ -639,7 +639,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendEndpointsMap The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+         * @param frontendEndpointsMap A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
          * 
          * @return builder
          * 

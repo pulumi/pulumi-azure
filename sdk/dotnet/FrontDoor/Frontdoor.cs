@@ -24,7 +24,6 @@ namespace Pulumi.Azure.FrontDoor
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -113,7 +112,6 @@ namespace Pulumi.Azure.FrontDoor
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -192,7 +190,7 @@ namespace Pulumi.Azure.FrontDoor
         public Output<ImmutableArray<Outputs.FrontdoorFrontendEndpoint>> FrontendEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+        /// A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
         /// </summary>
         [Output("frontendEndpointsMap")]
         public Output<ImmutableDictionary<string, string>> FrontendEndpointsMap { get; private set; } = null!;
@@ -525,7 +523,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputMap<string>? _frontendEndpointsMap;
 
         /// <summary>
-        /// The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+        /// A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
         /// </summary>
         public InputMap<string> FrontendEndpointsMap
         {

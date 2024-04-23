@@ -69,14 +69,14 @@ public final class AlertRuleAnomalyDuplicateState extends com.pulumi.resources.R
     }
 
     /**
-     * The description of the multi select observation.
+     * The description of the Anomaly Alert Rule.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the multi select observation.
+     * @return The description of the Anomaly Alert Rule.
      * 
      */
     public Optional<Output<String>> description() {
@@ -188,17 +188,9 @@ public final class AlertRuleAnomalyDuplicateState extends com.pulumi.resources.R
         return Optional.ofNullable(this.multiSelectObservations);
     }
 
-    /**
-     * The name of the multi select observation.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the multi select observation.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -418,7 +410,7 @@ public final class AlertRuleAnomalyDuplicateState extends com.pulumi.resources.R
         }
 
         /**
-         * @param description The description of the multi select observation.
+         * @param description The description of the Anomaly Alert Rule.
          * 
          * @return builder
          * 
@@ -429,7 +421,7 @@ public final class AlertRuleAnomalyDuplicateState extends com.pulumi.resources.R
         }
 
         /**
-         * @param description The description of the multi select observation.
+         * @param description The description of the Anomaly Alert Rule.
          * 
          * @return builder
          * 
@@ -595,23 +587,11 @@ public final class AlertRuleAnomalyDuplicateState extends com.pulumi.resources.R
             return multiSelectObservations(List.of(multiSelectObservations));
         }
 
-        /**
-         * @param name The name of the multi select observation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the multi select observation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

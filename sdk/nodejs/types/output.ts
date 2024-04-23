@@ -949,7 +949,7 @@ export namespace apimanagement {
          */
         issuerCertificateThumbprint: string;
         /**
-         * The name of the API Management backend. Changing this forces a new resource to be created.
+         * The common name of the certificate.
          */
         name: string;
     }
@@ -1706,11 +1706,13 @@ export namespace apimanagement {
 
     export interface ServiceHostnameConfigurationDeveloperPortal {
         /**
-         * One or more `certificate` blocks (up to 10) as defined below.
+         * The Base64 Encoded Certificate.
          */
         certificate?: string;
         /**
-         * The password for the certificate.
+         * The password associated with the certificate provided above.
+         *
+         * > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
          */
         certificatePassword?: string;
         /**
@@ -1810,11 +1812,13 @@ export namespace apimanagement {
 
     export interface ServiceHostnameConfigurationPortal {
         /**
-         * One or more `certificate` blocks (up to 10) as defined below.
+         * The Base64 Encoded Certificate.
          */
         certificate?: string;
         /**
-         * The password for the certificate.
+         * The password associated with the certificate provided above.
+         *
+         * > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
          */
         certificatePassword?: string;
         /**
@@ -1916,11 +1920,13 @@ export namespace apimanagement {
 
     export interface ServiceHostnameConfigurationScm {
         /**
-         * One or more `certificate` blocks (up to 10) as defined below.
+         * The Base64 Encoded Certificate.
          */
         certificate?: string;
         /**
-         * The password for the certificate.
+         * The password associated with the certificate provided above.
+         *
+         * > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
          */
         certificatePassword?: string;
         /**
@@ -9776,9 +9782,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -9808,7 +9814,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.LinuxFunctionAppAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
          */
         runtimeVersion: string;
         /**
@@ -10046,7 +10052,7 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         allowedAudiences?: string[];
         /**
@@ -10066,7 +10072,9 @@ export namespace appservice {
          */
         clientSecretCertificateThumbprint?: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the client secret of the Client.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -10093,22 +10101,26 @@ export namespace appservice {
 
     export interface LinuxFunctionAppAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Apple web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         loginScopes: string[];
     }
 
     export interface LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with Azure Static Web App Authentication.
          */
         clientId: string;
     }
@@ -10127,11 +10139,11 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
@@ -10139,7 +10151,9 @@ export namespace appservice {
          */
         issuerEndpoint: string;
         /**
-         * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+         * The name of the Custom OIDC Authentication Provider.
+         *
+         * > **NOTE:** An `appSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
          */
         name: string;
         /**
@@ -10176,43 +10190,45 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of scopes that should be requested as part of Facebook Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface LinuxFunctionAppAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the GitHub app used for login..
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface LinuxFunctionAppAuthSettingsV2GoogleV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Google web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
          */
         loginScopes?: string[];
     }
@@ -10268,17 +10284,17 @@ export namespace appservice {
 
     export interface LinuxFunctionAppAuthSettingsV2MicrosoftV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -10768,9 +10784,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -10800,7 +10816,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use.
          */
         runtimeVersion: string;
         /**
@@ -11038,7 +11054,7 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         allowedAudiences?: string[];
         /**
@@ -11058,7 +11074,9 @@ export namespace appservice {
          */
         clientSecretCertificateThumbprint?: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the client secret of the Client.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -11085,22 +11103,26 @@ export namespace appservice {
 
     export interface LinuxFunctionAppSlotAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Apple web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         loginScopes: string[];
     }
 
     export interface LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with Azure Static Web App Authentication.
          */
         clientId: string;
     }
@@ -11119,11 +11141,11 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
@@ -11131,7 +11153,9 @@ export namespace appservice {
          */
         issuerEndpoint: string;
         /**
-         * Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
+         * The name of the Custom OIDC Authentication Provider.
+         *
+         * > **NOTE:** An `appSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
          */
         name: string;
         /**
@@ -11168,43 +11192,45 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of scopes that should be requested as part of Facebook Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface LinuxFunctionAppSlotAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the GitHub app used for login..
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface LinuxFunctionAppSlotAuthSettingsV2GoogleV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Google web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
          */
         loginScopes?: string[];
     }
@@ -11260,17 +11286,17 @@ export namespace appservice {
 
     export interface LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -11825,9 +11851,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -11857,7 +11883,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.LinuxWebAppAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
          */
         runtimeVersion: string;
         /**
@@ -12095,7 +12121,7 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         allowedAudiences?: string[];
         /**
@@ -12115,7 +12141,9 @@ export namespace appservice {
          */
         clientSecretCertificateThumbprint?: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the client secret of the Client.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -12142,22 +12170,26 @@ export namespace appservice {
 
     export interface LinuxWebAppAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Apple web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         loginScopes: string[];
     }
 
     export interface LinuxWebAppAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with Azure Static Web App Authentication.
          */
         clientId: string;
     }
@@ -12176,11 +12208,11 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
@@ -12189,6 +12221,8 @@ export namespace appservice {
         issuerEndpoint: string;
         /**
          * The name of the Custom OIDC Authentication Provider.
+         *
+         * > **NOTE:** An `appSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
          */
         name: string;
         /**
@@ -12225,43 +12259,45 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of scopes that should be requested as part of Facebook Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface LinuxWebAppAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the GitHub app used for login..
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface LinuxWebAppAuthSettingsV2GoogleV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Google web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
          */
         loginScopes?: string[];
     }
@@ -12317,17 +12353,17 @@ export namespace appservice {
 
     export interface LinuxWebAppAuthSettingsV2MicrosoftV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -12957,9 +12993,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -12989,7 +13025,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.LinuxWebAppSlotAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
          */
         runtimeVersion: string;
         /**
@@ -13227,7 +13263,7 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         allowedAudiences?: string[];
         /**
@@ -13247,7 +13283,9 @@ export namespace appservice {
          */
         clientSecretCertificateThumbprint?: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the client secret of the Client.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -13274,22 +13312,26 @@ export namespace appservice {
 
     export interface LinuxWebAppSlotAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Apple web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         loginScopes: string[];
     }
 
     export interface LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with Azure Static Web App Authentication.
          */
         clientId: string;
     }
@@ -13308,11 +13350,11 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
@@ -13321,6 +13363,8 @@ export namespace appservice {
         issuerEndpoint: string;
         /**
          * The name of the Custom OIDC Authentication Provider.
+         *
+         * > **NOTE:** An `appSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
          */
         name: string;
         /**
@@ -13357,43 +13401,45 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of scopes that should be requested as part of Facebook Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface LinuxWebAppSlotAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the GitHub app used for login..
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface LinuxWebAppSlotAuthSettingsV2GoogleV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Google web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
          */
         loginScopes?: string[];
     }
@@ -13449,17 +13495,17 @@ export namespace appservice {
 
     export interface LinuxWebAppSlotAuthSettingsV2MicrosoftV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -14850,9 +14896,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -14882,7 +14928,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.WindowsFunctionAppAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
          */
         runtimeVersion: string;
         /**
@@ -15120,7 +15166,7 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         allowedAudiences?: string[];
         /**
@@ -15140,7 +15186,9 @@ export namespace appservice {
          */
         clientSecretCertificateThumbprint?: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the client secret of the Client.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -15167,22 +15215,26 @@ export namespace appservice {
 
     export interface WindowsFunctionAppAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Apple web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         loginScopes: string[];
     }
 
     export interface WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with Azure Static Web App Authentication.
          */
         clientId: string;
     }
@@ -15201,11 +15253,11 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
@@ -15213,7 +15265,9 @@ export namespace appservice {
          */
         issuerEndpoint: string;
         /**
-         * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+         * The name of the Custom OIDC Authentication Provider.
+         *
+         * > **NOTE:** An `appSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
          */
         name: string;
         /**
@@ -15250,43 +15304,45 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of scopes that should be requested as part of Facebook Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface WindowsFunctionAppAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the GitHub app used for login..
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface WindowsFunctionAppAuthSettingsV2GoogleV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Google web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
          */
         loginScopes?: string[];
     }
@@ -15342,17 +15398,17 @@ export namespace appservice {
 
     export interface WindowsFunctionAppAuthSettingsV2MicrosoftV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -15801,9 +15857,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -15833,7 +15889,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use.
          */
         runtimeVersion: string;
         /**
@@ -16071,7 +16127,7 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         allowedAudiences?: string[];
         /**
@@ -16091,7 +16147,9 @@ export namespace appservice {
          */
         clientSecretCertificateThumbprint?: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the client secret of the Client.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -16118,22 +16176,26 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSlotAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Apple web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         loginScopes: string[];
     }
 
     export interface WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with Azure Static Web App Authentication.
          */
         clientId: string;
     }
@@ -16152,11 +16214,11 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
@@ -16164,7 +16226,9 @@ export namespace appservice {
          */
         issuerEndpoint: string;
         /**
-         * Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
+         * The name of the Custom OIDC Authentication Provider.
+         *
+         * > **NOTE:** An `appSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
          */
         name: string;
         /**
@@ -16201,43 +16265,45 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of scopes that should be requested as part of Facebook Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface WindowsFunctionAppSlotAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the GitHub app used for login..
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface WindowsFunctionAppSlotAuthSettingsV2GoogleV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Google web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
          */
         loginScopes?: string[];
     }
@@ -16293,17 +16359,17 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -16815,9 +16881,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -16847,7 +16913,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.WindowsWebAppAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
          */
         runtimeVersion: string;
         /**
@@ -17085,7 +17151,7 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         allowedAudiences?: string[];
         /**
@@ -17105,7 +17171,9 @@ export namespace appservice {
          */
         clientSecretCertificateThumbprint?: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the client secret of the Client.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -17132,22 +17200,26 @@ export namespace appservice {
 
     export interface WindowsWebAppAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Apple web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         loginScopes: string[];
     }
 
     export interface WindowsWebAppAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with Azure Static Web App Authentication.
          */
         clientId: string;
     }
@@ -17166,11 +17238,11 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
@@ -17178,7 +17250,9 @@ export namespace appservice {
          */
         issuerEndpoint: string;
         /**
-         * The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+         * The name of the Custom OIDC Authentication Provider.
+         *
+         * > **NOTE:** An `appSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
          */
         name: string;
         /**
@@ -17215,43 +17289,45 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of scopes that should be requested as part of Facebook Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface WindowsWebAppAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the GitHub app used for login..
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface WindowsWebAppAuthSettingsV2GoogleV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Google web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
          */
         loginScopes?: string[];
     }
@@ -17307,17 +17383,17 @@ export namespace appservice {
 
     export interface WindowsWebAppAuthSettingsV2MicrosoftV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -18047,9 +18123,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -18079,7 +18155,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.WindowsWebAppSlotAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App Slot.
          */
         runtimeVersion: string;
         /**
@@ -18317,7 +18393,7 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience, so should not be included.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         allowedAudiences?: string[];
         /**
@@ -18337,7 +18413,9 @@ export namespace appservice {
          */
         clientSecretCertificateThumbprint?: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the client secret of the Client.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -18364,22 +18442,26 @@ export namespace appservice {
 
     export interface WindowsWebAppSlotAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Apple web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          */
         loginScopes: string[];
     }
 
     export interface WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with Azure Static Web App Authentication.
          */
         clientId: string;
     }
@@ -18398,11 +18480,11 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
@@ -18411,6 +18493,8 @@ export namespace appservice {
         issuerEndpoint: string;
         /**
          * The name of the Custom OIDC Authentication Provider.
+         *
+         * > **NOTE:** An `appSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
          */
         name: string;
         /**
@@ -18447,43 +18531,45 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of scopes that should be requested as part of Facebook Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface WindowsWebAppSlotAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the GitHub app used for login..
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
          */
         loginScopes?: string[];
     }
 
     export interface WindowsWebAppSlotAuthSettingsV2GoogleV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience, so should not be included.
+         * Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OpenID Connect Client ID for the Google web application.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google Login.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
          */
         loginScopes?: string[];
     }
@@ -18539,17 +18625,17 @@ export namespace appservice {
 
     export interface WindowsWebAppSlotAuthSettingsV2MicrosoftV2 {
         /**
-         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         *
-         * > **Note:** The `clientId` value is always considered an allowed audience, so should not be included.
+         * Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         *
+         * !> **NOTE:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -20238,17 +20324,8 @@ export namespace automation {
     }
 
     export interface RunBookDraftContentLink {
-        /**
-         * A `hash` block as defined below.
-         */
         hash?: outputs.automation.RunBookDraftContentLinkHash;
-        /**
-         * The URI of the runbook content.
-         */
         uri: string;
-        /**
-         * Specifies the version of the content
-         */
         version?: string;
     }
 
@@ -20288,9 +20365,6 @@ export namespace automation {
 
     export interface RunBookJobSchedule {
         jobScheduleId: string;
-        /**
-         * A list of `parameters` block as defined below.
-         */
         parameters?: {[key: string]: string};
         runOn?: string;
         scheduleName: string;
@@ -21988,21 +22062,12 @@ export namespace batch {
     }
 
     export interface PoolStartTaskContainerRegistry {
-        /**
-         * The password to use for authentication against the CIFS file system.
-         */
         password?: string;
-        /**
-         * The container registry URL. Changing this forces a new resource to be created.
-         */
         registryServer: string;
         /**
-         * The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+         * The User Assigned Identity to use for Container Registry access.
          */
         userAssignedIdentityId?: string;
-        /**
-         * The user to use for authentication against the CIFS file system.
-         */
         userName?: string;
     }
 
@@ -25250,17 +25315,11 @@ export namespace compute {
          * @deprecated `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
          */
         configurationReferenceBlobUri?: string;
-        /**
-         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
-         */
         order?: number;
         /**
          * @deprecated `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
          */
         packageReferenceId: string;
-        /**
-         * Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-         */
         tag?: string;
     }
 
@@ -26060,8 +26119,6 @@ export namespace compute {
     export interface OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret {
         /**
          * One or more `certificate` blocks as defined below.
-         *
-         * > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windowsConfiguration` or a `linuxConfiguration`.
          */
         certificates: outputs.compute.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate[];
         /**
@@ -26150,8 +26207,6 @@ export namespace compute {
     export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret {
         /**
          * One or more `certificate` blocks as defined below.
-         *
-         * > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windowsConfiguration` or a `linuxConfiguration`.
          */
         certificates: outputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate[];
         /**
@@ -26407,7 +26462,6 @@ export namespace compute {
         /**
          * Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
          *
-         * <!--Start PulumiCodeChooser -->
          * ```typescript
          * import * as pulumi from "@pulumi/pulumi";
          * import * as azure from "@pulumi/azure";
@@ -26434,7 +26488,6 @@ export namespace compute {
          * });
          * export const principalId = example.identity.apply(identity => identity.principalId);
          * ```
-         * <!--End PulumiCodeChooser -->
          */
         identityIds?: string[];
         principalId: string;
@@ -27023,9 +27076,6 @@ export namespace compute {
          * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
          */
         computerName: string;
-        /**
-         * Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
-         */
         customData: string;
     }
 
@@ -27616,17 +27666,11 @@ export namespace compute {
          * @deprecated `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
          */
         configurationReferenceBlobUri?: string;
-        /**
-         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
-         */
         order?: number;
         /**
          * @deprecated `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
          */
         packageReferenceId: string;
-        /**
-         * Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-         */
         tag?: string;
     }
 
@@ -31339,7 +31383,6 @@ export namespace containerservice {
          *
          * > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
          *
-         * <!--Start PulumiCodeChooser -->
          * ```typescript
          * import * as pulumi from "@pulumi/pulumi";
          * import * as azure from "@pulumi/azure";
@@ -31352,24 +31395,21 @@ export namespace containerservice {
          *     },
          * }]});
          * ```
-         * <!--End PulumiCodeChooser -->
          */
         subnetName: string;
     }
 
     export interface KubernetesClusterAciConnectorLinuxConnectorIdentity {
         /**
-         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         * The Client ID of the user-defined Managed Identity used for Web App Routing.
          */
         clientId: string;
         /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         * The Object ID of the user-defined Managed Identity used for Web App Routing
          */
         objectId: string;
         /**
-         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-         *
-         * > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+         * The ID of the User Assigned Identity used for Web App Routing.
          */
         userAssignedIdentityId: string;
     }
@@ -31463,17 +31503,9 @@ export namespace containerservice {
     }
 
     export interface KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl {
-        /**
-         * A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-         */
         adminGroupObjectIds?: string[];
-        /**
-         * Is Role Based Access Control based on Azure AD enabled?
-         */
         azureRbacEnabled?: boolean;
         /**
-         * The Client ID of an Azure Active Directory Application.
-         *
          * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
          */
         clientAppId?: string;
@@ -31484,14 +31516,10 @@ export namespace containerservice {
          */
         managed?: boolean;
         /**
-         * The Server ID of an Azure Active Directory Application.
-         *
          * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
          */
         serverAppId?: string;
         /**
-         * The Server Secret of an Azure Active Directory Application.
-         *
          * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
          */
         serverAppSecret?: string;
@@ -31561,9 +31589,6 @@ export namespace containerservice {
          * A `linuxOsConfig` block as defined below. `temporaryNameForRotation` must be specified when changing this block.
          */
         linuxOsConfig?: outputs.containerservice.KubernetesClusterDefaultNodePoolLinuxOsConfig;
-        /**
-         * The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-         */
         maxCount?: number;
         /**
          * The maximum number of pods that can run on each agent. `temporaryNameForRotation` must be specified when changing this property.
@@ -31573,21 +31598,11 @@ export namespace containerservice {
          * A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
          */
         messageOfTheDay?: string;
-        /**
-         * The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-         */
         minCount?: number;
         /**
          * The name which should be used for the default Kubernetes Node Pool.
          */
         name: string;
-        /**
-         * The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
-         *
-         * > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-         *
-         * > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
-         */
         nodeCount: number;
         /**
          * A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
@@ -31981,7 +31996,7 @@ export namespace containerservice {
          */
         principalId: string;
         /**
-         * The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
@@ -32023,17 +32038,15 @@ export namespace containerservice {
 
     export interface KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity {
         /**
-         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         * The Client ID of the user-defined Managed Identity used for Web App Routing.
          */
         clientId: string;
         /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         * The Object ID of the user-defined Managed Identity used for Web App Routing
          */
         objectId: string;
         /**
-         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-         *
-         * > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+         * The ID of the User Assigned Identity used for Web App Routing.
          */
         userAssignedIdentityId: string;
     }
@@ -32068,17 +32081,15 @@ export namespace containerservice {
 
     export interface KubernetesClusterKeyVaultSecretsProviderSecretIdentity {
         /**
-         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         * The Client ID of the user-defined Managed Identity used for Web App Routing.
          */
         clientId: string;
         /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         * The Object ID of the user-defined Managed Identity used for Web App Routing
          */
         objectId: string;
         /**
-         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-         *
-         * > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+         * The ID of the User Assigned Identity used for Web App Routing.
          */
         userAssignedIdentityId: string;
     }
@@ -32148,8 +32159,6 @@ export namespace containerservice {
         objectId: string;
         /**
          * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-         *
-         * > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
          */
         userAssignedIdentityId: string;
     }
@@ -32727,17 +32736,15 @@ export namespace containerservice {
 
     export interface KubernetesClusterOmsAgentOmsAgentIdentity {
         /**
-         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         * The Client ID of the user-defined Managed Identity used for Web App Routing.
          */
         clientId: string;
         /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         * The Object ID of the user-defined Managed Identity used for Web App Routing
          */
         objectId: string;
         /**
-         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-         *
-         * > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+         * The ID of the User Assigned Identity used for Web App Routing.
          */
         userAssignedIdentityId: string;
     }
@@ -32810,17 +32817,15 @@ export namespace containerservice {
 
     export interface KubernetesClusterWebAppRoutingWebAppRoutingIdentity {
         /**
-         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         * The Client ID of the user-defined Managed Identity used for Web App Routing.
          */
         clientId: string;
         /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+         * The Object ID of the user-defined Managed Identity used for Web App Routing
          */
         objectId: string;
         /**
-         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-         *
-         * > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+         * The ID of the User Assigned Identity used for Web App Routing.
          */
         userAssignedIdentityId: string;
     }
@@ -32891,8 +32896,6 @@ export namespace containerservice {
         enabled?: boolean;
         /**
          * The client ID of the managed identity associated with the encryption key.
-         *
-         * > **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identityIds`
          */
         identityClientId: string;
         /**
@@ -32974,9 +32977,6 @@ export namespace containerservice {
     }
 
     export interface RegistryNetworkRuleSetVirtualNetwork {
-        /**
-         * The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-         */
         action: string;
         subnetId: string;
     }
@@ -33265,9 +33265,6 @@ export namespace containerservice {
     }
 
     export interface TokenPasswordPassword1 {
-        /**
-         * The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
-         */
         expiry?: string;
         /**
          * The value of the password (Sensitive).
@@ -33276,9 +33273,6 @@ export namespace containerservice {
     }
 
     export interface TokenPasswordPassword2 {
-        /**
-         * The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
-         */
         expiry?: string;
         /**
          * The value of the password (Sensitive).
@@ -33625,17 +33619,8 @@ export namespace core {
     }
 
     export interface ResourceGroupPolicyAssignmentOverrideSelector {
-        /**
-         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
-         */
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
         kind: string;
-        /**
-         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-         */
         notIns?: string[];
     }
 
@@ -33651,17 +33636,8 @@ export namespace core {
     }
 
     export interface ResourceGroupPolicyAssignmentResourceSelectorSelector {
-        /**
-         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
-         */
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
         kind: string;
-        /**
-         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-         */
         notIns?: string[];
     }
 
@@ -33709,17 +33685,8 @@ export namespace core {
     }
 
     export interface ResourcePolicyAssignmentOverrideSelector {
-        /**
-         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
-         */
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
         kind: string;
-        /**
-         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-         */
         notIns?: string[];
     }
 
@@ -33735,17 +33702,8 @@ export namespace core {
     }
 
     export interface ResourcePolicyAssignmentResourceSelectorSelector {
-        /**
-         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
-         */
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
         kind: string;
-        /**
-         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-         */
         notIns?: string[];
     }
 
@@ -33895,17 +33853,8 @@ export namespace core {
     }
 
     export interface SubscriptionPolicyAssignmentOverrideSelector {
-        /**
-         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
-         */
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
         kind: string;
-        /**
-         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-         */
         notIns?: string[];
     }
 
@@ -33921,17 +33870,8 @@ export namespace core {
     }
 
     export interface SubscriptionPolicyAssignmentResourceSelectorSelector {
-        /**
-         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
-         */
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
         kind: string;
-        /**
-         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-         */
         notIns?: string[];
     }
 
@@ -34032,7 +33972,7 @@ export namespace cosmosdb {
          */
         failoverPriority: number;
         /**
-         * The ID of the virtual network subnet.
+         * The CosmosDB Account ID.
          */
         id: string;
         /**
@@ -34397,13 +34337,11 @@ export namespace cosmosdb {
 
     export interface MongoCollectionSystemIndex {
         /**
-         * Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+         * The list of system keys which are not settable for each Cosmos DB Mongo Collection.
          */
         keys: string[];
         /**
-         * Is the index unique or not? Defaults to `false`.
-         *
-         * > **Note:** An index with an "_id" key must be specified.
+         * Identifies whether the table contains no duplicate values.
          */
         unique: boolean;
     }
@@ -35941,7 +35879,7 @@ export namespace datafactory {
          */
         principalId: string;
         /**
-         * Specifies the Tenant ID associated with the VSTS account.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
@@ -36466,21 +36404,9 @@ export namespace datafactory {
     }
 
     export interface IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword {
-        /**
-         * Specifies the name of an existing Key Vault Data Factory Linked Service.
-         */
         linkedServiceName: string;
-        /**
-         * A map of parameters to associate with the Key Vault Data Factory Linked Service.
-         */
         parameters?: {[key: string]: string};
-        /**
-         * Specifies the secret name in Azure Key Vault.
-         */
         secretName: string;
-        /**
-         * Specifies the secret version in Azure Key Vault.
-         */
         secretVersion?: string;
     }
 
@@ -36500,21 +36426,9 @@ export namespace datafactory {
     }
 
     export interface IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense {
-        /**
-         * Specifies the name of an existing Key Vault Data Factory Linked Service.
-         */
         linkedServiceName: string;
-        /**
-         * A map of parameters to associate with the Key Vault Data Factory Linked Service.
-         */
         parameters?: {[key: string]: string};
-        /**
-         * Specifies the secret name in Azure Key Vault.
-         */
         secretName: string;
-        /**
-         * Specifies the secret version in Azure Key Vault.
-         */
         secretVersion?: string;
     }
 
@@ -38237,237 +38151,95 @@ export namespace eventgrid {
     }
 
     export interface EventSubscriptionAdvancedFilterBoolEqual {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies a single value to compare to when using a single value operator.
-         *
-         * OR
-         */
         value: boolean;
     }
 
     export interface EventSubscriptionAdvancedFilterIsNotNull {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
     }
 
     export interface EventSubscriptionAdvancedFilterIsNullOrUndefined {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberGreaterThan {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies a single value to compare to when using a single value operator.
-         *
-         * OR
-         */
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies a single value to compare to when using a single value operator.
-         *
-         * OR
-         */
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberIn {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: number[];
     }
 
     export interface EventSubscriptionAdvancedFilterNumberInRange {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: number[][];
     }
 
     export interface EventSubscriptionAdvancedFilterNumberLessThan {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies a single value to compare to when using a single value operator.
-         *
-         * OR
-         */
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberLessThanOrEqual {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies a single value to compare to when using a single value operator.
-         *
-         * OR
-         */
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberNotIn {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: number[];
     }
 
     export interface EventSubscriptionAdvancedFilterNumberNotInRange {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: number[][];
     }
 
     export interface EventSubscriptionAdvancedFilterStringBeginsWith {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringContain {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringEndsWith {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringIn {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotBeginsWith {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotContain {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotEndsWith {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotIn {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
@@ -38783,237 +38555,95 @@ export namespace eventgrid {
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterBoolEqual {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies a single value to compare to when using a single value operator.
-         *
-         * OR
-         */
         value: boolean;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterIsNotNull {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies a single value to compare to when using a single value operator.
-         *
-         * OR
-         */
         value: number;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies a single value to compare to when using a single value operator.
-         *
-         * OR
-         */
         value: number;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberIn {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: number[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberInRange {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: number[][];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberLessThan {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies a single value to compare to when using a single value operator.
-         *
-         * OR
-         */
         value: number;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies a single value to compare to when using a single value operator.
-         *
-         * OR
-         */
         value: number;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberNotIn {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: number[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: number[][];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringContain {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringEndsWith {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringIn {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringNotContain {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringNotIn {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
@@ -39610,237 +39240,95 @@ export namespace eventhub {
     }
 
     export interface EventSubscriptionAdvancedFilterBoolEqual {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies a single value to compare to when using a single value operator.
-         *
-         * OR
-         */
         value: boolean;
     }
 
     export interface EventSubscriptionAdvancedFilterIsNotNull {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
     }
 
     export interface EventSubscriptionAdvancedFilterIsNullOrUndefined {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberGreaterThan {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies a single value to compare to when using a single value operator.
-         *
-         * OR
-         */
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies a single value to compare to when using a single value operator.
-         *
-         * OR
-         */
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberIn {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: number[];
     }
 
     export interface EventSubscriptionAdvancedFilterNumberInRange {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: number[][];
     }
 
     export interface EventSubscriptionAdvancedFilterNumberLessThan {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies a single value to compare to when using a single value operator.
-         *
-         * OR
-         */
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberLessThanOrEqual {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies a single value to compare to when using a single value operator.
-         *
-         * OR
-         */
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberNotIn {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: number[];
     }
 
     export interface EventSubscriptionAdvancedFilterNumberNotInRange {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: number[][];
     }
 
     export interface EventSubscriptionAdvancedFilterStringBeginsWith {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringContain {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringEndsWith {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringIn {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotBeginsWith {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotContain {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotEndsWith {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotIn {
-        /**
-         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         */
         key: string;
-        /**
-         * Specifies an array of values to compare to when using a multiple values operator.
-         *
-         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
-         */
         values: string[];
     }
 
@@ -40859,21 +40347,9 @@ export namespace hdinsight {
          * Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
          */
         name: string;
-        /**
-         * Indicates whether this IP configuration is primary.
-         */
         primary?: boolean;
-        /**
-         * The private IP address of the IP configuration.
-         */
         privateIpAddress?: string;
-        /**
-         * The private IP allocation method. The only possible value now is `Dynamic`.
-         */
         privateIpAllocationMethod?: string;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
         subnetId?: string;
     }
 
@@ -41336,21 +40812,9 @@ export namespace hdinsight {
          * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
          */
         name: string;
-        /**
-         * Indicates whether this IP configuration is primary.
-         */
         primary?: boolean;
-        /**
-         * The private ip address of the endpoint.
-         */
         privateIpAddress?: string;
-        /**
-         * The private IP allocation method. The only possible value now is `Dynamic`.
-         */
         privateIpAllocationMethod?: string;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
         subnetId?: string;
     }
 
@@ -41908,21 +41372,9 @@ export namespace hdinsight {
          * Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
          */
         name: string;
-        /**
-         * Indicates whether this IP configuration is primary.
-         */
         primary?: boolean;
-        /**
-         * The private IP address of the IP configuration.
-         */
         privateIpAddress?: string;
-        /**
-         * The private IP allocation method. The only possible value now is `Dynamic`.
-         */
         privateIpAllocationMethod?: string;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
         subnetId?: string;
     }
 
@@ -42396,21 +41848,9 @@ export namespace hdinsight {
          * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
          */
         name: string;
-        /**
-         * Indicates whether this IP configuration is primary.
-         */
         primary?: boolean;
-        /**
-         * The private IP address of the IP configuration.
-         */
         privateIpAddress?: string;
-        /**
-         * The private IP allocation method. The only possible value now is `Dynamic`.
-         */
         privateIpAllocationMethod?: string;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
         subnetId?: string;
     }
 
@@ -42907,21 +42347,9 @@ export namespace hdinsight {
          * Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
          */
         name: string;
-        /**
-         * Indicates whether this IP configuration is primary.
-         */
         primary?: boolean;
-        /**
-         * The private IP address of the IP configuration.
-         */
         privateIpAddress?: string;
-        /**
-         * The private IP allocation method. The only possible value now is `Dynamic`.
-         */
         privateIpAllocationMethod?: string;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
         subnetId?: string;
     }
 
@@ -46695,7 +46123,7 @@ export namespace machinelearning {
          */
         principalId: string;
         /**
-         * User’s AAD Tenant Id.
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
          */
         tenantId: string;
         /**
@@ -47178,17 +46606,8 @@ export namespace management {
     }
 
     export interface GroupPolicyAssignmentOverrideSelector {
-        /**
-         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
-         */
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
         kind: string;
-        /**
-         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-         */
         notIns?: string[];
     }
 
@@ -47204,17 +46623,8 @@ export namespace management {
     }
 
     export interface GroupPolicyAssignmentResourceSelectorSelector {
-        /**
-         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
-         */
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
         kind: string;
-        /**
-         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-         */
         notIns?: string[];
     }
 
@@ -47280,17 +46690,8 @@ export namespace media {
     }
 
     export interface AccountFilterTrackSelectionCondition {
-        /**
-         * The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
-         */
         operation: string;
-        /**
-         * The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
-         */
         property: string;
-        /**
-         * The track property value to match or not match.
-         */
         value: string;
     }
 
@@ -48417,7 +47818,7 @@ export namespace media {
          */
         keyFrameInterval?: string;
         /**
-         * Specifies the label for the codec. The label can be used to control muxing behavior.
+         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
          */
         label?: string;
         /**
@@ -48515,7 +47916,7 @@ export namespace media {
          */
         keyFrameInterval?: string;
         /**
-         * Specifies the label for the codec. The label can be used to control muxing behavior.
+         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
          */
         label?: string;
         /**
@@ -48601,7 +48002,7 @@ export namespace media {
          */
         keyFrameInterval?: string;
         /**
-         * Specifies the label for the codec. The label can be used to control muxing behavior.
+         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
          */
         label?: string;
         /**
@@ -53327,7 +52728,7 @@ export namespace mssql {
          */
         principalId: string;
         /**
-         * The tenant id of the Azure AD Administrator of this SQL Server.
+         * The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
          */
         tenantId: string;
         /**
@@ -53638,24 +53039,12 @@ export namespace mssql {
     }
 
     export interface VirtualMachineStorageConfigurationDataSettings {
-        /**
-         * The SQL Server default path
-         */
         defaultFilePath: string;
-        /**
-         * A list of Logical Unit Numbers for the disks.
-         */
         luns: number[];
     }
 
     export interface VirtualMachineStorageConfigurationLogSettings {
-        /**
-         * The SQL Server default path
-         */
         defaultFilePath: string;
-        /**
-         * A list of Logical Unit Numbers for the disks.
-         */
         luns: number[];
     }
 
@@ -54441,21 +53830,9 @@ export namespace netapp {
     }
 
     export interface VolumeGroupSapHanaVolumeDataProtectionReplication {
-        /**
-         * The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
-         */
         endpointType?: string;
-        /**
-         * Location of the primary volume.
-         */
         remoteVolumeLocation: string;
-        /**
-         * Resource ID of the primary volume.
-         */
         remoteVolumeResourceId: string;
-        /**
-         * eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
-         */
         replicationFrequency: string;
     }
 
@@ -54571,7 +53948,7 @@ export namespace network {
          */
         id: string;
         /**
-         * The name of the Backend HTTP Settings Collection.
+         * The name of the Authentication Certificate.
          */
         name: string;
         /**
@@ -55191,9 +54568,6 @@ export namespace network {
     }
 
     export interface ApplicationGatewaySslPolicy {
-        /**
-         * A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
-         */
         cipherSuites?: string[];
         /**
          * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
@@ -55201,13 +54575,7 @@ export namespace network {
          * > **NOTE:** `disabledProtocols` cannot be set when `policyName` or `policyType` are set.
          */
         disabledProtocols?: string[];
-        /**
-         * The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
-         */
         minProtocolVersion?: string;
-        /**
-         * The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
-         */
         policyName?: string;
         /**
          * The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
@@ -55245,9 +54613,6 @@ export namespace network {
     }
 
     export interface ApplicationGatewaySslProfileSslPolicy {
-        /**
-         * A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
-         */
         cipherSuites?: string[];
         /**
          * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
@@ -55255,13 +54620,7 @@ export namespace network {
          * > **NOTE:** `disabledProtocols` cannot be set when `policyName` or `policyType` are set.
          */
         disabledProtocols?: string[];
-        /**
-         * The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
-         */
         minProtocolVersion?: string;
-        /**
-         * The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
-         */
         policyName?: string;
         /**
          * The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
@@ -55589,9 +54948,6 @@ export namespace network {
     }
 
     export interface ExpressRoutePortLink1 {
-        /**
-         * Whether enable administration state on the Express Route Port Link? Defaults to `false`.
-         */
         adminEnabled?: boolean;
         /**
          * The connector type of the Express Route Port Link.
@@ -55605,23 +54961,9 @@ export namespace network {
          * The interface name of the Azure router associated with the Express Route Port Link.
          */
         interfaceName: string;
-        /**
-         * The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-         */
         macsecCakKeyvaultSecretId?: string;
-        /**
-         * The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
-         */
         macsecCipher?: string;
-        /**
-         * The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
-         */
         macsecCknKeyvaultSecretId?: string;
-        /**
-         * Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
-         *
-         * > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
-         */
         macsecSciEnabled?: boolean;
         /**
          * The ID that maps from the Express Route Port Link to the patch panel port.
@@ -55638,9 +54980,6 @@ export namespace network {
     }
 
     export interface ExpressRoutePortLink2 {
-        /**
-         * Whether enable administration state on the Express Route Port Link? Defaults to `false`.
-         */
         adminEnabled?: boolean;
         /**
          * The connector type of the Express Route Port Link.
@@ -55654,23 +54993,9 @@ export namespace network {
          * The interface name of the Azure router associated with the Express Route Port Link.
          */
         interfaceName: string;
-        /**
-         * The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-         */
         macsecCakKeyvaultSecretId?: string;
-        /**
-         * The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
-         */
         macsecCipher?: string;
-        /**
-         * The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
-         */
         macsecCknKeyvaultSecretId?: string;
-        /**
-         * Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
-         *
-         * > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
-         */
         macsecSciEnabled?: boolean;
         /**
          * The ID that maps from the Express Route Port Link to the patch panel port.
@@ -56034,53 +55359,20 @@ export namespace network {
     }
 
     export interface FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule {
-        /**
-         * The description which should be used for this rule.
-         */
         description?: string;
-        /**
-         * Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
-         */
         destinationAddresses?: string[];
-        /**
-         * Specifies a list of destination FQDN tags.
-         */
         destinationFqdnTags?: string[];
-        /**
-         * Specifies a list of destination FQDNs. Conflicts with `destinationUrls`.
-         */
         destinationFqdns?: string[];
-        /**
-         * Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
-         */
         destinationUrls?: string[];
-        /**
-         * Specifies a list of HTTP/HTTPS headers to insert. One or more `httpHeaders` blocks as defined below.
-         */
         httpHeaders?: outputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader[];
         /**
          * The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
          */
         name: string;
-        /**
-         * One or more `protocols` blocks as defined below.
-         */
         protocols?: outputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol[];
-        /**
-         * Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-         */
         sourceAddresses?: string[];
-        /**
-         * Specifies a list of source IP groups.
-         */
         sourceIpGroups?: string[];
-        /**
-         * Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
-         */
         terminateTls?: boolean;
-        /**
-         * Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
-         */
         webCategories?: string[];
     }
 
@@ -56126,47 +55418,18 @@ export namespace network {
     }
 
     export interface FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
-        /**
-         * The description which should be used for this rule.
-         */
         description?: string;
-        /**
-         * The destination IP address (including CIDR).
-         */
         destinationAddress?: string;
-        /**
-         * Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-         */
         destinationPorts?: string;
         /**
          * The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
          */
         name: string;
-        /**
-         * One or more `protocols` blocks as defined below.
-         */
         protocols: string[];
-        /**
-         * Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-         */
         sourceAddresses?: string[];
-        /**
-         * Specifies a list of source IP groups.
-         */
         sourceIpGroups?: string[];
-        /**
-         * Specifies the translated address.
-         */
         translatedAddress?: string;
-        /**
-         * Specifies the translated FQDN.
-         *
-         * > **NOTE:** Exactly one of `translatedAddress` and `translatedFqdn` should be set.
-         */
         translatedFqdn?: string;
-        /**
-         * Specifies the translated port.
-         */
         translatedPort: number;
     }
 
@@ -56190,41 +55453,17 @@ export namespace network {
     }
 
     export interface FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
-        /**
-         * The description which should be used for this rule.
-         */
         description?: string;
-        /**
-         * Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
-         */
         destinationAddresses?: string[];
-        /**
-         * Specifies a list of destination FQDNs. Conflicts with `destinationUrls`.
-         */
         destinationFqdns?: string[];
-        /**
-         * Specifies a list of destination IP groups.
-         */
         destinationIpGroups?: string[];
-        /**
-         * Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-         */
         destinationPorts: string[];
         /**
          * The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
          */
         name: string;
-        /**
-         * One or more `protocols` blocks as defined below.
-         */
         protocols: string[];
-        /**
-         * Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-         */
         sourceAddresses?: string[];
-        /**
-         * Specifies a list of source IP groups.
-         */
         sourceIpGroups?: string[];
     }
 
@@ -58121,7 +57360,7 @@ export namespace network {
          */
         primary: boolean;
         /**
-         * The Static IP Address which should be used.
+         * The first private IP address of the network interface.
          */
         privateIpAddress: string;
         /**
@@ -59183,7 +58422,7 @@ export namespace network {
          */
         addressPrefix: string;
         /**
-         * The ID of DDoS Protection Plan.
+         * The ID of this subnet.
          */
         id: string;
         /**
@@ -59242,9 +58481,6 @@ export namespace network {
     }
 
     export interface VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
-        /**
-         * A list of custom BGP peering addresses to assign to this instance.
-         */
         customIps: string[];
         /**
          * The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
@@ -59261,9 +58497,6 @@ export namespace network {
     }
 
     export interface VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
-        /**
-         * A list of custom BGP peering addresses to assign to this instance.
-         */
         customIps: string[];
         /**
          * The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
@@ -61173,7 +60406,7 @@ export namespace privatelink {
          */
         privateConnectionResourceId?: string;
         /**
-         * Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
+         * (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
          */
         privateIpAddress: string;
         /**
@@ -63763,88 +62996,30 @@ export namespace siterecovery {
     }
 
     export interface ReplicationRecoveryPlanBootRecoveryGroupPostAction {
-        /**
-         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
-         *
-         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-         */
         fabricLocation?: string;
-        /**
-         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-         */
         failOverDirections: string[];
-        /**
-         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-         */
         failOverTypes: string[];
-        /**
-         * Instructions of manual action.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
-         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
-        /**
-         * Id of runbook.
-         *
-         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-         */
         runbookId?: string;
-        /**
-         * Path of action script.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
-         */
         scriptPath?: string;
-        /**
-         * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-         */
         type: string;
     }
 
     export interface ReplicationRecoveryPlanBootRecoveryGroupPreAction {
-        /**
-         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
-         *
-         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-         */
         fabricLocation?: string;
-        /**
-         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-         */
         failOverDirections: string[];
-        /**
-         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-         */
         failOverTypes: string[];
-        /**
-         * Instructions of manual action.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
-         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
-        /**
-         * Id of runbook.
-         *
-         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-         */
         runbookId?: string;
-        /**
-         * Path of action script.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
-         */
         scriptPath?: string;
-        /**
-         * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-         */
         type: string;
     }
 
@@ -63860,88 +63035,30 @@ export namespace siterecovery {
     }
 
     export interface ReplicationRecoveryPlanFailoverRecoveryGroupPostAction {
-        /**
-         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
-         *
-         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-         */
         fabricLocation?: string;
-        /**
-         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-         */
         failOverDirections: string[];
-        /**
-         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-         */
         failOverTypes: string[];
-        /**
-         * Instructions of manual action.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
-         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
-        /**
-         * Id of runbook.
-         *
-         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-         */
         runbookId?: string;
-        /**
-         * Path of action script.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
-         */
         scriptPath?: string;
-        /**
-         * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-         */
         type: string;
     }
 
     export interface ReplicationRecoveryPlanFailoverRecoveryGroupPreAction {
-        /**
-         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
-         *
-         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-         */
         fabricLocation?: string;
-        /**
-         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-         */
         failOverDirections: string[];
-        /**
-         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-         */
         failOverTypes: string[];
-        /**
-         * Instructions of manual action.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
-         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
-        /**
-         * Id of runbook.
-         *
-         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-         */
         runbookId?: string;
-        /**
-         * Path of action script.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
-         */
         scriptPath?: string;
-        /**
-         * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-         */
         type: string;
     }
 
@@ -63965,88 +63082,30 @@ export namespace siterecovery {
     }
 
     export interface ReplicationRecoveryPlanRecoveryGroupPostAction {
-        /**
-         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
-         *
-         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-         */
         fabricLocation?: string;
-        /**
-         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-         */
         failOverDirections: string[];
-        /**
-         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-         */
         failOverTypes: string[];
-        /**
-         * Instructions of manual action.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
-         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
-        /**
-         * Id of runbook.
-         *
-         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-         */
         runbookId?: string;
-        /**
-         * Path of action script.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
-         */
         scriptPath?: string;
-        /**
-         * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-         */
         type: string;
     }
 
     export interface ReplicationRecoveryPlanRecoveryGroupPreAction {
-        /**
-         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
-         *
-         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-         */
         fabricLocation?: string;
-        /**
-         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-         */
         failOverDirections: string[];
-        /**
-         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-         */
         failOverTypes: string[];
-        /**
-         * Instructions of manual action.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
-         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
-        /**
-         * Id of runbook.
-         *
-         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-         */
         runbookId?: string;
-        /**
-         * Path of action script.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
-         */
         scriptPath?: string;
-        /**
-         * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-         */
         type: string;
     }
 
@@ -64062,88 +63121,30 @@ export namespace siterecovery {
     }
 
     export interface ReplicationRecoveryPlanShutdownRecoveryGroupPostAction {
-        /**
-         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
-         *
-         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-         */
         fabricLocation?: string;
-        /**
-         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-         */
         failOverDirections: string[];
-        /**
-         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-         */
         failOverTypes: string[];
-        /**
-         * Instructions of manual action.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
-         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
-        /**
-         * Id of runbook.
-         *
-         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-         */
         runbookId?: string;
-        /**
-         * Path of action script.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
-         */
         scriptPath?: string;
-        /**
-         * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-         */
         type: string;
     }
 
     export interface ReplicationRecoveryPlanShutdownRecoveryGroupPreAction {
-        /**
-         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
-         *
-         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-         */
         fabricLocation?: string;
-        /**
-         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-         */
         failOverDirections: string[];
-        /**
-         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-         */
         failOverTypes: string[];
-        /**
-         * Instructions of manual action.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
-         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
-        /**
-         * Id of runbook.
-         *
-         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-         */
         runbookId?: string;
-        /**
-         * Path of action script.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
-         */
         scriptPath?: string;
-        /**
-         * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-         */
         type: string;
     }
 
@@ -66198,7 +65199,7 @@ export namespace synapse {
          */
         principalId: string;
         /**
-         * The tenant id of the Azure AD Administrator of this Synapse Workspace.
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
          */
         tenantId: string;
         /**
@@ -66593,17 +65594,11 @@ export namespace waf {
          * Describes if the managed rule is in enabled state or disabled state.
          */
         enabled?: boolean;
-        /**
-         * The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
-         */
         matchVariable: string;
         /**
-         * Describes field of the matchVariable collection.
+         * When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
          */
         selector?: string;
-        /**
-         * Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
-         */
         selectorMatchOperator?: string;
     }
 

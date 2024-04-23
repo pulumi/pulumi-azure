@@ -26,7 +26,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// The tenant id of the Azure AD Administrator of this SQL Server.
+        /// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>

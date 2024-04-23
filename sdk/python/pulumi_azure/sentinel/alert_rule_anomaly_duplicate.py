@@ -191,7 +191,7 @@ class _AlertRuleAnomalyDuplicateState:
         :param pulumi.Input[int] anomaly_settings_version: The version of the Anomaly Security ML Analytics Settings.
         :param pulumi.Input[str] anomaly_version: The anomaly version of the Anomaly Alert Rule.
         :param pulumi.Input[str] built_in_rule_id: The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
-        :param pulumi.Input[str] description: The description of the multi select observation.
+        :param pulumi.Input[str] description: The description of the Anomaly Alert Rule.
         :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule.
         :param pulumi.Input[bool] enabled: Should the Duplicated Anomaly Alert Rule be enabled?
         :param pulumi.Input[str] frequency: The frequency the Anomaly Alert Rule will be run, such as "P1D".
@@ -199,7 +199,6 @@ class _AlertRuleAnomalyDuplicateState:
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
         :param pulumi.Input[str] mode: mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]] multi_select_observations: A list of `multi_select_observation` blocks as defined below.
-        :param pulumi.Input[str] name: The name of the multi select observation.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateRequiredDataConnectorArgs']]] required_data_connectors: A `required_data_connector` block as defined below.
         :param pulumi.Input[str] settings_definition_id: The ID of the anomaly settings definition Id.
@@ -289,7 +288,7 @@ class _AlertRuleAnomalyDuplicateState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the multi select observation.
+        The description of the Anomaly Alert Rule.
         """
         return pulumi.get(self, "description")
 
@@ -384,9 +383,6 @@ class _AlertRuleAnomalyDuplicateState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the multi select observation.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -500,7 +496,6 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -529,7 +524,6 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
                 value="0.6",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -564,7 +558,6 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -593,7 +586,6 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
                 value="0.6",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -704,7 +696,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         :param pulumi.Input[int] anomaly_settings_version: The version of the Anomaly Security ML Analytics Settings.
         :param pulumi.Input[str] anomaly_version: The anomaly version of the Anomaly Alert Rule.
         :param pulumi.Input[str] built_in_rule_id: The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
-        :param pulumi.Input[str] description: The description of the multi select observation.
+        :param pulumi.Input[str] description: The description of the Anomaly Alert Rule.
         :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule.
         :param pulumi.Input[bool] enabled: Should the Duplicated Anomaly Alert Rule be enabled?
         :param pulumi.Input[str] frequency: The frequency the Anomaly Alert Rule will be run, such as "P1D".
@@ -712,7 +704,6 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
         :param pulumi.Input[str] mode: mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]]] multi_select_observations: A list of `multi_select_observation` blocks as defined below.
-        :param pulumi.Input[str] name: The name of the multi select observation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateRequiredDataConnectorArgs']]]] required_data_connectors: A `required_data_connector` block as defined below.
         :param pulumi.Input[str] settings_definition_id: The ID of the anomaly settings definition Id.
@@ -776,7 +767,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        The description of the multi select observation.
+        The description of the Anomaly Alert Rule.
         """
         return pulumi.get(self, "description")
 
@@ -839,9 +830,6 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the multi select observation.
-        """
         return pulumi.get(self, "name")
 
     @property

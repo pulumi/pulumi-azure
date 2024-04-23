@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -78,7 +77,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -168,9 +166,6 @@ export class Assignment extends pulumi.CustomResource {
      * The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
      */
     public readonly targetSubscriptionId!: pulumi.Output<string>;
-    /**
-     * Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
-     */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
      * The ID of the Published Version of the blueprint to be assigned.
@@ -291,9 +286,6 @@ export interface AssignmentState {
      * The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
      */
     targetSubscriptionId?: pulumi.Input<string>;
-    /**
-     * Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
-     */
     type?: pulumi.Input<string>;
     /**
      * The ID of the Published Version of the blueprint to be assigned.

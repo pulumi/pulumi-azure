@@ -10,18 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class RegistryNetworkRuleSetVirtualNetwork {
-    /**
-     * @return The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-     * 
-     */
     private String action;
     private String subnetId;
 
     private RegistryNetworkRuleSetVirtualNetwork() {}
-    /**
-     * @return The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-     * 
-     */
     public String action() {
         return this.action;
     }

@@ -16,7 +16,6 @@ namespace Pulumi.Azure.AppService
     /// 
     /// This example provisions an App Service Certificate from a Local File.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,7 +45,6 @@ namespace Pulumi.Azure.AppService
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -101,11 +99,6 @@ namespace Pulumi.Azure.AppService
         [Output("issuer")]
         public Output<string> Issuer { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
-        /// </summary>
         [Output("keyVaultId")]
         public Output<string?> KeyVaultId { get; private set; } = null!;
 
@@ -157,9 +150,6 @@ namespace Pulumi.Azure.AppService
         [Output("subjectName")]
         public Output<string> SubjectName { get; private set; } = null!;
 
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -226,11 +216,6 @@ namespace Pulumi.Azure.AppService
         [Input("appServicePlanId")]
         public Input<string>? AppServicePlanId { get; set; }
 
-        /// <summary>
-        /// The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
-        /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
@@ -298,10 +283,6 @@ namespace Pulumi.Azure.AppService
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -364,11 +345,6 @@ namespace Pulumi.Azure.AppService
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
 
-        /// <summary>
-        /// The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
-        /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
@@ -442,10 +418,6 @@ namespace Pulumi.Azure.AppService
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

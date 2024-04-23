@@ -14,15 +14,19 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsFunctionAppSlotAuthSettingsV2AppleV2
     {
         /// <summary>
-        /// The ID of the Client to use to authenticate with Azure Active Directory.
+        /// The OpenID Connect Client ID for the Apple web application.
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        /// The app setting name that contains the `client_secret` value used for Apple Login.
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         /// </summary>
         public readonly string ClientSecretSettingName;
         /// <summary>
-        /// The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        /// A list of Login Scopes provided by this Authentication Provider.
+        /// 
+        /// &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         /// </summary>
         public readonly ImmutableArray<string> LoginScopes;
 

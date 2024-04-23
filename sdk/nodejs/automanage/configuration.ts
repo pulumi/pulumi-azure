@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -81,7 +80,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -167,9 +165,6 @@ export class Configuration extends pulumi.CustomResource {
      * Whether the status change alert is enabled. Defaults to `false`.
      */
     public readonly statusChangeAlertEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -274,9 +269,6 @@ export interface ConfigurationState {
      * Whether the status change alert is enabled. Defaults to `false`.
      */
     statusChangeAlertEnabled?: pulumi.Input<boolean>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -332,8 +324,5 @@ export interface ConfigurationArgs {
      * Whether the status change alert is enabled. Defaults to `false`.
      */
     statusChangeAlertEnabled?: pulumi.Input<boolean>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

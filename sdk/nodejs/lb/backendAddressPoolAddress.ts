@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -51,7 +50,6 @@ import * as utilities from "../utilities";
  *     backendAddressIpConfigurationId: backend_lb_R2.frontendIpConfiguration[0].id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

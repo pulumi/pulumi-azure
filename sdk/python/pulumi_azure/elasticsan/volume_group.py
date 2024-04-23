@@ -278,7 +278,6 @@ class VolumeGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -380,7 +379,6 @@ class VolumeGroup(pulumi.CustomResource):
                 action="Allow",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -413,7 +411,6 @@ class VolumeGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -515,7 +512,6 @@ class VolumeGroup(pulumi.CustomResource):
                 action="Allow",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

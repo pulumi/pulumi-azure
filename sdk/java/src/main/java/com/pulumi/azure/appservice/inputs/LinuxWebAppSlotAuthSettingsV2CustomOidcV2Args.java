@@ -63,14 +63,14 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
     }
 
     /**
-     * The ID of the Client to use to authenticate with Azure Active Directory.
+     * The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     public Output<String> clientId() {
@@ -78,14 +78,14 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
     }
 
     /**
-     * The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
      * 
      */
     @Import(name="clientSecretSettingName")
     private @Nullable Output<String> clientSecretSettingName;
 
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
      * 
      */
     public Optional<Output<String>> clientSecretSettingName() {
@@ -110,12 +110,16 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
     /**
      * The name of the Custom OIDC Authentication Provider.
      * 
+     * &gt; **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
      * @return The name of the Custom OIDC Authentication Provider.
+     * 
+     * &gt; **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
      * 
      */
     public Output<String> name() {
@@ -280,7 +284,7 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The ID of the Client to use to authenticate with the Custom OIDC.
          * 
          * @return builder
          * 
@@ -291,7 +295,7 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The ID of the Client to use to authenticate with the Custom OIDC.
          * 
          * @return builder
          * 
@@ -301,7 +305,7 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
         }
 
         /**
-         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * @param clientSecretSettingName The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          * 
          * @return builder
          * 
@@ -312,7 +316,7 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
         }
 
         /**
-         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * @param clientSecretSettingName The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          * 
          * @return builder
          * 
@@ -345,6 +349,8 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
         /**
          * @param name The name of the Custom OIDC Authentication Provider.
          * 
+         * &gt; **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+         * 
          * @return builder
          * 
          */
@@ -355,6 +361,8 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
 
         /**
          * @param name The name of the Custom OIDC Authentication Provider.
+         * 
+         * &gt; **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
          * 
          * @return builder
          * 

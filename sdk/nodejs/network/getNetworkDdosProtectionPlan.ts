@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  * });
  * export const ddosProtectionPlanId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkDdosProtectionPlan(args: GetNetworkDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkDdosProtectionPlanResult> {
 
@@ -73,7 +71,6 @@ export interface GetNetworkDdosProtectionPlanResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -84,7 +81,6 @@ export interface GetNetworkDdosProtectionPlanResult {
  * });
  * export const ddosProtectionPlanId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkDdosProtectionPlanOutput(args: GetNetworkDdosProtectionPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkDdosProtectionPlanResult> {
     return pulumi.output(args).apply((a: any) => getNetworkDdosProtectionPlan(a, opts))

@@ -516,7 +516,6 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -545,7 +544,6 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
             resource_id=example.id,
             policy_definition_id=example_definition.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -589,7 +587,6 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -618,7 +615,6 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
             resource_id=example.id,
             policy_definition_id=example_definition.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

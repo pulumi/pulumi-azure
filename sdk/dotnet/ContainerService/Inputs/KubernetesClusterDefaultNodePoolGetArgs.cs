@@ -86,9 +86,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("linuxOsConfig")]
         public Input<Inputs.KubernetesClusterDefaultNodePoolLinuxOsConfigGetArgs>? LinuxOsConfig { get; set; }
 
-        /// <summary>
-        /// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-        /// </summary>
         [Input("maxCount")]
         public Input<int>? MaxCount { get; set; }
 
@@ -104,9 +101,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("messageOfTheDay")]
         public Input<string>? MessageOfTheDay { get; set; }
 
-        /// <summary>
-        /// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-        /// </summary>
         [Input("minCount")]
         public Input<int>? MinCount { get; set; }
 
@@ -116,13 +110,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-        /// 
-        /// &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-        /// 
-        /// &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
-        /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
 

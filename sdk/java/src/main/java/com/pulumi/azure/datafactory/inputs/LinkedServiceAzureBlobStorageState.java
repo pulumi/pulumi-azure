@@ -193,107 +193,51 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         return Optional.ofNullable(this.sasUri);
     }
 
-    /**
-     * The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
-     * 
-     */
     @Import(name="serviceEndpoint")
     private @Nullable Output<String> serviceEndpoint;
 
-    /**
-     * @return The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
-     * 
-     */
     public Optional<Output<String>> serviceEndpoint() {
         return Optional.ofNullable(this.serviceEndpoint);
     }
 
-    /**
-     * The service principal id in which to authenticate against the Azure Blob Storage account.
-     * 
-     */
     @Import(name="servicePrincipalId")
     private @Nullable Output<String> servicePrincipalId;
 
-    /**
-     * @return The service principal id in which to authenticate against the Azure Blob Storage account.
-     * 
-     */
     public Optional<Output<String>> servicePrincipalId() {
         return Optional.ofNullable(this.servicePrincipalId);
     }
 
-    /**
-     * The service principal key in which to authenticate against the AAzure Blob Storage account.
-     * 
-     */
     @Import(name="servicePrincipalKey")
     private @Nullable Output<String> servicePrincipalKey;
 
-    /**
-     * @return The service principal key in which to authenticate against the AAzure Blob Storage account.
-     * 
-     */
     public Optional<Output<String>> servicePrincipalKey() {
         return Optional.ofNullable(this.servicePrincipalKey);
     }
 
-    /**
-     * A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
-     * 
-     */
     @Import(name="servicePrincipalLinkedKeyVaultKey")
     private @Nullable Output<LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs> servicePrincipalLinkedKeyVaultKey;
 
-    /**
-     * @return A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
-     * 
-     */
     public Optional<Output<LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs>> servicePrincipalLinkedKeyVaultKey() {
         return Optional.ofNullable(this.servicePrincipalLinkedKeyVaultKey);
     }
 
-    /**
-     * Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
-     * 
-     */
     @Import(name="storageKind")
     private @Nullable Output<String> storageKind;
 
-    /**
-     * @return Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
-     * 
-     */
     public Optional<Output<String>> storageKind() {
         return Optional.ofNullable(this.storageKind);
     }
 
-    /**
-     * The tenant id or name in which to authenticate against the Azure Blob Storage account.
-     * 
-     */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
-    /**
-     * @return The tenant id or name in which to authenticate against the Azure Blob Storage account.
-     * 
-     */
     public Optional<Output<String>> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
 
-    /**
-     * Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.
-     * 
-     */
     @Import(name="useManagedIdentity")
     private @Nullable Output<Boolean> useManagedIdentity;
 
-    /**
-     * @return Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.
-     * 
-     */
     public Optional<Output<Boolean>> useManagedIdentity() {
         return Optional.ofNullable(this.useManagedIdentity);
     }
@@ -588,149 +532,65 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
             return sasUri(Output.of(sasUri));
         }
 
-        /**
-         * @param serviceEndpoint The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceEndpoint(@Nullable Output<String> serviceEndpoint) {
             $.serviceEndpoint = serviceEndpoint;
             return this;
         }
 
-        /**
-         * @param serviceEndpoint The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceEndpoint(String serviceEndpoint) {
             return serviceEndpoint(Output.of(serviceEndpoint));
         }
 
-        /**
-         * @param servicePrincipalId The service principal id in which to authenticate against the Azure Blob Storage account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder servicePrincipalId(@Nullable Output<String> servicePrincipalId) {
             $.servicePrincipalId = servicePrincipalId;
             return this;
         }
 
-        /**
-         * @param servicePrincipalId The service principal id in which to authenticate against the Azure Blob Storage account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder servicePrincipalId(String servicePrincipalId) {
             return servicePrincipalId(Output.of(servicePrincipalId));
         }
 
-        /**
-         * @param servicePrincipalKey The service principal key in which to authenticate against the AAzure Blob Storage account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder servicePrincipalKey(@Nullable Output<String> servicePrincipalKey) {
             $.servicePrincipalKey = servicePrincipalKey;
             return this;
         }
 
-        /**
-         * @param servicePrincipalKey The service principal key in which to authenticate against the AAzure Blob Storage account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder servicePrincipalKey(String servicePrincipalKey) {
             return servicePrincipalKey(Output.of(servicePrincipalKey));
         }
 
-        /**
-         * @param servicePrincipalLinkedKeyVaultKey A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder servicePrincipalLinkedKeyVaultKey(@Nullable Output<LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs> servicePrincipalLinkedKeyVaultKey) {
             $.servicePrincipalLinkedKeyVaultKey = servicePrincipalLinkedKeyVaultKey;
             return this;
         }
 
-        /**
-         * @param servicePrincipalLinkedKeyVaultKey A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder servicePrincipalLinkedKeyVaultKey(LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs servicePrincipalLinkedKeyVaultKey) {
             return servicePrincipalLinkedKeyVaultKey(Output.of(servicePrincipalLinkedKeyVaultKey));
         }
 
-        /**
-         * @param storageKind Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageKind(@Nullable Output<String> storageKind) {
             $.storageKind = storageKind;
             return this;
         }
 
-        /**
-         * @param storageKind Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageKind(String storageKind) {
             return storageKind(Output.of(storageKind));
         }
 
-        /**
-         * @param tenantId The tenant id or name in which to authenticate against the Azure Blob Storage account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantId(@Nullable Output<String> tenantId) {
             $.tenantId = tenantId;
             return this;
         }
 
-        /**
-         * @param tenantId The tenant id or name in which to authenticate against the Azure Blob Storage account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantId(String tenantId) {
             return tenantId(Output.of(tenantId));
         }
 
-        /**
-         * @param useManagedIdentity Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useManagedIdentity(@Nullable Output<Boolean> useManagedIdentity) {
             $.useManagedIdentity = useManagedIdentity;
             return this;
         }
 
-        /**
-         * @param useManagedIdentity Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useManagedIdentity(Boolean useManagedIdentity) {
             return useManagedIdentity(Output.of(useManagedIdentity));
         }

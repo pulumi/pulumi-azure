@@ -52,14 +52,14 @@ public final class KubernetesClusterIdentityArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The Tenant ID used for Azure Active Directory Application. If this isn&#39;t specified the Tenant ID of the current Subscription is used.
+     * The Tenant ID associated with this Managed Service Identity.
      * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
-     * @return The Tenant ID used for Azure Active Directory Application. If this isn&#39;t specified the Tenant ID of the current Subscription is used.
+     * @return The Tenant ID associated with this Managed Service Identity.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -167,7 +167,7 @@ public final class KubernetesClusterIdentityArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tenantId The Tenant ID used for Azure Active Directory Application. If this isn&#39;t specified the Tenant ID of the current Subscription is used.
+         * @param tenantId The Tenant ID associated with this Managed Service Identity.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class KubernetesClusterIdentityArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tenantId The Tenant ID used for Azure Active Directory Application. If this isn&#39;t specified the Tenant ID of the current Subscription is used.
+         * @param tenantId The Tenant ID associated with this Managed Service Identity.
          * 
          * @return builder
          * 

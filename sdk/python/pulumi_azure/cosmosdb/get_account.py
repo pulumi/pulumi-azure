@@ -461,7 +461,6 @@ def get_account(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -470,7 +469,6 @@ def get_account(name: Optional[str] = None,
         resource_group_name="tfex-cosmosdb-account-rg")
     pulumi.export("cosmosdbAccountEndpoint", example.endpoint)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the CosmosDB Account.
@@ -530,7 +528,6 @@ def get_account_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -539,7 +536,6 @@ def get_account_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="tfex-cosmosdb-account-rg")
     pulumi.export("cosmosdbAccountEndpoint", example.endpoint)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the CosmosDB Account.

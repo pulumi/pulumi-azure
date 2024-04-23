@@ -298,7 +298,6 @@ class CosmosdbDataConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -386,7 +385,6 @@ class CosmosdbDataConnection(pulumi.CustomResource):
             mapping_rule_name="TestMapping",
             retrieval_start_date="2023-06-26T12:00:00.6554616Z")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -418,7 +416,6 @@ class CosmosdbDataConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -506,7 +503,6 @@ class CosmosdbDataConnection(pulumi.CustomResource):
             mapping_rule_name="TestMapping",
             retrieval_start_date="2023-06-26T12:00:00.6554616Z")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

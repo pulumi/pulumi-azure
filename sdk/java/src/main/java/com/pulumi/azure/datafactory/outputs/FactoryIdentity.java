@@ -26,7 +26,7 @@ public final class FactoryIdentity {
      */
     private @Nullable String principalId;
     /**
-     * @return Specifies the Tenant ID associated with the VSTS account.
+     * @return The Tenant ID associated with this Managed Service Identity.
      * 
      */
     private @Nullable String tenantId;
@@ -54,7 +54,7 @@ public final class FactoryIdentity {
         return Optional.ofNullable(this.principalId);
     }
     /**
-     * @return Specifies the Tenant ID associated with the VSTS account.
+     * @return The Tenant ID associated with this Managed Service Identity.
      * 
      */
     public Optional<String> tenantId() {

@@ -780,7 +780,6 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -818,11 +817,9 @@ class Workspace(pulumi.CustomResource):
                 "Env": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Creating A Workspace With Customer Managed Key And Azure AD Admin
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -906,7 +903,6 @@ class Workspace(pulumi.CustomResource):
             object_id="00000000-0000-0000-0000-000000000000",
             tenant_id="00000000-0000-0000-0000-000000000000")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -952,7 +948,6 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -990,11 +985,9 @@ class Workspace(pulumi.CustomResource):
                 "Env": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Creating A Workspace With Customer Managed Key And Azure AD Admin
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1078,7 +1071,6 @@ class Workspace(pulumi.CustomResource):
             object_id="00000000-0000-0000-0000-000000000000",
             tenant_id="00000000-0000-0000-0000-000000000000")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupDatasetBlobStorage(ctx *pulumi.Context, args *LookupDatasetBlobStorageArgs, opts ...pulumi.InvokeOption) (*LookupDatasetBlobStorageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatasetBlobStorageResult

@@ -1147,7 +1147,7 @@ class ServerIdentity(dict):
                
                > **NOTE:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
-        :param str tenant_id: The tenant id of the Azure AD Administrator of this SQL Server.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -1189,7 +1189,7 @@ class ServerIdentity(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
-        The tenant id of the Azure AD Administrator of this SQL Server.
+        The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -2353,27 +2353,17 @@ class VirtualMachineStorageConfigurationDataSettings(dict):
     def __init__(__self__, *,
                  default_file_path: str,
                  luns: Sequence[int]):
-        """
-        :param str default_file_path: The SQL Server default path
-        :param Sequence[int] luns: A list of Logical Unit Numbers for the disks.
-        """
         pulumi.set(__self__, "default_file_path", default_file_path)
         pulumi.set(__self__, "luns", luns)
 
     @property
     @pulumi.getter(name="defaultFilePath")
     def default_file_path(self) -> str:
-        """
-        The SQL Server default path
-        """
         return pulumi.get(self, "default_file_path")
 
     @property
     @pulumi.getter
     def luns(self) -> Sequence[int]:
-        """
-        A list of Logical Unit Numbers for the disks.
-        """
         return pulumi.get(self, "luns")
 
 
@@ -2399,27 +2389,17 @@ class VirtualMachineStorageConfigurationLogSettings(dict):
     def __init__(__self__, *,
                  default_file_path: str,
                  luns: Sequence[int]):
-        """
-        :param str default_file_path: The SQL Server default path
-        :param Sequence[int] luns: A list of Logical Unit Numbers for the disks.
-        """
         pulumi.set(__self__, "default_file_path", default_file_path)
         pulumi.set(__self__, "luns", luns)
 
     @property
     @pulumi.getter(name="defaultFilePath")
     def default_file_path(self) -> str:
-        """
-        The SQL Server default path
-        """
         return pulumi.get(self, "default_file_path")
 
     @property
     @pulumi.getter
     def luns(self) -> Sequence[int]:
-        """
-        A list of Logical Unit Numbers for the disks.
-        """
         return pulumi.get(self, "luns")
 
 

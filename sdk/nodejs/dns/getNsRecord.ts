@@ -7,7 +7,6 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  * });
  * export const dnsNsRecordId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNsRecord(args: GetNsRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetNsRecordResult> {
 
@@ -80,7 +78,6 @@ export interface GetNsRecordResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -92,7 +89,6 @@ export interface GetNsRecordResult {
  * });
  * export const dnsNsRecordId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNsRecordOutput(args: GetNsRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNsRecordResult> {
     return pulumi.output(args).apply((a: any) => getNsRecord(a, opts))

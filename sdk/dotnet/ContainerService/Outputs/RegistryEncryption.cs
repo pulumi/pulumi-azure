@@ -19,8 +19,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         public readonly bool? Enabled;
         /// <summary>
         /// The client ID of the managed identity associated with the encryption key.
-        /// 
-        /// &gt; **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identity_ids`
         /// </summary>
         public readonly string IdentityClientId;
         /// <summary>

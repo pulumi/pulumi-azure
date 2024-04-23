@@ -15,14 +15,14 @@ public final class LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args extends com.
     public static final LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args Empty = new LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args();
 
     /**
-     * The ID of the Client to use to authenticate with Azure Active Directory.
+     * The ID of the Client to use to authenticate with Azure Static Web App Authentication.
      * 
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with Azure Static Web App Authentication.
      * 
      */
     public Output<String> clientId() {
@@ -54,7 +54,7 @@ public final class LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args extends com.
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The ID of the Client to use to authenticate with Azure Static Web App Authentication.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args extends com.
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The ID of the Client to use to authenticate with Azure Static Web App Authentication.
          * 
          * @return builder
          * 

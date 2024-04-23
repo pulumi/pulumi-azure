@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetLBOutboundRule(ctx *pulumi.Context, args *GetLBOutboundRuleArgs, opts ...pulumi.InvokeOption) (*GetLBOutboundRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLBOutboundRuleResult

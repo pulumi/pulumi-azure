@@ -12,7 +12,6 @@ namespace Pulumi.Azure.Healthcare
     /// <summary>
     /// Manages a Healthcare Med Tech Service Fhir Destination.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -136,7 +135,6 @@ namespace Pulumi.Azure.Healthcare
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

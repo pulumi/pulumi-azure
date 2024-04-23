@@ -185,7 +185,6 @@ class LicationLoadBalancer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -198,7 +197,6 @@ class LicationLoadBalancer(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -226,7 +224,6 @@ class LicationLoadBalancer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -239,7 +236,6 @@ class LicationLoadBalancer(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

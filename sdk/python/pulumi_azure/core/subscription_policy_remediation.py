@@ -386,7 +386,6 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -411,7 +410,6 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
             subscription_id=example.id,
             policy_assignment_id=example_subscription_policy_assignment.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -447,7 +445,6 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -472,7 +469,6 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
             subscription_id=example.id,
             policy_assignment_id=example_subscription_policy_assignment.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

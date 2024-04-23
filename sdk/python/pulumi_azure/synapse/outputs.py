@@ -702,7 +702,7 @@ class WorkspaceIdentity(dict):
                
                > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
-        :param str tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -742,7 +742,7 @@ class WorkspaceIdentity(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
-        The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         """
         return pulumi.get(self, "tenant_id")
 

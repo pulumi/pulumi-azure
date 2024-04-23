@@ -248,7 +248,6 @@ class CaaRecord(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -290,7 +289,6 @@ class CaaRecord(pulumi.CustomResource):
                 "Environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -318,7 +316,6 @@ class CaaRecord(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -360,7 +357,6 @@ class CaaRecord(pulumi.CustomResource):
                 "Environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

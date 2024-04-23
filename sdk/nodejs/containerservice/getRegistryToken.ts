@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  * });
  * export const scopeMapId = example.then(example => example.scopeMapId);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRegistryToken(args: GetRegistryTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryTokenResult> {
 
@@ -76,7 +74,6 @@ export interface GetRegistryTokenResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -88,7 +85,6 @@ export interface GetRegistryTokenResult {
  * });
  * export const scopeMapId = example.then(example => example.scopeMapId);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRegistryTokenOutput(args: GetRegistryTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryTokenResult> {
     return pulumi.output(args).apply((a: any) => getRegistryToken(a, opts))

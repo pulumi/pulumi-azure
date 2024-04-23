@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  *
  * This example provisions a basic Windows Virtual Machine on an internal network.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -76,7 +75,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

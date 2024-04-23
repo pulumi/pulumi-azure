@@ -514,7 +514,6 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -534,7 +533,6 @@ class Environment(pulumi.CustomResource):
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -577,7 +575,6 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -597,7 +594,6 @@ class Environment(pulumi.CustomResource):
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

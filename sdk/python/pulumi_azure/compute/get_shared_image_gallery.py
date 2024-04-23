@@ -127,7 +127,6 @@ def get_shared_image_gallery(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -135,7 +134,6 @@ def get_shared_image_gallery(name: Optional[str] = None,
     example = azure.compute.get_shared_image_gallery(name="my-image-gallery",
         resource_group_name="example-resources")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Shared Image Gallery.
@@ -167,7 +165,6 @@ def get_shared_image_gallery_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -175,7 +172,6 @@ def get_shared_image_gallery_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.compute.get_shared_image_gallery(name="my-image-gallery",
         resource_group_name="example-resources")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Shared Image Gallery.

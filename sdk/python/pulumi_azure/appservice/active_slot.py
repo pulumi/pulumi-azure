@@ -138,7 +138,6 @@ class ActiveSlot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -154,7 +153,6 @@ class ActiveSlot(pulumi.CustomResource):
             app_service_name=example_app_service.name,
             app_service_slot_name=example_slot.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,7 +175,6 @@ class ActiveSlot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -193,7 +190,6 @@ class ActiveSlot(pulumi.CustomResource):
             app_service_name=example_app_service.name,
             app_service_slot_name=example_slot.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ActiveSlotArgs args: The arguments to use to populate this resource's properties.

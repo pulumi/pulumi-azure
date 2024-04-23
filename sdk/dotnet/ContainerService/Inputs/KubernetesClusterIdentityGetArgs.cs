@@ -33,7 +33,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

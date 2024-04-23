@@ -341,7 +341,6 @@ class Certificate(pulumi.CustomResource):
 
         ### With Base64 Certificate)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -363,11 +362,9 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example.name,
             data=std.filebase64(input="example.pfx").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Key Vault Certificate)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -426,7 +423,6 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example.name,
             key_vault_secret_id=example_certificate.secret_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -465,7 +461,6 @@ class Certificate(pulumi.CustomResource):
 
         ### With Base64 Certificate)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -487,11 +482,9 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example.name,
             data=std.filebase64(input="example.pfx").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Key Vault Certificate)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -550,7 +543,6 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example.name,
             key_vault_secret_id=example_certificate.secret_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

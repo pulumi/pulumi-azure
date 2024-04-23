@@ -236,7 +236,6 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -252,7 +251,6 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
             name="example",
             data_factory_id=example_factory.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -281,7 +279,6 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -297,7 +294,6 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
             name="example",
             data_factory_id=example_factory.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

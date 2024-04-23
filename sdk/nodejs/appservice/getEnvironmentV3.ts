@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEnvironmentV3(args: GetEnvironmentV3Args, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentV3Result> {
 
@@ -128,7 +126,6 @@ export interface GetEnvironmentV3Result {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -139,7 +136,6 @@ export interface GetEnvironmentV3Result {
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEnvironmentV3Output(args: GetEnvironmentV3OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentV3Result> {
     return pulumi.output(args).apply((a: any) => getEnvironmentV3(a, opts))

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  * });
  * export const complianceStatus = example.then(example => example.complianceStatus);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualMachineConfigurationAssignment(args: GetVirtualMachineConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineConfigurationAssignmentResult> {
 
@@ -92,7 +90,6 @@ export interface GetVirtualMachineConfigurationAssignmentResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -104,7 +101,6 @@ export interface GetVirtualMachineConfigurationAssignmentResult {
  * });
  * export const complianceStatus = example.then(example => example.complianceStatus);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualMachineConfigurationAssignmentOutput(args: GetVirtualMachineConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineConfigurationAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineConfigurationAssignment(a, opts))

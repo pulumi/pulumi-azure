@@ -303,7 +303,6 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -355,7 +354,6 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
                 resource_type="Microsoft.Network/virtualNetworks",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -389,7 +387,6 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -441,7 +438,6 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
                 resource_type="Microsoft.Network/virtualNetworks",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

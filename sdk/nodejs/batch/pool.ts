@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -60,9 +59,9 @@ import * as utilities from "../utilities";
  *         evaluationInterval: "PT15M",
  *         formula: `      startingNumberOfVMs = 1;
  *       maxNumberofVMs = 25;
- *       pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
- *       pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 *   TimeInterval_Second));
- *       $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+ *       pendingTaskSamplePercent = PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+ *       pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg(PendingTasks.GetSample(180 *   TimeInterval_Second));
+ *       TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
  * `,
  *     },
  *     storageImageReference: {
@@ -100,7 +99,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

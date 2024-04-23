@@ -17,7 +17,6 @@ import (
 // ## Example Usage
 //
 // ### Enabling SSO on monitor
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,7 +70,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

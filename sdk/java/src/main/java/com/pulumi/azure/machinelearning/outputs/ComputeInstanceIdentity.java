@@ -26,7 +26,7 @@ public final class ComputeInstanceIdentity {
      */
     private @Nullable String principalId;
     /**
-     * @return User’s AAD Tenant Id.
+     * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
      * 
      */
     private @Nullable String tenantId;
@@ -54,7 +54,7 @@ public final class ComputeInstanceIdentity {
         return Optional.ofNullable(this.principalId);
     }
     /**
-     * @return User’s AAD Tenant Id.
+     * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
      * 
      */
     public Optional<String> tenantId() {

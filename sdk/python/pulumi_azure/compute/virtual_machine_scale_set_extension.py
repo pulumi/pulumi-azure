@@ -531,7 +531,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -573,7 +572,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                 "commandToExecute": "echo $HOSTNAME",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -628,7 +626,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -670,7 +667,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                 "commandToExecute": "echo $HOSTNAME",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

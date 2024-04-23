@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  * });
  * export const endpointId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDataCollectionEndpoint(args: GetDataCollectionEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionEndpointResult> {
 
@@ -89,7 +87,6 @@ export interface GetDataCollectionEndpointResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -100,7 +97,6 @@ export interface GetDataCollectionEndpointResult {
  * });
  * export const endpointId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDataCollectionEndpointOutput(args: GetDataCollectionEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionEndpointResult> {
     return pulumi.output(args).apply((a: any) => getDataCollectionEndpoint(a, opts))

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "existing-resources",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFrontdoorProfile(args: GetFrontdoorProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorProfileResult> {
 
@@ -76,7 +74,6 @@ export interface GetFrontdoorProfileResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -86,7 +83,6 @@ export interface GetFrontdoorProfileResult {
  *     resourceGroupName: "existing-resources",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFrontdoorProfileOutput(args: GetFrontdoorProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorProfileResult> {
     return pulumi.output(args).apply((a: any) => getFrontdoorProfile(a, opts))

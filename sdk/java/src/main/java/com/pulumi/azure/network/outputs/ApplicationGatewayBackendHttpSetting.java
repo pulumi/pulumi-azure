@@ -48,7 +48,7 @@ public final class ApplicationGatewayBackendHttpSetting {
      */
     private @Nullable String id;
     /**
-     * @return The name of the Backend HTTP Settings Collection.
+     * @return The name of the Authentication Certificate.
      * 
      */
     private String name;
@@ -137,7 +137,7 @@ public final class ApplicationGatewayBackendHttpSetting {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The name of the Backend HTTP Settings Collection.
+     * @return The name of the Authentication Certificate.
      * 
      */
     public String name() {

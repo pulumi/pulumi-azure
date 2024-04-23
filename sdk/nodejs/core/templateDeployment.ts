@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** This example uses Storage Accounts and Public IP's which are natively supported by this provider - we'd highly recommend using the Native Resources where possible instead rather than an ARM Template, for the reasons outlined above.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -28,7 +27,7 @@ import * as utilities from "../utilities";
  *     name: "acctesttemplate-01",
  *     resourceGroupName: example.name,
  *     templateBody: `{
- *   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+ *   "schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
  *   "contentVersion": "1.0.0.0",
  *   "parameters": {
  *     "storageAccountType": {
@@ -90,7 +89,6 @@ import * as utilities from "../utilities";
  * });
  * export const storageAccountName = exampleTemplateDeployment.outputs.storageAccountName;
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Note
  *

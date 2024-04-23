@@ -178,7 +178,6 @@ class Lock(pulumi.CustomResource):
 
         ### Subscription Level Lock)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -190,11 +189,9 @@ class Lock(pulumi.CustomResource):
             lock_level="CanNotDelete",
             notes="Items can't be deleted in this subscription!")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Resource Group Level Lock)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -208,11 +205,9 @@ class Lock(pulumi.CustomResource):
             lock_level="ReadOnly",
             notes="This Resource Group is Read-Only")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Resource Level Lock)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -232,7 +227,6 @@ class Lock(pulumi.CustomResource):
             lock_level="CanNotDelete",
             notes="Locked because it's needed by a third-party")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -264,7 +258,6 @@ class Lock(pulumi.CustomResource):
 
         ### Subscription Level Lock)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -276,11 +269,9 @@ class Lock(pulumi.CustomResource):
             lock_level="CanNotDelete",
             notes="Items can't be deleted in this subscription!")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Resource Group Level Lock)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -294,11 +285,9 @@ class Lock(pulumi.CustomResource):
             lock_level="ReadOnly",
             notes="This Resource Group is Read-Only")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Resource Level Lock)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -318,7 +307,6 @@ class Lock(pulumi.CustomResource):
             lock_level="CanNotDelete",
             notes="Locked because it's needed by a third-party")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

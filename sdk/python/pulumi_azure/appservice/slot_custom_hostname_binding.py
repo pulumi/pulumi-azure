@@ -200,7 +200,6 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -231,7 +230,6 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
             app_service_slot_id=example_slot.id,
             hostname="www.mywebsite.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -263,7 +261,6 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -294,7 +291,6 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
             app_service_slot_id=example_slot.id,
             hostname="www.mywebsite.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  *     mobileNetworkId: example.then(example => example.id),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkService(args: GetNetworkServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkServiceResult> {
 
@@ -89,7 +87,6 @@ export interface GetNetworkServiceResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -103,7 +100,6 @@ export interface GetNetworkServiceResult {
  *     mobileNetworkId: example.then(example => example.id),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkServiceOutput(args: GetNetworkServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkServiceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkService(a, opts))
