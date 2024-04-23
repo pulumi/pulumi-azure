@@ -239,11 +239,6 @@ class AccountFilterTrackSelectionConditionArgs:
                  operation: pulumi.Input[str],
                  property: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] operation: The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
-        :param pulumi.Input[str] property: The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
-        :param pulumi.Input[str] value: The track property value to match or not match.
-        """
         pulumi.set(__self__, "operation", operation)
         pulumi.set(__self__, "property", property)
         pulumi.set(__self__, "value", value)
@@ -251,9 +246,6 @@ class AccountFilterTrackSelectionConditionArgs:
     @property
     @pulumi.getter
     def operation(self) -> pulumi.Input[str]:
-        """
-        The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
-        """
         return pulumi.get(self, "operation")
 
     @operation.setter
@@ -263,9 +255,6 @@ class AccountFilterTrackSelectionConditionArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        The track property value to match or not match.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -275,9 +264,6 @@ class AccountFilterTrackSelectionConditionArgs:
     @property
     @pulumi.getter
     def property(self) -> pulumi.Input[str]:
-        """
-        The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
-        """
         return pulumi.get(self, "property")
 
     @property.setter
@@ -4411,7 +4397,7 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
         """
         :param pulumi.Input[str] complexity: The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
         :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
-        :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH264VideoLayerArgs']]] layers: One or more `layer` blocks as defined below.
         :param pulumi.Input[str] rate_control_mode: The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
         :param pulumi.Input[bool] scene_change_detection_enabled: Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
@@ -4463,7 +4449,7 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the label for the codec. The label can be used to control muxing behavior.
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         """
         return pulumi.get(self, "label")
 
@@ -4791,7 +4777,7 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
         """
         :param pulumi.Input[str] complexity: The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
         :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
-        :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH265VideoLayerArgs']]] layers: One or more `layer` blocks as defined below.
         :param pulumi.Input[bool] scene_change_detection_enabled: Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
         :param pulumi.Input[str] stretch_mode: Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
@@ -4840,7 +4826,7 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the label for the codec. The label can be used to control muxing behavior.
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         """
         return pulumi.get(self, "label")
 
@@ -5142,7 +5128,7 @@ class TransformOutputCustomPresetCodecJpgImageArgs:
         """
         :param pulumi.Input[str] start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
         :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
-        :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecJpgImageLayerArgs']]] layers: One or more `layer` blocks as defined below.
         :param pulumi.Input[str] range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
         :param pulumi.Input[int] sprite_column: Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
@@ -5196,7 +5182,7 @@ class TransformOutputCustomPresetCodecJpgImageArgs:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the label for the codec. The label can be used to control muxing behavior.
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         """
         return pulumi.get(self, "label")
 

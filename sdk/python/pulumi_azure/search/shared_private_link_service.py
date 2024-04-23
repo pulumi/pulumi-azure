@@ -224,7 +224,6 @@ class SharedPrivateLinkService(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -250,7 +249,6 @@ class SharedPrivateLinkService(pulumi.CustomResource):
             target_resource_id=test_account.id,
             request_message="please approve")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -281,7 +279,6 @@ class SharedPrivateLinkService(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -307,7 +304,6 @@ class SharedPrivateLinkService(pulumi.CustomResource):
             target_resource_id=test_account.id,
             request_message="please approve")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

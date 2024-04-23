@@ -104,7 +104,6 @@ class ServerKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -182,7 +181,6 @@ class ServerKey(pulumi.CustomResource):
             server_id=example_server.id,
             key_vault_key_id=example_key.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -210,7 +208,6 @@ class ServerKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -288,7 +285,6 @@ class ServerKey(pulumi.CustomResource):
             server_id=example_server.id,
             key_vault_key_id=example_key.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -365,7 +365,6 @@ class ContactProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -419,7 +418,6 @@ class ContactProfile(pulumi.CustomResource):
             )],
             network_configuration_subnet_id=example_subnet.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -453,7 +451,6 @@ class ContactProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -507,7 +504,6 @@ class ContactProfile(pulumi.CustomResource):
             )],
             network_configuration_subnet_id=example_subnet.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

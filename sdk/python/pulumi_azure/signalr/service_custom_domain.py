@@ -175,7 +175,6 @@ class ServiceCustomDomain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -247,7 +246,6 @@ class ServiceCustomDomain(pulumi.CustomResource):
             domain_name="tftest.com",
             signalr_custom_certificate_id=test.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -277,7 +275,6 @@ class ServiceCustomDomain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -349,7 +346,6 @@ class ServiceCustomDomain(pulumi.CustomResource):
             domain_name="tftest.com",
             signalr_custom_certificate_id=test.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

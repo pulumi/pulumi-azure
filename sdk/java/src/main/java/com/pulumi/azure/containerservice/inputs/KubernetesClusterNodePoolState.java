@@ -240,17 +240,9 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         return Optional.ofNullable(this.linuxOsConfig);
     }
 
-    /**
-     * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
-     * 
-     */
     @Import(name="maxCount")
     private @Nullable Output<Integer> maxCount;
 
-    /**
-     * @return The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
-     * 
-     */
     public Optional<Output<Integer>> maxCount() {
         return Optional.ofNullable(this.maxCount);
     }
@@ -285,17 +277,9 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         return Optional.ofNullable(this.messageOfTheDay);
     }
 
-    /**
-     * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
-     * 
-     */
     @Import(name="minCount")
     private @Nullable Output<Integer> minCount;
 
-    /**
-     * @return The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
-     * 
-     */
     public Optional<Output<Integer>> minCount() {
         return Optional.ofNullable(this.minCount);
     }
@@ -334,17 +318,9 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
-     * 
-     */
     @Import(name="nodeCount")
     private @Nullable Output<Integer> nodeCount;
 
-    /**
-     * @return The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
-     * 
-     */
     public Optional<Output<Integer>> nodeCount() {
         return Optional.ofNullable(this.nodeCount);
     }
@@ -1081,23 +1057,11 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
             return linuxOsConfig(Output.of(linuxOsConfig));
         }
 
-        /**
-         * @param maxCount The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxCount(@Nullable Output<Integer> maxCount) {
             $.maxCount = maxCount;
             return this;
         }
 
-        /**
-         * @param maxCount The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxCount(Integer maxCount) {
             return maxCount(Output.of(maxCount));
         }
@@ -1144,23 +1108,11 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
             return messageOfTheDay(Output.of(messageOfTheDay));
         }
 
-        /**
-         * @param minCount The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minCount(@Nullable Output<Integer> minCount) {
             $.minCount = minCount;
             return this;
         }
 
-        /**
-         * @param minCount The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minCount(Integer minCount) {
             return minCount(Output.of(minCount));
         }
@@ -1211,23 +1163,11 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
             return name(Output.of(name));
         }
 
-        /**
-         * @param nodeCount The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeCount(@Nullable Output<Integer> nodeCount) {
             $.nodeCount = nodeCount;
             return this;
         }
 
-        /**
-         * @param nodeCount The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeCount(Integer nodeCount) {
             return nodeCount(Output.of(nodeCount));
         }

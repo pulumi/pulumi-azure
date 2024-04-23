@@ -92,7 +92,6 @@ def get_mongo_database(account_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -102,7 +101,6 @@ def get_mongo_database(account_name: Optional[str] = None,
         account_name="test-cosmosdb-account")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the Cosmos DB Account where the Mongo Database exists.
@@ -134,7 +132,6 @@ def get_mongo_database_output(account_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -144,7 +141,6 @@ def get_mongo_database_output(account_name: Optional[pulumi.Input[str]] = None,
         account_name="test-cosmosdb-account")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the Cosmos DB Account where the Mongo Database exists.

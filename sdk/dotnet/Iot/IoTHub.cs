@@ -24,7 +24,6 @@ namespace Pulumi.Azure.Iot
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -172,7 +171,6 @@ namespace Pulumi.Azure.Iot
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -185,9 +183,6 @@ namespace Pulumi.Azure.Iot
     [AzureResourceType("azure:iot/ioTHub:IoTHub")]
     public partial class IoTHub : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A `cloud_to_device` block as defined below.
-        /// </summary>
         [Output("cloudToDevice")]
         public Output<Outputs.IoTHubCloudToDevice> CloudToDevice { get; private set; } = null!;
 
@@ -197,9 +192,6 @@ namespace Pulumi.Azure.Iot
         [Output("endpoints")]
         public Output<ImmutableArray<Outputs.IoTHubEndpoint>> Endpoints { get; private set; } = null!;
 
-        /// <summary>
-        /// A `enrichment` block as defined below.
-        /// </summary>
         [Output("enrichments")]
         public Output<ImmutableArray<Outputs.IoTHubEnrichment>> Enrichments { get; private set; } = null!;
 
@@ -283,9 +275,6 @@ namespace Pulumi.Azure.Iot
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("minTlsVersion")]
         public Output<string?> MinTlsVersion { get; private set; } = null!;
 
@@ -301,9 +290,6 @@ namespace Pulumi.Azure.Iot
         [Output("networkRuleSets")]
         public Output<ImmutableArray<Outputs.IoTHubNetworkRuleSet>> NetworkRuleSets { get; private set; } = null!;
 
-        /// <summary>
-        /// Is the IotHub resource accessible from a public network?
-        /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
@@ -313,9 +299,6 @@ namespace Pulumi.Azure.Iot
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// A `route` block as defined below.
-        /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.IoTHubRoute>> Routes { get; private set; } = null!;
 
@@ -331,15 +314,9 @@ namespace Pulumi.Azure.Iot
         [Output("sku")]
         public Output<Outputs.IoTHubSku> Sku { get; private set; } = null!;
 
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -389,9 +366,6 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A `cloud_to_device` block as defined below.
-        /// </summary>
         [Input("cloudToDevice")]
         public Input<Inputs.IoTHubCloudToDeviceArgs>? CloudToDevice { get; set; }
 
@@ -409,10 +383,6 @@ namespace Pulumi.Azure.Iot
 
         [Input("enrichments")]
         private InputList<Inputs.IoTHubEnrichmentArgs>? _enrichments;
-
-        /// <summary>
-        /// A `enrichment` block as defined below.
-        /// </summary>
         public InputList<Inputs.IoTHubEnrichmentArgs> Enrichments
         {
             get => _enrichments ?? (_enrichments = new InputList<Inputs.IoTHubEnrichmentArgs>());
@@ -463,9 +433,6 @@ namespace Pulumi.Azure.Iot
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        /// <summary>
-        /// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }
 
@@ -487,9 +454,6 @@ namespace Pulumi.Azure.Iot
             set => _networkRuleSets = value;
         }
 
-        /// <summary>
-        /// Is the IotHub resource accessible from a public network?
-        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -501,10 +465,6 @@ namespace Pulumi.Azure.Iot
 
         [Input("routes")]
         private InputList<Inputs.IoTHubRouteArgs>? _routes;
-
-        /// <summary>
-        /// A `route` block as defined below.
-        /// </summary>
         public InputList<Inputs.IoTHubRouteArgs> Routes
         {
             get => _routes ?? (_routes = new InputList<Inputs.IoTHubRouteArgs>());
@@ -519,10 +479,6 @@ namespace Pulumi.Azure.Iot
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -537,9 +493,6 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A `cloud_to_device` block as defined below.
-        /// </summary>
         [Input("cloudToDevice")]
         public Input<Inputs.IoTHubCloudToDeviceGetArgs>? CloudToDevice { get; set; }
 
@@ -557,10 +510,6 @@ namespace Pulumi.Azure.Iot
 
         [Input("enrichments")]
         private InputList<Inputs.IoTHubEnrichmentGetArgs>? _enrichments;
-
-        /// <summary>
-        /// A `enrichment` block as defined below.
-        /// </summary>
         public InputList<Inputs.IoTHubEnrichmentGetArgs> Enrichments
         {
             get => _enrichments ?? (_enrichments = new InputList<Inputs.IoTHubEnrichmentGetArgs>());
@@ -647,9 +596,6 @@ namespace Pulumi.Azure.Iot
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        /// <summary>
-        /// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }
 
@@ -671,9 +617,6 @@ namespace Pulumi.Azure.Iot
             set => _networkRuleSets = value;
         }
 
-        /// <summary>
-        /// Is the IotHub resource accessible from a public network?
-        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -685,10 +628,6 @@ namespace Pulumi.Azure.Iot
 
         [Input("routes")]
         private InputList<Inputs.IoTHubRouteGetArgs>? _routes;
-
-        /// <summary>
-        /// A `route` block as defined below.
-        /// </summary>
         public InputList<Inputs.IoTHubRouteGetArgs> Routes
         {
             get => _routes ?? (_routes = new InputList<Inputs.IoTHubRouteGetArgs>());
@@ -715,19 +654,12 @@ namespace Pulumi.Azure.Iot
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

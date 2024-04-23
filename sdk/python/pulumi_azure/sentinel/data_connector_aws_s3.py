@@ -199,7 +199,6 @@ class DataConnectorAwsS3(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -220,7 +219,6 @@ class DataConnectorAwsS3(pulumi.CustomResource):
             destination_table="AWSGuardDuty",
             sqs_urls=["https://sqs.us-east-1.amazonaws.com/000000000000/example"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -249,7 +247,6 @@ class DataConnectorAwsS3(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -270,7 +267,6 @@ class DataConnectorAwsS3(pulumi.CustomResource):
             destination_table="AWSGuardDuty",
             sqs_urls=["https://sqs.us-east-1.amazonaws.com/000000000000/example"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -120,7 +119,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -134,18 +132,15 @@ type SpringCloudConnection struct {
 
 	// The authentication info. An `authentication` block as defined below.
 	Authentication SpringCloudConnectionAuthenticationOutput `pulumi:"authentication"`
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-	ClientType pulumi.StringPtrOutput `pulumi:"clientType"`
+	ClientType     pulumi.StringPtrOutput                    `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	Name        pulumi.StringOutput                       `pulumi:"name"`
 	SecretStore SpringCloudConnectionSecretStorePtrOutput `pulumi:"secretStore"`
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId pulumi.StringOutput `pulumi:"springCloudId"`
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
-	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
-	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-	VnetSolution pulumi.StringPtrOutput `pulumi:"vnetSolution"`
+	TargetResourceId pulumi.StringOutput    `pulumi:"targetResourceId"`
+	VnetSolution     pulumi.StringPtrOutput `pulumi:"vnetSolution"`
 }
 
 // NewSpringCloudConnection registers a new resource with the given unique name, arguments, and options.
@@ -189,35 +184,29 @@ func GetSpringCloudConnection(ctx *pulumi.Context,
 type springCloudConnectionState struct {
 	// The authentication info. An `authentication` block as defined below.
 	Authentication *SpringCloudConnectionAuthentication `pulumi:"authentication"`
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-	ClientType *string `pulumi:"clientType"`
+	ClientType     *string                              `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
-	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	Name        *string                           `pulumi:"name"`
 	SecretStore *SpringCloudConnectionSecretStore `pulumi:"secretStore"`
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId *string `pulumi:"springCloudId"`
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-	VnetSolution *string `pulumi:"vnetSolution"`
+	VnetSolution     *string `pulumi:"vnetSolution"`
 }
 
 type SpringCloudConnectionState struct {
 	// The authentication info. An `authentication` block as defined below.
 	Authentication SpringCloudConnectionAuthenticationPtrInput
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-	ClientType pulumi.StringPtrInput
+	ClientType     pulumi.StringPtrInput
 	// The name of the service connection. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
-	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	Name        pulumi.StringPtrInput
 	SecretStore SpringCloudConnectionSecretStorePtrInput
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId pulumi.StringPtrInput
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId pulumi.StringPtrInput
-	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-	VnetSolution pulumi.StringPtrInput
+	VnetSolution     pulumi.StringPtrInput
 }
 
 func (SpringCloudConnectionState) ElementType() reflect.Type {
@@ -227,36 +216,30 @@ func (SpringCloudConnectionState) ElementType() reflect.Type {
 type springCloudConnectionArgs struct {
 	// The authentication info. An `authentication` block as defined below.
 	Authentication SpringCloudConnectionAuthentication `pulumi:"authentication"`
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-	ClientType *string `pulumi:"clientType"`
+	ClientType     *string                             `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
-	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	Name        *string                           `pulumi:"name"`
 	SecretStore *SpringCloudConnectionSecretStore `pulumi:"secretStore"`
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId string `pulumi:"springCloudId"`
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
-	TargetResourceId string `pulumi:"targetResourceId"`
-	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-	VnetSolution *string `pulumi:"vnetSolution"`
+	TargetResourceId string  `pulumi:"targetResourceId"`
+	VnetSolution     *string `pulumi:"vnetSolution"`
 }
 
 // The set of arguments for constructing a SpringCloudConnection resource.
 type SpringCloudConnectionArgs struct {
 	// The authentication info. An `authentication` block as defined below.
 	Authentication SpringCloudConnectionAuthenticationInput
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-	ClientType pulumi.StringPtrInput
+	ClientType     pulumi.StringPtrInput
 	// The name of the service connection. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
-	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	Name        pulumi.StringPtrInput
 	SecretStore SpringCloudConnectionSecretStorePtrInput
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId pulumi.StringInput
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId pulumi.StringInput
-	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-	VnetSolution pulumi.StringPtrInput
+	VnetSolution     pulumi.StringPtrInput
 }
 
 func (SpringCloudConnectionArgs) ElementType() reflect.Type {
@@ -351,7 +334,6 @@ func (o SpringCloudConnectionOutput) Authentication() SpringCloudConnectionAuthe
 	return o.ApplyT(func(v *SpringCloudConnection) SpringCloudConnectionAuthenticationOutput { return v.Authentication }).(SpringCloudConnectionAuthenticationOutput)
 }
 
-// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 func (o SpringCloudConnectionOutput) ClientType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudConnection) pulumi.StringPtrOutput { return v.ClientType }).(pulumi.StringPtrOutput)
 }
@@ -361,7 +343,6 @@ func (o SpringCloudConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// An option to store secret value in secure place. An `secretStore` block as defined below.
 func (o SpringCloudConnectionOutput) SecretStore() SpringCloudConnectionSecretStorePtrOutput {
 	return o.ApplyT(func(v *SpringCloudConnection) SpringCloudConnectionSecretStorePtrOutput { return v.SecretStore }).(SpringCloudConnectionSecretStorePtrOutput)
 }
@@ -376,7 +357,6 @@ func (o SpringCloudConnectionOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudConnection) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }
 
-// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
 func (o SpringCloudConnectionOutput) VnetSolution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudConnection) pulumi.StringPtrOutput { return v.VnetSolution }).(pulumi.StringPtrOutput)
 }

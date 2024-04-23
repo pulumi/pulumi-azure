@@ -13,19 +13,19 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxWebAppAuthSettingsV2MicrosoftV2 {
     /**
-     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-     * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * @return Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
      * 
      */
     private @Nullable List<String> allowedAudiences;
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The OAuth 2.0 client ID that was created for the app used for authentication.
      * 
      */
     private String clientId;
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     private String clientSecretSettingName;
@@ -37,23 +37,23 @@ public final class LinuxWebAppAuthSettingsV2MicrosoftV2 {
 
     private LinuxWebAppAuthSettingsV2MicrosoftV2() {}
     /**
-     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-     * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * @return Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
      * 
      */
     public List<String> allowedAudiences() {
         return this.allowedAudiences == null ? List.of() : this.allowedAudiences;
     }
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The OAuth 2.0 client ID that was created for the app used for authentication.
      * 
      */
     public String clientId() {
         return this.clientId;
     }
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public String clientSecretSettingName() {

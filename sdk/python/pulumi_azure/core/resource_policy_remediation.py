@@ -386,7 +386,6 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -426,7 +425,6 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
             resource_id=example_virtual_network.id,
             policy_assignment_id=example_resource_group_policy_assignment.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -462,7 +460,6 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -502,7 +499,6 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
             resource_id=example_virtual_network.id,
             policy_assignment_id=example_resource_group_policy_assignment.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "resource_group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPolicyVM(args: GetPolicyVMArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyVMResult> {
 
@@ -67,7 +65,6 @@ export interface GetPolicyVMResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -78,7 +75,6 @@ export interface GetPolicyVMResult {
  *     resourceGroupName: "resource_group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPolicyVMOutput(args: GetPolicyVMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyVMResult> {
     return pulumi.output(args).apply((a: any) => getPolicyVM(a, opts))

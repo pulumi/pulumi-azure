@@ -20,7 +20,6 @@ import (
 //
 // This example provisions a basic Kubernetes Node Pool.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,7 +75,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -124,22 +122,19 @@ type KubernetesClusterNodePool struct {
 	KubernetesClusterId pulumi.StringOutput `pulumi:"kubernetesClusterId"`
 	// A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
 	LinuxOsConfig KubernetesClusterNodePoolLinuxOsConfigPtrOutput `pulumi:"linuxOsConfig"`
-	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
-	MaxCount pulumi.IntPtrOutput `pulumi:"maxCount"`
+	MaxCount      pulumi.IntPtrOutput                             `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods pulumi.IntOutput `pulumi:"maxPods"`
 	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
 	MessageOfTheDay pulumi.StringPtrOutput `pulumi:"messageOfTheDay"`
-	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `maxCount`.
-	MinCount pulumi.IntPtrOutput `pulumi:"minCount"`
+	MinCount        pulumi.IntPtrOutput    `pulumi:"minCount"`
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
 	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
-	NodeCount pulumi.IntOutput `pulumi:"nodeCount"`
+	Name      pulumi.StringOutput `pulumi:"name"`
+	NodeCount pulumi.IntOutput    `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapOutput `pulumi:"nodeLabels"`
 	// A `nodeNetworkProfile` block as documented below.
@@ -274,22 +269,19 @@ type kubernetesClusterNodePoolState struct {
 	KubernetesClusterId *string `pulumi:"kubernetesClusterId"`
 	// A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
 	LinuxOsConfig *KubernetesClusterNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
-	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
-	MaxCount *int `pulumi:"maxCount"`
+	MaxCount      *int                                    `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods *int `pulumi:"maxPods"`
 	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
 	MessageOfTheDay *string `pulumi:"messageOfTheDay"`
-	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `maxCount`.
-	MinCount *int `pulumi:"minCount"`
+	MinCount        *int    `pulumi:"minCount"`
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
 	Mode *string `pulumi:"mode"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
-	Name *string `pulumi:"name"`
-	// The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
-	NodeCount *int `pulumi:"nodeCount"`
+	Name      *string `pulumi:"name"`
+	NodeCount *int    `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// A `nodeNetworkProfile` block as documented below.
@@ -389,21 +381,18 @@ type KubernetesClusterNodePoolState struct {
 	KubernetesClusterId pulumi.StringPtrInput
 	// A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
 	LinuxOsConfig KubernetesClusterNodePoolLinuxOsConfigPtrInput
-	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
-	MaxCount pulumi.IntPtrInput
+	MaxCount      pulumi.IntPtrInput
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods pulumi.IntPtrInput
 	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
 	MessageOfTheDay pulumi.StringPtrInput
-	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `maxCount`.
-	MinCount pulumi.IntPtrInput
+	MinCount        pulumi.IntPtrInput
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
 	Mode pulumi.StringPtrInput
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
-	Name pulumi.StringPtrInput
-	// The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
+	Name      pulumi.StringPtrInput
 	NodeCount pulumi.IntPtrInput
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapInput
@@ -508,22 +497,19 @@ type kubernetesClusterNodePoolArgs struct {
 	KubernetesClusterId string `pulumi:"kubernetesClusterId"`
 	// A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
 	LinuxOsConfig *KubernetesClusterNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
-	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
-	MaxCount *int `pulumi:"maxCount"`
+	MaxCount      *int                                    `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods *int `pulumi:"maxPods"`
 	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
 	MessageOfTheDay *string `pulumi:"messageOfTheDay"`
-	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `maxCount`.
-	MinCount *int `pulumi:"minCount"`
+	MinCount        *int    `pulumi:"minCount"`
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
 	Mode *string `pulumi:"mode"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
-	Name *string `pulumi:"name"`
-	// The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
-	NodeCount *int `pulumi:"nodeCount"`
+	Name      *string `pulumi:"name"`
+	NodeCount *int    `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// A `nodeNetworkProfile` block as documented below.
@@ -624,21 +610,18 @@ type KubernetesClusterNodePoolArgs struct {
 	KubernetesClusterId pulumi.StringInput
 	// A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
 	LinuxOsConfig KubernetesClusterNodePoolLinuxOsConfigPtrInput
-	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
-	MaxCount pulumi.IntPtrInput
+	MaxCount      pulumi.IntPtrInput
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods pulumi.IntPtrInput
 	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
 	MessageOfTheDay pulumi.StringPtrInput
-	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `maxCount`.
-	MinCount pulumi.IntPtrInput
+	MinCount        pulumi.IntPtrInput
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
 	Mode pulumi.StringPtrInput
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
-	Name pulumi.StringPtrInput
-	// The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
+	Name      pulumi.StringPtrInput
 	NodeCount pulumi.IntPtrInput
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapInput
@@ -868,7 +851,6 @@ func (o KubernetesClusterNodePoolOutput) LinuxOsConfig() KubernetesClusterNodePo
 	}).(KubernetesClusterNodePoolLinuxOsConfigPtrOutput)
 }
 
-// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
 func (o KubernetesClusterNodePoolOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.IntPtrOutput { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
@@ -883,7 +865,6 @@ func (o KubernetesClusterNodePoolOutput) MessageOfTheDay() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.MessageOfTheDay }).(pulumi.StringPtrOutput)
 }
 
-// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `maxCount`.
 func (o KubernetesClusterNodePoolOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.IntPtrOutput { return v.MinCount }).(pulumi.IntPtrOutput)
 }
@@ -900,7 +881,6 @@ func (o KubernetesClusterNodePoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
 func (o KubernetesClusterNodePoolOutput) NodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.IntOutput { return v.NodeCount }).(pulumi.IntOutput)
 }

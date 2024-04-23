@@ -120,7 +120,6 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -156,7 +155,6 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
             static_web_app_id=example_static_web_app.id,
             function_app_id=example_linux_function_app.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -188,7 +186,6 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -224,7 +221,6 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
             static_web_app_id=example_static_web_app.id,
             function_app_id=example_linux_function_app.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

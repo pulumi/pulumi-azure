@@ -211,7 +211,6 @@ class EndpointCustomDomain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -252,7 +251,6 @@ class EndpointCustomDomain(pulumi.CustomResource):
             cdn_endpoint_id=example_endpoint.id,
             host_name=example_c_name_record.name.apply(lambda name: f"{name}.{example.name}"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -283,7 +281,6 @@ class EndpointCustomDomain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -324,7 +321,6 @@ class EndpointCustomDomain(pulumi.CustomResource):
             cdn_endpoint_id=example_endpoint.id,
             host_name=example_c_name_record.name.apply(lambda name: f"{name}.{example.name}"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

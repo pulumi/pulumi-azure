@@ -12,18 +12,11 @@ namespace Pulumi.Azure.MSSql.Inputs
 
     public sealed class VirtualMachineStorageConfigurationDataSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The SQL Server default path
-        /// </summary>
         [Input("defaultFilePath", required: true)]
         public Input<string> DefaultFilePath { get; set; } = null!;
 
         [Input("luns", required: true)]
         private InputList<int>? _luns;
-
-        /// <summary>
-        /// A list of Logical Unit Numbers for the disks.
-        /// </summary>
         public InputList<int> Luns
         {
             get => _luns ?? (_luns = new InputList<int>());

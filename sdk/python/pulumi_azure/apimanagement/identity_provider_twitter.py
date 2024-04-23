@@ -166,7 +166,6 @@ class IdentityProviderTwitter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -187,7 +186,6 @@ class IdentityProviderTwitter(pulumi.CustomResource):
             api_key="00000000000000000000000000000000",
             api_secret_key="00000000000000000000000000000000")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -215,7 +213,6 @@ class IdentityProviderTwitter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -236,7 +233,6 @@ class IdentityProviderTwitter(pulumi.CustomResource):
             api_key="00000000000000000000000000000000",
             api_secret_key="00000000000000000000000000000000")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

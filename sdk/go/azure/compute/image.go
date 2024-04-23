@@ -18,7 +18,6 @@ import (
 //
 // > **Note:** For a more complete example, see the `examples/image` directory within the GitHub Repository.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,7 +51,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

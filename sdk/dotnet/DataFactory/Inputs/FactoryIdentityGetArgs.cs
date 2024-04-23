@@ -33,7 +33,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// Specifies the Tenant ID associated with the VSTS account.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

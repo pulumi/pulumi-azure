@@ -2853,7 +2853,7 @@ class FactoryIdentityArgs:
                
                > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
-        :param pulumi.Input[str] tenant_id: Specifies the Tenant ID associated with the VSTS account.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -2905,7 +2905,7 @@ class FactoryIdentityArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Tenant ID associated with the VSTS account.
+        The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -4394,12 +4394,6 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs:
                  secret_name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  secret_version: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
-        :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Key Vault Data Factory Linked Service.
-        :param pulumi.Input[str] secret_version: Specifies the secret version in Azure Key Vault.
-        """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "secret_name", secret_name)
         if parameters is not None:
@@ -4410,9 +4404,6 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs:
     @property
     @pulumi.getter(name="linkedServiceName")
     def linked_service_name(self) -> pulumi.Input[str]:
-        """
-        Specifies the name of an existing Key Vault Data Factory Linked Service.
-        """
         return pulumi.get(self, "linked_service_name")
 
     @linked_service_name.setter
@@ -4422,9 +4413,6 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs:
     @property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[str]:
-        """
-        Specifies the secret name in Azure Key Vault.
-        """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
@@ -4434,9 +4422,6 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of parameters to associate with the Key Vault Data Factory Linked Service.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -4446,9 +4431,6 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs:
     @property
     @pulumi.getter(name="secretVersion")
     def secret_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the secret version in Azure Key Vault.
-        """
         return pulumi.get(self, "secret_version")
 
     @secret_version.setter
@@ -4517,12 +4499,6 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs:
                  secret_name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  secret_version: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
-        :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Key Vault Data Factory Linked Service.
-        :param pulumi.Input[str] secret_version: Specifies the secret version in Azure Key Vault.
-        """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "secret_name", secret_name)
         if parameters is not None:
@@ -4533,9 +4509,6 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs:
     @property
     @pulumi.getter(name="linkedServiceName")
     def linked_service_name(self) -> pulumi.Input[str]:
-        """
-        Specifies the name of an existing Key Vault Data Factory Linked Service.
-        """
         return pulumi.get(self, "linked_service_name")
 
     @linked_service_name.setter
@@ -4545,9 +4518,6 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs:
     @property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[str]:
-        """
-        Specifies the secret name in Azure Key Vault.
-        """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
@@ -4557,9 +4527,6 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of parameters to associate with the Key Vault Data Factory Linked Service.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -4569,9 +4536,6 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs:
     @property
     @pulumi.getter(name="secretVersion")
     def secret_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the secret version in Azure Key Vault.
-        """
         return pulumi.get(self, "secret_version")
 
     @secret_version.setter

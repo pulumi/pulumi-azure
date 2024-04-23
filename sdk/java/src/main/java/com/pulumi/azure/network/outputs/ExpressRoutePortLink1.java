@@ -12,10 +12,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExpressRoutePortLink1 {
-    /**
-     * @return Whether enable administration state on the Express Route Port Link? Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean adminEnabled;
     /**
      * @return The connector type of the Express Route Port Link.
@@ -32,27 +28,9 @@ public final class ExpressRoutePortLink1 {
      * 
      */
     private @Nullable String interfaceName;
-    /**
-     * @return The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-     * 
-     */
     private @Nullable String macsecCakKeyvaultSecretId;
-    /**
-     * @return The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
-     * 
-     */
     private @Nullable String macsecCipher;
-    /**
-     * @return The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
-     * 
-     */
     private @Nullable String macsecCknKeyvaultSecretId;
-    /**
-     * @return Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
-     * 
-     * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
-     * 
-     */
     private @Nullable Boolean macsecSciEnabled;
     /**
      * @return The ID that maps from the Express Route Port Link to the patch panel port.
@@ -71,10 +49,6 @@ public final class ExpressRoutePortLink1 {
     private @Nullable String routerName;
 
     private ExpressRoutePortLink1() {}
-    /**
-     * @return Whether enable administration state on the Express Route Port Link? Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> adminEnabled() {
         return Optional.ofNullable(this.adminEnabled);
     }
@@ -99,33 +73,15 @@ public final class ExpressRoutePortLink1 {
     public Optional<String> interfaceName() {
         return Optional.ofNullable(this.interfaceName);
     }
-    /**
-     * @return The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-     * 
-     */
     public Optional<String> macsecCakKeyvaultSecretId() {
         return Optional.ofNullable(this.macsecCakKeyvaultSecretId);
     }
-    /**
-     * @return The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
-     * 
-     */
     public Optional<String> macsecCipher() {
         return Optional.ofNullable(this.macsecCipher);
     }
-    /**
-     * @return The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
-     * 
-     */
     public Optional<String> macsecCknKeyvaultSecretId() {
         return Optional.ofNullable(this.macsecCknKeyvaultSecretId);
     }
-    /**
-     * @return Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
-     * 
-     * &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
-     * 
-     */
     public Optional<Boolean> macsecSciEnabled() {
         return Optional.ofNullable(this.macsecSciEnabled);
     }

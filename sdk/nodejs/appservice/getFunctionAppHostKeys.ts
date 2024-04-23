@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFunctionAppHostKeys(args: GetFunctionAppHostKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionAppHostKeysResult> {
 
@@ -89,7 +87,6 @@ export interface GetFunctionAppHostKeysResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -99,7 +96,6 @@ export interface GetFunctionAppHostKeysResult {
  *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFunctionAppHostKeysOutput(args: GetFunctionAppHostKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionAppHostKeysResult> {
     return pulumi.output(args).apply((a: any) => getFunctionAppHostKeys(a, opts))

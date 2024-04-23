@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMcaAccountScope(args: GetMcaAccountScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetMcaAccountScopeResult> {
 
@@ -68,7 +66,6 @@ export interface GetMcaAccountScopeResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -80,7 +77,6 @@ export interface GetMcaAccountScopeResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMcaAccountScopeOutput(args: GetMcaAccountScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMcaAccountScopeResult> {
     return pulumi.output(args).apply((a: any) => getMcaAccountScope(a, opts))

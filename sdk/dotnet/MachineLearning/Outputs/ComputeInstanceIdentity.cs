@@ -24,7 +24,7 @@ namespace Pulumi.Azure.MachineLearning.Outputs
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// User’s AAD Tenant Id.
+        /// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>

@@ -6925,7 +6925,7 @@ type FactoryIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// Specifies the Tenant ID associated with the VSTS account.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
@@ -6949,7 +6949,7 @@ type FactoryIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// Specifies the Tenant ID associated with the VSTS account.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
@@ -7044,7 +7044,7 @@ func (o FactoryIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FactoryIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Tenant ID associated with the VSTS account.
+// The Tenant ID associated with this Managed Service Identity.
 func (o FactoryIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FactoryIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -7100,7 +7100,7 @@ func (o FactoryIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Tenant ID associated with the VSTS account.
+// The Tenant ID associated with this Managed Service Identity.
 func (o FactoryIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FactoryIdentity) *string {
 		if v == nil {
@@ -11387,14 +11387,10 @@ func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrayOutput) Index(i p
 }
 
 type IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword struct {
-	// Specifies the name of an existing Key Vault Data Factory Linked Service.
-	LinkedServiceName string `pulumi:"linkedServiceName"`
-	// A map of parameters to associate with the Key Vault Data Factory Linked Service.
-	Parameters map[string]string `pulumi:"parameters"`
-	// Specifies the secret name in Azure Key Vault.
-	SecretName string `pulumi:"secretName"`
-	// Specifies the secret version in Azure Key Vault.
-	SecretVersion *string `pulumi:"secretVersion"`
+	LinkedServiceName string            `pulumi:"linkedServiceName"`
+	Parameters        map[string]string `pulumi:"parameters"`
+	SecretName        string            `pulumi:"secretName"`
+	SecretVersion     *string           `pulumi:"secretVersion"`
 }
 
 // IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs and IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput values.
@@ -11409,14 +11405,10 @@ type IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordInput int
 }
 
 type IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs struct {
-	// Specifies the name of an existing Key Vault Data Factory Linked Service.
-	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
-	// A map of parameters to associate with the Key Vault Data Factory Linked Service.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	// Specifies the secret name in Azure Key Vault.
-	SecretName pulumi.StringInput `pulumi:"secretName"`
-	// Specifies the secret version in Azure Key Vault.
-	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
+	LinkedServiceName pulumi.StringInput    `pulumi:"linkedServiceName"`
+	Parameters        pulumi.StringMapInput `pulumi:"parameters"`
+	SecretName        pulumi.StringInput    `pulumi:"secretName"`
+	SecretVersion     pulumi.StringPtrInput `pulumi:"secretVersion"`
 }
 
 func (IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs) ElementType() reflect.Type {
@@ -11496,26 +11488,22 @@ func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput
 	}).(IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput)
 }
 
-// Specifies the name of an existing Key Vault Data Factory Linked Service.
 func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput) LinkedServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) string {
 		return v.LinkedServiceName
 	}).(pulumi.StringOutput)
 }
 
-// A map of parameters to associate with the Key Vault Data Factory Linked Service.
 func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) map[string]string {
 		return v.Parameters
 	}).(pulumi.StringMapOutput)
 }
 
-// Specifies the secret name in Azure Key Vault.
 func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) string { return v.SecretName }).(pulumi.StringOutput)
 }
 
-// Specifies the secret version in Azure Key Vault.
 func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput) SecretVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) *string {
 		return v.SecretVersion
@@ -11546,7 +11534,6 @@ func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOut
 	}).(IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordOutput)
 }
 
-// Specifies the name of an existing Key Vault Data Factory Linked Service.
 func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) *string {
 		if v == nil {
@@ -11556,7 +11543,6 @@ func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A map of parameters to associate with the Key Vault Data Factory Linked Service.
 func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) map[string]string {
 		if v == nil {
@@ -11566,7 +11552,6 @@ func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOut
 	}).(pulumi.StringMapOutput)
 }
 
-// Specifies the secret name in Azure Key Vault.
 func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) *string {
 		if v == nil {
@@ -11576,7 +11561,6 @@ func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the secret version in Azure Key Vault.
 func (o IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordPtrOutput) SecretVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword) *string {
 		if v == nil {
@@ -11704,14 +11688,10 @@ func (o IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput) Index(i pu
 }
 
 type IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense struct {
-	// Specifies the name of an existing Key Vault Data Factory Linked Service.
-	LinkedServiceName string `pulumi:"linkedServiceName"`
-	// A map of parameters to associate with the Key Vault Data Factory Linked Service.
-	Parameters map[string]string `pulumi:"parameters"`
-	// Specifies the secret name in Azure Key Vault.
-	SecretName string `pulumi:"secretName"`
-	// Specifies the secret version in Azure Key Vault.
-	SecretVersion *string `pulumi:"secretVersion"`
+	LinkedServiceName string            `pulumi:"linkedServiceName"`
+	Parameters        map[string]string `pulumi:"parameters"`
+	SecretName        string            `pulumi:"secretName"`
+	SecretVersion     *string           `pulumi:"secretVersion"`
 }
 
 // IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseInput is an input type that accepts IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs and IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput values.
@@ -11726,14 +11706,10 @@ type IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseInput inter
 }
 
 type IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs struct {
-	// Specifies the name of an existing Key Vault Data Factory Linked Service.
-	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
-	// A map of parameters to associate with the Key Vault Data Factory Linked Service.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	// Specifies the secret name in Azure Key Vault.
-	SecretName pulumi.StringInput `pulumi:"secretName"`
-	// Specifies the secret version in Azure Key Vault.
-	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
+	LinkedServiceName pulumi.StringInput    `pulumi:"linkedServiceName"`
+	Parameters        pulumi.StringMapInput `pulumi:"parameters"`
+	SecretName        pulumi.StringInput    `pulumi:"secretName"`
+	SecretVersion     pulumi.StringPtrInput `pulumi:"secretVersion"`
 }
 
 func (IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs) ElementType() reflect.Type {
@@ -11813,26 +11789,22 @@ func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) 
 	}).(IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput)
 }
 
-// Specifies the name of an existing Key Vault Data Factory Linked Service.
 func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) LinkedServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) string {
 		return v.LinkedServiceName
 	}).(pulumi.StringOutput)
 }
 
-// A map of parameters to associate with the Key Vault Data Factory Linked Service.
 func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) map[string]string {
 		return v.Parameters
 	}).(pulumi.StringMapOutput)
 }
 
-// Specifies the secret name in Azure Key Vault.
 func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) string { return v.SecretName }).(pulumi.StringOutput)
 }
 
-// Specifies the secret version in Azure Key Vault.
 func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput) SecretVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) *string {
 		return v.SecretVersion
@@ -11863,7 +11835,6 @@ func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutpu
 	}).(IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput)
 }
 
-// Specifies the name of an existing Key Vault Data Factory Linked Service.
 func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) *string {
 		if v == nil {
@@ -11873,7 +11844,6 @@ func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A map of parameters to associate with the Key Vault Data Factory Linked Service.
 func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) map[string]string {
 		if v == nil {
@@ -11883,7 +11853,6 @@ func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutpu
 	}).(pulumi.StringMapOutput)
 }
 
-// Specifies the secret name in Azure Key Vault.
 func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) *string {
 		if v == nil {
@@ -11893,7 +11862,6 @@ func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the secret version in Azure Key Vault.
 func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput) SecretVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense) *string {
 		if v == nil {

@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,7 +80,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -99,7 +97,7 @@ type AlertRuleAnomalyDuplicate struct {
 	AnomalyVersion pulumi.StringOutput `pulumi:"anomalyVersion"`
 	// The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
 	BuiltInRuleId pulumi.StringOutput `pulumi:"builtInRuleId"`
-	// The description of the multi select observation.
+	// The description of the Anomaly Alert Rule.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The Display Name of the built-in Anomaly Alert Rule.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
@@ -115,8 +113,7 @@ type AlertRuleAnomalyDuplicate struct {
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// A list of `multiSelectObservation` blocks as defined below.
 	MultiSelectObservations AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput `pulumi:"multiSelectObservations"`
-	// The name of the multi select observation.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name                    pulumi.StringOutput                                        `pulumi:"name"`
 	// A list of `prioritizedExcludeObservation` blocks as defined below.
 	PrioritizedExcludeObservations AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput `pulumi:"prioritizedExcludeObservations"`
 	// A `requiredDataConnector` block as defined below.
@@ -186,7 +183,7 @@ type alertRuleAnomalyDuplicateState struct {
 	AnomalyVersion *string `pulumi:"anomalyVersion"`
 	// The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
 	BuiltInRuleId *string `pulumi:"builtInRuleId"`
-	// The description of the multi select observation.
+	// The description of the Anomaly Alert Rule.
 	Description *string `pulumi:"description"`
 	// The Display Name of the built-in Anomaly Alert Rule.
 	DisplayName *string `pulumi:"displayName"`
@@ -202,8 +199,7 @@ type alertRuleAnomalyDuplicateState struct {
 	Mode *string `pulumi:"mode"`
 	// A list of `multiSelectObservation` blocks as defined below.
 	MultiSelectObservations []AlertRuleAnomalyDuplicateMultiSelectObservation `pulumi:"multiSelectObservations"`
-	// The name of the multi select observation.
-	Name *string `pulumi:"name"`
+	Name                    *string                                           `pulumi:"name"`
 	// A list of `prioritizedExcludeObservation` blocks as defined below.
 	PrioritizedExcludeObservations []AlertRuleAnomalyDuplicatePrioritizedExcludeObservation `pulumi:"prioritizedExcludeObservations"`
 	// A `requiredDataConnector` block as defined below.
@@ -229,7 +225,7 @@ type AlertRuleAnomalyDuplicateState struct {
 	AnomalyVersion pulumi.StringPtrInput
 	// The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
 	BuiltInRuleId pulumi.StringPtrInput
-	// The description of the multi select observation.
+	// The description of the Anomaly Alert Rule.
 	Description pulumi.StringPtrInput
 	// The Display Name of the built-in Anomaly Alert Rule.
 	DisplayName pulumi.StringPtrInput
@@ -245,8 +241,7 @@ type AlertRuleAnomalyDuplicateState struct {
 	Mode pulumi.StringPtrInput
 	// A list of `multiSelectObservation` blocks as defined below.
 	MultiSelectObservations AlertRuleAnomalyDuplicateMultiSelectObservationArrayInput
-	// The name of the multi select observation.
-	Name pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
 	// A list of `prioritizedExcludeObservation` blocks as defined below.
 	PrioritizedExcludeObservations AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayInput
 	// A `requiredDataConnector` block as defined below.
@@ -418,7 +413,7 @@ func (o AlertRuleAnomalyDuplicateOutput) BuiltInRuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertRuleAnomalyDuplicate) pulumi.StringOutput { return v.BuiltInRuleId }).(pulumi.StringOutput)
 }
 
-// The description of the multi select observation.
+// The description of the Anomaly Alert Rule.
 func (o AlertRuleAnomalyDuplicateOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertRuleAnomalyDuplicate) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
@@ -460,7 +455,6 @@ func (o AlertRuleAnomalyDuplicateOutput) MultiSelectObservations() AlertRuleAnom
 	}).(AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput)
 }
 
-// The name of the multi select observation.
 func (o AlertRuleAnomalyDuplicateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertRuleAnomalyDuplicate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

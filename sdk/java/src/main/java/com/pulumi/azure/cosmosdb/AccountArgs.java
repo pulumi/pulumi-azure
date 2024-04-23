@@ -29,17 +29,9 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AccountArgs Empty = new AccountArgs();
 
-    /**
-     * Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
-     * 
-     */
     @Import(name="accessKeyMetadataWritesEnabled")
     private @Nullable Output<Boolean> accessKeyMetadataWritesEnabled;
 
-    /**
-     * @return Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> accessKeyMetadataWritesEnabled() {
         return Optional.ofNullable(this.accessKeyMetadataWritesEnabled);
     }
@@ -59,62 +51,30 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.analyticalStorage);
     }
 
-    /**
-     * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-     * 
-     */
     @Import(name="analyticalStorageEnabled")
     private @Nullable Output<Boolean> analyticalStorageEnabled;
 
-    /**
-     * @return Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-     * 
-     */
     public Optional<Output<Boolean>> analyticalStorageEnabled() {
         return Optional.ofNullable(this.analyticalStorageEnabled);
     }
 
-    /**
-     * Enable automatic failover for this Cosmos DB account.
-     * 
-     */
     @Import(name="automaticFailoverEnabled")
     private @Nullable Output<Boolean> automaticFailoverEnabled;
 
-    /**
-     * @return Enable automatic failover for this Cosmos DB account.
-     * 
-     */
     public Optional<Output<Boolean>> automaticFailoverEnabled() {
         return Optional.ofNullable(this.automaticFailoverEnabled);
     }
 
-    /**
-     * A `backup` block as defined below.
-     * 
-     */
     @Import(name="backup")
     private @Nullable Output<AccountBackupArgs> backup;
 
-    /**
-     * @return A `backup` block as defined below.
-     * 
-     */
     public Optional<Output<AccountBackupArgs>> backup() {
         return Optional.ofNullable(this.backup);
     }
 
-    /**
-     * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
-     * 
-     */
     @Import(name="capabilities")
     private @Nullable Output<List<AccountCapabilityArgs>> capabilities;
 
-    /**
-     * @return The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
-     * 
-     */
     public Optional<Output<List<AccountCapabilityArgs>>> capabilities() {
         return Optional.ofNullable(this.capabilities);
     }
@@ -134,32 +94,16 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.capacity);
     }
 
-    /**
-     * Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-     * 
-     */
     @Import(name="consistencyPolicy", required=true)
     private Output<AccountConsistencyPolicyArgs> consistencyPolicy;
 
-    /**
-     * @return Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-     * 
-     */
     public Output<AccountConsistencyPolicyArgs> consistencyPolicy() {
         return this.consistencyPolicy;
     }
 
-    /**
-     * A `cors_rule` block as defined below.
-     * 
-     */
     @Import(name="corsRule")
     private @Nullable Output<AccountCorsRuleArgs> corsRule;
 
-    /**
-     * @return A `cors_rule` block as defined below.
-     * 
-     */
     public Optional<Output<AccountCorsRuleArgs>> corsRule() {
         return Optional.ofNullable(this.corsRule);
     }
@@ -255,138 +199,58 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.enableMultipleWriteLocations);
     }
 
-    /**
-     * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="freeTierEnabled")
     private @Nullable Output<Boolean> freeTierEnabled;
 
-    /**
-     * @return Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<Boolean>> freeTierEnabled() {
         return Optional.ofNullable(this.freeTierEnabled);
     }
 
-    /**
-     * Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-     * 
-     */
     @Import(name="geoLocations", required=true)
     private Output<List<AccountGeoLocationArgs>> geoLocations;
 
-    /**
-     * @return Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-     * 
-     */
     public Output<List<AccountGeoLocationArgs>> geoLocations() {
         return this.geoLocations;
     }
 
-    /**
-     * An `identity` block as defined below.
-     * 
-     */
     @Import(name="identity")
     private @Nullable Output<AccountIdentityArgs> identity;
 
-    /**
-     * @return An `identity` block as defined below.
-     * 
-     */
     public Optional<Output<AccountIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
     }
 
-    /**
-     * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-     * 
-     * &gt; **Note:** To enable the &#34;Allow access from the Azure portal&#34; behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-     * 
-     * &gt; **Note:** To enable the &#34;Accept connections from within public Azure datacenters&#34; behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-     * 
-     */
     @Import(name="ipRangeFilter")
     private @Nullable Output<String> ipRangeFilter;
 
-    /**
-     * @return CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-     * 
-     * &gt; **Note:** To enable the &#34;Allow access from the Azure portal&#34; behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-     * 
-     * &gt; **Note:** To enable the &#34;Accept connections from within public Azure datacenters&#34; behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-     * 
-     */
     public Optional<Output<String>> ipRangeFilter() {
         return Optional.ofNullable(this.ipRangeFilter);
     }
 
-    /**
-     * Enables virtual network filtering for this Cosmos DB account.
-     * 
-     */
     @Import(name="isVirtualNetworkFilterEnabled")
     private @Nullable Output<Boolean> isVirtualNetworkFilterEnabled;
 
-    /**
-     * @return Enables virtual network filtering for this Cosmos DB account.
-     * 
-     */
     public Optional<Output<Boolean>> isVirtualNetworkFilterEnabled() {
         return Optional.ofNullable(this.isVirtualNetworkFilterEnabled);
     }
 
-    /**
-     * A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When referencing an `azure.keyvault.Key` resource, use `versionless_id` instead of `id`
-     * 
-     * &gt; **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-     * 
-     */
     @Import(name="keyVaultKeyId")
     private @Nullable Output<String> keyVaultKeyId;
 
-    /**
-     * @return A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When referencing an `azure.keyvault.Key` resource, use `versionless_id` instead of `id`
-     * 
-     * &gt; **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-     * 
-     */
     public Optional<Output<String>> keyVaultKeyId() {
         return Optional.ofNullable(this.keyVaultKeyId);
     }
 
-    /**
-     * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="kind")
     private @Nullable Output<String> kind;
 
-    /**
-     * @return Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<String>> kind() {
         return Optional.ofNullable(this.kind);
     }
 
-    /**
-     * Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
-     * 
-     */
     @Import(name="localAuthenticationDisabled")
     private @Nullable Output<Boolean> localAuthenticationDisabled;
 
-    /**
-     * @return Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
-     * 
-     */
     public Optional<Output<Boolean>> localAuthenticationDisabled() {
         return Optional.ofNullable(this.localAuthenticationDisabled);
     }
@@ -421,32 +285,16 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.minimalTlsVersion);
     }
 
-    /**
-     * The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-     * 
-     */
     @Import(name="mongoServerVersion")
     private @Nullable Output<String> mongoServerVersion;
 
-    /**
-     * @return The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-     * 
-     */
     public Optional<Output<String>> mongoServerVersion() {
         return Optional.ofNullable(this.mongoServerVersion);
     }
 
-    /**
-     * Enable multiple write locations for this Cosmos DB account.
-     * 
-     */
     @Import(name="multipleWriteLocationsEnabled")
     private @Nullable Output<Boolean> multipleWriteLocationsEnabled;
 
-    /**
-     * @return Enable multiple write locations for this Cosmos DB account.
-     * 
-     */
     public Optional<Output<Boolean>> multipleWriteLocationsEnabled() {
         return Optional.ofNullable(this.multipleWriteLocationsEnabled);
     }
@@ -466,32 +314,16 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * If Azure services can bypass ACLs. Defaults to `false`.
-     * 
-     */
     @Import(name="networkAclBypassForAzureServices")
     private @Nullable Output<Boolean> networkAclBypassForAzureServices;
 
-    /**
-     * @return If Azure services can bypass ACLs. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> networkAclBypassForAzureServices() {
         return Optional.ofNullable(this.networkAclBypassForAzureServices);
     }
 
-    /**
-     * The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
-     * 
-     */
     @Import(name="networkAclBypassIds")
     private @Nullable Output<List<String>> networkAclBypassIds;
 
-    /**
-     * @return The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
-     * 
-     */
     public Optional<Output<List<String>>> networkAclBypassIds() {
         return Optional.ofNullable(this.networkAclBypassIds);
     }
@@ -511,32 +343,16 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         return this.offerType;
     }
 
-    /**
-     * Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
-     * 
-     */
     @Import(name="partitionMergeEnabled")
     private @Nullable Output<Boolean> partitionMergeEnabled;
 
-    /**
-     * @return Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> partitionMergeEnabled() {
         return Optional.ofNullable(this.partitionMergeEnabled);
     }
 
-    /**
-     * Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
-     * 
-     */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
-    /**
-     * @return Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
         return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
@@ -556,21 +372,9 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         return this.resourceGroupName;
     }
 
-    /**
-     * A `restore` block as defined below.
-     * 
-     * &gt; **Note:** `restore` should be set when `create_mode` is `Restore`.
-     * 
-     */
     @Import(name="restore")
     private @Nullable Output<AccountRestoreArgs> restore;
 
-    /**
-     * @return A `restore` block as defined below.
-     * 
-     * &gt; **Note:** `restore` should be set when `create_mode` is `Restore`.
-     * 
-     */
     public Optional<Output<AccountRestoreArgs>> restore() {
         return Optional.ofNullable(this.restore);
     }
@@ -590,17 +394,9 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
-     * 
-     */
     @Import(name="virtualNetworkRules")
     private @Nullable Output<List<AccountVirtualNetworkRuleArgs>> virtualNetworkRules;
 
-    /**
-     * @return Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
-     * 
-     */
     public Optional<Output<List<AccountVirtualNetworkRuleArgs>>> virtualNetworkRules() {
         return Optional.ofNullable(this.virtualNetworkRules);
     }
@@ -664,23 +460,11 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AccountArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessKeyMetadataWritesEnabled Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessKeyMetadataWritesEnabled(@Nullable Output<Boolean> accessKeyMetadataWritesEnabled) {
             $.accessKeyMetadataWritesEnabled = accessKeyMetadataWritesEnabled;
             return this;
         }
 
-        /**
-         * @param accessKeyMetadataWritesEnabled Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessKeyMetadataWritesEnabled(Boolean accessKeyMetadataWritesEnabled) {
             return accessKeyMetadataWritesEnabled(Output.of(accessKeyMetadataWritesEnabled));
         }
@@ -706,96 +490,42 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
             return analyticalStorage(Output.of(analyticalStorage));
         }
 
-        /**
-         * @param analyticalStorageEnabled Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder analyticalStorageEnabled(@Nullable Output<Boolean> analyticalStorageEnabled) {
             $.analyticalStorageEnabled = analyticalStorageEnabled;
             return this;
         }
 
-        /**
-         * @param analyticalStorageEnabled Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder analyticalStorageEnabled(Boolean analyticalStorageEnabled) {
             return analyticalStorageEnabled(Output.of(analyticalStorageEnabled));
         }
 
-        /**
-         * @param automaticFailoverEnabled Enable automatic failover for this Cosmos DB account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder automaticFailoverEnabled(@Nullable Output<Boolean> automaticFailoverEnabled) {
             $.automaticFailoverEnabled = automaticFailoverEnabled;
             return this;
         }
 
-        /**
-         * @param automaticFailoverEnabled Enable automatic failover for this Cosmos DB account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder automaticFailoverEnabled(Boolean automaticFailoverEnabled) {
             return automaticFailoverEnabled(Output.of(automaticFailoverEnabled));
         }
 
-        /**
-         * @param backup A `backup` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backup(@Nullable Output<AccountBackupArgs> backup) {
             $.backup = backup;
             return this;
         }
 
-        /**
-         * @param backup A `backup` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backup(AccountBackupArgs backup) {
             return backup(Output.of(backup));
         }
 
-        /**
-         * @param capabilities The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capabilities(@Nullable Output<List<AccountCapabilityArgs>> capabilities) {
             $.capabilities = capabilities;
             return this;
         }
 
-        /**
-         * @param capabilities The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capabilities(List<AccountCapabilityArgs> capabilities) {
             return capabilities(Output.of(capabilities));
         }
 
-        /**
-         * @param capabilities The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capabilities(AccountCapabilityArgs... capabilities) {
             return capabilities(List.of(capabilities));
         }
@@ -821,44 +551,20 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
             return capacity(Output.of(capacity));
         }
 
-        /**
-         * @param consistencyPolicy Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consistencyPolicy(Output<AccountConsistencyPolicyArgs> consistencyPolicy) {
             $.consistencyPolicy = consistencyPolicy;
             return this;
         }
 
-        /**
-         * @param consistencyPolicy Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consistencyPolicy(AccountConsistencyPolicyArgs consistencyPolicy) {
             return consistencyPolicy(Output.of(consistencyPolicy));
         }
 
-        /**
-         * @param corsRule A `cors_rule` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder corsRule(@Nullable Output<AccountCorsRuleArgs> corsRule) {
             $.corsRule = corsRule;
             return this;
         }
 
-        /**
-         * @param corsRule A `cors_rule` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder corsRule(AccountCorsRuleArgs corsRule) {
             return corsRule(Output.of(corsRule));
         }
@@ -984,196 +690,78 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
             return enableMultipleWriteLocations(Output.of(enableMultipleWriteLocations));
         }
 
-        /**
-         * @param freeTierEnabled Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder freeTierEnabled(@Nullable Output<Boolean> freeTierEnabled) {
             $.freeTierEnabled = freeTierEnabled;
             return this;
         }
 
-        /**
-         * @param freeTierEnabled Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder freeTierEnabled(Boolean freeTierEnabled) {
             return freeTierEnabled(Output.of(freeTierEnabled));
         }
 
-        /**
-         * @param geoLocations Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder geoLocations(Output<List<AccountGeoLocationArgs>> geoLocations) {
             $.geoLocations = geoLocations;
             return this;
         }
 
-        /**
-         * @param geoLocations Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder geoLocations(List<AccountGeoLocationArgs> geoLocations) {
             return geoLocations(Output.of(geoLocations));
         }
 
-        /**
-         * @param geoLocations Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder geoLocations(AccountGeoLocationArgs... geoLocations) {
             return geoLocations(List.of(geoLocations));
         }
 
-        /**
-         * @param identity An `identity` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identity(@Nullable Output<AccountIdentityArgs> identity) {
             $.identity = identity;
             return this;
         }
 
-        /**
-         * @param identity An `identity` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identity(AccountIdentityArgs identity) {
             return identity(Output.of(identity));
         }
 
-        /**
-         * @param ipRangeFilter CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-         * 
-         * &gt; **Note:** To enable the &#34;Allow access from the Azure portal&#34; behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-         * 
-         * &gt; **Note:** To enable the &#34;Accept connections from within public Azure datacenters&#34; behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipRangeFilter(@Nullable Output<String> ipRangeFilter) {
             $.ipRangeFilter = ipRangeFilter;
             return this;
         }
 
-        /**
-         * @param ipRangeFilter CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-         * 
-         * &gt; **Note:** To enable the &#34;Allow access from the Azure portal&#34; behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-         * 
-         * &gt; **Note:** To enable the &#34;Accept connections from within public Azure datacenters&#34; behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipRangeFilter(String ipRangeFilter) {
             return ipRangeFilter(Output.of(ipRangeFilter));
         }
 
-        /**
-         * @param isVirtualNetworkFilterEnabled Enables virtual network filtering for this Cosmos DB account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isVirtualNetworkFilterEnabled(@Nullable Output<Boolean> isVirtualNetworkFilterEnabled) {
             $.isVirtualNetworkFilterEnabled = isVirtualNetworkFilterEnabled;
             return this;
         }
 
-        /**
-         * @param isVirtualNetworkFilterEnabled Enables virtual network filtering for this Cosmos DB account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isVirtualNetworkFilterEnabled(Boolean isVirtualNetworkFilterEnabled) {
             return isVirtualNetworkFilterEnabled(Output.of(isVirtualNetworkFilterEnabled));
         }
 
-        /**
-         * @param keyVaultKeyId A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** When referencing an `azure.keyvault.Key` resource, use `versionless_id` instead of `id`
-         * 
-         * &gt; **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyVaultKeyId(@Nullable Output<String> keyVaultKeyId) {
             $.keyVaultKeyId = keyVaultKeyId;
             return this;
         }
 
-        /**
-         * @param keyVaultKeyId A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** When referencing an `azure.keyvault.Key` resource, use `versionless_id` instead of `id`
-         * 
-         * &gt; **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             return keyVaultKeyId(Output.of(keyVaultKeyId));
         }
 
-        /**
-         * @param kind Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kind(@Nullable Output<String> kind) {
             $.kind = kind;
             return this;
         }
 
-        /**
-         * @param kind Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kind(String kind) {
             return kind(Output.of(kind));
         }
 
-        /**
-         * @param localAuthenticationDisabled Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localAuthenticationDisabled(@Nullable Output<Boolean> localAuthenticationDisabled) {
             $.localAuthenticationDisabled = localAuthenticationDisabled;
             return this;
         }
 
-        /**
-         * @param localAuthenticationDisabled Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localAuthenticationDisabled(Boolean localAuthenticationDisabled) {
             return localAuthenticationDisabled(Output.of(localAuthenticationDisabled));
         }
@@ -1220,44 +808,20 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
             return minimalTlsVersion(Output.of(minimalTlsVersion));
         }
 
-        /**
-         * @param mongoServerVersion The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mongoServerVersion(@Nullable Output<String> mongoServerVersion) {
             $.mongoServerVersion = mongoServerVersion;
             return this;
         }
 
-        /**
-         * @param mongoServerVersion The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mongoServerVersion(String mongoServerVersion) {
             return mongoServerVersion(Output.of(mongoServerVersion));
         }
 
-        /**
-         * @param multipleWriteLocationsEnabled Enable multiple write locations for this Cosmos DB account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multipleWriteLocationsEnabled(@Nullable Output<Boolean> multipleWriteLocationsEnabled) {
             $.multipleWriteLocationsEnabled = multipleWriteLocationsEnabled;
             return this;
         }
 
-        /**
-         * @param multipleWriteLocationsEnabled Enable multiple write locations for this Cosmos DB account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multipleWriteLocationsEnabled(Boolean multipleWriteLocationsEnabled) {
             return multipleWriteLocationsEnabled(Output.of(multipleWriteLocationsEnabled));
         }
@@ -1283,54 +847,24 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
-        /**
-         * @param networkAclBypassForAzureServices If Azure services can bypass ACLs. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAclBypassForAzureServices(@Nullable Output<Boolean> networkAclBypassForAzureServices) {
             $.networkAclBypassForAzureServices = networkAclBypassForAzureServices;
             return this;
         }
 
-        /**
-         * @param networkAclBypassForAzureServices If Azure services can bypass ACLs. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAclBypassForAzureServices(Boolean networkAclBypassForAzureServices) {
             return networkAclBypassForAzureServices(Output.of(networkAclBypassForAzureServices));
         }
 
-        /**
-         * @param networkAclBypassIds The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAclBypassIds(@Nullable Output<List<String>> networkAclBypassIds) {
             $.networkAclBypassIds = networkAclBypassIds;
             return this;
         }
 
-        /**
-         * @param networkAclBypassIds The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAclBypassIds(List<String> networkAclBypassIds) {
             return networkAclBypassIds(Output.of(networkAclBypassIds));
         }
 
-        /**
-         * @param networkAclBypassIds The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAclBypassIds(String... networkAclBypassIds) {
             return networkAclBypassIds(List.of(networkAclBypassIds));
         }
@@ -1356,44 +890,20 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
             return offerType(Output.of(offerType));
         }
 
-        /**
-         * @param partitionMergeEnabled Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionMergeEnabled(@Nullable Output<Boolean> partitionMergeEnabled) {
             $.partitionMergeEnabled = partitionMergeEnabled;
             return this;
         }
 
-        /**
-         * @param partitionMergeEnabled Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionMergeEnabled(Boolean partitionMergeEnabled) {
             return partitionMergeEnabled(Output.of(partitionMergeEnabled));
         }
 
-        /**
-         * @param publicNetworkAccessEnabled Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
             $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
 
-        /**
-         * @param publicNetworkAccessEnabled Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
@@ -1419,27 +929,11 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
-        /**
-         * @param restore A `restore` block as defined below.
-         * 
-         * &gt; **Note:** `restore` should be set when `create_mode` is `Restore`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restore(@Nullable Output<AccountRestoreArgs> restore) {
             $.restore = restore;
             return this;
         }
 
-        /**
-         * @param restore A `restore` block as defined below.
-         * 
-         * &gt; **Note:** `restore` should be set when `create_mode` is `Restore`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restore(AccountRestoreArgs restore) {
             return restore(Output.of(restore));
         }
@@ -1465,33 +959,15 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param virtualNetworkRules Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualNetworkRules(@Nullable Output<List<AccountVirtualNetworkRuleArgs>> virtualNetworkRules) {
             $.virtualNetworkRules = virtualNetworkRules;
             return this;
         }
 
-        /**
-         * @param virtualNetworkRules Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualNetworkRules(List<AccountVirtualNetworkRuleArgs> virtualNetworkRules) {
             return virtualNetworkRules(Output.of(virtualNetworkRules));
         }
 
-        /**
-         * @param virtualNetworkRules Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualNetworkRules(AccountVirtualNetworkRuleArgs... virtualNetworkRules) {
             return virtualNetworkRules(List.of(virtualNetworkRules));
         }

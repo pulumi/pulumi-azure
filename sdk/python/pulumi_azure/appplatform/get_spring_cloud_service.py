@@ -134,7 +134,6 @@ def get_spring_cloud_service(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -143,7 +142,6 @@ def get_spring_cloud_service(name: Optional[str] = None,
         resource_group_name=example_azurerm_spring_cloud_service["resourceGroupName"])
     pulumi.export("springCloudServiceId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies The name of the Spring Cloud Service resource.
@@ -175,7 +173,6 @@ def get_spring_cloud_service_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -184,7 +181,6 @@ def get_spring_cloud_service_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name=example_azurerm_spring_cloud_service["resourceGroupName"])
     pulumi.export("springCloudServiceId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies The name of the Spring Cloud Service resource.

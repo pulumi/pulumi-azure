@@ -180,7 +180,6 @@ def get_account(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -189,7 +188,6 @@ def get_account(name: Optional[str] = None,
         resource_group_name="cognitive_account_rg")
     pulumi.export("primaryAccessKey", test.primary_access_key)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Cognitive Services Account.
@@ -228,7 +226,6 @@ def get_account_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -237,7 +234,6 @@ def get_account_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="cognitive_account_rg")
     pulumi.export("primaryAccessKey", test.primary_access_key)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Cognitive Services Account.

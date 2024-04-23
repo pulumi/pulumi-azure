@@ -2034,10 +2034,7 @@ class PoolStartTaskContainerRegistry(dict):
                  user_assigned_identity_id: Optional[str] = None,
                  user_name: Optional[str] = None):
         """
-        :param str registry_server: The container registry URL. Changing this forces a new resource to be created.
-        :param str password: The password to use for authentication against the CIFS file system.
-        :param str user_assigned_identity_id: The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
-        :param str user_name: The user to use for authentication against the CIFS file system.
+        :param str user_assigned_identity_id: The User Assigned Identity to use for Container Registry access.
         """
         pulumi.set(__self__, "registry_server", registry_server)
         if password is not None:
@@ -2050,33 +2047,24 @@ class PoolStartTaskContainerRegistry(dict):
     @property
     @pulumi.getter(name="registryServer")
     def registry_server(self) -> str:
-        """
-        The container registry URL. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "registry_server")
 
     @property
     @pulumi.getter
     def password(self) -> Optional[str]:
-        """
-        The password to use for authentication against the CIFS file system.
-        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[str]:
         """
-        The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+        The User Assigned Identity to use for Container Registry access.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[str]:
-        """
-        The user to use for authentication against the CIFS file system.
-        """
         return pulumi.get(self, "user_name")
 
 

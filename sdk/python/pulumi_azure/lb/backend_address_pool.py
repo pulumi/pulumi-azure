@@ -237,7 +237,6 @@ class BackendAddressPool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -262,7 +261,6 @@ class BackendAddressPool(pulumi.CustomResource):
             loadbalancer_id=example_load_balancer.id,
             name="BackEndAddressPool")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -292,7 +290,6 @@ class BackendAddressPool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -317,7 +314,6 @@ class BackendAddressPool(pulumi.CustomResource):
             loadbalancer_id=example_load_balancer.id,
             name="BackEndAddressPool")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

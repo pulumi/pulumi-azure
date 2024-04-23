@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  * export const availableSubscriptions = available.then(available => available.subscriptions);
  * export const firstAvailableSubscriptionDisplayName = available.then(available => available.subscriptions?.[0]?.displayName);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSubscriptions(args?: GetSubscriptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionsResult> {
     args = args || {};
@@ -66,7 +64,6 @@ export interface GetSubscriptionsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -75,7 +72,6 @@ export interface GetSubscriptionsResult {
  * export const availableSubscriptions = available.then(available => available.subscriptions);
  * export const firstAvailableSubscriptionDisplayName = available.then(available => available.subscriptions?.[0]?.displayName);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSubscriptionsOutput(args?: GetSubscriptionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionsResult> {
     return pulumi.output(args).apply((a: any) => getSubscriptions(a, opts))

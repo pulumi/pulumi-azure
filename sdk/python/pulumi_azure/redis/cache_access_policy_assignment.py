@@ -199,7 +199,6 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -228,7 +227,6 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
             object_id=test.object_id,
             object_id_alias="ServicePrincipal")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -257,7 +255,6 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -286,7 +283,6 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
             object_id=test.object_id,
             object_id_alias="ServicePrincipal")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

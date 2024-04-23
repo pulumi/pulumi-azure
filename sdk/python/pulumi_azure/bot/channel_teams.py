@@ -236,7 +236,6 @@ class ChannelTeams(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -256,7 +255,6 @@ class ChannelTeams(pulumi.CustomResource):
             location=example_channels_registration.location,
             resource_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -288,7 +286,6 @@ class ChannelTeams(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -308,7 +305,6 @@ class ChannelTeams(pulumi.CustomResource):
             location=example_channels_registration.location,
             resource_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

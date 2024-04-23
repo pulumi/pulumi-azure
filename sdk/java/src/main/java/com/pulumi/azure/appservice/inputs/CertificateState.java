@@ -122,21 +122,9 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.issuer);
     }
 
-    /**
-     * The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-     * 
-     * &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
-     * 
-     */
     @Import(name="keyVaultId")
     private @Nullable Output<String> keyVaultId;
 
-    /**
-     * @return The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-     * 
-     * &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
-     * 
-     */
     public Optional<Output<String>> keyVaultId() {
         return Optional.ofNullable(this.keyVaultId);
     }
@@ -258,17 +246,9 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.subjectName);
     }
 
-    /**
-     * A mapping of tags to assign to the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags to assign to the resource.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -485,27 +465,11 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
             return issuer(Output.of(issuer));
         }
 
-        /**
-         * @param keyVaultId The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-         * 
-         * &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
             $.keyVaultId = keyVaultId;
             return this;
         }
 
-        /**
-         * @param keyVaultId The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-         * 
-         * &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyVaultId(String keyVaultId) {
             return keyVaultId(Output.of(keyVaultId));
         }
@@ -669,23 +633,11 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
             return subjectName(Output.of(subjectName));
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -241,7 +241,6 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -308,7 +307,6 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             address_prefix_ipv4="192.169.9.0/29",
             authorization_key="846a1918-b7a2-4917-b43c-8c4cdaee006a")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -340,7 +338,6 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -407,7 +404,6 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             address_prefix_ipv4="192.169.9.0/29",
             authorization_key="846a1918-b7a2-4917-b43c-8c4cdaee006a")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

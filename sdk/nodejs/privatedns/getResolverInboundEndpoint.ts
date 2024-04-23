@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     privateDnsResolverId: "example-private-dns-resolver-id",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverInboundEndpoint(args: GetResolverInboundEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverInboundEndpointResult> {
 
@@ -74,7 +72,6 @@ export interface GetResolverInboundEndpointResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -84,7 +81,6 @@ export interface GetResolverInboundEndpointResult {
  *     privateDnsResolverId: "example-private-dns-resolver-id",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverInboundEndpointOutput(args: GetResolverInboundEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverInboundEndpointResult> {
     return pulumi.output(args).apply((a: any) => getResolverInboundEndpoint(a, opts))

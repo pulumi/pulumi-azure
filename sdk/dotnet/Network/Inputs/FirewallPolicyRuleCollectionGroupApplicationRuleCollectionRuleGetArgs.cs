@@ -12,18 +12,11 @@ namespace Pulumi.Azure.Network.Inputs
 
     public sealed class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description which should be used for this rule.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("destinationAddresses")]
         private InputList<string>? _destinationAddresses;
-
-        /// <summary>
-        /// Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
-        /// </summary>
         public InputList<string> DestinationAddresses
         {
             get => _destinationAddresses ?? (_destinationAddresses = new InputList<string>());
@@ -32,10 +25,6 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("destinationFqdnTags")]
         private InputList<string>? _destinationFqdnTags;
-
-        /// <summary>
-        /// Specifies a list of destination FQDN tags.
-        /// </summary>
         public InputList<string> DestinationFqdnTags
         {
             get => _destinationFqdnTags ?? (_destinationFqdnTags = new InputList<string>());
@@ -44,10 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("destinationFqdns")]
         private InputList<string>? _destinationFqdns;
-
-        /// <summary>
-        /// Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
-        /// </summary>
         public InputList<string> DestinationFqdns
         {
             get => _destinationFqdns ?? (_destinationFqdns = new InputList<string>());
@@ -56,10 +41,6 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("destinationUrls")]
         private InputList<string>? _destinationUrls;
-
-        /// <summary>
-        /// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
-        /// </summary>
         public InputList<string> DestinationUrls
         {
             get => _destinationUrls ?? (_destinationUrls = new InputList<string>());
@@ -68,10 +49,6 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("httpHeaders")]
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderGetArgs>? _httpHeaders;
-
-        /// <summary>
-        /// Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
-        /// </summary>
         public InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderGetArgs> HttpHeaders
         {
             get => _httpHeaders ?? (_httpHeaders = new InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderGetArgs>());
@@ -86,10 +63,6 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("protocols")]
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolGetArgs>? _protocols;
-
-        /// <summary>
-        /// One or more `protocols` blocks as defined below.
-        /// </summary>
         public InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolGetArgs> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolGetArgs>());
@@ -98,10 +71,6 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("sourceAddresses")]
         private InputList<string>? _sourceAddresses;
-
-        /// <summary>
-        /// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-        /// </summary>
         public InputList<string> SourceAddresses
         {
             get => _sourceAddresses ?? (_sourceAddresses = new InputList<string>());
@@ -110,28 +79,17 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("sourceIpGroups")]
         private InputList<string>? _sourceIpGroups;
-
-        /// <summary>
-        /// Specifies a list of source IP groups.
-        /// </summary>
         public InputList<string> SourceIpGroups
         {
             get => _sourceIpGroups ?? (_sourceIpGroups = new InputList<string>());
             set => _sourceIpGroups = value;
         }
 
-        /// <summary>
-        /// Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
-        /// </summary>
         [Input("terminateTls")]
         public Input<bool>? TerminateTls { get; set; }
 
         [Input("webCategories")]
         private InputList<string>? _webCategories;
-
-        /// <summary>
-        /// Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
-        /// </summary>
         public InputList<string> WebCategories
         {
             get => _webCategories ?? (_webCategories = new InputList<string>());

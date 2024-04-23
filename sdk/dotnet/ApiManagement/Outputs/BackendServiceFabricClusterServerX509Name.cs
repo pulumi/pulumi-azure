@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string IssuerCertificateThumbprint;
         /// <summary>
-        /// The name of the API Management backend. Changing this forces a new resource to be created.
+        /// The common name of the certificate.
         /// </summary>
         public readonly string Name;
 

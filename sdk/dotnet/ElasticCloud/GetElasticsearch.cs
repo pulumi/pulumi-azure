@@ -16,7 +16,6 @@ namespace Pulumi.Azure.ElasticCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Azure.ElasticCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetElasticsearchResult> InvokeAsync(GetElasticsearchArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticsearchResult>("azure:elasticcloud/getElasticsearch:getElasticsearch", args ?? new GetElasticsearchArgs(), options.WithDefaults());
@@ -48,7 +46,6 @@ namespace Pulumi.Azure.ElasticCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,7 +67,6 @@ namespace Pulumi.Azure.ElasticCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetElasticsearchResult> Invoke(GetElasticsearchInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticsearchResult>("azure:elasticcloud/getElasticsearch:getElasticsearch", args ?? new GetElasticsearchInvokeArgs(), options.WithDefaults());

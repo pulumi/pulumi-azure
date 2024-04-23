@@ -798,7 +798,7 @@ type EndpointPrivateServiceConnection struct {
 	PrivateConnectionResourceAlias *string `pulumi:"privateConnectionResourceAlias"`
 	// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
 	PrivateConnectionResourceId *string `pulumi:"privateConnectionResourceId"`
-	// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
+	// (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
 	//
@@ -832,7 +832,7 @@ type EndpointPrivateServiceConnectionArgs struct {
 	PrivateConnectionResourceAlias pulumi.StringPtrInput `pulumi:"privateConnectionResourceAlias"`
 	// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
 	PrivateConnectionResourceId pulumi.StringPtrInput `pulumi:"privateConnectionResourceId"`
-	// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
+	// (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
 	//
@@ -943,7 +943,7 @@ func (o EndpointPrivateServiceConnectionOutput) PrivateConnectionResourceId() pu
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.PrivateConnectionResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
+// (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
 func (o EndpointPrivateServiceConnectionOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -1028,7 +1028,7 @@ func (o EndpointPrivateServiceConnectionPtrOutput) PrivateConnectionResourceId()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
+// (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
 func (o EndpointPrivateServiceConnectionPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
 		if v == nil {

@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Backend HTTP Settings Collection.
+        /// The name of the Authentication Certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

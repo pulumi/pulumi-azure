@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -141,11 +140,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Using a Private Link Service Alias with existing resources:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -201,11 +198,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -305,7 +300,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Example HCL Configurations
 //

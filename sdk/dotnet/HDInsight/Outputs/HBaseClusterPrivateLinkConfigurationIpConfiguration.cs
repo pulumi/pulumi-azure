@@ -17,21 +17,9 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Indicates whether this IP configuration is primary.
-        /// </summary>
         public readonly bool? Primary;
-        /// <summary>
-        /// The private IP address of the IP configuration.
-        /// </summary>
         public readonly string? PrivateIpAddress;
-        /// <summary>
-        /// The private IP allocation method. The only possible value now is `Dynamic`.
-        /// </summary>
         public readonly string? PrivateIpAllocationMethod;
-        /// <summary>
-        /// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        /// </summary>
         public readonly string? SubnetId;
 
         [OutputConstructor]

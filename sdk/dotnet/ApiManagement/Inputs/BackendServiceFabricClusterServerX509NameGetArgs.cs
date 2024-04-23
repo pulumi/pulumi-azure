@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string> IssuerCertificateThumbprint { get; set; } = null!;
 
         /// <summary>
-        /// The name of the API Management backend. Changing this forces a new resource to be created.
+        /// The common name of the certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

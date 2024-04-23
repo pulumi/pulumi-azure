@@ -280,7 +280,6 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -303,7 +302,6 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
                 "hello": "aGVsbG8=",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -338,7 +336,6 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -361,7 +358,6 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
                 "hello": "aGVsbG8=",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

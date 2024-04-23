@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupOrchestratedVirtualMachineScaleSet(ctx *pulumi.Context, args *LookupOrchestratedVirtualMachineScaleSetArgs, opts ...pulumi.InvokeOption) (*LookupOrchestratedVirtualMachineScaleSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrchestratedVirtualMachineScaleSetResult

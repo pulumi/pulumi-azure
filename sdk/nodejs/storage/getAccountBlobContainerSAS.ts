@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -57,7 +56,6 @@ import * as utilities from "../utilities";
  * });
  * export const sasUrlQueryString = example.apply(example => example.sas);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAccountBlobContainerSAS(args: GetAccountBlobContainerSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountBlobContainerSASResult> {
 
@@ -166,7 +164,6 @@ export interface GetAccountBlobContainerSASResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -210,7 +207,6 @@ export interface GetAccountBlobContainerSASResult {
  * });
  * export const sasUrlQueryString = example.apply(example => example.sas);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAccountBlobContainerSASOutput(args: GetAccountBlobContainerSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountBlobContainerSASResult> {
     return pulumi.output(args).apply((a: any) => getAccountBlobContainerSAS(a, opts))

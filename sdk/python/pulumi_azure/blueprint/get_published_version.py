@@ -148,7 +148,6 @@ def get_published_version(blueprint_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -158,7 +157,6 @@ def get_published_version(blueprint_name: Optional[str] = None,
         blueprint_name="exampleBluePrint",
         version="dev_v2.3")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str blueprint_name: The name of the Blueprint Definition
@@ -197,7 +195,6 @@ def get_published_version_output(blueprint_name: Optional[pulumi.Input[str]] = N
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -207,7 +204,6 @@ def get_published_version_output(blueprint_name: Optional[pulumi.Input[str]] = N
         blueprint_name="exampleBluePrint",
         version="dev_v2.3")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str blueprint_name: The name of the Blueprint Definition

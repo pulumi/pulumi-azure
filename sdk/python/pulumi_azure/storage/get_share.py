@@ -121,7 +121,6 @@ def get_share(acls: Optional[Sequence[pulumi.InputType['GetShareAclArgs']]] = No
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -130,7 +129,6 @@ def get_share(acls: Optional[Sequence[pulumi.InputType['GetShareAclArgs']]] = No
         storage_account_name="existing")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetShareAclArgs']] acls: One or more acl blocks as defined below.
@@ -169,7 +167,6 @@ def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[pulumi.InputT
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -178,7 +175,6 @@ def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[pulumi.InputT
         storage_account_name="existing")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetShareAclArgs']] acls: One or more acl blocks as defined below.

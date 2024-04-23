@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const ruleId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDataCollectionRule(args: GetDataCollectionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleResult> {
 
@@ -107,7 +105,6 @@ export interface GetDataCollectionRuleResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -118,7 +115,6 @@ export interface GetDataCollectionRuleResult {
  * });
  * export const ruleId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleResult> {
     return pulumi.output(args).apply((a: any) => getDataCollectionRule(a, opts))

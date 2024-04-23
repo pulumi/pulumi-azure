@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? GraphApiVersion;
         /// <summary>
-        /// The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        /// The list of scopes that should be requested as part of Facebook Login authentication.
         /// </summary>
         public readonly ImmutableArray<string> LoginScopes;
 

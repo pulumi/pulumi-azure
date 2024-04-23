@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getManagedApi(args: GetManagedApiArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedApiResult> {
 
@@ -62,7 +60,6 @@ export interface GetManagedApiResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -73,7 +70,6 @@ export interface GetManagedApiResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getManagedApiOutput(args: GetManagedApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedApiResult> {
     return pulumi.output(args).apply((a: any) => getManagedApi(a, opts))

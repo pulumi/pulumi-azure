@@ -306,7 +306,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -329,7 +328,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             send=True,
             manage=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -360,7 +358,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -383,7 +380,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             send=True,
             manage=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,6 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResolverInboundEndpointResult> InvokeAsync(GetResolverInboundEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverInboundEndpointResult>("azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint", args ?? new GetResolverInboundEndpointArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResolverInboundEndpointResult> Invoke(GetResolverInboundEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverInboundEndpointResult>("azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint", args ?? new GetResolverInboundEndpointInvokeArgs(), options.WithDefaults());

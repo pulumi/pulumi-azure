@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Automation
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Azure.Automation
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVariablesResult> InvokeAsync(GetVariablesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariablesResult>("azure:automation/getVariables:getVariables", args ?? new GetVariablesArgs(), options.WithDefaults());
@@ -52,7 +50,6 @@ namespace Pulumi.Azure.Automation
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -78,7 +75,6 @@ namespace Pulumi.Azure.Automation
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVariablesResult> Invoke(GetVariablesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariablesResult>("azure:automation/getVariables:getVariables", args ?? new GetVariablesInvokeArgs(), options.WithDefaults());

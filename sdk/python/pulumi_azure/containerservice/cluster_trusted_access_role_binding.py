@@ -171,7 +171,6 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -235,7 +234,6 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             roles="example-value",
             source_resource_id=example_workspace.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -275,7 +273,6 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -339,7 +336,6 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             roles="example-value",
             source_resource_id=example_workspace.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -234,7 +234,6 @@ class MoverSourceEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -253,7 +252,6 @@ class MoverSourceEndpoint(pulumi.CustomResource):
             host="192.168.0.1",
             nfs_version="NFSv3")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -283,7 +281,6 @@ class MoverSourceEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -302,7 +299,6 @@ class MoverSourceEndpoint(pulumi.CustomResource):
             host="192.168.0.1",
             nfs_version="NFSv3")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -100,7 +100,6 @@ def get_platform_image(location: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -111,7 +110,6 @@ def get_platform_image(location: Optional[str] = None,
         sku="20_04-lts")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str location: Specifies the Location to pull information about this Platform Image from.
@@ -150,7 +148,6 @@ def get_platform_image_output(location: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -161,7 +158,6 @@ def get_platform_image_output(location: Optional[pulumi.Input[str]] = None,
         sku="20_04-lts")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str location: Specifies the Location to pull information about this Platform Image from.

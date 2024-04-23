@@ -16,7 +16,6 @@ namespace Pulumi.Azure.CosmosDB
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Azure.CosmosDB
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRestorableDatabaseAccountsResult> InvokeAsync(GetRestorableDatabaseAccountsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRestorableDatabaseAccountsResult>("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args ?? new GetRestorableDatabaseAccountsArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Azure.CosmosDB
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Azure.CosmosDB
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRestorableDatabaseAccountsResult> Invoke(GetRestorableDatabaseAccountsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestorableDatabaseAccountsResult>("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args ?? new GetRestorableDatabaseAccountsInvokeArgs(), options.WithDefaults());

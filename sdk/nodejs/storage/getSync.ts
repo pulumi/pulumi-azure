@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSync(args: GetSyncArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncResult> {
 
@@ -73,7 +71,6 @@ export interface GetSyncResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -84,7 +81,6 @@ export interface GetSyncResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSyncOutput(args: GetSyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncResult> {
     return pulumi.output(args).apply((a: any) => getSync(a, opts))

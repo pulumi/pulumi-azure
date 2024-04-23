@@ -83,10 +83,6 @@ public final class KubernetesClusterDefaultNodePool {
      * 
      */
     private @Nullable KubernetesClusterDefaultNodePoolLinuxOsConfig linuxOsConfig;
-    /**
-     * @return The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-     * 
-     */
     private @Nullable Integer maxCount;
     /**
      * @return The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
@@ -98,24 +94,12 @@ public final class KubernetesClusterDefaultNodePool {
      * 
      */
     private @Nullable String messageOfTheDay;
-    /**
-     * @return The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-     * 
-     */
     private @Nullable Integer minCount;
     /**
      * @return The name which should be used for the default Kubernetes Node Pool.
      * 
      */
     private String name;
-    /**
-     * @return The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-     * 
-     * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     * 
-     * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
-     * 
-     */
     private @Nullable Integer nodeCount;
     /**
      * @return A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
@@ -328,10 +312,6 @@ public final class KubernetesClusterDefaultNodePool {
     public Optional<KubernetesClusterDefaultNodePoolLinuxOsConfig> linuxOsConfig() {
         return Optional.ofNullable(this.linuxOsConfig);
     }
-    /**
-     * @return The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-     * 
-     */
     public Optional<Integer> maxCount() {
         return Optional.ofNullable(this.maxCount);
     }
@@ -349,10 +329,6 @@ public final class KubernetesClusterDefaultNodePool {
     public Optional<String> messageOfTheDay() {
         return Optional.ofNullable(this.messageOfTheDay);
     }
-    /**
-     * @return The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-     * 
-     */
     public Optional<Integer> minCount() {
         return Optional.ofNullable(this.minCount);
     }
@@ -363,14 +339,6 @@ public final class KubernetesClusterDefaultNodePool {
     public String name() {
         return this.name;
     }
-    /**
-     * @return The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-     * 
-     * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     * 
-     * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
-     * 
-     */
     public Optional<Integer> nodeCount() {
         return Optional.ofNullable(this.nodeCount);
     }

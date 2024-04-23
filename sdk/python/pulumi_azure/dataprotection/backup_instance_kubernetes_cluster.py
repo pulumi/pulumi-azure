@@ -267,7 +267,6 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -400,7 +399,6 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
                 volume_snapshot_enabled=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -431,7 +429,6 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -564,7 +561,6 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
                 volume_snapshot_enabled=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

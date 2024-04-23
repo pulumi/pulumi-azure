@@ -320,31 +320,15 @@ public class Job extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> streamingUnits() {
         return Codegen.optional(this.streamingUnits);
     }
-    /**
-     * A mapping of tags assigned to the resource.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags assigned to the resource.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-     * 
-     */
     @Export(name="transformationQuery", refs={String.class}, tree="[0]")
     private Output<String> transformationQuery;
 
-    /**
-     * @return Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-     * 
-     */
     public Output<String> transformationQuery() {
         return this.transformationQuery;
     }

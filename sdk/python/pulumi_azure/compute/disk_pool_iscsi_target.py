@@ -204,7 +204,6 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -266,7 +265,6 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
             disks_pool_id=example_disk_pool.id,
             target_iqn="iqn.2021-11.com.microsoft:test")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -298,7 +296,6 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -360,7 +357,6 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
             disks_pool_id=example_disk_pool.id,
             target_iqn="iqn.2021-11.com.microsoft:test")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

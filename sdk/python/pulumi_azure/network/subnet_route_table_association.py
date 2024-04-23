@@ -102,7 +102,6 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -134,7 +133,6 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             route_table_id=example_route_table.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -160,7 +158,6 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -192,7 +189,6 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             route_table_id=example_route_table.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

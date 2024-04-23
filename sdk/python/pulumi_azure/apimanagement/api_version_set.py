@@ -314,7 +314,6 @@ class ApiVersionSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -336,7 +335,6 @@ class ApiVersionSet(pulumi.CustomResource):
             display_name="ExampleAPIVersionSet",
             versioning_scheme="Segment")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -372,7 +370,6 @@ class ApiVersionSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -394,7 +391,6 @@ class ApiVersionSet(pulumi.CustomResource):
             display_name="ExampleAPIVersionSet",
             versioning_scheme="Segment")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

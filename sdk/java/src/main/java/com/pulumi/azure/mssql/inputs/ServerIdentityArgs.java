@@ -56,14 +56,14 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The tenant id of the Azure AD Administrator of this SQL Server.
+     * The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
      * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
-     * @return The tenant id of the Azure AD Administrator of this SQL Server.
+     * @return The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -177,7 +177,7 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tenantId The tenant id of the Azure AD Administrator of this SQL Server.
+         * @param tenantId The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tenantId The tenant id of the Azure AD Administrator of this SQL Server.
+         * @param tenantId The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
          * 
          * @return builder
          * 

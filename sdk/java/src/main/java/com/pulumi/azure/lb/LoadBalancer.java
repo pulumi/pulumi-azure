@@ -144,14 +144,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+     * Private IP Address to assign to the Load Balancer.
      * 
      */
     @Export(name="privateIpAddress", refs={String.class}, tree="[0]")
     private Output<String> privateIpAddress;
 
     /**
-     * @return Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+     * @return Private IP Address to assign to the Load Balancer.
      * 
      */
     public Output<String> privateIpAddress() {

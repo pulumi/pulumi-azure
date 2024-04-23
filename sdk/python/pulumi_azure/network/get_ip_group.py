@@ -106,7 +106,6 @@ def get_ip_group(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -115,7 +114,6 @@ def get_ip_group(name: Optional[str] = None,
         resource_group_name="example-rg")
     pulumi.export("cidrs", example.cidrs)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the Name of the IP Group.
@@ -145,7 +143,6 @@ def get_ip_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -154,7 +151,6 @@ def get_ip_group_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="example-rg")
     pulumi.export("cidrs", example.cidrs)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the Name of the IP Group.

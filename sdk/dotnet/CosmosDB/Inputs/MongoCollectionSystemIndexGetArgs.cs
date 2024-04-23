@@ -16,7 +16,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         private InputList<string>? _keys;
 
         /// <summary>
-        /// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+        /// The list of system keys which are not settable for each Cosmos DB Mongo Collection.
         /// </summary>
         public InputList<string> Keys
         {
@@ -25,9 +25,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         }
 
         /// <summary>
-        /// Is the index unique or not? Defaults to `false`.
-        /// 
-        /// &gt; **Note:** An index with an "_id" key must be specified.
+        /// Identifies whether the table contains no duplicate values.
         /// </summary>
         [Input("unique")]
         public Input<bool>? Unique { get; set; }

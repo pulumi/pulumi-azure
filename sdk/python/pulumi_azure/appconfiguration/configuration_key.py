@@ -394,7 +394,6 @@ class ConfigurationKey(pulumi.CustomResource):
 
         ### `Kv` Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -417,11 +416,9 @@ class ConfigurationKey(pulumi.CustomResource):
             label="somelabel",
             value="a test")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### `Vault` Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -471,7 +468,6 @@ class ConfigurationKey(pulumi.CustomResource):
             label="label1",
             vault_key_reference=kvs.versionless_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -521,7 +517,6 @@ class ConfigurationKey(pulumi.CustomResource):
 
         ### `Kv` Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -544,11 +539,9 @@ class ConfigurationKey(pulumi.CustomResource):
             label="somelabel",
             value="a test")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### `Vault` Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -598,7 +591,6 @@ class ConfigurationKey(pulumi.CustomResource):
             label="label1",
             vault_key_reference=kvs.versionless_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -174,7 +174,6 @@ class LinkedStorageAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -199,7 +198,6 @@ class LinkedStorageAccount(pulumi.CustomResource):
             workspace_resource_id=example_analytics_workspace.id,
             storage_account_ids=[example_account.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -229,7 +227,6 @@ class LinkedStorageAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -254,7 +251,6 @@ class LinkedStorageAccount(pulumi.CustomResource):
             workspace_resource_id=example_analytics_workspace.id,
             storage_account_ids=[example_account.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

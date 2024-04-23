@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> AddressPrefix { get; set; } = null!;
 
         /// <summary>
-        /// The ID of DDoS Protection Plan.
+        /// The ID of this subnet.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

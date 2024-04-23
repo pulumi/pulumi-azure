@@ -135,7 +135,6 @@ class Gallery(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -164,7 +163,6 @@ class Gallery(pulumi.CustomResource):
             shared_gallery_id=example_shared_image_gallery.id,
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -199,7 +197,6 @@ class Gallery(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -228,7 +225,6 @@ class Gallery(pulumi.CustomResource):
             shared_gallery_id=example_shared_image_gallery.id,
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

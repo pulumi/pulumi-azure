@@ -184,7 +184,6 @@ class ServicesAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -202,7 +201,6 @@ class ServicesAccount(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -230,7 +228,6 @@ class ServicesAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -248,7 +245,6 @@ class ServicesAccount(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

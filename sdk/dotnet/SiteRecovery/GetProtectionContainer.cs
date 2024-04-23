@@ -16,7 +16,6 @@ namespace Pulumi.Azure.SiteRecovery
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Azure.SiteRecovery
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetProtectionContainerResult> InvokeAsync(GetProtectionContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProtectionContainerResult>("azure:siterecovery/getProtectionContainer:getProtectionContainer", args ?? new GetProtectionContainerArgs(), options.WithDefaults());
@@ -45,7 +43,6 @@ namespace Pulumi.Azure.SiteRecovery
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Azure.SiteRecovery
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetProtectionContainerResult> Invoke(GetProtectionContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectionContainerResult>("azure:siterecovery/getProtectionContainer:getProtectionContainer", args ?? new GetProtectionContainerInvokeArgs(), options.WithDefaults());

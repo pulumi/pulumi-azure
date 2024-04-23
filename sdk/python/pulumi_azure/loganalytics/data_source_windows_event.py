@@ -199,7 +199,6 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -219,7 +218,6 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
             event_log_name="Application",
             event_types=["Error"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -248,7 +246,6 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -268,7 +265,6 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
             event_log_name="Application",
             event_types=["Error"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

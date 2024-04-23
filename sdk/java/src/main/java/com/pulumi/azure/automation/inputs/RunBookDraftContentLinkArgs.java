@@ -17,47 +17,23 @@ public final class RunBookDraftContentLinkArgs extends com.pulumi.resources.Reso
 
     public static final RunBookDraftContentLinkArgs Empty = new RunBookDraftContentLinkArgs();
 
-    /**
-     * A `hash` block as defined below.
-     * 
-     */
     @Import(name="hash")
     private @Nullable Output<RunBookDraftContentLinkHashArgs> hash;
 
-    /**
-     * @return A `hash` block as defined below.
-     * 
-     */
     public Optional<Output<RunBookDraftContentLinkHashArgs>> hash() {
         return Optional.ofNullable(this.hash);
     }
 
-    /**
-     * The URI of the runbook content.
-     * 
-     */
     @Import(name="uri", required=true)
     private Output<String> uri;
 
-    /**
-     * @return The URI of the runbook content.
-     * 
-     */
     public Output<String> uri() {
         return this.uri;
     }
 
-    /**
-     * Specifies the version of the content
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return Specifies the version of the content
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -88,65 +64,29 @@ public final class RunBookDraftContentLinkArgs extends com.pulumi.resources.Reso
             $ = new RunBookDraftContentLinkArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hash A `hash` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hash(@Nullable Output<RunBookDraftContentLinkHashArgs> hash) {
             $.hash = hash;
             return this;
         }
 
-        /**
-         * @param hash A `hash` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hash(RunBookDraftContentLinkHashArgs hash) {
             return hash(Output.of(hash));
         }
 
-        /**
-         * @param uri The URI of the runbook content.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(Output<String> uri) {
             $.uri = uri;
             return this;
         }
 
-        /**
-         * @param uri The URI of the runbook content.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
         }
 
-        /**
-         * @param version Specifies the version of the content
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version Specifies the version of the content
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

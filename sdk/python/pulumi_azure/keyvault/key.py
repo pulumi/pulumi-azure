@@ -541,7 +541,6 @@ class Key(pulumi.CustomResource):
 
         ### Additional Examples
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -593,7 +592,6 @@ class Key(pulumi.CustomResource):
                 notify_before_expiry="P29D",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -635,7 +633,6 @@ class Key(pulumi.CustomResource):
 
         ### Additional Examples
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -687,7 +684,6 @@ class Key(pulumi.CustomResource):
                 notify_before_expiry="P29D",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

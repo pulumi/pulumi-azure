@@ -1012,7 +1012,7 @@ func (o AccountCorsRulePtrOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
 type AccountGeoLocation struct {
 	// The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
 	FailoverPriority int `pulumi:"failoverPriority"`
-	// The ID of the virtual network subnet.
+	// The CosmosDB Account ID.
 	Id *string `pulumi:"id"`
 	// The name of the Azure region to host replicated data.
 	Location string `pulumi:"location"`
@@ -1034,7 +1034,7 @@ type AccountGeoLocationInput interface {
 type AccountGeoLocationArgs struct {
 	// The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
 	FailoverPriority pulumi.IntInput `pulumi:"failoverPriority"`
-	// The ID of the virtual network subnet.
+	// The CosmosDB Account ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the Azure region to host replicated data.
 	Location pulumi.StringInput `pulumi:"location"`
@@ -1098,7 +1098,7 @@ func (o AccountGeoLocationOutput) FailoverPriority() pulumi.IntOutput {
 	return o.ApplyT(func(v AccountGeoLocation) int { return v.FailoverPriority }).(pulumi.IntOutput)
 }
 
-// The ID of the virtual network subnet.
+// The CosmosDB Account ID.
 func (o AccountGeoLocationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountGeoLocation) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -4127,11 +4127,9 @@ func (o MongoCollectionIndexArrayOutput) Index(i pulumi.IntInput) MongoCollectio
 }
 
 type MongoCollectionSystemIndex struct {
-	// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+	// The list of system keys which are not settable for each Cosmos DB Mongo Collection.
 	Keys []string `pulumi:"keys"`
-	// Is the index unique or not? Defaults to `false`.
-	//
-	// > **Note:** An index with an "_id" key must be specified.
+	// Identifies whether the table contains no duplicate values.
 	Unique *bool `pulumi:"unique"`
 }
 
@@ -4147,11 +4145,9 @@ type MongoCollectionSystemIndexInput interface {
 }
 
 type MongoCollectionSystemIndexArgs struct {
-	// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+	// The list of system keys which are not settable for each Cosmos DB Mongo Collection.
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
-	// Is the index unique or not? Defaults to `false`.
-	//
-	// > **Note:** An index with an "_id" key must be specified.
+	// Identifies whether the table contains no duplicate values.
 	Unique pulumi.BoolPtrInput `pulumi:"unique"`
 }
 
@@ -4206,14 +4202,12 @@ func (o MongoCollectionSystemIndexOutput) ToMongoCollectionSystemIndexOutputWith
 	return o
 }
 
-// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+// The list of system keys which are not settable for each Cosmos DB Mongo Collection.
 func (o MongoCollectionSystemIndexOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MongoCollectionSystemIndex) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }
 
-// Is the index unique or not? Defaults to `false`.
-//
-// > **Note:** An index with an "_id" key must be specified.
+// Identifies whether the table contains no duplicate values.
 func (o MongoCollectionSystemIndexOutput) Unique() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MongoCollectionSystemIndex) *bool { return v.Unique }).(pulumi.BoolPtrOutput)
 }

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-rg",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkPacketCoreControlPlane(args: GetNetworkPacketCoreControlPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkPacketCoreControlPlaneResult> {
 
@@ -113,7 +111,6 @@ export interface GetNetworkPacketCoreControlPlaneResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -123,7 +120,6 @@ export interface GetNetworkPacketCoreControlPlaneResult {
  *     resourceGroupName: "example-rg",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkPacketCoreControlPlaneOutput(args: GetNetworkPacketCoreControlPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkPacketCoreControlPlaneResult> {
     return pulumi.output(args).apply((a: any) => getNetworkPacketCoreControlPlane(a, opts))

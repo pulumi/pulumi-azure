@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,7 +41,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupVirtualMachineConfigurationAssignment(ctx *pulumi.Context, args *LookupVirtualMachineConfigurationAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineConfigurationAssignmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualMachineConfigurationAssignmentResult

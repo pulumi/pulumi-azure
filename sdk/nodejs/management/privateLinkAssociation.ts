@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -36,7 +35,6 @@ import * as utilities from "../utilities";
  *     publicNetworkAccessEnabled: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -83,7 +81,6 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
     /**
      * Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
      *
-     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as azure from "@pulumi/azure";
@@ -94,7 +91,6 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
      *     publicNetworkAccessEnabled: true,
      * });
      * ```
-     * <!--End PulumiCodeChooser -->
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -163,7 +159,6 @@ export interface PrivateLinkAssociationState {
     /**
      * Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
      *
-     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as azure from "@pulumi/azure";
@@ -174,7 +169,6 @@ export interface PrivateLinkAssociationState {
      *     publicNetworkAccessEnabled: true,
      * });
      * ```
-     * <!--End PulumiCodeChooser -->
      */
     name?: pulumi.Input<string>;
     /**
@@ -204,7 +198,6 @@ export interface PrivateLinkAssociationArgs {
     /**
      * Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
      *
-     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as azure from "@pulumi/azure";
@@ -215,7 +208,6 @@ export interface PrivateLinkAssociationArgs {
      *     publicNetworkAccessEnabled: true,
      * });
      * ```
-     * <!--End PulumiCodeChooser -->
      */
     name?: pulumi.Input<string>;
     /**

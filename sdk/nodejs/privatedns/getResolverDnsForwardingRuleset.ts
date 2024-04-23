@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-ruleset-resourcegroup",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverDnsForwardingRuleset(args: GetResolverDnsForwardingRulesetArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverDnsForwardingRulesetResult> {
 
@@ -72,7 +70,6 @@ export interface GetResolverDnsForwardingRulesetResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -82,7 +79,6 @@ export interface GetResolverDnsForwardingRulesetResult {
  *     resourceGroupName: "example-ruleset-resourcegroup",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverDnsForwardingRulesetOutput(args: GetResolverDnsForwardingRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverDnsForwardingRulesetResult> {
     return pulumi.output(args).apply((a: any) => getResolverDnsForwardingRuleset(a, opts))

@@ -14,11 +14,13 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class ServiceHostnameConfigurationPortal
     {
         /// <summary>
-        /// One or more `certificate` blocks (up to 10) as defined below.
+        /// The Base64 Encoded Certificate.
         /// </summary>
         public readonly string? Certificate;
         /// <summary>
-        /// The password for the certificate.
+        /// The password associated with the certificate provided above.
+        /// 
+        /// &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         /// </summary>
         public readonly string? CertificatePassword;
         /// <summary>

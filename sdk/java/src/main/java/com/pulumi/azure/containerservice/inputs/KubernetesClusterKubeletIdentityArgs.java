@@ -48,16 +48,12 @@ public final class KubernetesClusterKubeletIdentityArgs extends com.pulumi.resou
     /**
      * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
-     * 
      */
     @Import(name="userAssignedIdentityId")
     private @Nullable Output<String> userAssignedIdentityId;
 
     /**
      * @return The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
      * 
      */
     public Optional<Output<String>> userAssignedIdentityId() {
@@ -135,8 +131,6 @@ public final class KubernetesClusterKubeletIdentityArgs extends com.pulumi.resou
         /**
          * @param userAssignedIdentityId The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
-         * 
          * @return builder
          * 
          */
@@ -147,8 +141,6 @@ public final class KubernetesClusterKubeletIdentityArgs extends com.pulumi.resou
 
         /**
          * @param userAssignedIdentityId The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
          * 
          * @return builder
          * 

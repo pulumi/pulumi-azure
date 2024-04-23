@@ -111,7 +111,6 @@ def get_diagnostic_categories(resource_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -120,7 +119,6 @@ def get_diagnostic_categories(resource_id: Optional[str] = None,
         resource_group_name=example_azurerm_key_vault["resourceGroupName"])
     example_get_diagnostic_categories = azure.monitoring.get_diagnostic_categories(resource_id=example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str resource_id: The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.
@@ -147,7 +145,6 @@ def get_diagnostic_categories_output(resource_id: Optional[pulumi.Input[str]] = 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -156,7 +153,6 @@ def get_diagnostic_categories_output(resource_id: Optional[pulumi.Input[str]] = 
         resource_group_name=example_azurerm_key_vault["resourceGroupName"])
     example_get_diagnostic_categories = azure.monitoring.get_diagnostic_categories(resource_id=example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str resource_id: The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.

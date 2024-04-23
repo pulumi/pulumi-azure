@@ -238,7 +238,6 @@ def get_grafana(identity: Optional[pulumi.InputType['GetGrafanaIdentityArgs']] =
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -247,7 +246,6 @@ def get_grafana(identity: Optional[pulumi.InputType['GetGrafanaIdentityArgs']] =
         resource_group_name="example-rg")
     pulumi.export("name", example.name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetGrafanaIdentityArgs'] identity: The managed identity of the grafana resource.
@@ -291,7 +289,6 @@ def get_grafana_output(identity: Optional[pulumi.Input[Optional[pulumi.InputType
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -300,7 +297,6 @@ def get_grafana_output(identity: Optional[pulumi.Input[Optional[pulumi.InputType
         resource_group_name="example-rg")
     pulumi.export("name", example.name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetGrafanaIdentityArgs'] identity: The managed identity of the grafana resource.

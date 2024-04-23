@@ -121,7 +121,6 @@ class WebAppActiveSlot(pulumi.CustomResource):
 
         ### Windows Web App
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -147,7 +146,6 @@ class WebAppActiveSlot(pulumi.CustomResource):
             site_config=azure.appservice.WindowsWebAppSlotSiteConfigArgs())
         example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_windows_web_app_slot.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -175,7 +173,6 @@ class WebAppActiveSlot(pulumi.CustomResource):
 
         ### Windows Web App
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -201,7 +198,6 @@ class WebAppActiveSlot(pulumi.CustomResource):
             site_config=azure.appservice.WindowsWebAppSlotSiteConfigArgs())
         example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_windows_web_app_slot.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

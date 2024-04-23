@@ -112,7 +112,6 @@ def get_snapshot(account_name: Optional[str] = None,
 
     ## NetApp Snapshot Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -124,7 +123,6 @@ def get_snapshot(account_name: Optional[str] = None,
         volume_name="acctestnetappvolume")
     pulumi.export("netappSnapshotId", example["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the NetApp Account where the NetApp Pool exists.
@@ -164,7 +162,6 @@ def get_snapshot_output(account_name: Optional[pulumi.Input[str]] = None,
 
     ## NetApp Snapshot Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -176,7 +173,6 @@ def get_snapshot_output(account_name: Optional[pulumi.Input[str]] = None,
         volume_name="acctestnetappvolume")
     pulumi.export("netappSnapshotId", example["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the NetApp Account where the NetApp Pool exists.

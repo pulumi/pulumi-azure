@@ -13,15 +13,7 @@ namespace Pulumi.Azure.EventGrid.Outputs
     [OutputType]
     public sealed class SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual
     {
-        /// <summary>
-        /// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Specifies a single value to compare to when using a single value operator.
-        /// 
-        /// OR
-        /// </summary>
         public readonly double Value;
 
         [OutputConstructor]

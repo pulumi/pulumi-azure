@@ -292,7 +292,6 @@ class NatGateway(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -308,7 +307,6 @@ class NatGateway(pulumi.CustomResource):
             idle_timeout_in_minutes=10,
             zones=["1"])
         ```
-        <!--End PulumiCodeChooser -->
 
         For more complete examples, please see the network.NatGatewayPublicIpAssociation and network.NatGatewayPublicIpPrefixAssociation resources.
 
@@ -343,7 +341,6 @@ class NatGateway(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -359,7 +356,6 @@ class NatGateway(pulumi.CustomResource):
             idle_timeout_in_minutes=10,
             zones=["1"])
         ```
-        <!--End PulumiCodeChooser -->
 
         For more complete examples, please see the network.NatGatewayPublicIpAssociation and network.NatGatewayPublicIpPrefixAssociation resources.
 

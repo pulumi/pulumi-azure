@@ -222,7 +222,6 @@ class DevCenter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -239,7 +238,6 @@ class DevCenter(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Blocks Reference
 
@@ -290,7 +288,6 @@ class DevCenter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -307,7 +304,6 @@ class DevCenter(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Blocks Reference
 

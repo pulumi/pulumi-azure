@@ -106,7 +106,6 @@ def get_network_ddos_protection_plan(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -115,7 +114,6 @@ def get_network_ddos_protection_plan(name: Optional[str] = None,
         resource_group_name=example_azurerm_network_ddos_protection_plan["resourceGroupName"])
     pulumi.export("ddosProtectionPlanId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Network DDoS Protection Plan.
@@ -145,7 +143,6 @@ def get_network_ddos_protection_plan_output(name: Optional[pulumi.Input[str]] = 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -154,7 +151,6 @@ def get_network_ddos_protection_plan_output(name: Optional[pulumi.Input[str]] = 
         resource_group_name=example_azurerm_network_ddos_protection_plan["resourceGroupName"])
     pulumi.export("ddosProtectionPlanId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Network DDoS Protection Plan.

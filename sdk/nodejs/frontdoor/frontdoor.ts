@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -69,7 +68,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -151,7 +149,7 @@ export class Frontdoor extends pulumi.CustomResource {
      */
     public readonly frontendEndpoints!: pulumi.Output<outputs.frontdoor.FrontdoorFrontendEndpoint[]>;
     /**
-     * The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
+     * A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
      */
     public /*out*/ readonly frontendEndpointsMap!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -308,7 +306,7 @@ export interface FrontdoorState {
      */
     frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorFrontendEndpoint>[]>;
     /**
-     * The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
+     * A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
      */
     frontendEndpointsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

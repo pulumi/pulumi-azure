@@ -18,14 +18,14 @@ public final class ServiceHostnameConfigurationPortalArgs extends com.pulumi.res
     public static final ServiceHostnameConfigurationPortalArgs Empty = new ServiceHostnameConfigurationPortalArgs();
 
     /**
-     * One or more `certificate` blocks (up to 10) as defined below.
+     * The Base64 Encoded Certificate.
      * 
      */
     @Import(name="certificate")
     private @Nullable Output<String> certificate;
 
     /**
-     * @return One or more `certificate` blocks (up to 10) as defined below.
+     * @return The Base64 Encoded Certificate.
      * 
      */
     public Optional<Output<String>> certificate() {
@@ -33,14 +33,18 @@ public final class ServiceHostnameConfigurationPortalArgs extends com.pulumi.res
     }
 
     /**
-     * The password for the certificate.
+     * The password associated with the certificate provided above.
+     * 
+     * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
      * 
      */
     @Import(name="certificatePassword")
     private @Nullable Output<String> certificatePassword;
 
     /**
-     * @return The password for the certificate.
+     * @return The password associated with the certificate provided above.
+     * 
+     * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
      * 
      */
     public Optional<Output<String>> certificatePassword() {
@@ -225,7 +229,7 @@ public final class ServiceHostnameConfigurationPortalArgs extends com.pulumi.res
         }
 
         /**
-         * @param certificate One or more `certificate` blocks (up to 10) as defined below.
+         * @param certificate The Base64 Encoded Certificate.
          * 
          * @return builder
          * 
@@ -236,7 +240,7 @@ public final class ServiceHostnameConfigurationPortalArgs extends com.pulumi.res
         }
 
         /**
-         * @param certificate One or more `certificate` blocks (up to 10) as defined below.
+         * @param certificate The Base64 Encoded Certificate.
          * 
          * @return builder
          * 
@@ -246,7 +250,9 @@ public final class ServiceHostnameConfigurationPortalArgs extends com.pulumi.res
         }
 
         /**
-         * @param certificatePassword The password for the certificate.
+         * @param certificatePassword The password associated with the certificate provided above.
+         * 
+         * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
          * 
          * @return builder
          * 
@@ -257,7 +263,9 @@ public final class ServiceHostnameConfigurationPortalArgs extends com.pulumi.res
         }
 
         /**
-         * @param certificatePassword The password for the certificate.
+         * @param certificatePassword The password associated with the certificate provided above.
+         * 
+         * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
          * 
          * @return builder
          * 

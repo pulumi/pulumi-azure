@@ -18,7 +18,6 @@ import (
 //
 // This example provisions an App Service Certificate from a Local File.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,7 +60,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -86,10 +84,7 @@ type Certificate struct {
 	// The issue date for the certificate.
 	IssueDate pulumi.StringOutput `pulumi:"issueDate"`
 	// The name of the certificate issuer.
-	Issuer pulumi.StringOutput `pulumi:"issuer"`
-	// The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-	//
-	// > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
+	Issuer     pulumi.StringOutput    `pulumi:"issuer"`
 	KeyVaultId pulumi.StringPtrOutput `pulumi:"keyVaultId"`
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
 	//
@@ -110,9 +105,8 @@ type Certificate struct {
 	// > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The subject name of the certificate.
-	SubjectName pulumi.StringOutput `pulumi:"subjectName"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	SubjectName pulumi.StringOutput    `pulumi:"subjectName"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
 	// The thumbprint for the certificate.
 	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
 }
@@ -174,10 +168,7 @@ type certificateState struct {
 	// The issue date for the certificate.
 	IssueDate *string `pulumi:"issueDate"`
 	// The name of the certificate issuer.
-	Issuer *string `pulumi:"issuer"`
-	// The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-	//
-	// > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
+	Issuer     *string `pulumi:"issuer"`
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
 	//
@@ -198,9 +189,8 @@ type certificateState struct {
 	// > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The subject name of the certificate.
-	SubjectName *string `pulumi:"subjectName"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	SubjectName *string           `pulumi:"subjectName"`
+	Tags        map[string]string `pulumi:"tags"`
 	// The thumbprint for the certificate.
 	Thumbprint *string `pulumi:"thumbprint"`
 }
@@ -219,10 +209,7 @@ type CertificateState struct {
 	// The issue date for the certificate.
 	IssueDate pulumi.StringPtrInput
 	// The name of the certificate issuer.
-	Issuer pulumi.StringPtrInput
-	// The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-	//
-	// > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
+	Issuer     pulumi.StringPtrInput
 	KeyVaultId pulumi.StringPtrInput
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
 	//
@@ -244,8 +231,7 @@ type CertificateState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The subject name of the certificate.
 	SubjectName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
 	// The thumbprint for the certificate.
 	Thumbprint pulumi.StringPtrInput
 }
@@ -257,10 +243,7 @@ func (CertificateState) ElementType() reflect.Type {
 type certificateArgs struct {
 	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
 	AppServicePlanId *string `pulumi:"appServicePlanId"`
-	// The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-	//
-	// > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
-	KeyVaultId *string `pulumi:"keyVaultId"`
+	KeyVaultId       *string `pulumi:"keyVaultId"`
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
@@ -278,19 +261,15 @@ type certificateArgs struct {
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
 	AppServicePlanId pulumi.StringPtrInput
-	// The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-	//
-	// > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
-	KeyVaultId pulumi.StringPtrInput
+	KeyVaultId       pulumi.StringPtrInput
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
@@ -309,8 +288,7 @@ type CertificateArgs struct {
 	//
 	// > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
 	ResourceGroupName pulumi.StringInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {
@@ -435,9 +413,6 @@ func (o CertificateOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-//
-// > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
 func (o CertificateOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
@@ -483,7 +458,6 @@ func (o CertificateOutput) SubjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.SubjectName }).(pulumi.StringOutput)
 }
 
-// A mapping of tags to assign to the resource.
 func (o CertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

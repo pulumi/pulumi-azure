@@ -368,7 +368,6 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -389,7 +388,6 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
                 identity_ids=["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -425,7 +423,6 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -446,7 +443,6 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
                 identity_ids=["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

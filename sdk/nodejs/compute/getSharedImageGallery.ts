@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSharedImageGallery(args: GetSharedImageGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageGalleryResult> {
 
@@ -77,7 +75,6 @@ export interface GetSharedImageGalleryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -87,7 +84,6 @@ export interface GetSharedImageGalleryResult {
  *     resourceGroupName: "example-resources",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSharedImageGalleryOutput(args: GetSharedImageGalleryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedImageGalleryResult> {
     return pulumi.output(args).apply((a: any) => getSharedImageGallery(a, opts))

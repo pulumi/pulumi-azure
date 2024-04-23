@@ -780,7 +780,6 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -815,7 +814,6 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
                 queue_name=example_queue.name,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -865,7 +863,6 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -900,7 +897,6 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
                 queue_name=example_queue.name,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -151,7 +151,6 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -186,7 +185,6 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
             network_group_id=example_network_manager_network_group.id,
             target_virtual_network_id=example_virtual_network.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -213,7 +211,6 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -248,7 +245,6 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
             network_group_id=example_network_manager_network_group.id,
             target_virtual_network_id=example_virtual_network.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

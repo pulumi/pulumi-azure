@@ -140,7 +140,6 @@ def get_dps(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -148,7 +147,6 @@ def get_dps(name: Optional[str] = None,
     example = azure.iot.get_dps(name="iot_hub_dps_test",
         resource_group_name="iothub_dps_rg")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Iot Device Provisioning Service resource.
@@ -183,7 +181,6 @@ def get_dps_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -191,7 +188,6 @@ def get_dps_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.iot.get_dps(name="iot_hub_dps_test",
         resource_group_name="iothub_dps_rg")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Iot Device Provisioning Service resource.

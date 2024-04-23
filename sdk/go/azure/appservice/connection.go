@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -114,7 +113,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -132,16 +130,13 @@ type Connection struct {
 	//
 	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication ConnectionAuthenticationOutput `pulumi:"authentication"`
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-	ClientType pulumi.StringPtrOutput `pulumi:"clientType"`
+	ClientType     pulumi.StringPtrOutput         `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	Name        pulumi.StringOutput            `pulumi:"name"`
 	SecretStore ConnectionSecretStorePtrOutput `pulumi:"secretStore"`
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
-	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
-	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-	VnetSolution pulumi.StringPtrOutput `pulumi:"vnetSolution"`
+	TargetResourceId pulumi.StringOutput    `pulumi:"targetResourceId"`
+	VnetSolution     pulumi.StringPtrOutput `pulumi:"vnetSolution"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -189,16 +184,13 @@ type connectionState struct {
 	//
 	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication *ConnectionAuthentication `pulumi:"authentication"`
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-	ClientType *string `pulumi:"clientType"`
+	ClientType     *string                   `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
-	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	Name        *string                `pulumi:"name"`
 	SecretStore *ConnectionSecretStore `pulumi:"secretStore"`
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-	VnetSolution *string `pulumi:"vnetSolution"`
+	VnetSolution     *string `pulumi:"vnetSolution"`
 }
 
 type ConnectionState struct {
@@ -208,16 +200,13 @@ type ConnectionState struct {
 	//
 	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication ConnectionAuthenticationPtrInput
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-	ClientType pulumi.StringPtrInput
+	ClientType     pulumi.StringPtrInput
 	// The name of the service connection. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
-	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	Name        pulumi.StringPtrInput
 	SecretStore ConnectionSecretStorePtrInput
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId pulumi.StringPtrInput
-	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-	VnetSolution pulumi.StringPtrInput
+	VnetSolution     pulumi.StringPtrInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -231,16 +220,13 @@ type connectionArgs struct {
 	//
 	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication ConnectionAuthentication `pulumi:"authentication"`
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-	ClientType *string `pulumi:"clientType"`
+	ClientType     *string                  `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
-	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	Name        *string                `pulumi:"name"`
 	SecretStore *ConnectionSecretStore `pulumi:"secretStore"`
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
-	TargetResourceId string `pulumi:"targetResourceId"`
-	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-	VnetSolution *string `pulumi:"vnetSolution"`
+	TargetResourceId string  `pulumi:"targetResourceId"`
+	VnetSolution     *string `pulumi:"vnetSolution"`
 }
 
 // The set of arguments for constructing a Connection resource.
@@ -251,16 +237,13 @@ type ConnectionArgs struct {
 	//
 	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication ConnectionAuthenticationInput
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-	ClientType pulumi.StringPtrInput
+	ClientType     pulumi.StringPtrInput
 	// The name of the service connection. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
-	// An option to store secret value in secure place. An `secretStore` block as defined below.
+	Name        pulumi.StringPtrInput
 	SecretStore ConnectionSecretStorePtrInput
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
 	TargetResourceId pulumi.StringInput
-	// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-	VnetSolution pulumi.StringPtrInput
+	VnetSolution     pulumi.StringPtrInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {
@@ -362,7 +345,6 @@ func (o ConnectionOutput) Authentication() ConnectionAuthenticationOutput {
 	return o.ApplyT(func(v *Connection) ConnectionAuthenticationOutput { return v.Authentication }).(ConnectionAuthenticationOutput)
 }
 
-// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 func (o ConnectionOutput) ClientType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.ClientType }).(pulumi.StringPtrOutput)
 }
@@ -372,7 +354,6 @@ func (o ConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// An option to store secret value in secure place. An `secretStore` block as defined below.
 func (o ConnectionOutput) SecretStore() ConnectionSecretStorePtrOutput {
 	return o.ApplyT(func(v *Connection) ConnectionSecretStorePtrOutput { return v.SecretStore }).(ConnectionSecretStorePtrOutput)
 }
@@ -382,7 +363,6 @@ func (o ConnectionOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }
 
-// The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
 func (o ConnectionOutput) VnetSolution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.VnetSolution }).(pulumi.StringPtrOutput)
 }

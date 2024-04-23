@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Core
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Azure.Core
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetExtendedLocationsResult> InvokeAsync(GetExtendedLocationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtendedLocationsResult>("azure:core/getExtendedLocations:getExtendedLocations", args ?? new GetExtendedLocationsArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Azure.Core
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Azure.Core
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetExtendedLocationsResult> Invoke(GetExtendedLocationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtendedLocationsResult>("azure:core/getExtendedLocations:getExtendedLocations", args ?? new GetExtendedLocationsInvokeArgs(), options.WithDefaults());

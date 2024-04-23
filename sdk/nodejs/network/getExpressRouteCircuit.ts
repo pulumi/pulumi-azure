@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  * export const expressRouteCircuitId = example.then(example => example.id);
  * export const serviceKey = example.then(example => example.serviceKey);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getExpressRouteCircuit(args: GetExpressRouteCircuitArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitResult> {
 
@@ -88,7 +86,6 @@ export interface GetExpressRouteCircuitResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -100,7 +97,6 @@ export interface GetExpressRouteCircuitResult {
  * export const expressRouteCircuitId = example.then(example => example.id);
  * export const serviceKey = example.then(example => example.serviceKey);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getExpressRouteCircuitOutput(args: GetExpressRouteCircuitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCircuit(a, opts))

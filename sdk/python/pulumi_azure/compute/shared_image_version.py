@@ -579,7 +579,6 @@ class SharedImageVersion(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -602,7 +601,6 @@ class SharedImageVersion(pulumi.CustomResource):
                 storage_account_type="Standard_LRS",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -653,7 +651,6 @@ class SharedImageVersion(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -676,7 +673,6 @@ class SharedImageVersion(pulumi.CustomResource):
                 storage_account_type="Standard_LRS",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

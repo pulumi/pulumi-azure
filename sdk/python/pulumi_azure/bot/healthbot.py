@@ -217,7 +217,6 @@ class Healthbot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -231,7 +230,6 @@ class Healthbot(pulumi.CustomResource):
             location=example.location,
             sku_name="F0")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -260,7 +258,6 @@ class Healthbot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -274,7 +271,6 @@ class Healthbot(pulumi.CustomResource):
             location=example.location,
             sku_name="F0")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

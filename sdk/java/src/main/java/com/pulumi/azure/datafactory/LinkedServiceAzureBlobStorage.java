@@ -252,101 +252,45 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
     public Output<Optional<String>> sasUri() {
         return Codegen.optional(this.sasUri);
     }
-    /**
-     * The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
-     * 
-     */
     @Export(name="serviceEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceEndpoint;
 
-    /**
-     * @return The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
-     * 
-     */
     public Output<Optional<String>> serviceEndpoint() {
         return Codegen.optional(this.serviceEndpoint);
     }
-    /**
-     * The service principal id in which to authenticate against the Azure Blob Storage account.
-     * 
-     */
     @Export(name="servicePrincipalId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> servicePrincipalId;
 
-    /**
-     * @return The service principal id in which to authenticate against the Azure Blob Storage account.
-     * 
-     */
     public Output<Optional<String>> servicePrincipalId() {
         return Codegen.optional(this.servicePrincipalId);
     }
-    /**
-     * The service principal key in which to authenticate against the AAzure Blob Storage account.
-     * 
-     */
     @Export(name="servicePrincipalKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> servicePrincipalKey;
 
-    /**
-     * @return The service principal key in which to authenticate against the AAzure Blob Storage account.
-     * 
-     */
     public Output<Optional<String>> servicePrincipalKey() {
         return Codegen.optional(this.servicePrincipalKey);
     }
-    /**
-     * A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
-     * 
-     */
     @Export(name="servicePrincipalLinkedKeyVaultKey", refs={LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey> servicePrincipalLinkedKeyVaultKey;
 
-    /**
-     * @return A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
-     * 
-     */
     public Output<Optional<LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey>> servicePrincipalLinkedKeyVaultKey() {
         return Codegen.optional(this.servicePrincipalLinkedKeyVaultKey);
     }
-    /**
-     * Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
-     * 
-     */
     @Export(name="storageKind", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageKind;
 
-    /**
-     * @return Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
-     * 
-     */
     public Output<Optional<String>> storageKind() {
         return Codegen.optional(this.storageKind);
     }
-    /**
-     * The tenant id or name in which to authenticate against the Azure Blob Storage account.
-     * 
-     */
     @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenantId;
 
-    /**
-     * @return The tenant id or name in which to authenticate against the Azure Blob Storage account.
-     * 
-     */
     public Output<Optional<String>> tenantId() {
         return Codegen.optional(this.tenantId);
     }
-    /**
-     * Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.
-     * 
-     */
     @Export(name="useManagedIdentity", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useManagedIdentity;
 
-    /**
-     * @return Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.
-     * 
-     */
     public Output<Optional<Boolean>> useManagedIdentity() {
         return Codegen.optional(this.useManagedIdentity);
     }

@@ -233,7 +233,6 @@ class ChannelSms(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -256,7 +255,6 @@ class ChannelSms(pulumi.CustomResource):
             sms_channel_auth_token="jh8980432610052ed4e29565c5e232f",
             phone_number="+12313803556")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -288,7 +286,6 @@ class ChannelSms(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -311,7 +308,6 @@ class ChannelSms(pulumi.CustomResource):
             sms_channel_auth_token="jh8980432610052ed4e29565c5e232f",
             phone_number="+12313803556")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

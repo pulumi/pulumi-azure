@@ -332,7 +332,6 @@ class ResourceGroupPolicyExemption(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -357,7 +356,6 @@ class ResourceGroupPolicyExemption(pulumi.CustomResource):
             policy_assignment_id=example_resource_group_policy_assignment.id,
             exemption_category="Mitigated")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -390,7 +388,6 @@ class ResourceGroupPolicyExemption(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -415,7 +412,6 @@ class ResourceGroupPolicyExemption(pulumi.CustomResource):
             policy_assignment_id=example_resource_group_policy_assignment.id,
             exemption_category="Mitigated")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

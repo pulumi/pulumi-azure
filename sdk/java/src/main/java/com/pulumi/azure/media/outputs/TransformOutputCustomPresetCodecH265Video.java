@@ -25,7 +25,7 @@ public final class TransformOutputCustomPresetCodecH265Video {
      */
     private @Nullable String keyFrameInterval;
     /**
-     * @return Specifies the label for the codec. The label can be used to control muxing behavior.
+     * @return The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
      * 
      */
     private @Nullable String label;
@@ -66,7 +66,7 @@ public final class TransformOutputCustomPresetCodecH265Video {
         return Optional.ofNullable(this.keyFrameInterval);
     }
     /**
-     * @return Specifies the label for the codec. The label can be used to control muxing behavior.
+     * @return The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
      * 
      */
     public Optional<String> label() {

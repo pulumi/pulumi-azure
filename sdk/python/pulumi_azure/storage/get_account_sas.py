@@ -159,7 +159,6 @@ def get_account_sas(connection_string: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -206,7 +205,6 @@ def get_account_sas(connection_string: Optional[str] = None,
         ))
     pulumi.export("sasUrlQueryString", example.sas)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `storage.Account` resource.
@@ -269,7 +267,6 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -316,7 +313,6 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
         ))
     pulumi.export("sasUrlQueryString", example.sas)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `storage.Account` resource.

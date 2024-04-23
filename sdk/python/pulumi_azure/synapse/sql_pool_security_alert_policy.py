@@ -300,7 +300,6 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -359,7 +358,6 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
             ],
             retention_days=20)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -391,7 +389,6 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -450,7 +447,6 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
             ],
             retention_days=20)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

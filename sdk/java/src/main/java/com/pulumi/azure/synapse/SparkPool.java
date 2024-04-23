@@ -194,59 +194,27 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> computeIsolationEnabled() {
         return Codegen.optional(this.computeIsolationEnabled);
     }
-    /**
-     * Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-     * 
-     */
     @Export(name="dynamicExecutorAllocationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dynamicExecutorAllocationEnabled;
 
-    /**
-     * @return Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> dynamicExecutorAllocationEnabled() {
         return Codegen.optional(this.dynamicExecutorAllocationEnabled);
     }
-    /**
-     * A `library_requirement` block as defined below.
-     * 
-     */
     @Export(name="libraryRequirement", refs={SparkPoolLibraryRequirement.class}, tree="[0]")
     private Output</* @Nullable */ SparkPoolLibraryRequirement> libraryRequirement;
 
-    /**
-     * @return A `library_requirement` block as defined below.
-     * 
-     */
     public Output<Optional<SparkPoolLibraryRequirement>> libraryRequirement() {
         return Codegen.optional(this.libraryRequirement);
     }
-    /**
-     * The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-     * 
-     */
     @Export(name="maxExecutors", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxExecutors;
 
-    /**
-     * @return The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-     * 
-     */
     public Output<Optional<Integer>> maxExecutors() {
         return Codegen.optional(this.maxExecutors);
     }
-    /**
-     * The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-     * 
-     */
     @Export(name="minExecutors", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minExecutors;
 
-    /**
-     * @return The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-     * 
-     */
     public Output<Optional<Integer>> minExecutors() {
         return Codegen.optional(this.minExecutors);
     }
@@ -306,73 +274,33 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
     public Output<String> nodeSizeFamily() {
         return this.nodeSizeFamily;
     }
-    /**
-     * Indicates whether session level packages are enabled or not. Defaults to `false`.
-     * 
-     */
     @Export(name="sessionLevelPackagesEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sessionLevelPackagesEnabled;
 
-    /**
-     * @return Indicates whether session level packages are enabled or not. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> sessionLevelPackagesEnabled() {
         return Codegen.optional(this.sessionLevelPackagesEnabled);
     }
-    /**
-     * A `spark_config` block as defined below.
-     * 
-     */
     @Export(name="sparkConfig", refs={SparkPoolSparkConfig.class}, tree="[0]")
     private Output</* @Nullable */ SparkPoolSparkConfig> sparkConfig;
 
-    /**
-     * @return A `spark_config` block as defined below.
-     * 
-     */
     public Output<Optional<SparkPoolSparkConfig>> sparkConfig() {
         return Codegen.optional(this.sparkConfig);
     }
-    /**
-     * The Spark events folder. Defaults to `/events`.
-     * 
-     */
     @Export(name="sparkEventsFolder", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sparkEventsFolder;
 
-    /**
-     * @return The Spark events folder. Defaults to `/events`.
-     * 
-     */
     public Output<Optional<String>> sparkEventsFolder() {
         return Codegen.optional(this.sparkEventsFolder);
     }
-    /**
-     * The default folder where Spark logs will be written. Defaults to `/logs`.
-     * 
-     */
     @Export(name="sparkLogFolder", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sparkLogFolder;
 
-    /**
-     * @return The default folder where Spark logs will be written. Defaults to `/logs`.
-     * 
-     */
     public Output<Optional<String>> sparkLogFolder() {
         return Codegen.optional(this.sparkLogFolder);
     }
-    /**
-     * The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-     * 
-     */
     @Export(name="sparkVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sparkVersion;
 
-    /**
-     * @return The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-     * 
-     */
     public Output<Optional<String>> sparkVersion() {
         return Codegen.optional(this.sparkVersion);
     }
@@ -390,17 +318,9 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
     public Output<String> synapseWorkspaceId() {
         return this.synapseWorkspaceId;
     }
-    /**
-     * A mapping of tags which should be assigned to the Synapse Spark Pool.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags which should be assigned to the Synapse Spark Pool.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

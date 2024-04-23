@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Windows Web App
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -41,7 +40,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleWebAppActiveSlot = new azure.appservice.WebAppActiveSlot("example", {slotId: exampleWindowsWebAppSlot.id});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

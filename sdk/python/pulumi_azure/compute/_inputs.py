@@ -1885,10 +1885,6 @@ class LinuxVirtualMachineScaleSetGalleryApplicationArgs:
                  configuration_reference_blob_uri: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  tag: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[int] order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] tag: Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-        """
         if package_reference_id is not None:
             warnings.warn("""`package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""", DeprecationWarning)
             pulumi.log.warn("""package_reference_id is deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""")
@@ -1930,9 +1926,6 @@ class LinuxVirtualMachineScaleSetGalleryApplicationArgs:
     @property
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -1942,9 +1935,6 @@ class LinuxVirtualMachineScaleSetGalleryApplicationArgs:
     @property
     @pulumi.getter
     def tag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "tag")
 
     @tag.setter
@@ -4741,8 +4731,6 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs:
                  key_vault_id: pulumi.Input[str]):
         """
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs']]] certificates: One or more `certificate` blocks as defined below.
-               
-               > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windows_configuration` or a `linux_configuration`.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -4753,8 +4741,6 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs:
     def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs']]]:
         """
         One or more `certificate` blocks as defined below.
-
-        > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windows_configuration` or a `linux_configuration`.
         """
         return pulumi.get(self, "certificates")
 
@@ -5054,8 +5040,6 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs:
                  key_vault_id: pulumi.Input[str]):
         """
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs']]] certificates: One or more `certificate` blocks as defined below.
-               
-               > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windows_configuration` or a `linux_configuration`.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -5066,8 +5050,6 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs:
     def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs']]]:
         """
         One or more `certificate` blocks as defined below.
-
-        > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windows_configuration` or a `linux_configuration`.
         """
         return pulumi.get(self, "certificates")
 
@@ -6030,7 +6012,6 @@ class ScaleSetIdentityArgs:
         :param pulumi.Input[str] type: Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
                
-               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_azure as azure
@@ -6056,7 +6037,6 @@ class ScaleSetIdentityArgs:
                    )])
                pulumi.export("principalId", example.identity.principal_id)
                ```
-               <!--End PulumiCodeChooser -->
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -6082,7 +6062,6 @@ class ScaleSetIdentityArgs:
         """
         Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -6108,7 +6087,6 @@ class ScaleSetIdentityArgs:
             )])
         pulumi.export("principalId", example.identity.principal_id)
         ```
-        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "identity_ids")
 
@@ -8125,7 +8103,6 @@ class VirtualMachineOsProfileArgs:
         :param pulumi.Input[str] admin_password: (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
                
                > **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
-        :param pulumi.Input[str] custom_data: Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "computer_name", computer_name)
@@ -8175,9 +8152,6 @@ class VirtualMachineOsProfileArgs:
     @property
     @pulumi.getter(name="customData")
     def custom_data(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "custom_data")
 
     @custom_data.setter
@@ -10206,10 +10180,6 @@ class WindowsVirtualMachineScaleSetGalleryApplicationArgs:
                  configuration_reference_blob_uri: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  tag: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[int] order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] tag: Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-        """
         if package_reference_id is not None:
             warnings.warn("""`package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""", DeprecationWarning)
             pulumi.log.warn("""package_reference_id is deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""")
@@ -10251,9 +10221,6 @@ class WindowsVirtualMachineScaleSetGalleryApplicationArgs:
     @property
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -10263,9 +10230,6 @@ class WindowsVirtualMachineScaleSetGalleryApplicationArgs:
     @property
     @pulumi.getter
     def tag(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "tag")
 
     @tag.setter

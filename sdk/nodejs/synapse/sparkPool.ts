@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -72,7 +71,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -126,21 +124,9 @@ export class SparkPool extends pulumi.CustomResource {
      * Indicates whether compute isolation is enabled or not. Defaults to `false`.
      */
     public readonly computeIsolationEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-     */
     public readonly dynamicExecutorAllocationEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * A `libraryRequirement` block as defined below.
-     */
     public readonly libraryRequirement!: pulumi.Output<outputs.synapse.SparkPoolLibraryRequirement | undefined>;
-    /**
-     * The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-     */
     public readonly maxExecutors!: pulumi.Output<number | undefined>;
-    /**
-     * The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-     */
     public readonly minExecutors!: pulumi.Output<number | undefined>;
     /**
      * The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
@@ -158,33 +144,15 @@ export class SparkPool extends pulumi.CustomResource {
      * The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
      */
     public readonly nodeSizeFamily!: pulumi.Output<string>;
-    /**
-     * Indicates whether session level packages are enabled or not. Defaults to `false`.
-     */
     public readonly sessionLevelPackagesEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * A `sparkConfig` block as defined below.
-     */
     public readonly sparkConfig!: pulumi.Output<outputs.synapse.SparkPoolSparkConfig | undefined>;
-    /**
-     * The Spark events folder. Defaults to `/events`.
-     */
     public readonly sparkEventsFolder!: pulumi.Output<string | undefined>;
-    /**
-     * The default folder where Spark logs will be written. Defaults to `/logs`.
-     */
     public readonly sparkLogFolder!: pulumi.Output<string | undefined>;
-    /**
-     * The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-     */
     public readonly sparkVersion!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
      */
     public readonly synapseWorkspaceId!: pulumi.Output<string>;
-    /**
-     * A mapping of tags which should be assigned to the Synapse Spark Pool.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -275,21 +243,9 @@ export interface SparkPoolState {
      * Indicates whether compute isolation is enabled or not. Defaults to `false`.
      */
     computeIsolationEnabled?: pulumi.Input<boolean>;
-    /**
-     * Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-     */
     dynamicExecutorAllocationEnabled?: pulumi.Input<boolean>;
-    /**
-     * A `libraryRequirement` block as defined below.
-     */
     libraryRequirement?: pulumi.Input<inputs.synapse.SparkPoolLibraryRequirement>;
-    /**
-     * The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-     */
     maxExecutors?: pulumi.Input<number>;
-    /**
-     * The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-     */
     minExecutors?: pulumi.Input<number>;
     /**
      * The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
@@ -307,33 +263,15 @@ export interface SparkPoolState {
      * The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
      */
     nodeSizeFamily?: pulumi.Input<string>;
-    /**
-     * Indicates whether session level packages are enabled or not. Defaults to `false`.
-     */
     sessionLevelPackagesEnabled?: pulumi.Input<boolean>;
-    /**
-     * A `sparkConfig` block as defined below.
-     */
     sparkConfig?: pulumi.Input<inputs.synapse.SparkPoolSparkConfig>;
-    /**
-     * The Spark events folder. Defaults to `/events`.
-     */
     sparkEventsFolder?: pulumi.Input<string>;
-    /**
-     * The default folder where Spark logs will be written. Defaults to `/logs`.
-     */
     sparkLogFolder?: pulumi.Input<string>;
-    /**
-     * The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-     */
     sparkVersion?: pulumi.Input<string>;
     /**
      * The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
      */
     synapseWorkspaceId?: pulumi.Input<string>;
-    /**
-     * A mapping of tags which should be assigned to the Synapse Spark Pool.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -357,21 +295,9 @@ export interface SparkPoolArgs {
      * Indicates whether compute isolation is enabled or not. Defaults to `false`.
      */
     computeIsolationEnabled?: pulumi.Input<boolean>;
-    /**
-     * Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-     */
     dynamicExecutorAllocationEnabled?: pulumi.Input<boolean>;
-    /**
-     * A `libraryRequirement` block as defined below.
-     */
     libraryRequirement?: pulumi.Input<inputs.synapse.SparkPoolLibraryRequirement>;
-    /**
-     * The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-     */
     maxExecutors?: pulumi.Input<number>;
-    /**
-     * The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-     */
     minExecutors?: pulumi.Input<number>;
     /**
      * The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
@@ -389,32 +315,14 @@ export interface SparkPoolArgs {
      * The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
      */
     nodeSizeFamily: pulumi.Input<string>;
-    /**
-     * Indicates whether session level packages are enabled or not. Defaults to `false`.
-     */
     sessionLevelPackagesEnabled?: pulumi.Input<boolean>;
-    /**
-     * A `sparkConfig` block as defined below.
-     */
     sparkConfig?: pulumi.Input<inputs.synapse.SparkPoolSparkConfig>;
-    /**
-     * The Spark events folder. Defaults to `/events`.
-     */
     sparkEventsFolder?: pulumi.Input<string>;
-    /**
-     * The default folder where Spark logs will be written. Defaults to `/logs`.
-     */
     sparkLogFolder?: pulumi.Input<string>;
-    /**
-     * The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-     */
     sparkVersion?: pulumi.Input<string>;
     /**
      * The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
      */
     synapseWorkspaceId: pulumi.Input<string>;
-    /**
-     * A mapping of tags which should be assigned to the Synapse Spark Pool.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -164,7 +163,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -196,7 +194,7 @@ type Deployment struct {
 	FrontendPublic DeploymentFrontendPublicPtrOutput `pulumi:"frontendPublic"`
 	// An `identity` block as defined below.
 	Identity DeploymentIdentityPtrOutput `pulumi:"identity"`
-	// Specify the IP Address of this private IP.
+	// The IP address of the deployment.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -274,7 +272,7 @@ type deploymentState struct {
 	FrontendPublic *DeploymentFrontendPublic `pulumi:"frontendPublic"`
 	// An `identity` block as defined below.
 	Identity *DeploymentIdentity `pulumi:"identity"`
-	// Specify the IP Address of this private IP.
+	// The IP address of the deployment.
 	IpAddress *string `pulumi:"ipAddress"`
 	// The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
 	Location *string `pulumi:"location"`
@@ -317,7 +315,7 @@ type DeploymentState struct {
 	FrontendPublic DeploymentFrontendPublicPtrInput
 	// An `identity` block as defined below.
 	Identity DeploymentIdentityPtrInput
-	// Specify the IP Address of this private IP.
+	// The IP address of the deployment.
 	IpAddress pulumi.StringPtrInput
 	// The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
 	Location pulumi.StringPtrInput
@@ -556,7 +554,7 @@ func (o DeploymentOutput) Identity() DeploymentIdentityPtrOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentIdentityPtrOutput { return v.Identity }).(DeploymentIdentityPtrOutput)
 }
 
-// Specify the IP Address of this private IP.
+// The IP address of the deployment.
 func (o DeploymentOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }

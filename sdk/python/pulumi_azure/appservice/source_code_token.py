@@ -139,7 +139,6 @@ class SourceCodeToken(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -148,7 +147,6 @@ class SourceCodeToken(pulumi.CustomResource):
             type="GitHub",
             token="7e57735e77e577e57")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -179,7 +177,6 @@ class SourceCodeToken(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -188,7 +185,6 @@ class SourceCodeToken(pulumi.CustomResource):
             type="GitHub",
             token="7e57735e77e577e57")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

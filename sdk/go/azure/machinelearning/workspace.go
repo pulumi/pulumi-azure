@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -90,13 +89,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Data Encryption
 //
 // > **NOTE:** The Key Vault must enable purge protection.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -209,13 +206,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With User Assigned Identity And Data Encryption
 //
 // > **NOTE:** The Key Vault must enable purge protection.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -420,7 +415,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

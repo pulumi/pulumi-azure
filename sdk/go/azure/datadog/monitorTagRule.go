@@ -17,7 +17,6 @@ import (
 // ## Example Usage
 //
 // ### Adding TagRules on monitor
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,7 +84,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

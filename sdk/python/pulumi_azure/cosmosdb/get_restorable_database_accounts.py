@@ -86,7 +86,6 @@ def get_restorable_database_accounts(location: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -95,7 +94,6 @@ def get_restorable_database_accounts(location: Optional[str] = None,
         location="West Europe")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str location: The location where the Cosmos DB Database Account.
@@ -123,7 +121,6 @@ def get_restorable_database_accounts_output(location: Optional[pulumi.Input[str]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -132,7 +129,6 @@ def get_restorable_database_accounts_output(location: Optional[pulumi.Input[str]
         location="West Europe")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str location: The location where the Cosmos DB Database Account.

@@ -450,7 +450,6 @@ class DatasetJson(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -478,7 +477,6 @@ class DatasetJson(pulumi.CustomResource):
             ),
             encoding="UTF-8")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -518,7 +516,6 @@ class DatasetJson(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -546,7 +543,6 @@ class DatasetJson(pulumi.CustomResource):
             ),
             encoding="UTF-8")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

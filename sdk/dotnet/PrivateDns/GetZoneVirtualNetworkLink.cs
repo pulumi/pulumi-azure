@@ -16,7 +16,6 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Azure.PrivateDns
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetZoneVirtualNetworkLinkResult> InvokeAsync(GetZoneVirtualNetworkLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetZoneVirtualNetworkLinkResult>("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args ?? new GetZoneVirtualNetworkLinkArgs(), options.WithDefaults());
@@ -48,7 +46,6 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,7 +67,6 @@ namespace Pulumi.Azure.PrivateDns
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetZoneVirtualNetworkLinkResult> Invoke(GetZoneVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetZoneVirtualNetworkLinkResult>("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args ?? new GetZoneVirtualNetworkLinkInvokeArgs(), options.WithDefaults());

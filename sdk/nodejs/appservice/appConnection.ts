@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -80,7 +79,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -124,9 +122,6 @@ export class AppConnection extends pulumi.CustomResource {
      * > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
      */
     public readonly authentication!: pulumi.Output<outputs.appservice.AppConnectionAuthentication>;
-    /**
-     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-     */
     public readonly clientType!: pulumi.Output<string | undefined>;
     /**
      * The ID of the data source function app. Changing this forces a new resource to be created.
@@ -136,17 +131,11 @@ export class AppConnection extends pulumi.CustomResource {
      * The name of the service connection. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * An option to store secret value in secure place. An `secretStore` block as defined below.
-     */
     public readonly secretStore!: pulumi.Output<outputs.appservice.AppConnectionSecretStore | undefined>;
     /**
      * The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
      */
     public readonly targetResourceId!: pulumi.Output<string>;
-    /**
-     * The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-     */
     public readonly vnetSolution!: pulumi.Output<string | undefined>;
 
     /**
@@ -203,9 +192,6 @@ export interface AppConnectionState {
      * > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
      */
     authentication?: pulumi.Input<inputs.appservice.AppConnectionAuthentication>;
-    /**
-     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-     */
     clientType?: pulumi.Input<string>;
     /**
      * The ID of the data source function app. Changing this forces a new resource to be created.
@@ -215,17 +201,11 @@ export interface AppConnectionState {
      * The name of the service connection. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
-    /**
-     * An option to store secret value in secure place. An `secretStore` block as defined below.
-     */
     secretStore?: pulumi.Input<inputs.appservice.AppConnectionSecretStore>;
     /**
      * The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
      */
     targetResourceId?: pulumi.Input<string>;
-    /**
-     * The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-     */
     vnetSolution?: pulumi.Input<string>;
 }
 
@@ -239,9 +219,6 @@ export interface AppConnectionArgs {
      * > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
      */
     authentication: pulumi.Input<inputs.appservice.AppConnectionAuthentication>;
-    /**
-     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-     */
     clientType?: pulumi.Input<string>;
     /**
      * The ID of the data source function app. Changing this forces a new resource to be created.
@@ -251,16 +228,10 @@ export interface AppConnectionArgs {
      * The name of the service connection. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
-    /**
-     * An option to store secret value in secure place. An `secretStore` block as defined below.
-     */
     secretStore?: pulumi.Input<inputs.appservice.AppConnectionSecretStore>;
     /**
      * The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
      */
     targetResourceId: pulumi.Input<string>;
-    /**
-     * The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-     */
     vnetSolution?: pulumi.Input<string>;
 }

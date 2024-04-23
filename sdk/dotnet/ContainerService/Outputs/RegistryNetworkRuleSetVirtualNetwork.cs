@@ -13,9 +13,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class RegistryNetworkRuleSetVirtualNetwork
     {
-        /// <summary>
-        /// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-        /// </summary>
         public readonly string Action;
         public readonly string SubnetId;
 

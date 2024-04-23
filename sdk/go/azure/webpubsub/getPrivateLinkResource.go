@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,7 +53,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetPrivateLinkResource(ctx *pulumi.Context, args *GetPrivateLinkResourceArgs, opts ...pulumi.InvokeOption) (*GetPrivateLinkResourceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPrivateLinkResourceResult

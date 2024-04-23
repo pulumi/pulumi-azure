@@ -102,7 +102,6 @@ def get_table_entity(partition_key: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -112,7 +111,6 @@ def get_table_entity(partition_key: Optional[str] = None,
         partition_key="example-partition-key",
         row_key="example-row-key")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str partition_key: The key for the partition where the entity will be retrieved.
@@ -148,7 +146,6 @@ def get_table_entity_output(partition_key: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -158,7 +155,6 @@ def get_table_entity_output(partition_key: Optional[pulumi.Input[str]] = None,
         partition_key="example-partition-key",
         row_key="example-row-key")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str partition_key: The key for the partition where the entity will be retrieved.

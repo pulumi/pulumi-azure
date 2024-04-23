@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### With System Assigned Identity
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -90,11 +89,9 @@ import * as utilities from "../utilities";
  *     keyVaultKeyIds: [exampleKey.id],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With User Assigned Identity
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -178,7 +175,6 @@ import * as utilities from "../utilities";
  *     userAssignedIdentityId: exampleUserAssignedIdentity.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

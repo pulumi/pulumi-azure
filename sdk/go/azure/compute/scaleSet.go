@@ -18,7 +18,6 @@ import (
 //
 // ### With Managed Disks (Recommended)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -209,11 +208,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Unmanaged Disks
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -351,11 +348,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Example of storageProfileImageReference with id
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -388,7 +383,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

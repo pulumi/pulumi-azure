@@ -18,7 +18,6 @@ namespace Pulumi.Azure.AppConfiguration
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Azure.AppConfiguration
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetConfigurationKeysResult> InvokeAsync(GetConfigurationKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationKeysResult>("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", args ?? new GetConfigurationKeysArgs(), options.WithDefaults());
@@ -50,7 +48,6 @@ namespace Pulumi.Azure.AppConfiguration
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,7 +67,6 @@ namespace Pulumi.Azure.AppConfiguration
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetConfigurationKeysResult> Invoke(GetConfigurationKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationKeysResult>("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", args ?? new GetConfigurationKeysInvokeArgs(), options.WithDefaults());

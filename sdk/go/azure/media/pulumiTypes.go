@@ -351,12 +351,9 @@ func (o AccountFilterTrackSelectionArrayOutput) Index(i pulumi.IntInput) Account
 }
 
 type AccountFilterTrackSelectionCondition struct {
-	// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
 	Operation string `pulumi:"operation"`
-	// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
-	Property string `pulumi:"property"`
-	// The track property value to match or not match.
-	Value string `pulumi:"value"`
+	Property  string `pulumi:"property"`
+	Value     string `pulumi:"value"`
 }
 
 // AccountFilterTrackSelectionConditionInput is an input type that accepts AccountFilterTrackSelectionConditionArgs and AccountFilterTrackSelectionConditionOutput values.
@@ -371,12 +368,9 @@ type AccountFilterTrackSelectionConditionInput interface {
 }
 
 type AccountFilterTrackSelectionConditionArgs struct {
-	// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
 	Operation pulumi.StringInput `pulumi:"operation"`
-	// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
-	Property pulumi.StringInput `pulumi:"property"`
-	// The track property value to match or not match.
-	Value pulumi.StringInput `pulumi:"value"`
+	Property  pulumi.StringInput `pulumi:"property"`
+	Value     pulumi.StringInput `pulumi:"value"`
 }
 
 func (AccountFilterTrackSelectionConditionArgs) ElementType() reflect.Type {
@@ -430,17 +424,14 @@ func (o AccountFilterTrackSelectionConditionOutput) ToAccountFilterTrackSelectio
 	return o
 }
 
-// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
 func (o AccountFilterTrackSelectionConditionOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountFilterTrackSelectionCondition) string { return v.Operation }).(pulumi.StringOutput)
 }
 
-// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
 func (o AccountFilterTrackSelectionConditionOutput) Property() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountFilterTrackSelectionCondition) string { return v.Property }).(pulumi.StringOutput)
 }
 
-// The track property value to match or not match.
 func (o AccountFilterTrackSelectionConditionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountFilterTrackSelectionCondition) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -10913,7 +10904,7 @@ type TransformOutputCustomPresetCodecH264Video struct {
 	Complexity *string `pulumi:"complexity"`
 	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label *string `pulumi:"label"`
 	// One or more `layer` blocks as defined below.
 	Layers []TransformOutputCustomPresetCodecH264VideoLayer `pulumi:"layers"`
@@ -10943,7 +10934,7 @@ type TransformOutputCustomPresetCodecH264VideoArgs struct {
 	Complexity pulumi.StringPtrInput `pulumi:"complexity"`
 	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// One or more `layer` blocks as defined below.
 	Layers TransformOutputCustomPresetCodecH264VideoLayerArrayInput `pulumi:"layers"`
@@ -11044,7 +11035,7 @@ func (o TransformOutputCustomPresetCodecH264VideoOutput) KeyFrameInterval() pulu
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the label for the codec. The label can be used to control muxing behavior.
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 func (o TransformOutputCustomPresetCodecH264VideoOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
@@ -11120,7 +11111,7 @@ func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) KeyFrameInterval() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the label for the codec. The label can be used to control muxing behavior.
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) *string {
 		if v == nil {
@@ -11408,7 +11399,7 @@ type TransformOutputCustomPresetCodecH265Video struct {
 	Complexity *string `pulumi:"complexity"`
 	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label *string `pulumi:"label"`
 	// One or more `layer` blocks as defined below.
 	Layers []TransformOutputCustomPresetCodecH265VideoLayer `pulumi:"layers"`
@@ -11436,7 +11427,7 @@ type TransformOutputCustomPresetCodecH265VideoArgs struct {
 	Complexity pulumi.StringPtrInput `pulumi:"complexity"`
 	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// One or more `layer` blocks as defined below.
 	Layers TransformOutputCustomPresetCodecH265VideoLayerArrayInput `pulumi:"layers"`
@@ -11535,7 +11526,7 @@ func (o TransformOutputCustomPresetCodecH265VideoOutput) KeyFrameInterval() pulu
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the label for the codec. The label can be used to control muxing behavior.
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 func (o TransformOutputCustomPresetCodecH265VideoOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
@@ -11606,7 +11597,7 @@ func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) KeyFrameInterval() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the label for the codec. The label can be used to control muxing behavior.
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) *string {
 		if v == nil {
@@ -11873,7 +11864,7 @@ func (o TransformOutputCustomPresetCodecH265VideoLayerArrayOutput) Index(i pulum
 type TransformOutputCustomPresetCodecJpgImage struct {
 	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label *string `pulumi:"label"`
 	// One or more `layer` blocks as defined below.
 	Layers []TransformOutputCustomPresetCodecJpgImageLayer `pulumi:"layers"`
@@ -11905,7 +11896,7 @@ type TransformOutputCustomPresetCodecJpgImageInput interface {
 type TransformOutputCustomPresetCodecJpgImageArgs struct {
 	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// One or more `layer` blocks as defined below.
 	Layers TransformOutputCustomPresetCodecJpgImageLayerArrayInput `pulumi:"layers"`
@@ -12005,7 +11996,7 @@ func (o TransformOutputCustomPresetCodecJpgImageOutput) KeyFrameInterval() pulum
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the label for the codec. The label can be used to control muxing behavior.
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 func (o TransformOutputCustomPresetCodecJpgImageOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
@@ -12081,7 +12072,7 @@ func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) KeyFrameInterval() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the label for the codec. The label can be used to control muxing behavior.
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) *string {
 		if v == nil {

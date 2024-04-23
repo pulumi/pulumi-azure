@@ -13,53 +13,20 @@ namespace Pulumi.Azure.Network.Outputs
     [OutputType]
     public sealed class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule
     {
-        /// <summary>
-        /// The description which should be used for this rule.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
-        /// </summary>
         public readonly ImmutableArray<string> DestinationAddresses;
-        /// <summary>
-        /// Specifies a list of destination FQDN tags.
-        /// </summary>
         public readonly ImmutableArray<string> DestinationFqdnTags;
-        /// <summary>
-        /// Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
-        /// </summary>
         public readonly ImmutableArray<string> DestinationFqdns;
-        /// <summary>
-        /// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
-        /// </summary>
         public readonly ImmutableArray<string> DestinationUrls;
-        /// <summary>
-        /// Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader> HttpHeaders;
         /// <summary>
         /// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// One or more `protocols` blocks as defined below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol> Protocols;
-        /// <summary>
-        /// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-        /// </summary>
         public readonly ImmutableArray<string> SourceAddresses;
-        /// <summary>
-        /// Specifies a list of source IP groups.
-        /// </summary>
         public readonly ImmutableArray<string> SourceIpGroups;
-        /// <summary>
-        /// Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
-        /// </summary>
         public readonly bool? TerminateTls;
-        /// <summary>
-        /// Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
-        /// </summary>
         public readonly ImmutableArray<string> WebCategories;
 
         [OutputConstructor]

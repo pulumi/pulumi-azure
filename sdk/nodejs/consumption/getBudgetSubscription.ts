@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = exampleAzurermConsumptionBudget.id;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBudgetSubscription(args: GetBudgetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetSubscriptionResult> {
 
@@ -86,7 +84,6 @@ export interface GetBudgetSubscriptionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -97,7 +94,6 @@ export interface GetBudgetSubscriptionResult {
  * });
  * export const id = exampleAzurermConsumptionBudget.id;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBudgetSubscriptionOutput(args: GetBudgetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getBudgetSubscription(a, opts))

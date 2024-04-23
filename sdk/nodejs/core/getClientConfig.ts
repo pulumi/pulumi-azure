@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -17,7 +16,6 @@ import * as utilities from "../utilities";
  * const current = azure.core.getClientConfig({});
  * export const accountId = current.then(current => current.clientId);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientConfigResult> {
 
@@ -56,7 +54,6 @@ export interface GetClientConfigResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -64,7 +61,6 @@ export interface GetClientConfigResult {
  * const current = azure.core.getClientConfig({});
  * export const accountId = current.then(current => current.clientId);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getClientConfigOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetClientConfigResult> {
     return pulumi.output(getClientConfig(opts))

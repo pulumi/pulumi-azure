@@ -211,7 +211,6 @@ class CassandraKeyspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -240,7 +239,6 @@ class CassandraKeyspace(pulumi.CustomResource):
             account_name=example_account.name,
             throughput=400)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -271,7 +269,6 @@ class CassandraKeyspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -300,7 +297,6 @@ class CassandraKeyspace(pulumi.CustomResource):
             account_name=example_account.name,
             throughput=400)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

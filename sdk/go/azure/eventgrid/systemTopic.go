@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,7 +65,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -89,9 +87,8 @@ type SystemTopic struct {
 	// The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-	SourceArmResourceId pulumi.StringOutput `pulumi:"sourceArmResourceId"`
-	// A mapping of tags which should be assigned to the Event Grid System Topic.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	SourceArmResourceId pulumi.StringOutput    `pulumi:"sourceArmResourceId"`
+	Tags                pulumi.StringMapOutput `pulumi:"tags"`
 	// The Topic Type of the Event Grid System Topic. The topic type is validated by Azure and there may be additional topic types beyond the following: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`, `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
 	//
 	// > **NOTE:** Some `topicType`s (e.g. **Microsoft.Resources.Subscriptions**) requires location to be set to `Global` instead of a real location like `West US`.
@@ -150,9 +147,8 @@ type systemTopicState struct {
 	// The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-	SourceArmResourceId *string `pulumi:"sourceArmResourceId"`
-	// A mapping of tags which should be assigned to the Event Grid System Topic.
-	Tags map[string]string `pulumi:"tags"`
+	SourceArmResourceId *string           `pulumi:"sourceArmResourceId"`
+	Tags                map[string]string `pulumi:"tags"`
 	// The Topic Type of the Event Grid System Topic. The topic type is validated by Azure and there may be additional topic types beyond the following: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`, `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
 	//
 	// > **NOTE:** Some `topicType`s (e.g. **Microsoft.Resources.Subscriptions**) requires location to be set to `Global` instead of a real location like `West US`.
@@ -174,8 +170,7 @@ type SystemTopicState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
 	SourceArmResourceId pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the Event Grid System Topic.
-	Tags pulumi.StringMapInput
+	Tags                pulumi.StringMapInput
 	// The Topic Type of the Event Grid System Topic. The topic type is validated by Azure and there may be additional topic types beyond the following: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`, `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
 	//
 	// > **NOTE:** Some `topicType`s (e.g. **Microsoft.Resources.Subscriptions**) requires location to be set to `Global` instead of a real location like `West US`.
@@ -198,9 +193,8 @@ type systemTopicArgs struct {
 	// The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
-	// A mapping of tags which should be assigned to the Event Grid System Topic.
-	Tags map[string]string `pulumi:"tags"`
+	SourceArmResourceId string            `pulumi:"sourceArmResourceId"`
+	Tags                map[string]string `pulumi:"tags"`
 	// The Topic Type of the Event Grid System Topic. The topic type is validated by Azure and there may be additional topic types beyond the following: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`, `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
 	//
 	// > **NOTE:** Some `topicType`s (e.g. **Microsoft.Resources.Subscriptions**) requires location to be set to `Global` instead of a real location like `West US`.
@@ -221,8 +215,7 @@ type SystemTopicArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
 	SourceArmResourceId pulumi.StringInput
-	// A mapping of tags which should be assigned to the Event Grid System Topic.
-	Tags pulumi.StringMapInput
+	Tags                pulumi.StringMapInput
 	// The Topic Type of the Event Grid System Topic. The topic type is validated by Azure and there may be additional topic types beyond the following: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`, `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
 	//
 	// > **NOTE:** Some `topicType`s (e.g. **Microsoft.Resources.Subscriptions**) requires location to be set to `Global` instead of a real location like `West US`.
@@ -348,7 +341,6 @@ func (o SystemTopicOutput) SourceArmResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SystemTopic) pulumi.StringOutput { return v.SourceArmResourceId }).(pulumi.StringOutput)
 }
 
-// A mapping of tags which should be assigned to the Event Grid System Topic.
 func (o SystemTopicOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SystemTopic) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

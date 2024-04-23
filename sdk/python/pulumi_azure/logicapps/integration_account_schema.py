@@ -233,7 +233,6 @@ class IntegrationAccountSchema(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -253,7 +252,6 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             integration_account_name=example_integration_account.name,
             content=std.file(input="testdata/integration_account_schema_content.xsd").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -283,7 +281,6 @@ class IntegrationAccountSchema(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -303,7 +300,6 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             integration_account_name=example_integration_account.name,
             content=std.file(input="testdata/integration_account_schema_content.xsd").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

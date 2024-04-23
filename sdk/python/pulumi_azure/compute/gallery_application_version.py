@@ -432,7 +432,6 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -481,7 +480,6 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                 regional_replica_count=1,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -517,7 +515,6 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -566,7 +563,6 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                 regional_replica_count=1,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

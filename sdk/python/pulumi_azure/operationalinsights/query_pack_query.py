@@ -365,7 +365,6 @@ class QueryPackQuery(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -395,7 +394,6 @@ class QueryPackQuery(pulumi.CustomResource):
         \"\"\",
             display_name="Exceptions - New in the last 24 hours")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -429,7 +427,6 @@ class QueryPackQuery(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -459,7 +456,6 @@ class QueryPackQuery(pulumi.CustomResource):
         \"\"\",
             display_name="Exceptions - New in the last 24 hours")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

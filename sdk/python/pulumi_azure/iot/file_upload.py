@@ -375,7 +375,6 @@ class FileUpload(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -406,7 +405,6 @@ class FileUpload(pulumi.CustomResource):
             connection_string=example_account.primary_blob_connection_string,
             container_name=example_container.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -444,7 +442,6 @@ class FileUpload(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -475,7 +472,6 @@ class FileUpload(pulumi.CustomResource):
             connection_string=example_account.primary_blob_connection_string,
             container_name=example_container.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     token: "7e57735e77e577e57",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

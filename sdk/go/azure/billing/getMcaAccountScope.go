@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,7 +41,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetMcaAccountScope(ctx *pulumi.Context, args *GetMcaAccountScopeArgs, opts ...pulumi.InvokeOption) (*GetMcaAccountScopeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMcaAccountScopeResult

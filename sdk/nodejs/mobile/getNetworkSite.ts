@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     mobileNetworkId: example.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkSite(args: GetNetworkSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSiteResult> {
 
@@ -76,7 +74,6 @@ export interface GetNetworkSiteResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -90,7 +87,6 @@ export interface GetNetworkSiteResult {
  *     mobileNetworkId: example.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkSiteOutput(args: GetNetworkSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSiteResult> {
     return pulumi.output(args).apply((a: any) => getNetworkSite(a, opts))

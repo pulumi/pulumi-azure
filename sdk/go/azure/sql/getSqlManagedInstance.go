@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,7 +42,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetSqlManagedInstance(ctx *pulumi.Context, args *GetSqlManagedInstanceArgs, opts ...pulumi.InvokeOption) (*GetSqlManagedInstanceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSqlManagedInstanceResult

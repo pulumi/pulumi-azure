@@ -5880,7 +5880,6 @@ type KubernetesClusterAciConnectorLinux struct {
 	//
 	// > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -5911,7 +5910,6 @@ type KubernetesClusterAciConnectorLinux struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	SubnetName string `pulumi:"subnetName"`
 }
 
@@ -5935,7 +5933,6 @@ type KubernetesClusterAciConnectorLinuxArgs struct {
 	//
 	// > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -5966,7 +5963,6 @@ type KubernetesClusterAciConnectorLinuxArgs struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	SubnetName pulumi.StringInput `pulumi:"subnetName"`
 }
 
@@ -6060,7 +6056,6 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ConnectorIdentities() Kubernet
 //
 // > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -6094,7 +6089,6 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ConnectorIdentities() Kubernet
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func (o KubernetesClusterAciConnectorLinuxOutput) SubnetName() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterAciConnectorLinux) string { return v.SubnetName }).(pulumi.StringOutput)
 }
@@ -6139,7 +6133,6 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) ConnectorIdentities() Kuber
 //
 // > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -6173,7 +6166,6 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) ConnectorIdentities() Kuber
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func (o KubernetesClusterAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAciConnectorLinux) *string {
 		if v == nil {
@@ -6184,13 +6176,11 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringP
 }
 
 type KubernetesClusterAciConnectorLinuxConnectorIdentity struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Client ID of the user-defined Managed Identity used for Web App Routing.
 	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Object ID of the user-defined Managed Identity used for Web App Routing
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+	// The ID of the User Assigned Identity used for Web App Routing.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -6206,13 +6196,11 @@ type KubernetesClusterAciConnectorLinuxConnectorIdentityInput interface {
 }
 
 type KubernetesClusterAciConnectorLinuxConnectorIdentityArgs struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Client ID of the user-defined Managed Identity used for Web App Routing.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Object ID of the user-defined Managed Identity used for Web App Routing
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+	// The ID of the User Assigned Identity used for Web App Routing.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -6267,19 +6255,17 @@ func (o KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) ToKubernetesC
 	return o
 }
 
-// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+// The Client ID of the user-defined Managed Identity used for Web App Routing.
 func (o KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAciConnectorLinuxConnectorIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+// The Object ID of the user-defined Managed Identity used for Web App Routing
 func (o KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAciConnectorLinuxConnectorIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-//
-// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+// The ID of the User Assigned Identity used for Web App Routing.
 func (o KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAciConnectorLinuxConnectorIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -6929,24 +6915,16 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) SkipNodesWithSystemPods() p
 }
 
 type KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl struct {
-	// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
 	AdminGroupObjectIds []string `pulumi:"adminGroupObjectIds"`
-	// Is Role Based Access Control based on Azure AD enabled?
-	AzureRbacEnabled *bool `pulumi:"azureRbacEnabled"`
-	// The Client ID of an Azure Active Directory Application.
-	//
+	AzureRbacEnabled    *bool    `pulumi:"azureRbacEnabled"`
 	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ClientAppId *string `pulumi:"clientAppId"`
 	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
 	//
 	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	Managed *bool `pulumi:"managed"`
-	// The Server ID of an Azure Active Directory Application.
-	//
 	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ServerAppId *string `pulumi:"serverAppId"`
-	// The Server Secret of an Azure Active Directory Application.
-	//
 	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ServerAppSecret *string `pulumi:"serverAppSecret"`
 	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
@@ -6965,24 +6943,16 @@ type KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlInput interface 
 }
 
 type KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs struct {
-	// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
 	AdminGroupObjectIds pulumi.StringArrayInput `pulumi:"adminGroupObjectIds"`
-	// Is Role Based Access Control based on Azure AD enabled?
-	AzureRbacEnabled pulumi.BoolPtrInput `pulumi:"azureRbacEnabled"`
-	// The Client ID of an Azure Active Directory Application.
-	//
+	AzureRbacEnabled    pulumi.BoolPtrInput     `pulumi:"azureRbacEnabled"`
 	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ClientAppId pulumi.StringPtrInput `pulumi:"clientAppId"`
 	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
 	//
 	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	Managed pulumi.BoolPtrInput `pulumi:"managed"`
-	// The Server ID of an Azure Active Directory Application.
-	//
 	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ServerAppId pulumi.StringPtrInput `pulumi:"serverAppId"`
-	// The Server Secret of an Azure Active Directory Application.
-	//
 	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ServerAppSecret pulumi.StringPtrInput `pulumi:"serverAppSecret"`
 	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
@@ -7066,20 +7036,16 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ToKub
 	}).(KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput)
 }
 
-// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) AdminGroupObjectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) []string {
 		return v.AdminGroupObjectIds
 	}).(pulumi.StringArrayOutput)
 }
 
-// Is Role Based Access Control based on Azure AD enabled?
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) AzureRbacEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *bool { return v.AzureRbacEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Client ID of an Azure Active Directory Application.
-//
 // Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ClientAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string { return v.ClientAppId }).(pulumi.StringPtrOutput)
@@ -7092,15 +7058,11 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) Manag
 	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *bool { return v.Managed }).(pulumi.BoolPtrOutput)
 }
 
-// The Server ID of an Azure Active Directory Application.
-//
 // Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ServerAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string { return v.ServerAppId }).(pulumi.StringPtrOutput)
 }
 
-// The Server Secret of an Azure Active Directory Application.
-//
 // Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ServerAppSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string { return v.ServerAppSecret }).(pulumi.StringPtrOutput)
@@ -7135,7 +7097,6 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) El
 	}).(KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput)
 }
 
-// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) AdminGroupObjectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) []string {
 		if v == nil {
@@ -7145,7 +7106,6 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Ad
 	}).(pulumi.StringArrayOutput)
 }
 
-// Is Role Based Access Control based on Azure AD enabled?
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) AzureRbacEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *bool {
 		if v == nil {
@@ -7155,8 +7115,6 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Az
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Client ID of an Azure Active Directory Application.
-//
 // Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) ClientAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string {
@@ -7179,8 +7137,6 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Ma
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Server ID of an Azure Active Directory Application.
-//
 // Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) ServerAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string {
@@ -7191,8 +7147,6 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Se
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Server Secret of an Azure Active Directory Application.
-//
 // Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) ServerAppSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string {
@@ -7381,22 +7335,15 @@ type KubernetesClusterDefaultNodePool struct {
 	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// A `linuxOsConfig` block as defined below. `temporaryNameForRotation` must be specified when changing this block.
 	LinuxOsConfig *KubernetesClusterDefaultNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
-	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-	MaxCount *int `pulumi:"maxCount"`
+	MaxCount      *int                                           `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. `temporaryNameForRotation` must be specified when changing this property.
 	MaxPods *int `pulumi:"maxPods"`
 	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
 	MessageOfTheDay *string `pulumi:"messageOfTheDay"`
-	// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-	MinCount *int `pulumi:"minCount"`
+	MinCount        *int    `pulumi:"minCount"`
 	// The name which should be used for the default Kubernetes Node Pool.
-	Name string `pulumi:"name"`
-	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
-	//
-	// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-	//
-	// > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
-	NodeCount *int `pulumi:"nodeCount"`
+	Name      string `pulumi:"name"`
+	NodeCount *int   `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// A `nodeNetworkProfile` block as documented below.
@@ -7497,21 +7444,14 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	KubeletDiskType pulumi.StringPtrInput `pulumi:"kubeletDiskType"`
 	// A `linuxOsConfig` block as defined below. `temporaryNameForRotation` must be specified when changing this block.
 	LinuxOsConfig KubernetesClusterDefaultNodePoolLinuxOsConfigPtrInput `pulumi:"linuxOsConfig"`
-	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
+	MaxCount      pulumi.IntPtrInput                                    `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. `temporaryNameForRotation` must be specified when changing this property.
 	MaxPods pulumi.IntPtrInput `pulumi:"maxPods"`
 	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
 	MessageOfTheDay pulumi.StringPtrInput `pulumi:"messageOfTheDay"`
-	// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-	MinCount pulumi.IntPtrInput `pulumi:"minCount"`
+	MinCount        pulumi.IntPtrInput    `pulumi:"minCount"`
 	// The name which should be used for the default Kubernetes Node Pool.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
-	//
-	// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-	//
-	// > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
+	Name      pulumi.StringInput `pulumi:"name"`
 	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
@@ -7715,7 +7655,6 @@ func (o KubernetesClusterDefaultNodePoolOutput) LinuxOsConfig() KubernetesCluste
 	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput)
 }
 
-// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 func (o KubernetesClusterDefaultNodePoolOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
@@ -7730,7 +7669,6 @@ func (o KubernetesClusterDefaultNodePoolOutput) MessageOfTheDay() pulumi.StringP
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.MessageOfTheDay }).(pulumi.StringPtrOutput)
 }
 
-// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 func (o KubernetesClusterDefaultNodePoolOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MinCount }).(pulumi.IntPtrOutput)
 }
@@ -7740,11 +7678,6 @@ func (o KubernetesClusterDefaultNodePoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
-//
-// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-//
-// > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
 }
@@ -8017,7 +7950,6 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) LinuxOsConfig() KubernetesClu
 	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput)
 }
 
-// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *int {
 		if v == nil {
@@ -8047,7 +7979,6 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) MessageOfTheDay() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *int {
 		if v == nil {
@@ -8067,11 +7998,6 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Name() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
-//
-// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-//
-// > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *int {
 		if v == nil {
@@ -10496,7 +10422,7 @@ type KubernetesClusterIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned` or `UserAssigned`.
 	Type string `pulumi:"type"`
@@ -10520,7 +10446,7 @@ type KubernetesClusterIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned` or `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -10615,7 +10541,7 @@ func (o KubernetesClusterIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+// The Tenant ID associated with this Managed Service Identity.
 func (o KubernetesClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -10671,7 +10597,7 @@ func (o KubernetesClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+// The Tenant ID associated with this Managed Service Identity.
 func (o KubernetesClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterIdentity) *string {
 		if v == nil {
@@ -10942,13 +10868,11 @@ func (o KubernetesClusterIngressApplicationGatewayPtrOutput) SubnetId() pulumi.S
 }
 
 type KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Client ID of the user-defined Managed Identity used for Web App Routing.
 	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Object ID of the user-defined Managed Identity used for Web App Routing
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+	// The ID of the User Assigned Identity used for Web App Routing.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -10964,13 +10888,11 @@ type KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity
 }
 
 type KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Client ID of the user-defined Managed Identity used for Web App Routing.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Object ID of the user-defined Managed Identity used for Web App Routing
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+	// The ID of the User Assigned Identity used for Web App Routing.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -11025,23 +10947,21 @@ func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdent
 	return o
 }
 
-// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+// The Client ID of the user-defined Managed Identity used for Web App Routing.
 func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
 		return v.ClientId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+// The Object ID of the user-defined Managed Identity used for Web App Routing
 func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
 		return v.ObjectId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-//
-// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+// The ID of the User Assigned Identity used for Web App Routing.
 func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
 		return v.UserAssignedIdentityId
@@ -11410,13 +11330,11 @@ func (o KubernetesClusterKeyVaultSecretsProviderPtrOutput) SecretRotationInterva
 }
 
 type KubernetesClusterKeyVaultSecretsProviderSecretIdentity struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Client ID of the user-defined Managed Identity used for Web App Routing.
 	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Object ID of the user-defined Managed Identity used for Web App Routing
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+	// The ID of the User Assigned Identity used for Web App Routing.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -11432,13 +11350,11 @@ type KubernetesClusterKeyVaultSecretsProviderSecretIdentityInput interface {
 }
 
 type KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Client ID of the user-defined Managed Identity used for Web App Routing.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Object ID of the user-defined Managed Identity used for Web App Routing
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+	// The ID of the User Assigned Identity used for Web App Routing.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -11493,19 +11409,17 @@ func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ToKubernet
 	return o
 }
 
-// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+// The Client ID of the user-defined Managed Identity used for Web App Routing.
 func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyVaultSecretsProviderSecretIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+// The Object ID of the user-defined Managed Identity used for Web App Routing
 func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyVaultSecretsProviderSecretIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-//
-// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+// The ID of the User Assigned Identity used for Web App Routing.
 func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyVaultSecretsProviderSecretIdentity) *string {
 		return v.UserAssignedIdentityId
@@ -11822,8 +11736,6 @@ type KubernetesClusterKubeletIdentity struct {
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId *string `pulumi:"objectId"`
 	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -11844,8 +11756,6 @@ type KubernetesClusterKubeletIdentityArgs struct {
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
 	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -11937,8 +11847,6 @@ func (o KubernetesClusterKubeletIdentityOutput) ObjectId() pulumi.StringPtrOutpu
 }
 
 // The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-//
-// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 func (o KubernetesClusterKubeletIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -11988,8 +11896,6 @@ func (o KubernetesClusterKubeletIdentityPtrOutput) ObjectId() pulumi.StringPtrOu
 }
 
 // The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-//
-// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
 func (o KubernetesClusterKubeletIdentityPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterKubeletIdentity) *string {
 		if v == nil {
@@ -16724,13 +16630,11 @@ func (o KubernetesClusterOmsAgentPtrOutput) OmsAgentIdentities() KubernetesClust
 }
 
 type KubernetesClusterOmsAgentOmsAgentIdentity struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Client ID of the user-defined Managed Identity used for Web App Routing.
 	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Object ID of the user-defined Managed Identity used for Web App Routing
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+	// The ID of the User Assigned Identity used for Web App Routing.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -16746,13 +16650,11 @@ type KubernetesClusterOmsAgentOmsAgentIdentityInput interface {
 }
 
 type KubernetesClusterOmsAgentOmsAgentIdentityArgs struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Client ID of the user-defined Managed Identity used for Web App Routing.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Object ID of the user-defined Managed Identity used for Web App Routing
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+	// The ID of the User Assigned Identity used for Web App Routing.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -16807,19 +16709,17 @@ func (o KubernetesClusterOmsAgentOmsAgentIdentityOutput) ToKubernetesClusterOmsA
 	return o
 }
 
-// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+// The Client ID of the user-defined Managed Identity used for Web App Routing.
 func (o KubernetesClusterOmsAgentOmsAgentIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterOmsAgentOmsAgentIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+// The Object ID of the user-defined Managed Identity used for Web App Routing
 func (o KubernetesClusterOmsAgentOmsAgentIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterOmsAgentOmsAgentIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-//
-// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+// The ID of the User Assigned Identity used for Web App Routing.
 func (o KubernetesClusterOmsAgentOmsAgentIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterOmsAgentOmsAgentIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -17571,13 +17471,11 @@ func (o KubernetesClusterWebAppRoutingPtrOutput) WebAppRoutingIdentities() Kuber
 }
 
 type KubernetesClusterWebAppRoutingWebAppRoutingIdentity struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Client ID of the user-defined Managed Identity used for Web App Routing.
 	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Object ID of the user-defined Managed Identity used for Web App Routing
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+	// The ID of the User Assigned Identity used for Web App Routing.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -17593,13 +17491,11 @@ type KubernetesClusterWebAppRoutingWebAppRoutingIdentityInput interface {
 }
 
 type KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Client ID of the user-defined Managed Identity used for Web App Routing.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+	// The Object ID of the user-defined Managed Identity used for Web App Routing
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+	// The ID of the User Assigned Identity used for Web App Routing.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -17654,19 +17550,17 @@ func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput) ToKubernetesC
 	return o
 }
 
-// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+// The Client ID of the user-defined Managed Identity used for Web App Routing.
 func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterWebAppRoutingWebAppRoutingIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+// The Object ID of the user-defined Managed Identity used for Web App Routing
 func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterWebAppRoutingWebAppRoutingIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-//
-// > **Note:** When `kubeletIdentity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identityIds` must be set.
+// The ID of the User Assigned Identity used for Web App Routing.
 func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterWebAppRoutingWebAppRoutingIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -18420,8 +18314,6 @@ type RegistryEncryption struct {
 	// Boolean value that indicates whether encryption is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// The client ID of the managed identity associated with the encryption key.
-	//
-	// > **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identityIds`
 	IdentityClientId string `pulumi:"identityClientId"`
 	// The ID of the Key Vault Key.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
@@ -18442,8 +18334,6 @@ type RegistryEncryptionArgs struct {
 	// Boolean value that indicates whether encryption is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The client ID of the managed identity associated with the encryption key.
-	//
-	// > **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identityIds`
 	IdentityClientId pulumi.StringInput `pulumi:"identityClientId"`
 	// The ID of the Key Vault Key.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
@@ -18532,8 +18422,6 @@ func (o RegistryEncryptionOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // The client ID of the managed identity associated with the encryption key.
-//
-// > **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identityIds`
 func (o RegistryEncryptionOutput) IdentityClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryEncryption) string { return v.IdentityClientId }).(pulumi.StringOutput)
 }
@@ -18578,8 +18466,6 @@ func (o RegistryEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // The client ID of the managed identity associated with the encryption key.
-//
-// > **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identityIds`
 func (o RegistryEncryptionPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryEncryption) *string {
 		if v == nil {
@@ -19229,7 +19115,6 @@ func (o RegistryNetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) Regist
 }
 
 type RegistryNetworkRuleSetVirtualNetwork struct {
-	// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
 	Action   string `pulumi:"action"`
 	SubnetId string `pulumi:"subnetId"`
 }
@@ -19246,7 +19131,6 @@ type RegistryNetworkRuleSetVirtualNetworkInput interface {
 }
 
 type RegistryNetworkRuleSetVirtualNetworkArgs struct {
-	// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
 	Action   pulumi.StringInput `pulumi:"action"`
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
@@ -19302,7 +19186,6 @@ func (o RegistryNetworkRuleSetVirtualNetworkOutput) ToRegistryNetworkRuleSetVirt
 	return o
 }
 
-// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
 func (o RegistryNetworkRuleSetVirtualNetworkOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryNetworkRuleSetVirtualNetwork) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -22001,7 +21884,6 @@ func (o RegistryTrustPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type TokenPasswordPassword1 struct {
-	// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 	Expiry *string `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value *string `pulumi:"value"`
@@ -22019,7 +21901,6 @@ type TokenPasswordPassword1Input interface {
 }
 
 type TokenPasswordPassword1Args struct {
-	// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -22102,7 +21983,6 @@ func (o TokenPasswordPassword1Output) ToTokenPasswordPassword1PtrOutputWithConte
 	}).(TokenPasswordPassword1PtrOutput)
 }
 
-// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword1Output) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPasswordPassword1) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
@@ -22136,7 +22016,6 @@ func (o TokenPasswordPassword1PtrOutput) Elem() TokenPasswordPassword1Output {
 	}).(TokenPasswordPassword1Output)
 }
 
-// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword1PtrOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TokenPasswordPassword1) *string {
 		if v == nil {
@@ -22157,7 +22036,6 @@ func (o TokenPasswordPassword1PtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type TokenPasswordPassword2 struct {
-	// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 	Expiry *string `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value *string `pulumi:"value"`
@@ -22175,7 +22053,6 @@ type TokenPasswordPassword2Input interface {
 }
 
 type TokenPasswordPassword2Args struct {
-	// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -22258,7 +22135,6 @@ func (o TokenPasswordPassword2Output) ToTokenPasswordPassword2PtrOutputWithConte
 	}).(TokenPasswordPassword2PtrOutput)
 }
 
-// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword2Output) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPasswordPassword2) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
@@ -22292,7 +22168,6 @@ func (o TokenPasswordPassword2PtrOutput) Elem() TokenPasswordPassword2Output {
 	}).(TokenPasswordPassword2Output)
 }
 
-// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword2PtrOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TokenPasswordPassword2) *string {
 		if v == nil {

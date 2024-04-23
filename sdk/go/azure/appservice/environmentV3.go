@@ -18,7 +18,6 @@ import (
 //
 // This example provisions an App Service Environment V3. Additional examples of how to use the `appservice.EnvironmentV3` resource can be found in the `./examples/app-service-environment-v3` directory within the GitHub Repository.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -116,7 +115,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

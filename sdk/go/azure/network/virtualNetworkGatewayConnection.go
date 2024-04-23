@@ -21,7 +21,6 @@ import (
 // The following example shows a connection between an Azure virtual network
 // and an on-premises VPN device and network.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -122,14 +121,12 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### VNet-to-VNet connection
 //
 // The following example shows a connection between two Azure virtual network
 // in different locations/regions.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -284,7 +281,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

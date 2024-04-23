@@ -106,7 +106,6 @@ def get_instance(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -115,7 +114,6 @@ def get_instance(name: Optional[str] = None,
         resource_group_name="existing-resgroup")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Digital Twins instance.
@@ -145,7 +143,6 @@ def get_instance_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -154,7 +151,6 @@ def get_instance_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="existing-resgroup")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Digital Twins instance.

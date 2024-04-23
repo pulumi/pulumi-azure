@@ -435,7 +435,7 @@ class AccountGeoLocation(dict):
         """
         :param int failover_priority: The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
         :param str location: The name of the Azure region to host replicated data.
-        :param str id: The ID of the virtual network subnet.
+        :param str id: The CosmosDB Account ID.
         :param bool zone_redundant: Should zone redundancy be enabled for this region? Defaults to `false`.
         """
         pulumi.set(__self__, "failover_priority", failover_priority)
@@ -465,7 +465,7 @@ class AccountGeoLocation(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        The ID of the virtual network subnet.
+        The CosmosDB Account ID.
         """
         return pulumi.get(self, "id")
 
@@ -1467,10 +1467,8 @@ class MongoCollectionSystemIndex(dict):
                  keys: Optional[Sequence[str]] = None,
                  unique: Optional[bool] = None):
         """
-        :param Sequence[str] keys: Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
-        :param bool unique: Is the index unique or not? Defaults to `false`.
-               
-               > **Note:** An index with an "_id" key must be specified.
+        :param Sequence[str] keys: The list of system keys which are not settable for each Cosmos DB Mongo Collection.
+        :param bool unique: Identifies whether the table contains no duplicate values.
         """
         if keys is not None:
             pulumi.set(__self__, "keys", keys)
@@ -1481,7 +1479,7 @@ class MongoCollectionSystemIndex(dict):
     @pulumi.getter
     def keys(self) -> Optional[Sequence[str]]:
         """
-        Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+        The list of system keys which are not settable for each Cosmos DB Mongo Collection.
         """
         return pulumi.get(self, "keys")
 
@@ -1489,9 +1487,7 @@ class MongoCollectionSystemIndex(dict):
     @pulumi.getter
     def unique(self) -> Optional[bool]:
         """
-        Is the index unique or not? Defaults to `false`.
-
-        > **Note:** An index with an "_id" key must be specified.
+        Identifies whether the table contains no duplicate values.
         """
         return pulumi.get(self, "unique")
 

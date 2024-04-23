@@ -232,7 +232,6 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -258,7 +257,6 @@ class Connection(pulumi.CustomResource):
                 "CertificateThumbprint": "sample-certificate-thumbprint",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -288,7 +286,6 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -314,7 +311,6 @@ class Connection(pulumi.CustomResource):
                 "CertificateThumbprint": "sample-certificate-thumbprint",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

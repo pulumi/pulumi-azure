@@ -17,17 +17,11 @@ namespace Pulumi.Azure.Waf.Outputs
         /// Describes if the managed rule is in enabled state or disabled state.
         /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
-        /// </summary>
         public readonly string MatchVariable;
         /// <summary>
-        /// Describes field of the matchVariable collection.
+        /// When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
         /// </summary>
         public readonly string? Selector;
-        /// <summary>
-        /// Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
-        /// </summary>
         public readonly string? SelectorMatchOperator;
 
         [OutputConstructor]

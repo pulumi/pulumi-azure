@@ -16,7 +16,6 @@ namespace Pulumi.Azure.EventHub
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Azure.EventHub
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetConsumeGroupResult> InvokeAsync(GetConsumeGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsumeGroupResult>("azure:eventhub/getConsumeGroup:getConsumeGroup", args ?? new GetConsumeGroupArgs(), options.WithDefaults());
@@ -45,7 +43,6 @@ namespace Pulumi.Azure.EventHub
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Azure.EventHub
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetConsumeGroupResult> Invoke(GetConsumeGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsumeGroupResult>("azure:eventhub/getConsumeGroup:getConsumeGroup", args ?? new GetConsumeGroupInvokeArgs(), options.WithDefaults());

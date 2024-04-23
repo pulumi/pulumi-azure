@@ -897,7 +897,6 @@ class Api(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -925,7 +924,6 @@ class Api(pulumi.CustomResource):
                 content_value="http://conferenceapi.azurewebsites.net/?format=json",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -979,7 +977,6 @@ class Api(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1007,7 +1004,6 @@ class Api(pulumi.CustomResource):
                 content_value="http://conferenceapi.azurewebsites.net/?format=json",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

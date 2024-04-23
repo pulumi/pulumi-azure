@@ -306,7 +306,6 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -333,7 +332,6 @@ class QueueAuthorizationRule(pulumi.CustomResource):
             send=True,
             manage=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -364,7 +362,6 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -391,7 +388,6 @@ class QueueAuthorizationRule(pulumi.CustomResource):
             send=True,
             manage=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

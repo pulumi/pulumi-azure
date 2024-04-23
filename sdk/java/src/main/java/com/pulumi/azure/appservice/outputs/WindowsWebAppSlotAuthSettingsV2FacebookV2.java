@@ -31,7 +31,7 @@ public final class WindowsWebAppSlotAuthSettingsV2FacebookV2 {
      */
     private @Nullable String graphApiVersion;
     /**
-     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * @return The list of scopes that should be requested as part of Facebook Login authentication.
      * 
      */
     private @Nullable List<String> loginScopes;
@@ -61,7 +61,7 @@ public final class WindowsWebAppSlotAuthSettingsV2FacebookV2 {
         return Optional.ofNullable(this.graphApiVersion);
     }
     /**
-     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * @return The list of scopes that should be requested as part of Facebook Login authentication.
      * 
      */
     public List<String> loginScopes() {

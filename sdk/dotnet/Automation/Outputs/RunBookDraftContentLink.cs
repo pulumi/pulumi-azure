@@ -13,17 +13,8 @@ namespace Pulumi.Azure.Automation.Outputs
     [OutputType]
     public sealed class RunBookDraftContentLink
     {
-        /// <summary>
-        /// A `hash` block as defined below.
-        /// </summary>
         public readonly Outputs.RunBookDraftContentLinkHash? Hash;
-        /// <summary>
-        /// The URI of the runbook content.
-        /// </summary>
         public readonly string Uri;
-        /// <summary>
-        /// Specifies the version of the content
-        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

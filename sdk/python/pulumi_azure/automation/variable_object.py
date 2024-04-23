@@ -234,7 +234,6 @@ class VariableObject(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -257,7 +256,6 @@ class VariableObject(pulumi.CustomResource):
                 "language": "en",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -287,7 +285,6 @@ class VariableObject(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -310,7 +307,6 @@ class VariableObject(pulumi.CustomResource):
                 "language": "en",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

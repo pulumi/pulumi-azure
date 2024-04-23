@@ -79,7 +79,6 @@ def get_disk_access(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -88,7 +87,6 @@ def get_disk_access(name: Optional[str] = None,
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Disk Access.
@@ -116,7 +114,6 @@ def get_disk_access_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -125,7 +122,6 @@ def get_disk_access_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Disk Access.

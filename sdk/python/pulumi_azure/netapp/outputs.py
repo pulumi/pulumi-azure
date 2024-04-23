@@ -1151,12 +1151,6 @@ class VolumeGroupSapHanaVolumeDataProtectionReplication(dict):
                  remote_volume_resource_id: str,
                  replication_frequency: str,
                  endpoint_type: Optional[str] = None):
-        """
-        :param str remote_volume_location: Location of the primary volume.
-        :param str remote_volume_resource_id: Resource ID of the primary volume.
-        :param str replication_frequency: eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
-        :param str endpoint_type: The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
-        """
         pulumi.set(__self__, "remote_volume_location", remote_volume_location)
         pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
         pulumi.set(__self__, "replication_frequency", replication_frequency)
@@ -1166,33 +1160,21 @@ class VolumeGroupSapHanaVolumeDataProtectionReplication(dict):
     @property
     @pulumi.getter(name="remoteVolumeLocation")
     def remote_volume_location(self) -> str:
-        """
-        Location of the primary volume.
-        """
         return pulumi.get(self, "remote_volume_location")
 
     @property
     @pulumi.getter(name="remoteVolumeResourceId")
     def remote_volume_resource_id(self) -> str:
-        """
-        Resource ID of the primary volume.
-        """
         return pulumi.get(self, "remote_volume_resource_id")
 
     @property
     @pulumi.getter(name="replicationFrequency")
     def replication_frequency(self) -> str:
-        """
-        eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
-        """
         return pulumi.get(self, "replication_frequency")
 
     @property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> Optional[str]:
-        """
-        The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
-        """
         return pulumi.get(self, "endpoint_type")
 
 

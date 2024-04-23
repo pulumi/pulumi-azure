@@ -83,7 +83,6 @@ def get_virtual_machine_manager_inventory_items(inventory_type: Optional[str] = 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -91,7 +90,6 @@ def get_virtual_machine_manager_inventory_items(inventory_type: Optional[str] = 
     example = azure.systemcenter.get_virtual_machine_manager_inventory_items(inventory_type="Cloud",
         system_center_virtual_machine_manager_server_id=example_azurerm_system_center_virtual_machine_manager_server["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str inventory_type: The inventory type of the System Center Virtual Machine Manager Inventory Item. Possible values are `Cloud`, `VirtualMachine`, `VirtualMachineTemplate` and `VirtualNetwork`.
@@ -119,7 +117,6 @@ def get_virtual_machine_manager_inventory_items_output(inventory_type: Optional[
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -127,7 +124,6 @@ def get_virtual_machine_manager_inventory_items_output(inventory_type: Optional[
     example = azure.systemcenter.get_virtual_machine_manager_inventory_items(inventory_type="Cloud",
         system_center_virtual_machine_manager_server_id=example_azurerm_system_center_virtual_machine_manager_server["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str inventory_type: The inventory type of the System Center Virtual Machine Manager Inventory Item. Possible values are `Cloud`, `VirtualMachine`, `VirtualMachineTemplate` and `VirtualNetwork`.

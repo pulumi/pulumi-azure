@@ -136,7 +136,6 @@ class PrivateLink(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -149,7 +148,6 @@ class PrivateLink(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -176,7 +174,6 @@ class PrivateLink(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -189,7 +186,6 @@ class PrivateLink(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

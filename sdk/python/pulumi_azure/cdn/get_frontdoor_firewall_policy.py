@@ -130,7 +130,6 @@ def get_frontdoor_firewall_policy(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -138,7 +137,6 @@ def get_frontdoor_firewall_policy(name: Optional[str] = None,
     example = azure.cdn.get_frontdoor_firewall_policy(name="examplecdnfdwafpolicy",
         resource_group_name=example_azurerm_resource_group["name"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Front Door Firewall Policy.
@@ -170,7 +168,6 @@ def get_frontdoor_firewall_policy_output(name: Optional[pulumi.Input[str]] = Non
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -178,7 +175,6 @@ def get_frontdoor_firewall_policy_output(name: Optional[pulumi.Input[str]] = Non
     example = azure.cdn.get_frontdoor_firewall_policy(name="examplecdnfdwafpolicy",
         resource_group_name=example_azurerm_resource_group["name"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Front Door Firewall Policy.

@@ -380,7 +380,6 @@ class NetworkSim(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -429,7 +428,6 @@ class NetworkSim(pulumi.CustomResource):
                 static_ipv4_address="2.4.0.1",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -462,7 +460,6 @@ class NetworkSim(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -511,7 +508,6 @@ class NetworkSim(pulumi.CustomResource):
                 static_ipv4_address="2.4.0.1",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

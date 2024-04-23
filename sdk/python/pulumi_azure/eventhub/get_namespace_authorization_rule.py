@@ -188,7 +188,6 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -198,7 +197,6 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
         namespace_name="example-ns")
     pulumi.export("eventhubAuthorizationRuleId", example_azurem_eventhub_namespace_authorization_rule["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the EventHub Authorization Rule resource.
@@ -238,7 +236,6 @@ def get_namespace_authorization_rule_output(name: Optional[pulumi.Input[str]] = 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -248,7 +245,6 @@ def get_namespace_authorization_rule_output(name: Optional[pulumi.Input[str]] = 
         namespace_name="example-ns")
     pulumi.export("eventhubAuthorizationRuleId", example_azurem_eventhub_namespace_authorization_rule["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the EventHub Authorization Rule resource.

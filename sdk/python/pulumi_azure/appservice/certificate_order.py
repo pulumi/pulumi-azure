@@ -521,7 +521,6 @@ class CertificateOrder(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -536,7 +535,6 @@ class CertificateOrder(pulumi.CustomResource):
             distinguished_name="CN=example.com",
             product_type="Standard")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -572,7 +570,6 @@ class CertificateOrder(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -587,7 +584,6 @@ class CertificateOrder(pulumi.CustomResource):
             distinguished_name="CN=example.com",
             product_type="Standard")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

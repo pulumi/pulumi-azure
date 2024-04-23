@@ -13,13 +13,15 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsFunctionAppAuthSettingsV2GithubV2GetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Client to use to authenticate with Azure Active Directory.
+        /// The ID of the GitHub app used for login..
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        /// The app setting name that contains the `client_secret` value used for GitHub Login.
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         /// </summary>
         [Input("clientSecretSettingName", required: true)]
         public Input<string> ClientSecretSettingName { get; set; } = null!;
@@ -28,7 +30,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _loginScopes;
 
         /// <summary>
-        /// The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        /// The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
         /// </summary>
         public InputList<string> LoginScopes
         {

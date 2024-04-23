@@ -26,7 +26,7 @@ public final class WorkspaceIdentity {
      */
     private @Nullable String principalId;
     /**
-     * @return The tenant id of the Azure AD Administrator of this Synapse Workspace.
+     * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
      * 
      */
     private @Nullable String tenantId;
@@ -54,7 +54,7 @@ public final class WorkspaceIdentity {
         return Optional.ofNullable(this.principalId);
     }
     /**
-     * @return The tenant id of the Azure AD Administrator of this Synapse Workspace.
+     * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
      * 
      */
     public Optional<String> tenantId() {

@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,7 +73,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -92,7 +90,6 @@ type PrivateLinkAssociation struct {
 	ManagementGroupId pulumi.StringOutput `pulumi:"managementGroupId"`
 	// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -115,7 +112,6 @@ type PrivateLinkAssociation struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
 	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
@@ -170,7 +166,6 @@ type privateLinkAssociationState struct {
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -193,7 +188,6 @@ type privateLinkAssociationState struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	Name *string `pulumi:"name"`
 	// Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -210,7 +204,6 @@ type PrivateLinkAssociationState struct {
 	ManagementGroupId pulumi.StringPtrInput
 	// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -233,7 +226,6 @@ type PrivateLinkAssociationState struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	Name pulumi.StringPtrInput
 	// Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -254,7 +246,6 @@ type privateLinkAssociationArgs struct {
 	ManagementGroupId string `pulumi:"managementGroupId"`
 	// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -277,7 +268,6 @@ type privateLinkAssociationArgs struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	Name *string `pulumi:"name"`
 	// Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
 	PublicNetworkAccessEnabled bool `pulumi:"publicNetworkAccessEnabled"`
@@ -293,7 +283,6 @@ type PrivateLinkAssociationArgs struct {
 	ManagementGroupId pulumi.StringInput
 	// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -316,7 +305,6 @@ type PrivateLinkAssociationArgs struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	Name pulumi.StringPtrInput
 	// Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
 	PublicNetworkAccessEnabled pulumi.BoolInput
@@ -420,7 +408,6 @@ func (o PrivateLinkAssociationOutput) ManagementGroupId() pulumi.StringOutput {
 
 // Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -446,7 +433,6 @@ func (o PrivateLinkAssociationOutput) ManagementGroupId() pulumi.StringOutput {
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func (o PrivateLinkAssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateLinkAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -13,9 +13,6 @@ namespace Pulumi.Azure.Network.Outputs
     [OutputType]
     public sealed class ExpressRoutePortLink1
     {
-        /// <summary>
-        /// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
-        /// </summary>
         public readonly bool? AdminEnabled;
         /// <summary>
         /// The connector type of the Express Route Port Link.
@@ -29,23 +26,9 @@ namespace Pulumi.Azure.Network.Outputs
         /// The interface name of the Azure router associated with the Express Route Port Link.
         /// </summary>
         public readonly string? InterfaceName;
-        /// <summary>
-        /// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-        /// </summary>
         public readonly string? MacsecCakKeyvaultSecretId;
-        /// <summary>
-        /// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
-        /// </summary>
         public readonly string? MacsecCipher;
-        /// <summary>
-        /// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
-        /// </summary>
         public readonly string? MacsecCknKeyvaultSecretId;
-        /// <summary>
-        /// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
-        /// 
-        /// &gt; **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
-        /// </summary>
         public readonly bool? MacsecSciEnabled;
         /// <summary>
         /// The ID that maps from the Express Route Port Link to the patch panel port.

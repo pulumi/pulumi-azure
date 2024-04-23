@@ -170,7 +170,6 @@ class FleetMember(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -203,7 +202,6 @@ class FleetMember(pulumi.CustomResource):
             kubernetes_fleet_id=example_kubernetes_fleet_manager.id,
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -241,7 +239,6 @@ class FleetMember(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -274,7 +271,6 @@ class FleetMember(pulumi.CustomResource):
             kubernetes_fleet_id=example_kubernetes_fleet_manager.id,
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -432,7 +432,6 @@ class Backend(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -454,7 +453,6 @@ class Backend(pulumi.CustomResource):
             protocol="http",
             url="https://backend")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -490,7 +488,6 @@ class Backend(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -512,7 +509,6 @@ class Backend(pulumi.CustomResource):
             protocol="http",
             url="https://backend")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

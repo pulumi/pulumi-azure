@@ -139,7 +139,6 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -162,7 +161,6 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
             recovery_vault_id=example_vault.id,
             policy_id=example_vm_ware_replication_policy.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -190,7 +188,6 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -213,7 +210,6 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
             recovery_vault_id=example_vault.id,
             policy_id=example_vm_ware_replication_policy.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

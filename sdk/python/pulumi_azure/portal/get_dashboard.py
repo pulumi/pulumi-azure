@@ -117,7 +117,6 @@ def get_dashboard(dashboard_properties: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -126,7 +125,6 @@ def get_dashboard(dashboard_properties: Optional[str] = None,
         resource_group_name="dashboard-rg")
     pulumi.export("id", example_azurerm_dashboard["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str dashboard_properties: JSON data representing dashboard body.
@@ -163,7 +161,6 @@ def get_dashboard_output(dashboard_properties: Optional[pulumi.Input[Optional[st
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -172,7 +169,6 @@ def get_dashboard_output(dashboard_properties: Optional[pulumi.Input[Optional[st
         resource_group_name="dashboard-rg")
     pulumi.export("id", example_azurerm_dashboard["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str dashboard_properties: JSON data representing dashboard body.

@@ -396,7 +396,6 @@ class OutputMssql(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -432,7 +431,6 @@ class OutputMssql(pulumi.CustomResource):
             database=example_database.name,
             table="ExampleTable")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -467,7 +465,6 @@ class OutputMssql(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -503,7 +500,6 @@ class OutputMssql(pulumi.CustomResource):
             database=example_database.name,
             table="ExampleTable")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

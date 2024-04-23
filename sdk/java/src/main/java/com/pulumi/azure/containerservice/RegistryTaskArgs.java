@@ -184,17 +184,9 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.isSystemTask);
     }
 
-    /**
-     * The template that describes the run log artifact.
-     * 
-     */
     @Import(name="logTemplate")
     private @Nullable Output<String> logTemplate;
 
-    /**
-     * @return The template that describes the run log artifact.
-     * 
-     */
     public Optional<Output<String>> logTemplate() {
         return Optional.ofNullable(this.logTemplate);
     }
@@ -233,17 +225,9 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.platform);
     }
 
-    /**
-     * One `registry_credential` block as defined below.
-     * 
-     */
     @Import(name="registryCredential")
     private @Nullable Output<RegistryTaskRegistryCredentialArgs> registryCredential;
 
-    /**
-     * @return One `registry_credential` block as defined below.
-     * 
-     */
     public Optional<Output<RegistryTaskRegistryCredentialArgs>> registryCredential() {
         return Optional.ofNullable(this.registryCredential);
     }
@@ -263,32 +247,16 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.sourceTriggers);
     }
 
-    /**
-     * A mapping of tags which should be assigned to the Container Registry Task.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags which should be assigned to the Container Registry Task.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-     * 
-     */
     @Import(name="timeoutInSeconds")
     private @Nullable Output<Integer> timeoutInSeconds;
 
-    /**
-     * @return The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-     * 
-     */
     public Optional<Output<Integer>> timeoutInSeconds() {
         return Optional.ofNullable(this.timeoutInSeconds);
     }
@@ -563,23 +531,11 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
             return isSystemTask(Output.of(isSystemTask));
         }
 
-        /**
-         * @param logTemplate The template that describes the run log artifact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logTemplate(@Nullable Output<String> logTemplate) {
             $.logTemplate = logTemplate;
             return this;
         }
 
-        /**
-         * @param logTemplate The template that describes the run log artifact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logTemplate(String logTemplate) {
             return logTemplate(Output.of(logTemplate));
         }
@@ -630,23 +586,11 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
             return platform(Output.of(platform));
         }
 
-        /**
-         * @param registryCredential One `registry_credential` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryCredential(@Nullable Output<RegistryTaskRegistryCredentialArgs> registryCredential) {
             $.registryCredential = registryCredential;
             return this;
         }
 
-        /**
-         * @param registryCredential One `registry_credential` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryCredential(RegistryTaskRegistryCredentialArgs registryCredential) {
             return registryCredential(Output.of(registryCredential));
         }
@@ -682,44 +626,20 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
             return sourceTriggers(List.of(sourceTriggers));
         }
 
-        /**
-         * @param tags A mapping of tags which should be assigned to the Container Registry Task.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A mapping of tags which should be assigned to the Container Registry Task.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param timeoutInSeconds The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeoutInSeconds(@Nullable Output<Integer> timeoutInSeconds) {
             $.timeoutInSeconds = timeoutInSeconds;
             return this;
         }
 
-        /**
-         * @param timeoutInSeconds The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeoutInSeconds(Integer timeoutInSeconds) {
             return timeoutInSeconds(Output.of(timeoutInSeconds));
         }

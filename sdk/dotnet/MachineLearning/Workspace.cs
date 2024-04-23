@@ -12,7 +12,6 @@ namespace Pulumi.Azure.MachineLearning
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,13 +70,11 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With Data Encryption
     /// 
     /// &gt; **NOTE:** The Key Vault must enable purge protection.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -174,13 +171,11 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With User Assigned Identity And Data Encryption
     /// 
     /// &gt; **NOTE:** The Key Vault must enable purge protection.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -364,7 +359,6 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

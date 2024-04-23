@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -24,7 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const sqlInstanceId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSqlManagedInstance(args: GetSqlManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlManagedInstanceResult> {
 
@@ -140,7 +138,6 @@ export interface GetSqlManagedInstanceResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -151,7 +148,6 @@ export interface GetSqlManagedInstanceResult {
  * });
  * export const sqlInstanceId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSqlManagedInstanceOutput(args: GetSqlManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlManagedInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSqlManagedInstance(a, opts))

@@ -24,7 +24,6 @@ namespace Pulumi.Azure.Compute
     /// 
     /// This example provisions a Virtual Machine with Managed Disks.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -121,7 +120,6 @@ namespace Pulumi.Azure.Compute
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

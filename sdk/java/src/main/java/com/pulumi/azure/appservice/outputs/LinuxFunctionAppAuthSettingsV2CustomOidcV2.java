@@ -29,12 +29,12 @@ public final class LinuxFunctionAppAuthSettingsV2CustomOidcV2 {
      */
     private @Nullable String clientCredentialMethod;
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     private String clientId;
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
      * 
      */
     private @Nullable String clientSecretSettingName;
@@ -44,7 +44,9 @@ public final class LinuxFunctionAppAuthSettingsV2CustomOidcV2 {
      */
     private @Nullable String issuerEndpoint;
     /**
-     * @return The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+     * @return The name of the Custom OIDC Authentication Provider.
+     * 
+     * &gt; **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
      * 
      */
     private String name;
@@ -92,14 +94,14 @@ public final class LinuxFunctionAppAuthSettingsV2CustomOidcV2 {
         return Optional.ofNullable(this.clientCredentialMethod);
     }
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     public String clientId() {
         return this.clientId;
     }
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
      * 
      */
     public Optional<String> clientSecretSettingName() {
@@ -113,7 +115,9 @@ public final class LinuxFunctionAppAuthSettingsV2CustomOidcV2 {
         return Optional.ofNullable(this.issuerEndpoint);
     }
     /**
-     * @return The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+     * @return The name of the Custom OIDC Authentication Provider.
+     * 
+     * &gt; **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
      * 
      */
     public String name() {

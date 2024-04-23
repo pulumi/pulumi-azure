@@ -261,7 +261,6 @@ class RoleDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -277,7 +276,6 @@ class RoleDefinition(pulumi.CustomResource):
             )],
             assignable_scopes=[primary.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -309,7 +307,6 @@ class RoleDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -325,7 +322,6 @@ class RoleDefinition(pulumi.CustomResource):
             )],
             assignable_scopes=[primary.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -104,45 +104,21 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:network/vpnServerConfiguration:VpnServerConfiguration")
 public class VpnServerConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * A `azure_active_directory_authentication` block as defined below.
-     * 
-     */
     @Export(name="azureActiveDirectoryAuthentications", refs={List.class,VpnServerConfigurationAzureActiveDirectoryAuthentication.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VpnServerConfigurationAzureActiveDirectoryAuthentication>> azureActiveDirectoryAuthentications;
 
-    /**
-     * @return A `azure_active_directory_authentication` block as defined below.
-     * 
-     */
     public Output<Optional<List<VpnServerConfigurationAzureActiveDirectoryAuthentication>>> azureActiveDirectoryAuthentications() {
         return Codegen.optional(this.azureActiveDirectoryAuthentications);
     }
-    /**
-     * One or more `client_revoked_certificate` blocks as defined below.
-     * 
-     */
     @Export(name="clientRevokedCertificates", refs={List.class,VpnServerConfigurationClientRevokedCertificate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VpnServerConfigurationClientRevokedCertificate>> clientRevokedCertificates;
 
-    /**
-     * @return One or more `client_revoked_certificate` blocks as defined below.
-     * 
-     */
     public Output<Optional<List<VpnServerConfigurationClientRevokedCertificate>>> clientRevokedCertificates() {
         return Codegen.optional(this.clientRevokedCertificates);
     }
-    /**
-     * One or more `client_root_certificate` blocks as defined below.
-     * 
-     */
     @Export(name="clientRootCertificates", refs={List.class,VpnServerConfigurationClientRootCertificate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VpnServerConfigurationClientRootCertificate>> clientRootCertificates;
 
-    /**
-     * @return One or more `client_root_certificate` blocks as defined below.
-     * 
-     */
     public Output<Optional<List<VpnServerConfigurationClientRootCertificate>>> clientRootCertificates() {
         return Codegen.optional(this.clientRootCertificates);
     }
@@ -188,17 +164,9 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A `radius` block as defined below.
-     * 
-     */
     @Export(name="radius", refs={VpnServerConfigurationRadius.class}, tree="[0]")
     private Output</* @Nullable */ VpnServerConfigurationRadius> radius;
 
-    /**
-     * @return A `radius` block as defined below.
-     * 
-     */
     public Output<Optional<VpnServerConfigurationRadius>> radius() {
         return Codegen.optional(this.radius);
     }

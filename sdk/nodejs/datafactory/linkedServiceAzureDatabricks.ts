@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### With Managed Identity & New Cluster
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -70,11 +69,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With Access Token & Existing Cluster
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -105,7 +102,6 @@ import * as utilities from "../utilities";
  *     adbDomain: pulumi.interpolate`https://${exampleWorkspace.workspaceUrl}`,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

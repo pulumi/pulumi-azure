@@ -205,7 +205,6 @@ class EventHubConsumerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -235,7 +234,6 @@ class EventHubConsumerGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             user_metadata="some-meta-data")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -264,7 +262,6 @@ class EventHubConsumerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -294,7 +291,6 @@ class EventHubConsumerGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             user_metadata="some-meta-data")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

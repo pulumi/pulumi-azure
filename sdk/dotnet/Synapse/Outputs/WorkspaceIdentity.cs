@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Synapse.Outputs
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+        /// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>

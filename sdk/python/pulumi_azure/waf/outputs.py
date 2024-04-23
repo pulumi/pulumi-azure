@@ -861,10 +861,8 @@ class PolicyPolicySettingsLogScrubbingRule(dict):
                  selector: Optional[str] = None,
                  selector_match_operator: Optional[str] = None):
         """
-        :param str match_variable: The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
         :param bool enabled: Describes if the managed rule is in enabled state or disabled state.
-        :param str selector: Describes field of the matchVariable collection.
-        :param str selector_match_operator: Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+        :param str selector: When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
         """
         pulumi.set(__self__, "match_variable", match_variable)
         if enabled is not None:
@@ -877,9 +875,6 @@ class PolicyPolicySettingsLogScrubbingRule(dict):
     @property
     @pulumi.getter(name="matchVariable")
     def match_variable(self) -> str:
-        """
-        The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
-        """
         return pulumi.get(self, "match_variable")
 
     @property
@@ -894,16 +889,13 @@ class PolicyPolicySettingsLogScrubbingRule(dict):
     @pulumi.getter
     def selector(self) -> Optional[str]:
         """
-        Describes field of the matchVariable collection.
+        When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
         """
         return pulumi.get(self, "selector")
 
     @property
     @pulumi.getter(name="selectorMatchOperator")
     def selector_match_operator(self) -> Optional[str]:
-        """
-        Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
-        """
         return pulumi.get(self, "selector_match_operator")
 
 

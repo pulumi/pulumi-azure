@@ -119,7 +119,6 @@ def get_certificate_issuer(key_vault_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -130,7 +129,6 @@ def get_certificate_issuer(key_vault_id: Optional[str] = None,
         key_vault_id=example.id)
     pulumi.export("id", example_get_certificate_issuer.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key_vault_id: The ID of the Key Vault in which to locate the Certificate Issuer.
@@ -161,7 +159,6 @@ def get_certificate_issuer_output(key_vault_id: Optional[pulumi.Input[str]] = No
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -172,7 +169,6 @@ def get_certificate_issuer_output(key_vault_id: Optional[pulumi.Input[str]] = No
         key_vault_id=example.id)
     pulumi.export("id", example_get_certificate_issuer.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key_vault_id: The ID of the Key Vault in which to locate the Certificate Issuer.

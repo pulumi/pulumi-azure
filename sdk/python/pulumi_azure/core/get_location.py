@@ -85,14 +85,12 @@ def get_location(location: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
 
     example = azure.core.get_location(location="West Europe")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str location: Specifies the supported Azure location where the resource exists.
@@ -117,14 +115,12 @@ def get_location_output(location: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
 
     example = azure.core.get_location(location="West Europe")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str location: Specifies the supported Azure location where the resource exists.

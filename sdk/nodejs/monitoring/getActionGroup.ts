@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const actionGroupId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
 
@@ -118,7 +116,6 @@ export interface GetActionGroupResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -129,7 +126,6 @@ export interface GetActionGroupResult {
  * });
  * export const actionGroupId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionGroupResult> {
     return pulumi.output(args).apply((a: any) => getActionGroup(a, opts))

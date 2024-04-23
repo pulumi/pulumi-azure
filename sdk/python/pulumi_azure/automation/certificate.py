@@ -249,7 +249,6 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -271,7 +270,6 @@ class Certificate(pulumi.CustomResource):
             base64=std.filebase64(input="certificate.pfx").result,
             exportable=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -301,7 +299,6 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -323,7 +320,6 @@ class Certificate(pulumi.CustomResource):
             base64=std.filebase64(input="certificate.pfx").result,
             exportable=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

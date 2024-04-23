@@ -203,7 +203,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -240,7 +239,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
             server_name=example_server.name,
             subnet_id=internal.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -280,7 +278,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -317,7 +314,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
             server_name=example_server.name,
             subnet_id=internal.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

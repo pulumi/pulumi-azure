@@ -67,14 +67,14 @@ public final class WindowsWebAppSlotAuthSettingsV2FacebookV2Args extends com.pul
     }
 
     /**
-     * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * The list of scopes that should be requested as part of Facebook Login authentication.
      * 
      */
     @Import(name="loginScopes")
     private @Nullable Output<List<String>> loginScopes;
 
     /**
-     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * @return The list of scopes that should be requested as part of Facebook Login authentication.
      * 
      */
     public Optional<Output<List<String>>> loginScopes() {
@@ -176,7 +176,7 @@ public final class WindowsWebAppSlotAuthSettingsV2FacebookV2Args extends com.pul
         }
 
         /**
-         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * @param loginScopes The list of scopes that should be requested as part of Facebook Login authentication.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class WindowsWebAppSlotAuthSettingsV2FacebookV2Args extends com.pul
         }
 
         /**
-         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * @param loginScopes The list of scopes that should be requested as part of Facebook Login authentication.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class WindowsWebAppSlotAuthSettingsV2FacebookV2Args extends com.pul
         }
 
         /**
-         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * @param loginScopes The list of scopes that should be requested as part of Facebook Login authentication.
          * 
          * @return builder
          * 

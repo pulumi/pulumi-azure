@@ -29,7 +29,7 @@ public final class NetworkInterfaceIpConfiguration {
      */
     private @Nullable Boolean primary;
     /**
-     * @return The Static IP Address which should be used.
+     * @return The first private IP address of the network interface.
      * 
      */
     private @Nullable String privateIpAddress;
@@ -81,7 +81,7 @@ public final class NetworkInterfaceIpConfiguration {
         return Optional.ofNullable(this.primary);
     }
     /**
-     * @return The Static IP Address which should be used.
+     * @return The first private IP address of the network interface.
      * 
      */
     public Optional<String> privateIpAddress() {

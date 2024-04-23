@@ -127,7 +127,6 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -201,7 +200,6 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
                 "Sign",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example HCL Configurations
 
@@ -233,7 +231,6 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -307,7 +304,6 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
                 "Sign",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example HCL Configurations
 

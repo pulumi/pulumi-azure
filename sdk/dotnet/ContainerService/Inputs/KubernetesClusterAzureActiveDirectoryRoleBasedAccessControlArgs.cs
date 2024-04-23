@@ -14,25 +14,15 @@ namespace Pulumi.Azure.ContainerService.Inputs
     {
         [Input("adminGroupObjectIds")]
         private InputList<string>? _adminGroupObjectIds;
-
-        /// <summary>
-        /// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-        /// </summary>
         public InputList<string> AdminGroupObjectIds
         {
             get => _adminGroupObjectIds ?? (_adminGroupObjectIds = new InputList<string>());
             set => _adminGroupObjectIds = value;
         }
 
-        /// <summary>
-        /// Is Role Based Access Control based on Azure AD enabled?
-        /// </summary>
         [Input("azureRbacEnabled")]
         public Input<bool>? AzureRbacEnabled { get; set; }
 
-        /// <summary>
-        /// The Client ID of an Azure Active Directory Application.
-        /// </summary>
         [Input("clientAppId")]
         public Input<string>? ClientAppId { get; set; }
 
@@ -42,18 +32,11 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("managed")]
         public Input<bool>? Managed { get; set; }
 
-        /// <summary>
-        /// The Server ID of an Azure Active Directory Application.
-        /// </summary>
         [Input("serverAppId")]
         public Input<string>? ServerAppId { get; set; }
 
         [Input("serverAppSecret")]
         private Input<string>? _serverAppSecret;
-
-        /// <summary>
-        /// The Server Secret of an Azure Active Directory Application.
-        /// </summary>
         [Obsolete(@"Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.")]
         public Input<string>? ServerAppSecret
         {

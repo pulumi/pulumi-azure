@@ -22,47 +22,23 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
 
     public static final VpnServerConfigurationState Empty = new VpnServerConfigurationState();
 
-    /**
-     * A `azure_active_directory_authentication` block as defined below.
-     * 
-     */
     @Import(name="azureActiveDirectoryAuthentications")
     private @Nullable Output<List<VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs>> azureActiveDirectoryAuthentications;
 
-    /**
-     * @return A `azure_active_directory_authentication` block as defined below.
-     * 
-     */
     public Optional<Output<List<VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs>>> azureActiveDirectoryAuthentications() {
         return Optional.ofNullable(this.azureActiveDirectoryAuthentications);
     }
 
-    /**
-     * One or more `client_revoked_certificate` blocks as defined below.
-     * 
-     */
     @Import(name="clientRevokedCertificates")
     private @Nullable Output<List<VpnServerConfigurationClientRevokedCertificateArgs>> clientRevokedCertificates;
 
-    /**
-     * @return One or more `client_revoked_certificate` blocks as defined below.
-     * 
-     */
     public Optional<Output<List<VpnServerConfigurationClientRevokedCertificateArgs>>> clientRevokedCertificates() {
         return Optional.ofNullable(this.clientRevokedCertificates);
     }
 
-    /**
-     * One or more `client_root_certificate` blocks as defined below.
-     * 
-     */
     @Import(name="clientRootCertificates")
     private @Nullable Output<List<VpnServerConfigurationClientRootCertificateArgs>> clientRootCertificates;
 
-    /**
-     * @return One or more `client_root_certificate` blocks as defined below.
-     * 
-     */
     public Optional<Output<List<VpnServerConfigurationClientRootCertificateArgs>>> clientRootCertificates() {
         return Optional.ofNullable(this.clientRootCertificates);
     }
@@ -112,17 +88,9 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A `radius` block as defined below.
-     * 
-     */
     @Import(name="radius")
     private @Nullable Output<VpnServerConfigurationRadiusArgs> radius;
 
-    /**
-     * @return A `radius` block as defined below.
-     * 
-     */
     public Optional<Output<VpnServerConfigurationRadiusArgs>> radius() {
         return Optional.ofNullable(this.radius);
     }
@@ -221,95 +189,41 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
             $ = new VpnServerConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param azureActiveDirectoryAuthentications A `azure_active_directory_authentication` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder azureActiveDirectoryAuthentications(@Nullable Output<List<VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs>> azureActiveDirectoryAuthentications) {
             $.azureActiveDirectoryAuthentications = azureActiveDirectoryAuthentications;
             return this;
         }
 
-        /**
-         * @param azureActiveDirectoryAuthentications A `azure_active_directory_authentication` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder azureActiveDirectoryAuthentications(List<VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs> azureActiveDirectoryAuthentications) {
             return azureActiveDirectoryAuthentications(Output.of(azureActiveDirectoryAuthentications));
         }
 
-        /**
-         * @param azureActiveDirectoryAuthentications A `azure_active_directory_authentication` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder azureActiveDirectoryAuthentications(VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs... azureActiveDirectoryAuthentications) {
             return azureActiveDirectoryAuthentications(List.of(azureActiveDirectoryAuthentications));
         }
 
-        /**
-         * @param clientRevokedCertificates One or more `client_revoked_certificate` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientRevokedCertificates(@Nullable Output<List<VpnServerConfigurationClientRevokedCertificateArgs>> clientRevokedCertificates) {
             $.clientRevokedCertificates = clientRevokedCertificates;
             return this;
         }
 
-        /**
-         * @param clientRevokedCertificates One or more `client_revoked_certificate` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientRevokedCertificates(List<VpnServerConfigurationClientRevokedCertificateArgs> clientRevokedCertificates) {
             return clientRevokedCertificates(Output.of(clientRevokedCertificates));
         }
 
-        /**
-         * @param clientRevokedCertificates One or more `client_revoked_certificate` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientRevokedCertificates(VpnServerConfigurationClientRevokedCertificateArgs... clientRevokedCertificates) {
             return clientRevokedCertificates(List.of(clientRevokedCertificates));
         }
 
-        /**
-         * @param clientRootCertificates One or more `client_root_certificate` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientRootCertificates(@Nullable Output<List<VpnServerConfigurationClientRootCertificateArgs>> clientRootCertificates) {
             $.clientRootCertificates = clientRootCertificates;
             return this;
         }
 
-        /**
-         * @param clientRootCertificates One or more `client_root_certificate` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientRootCertificates(List<VpnServerConfigurationClientRootCertificateArgs> clientRootCertificates) {
             return clientRootCertificates(Output.of(clientRootCertificates));
         }
 
-        /**
-         * @param clientRootCertificates One or more `client_root_certificate` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientRootCertificates(VpnServerConfigurationClientRootCertificateArgs... clientRootCertificates) {
             return clientRootCertificates(List.of(clientRootCertificates));
         }
@@ -377,23 +291,11 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
             return name(Output.of(name));
         }
 
-        /**
-         * @param radius A `radius` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder radius(@Nullable Output<VpnServerConfigurationRadiusArgs> radius) {
             $.radius = radius;
             return this;
         }
 
-        /**
-         * @param radius A `radius` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder radius(VpnServerConfigurationRadiusArgs radius) {
             return radius(Output.of(radius));
         }

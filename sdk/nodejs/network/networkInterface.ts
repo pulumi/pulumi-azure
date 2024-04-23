@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -43,7 +42,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -144,7 +142,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Static IP Address which should be used.
+     * The first private IP address of the network interface.
      */
     public /*out*/ readonly privateIpAddress!: pulumi.Output<string>;
     /**
@@ -294,7 +292,7 @@ export interface NetworkInterfaceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The Static IP Address which should be used.
+     * The first private IP address of the network interface.
      */
     privateIpAddress?: pulumi.Input<string>;
     /**

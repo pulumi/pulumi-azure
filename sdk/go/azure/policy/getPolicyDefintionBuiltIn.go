@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetPolicyDefintionBuiltIn(ctx *pulumi.Context, args *GetPolicyDefintionBuiltInArgs, opts ...pulumi.InvokeOption) (*GetPolicyDefintionBuiltInResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPolicyDefintionBuiltInResult

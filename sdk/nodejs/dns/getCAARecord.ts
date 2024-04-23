@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  * });
  * export const dnsCaaRecordId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCAARecord(args: GetCAARecordArgs, opts?: pulumi.InvokeOptions): Promise<GetCAARecordResult> {
 
@@ -82,7 +80,6 @@ export interface GetCAARecordResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -94,7 +91,6 @@ export interface GetCAARecordResult {
  * });
  * export const dnsCaaRecordId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCAARecordOutput(args: GetCAARecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCAARecordResult> {
     return pulumi.output(args).apply((a: any) => getCAARecord(a, opts))

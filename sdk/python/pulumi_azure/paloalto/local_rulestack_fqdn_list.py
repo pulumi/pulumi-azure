@@ -201,7 +201,6 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -218,7 +217,6 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
             rulestack_id=example_local_rulestack.id,
             fully_qualified_domain_names=["contoso.com"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -247,7 +245,6 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -264,7 +261,6 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
             rulestack_id=example_local_rulestack.id,
             fully_qualified_domain_names=["contoso.com"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

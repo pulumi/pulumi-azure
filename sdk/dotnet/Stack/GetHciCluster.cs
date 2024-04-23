@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Stack
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Azure.Stack
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetHciClusterResult> InvokeAsync(GetHciClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHciClusterResult>("azure:stack/getHciCluster:getHciCluster", args ?? new GetHciClusterArgs(), options.WithDefaults());
@@ -49,7 +47,6 @@ namespace Pulumi.Azure.Stack
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -72,7 +69,6 @@ namespace Pulumi.Azure.Stack
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetHciClusterResult> Invoke(GetHciClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHciClusterResult>("azure:stack/getHciCluster:getHciCluster", args ?? new GetHciClusterInvokeArgs(), options.WithDefaults());

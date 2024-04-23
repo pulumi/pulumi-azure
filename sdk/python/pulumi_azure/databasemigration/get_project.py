@@ -128,7 +128,6 @@ def get_project(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -138,7 +137,6 @@ def get_project(name: Optional[str] = None,
         service_name="example-dbms")
     pulumi.export("name", example.name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the database migration project.
@@ -173,7 +171,6 @@ def get_project_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -183,7 +180,6 @@ def get_project_output(name: Optional[pulumi.Input[str]] = None,
         service_name="example-dbms")
     pulumi.export("name", example.name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the database migration project.

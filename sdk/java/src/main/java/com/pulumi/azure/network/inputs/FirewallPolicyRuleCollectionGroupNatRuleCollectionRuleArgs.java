@@ -18,47 +18,23 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
 
     public static final FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs Empty = new FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs();
 
-    /**
-     * The description which should be used for this rule.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description which should be used for this rule.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The destination IP address (including CIDR).
-     * 
-     */
     @Import(name="destinationAddress")
     private @Nullable Output<String> destinationAddress;
 
-    /**
-     * @return The destination IP address (including CIDR).
-     * 
-     */
     public Optional<Output<String>> destinationAddress() {
         return Optional.ofNullable(this.destinationAddress);
     }
 
-    /**
-     * Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-     * 
-     */
     @Import(name="destinationPorts")
     private @Nullable Output<String> destinationPorts;
 
-    /**
-     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-     * 
-     */
     public Optional<Output<String>> destinationPorts() {
         return Optional.ofNullable(this.destinationPorts);
     }
@@ -78,96 +54,44 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
         return this.name;
     }
 
-    /**
-     * One or more `protocols` blocks as defined below.
-     * 
-     */
     @Import(name="protocols", required=true)
     private Output<List<String>> protocols;
 
-    /**
-     * @return One or more `protocols` blocks as defined below.
-     * 
-     */
     public Output<List<String>> protocols() {
         return this.protocols;
     }
 
-    /**
-     * Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-     * 
-     */
     @Import(name="sourceAddresses")
     private @Nullable Output<List<String>> sourceAddresses;
 
-    /**
-     * @return Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-     * 
-     */
     public Optional<Output<List<String>>> sourceAddresses() {
         return Optional.ofNullable(this.sourceAddresses);
     }
 
-    /**
-     * Specifies a list of source IP groups.
-     * 
-     */
     @Import(name="sourceIpGroups")
     private @Nullable Output<List<String>> sourceIpGroups;
 
-    /**
-     * @return Specifies a list of source IP groups.
-     * 
-     */
     public Optional<Output<List<String>>> sourceIpGroups() {
         return Optional.ofNullable(this.sourceIpGroups);
     }
 
-    /**
-     * Specifies the translated address.
-     * 
-     */
     @Import(name="translatedAddress")
     private @Nullable Output<String> translatedAddress;
 
-    /**
-     * @return Specifies the translated address.
-     * 
-     */
     public Optional<Output<String>> translatedAddress() {
         return Optional.ofNullable(this.translatedAddress);
     }
 
-    /**
-     * Specifies the translated FQDN.
-     * 
-     * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
-     * 
-     */
     @Import(name="translatedFqdn")
     private @Nullable Output<String> translatedFqdn;
 
-    /**
-     * @return Specifies the translated FQDN.
-     * 
-     * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
-     * 
-     */
     public Optional<Output<String>> translatedFqdn() {
         return Optional.ofNullable(this.translatedFqdn);
     }
 
-    /**
-     * Specifies the translated port.
-     * 
-     */
     @Import(name="translatedPort", required=true)
     private Output<Integer> translatedPort;
 
-    /**
-     * @return Specifies the translated port.
-     * 
-     */
     public Output<Integer> translatedPort() {
         return this.translatedPort;
     }
@@ -205,65 +129,29 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
             $ = new FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description The description which should be used for this rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description which should be used for this rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param destinationAddress The destination IP address (including CIDR).
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationAddress(@Nullable Output<String> destinationAddress) {
             $.destinationAddress = destinationAddress;
             return this;
         }
 
-        /**
-         * @param destinationAddress The destination IP address (including CIDR).
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationAddress(String destinationAddress) {
             return destinationAddress(Output.of(destinationAddress));
         }
 
-        /**
-         * @param destinationPorts Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationPorts(@Nullable Output<String> destinationPorts) {
             $.destinationPorts = destinationPorts;
             return this;
         }
 
-        /**
-         * @param destinationPorts Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationPorts(String destinationPorts) {
             return destinationPorts(Output.of(destinationPorts));
         }
@@ -289,162 +177,68 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
             return name(Output.of(name));
         }
 
-        /**
-         * @param protocols One or more `protocols` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocols(Output<List<String>> protocols) {
             $.protocols = protocols;
             return this;
         }
 
-        /**
-         * @param protocols One or more `protocols` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocols(List<String> protocols) {
             return protocols(Output.of(protocols));
         }
 
-        /**
-         * @param protocols One or more `protocols` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocols(String... protocols) {
             return protocols(List.of(protocols));
         }
 
-        /**
-         * @param sourceAddresses Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceAddresses(@Nullable Output<List<String>> sourceAddresses) {
             $.sourceAddresses = sourceAddresses;
             return this;
         }
 
-        /**
-         * @param sourceAddresses Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceAddresses(List<String> sourceAddresses) {
             return sourceAddresses(Output.of(sourceAddresses));
         }
 
-        /**
-         * @param sourceAddresses Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceAddresses(String... sourceAddresses) {
             return sourceAddresses(List.of(sourceAddresses));
         }
 
-        /**
-         * @param sourceIpGroups Specifies a list of source IP groups.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceIpGroups(@Nullable Output<List<String>> sourceIpGroups) {
             $.sourceIpGroups = sourceIpGroups;
             return this;
         }
 
-        /**
-         * @param sourceIpGroups Specifies a list of source IP groups.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceIpGroups(List<String> sourceIpGroups) {
             return sourceIpGroups(Output.of(sourceIpGroups));
         }
 
-        /**
-         * @param sourceIpGroups Specifies a list of source IP groups.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceIpGroups(String... sourceIpGroups) {
             return sourceIpGroups(List.of(sourceIpGroups));
         }
 
-        /**
-         * @param translatedAddress Specifies the translated address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder translatedAddress(@Nullable Output<String> translatedAddress) {
             $.translatedAddress = translatedAddress;
             return this;
         }
 
-        /**
-         * @param translatedAddress Specifies the translated address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder translatedAddress(String translatedAddress) {
             return translatedAddress(Output.of(translatedAddress));
         }
 
-        /**
-         * @param translatedFqdn Specifies the translated FQDN.
-         * 
-         * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder translatedFqdn(@Nullable Output<String> translatedFqdn) {
             $.translatedFqdn = translatedFqdn;
             return this;
         }
 
-        /**
-         * @param translatedFqdn Specifies the translated FQDN.
-         * 
-         * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder translatedFqdn(String translatedFqdn) {
             return translatedFqdn(Output.of(translatedFqdn));
         }
 
-        /**
-         * @param translatedPort Specifies the translated port.
-         * 
-         * @return builder
-         * 
-         */
         public Builder translatedPort(Output<Integer> translatedPort) {
             $.translatedPort = translatedPort;
             return this;
         }
 
-        /**
-         * @param translatedPort Specifies the translated port.
-         * 
-         * @return builder
-         * 
-         */
         public Builder translatedPort(Integer translatedPort) {
             return translatedPort(Output.of(translatedPort));
         }

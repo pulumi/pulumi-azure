@@ -12,42 +12,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterWebAppRoutingWebAppRoutingIdentity {
     /**
-     * @return The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+     * @return The Client ID of the user-defined Managed Identity used for Web App Routing.
      * 
      */
     private @Nullable String clientId;
     /**
-     * @return The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+     * @return The Object ID of the user-defined Managed Identity used for Web App Routing
      * 
      */
     private @Nullable String objectId;
     /**
-     * @return The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+     * @return The ID of the User Assigned Identity used for Web App Routing.
      * 
      */
     private @Nullable String userAssignedIdentityId;
 
     private KubernetesClusterWebAppRoutingWebAppRoutingIdentity() {}
     /**
-     * @return The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+     * @return The Client ID of the user-defined Managed Identity used for Web App Routing.
      * 
      */
     public Optional<String> clientId() {
         return Optional.ofNullable(this.clientId);
     }
     /**
-     * @return The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+     * @return The Object ID of the user-defined Managed Identity used for Web App Routing
      * 
      */
     public Optional<String> objectId() {
         return Optional.ofNullable(this.objectId);
     }
     /**
-     * @return The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
+     * @return The ID of the User Assigned Identity used for Web App Routing.
      * 
      */
     public Optional<String> userAssignedIdentityId() {

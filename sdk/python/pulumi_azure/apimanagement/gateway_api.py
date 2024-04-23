@@ -102,7 +102,6 @@ class GatewayApi(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -119,7 +118,6 @@ class GatewayApi(pulumi.CustomResource):
             gateway_id=example_get_gateway.id,
             api_id=example_get_api.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -145,7 +143,6 @@ class GatewayApi(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -162,7 +159,6 @@ class GatewayApi(pulumi.CustomResource):
             gateway_id=example_get_gateway.id,
             api_id=example_get_api.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -1318,7 +1318,6 @@ class ManagedDisk(pulumi.CustomResource):
 
         ### With Create Empty
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1337,11 +1336,9 @@ class ManagedDisk(pulumi.CustomResource):
                 "environment": "staging",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Create Copy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1371,7 +1368,6 @@ class ManagedDisk(pulumi.CustomResource):
                 "environment": "staging",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1465,7 +1461,6 @@ class ManagedDisk(pulumi.CustomResource):
 
         ### With Create Empty
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1484,11 +1479,9 @@ class ManagedDisk(pulumi.CustomResource):
                 "environment": "staging",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Create Copy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1518,7 +1511,6 @@ class ManagedDisk(pulumi.CustomResource):
                 "environment": "staging",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

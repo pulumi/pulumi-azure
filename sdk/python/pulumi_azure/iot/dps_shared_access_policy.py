@@ -396,7 +396,6 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -419,7 +418,6 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
             enrollment_write=True,
             enrollment_read=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -459,7 +457,6 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -482,7 +479,6 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
             enrollment_write=True,
             enrollment_read=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

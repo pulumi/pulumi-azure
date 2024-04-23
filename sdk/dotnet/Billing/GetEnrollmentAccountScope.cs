@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Billing
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Azure.Billing
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEnrollmentAccountScopeResult> InvokeAsync(GetEnrollmentAccountScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnrollmentAccountScopeResult>("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args ?? new GetEnrollmentAccountScopeArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Azure.Billing
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Azure.Billing
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEnrollmentAccountScopeResult> Invoke(GetEnrollmentAccountScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnrollmentAccountScopeResult>("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args ?? new GetEnrollmentAccountScopeInvokeArgs(), options.WithDefaults());

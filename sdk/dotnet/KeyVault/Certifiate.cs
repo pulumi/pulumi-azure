@@ -18,7 +18,6 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// &gt; **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -114,11 +113,9 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Generating a new certificate
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -265,7 +262,6 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

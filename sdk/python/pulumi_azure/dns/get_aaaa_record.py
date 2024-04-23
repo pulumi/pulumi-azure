@@ -138,7 +138,6 @@ def get_aaaa_record(name: Optional[str] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -148,7 +147,6 @@ def get_aaaa_record(name: Optional[str] = None,
         resource_group_name="test-rg")
     pulumi.export("dnsAaaaRecordId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the DNS AAAA Record.
@@ -182,7 +180,6 @@ def get_aaaa_record_output(name: Optional[pulumi.Input[str]] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -192,7 +189,6 @@ def get_aaaa_record_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="test-rg")
     pulumi.export("dnsAaaaRecordId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the DNS AAAA Record.

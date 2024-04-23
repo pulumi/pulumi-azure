@@ -1749,12 +1749,10 @@ func (o PolicyPolicySettingsLogScrubbingPtrOutput) Rules() PolicyPolicySettingsL
 
 type PolicyPolicySettingsLogScrubbingRule struct {
 	// Describes if the managed rule is in enabled state or disabled state.
-	Enabled *bool `pulumi:"enabled"`
-	// The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
+	Enabled       *bool  `pulumi:"enabled"`
 	MatchVariable string `pulumi:"matchVariable"`
-	// Describes field of the matchVariable collection.
-	Selector *string `pulumi:"selector"`
-	// Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+	// When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
+	Selector              *string `pulumi:"selector"`
 	SelectorMatchOperator *string `pulumi:"selectorMatchOperator"`
 }
 
@@ -1771,12 +1769,10 @@ type PolicyPolicySettingsLogScrubbingRuleInput interface {
 
 type PolicyPolicySettingsLogScrubbingRuleArgs struct {
 	// Describes if the managed rule is in enabled state or disabled state.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
-	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
-	// Describes field of the matchVariable collection.
-	Selector pulumi.StringPtrInput `pulumi:"selector"`
-	// Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+	Enabled       pulumi.BoolPtrInput `pulumi:"enabled"`
+	MatchVariable pulumi.StringInput  `pulumi:"matchVariable"`
+	// When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
+	Selector              pulumi.StringPtrInput `pulumi:"selector"`
 	SelectorMatchOperator pulumi.StringPtrInput `pulumi:"selectorMatchOperator"`
 }
 
@@ -1836,17 +1832,15 @@ func (o PolicyPolicySettingsLogScrubbingRuleOutput) Enabled() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbingRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
 func (o PolicyPolicySettingsLogScrubbingRuleOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbingRule) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
 
-// Describes field of the matchVariable collection.
+// When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
 func (o PolicyPolicySettingsLogScrubbingRuleOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbingRule) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
-// Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
 func (o PolicyPolicySettingsLogScrubbingRuleOutput) SelectorMatchOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbingRule) *string { return v.SelectorMatchOperator }).(pulumi.StringPtrOutput)
 }

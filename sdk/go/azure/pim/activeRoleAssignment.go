@@ -18,7 +18,6 @@ import (
 //
 // ### Subscription)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,11 +77,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Management Group)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -143,7 +140,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

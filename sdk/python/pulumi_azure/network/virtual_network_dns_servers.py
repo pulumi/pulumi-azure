@@ -101,7 +101,6 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -126,7 +125,6 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
                 "10.7.7.1",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -150,7 +148,6 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -175,7 +172,6 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
                 "10.7.7.1",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,28 +14,17 @@ namespace Pulumi.Azure.Management.Inputs
     {
         [Input("ins")]
         private InputList<string>? _ins;
-
-        /// <summary>
-        /// Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
-        /// </summary>
         public InputList<string> Ins
         {
             get => _ins ?? (_ins = new InputList<string>());
             set => _ins = value;
         }
 
-        /// <summary>
-        /// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-        /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
 
         [Input("notIns")]
         private InputList<string>? _notIns;
-
-        /// <summary>
-        /// Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-        /// </summary>
         public InputList<string> NotIns
         {
             get => _notIns ?? (_notIns = new InputList<string>());

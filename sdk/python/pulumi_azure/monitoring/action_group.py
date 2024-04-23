@@ -599,7 +599,6 @@ class ActionGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -688,7 +687,6 @@ class ActionGroup(pulumi.CustomResource):
                 use_common_alert_schema=True,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -729,7 +727,6 @@ class ActionGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -818,7 +815,6 @@ class ActionGroup(pulumi.CustomResource):
                 use_common_alert_schema=True,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

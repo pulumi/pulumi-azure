@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupResolverVirtualNetworkLink(ctx *pulumi.Context, args *LookupResolverVirtualNetworkLinkArgs, opts ...pulumi.InvokeOption) (*LookupResolverVirtualNetworkLinkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverVirtualNetworkLinkResult

@@ -376,7 +376,6 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -396,7 +395,6 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
             url=example.apply(lambda example: f"https://{example.default_hostname}"),
             key="foo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -432,7 +430,6 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -452,7 +449,6 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
             url=example.apply(lambda example: f"https://{example.default_hostname}"),
             key="foo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

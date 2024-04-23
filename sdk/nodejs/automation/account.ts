@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -30,7 +29,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -80,9 +78,6 @@ export class Account extends pulumi.CustomResource {
      * The DSC Server Endpoint associated with this Automation Account.
      */
     public /*out*/ readonly dscServerEndpoint!: pulumi.Output<string>;
-    /**
-     * An `encryption` block as defined below.
-     */
     public readonly encryptions!: pulumi.Output<outputs.automation.AccountEncryption[] | undefined>;
     /**
      * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
@@ -117,9 +112,6 @@ export class Account extends pulumi.CustomResource {
      * The SKU of the account. Possible values are `Basic` and `Free`.
      */
     public readonly skuName!: pulumi.Output<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -195,9 +187,6 @@ export interface AccountState {
      * The DSC Server Endpoint associated with this Automation Account.
      */
     dscServerEndpoint?: pulumi.Input<string>;
-    /**
-     * An `encryption` block as defined below.
-     */
     encryptions?: pulumi.Input<pulumi.Input<inputs.automation.AccountEncryption>[]>;
     /**
      * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
@@ -232,9 +221,6 @@ export interface AccountState {
      * The SKU of the account. Possible values are `Basic` and `Free`.
      */
     skuName?: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -242,9 +228,6 @@ export interface AccountState {
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
-    /**
-     * An `encryption` block as defined below.
-     */
     encryptions?: pulumi.Input<pulumi.Input<inputs.automation.AccountEncryption>[]>;
     /**
      * An `identity` block as defined below.
@@ -274,8 +257,5 @@ export interface AccountArgs {
      * The SKU of the account. Possible values are `Basic` and `Free`.
      */
     skuName: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

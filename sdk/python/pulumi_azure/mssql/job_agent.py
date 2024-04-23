@@ -169,7 +169,6 @@ class JobAgent(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -194,7 +193,6 @@ class JobAgent(pulumi.CustomResource):
             location=example.location,
             database_id=example_database.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -222,7 +220,6 @@ class JobAgent(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -247,7 +244,6 @@ class JobAgent(pulumi.CustomResource):
             location=example.location,
             database_id=example_database.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

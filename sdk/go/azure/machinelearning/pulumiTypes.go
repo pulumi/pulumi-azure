@@ -736,7 +736,7 @@ type ComputeInstanceIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
 	PrincipalId *string `pulumi:"principalId"`
-	// User’s AAD Tenant Id.
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
@@ -760,7 +760,7 @@ type ComputeInstanceIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// User’s AAD Tenant Id.
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -855,7 +855,7 @@ func (o ComputeInstanceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeInstanceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// User’s AAD Tenant Id.
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
 func (o ComputeInstanceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeInstanceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -911,7 +911,7 @@ func (o ComputeInstanceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// User’s AAD Tenant Id.
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
 func (o ComputeInstanceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeInstanceIdentity) *string {
 		if v == nil {

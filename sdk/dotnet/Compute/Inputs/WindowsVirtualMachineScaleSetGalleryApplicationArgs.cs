@@ -15,18 +15,12 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("configurationReferenceBlobUri")]
         public Input<string>? ConfigurationReferenceBlobUri { get; set; }
 
-        /// <summary>
-        /// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }
 
         [Input("packageReferenceId", required: true)]
         public Input<string> PackageReferenceId { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("tag")]
         public Input<string>? Tag { get; set; }
 

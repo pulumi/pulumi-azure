@@ -130,14 +130,14 @@ public class Order extends com.pulumi.resources.CustomResource {
         return this.deviceName;
     }
     /**
-     * The contact person name. Changing this forces a new Databox Edge Order to be created.
+     * The Name of this Databox Edge Order.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The contact person name. Changing this forces a new Databox Edge Order to be created.
+     * @return The Name of this Databox Edge Order.
      * 
      */
     public Output<String> name() {

@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Sentinel
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,7 +56,6 @@ namespace Pulumi.Azure.Sentinel
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAlertRuleAnomalyResult> InvokeAsync(GetAlertRuleAnomalyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleAnomalyResult>("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", args ?? new GetAlertRuleAnomalyArgs(), options.WithDefaults());
@@ -67,7 +65,6 @@ namespace Pulumi.Azure.Sentinel
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -108,7 +105,6 @@ namespace Pulumi.Azure.Sentinel
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAlertRuleAnomalyResult> Invoke(GetAlertRuleAnomalyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleAnomalyResult>("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", args ?? new GetAlertRuleAnomalyInvokeArgs(), options.WithDefaults());

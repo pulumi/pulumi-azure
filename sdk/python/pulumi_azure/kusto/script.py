@@ -268,7 +268,6 @@ class Script(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -326,7 +325,6 @@ class Script(pulumi.CustomResource):
             continue_on_errors_enabled=True,
             force_an_update_when_value_changed="first")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -357,7 +355,6 @@ class Script(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -415,7 +412,6 @@ class Script(pulumi.CustomResource):
             continue_on_errors_enabled=True,
             force_an_update_when_value_changed="first")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

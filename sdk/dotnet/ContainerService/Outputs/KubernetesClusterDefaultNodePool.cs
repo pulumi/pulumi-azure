@@ -65,9 +65,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolLinuxOsConfig? LinuxOsConfig;
-        /// <summary>
-        /// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-        /// </summary>
         public readonly int? MaxCount;
         /// <summary>
         /// The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
@@ -77,21 +74,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? MessageOfTheDay;
-        /// <summary>
-        /// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-        /// </summary>
         public readonly int? MinCount;
         /// <summary>
         /// The name which should be used for the default Kubernetes Node Pool.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-        /// 
-        /// &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-        /// 
-        /// &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
-        /// </summary>
         public readonly int? NodeCount;
         /// <summary>
         /// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.

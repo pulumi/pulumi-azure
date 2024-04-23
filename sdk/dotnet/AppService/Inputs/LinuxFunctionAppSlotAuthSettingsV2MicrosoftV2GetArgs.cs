@@ -16,9 +16,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _allowedAudiences;
 
         /// <summary>
-        /// Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-        /// 
-        /// &gt; **Note:** The `client_id` value is always considered an allowed audience.
+        /// Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         /// </summary>
         public InputList<string> AllowedAudiences
         {
@@ -27,13 +25,15 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The ID of the Client to use to authenticate with Azure Active Directory.
+        /// The OAuth 2.0 client ID that was created for the app used for authentication.
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        /// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         /// </summary>
         [Input("clientSecretSettingName", required: true)]
         public Input<string> ClientSecretSettingName { get; set; } = null!;

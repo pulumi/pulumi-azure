@@ -441,7 +441,6 @@ class Definition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -463,7 +462,6 @@ class Definition(pulumi.CustomResource):
                 role_definition_id="a094b430-dad3-424d-ae58-13f72fd72591",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -501,7 +499,6 @@ class Definition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -523,7 +520,6 @@ class Definition(pulumi.CustomResource):
                 role_definition_id="a094b430-dad3-424d-ae58-13f72fd72591",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

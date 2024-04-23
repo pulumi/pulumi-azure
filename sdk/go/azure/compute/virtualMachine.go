@@ -26,7 +26,6 @@ import (
 //
 // This example provisions a Virtual Machine with Managed Disks.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -133,7 +132,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
