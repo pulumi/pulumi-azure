@@ -1188,7 +1188,6 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1221,7 +1220,6 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             storage_account_name=example_account.name,
             site_config=azure.appservice.LinuxFunctionAppSlotSiteConfigArgs())
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1280,7 +1278,6 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1313,7 +1310,6 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             storage_account_name=example_account.name,
             site_config=azure.appservice.LinuxFunctionAppSlotSiteConfigArgs())
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

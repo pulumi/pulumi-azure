@@ -20,7 +20,6 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// ### Additional Examples
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -98,7 +97,6 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

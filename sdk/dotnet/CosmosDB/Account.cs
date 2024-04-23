@@ -14,7 +14,6 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -86,11 +85,9 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## User Assigned Identity Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -154,7 +151,6 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -167,9 +163,6 @@ namespace Pulumi.Azure.CosmosDB
     [AzureResourceType("azure:cosmosdb/account:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
-        /// </summary>
         [Output("accessKeyMetadataWritesEnabled")]
         public Output<bool?> AccessKeyMetadataWritesEnabled { get; private set; } = null!;
 
@@ -179,27 +172,15 @@ namespace Pulumi.Azure.CosmosDB
         [Output("analyticalStorage")]
         public Output<Outputs.AccountAnalyticalStorage> AnalyticalStorage { get; private set; } = null!;
 
-        /// <summary>
-        /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-        /// </summary>
         [Output("analyticalStorageEnabled")]
         public Output<bool?> AnalyticalStorageEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Enable automatic failover for this Cosmos DB account.
-        /// </summary>
         [Output("automaticFailoverEnabled")]
         public Output<bool> AutomaticFailoverEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// A `backup` block as defined below.
-        /// </summary>
         [Output("backup")]
         public Output<Outputs.AccountBackup> Backup { get; private set; } = null!;
 
-        /// <summary>
-        /// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
-        /// </summary>
         [Output("capabilities")]
         public Output<ImmutableArray<Outputs.AccountCapability>> Capabilities { get; private set; } = null!;
 
@@ -212,15 +193,9 @@ namespace Pulumi.Azure.CosmosDB
         [Output("connectionStrings")]
         public Output<ImmutableArray<string>> ConnectionStrings { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-        /// </summary>
         [Output("consistencyPolicy")]
         public Output<Outputs.AccountConsistencyPolicy> ConsistencyPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// A `cors_rule` block as defined below.
-        /// </summary>
         [Output("corsRule")]
         public Output<Outputs.AccountCorsRule?> CorsRule { get; private set; } = null!;
 
@@ -253,59 +228,27 @@ namespace Pulumi.Azure.CosmosDB
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
-        /// <summary>
-        /// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("freeTierEnabled")]
         public Output<bool> FreeTierEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-        /// </summary>
         [Output("geoLocations")]
         public Output<ImmutableArray<Outputs.AccountGeoLocation>> GeoLocations { get; private set; } = null!;
 
-        /// <summary>
-        /// An `identity` block as defined below.
-        /// </summary>
         [Output("identity")]
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
 
-        /// <summary>
-        /// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-        /// 
-        /// &gt; **Note:** To enable the "Allow access from the Azure portal" behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-        /// 
-        /// &gt; **Note:** To enable the "Accept connections from within public Azure datacenters" behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-        /// </summary>
         [Output("ipRangeFilter")]
         public Output<string?> IpRangeFilter { get; private set; } = null!;
 
-        /// <summary>
-        /// Enables virtual network filtering for this Cosmos DB account.
-        /// </summary>
         [Output("isVirtualNetworkFilterEnabled")]
         public Output<bool?> IsVirtualNetworkFilterEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** When referencing an `azure.keyvault.Key` resource, use `versionless_id` instead of `id`
-        /// 
-        /// &gt; **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-        /// </summary>
         [Output("keyVaultKeyId")]
         public Output<string?> KeyVaultKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
 
-        /// <summary>
-        /// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
-        /// </summary>
         [Output("localAuthenticationDisabled")]
         public Output<bool?> LocalAuthenticationDisabled { get; private set; } = null!;
 
@@ -321,15 +264,9 @@ namespace Pulumi.Azure.CosmosDB
         [Output("minimalTlsVersion")]
         public Output<string> MinimalTlsVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-        /// </summary>
         [Output("mongoServerVersion")]
         public Output<string> MongoServerVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// Enable multiple write locations for this Cosmos DB account.
-        /// </summary>
         [Output("multipleWriteLocationsEnabled")]
         public Output<bool> MultipleWriteLocationsEnabled { get; private set; } = null!;
 
@@ -339,15 +276,9 @@ namespace Pulumi.Azure.CosmosDB
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// If Azure services can bypass ACLs. Defaults to `false`.
-        /// </summary>
         [Output("networkAclBypassForAzureServices")]
         public Output<bool?> NetworkAclBypassForAzureServices { get; private set; } = null!;
 
-        /// <summary>
-        /// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
-        /// </summary>
         [Output("networkAclBypassIds")]
         public Output<ImmutableArray<string>> NetworkAclBypassIds { get; private set; } = null!;
 
@@ -357,9 +288,6 @@ namespace Pulumi.Azure.CosmosDB
         [Output("offerType")]
         public Output<string> OfferType { get; private set; } = null!;
 
-        /// <summary>
-        /// Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
-        /// </summary>
         [Output("partitionMergeEnabled")]
         public Output<bool?> PartitionMergeEnabled { get; private set; } = null!;
 
@@ -399,9 +327,6 @@ namespace Pulumi.Azure.CosmosDB
         [Output("primarySqlConnectionString")]
         public Output<string> PrimarySqlConnectionString { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
-        /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
@@ -417,11 +342,6 @@ namespace Pulumi.Azure.CosmosDB
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// A `restore` block as defined below.
-        /// 
-        /// &gt; **Note:** `restore` should be set when `create_mode` is `Restore`.
-        /// </summary>
         [Output("restore")]
         public Output<Outputs.AccountRestore?> Restore { get; private set; } = null!;
 
@@ -467,9 +387,6 @@ namespace Pulumi.Azure.CosmosDB
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
-        /// </summary>
         [Output("virtualNetworkRules")]
         public Output<ImmutableArray<Outputs.AccountVirtualNetworkRule>> VirtualNetworkRules { get; private set; } = null!;
 
@@ -541,9 +458,6 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
-        /// </summary>
         [Input("accessKeyMetadataWritesEnabled")]
         public Input<bool>? AccessKeyMetadataWritesEnabled { get; set; }
 
@@ -553,30 +467,17 @@ namespace Pulumi.Azure.CosmosDB
         [Input("analyticalStorage")]
         public Input<Inputs.AccountAnalyticalStorageArgs>? AnalyticalStorage { get; set; }
 
-        /// <summary>
-        /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-        /// </summary>
         [Input("analyticalStorageEnabled")]
         public Input<bool>? AnalyticalStorageEnabled { get; set; }
 
-        /// <summary>
-        /// Enable automatic failover for this Cosmos DB account.
-        /// </summary>
         [Input("automaticFailoverEnabled")]
         public Input<bool>? AutomaticFailoverEnabled { get; set; }
 
-        /// <summary>
-        /// A `backup` block as defined below.
-        /// </summary>
         [Input("backup")]
         public Input<Inputs.AccountBackupArgs>? Backup { get; set; }
 
         [Input("capabilities")]
         private InputList<Inputs.AccountCapabilityArgs>? _capabilities;
-
-        /// <summary>
-        /// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
-        /// </summary>
         public InputList<Inputs.AccountCapabilityArgs> Capabilities
         {
             get => _capabilities ?? (_capabilities = new InputList<Inputs.AccountCapabilityArgs>());
@@ -589,15 +490,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("capacity")]
         public Input<Inputs.AccountCapacityArgs>? Capacity { get; set; }
 
-        /// <summary>
-        /// Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-        /// </summary>
         [Input("consistencyPolicy", required: true)]
         public Input<Inputs.AccountConsistencyPolicyArgs> ConsistencyPolicy { get; set; } = null!;
 
-        /// <summary>
-        /// A `cors_rule` block as defined below.
-        /// </summary>
         [Input("corsRule")]
         public Input<Inputs.AccountCorsRuleArgs>? CorsRule { get; set; }
 
@@ -624,65 +519,32 @@ namespace Pulumi.Azure.CosmosDB
         [Input("enableMultipleWriteLocations")]
         public Input<bool>? EnableMultipleWriteLocations { get; set; }
 
-        /// <summary>
-        /// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("freeTierEnabled")]
         public Input<bool>? FreeTierEnabled { get; set; }
 
         [Input("geoLocations", required: true)]
         private InputList<Inputs.AccountGeoLocationArgs>? _geoLocations;
-
-        /// <summary>
-        /// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-        /// </summary>
         public InputList<Inputs.AccountGeoLocationArgs> GeoLocations
         {
             get => _geoLocations ?? (_geoLocations = new InputList<Inputs.AccountGeoLocationArgs>());
             set => _geoLocations = value;
         }
 
-        /// <summary>
-        /// An `identity` block as defined below.
-        /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
 
-        /// <summary>
-        /// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-        /// 
-        /// &gt; **Note:** To enable the "Allow access from the Azure portal" behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-        /// 
-        /// &gt; **Note:** To enable the "Accept connections from within public Azure datacenters" behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-        /// </summary>
         [Input("ipRangeFilter")]
         public Input<string>? IpRangeFilter { get; set; }
 
-        /// <summary>
-        /// Enables virtual network filtering for this Cosmos DB account.
-        /// </summary>
         [Input("isVirtualNetworkFilterEnabled")]
         public Input<bool>? IsVirtualNetworkFilterEnabled { get; set; }
 
-        /// <summary>
-        /// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** When referencing an `azure.keyvault.Key` resource, use `versionless_id` instead of `id`
-        /// 
-        /// &gt; **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-        /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }
 
-        /// <summary>
-        /// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
-        /// <summary>
-        /// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
-        /// </summary>
         [Input("localAuthenticationDisabled")]
         public Input<bool>? LocalAuthenticationDisabled { get; set; }
 
@@ -698,15 +560,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("minimalTlsVersion")]
         public Input<string>? MinimalTlsVersion { get; set; }
 
-        /// <summary>
-        /// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-        /// </summary>
         [Input("mongoServerVersion")]
         public Input<string>? MongoServerVersion { get; set; }
 
-        /// <summary>
-        /// Enable multiple write locations for this Cosmos DB account.
-        /// </summary>
         [Input("multipleWriteLocationsEnabled")]
         public Input<bool>? MultipleWriteLocationsEnabled { get; set; }
 
@@ -716,18 +572,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// If Azure services can bypass ACLs. Defaults to `false`.
-        /// </summary>
         [Input("networkAclBypassForAzureServices")]
         public Input<bool>? NetworkAclBypassForAzureServices { get; set; }
 
         [Input("networkAclBypassIds")]
         private InputList<string>? _networkAclBypassIds;
-
-        /// <summary>
-        /// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
-        /// </summary>
         public InputList<string> NetworkAclBypassIds
         {
             get => _networkAclBypassIds ?? (_networkAclBypassIds = new InputList<string>());
@@ -740,15 +589,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("offerType", required: true)]
         public Input<string> OfferType { get; set; } = null!;
 
-        /// <summary>
-        /// Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
-        /// </summary>
         [Input("partitionMergeEnabled")]
         public Input<bool>? PartitionMergeEnabled { get; set; }
 
-        /// <summary>
-        /// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
-        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -758,11 +601,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// A `restore` block as defined below.
-        /// 
-        /// &gt; **Note:** `restore` should be set when `create_mode` is `Restore`.
-        /// </summary>
         [Input("restore")]
         public Input<Inputs.AccountRestoreArgs>? Restore { get; set; }
 
@@ -780,10 +618,6 @@ namespace Pulumi.Azure.CosmosDB
 
         [Input("virtualNetworkRules")]
         private InputList<Inputs.AccountVirtualNetworkRuleArgs>? _virtualNetworkRules;
-
-        /// <summary>
-        /// Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
-        /// </summary>
         public InputList<Inputs.AccountVirtualNetworkRuleArgs> VirtualNetworkRules
         {
             get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<Inputs.AccountVirtualNetworkRuleArgs>());
@@ -798,9 +632,6 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
-        /// </summary>
         [Input("accessKeyMetadataWritesEnabled")]
         public Input<bool>? AccessKeyMetadataWritesEnabled { get; set; }
 
@@ -810,30 +641,17 @@ namespace Pulumi.Azure.CosmosDB
         [Input("analyticalStorage")]
         public Input<Inputs.AccountAnalyticalStorageGetArgs>? AnalyticalStorage { get; set; }
 
-        /// <summary>
-        /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-        /// </summary>
         [Input("analyticalStorageEnabled")]
         public Input<bool>? AnalyticalStorageEnabled { get; set; }
 
-        /// <summary>
-        /// Enable automatic failover for this Cosmos DB account.
-        /// </summary>
         [Input("automaticFailoverEnabled")]
         public Input<bool>? AutomaticFailoverEnabled { get; set; }
 
-        /// <summary>
-        /// A `backup` block as defined below.
-        /// </summary>
         [Input("backup")]
         public Input<Inputs.AccountBackupGetArgs>? Backup { get; set; }
 
         [Input("capabilities")]
         private InputList<Inputs.AccountCapabilityGetArgs>? _capabilities;
-
-        /// <summary>
-        /// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
-        /// </summary>
         public InputList<Inputs.AccountCapabilityGetArgs> Capabilities
         {
             get => _capabilities ?? (_capabilities = new InputList<Inputs.AccountCapabilityGetArgs>());
@@ -859,15 +677,9 @@ namespace Pulumi.Azure.CosmosDB
             }
         }
 
-        /// <summary>
-        /// Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-        /// </summary>
         [Input("consistencyPolicy")]
         public Input<Inputs.AccountConsistencyPolicyGetArgs>? ConsistencyPolicy { get; set; }
 
-        /// <summary>
-        /// A `cors_rule` block as defined below.
-        /// </summary>
         [Input("corsRule")]
         public Input<Inputs.AccountCorsRuleGetArgs>? CorsRule { get; set; }
 
@@ -900,65 +712,32 @@ namespace Pulumi.Azure.CosmosDB
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
-        /// <summary>
-        /// Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("freeTierEnabled")]
         public Input<bool>? FreeTierEnabled { get; set; }
 
         [Input("geoLocations")]
         private InputList<Inputs.AccountGeoLocationGetArgs>? _geoLocations;
-
-        /// <summary>
-        /// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-        /// </summary>
         public InputList<Inputs.AccountGeoLocationGetArgs> GeoLocations
         {
             get => _geoLocations ?? (_geoLocations = new InputList<Inputs.AccountGeoLocationGetArgs>());
             set => _geoLocations = value;
         }
 
-        /// <summary>
-        /// An `identity` block as defined below.
-        /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
 
-        /// <summary>
-        /// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-        /// 
-        /// &gt; **Note:** To enable the "Allow access from the Azure portal" behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-        /// 
-        /// &gt; **Note:** To enable the "Accept connections from within public Azure datacenters" behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-        /// </summary>
         [Input("ipRangeFilter")]
         public Input<string>? IpRangeFilter { get; set; }
 
-        /// <summary>
-        /// Enables virtual network filtering for this Cosmos DB account.
-        /// </summary>
         [Input("isVirtualNetworkFilterEnabled")]
         public Input<bool>? IsVirtualNetworkFilterEnabled { get; set; }
 
-        /// <summary>
-        /// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** When referencing an `azure.keyvault.Key` resource, use `versionless_id` instead of `id`
-        /// 
-        /// &gt; **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-        /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }
 
-        /// <summary>
-        /// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
-        /// <summary>
-        /// Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
-        /// </summary>
         [Input("localAuthenticationDisabled")]
         public Input<bool>? LocalAuthenticationDisabled { get; set; }
 
@@ -974,15 +753,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("minimalTlsVersion")]
         public Input<string>? MinimalTlsVersion { get; set; }
 
-        /// <summary>
-        /// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-        /// </summary>
         [Input("mongoServerVersion")]
         public Input<string>? MongoServerVersion { get; set; }
 
-        /// <summary>
-        /// Enable multiple write locations for this Cosmos DB account.
-        /// </summary>
         [Input("multipleWriteLocationsEnabled")]
         public Input<bool>? MultipleWriteLocationsEnabled { get; set; }
 
@@ -992,18 +765,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// If Azure services can bypass ACLs. Defaults to `false`.
-        /// </summary>
         [Input("networkAclBypassForAzureServices")]
         public Input<bool>? NetworkAclBypassForAzureServices { get; set; }
 
         [Input("networkAclBypassIds")]
         private InputList<string>? _networkAclBypassIds;
-
-        /// <summary>
-        /// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
-        /// </summary>
         public InputList<string> NetworkAclBypassIds
         {
             get => _networkAclBypassIds ?? (_networkAclBypassIds = new InputList<string>());
@@ -1016,9 +782,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("offerType")]
         public Input<string>? OfferType { get; set; }
 
-        /// <summary>
-        /// Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
-        /// </summary>
         [Input("partitionMergeEnabled")]
         public Input<bool>? PartitionMergeEnabled { get; set; }
 
@@ -1118,9 +881,6 @@ namespace Pulumi.Azure.CosmosDB
             }
         }
 
-        /// <summary>
-        /// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
-        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -1142,11 +902,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
-        /// <summary>
-        /// A `restore` block as defined below.
-        /// 
-        /// &gt; **Note:** `restore` should be set when `create_mode` is `Restore`.
-        /// </summary>
         [Input("restore")]
         public Input<Inputs.AccountRestoreGetArgs>? Restore { get; set; }
 
@@ -1260,10 +1015,6 @@ namespace Pulumi.Azure.CosmosDB
 
         [Input("virtualNetworkRules")]
         private InputList<Inputs.AccountVirtualNetworkRuleGetArgs>? _virtualNetworkRules;
-
-        /// <summary>
-        /// Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
-        /// </summary>
         public InputList<Inputs.AccountVirtualNetworkRuleGetArgs> VirtualNetworkRules
         {
             get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<Inputs.AccountVirtualNetworkRuleGetArgs>());

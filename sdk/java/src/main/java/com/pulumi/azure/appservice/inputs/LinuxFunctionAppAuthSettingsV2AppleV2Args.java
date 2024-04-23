@@ -18,14 +18,14 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
     public static final LinuxFunctionAppAuthSettingsV2AppleV2Args Empty = new LinuxFunctionAppAuthSettingsV2AppleV2Args();
 
     /**
-     * The ID of the Client to use to authenticate with Azure Active Directory.
+     * The OpenID Connect Client ID for the Apple web application.
      * 
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The OpenID Connect Client ID for the Apple web application.
      * 
      */
     public Output<String> clientId() {
@@ -33,14 +33,18 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
     }
 
     /**
-     * The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * The app setting name that contains the `client_secret` value used for Apple Login.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName", required=true)
     private Output<String> clientSecretSettingName;
 
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The app setting name that contains the `client_secret` value used for Apple Login.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Output<String> clientSecretSettingName() {
@@ -48,14 +52,18 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
     }
 
     /**
-     * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * A list of Login Scopes provided by this Authentication Provider.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     @Import(name="loginScopes")
     private @Nullable Output<List<String>> loginScopes;
 
     /**
-     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * @return A list of Login Scopes provided by this Authentication Provider.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     public Optional<Output<List<String>>> loginScopes() {
@@ -89,7 +97,7 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The OpenID Connect Client ID for the Apple web application.
          * 
          * @return builder
          * 
@@ -100,7 +108,7 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The OpenID Connect Client ID for the Apple web application.
          * 
          * @return builder
          * 
@@ -110,7 +118,9 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
         }
 
         /**
-         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Apple Login.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -121,7 +131,9 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
         }
 
         /**
-         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Apple Login.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -131,7 +143,9 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
         }
 
         /**
-         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 
@@ -142,7 +156,9 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
         }
 
         /**
-         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 
@@ -152,7 +168,9 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
         }
 
         /**
-         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 

@@ -14,9 +14,6 @@ namespace Pulumi.Azure.Automation.Outputs
     public sealed class RunBookJobSchedule
     {
         public readonly string? JobScheduleId;
-        /// <summary>
-        /// A list of `parameters` block as defined below.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
         public readonly string? RunOn;
         public readonly string ScheduleName;

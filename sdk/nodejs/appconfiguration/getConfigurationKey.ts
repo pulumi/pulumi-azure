@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  * });
  * export const value = test.then(test => test.value);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getConfigurationKey(args: GetConfigurationKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationKeyResult> {
 
@@ -100,7 +98,6 @@ export interface GetConfigurationKeyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -112,7 +109,6 @@ export interface GetConfigurationKeyResult {
  * });
  * export const value = test.then(test => test.value);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getConfigurationKeyOutput(args: GetConfigurationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationKeyResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationKey(a, opts))

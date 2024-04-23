@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -51,7 +50,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -89,17 +87,8 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpnServerConfiguration.__pulumiType;
     }
 
-    /**
-     * A `azureActiveDirectoryAuthentication` block as defined below.
-     */
     public readonly azureActiveDirectoryAuthentications!: pulumi.Output<outputs.network.VpnServerConfigurationAzureActiveDirectoryAuthentication[] | undefined>;
-    /**
-     * One or more `clientRevokedCertificate` blocks as defined below.
-     */
     public readonly clientRevokedCertificates!: pulumi.Output<outputs.network.VpnServerConfigurationClientRevokedCertificate[] | undefined>;
-    /**
-     * One or more `clientRootCertificate` blocks as defined below.
-     */
     public readonly clientRootCertificates!: pulumi.Output<outputs.network.VpnServerConfigurationClientRootCertificate[] | undefined>;
     /**
      * A `ipsecPolicy` block as defined below.
@@ -113,9 +102,6 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
      * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * A `radius` block as defined below.
-     */
     public readonly radius!: pulumi.Output<outputs.network.VpnServerConfigurationRadius | undefined>;
     /**
      * The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
@@ -187,17 +173,8 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpnServerConfiguration resources.
  */
 export interface VpnServerConfigurationState {
-    /**
-     * A `azureActiveDirectoryAuthentication` block as defined below.
-     */
     azureActiveDirectoryAuthentications?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationAzureActiveDirectoryAuthentication>[]>;
-    /**
-     * One or more `clientRevokedCertificate` blocks as defined below.
-     */
     clientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationClientRevokedCertificate>[]>;
-    /**
-     * One or more `clientRootCertificate` blocks as defined below.
-     */
     clientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationClientRootCertificate>[]>;
     /**
      * A `ipsecPolicy` block as defined below.
@@ -211,9 +188,6 @@ export interface VpnServerConfigurationState {
      * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
-    /**
-     * A `radius` block as defined below.
-     */
     radius?: pulumi.Input<inputs.network.VpnServerConfigurationRadius>;
     /**
      * The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
@@ -237,17 +211,8 @@ export interface VpnServerConfigurationState {
  * The set of arguments for constructing a VpnServerConfiguration resource.
  */
 export interface VpnServerConfigurationArgs {
-    /**
-     * A `azureActiveDirectoryAuthentication` block as defined below.
-     */
     azureActiveDirectoryAuthentications?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationAzureActiveDirectoryAuthentication>[]>;
-    /**
-     * One or more `clientRevokedCertificate` blocks as defined below.
-     */
     clientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationClientRevokedCertificate>[]>;
-    /**
-     * One or more `clientRootCertificate` blocks as defined below.
-     */
     clientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationClientRootCertificate>[]>;
     /**
      * A `ipsecPolicy` block as defined below.
@@ -261,9 +226,6 @@ export interface VpnServerConfigurationArgs {
      * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
-    /**
-     * A `radius` block as defined below.
-     */
     radius?: pulumi.Input<inputs.network.VpnServerConfigurationRadius>;
     /**
      * The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.

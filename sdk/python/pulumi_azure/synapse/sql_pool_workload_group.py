@@ -299,7 +299,6 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -342,7 +341,6 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
             min_resource_percent_per_request=3,
             query_execution_timeout_in_seconds=0)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -374,7 +372,6 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -417,7 +414,6 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
             min_resource_percent_per_request=3,
             query_execution_timeout_in_seconds=0)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -18,20 +18,12 @@ public final class PolicyPolicySettingsLogScrubbingRule {
      * 
      */
     private @Nullable Boolean enabled;
-    /**
-     * @return The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
-     * 
-     */
     private String matchVariable;
     /**
-     * @return Describes field of the matchVariable collection.
+     * @return When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
      * 
      */
     private @Nullable String selector;
-    /**
-     * @return Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
-     * 
-     */
     private @Nullable String selectorMatchOperator;
 
     private PolicyPolicySettingsLogScrubbingRule() {}
@@ -42,24 +34,16 @@ public final class PolicyPolicySettingsLogScrubbingRule {
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
-     * 
-     */
     public String matchVariable() {
         return this.matchVariable;
     }
     /**
-     * @return Describes field of the matchVariable collection.
+     * @return When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
      * 
      */
     public Optional<String> selector() {
         return Optional.ofNullable(this.selector);
     }
-    /**
-     * @return Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
-     * 
-     */
     public Optional<String> selectorMatchOperator() {
         return Optional.ofNullable(this.selectorMatchOperator);
     }

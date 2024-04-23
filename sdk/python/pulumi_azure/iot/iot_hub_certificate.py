@@ -200,7 +200,6 @@ class IotHubCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -223,7 +222,6 @@ class IotHubCertificate(pulumi.CustomResource):
             iot_dps_name=example_iot_hub_dps.name,
             certificate_content=std.filebase64(input="example.cer").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -252,7 +250,6 @@ class IotHubCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -275,7 +272,6 @@ class IotHubCertificate(pulumi.CustomResource):
             iot_dps_name=example_iot_hub_dps.name,
             certificate_content=std.filebase64(input="example.cer").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  * export const elasticsearchEndpoint = example.then(example => example.elasticsearchServiceUrl);
  * export const kibanaEndpoint = example.then(example => example.kibanaServiceUrl);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getElasticsearch(args: GetElasticsearchArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticsearchResult> {
 
@@ -120,7 +118,6 @@ export interface GetElasticsearchResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -132,7 +129,6 @@ export interface GetElasticsearchResult {
  * export const elasticsearchEndpoint = example.then(example => example.elasticsearchServiceUrl);
  * export const kibanaEndpoint = example.then(example => example.kibanaServiceUrl);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getElasticsearchOutput(args: GetElasticsearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticsearchResult> {
     return pulumi.output(args).apply((a: any) => getElasticsearch(a, opts))

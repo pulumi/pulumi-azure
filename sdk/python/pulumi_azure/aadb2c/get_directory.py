@@ -142,7 +142,6 @@ def get_directory(domain_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -151,7 +150,6 @@ def get_directory(domain_name: Optional[str] = None,
         domain_name="exampleb2ctenant.onmicrosoft.com")
     pulumi.export("tenantId", example.tenant_id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str domain_name: Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix.
@@ -184,7 +182,6 @@ def get_directory_output(domain_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -193,7 +190,6 @@ def get_directory_output(domain_name: Optional[pulumi.Input[str]] = None,
         domain_name="exampleb2ctenant.onmicrosoft.com")
     pulumi.export("tenantId", example.tenant_id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str domain_name: Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix.

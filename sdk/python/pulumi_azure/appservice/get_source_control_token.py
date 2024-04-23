@@ -79,7 +79,6 @@ def get_source_control_token(type: Optional[str] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -87,7 +86,6 @@ def get_source_control_token(type: Optional[str] = None,
     example = azure.appservice.get_source_control_token(type="GitHub")
     pulumi.export("id", example_azurerm_app_service_github_token["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
@@ -110,7 +108,6 @@ def get_source_control_token_output(type: Optional[pulumi.Input[str]] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -118,7 +115,6 @@ def get_source_control_token_output(type: Optional[pulumi.Input[str]] = None,
     example = azure.appservice.get_source_control_token(type="GitHub")
     pulumi.export("id", example_azurerm_app_service_github_token["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.

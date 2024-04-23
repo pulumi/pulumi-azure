@@ -123,7 +123,6 @@ def get_log_profile(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -131,7 +130,6 @@ def get_log_profile(name: Optional[str] = None,
     example = azure.monitoring.get_log_profile(name="test-logprofile")
     pulumi.export("logProfileStorageAccountId", example.storage_account_id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the Name of the Log Profile.
@@ -161,7 +159,6 @@ def get_log_profile_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -169,7 +166,6 @@ def get_log_profile_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.monitoring.get_log_profile(name="test-logprofile")
     pulumi.export("logProfileStorageAccountId", example.storage_account_id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the Name of the Log Profile.

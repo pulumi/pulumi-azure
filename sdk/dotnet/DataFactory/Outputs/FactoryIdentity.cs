@@ -24,7 +24,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// Specifies the Tenant ID associated with the VSTS account.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>

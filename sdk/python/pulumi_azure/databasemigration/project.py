@@ -267,7 +267,6 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -299,7 +298,6 @@ class Project(pulumi.CustomResource):
             source_platform="SQL",
             target_platform="SQLDB")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -332,7 +330,6 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -364,7 +361,6 @@ class Project(pulumi.CustomResource):
             source_platform="SQL",
             target_platform="SQLDB")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -2969,7 +2969,7 @@ type ServerIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId *string `pulumi:"principalId"`
-	// The tenant id of the Azure AD Administrator of this SQL Server.
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
@@ -2995,7 +2995,7 @@ type ServerIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The tenant id of the Azure AD Administrator of this SQL Server.
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
@@ -3092,7 +3092,7 @@ func (o ServerIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the Azure AD Administrator of this SQL Server.
+// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
 func (o ServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -3150,7 +3150,7 @@ func (o ServerIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the Azure AD Administrator of this SQL Server.
+// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
 func (o ServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerIdentity) *string {
 		if v == nil {
@@ -5816,10 +5816,8 @@ func (o VirtualMachineStorageConfigurationPtrOutput) TempDbSettings() VirtualMac
 }
 
 type VirtualMachineStorageConfigurationDataSettings struct {
-	// The SQL Server default path
 	DefaultFilePath string `pulumi:"defaultFilePath"`
-	// A list of Logical Unit Numbers for the disks.
-	Luns []int `pulumi:"luns"`
+	Luns            []int  `pulumi:"luns"`
 }
 
 // VirtualMachineStorageConfigurationDataSettingsInput is an input type that accepts VirtualMachineStorageConfigurationDataSettingsArgs and VirtualMachineStorageConfigurationDataSettingsOutput values.
@@ -5834,10 +5832,8 @@ type VirtualMachineStorageConfigurationDataSettingsInput interface {
 }
 
 type VirtualMachineStorageConfigurationDataSettingsArgs struct {
-	// The SQL Server default path
-	DefaultFilePath pulumi.StringInput `pulumi:"defaultFilePath"`
-	// A list of Logical Unit Numbers for the disks.
-	Luns pulumi.IntArrayInput `pulumi:"luns"`
+	DefaultFilePath pulumi.StringInput   `pulumi:"defaultFilePath"`
+	Luns            pulumi.IntArrayInput `pulumi:"luns"`
 }
 
 func (VirtualMachineStorageConfigurationDataSettingsArgs) ElementType() reflect.Type {
@@ -5917,12 +5913,10 @@ func (o VirtualMachineStorageConfigurationDataSettingsOutput) ToVirtualMachineSt
 	}).(VirtualMachineStorageConfigurationDataSettingsPtrOutput)
 }
 
-// The SQL Server default path
 func (o VirtualMachineStorageConfigurationDataSettingsOutput) DefaultFilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineStorageConfigurationDataSettings) string { return v.DefaultFilePath }).(pulumi.StringOutput)
 }
 
-// A list of Logical Unit Numbers for the disks.
 func (o VirtualMachineStorageConfigurationDataSettingsOutput) Luns() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v VirtualMachineStorageConfigurationDataSettings) []int { return v.Luns }).(pulumi.IntArrayOutput)
 }
@@ -5951,7 +5945,6 @@ func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) Elem() VirtualM
 	}).(VirtualMachineStorageConfigurationDataSettingsOutput)
 }
 
-// The SQL Server default path
 func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) DefaultFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineStorageConfigurationDataSettings) *string {
 		if v == nil {
@@ -5961,7 +5954,6 @@ func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) DefaultFilePath
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of Logical Unit Numbers for the disks.
 func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) Luns() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *VirtualMachineStorageConfigurationDataSettings) []int {
 		if v == nil {
@@ -5972,10 +5964,8 @@ func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) Luns() pulumi.I
 }
 
 type VirtualMachineStorageConfigurationLogSettings struct {
-	// The SQL Server default path
 	DefaultFilePath string `pulumi:"defaultFilePath"`
-	// A list of Logical Unit Numbers for the disks.
-	Luns []int `pulumi:"luns"`
+	Luns            []int  `pulumi:"luns"`
 }
 
 // VirtualMachineStorageConfigurationLogSettingsInput is an input type that accepts VirtualMachineStorageConfigurationLogSettingsArgs and VirtualMachineStorageConfigurationLogSettingsOutput values.
@@ -5990,10 +5980,8 @@ type VirtualMachineStorageConfigurationLogSettingsInput interface {
 }
 
 type VirtualMachineStorageConfigurationLogSettingsArgs struct {
-	// The SQL Server default path
-	DefaultFilePath pulumi.StringInput `pulumi:"defaultFilePath"`
-	// A list of Logical Unit Numbers for the disks.
-	Luns pulumi.IntArrayInput `pulumi:"luns"`
+	DefaultFilePath pulumi.StringInput   `pulumi:"defaultFilePath"`
+	Luns            pulumi.IntArrayInput `pulumi:"luns"`
 }
 
 func (VirtualMachineStorageConfigurationLogSettingsArgs) ElementType() reflect.Type {
@@ -6073,12 +6061,10 @@ func (o VirtualMachineStorageConfigurationLogSettingsOutput) ToVirtualMachineSto
 	}).(VirtualMachineStorageConfigurationLogSettingsPtrOutput)
 }
 
-// The SQL Server default path
 func (o VirtualMachineStorageConfigurationLogSettingsOutput) DefaultFilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineStorageConfigurationLogSettings) string { return v.DefaultFilePath }).(pulumi.StringOutput)
 }
 
-// A list of Logical Unit Numbers for the disks.
 func (o VirtualMachineStorageConfigurationLogSettingsOutput) Luns() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v VirtualMachineStorageConfigurationLogSettings) []int { return v.Luns }).(pulumi.IntArrayOutput)
 }
@@ -6107,7 +6093,6 @@ func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) Elem() VirtualMa
 	}).(VirtualMachineStorageConfigurationLogSettingsOutput)
 }
 
-// The SQL Server default path
 func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) DefaultFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineStorageConfigurationLogSettings) *string {
 		if v == nil {
@@ -6117,7 +6102,6 @@ func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) DefaultFilePath(
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of Logical Unit Numbers for the disks.
 func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) Luns() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *VirtualMachineStorageConfigurationLogSettings) []int {
 		if v == nil {

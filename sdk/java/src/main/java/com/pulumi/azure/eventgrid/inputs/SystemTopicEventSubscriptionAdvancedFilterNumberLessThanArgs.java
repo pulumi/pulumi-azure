@@ -15,36 +15,16 @@ public final class SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs 
 
     public static final SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs Empty = new SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs();
 
-    /**
-     * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Specifies a single value to compare to when using a single value operator.
-     * 
-     * OR
-     * 
-     */
     @Import(name="value", required=true)
     private Output<Double> value;
 
-    /**
-     * @return Specifies a single value to compare to when using a single value operator.
-     * 
-     * OR
-     * 
-     */
     public Output<Double> value() {
         return this.value;
     }
@@ -74,48 +54,20 @@ public final class SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs 
             $ = new SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value Specifies a single value to compare to when using a single value operator.
-         * 
-         * OR
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<Double> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Specifies a single value to compare to when using a single value operator.
-         * 
-         * OR
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Double value) {
             return value(Output.of(value));
         }

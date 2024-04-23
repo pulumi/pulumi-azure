@@ -14,78 +14,28 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
-    /**
-     * @return The description which should be used for this rule.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return The destination IP address (including CIDR).
-     * 
-     */
     private @Nullable String destinationAddress;
-    /**
-     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-     * 
-     */
     private @Nullable String destinationPorts;
     /**
      * @return The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      * 
      */
     private String name;
-    /**
-     * @return One or more `protocols` blocks as defined below.
-     * 
-     */
     private List<String> protocols;
-    /**
-     * @return Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-     * 
-     */
     private @Nullable List<String> sourceAddresses;
-    /**
-     * @return Specifies a list of source IP groups.
-     * 
-     */
     private @Nullable List<String> sourceIpGroups;
-    /**
-     * @return Specifies the translated address.
-     * 
-     */
     private @Nullable String translatedAddress;
-    /**
-     * @return Specifies the translated FQDN.
-     * 
-     * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
-     * 
-     */
     private @Nullable String translatedFqdn;
-    /**
-     * @return Specifies the translated port.
-     * 
-     */
     private Integer translatedPort;
 
     private FirewallPolicyRuleCollectionGroupNatRuleCollectionRule() {}
-    /**
-     * @return The description which should be used for this rule.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return The destination IP address (including CIDR).
-     * 
-     */
     public Optional<String> destinationAddress() {
         return Optional.ofNullable(this.destinationAddress);
     }
-    /**
-     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-     * 
-     */
     public Optional<String> destinationPorts() {
         return Optional.ofNullable(this.destinationPorts);
     }
@@ -96,47 +46,21 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
     public String name() {
         return this.name;
     }
-    /**
-     * @return One or more `protocols` blocks as defined below.
-     * 
-     */
     public List<String> protocols() {
         return this.protocols;
     }
-    /**
-     * @return Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-     * 
-     */
     public List<String> sourceAddresses() {
         return this.sourceAddresses == null ? List.of() : this.sourceAddresses;
     }
-    /**
-     * @return Specifies a list of source IP groups.
-     * 
-     */
     public List<String> sourceIpGroups() {
         return this.sourceIpGroups == null ? List.of() : this.sourceIpGroups;
     }
-    /**
-     * @return Specifies the translated address.
-     * 
-     */
     public Optional<String> translatedAddress() {
         return Optional.ofNullable(this.translatedAddress);
     }
-    /**
-     * @return Specifies the translated FQDN.
-     * 
-     * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
-     * 
-     */
     public Optional<String> translatedFqdn() {
         return Optional.ofNullable(this.translatedFqdn);
     }
-    /**
-     * @return Specifies the translated port.
-     * 
-     */
     public Integer translatedPort() {
         return this.translatedPort;
     }

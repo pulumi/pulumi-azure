@@ -17,47 +17,23 @@ public final class ResourcePolicyAssignmentResourceSelectorSelectorArgs extends 
 
     public static final ResourcePolicyAssignmentResourceSelectorSelectorArgs Empty = new ResourcePolicyAssignmentResourceSelectorSelectorArgs();
 
-    /**
-     * Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
-     * 
-     */
     @Import(name="ins")
     private @Nullable Output<List<String>> ins;
 
-    /**
-     * @return Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
-     * 
-     */
     public Optional<Output<List<String>>> ins() {
         return Optional.ofNullable(this.ins);
     }
 
-    /**
-     * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-     * 
-     */
     @Import(name="kind", required=true)
     private Output<String> kind;
 
-    /**
-     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-     * 
-     */
     public Output<String> kind() {
         return this.kind;
     }
 
-    /**
-     * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-     * 
-     */
     @Import(name="notIns")
     private @Nullable Output<List<String>> notIns;
 
-    /**
-     * @return Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-     * 
-     */
     public Optional<Output<List<String>>> notIns() {
         return Optional.ofNullable(this.notIns);
     }
@@ -88,85 +64,37 @@ public final class ResourcePolicyAssignmentResourceSelectorSelectorArgs extends 
             $ = new ResourcePolicyAssignmentResourceSelectorSelectorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ins Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ins(@Nullable Output<List<String>> ins) {
             $.ins = ins;
             return this;
         }
 
-        /**
-         * @param ins Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ins(List<String> ins) {
             return ins(Output.of(ins));
         }
 
-        /**
-         * @param ins Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ins(String... ins) {
             return ins(List.of(ins));
         }
 
-        /**
-         * @param kind Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kind(Output<String> kind) {
             $.kind = kind;
             return this;
         }
 
-        /**
-         * @param kind Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kind(String kind) {
             return kind(Output.of(kind));
         }
 
-        /**
-         * @param notIns Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notIns(@Nullable Output<List<String>> notIns) {
             $.notIns = notIns;
             return this;
         }
 
-        /**
-         * @param notIns Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notIns(List<String> notIns) {
             return notIns(Output.of(notIns));
         }
 
-        /**
-         * @param notIns Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notIns(String... notIns) {
             return notIns(List.of(notIns));
         }

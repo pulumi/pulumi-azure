@@ -36,7 +36,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _loginScopes;
 
         /// <summary>
-        /// The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        /// The list of scopes that should be requested as part of Facebook Login authentication.
         /// </summary>
         public InputList<string> LoginScopes
         {

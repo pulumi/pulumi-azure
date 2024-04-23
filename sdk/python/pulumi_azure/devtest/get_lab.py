@@ -178,7 +178,6 @@ def get_lab(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -187,7 +186,6 @@ def get_lab(name: Optional[str] = None,
         resource_group_name="example-resources")
     pulumi.export("uniqueIdentifier", example.unique_identifier)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Dev Test Lab.
@@ -223,7 +221,6 @@ def get_lab_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -232,7 +229,6 @@ def get_lab_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="example-resources")
     pulumi.export("uniqueIdentifier", example.unique_identifier)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Dev Test Lab.

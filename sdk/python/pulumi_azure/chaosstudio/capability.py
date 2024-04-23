@@ -118,7 +118,6 @@ class Capability(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -147,7 +146,6 @@ class Capability(pulumi.CustomResource):
             capability_type="example-value",
             chaos_studio_target_id=example_target.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -179,7 +177,6 @@ class Capability(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -208,7 +205,6 @@ class Capability(pulumi.CustomResource):
             capability_type="example-value",
             chaos_studio_target_id=example_target.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -24,7 +24,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>

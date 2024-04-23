@@ -44,18 +44,8 @@ class SparkPoolArgs:
         :param pulumi.Input['SparkPoolAutoScaleArgs'] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[int] cache_size: The cache size in the Spark Pool.
         :param pulumi.Input[bool] compute_isolation_enabled: Indicates whether compute isolation is enabled or not. Defaults to `false`.
-        :param pulumi.Input[bool] dynamic_executor_allocation_enabled: Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-        :param pulumi.Input['SparkPoolLibraryRequirementArgs'] library_requirement: A `library_requirement` block as defined below.
-        :param pulumi.Input[int] max_executors: The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        :param pulumi.Input[int] min_executors: The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
-        :param pulumi.Input[bool] session_level_packages_enabled: Indicates whether session level packages are enabled or not. Defaults to `false`.
-        :param pulumi.Input['SparkPoolSparkConfigArgs'] spark_config: A `spark_config` block as defined below.
-        :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
-        :param pulumi.Input[str] spark_log_folder: The default folder where Spark logs will be written. Defaults to `/logs`.
-        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Spark Pool.
         """
         pulumi.set(__self__, "node_size", node_size)
         pulumi.set(__self__, "node_size_family", node_size_family)
@@ -180,9 +170,6 @@ class SparkPoolArgs:
     @property
     @pulumi.getter(name="dynamicExecutorAllocationEnabled")
     def dynamic_executor_allocation_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-        """
         return pulumi.get(self, "dynamic_executor_allocation_enabled")
 
     @dynamic_executor_allocation_enabled.setter
@@ -192,9 +179,6 @@ class SparkPoolArgs:
     @property
     @pulumi.getter(name="libraryRequirement")
     def library_requirement(self) -> Optional[pulumi.Input['SparkPoolLibraryRequirementArgs']]:
-        """
-        A `library_requirement` block as defined below.
-        """
         return pulumi.get(self, "library_requirement")
 
     @library_requirement.setter
@@ -204,9 +188,6 @@ class SparkPoolArgs:
     @property
     @pulumi.getter(name="maxExecutors")
     def max_executors(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        """
         return pulumi.get(self, "max_executors")
 
     @max_executors.setter
@@ -216,9 +197,6 @@ class SparkPoolArgs:
     @property
     @pulumi.getter(name="minExecutors")
     def min_executors(self) -> Optional[pulumi.Input[int]]:
-        """
-        The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        """
         return pulumi.get(self, "min_executors")
 
     @min_executors.setter
@@ -252,9 +230,6 @@ class SparkPoolArgs:
     @property
     @pulumi.getter(name="sessionLevelPackagesEnabled")
     def session_level_packages_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether session level packages are enabled or not. Defaults to `false`.
-        """
         return pulumi.get(self, "session_level_packages_enabled")
 
     @session_level_packages_enabled.setter
@@ -264,9 +239,6 @@ class SparkPoolArgs:
     @property
     @pulumi.getter(name="sparkConfig")
     def spark_config(self) -> Optional[pulumi.Input['SparkPoolSparkConfigArgs']]:
-        """
-        A `spark_config` block as defined below.
-        """
         return pulumi.get(self, "spark_config")
 
     @spark_config.setter
@@ -276,9 +248,6 @@ class SparkPoolArgs:
     @property
     @pulumi.getter(name="sparkEventsFolder")
     def spark_events_folder(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Spark events folder. Defaults to `/events`.
-        """
         return pulumi.get(self, "spark_events_folder")
 
     @spark_events_folder.setter
@@ -288,9 +257,6 @@ class SparkPoolArgs:
     @property
     @pulumi.getter(name="sparkLogFolder")
     def spark_log_folder(self) -> Optional[pulumi.Input[str]]:
-        """
-        The default folder where Spark logs will be written. Defaults to `/logs`.
-        """
         return pulumi.get(self, "spark_log_folder")
 
     @spark_log_folder.setter
@@ -300,9 +266,6 @@ class SparkPoolArgs:
     @property
     @pulumi.getter(name="sparkVersion")
     def spark_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-        """
         return pulumi.get(self, "spark_version")
 
     @spark_version.setter
@@ -312,9 +275,6 @@ class SparkPoolArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags which should be assigned to the Synapse Spark Pool.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -350,21 +310,11 @@ class _SparkPoolState:
         :param pulumi.Input['SparkPoolAutoScaleArgs'] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[int] cache_size: The cache size in the Spark Pool.
         :param pulumi.Input[bool] compute_isolation_enabled: Indicates whether compute isolation is enabled or not. Defaults to `false`.
-        :param pulumi.Input[bool] dynamic_executor_allocation_enabled: Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-        :param pulumi.Input['SparkPoolLibraryRequirementArgs'] library_requirement: A `library_requirement` block as defined below.
-        :param pulumi.Input[int] max_executors: The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        :param pulumi.Input[int] min_executors: The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
         :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
-        :param pulumi.Input[bool] session_level_packages_enabled: Indicates whether session level packages are enabled or not. Defaults to `false`.
-        :param pulumi.Input['SparkPoolSparkConfigArgs'] spark_config: A `spark_config` block as defined below.
-        :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
-        :param pulumi.Input[str] spark_log_folder: The default folder where Spark logs will be written. Defaults to `/logs`.
-        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Spark Pool.
         """
         if auto_pause is not None:
             pulumi.set(__self__, "auto_pause", auto_pause)
@@ -456,9 +406,6 @@ class _SparkPoolState:
     @property
     @pulumi.getter(name="dynamicExecutorAllocationEnabled")
     def dynamic_executor_allocation_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-        """
         return pulumi.get(self, "dynamic_executor_allocation_enabled")
 
     @dynamic_executor_allocation_enabled.setter
@@ -468,9 +415,6 @@ class _SparkPoolState:
     @property
     @pulumi.getter(name="libraryRequirement")
     def library_requirement(self) -> Optional[pulumi.Input['SparkPoolLibraryRequirementArgs']]:
-        """
-        A `library_requirement` block as defined below.
-        """
         return pulumi.get(self, "library_requirement")
 
     @library_requirement.setter
@@ -480,9 +424,6 @@ class _SparkPoolState:
     @property
     @pulumi.getter(name="maxExecutors")
     def max_executors(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        """
         return pulumi.get(self, "max_executors")
 
     @max_executors.setter
@@ -492,9 +433,6 @@ class _SparkPoolState:
     @property
     @pulumi.getter(name="minExecutors")
     def min_executors(self) -> Optional[pulumi.Input[int]]:
-        """
-        The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        """
         return pulumi.get(self, "min_executors")
 
     @min_executors.setter
@@ -552,9 +490,6 @@ class _SparkPoolState:
     @property
     @pulumi.getter(name="sessionLevelPackagesEnabled")
     def session_level_packages_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether session level packages are enabled or not. Defaults to `false`.
-        """
         return pulumi.get(self, "session_level_packages_enabled")
 
     @session_level_packages_enabled.setter
@@ -564,9 +499,6 @@ class _SparkPoolState:
     @property
     @pulumi.getter(name="sparkConfig")
     def spark_config(self) -> Optional[pulumi.Input['SparkPoolSparkConfigArgs']]:
-        """
-        A `spark_config` block as defined below.
-        """
         return pulumi.get(self, "spark_config")
 
     @spark_config.setter
@@ -576,9 +508,6 @@ class _SparkPoolState:
     @property
     @pulumi.getter(name="sparkEventsFolder")
     def spark_events_folder(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Spark events folder. Defaults to `/events`.
-        """
         return pulumi.get(self, "spark_events_folder")
 
     @spark_events_folder.setter
@@ -588,9 +517,6 @@ class _SparkPoolState:
     @property
     @pulumi.getter(name="sparkLogFolder")
     def spark_log_folder(self) -> Optional[pulumi.Input[str]]:
-        """
-        The default folder where Spark logs will be written. Defaults to `/logs`.
-        """
         return pulumi.get(self, "spark_log_folder")
 
     @spark_log_folder.setter
@@ -600,9 +526,6 @@ class _SparkPoolState:
     @property
     @pulumi.getter(name="sparkVersion")
     def spark_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-        """
         return pulumi.get(self, "spark_version")
 
     @spark_version.setter
@@ -624,9 +547,6 @@ class _SparkPoolState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags which should be assigned to the Synapse Spark Pool.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -664,7 +584,6 @@ class SparkPool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -720,7 +639,6 @@ class SparkPool(pulumi.CustomResource):
                 "ENV": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -736,21 +654,11 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[int] cache_size: The cache size in the Spark Pool.
         :param pulumi.Input[bool] compute_isolation_enabled: Indicates whether compute isolation is enabled or not. Defaults to `false`.
-        :param pulumi.Input[bool] dynamic_executor_allocation_enabled: Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']] library_requirement: A `library_requirement` block as defined below.
-        :param pulumi.Input[int] max_executors: The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        :param pulumi.Input[int] min_executors: The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
         :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
-        :param pulumi.Input[bool] session_level_packages_enabled: Indicates whether session level packages are enabled or not. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['SparkPoolSparkConfigArgs']] spark_config: A `spark_config` block as defined below.
-        :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
-        :param pulumi.Input[str] spark_log_folder: The default folder where Spark logs will be written. Defaults to `/logs`.
-        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Spark Pool.
         """
         ...
     @overload
@@ -763,7 +671,6 @@ class SparkPool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -819,7 +726,6 @@ class SparkPool(pulumi.CustomResource):
                 "ENV": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -937,21 +843,11 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[int] cache_size: The cache size in the Spark Pool.
         :param pulumi.Input[bool] compute_isolation_enabled: Indicates whether compute isolation is enabled or not. Defaults to `false`.
-        :param pulumi.Input[bool] dynamic_executor_allocation_enabled: Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']] library_requirement: A `library_requirement` block as defined below.
-        :param pulumi.Input[int] max_executors: The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        :param pulumi.Input[int] min_executors: The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
         :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
-        :param pulumi.Input[bool] session_level_packages_enabled: Indicates whether session level packages are enabled or not. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['SparkPoolSparkConfigArgs']] spark_config: A `spark_config` block as defined below.
-        :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
-        :param pulumi.Input[str] spark_log_folder: The default folder where Spark logs will be written. Defaults to `/logs`.
-        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Spark Pool.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1013,33 +909,21 @@ class SparkPool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dynamicExecutorAllocationEnabled")
     def dynamic_executor_allocation_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-        """
         return pulumi.get(self, "dynamic_executor_allocation_enabled")
 
     @property
     @pulumi.getter(name="libraryRequirement")
     def library_requirement(self) -> pulumi.Output[Optional['outputs.SparkPoolLibraryRequirement']]:
-        """
-        A `library_requirement` block as defined below.
-        """
         return pulumi.get(self, "library_requirement")
 
     @property
     @pulumi.getter(name="maxExecutors")
     def max_executors(self) -> pulumi.Output[Optional[int]]:
-        """
-        The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        """
         return pulumi.get(self, "max_executors")
 
     @property
     @pulumi.getter(name="minExecutors")
     def min_executors(self) -> pulumi.Output[Optional[int]]:
-        """
-        The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        """
         return pulumi.get(self, "min_executors")
 
     @property
@@ -1077,41 +961,26 @@ class SparkPool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sessionLevelPackagesEnabled")
     def session_level_packages_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether session level packages are enabled or not. Defaults to `false`.
-        """
         return pulumi.get(self, "session_level_packages_enabled")
 
     @property
     @pulumi.getter(name="sparkConfig")
     def spark_config(self) -> pulumi.Output[Optional['outputs.SparkPoolSparkConfig']]:
-        """
-        A `spark_config` block as defined below.
-        """
         return pulumi.get(self, "spark_config")
 
     @property
     @pulumi.getter(name="sparkEventsFolder")
     def spark_events_folder(self) -> pulumi.Output[Optional[str]]:
-        """
-        The Spark events folder. Defaults to `/events`.
-        """
         return pulumi.get(self, "spark_events_folder")
 
     @property
     @pulumi.getter(name="sparkLogFolder")
     def spark_log_folder(self) -> pulumi.Output[Optional[str]]:
-        """
-        The default folder where Spark logs will be written. Defaults to `/logs`.
-        """
         return pulumi.get(self, "spark_log_folder")
 
     @property
     @pulumi.getter(name="sparkVersion")
     def spark_version(self) -> pulumi.Output[Optional[str]]:
-        """
-        The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-        """
         return pulumi.get(self, "spark_version")
 
     @property
@@ -1125,8 +994,5 @@ class SparkPool(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A mapping of tags which should be assigned to the Synapse Spark Pool.
-        """
         return pulumi.get(self, "tags")
 

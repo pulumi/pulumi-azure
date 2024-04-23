@@ -242,7 +242,6 @@ class Volume(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -267,11 +266,9 @@ class Volume(pulumi.CustomResource):
             size_in_gib=1)
         pulumi.export("targetIqn", example_volume.target_iqn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example of creating an Elastic SAN Volume from a Disk Snapshot
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -312,7 +309,6 @@ class Volume(pulumi.CustomResource):
                 source_id=example_snapshot.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -342,7 +338,6 @@ class Volume(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -367,11 +362,9 @@ class Volume(pulumi.CustomResource):
             size_in_gib=1)
         pulumi.export("targetIqn", example_volume.target_iqn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example of creating an Elastic SAN Volume from a Disk Snapshot
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -412,7 +405,6 @@ class Volume(pulumi.CustomResource):
                 source_id=example_snapshot.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

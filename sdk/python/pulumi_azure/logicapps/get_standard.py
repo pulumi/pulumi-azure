@@ -296,7 +296,6 @@ def get_standard(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -305,7 +304,6 @@ def get_standard(name: Optional[str] = None,
         resource_group_name="example-rg")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Logic App.
@@ -360,7 +358,6 @@ def get_standard_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -369,7 +366,6 @@ def get_standard_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="example-rg")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Logic App.

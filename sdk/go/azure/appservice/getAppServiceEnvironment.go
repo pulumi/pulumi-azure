@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetAppServiceEnvironment(ctx *pulumi.Context, args *GetAppServiceEnvironmentArgs, opts ...pulumi.InvokeOption) (*GetAppServiceEnvironmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAppServiceEnvironmentResult

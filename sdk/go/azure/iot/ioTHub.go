@@ -26,7 +26,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -175,7 +174,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -187,11 +185,9 @@ import (
 type IoTHub struct {
 	pulumi.CustomResourceState
 
-	// A `cloudToDevice` block as defined below.
 	CloudToDevice IoTHubCloudToDeviceOutput `pulumi:"cloudToDevice"`
 	// An `endpoint` block as defined below.
-	Endpoints IoTHubEndpointArrayOutput `pulumi:"endpoints"`
-	// A `enrichment` block as defined below.
+	Endpoints   IoTHubEndpointArrayOutput   `pulumi:"endpoints"`
 	Enrichments IoTHubEnrichmentArrayOutput `pulumi:"enrichments"`
 	// The EventHub compatible endpoint for events data
 	EventHubEventsEndpoint pulumi.StringOutput `pulumi:"eventHubEventsEndpoint"`
@@ -220,27 +216,22 @@ type IoTHub struct {
 	// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+	Location      pulumi.StringOutput    `pulumi:"location"`
 	MinTlsVersion pulumi.StringPtrOutput `pulumi:"minTlsVersion"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkRuleSet` block as defined below.
-	NetworkRuleSets IoTHubNetworkRuleSetArrayOutput `pulumi:"networkRuleSets"`
-	// Is the IotHub resource accessible from a public network?
-	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
+	NetworkRuleSets            IoTHubNetworkRuleSetArrayOutput `pulumi:"networkRuleSets"`
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput            `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A `route` block as defined below.
-	Routes IoTHubRouteArrayOutput `pulumi:"routes"`
+	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
+	Routes            IoTHubRouteArrayOutput `pulumi:"routes"`
 	// One or more `sharedAccessPolicy` blocks as defined below.
 	SharedAccessPolicies IoTHubSharedAccessPolicyArrayOutput `pulumi:"sharedAccessPolicies"`
 	// A `sku` block as defined below.
-	Sku IoTHubSkuOutput `pulumi:"sku"`
-	// A mapping of tags to assign to the resource.
+	Sku  IoTHubSkuOutput        `pulumi:"sku"`
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewIoTHub registers a new resource with the given unique name, arguments, and options.
@@ -279,11 +270,9 @@ func GetIoTHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IoTHub resources.
 type ioTHubState struct {
-	// A `cloudToDevice` block as defined below.
 	CloudToDevice *IoTHubCloudToDevice `pulumi:"cloudToDevice"`
 	// An `endpoint` block as defined below.
-	Endpoints []IoTHubEndpoint `pulumi:"endpoints"`
-	// A `enrichment` block as defined below.
+	Endpoints   []IoTHubEndpoint   `pulumi:"endpoints"`
 	Enrichments []IoTHubEnrichment `pulumi:"enrichments"`
 	// The EventHub compatible endpoint for events data
 	EventHubEventsEndpoint *string `pulumi:"eventHubEventsEndpoint"`
@@ -312,35 +301,28 @@ type ioTHubState struct {
 	// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-	Location *string `pulumi:"location"`
-	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+	Location      *string `pulumi:"location"`
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkRuleSet` block as defined below.
-	NetworkRuleSets []IoTHubNetworkRuleSet `pulumi:"networkRuleSets"`
-	// Is the IotHub resource accessible from a public network?
-	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
+	NetworkRuleSets            []IoTHubNetworkRuleSet `pulumi:"networkRuleSets"`
+	PublicNetworkAccessEnabled *bool                  `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A `route` block as defined below.
-	Routes []IoTHubRoute `pulumi:"routes"`
+	ResourceGroupName *string       `pulumi:"resourceGroupName"`
+	Routes            []IoTHubRoute `pulumi:"routes"`
 	// One or more `sharedAccessPolicy` blocks as defined below.
 	SharedAccessPolicies []IoTHubSharedAccessPolicy `pulumi:"sharedAccessPolicies"`
 	// A `sku` block as defined below.
-	Sku *IoTHubSku `pulumi:"sku"`
-	// A mapping of tags to assign to the resource.
+	Sku  *IoTHubSku        `pulumi:"sku"`
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
-	Type *string `pulumi:"type"`
+	Type *string           `pulumi:"type"`
 }
 
 type IoTHubState struct {
-	// A `cloudToDevice` block as defined below.
 	CloudToDevice IoTHubCloudToDevicePtrInput
 	// An `endpoint` block as defined below.
-	Endpoints IoTHubEndpointArrayInput
-	// A `enrichment` block as defined below.
+	Endpoints   IoTHubEndpointArrayInput
 	Enrichments IoTHubEnrichmentArrayInput
 	// The EventHub compatible endpoint for events data
 	EventHubEventsEndpoint pulumi.StringPtrInput
@@ -369,26 +351,21 @@ type IoTHubState struct {
 	// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-	Location pulumi.StringPtrInput
-	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+	Location      pulumi.StringPtrInput
 	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkRuleSet` block as defined below.
-	NetworkRuleSets IoTHubNetworkRuleSetArrayInput
-	// Is the IotHub resource accessible from a public network?
+	NetworkRuleSets            IoTHubNetworkRuleSetArrayInput
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A `route` block as defined below.
-	Routes IoTHubRouteArrayInput
+	Routes            IoTHubRouteArrayInput
 	// One or more `sharedAccessPolicy` blocks as defined below.
 	SharedAccessPolicies IoTHubSharedAccessPolicyArrayInput
 	// A `sku` block as defined below.
-	Sku IoTHubSkuPtrInput
-	// A mapping of tags to assign to the resource.
+	Sku  IoTHubSkuPtrInput
 	Tags pulumi.StringMapInput
-	// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 	Type pulumi.StringPtrInput
 }
 
@@ -397,11 +374,9 @@ func (IoTHubState) ElementType() reflect.Type {
 }
 
 type ioTHubArgs struct {
-	// A `cloudToDevice` block as defined below.
 	CloudToDevice *IoTHubCloudToDevice `pulumi:"cloudToDevice"`
 	// An `endpoint` block as defined below.
-	Endpoints []IoTHubEndpoint `pulumi:"endpoints"`
-	// A `enrichment` block as defined below.
+	Endpoints   []IoTHubEndpoint   `pulumi:"endpoints"`
 	Enrichments []IoTHubEnrichment `pulumi:"enrichments"`
 	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
 	EventHubPartitionCount *int `pulumi:"eventHubPartitionCount"`
@@ -418,32 +393,26 @@ type ioTHubArgs struct {
 	// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-	Location *string `pulumi:"location"`
-	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+	Location      *string `pulumi:"location"`
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkRuleSet` block as defined below.
-	NetworkRuleSets []IoTHubNetworkRuleSet `pulumi:"networkRuleSets"`
-	// Is the IotHub resource accessible from a public network?
-	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
+	NetworkRuleSets            []IoTHubNetworkRuleSet `pulumi:"networkRuleSets"`
+	PublicNetworkAccessEnabled *bool                  `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `route` block as defined below.
-	Routes []IoTHubRoute `pulumi:"routes"`
+	ResourceGroupName string        `pulumi:"resourceGroupName"`
+	Routes            []IoTHubRoute `pulumi:"routes"`
 	// A `sku` block as defined below.
-	Sku IoTHubSku `pulumi:"sku"`
-	// A mapping of tags to assign to the resource.
+	Sku  IoTHubSku         `pulumi:"sku"`
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IoTHub resource.
 type IoTHubArgs struct {
-	// A `cloudToDevice` block as defined below.
 	CloudToDevice IoTHubCloudToDevicePtrInput
 	// An `endpoint` block as defined below.
-	Endpoints IoTHubEndpointArrayInput
-	// A `enrichment` block as defined below.
+	Endpoints   IoTHubEndpointArrayInput
 	Enrichments IoTHubEnrichmentArrayInput
 	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
 	EventHubPartitionCount pulumi.IntPtrInput
@@ -460,22 +429,18 @@ type IoTHubArgs struct {
 	// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-	Location pulumi.StringPtrInput
-	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+	Location      pulumi.StringPtrInput
 	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkRuleSet` block as defined below.
-	NetworkRuleSets IoTHubNetworkRuleSetArrayInput
-	// Is the IotHub resource accessible from a public network?
+	NetworkRuleSets            IoTHubNetworkRuleSetArrayInput
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A `route` block as defined below.
-	Routes IoTHubRouteArrayInput
+	Routes            IoTHubRouteArrayInput
 	// A `sku` block as defined below.
-	Sku IoTHubSkuInput
-	// A mapping of tags to assign to the resource.
+	Sku  IoTHubSkuInput
 	Tags pulumi.StringMapInput
 }
 
@@ -566,7 +531,6 @@ func (o IoTHubOutput) ToIoTHubOutputWithContext(ctx context.Context) IoTHubOutpu
 	return o
 }
 
-// A `cloudToDevice` block as defined below.
 func (o IoTHubOutput) CloudToDevice() IoTHubCloudToDeviceOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubCloudToDeviceOutput { return v.CloudToDevice }).(IoTHubCloudToDeviceOutput)
 }
@@ -576,7 +540,6 @@ func (o IoTHubOutput) Endpoints() IoTHubEndpointArrayOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubEndpointArrayOutput { return v.Endpoints }).(IoTHubEndpointArrayOutput)
 }
 
-// A `enrichment` block as defined below.
 func (o IoTHubOutput) Enrichments() IoTHubEnrichmentArrayOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubEnrichmentArrayOutput { return v.Enrichments }).(IoTHubEnrichmentArrayOutput)
 }
@@ -648,7 +611,6 @@ func (o IoTHubOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *IoTHub) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
 func (o IoTHubOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHub) pulumi.StringPtrOutput { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -663,7 +625,6 @@ func (o IoTHubOutput) NetworkRuleSets() IoTHubNetworkRuleSetArrayOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubNetworkRuleSetArrayOutput { return v.NetworkRuleSets }).(IoTHubNetworkRuleSetArrayOutput)
 }
 
-// Is the IotHub resource accessible from a public network?
 func (o IoTHubOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IoTHub) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -673,7 +634,6 @@ func (o IoTHubOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IoTHub) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A `route` block as defined below.
 func (o IoTHubOutput) Routes() IoTHubRouteArrayOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubRouteArrayOutput { return v.Routes }).(IoTHubRouteArrayOutput)
 }
@@ -688,12 +648,10 @@ func (o IoTHubOutput) Sku() IoTHubSkuOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubSkuOutput { return v.Sku }).(IoTHubSkuOutput)
 }
 
-// A mapping of tags to assign to the resource.
 func (o IoTHubOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IoTHub) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 func (o IoTHubOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *IoTHub) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

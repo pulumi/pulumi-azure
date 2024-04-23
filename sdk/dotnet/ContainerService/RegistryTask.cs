@@ -14,7 +14,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -59,7 +58,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -134,9 +132,6 @@ namespace Pulumi.Azure.ContainerService
         [Output("isSystemTask")]
         public Output<bool?> IsSystemTask { get; private set; } = null!;
 
-        /// <summary>
-        /// The template that describes the run log artifact.
-        /// </summary>
         [Output("logTemplate")]
         public Output<string?> LogTemplate { get; private set; } = null!;
 
@@ -154,9 +149,6 @@ namespace Pulumi.Azure.ContainerService
         [Output("platform")]
         public Output<Outputs.RegistryTaskPlatform?> Platform { get; private set; } = null!;
 
-        /// <summary>
-        /// One `registry_credential` block as defined below.
-        /// </summary>
         [Output("registryCredential")]
         public Output<Outputs.RegistryTaskRegistryCredential?> RegistryCredential { get; private set; } = null!;
 
@@ -166,15 +158,9 @@ namespace Pulumi.Azure.ContainerService
         [Output("sourceTriggers")]
         public Output<ImmutableArray<Outputs.RegistryTaskSourceTrigger>> SourceTriggers { get; private set; } = null!;
 
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Container Registry Task.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-        /// </summary>
         [Output("timeoutInSeconds")]
         public Output<int?> TimeoutInSeconds { get; private set; } = null!;
 
@@ -292,9 +278,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("isSystemTask")]
         public Input<bool>? IsSystemTask { get; set; }
 
-        /// <summary>
-        /// The template that describes the run log artifact.
-        /// </summary>
         [Input("logTemplate")]
         public Input<string>? LogTemplate { get; set; }
 
@@ -312,9 +295,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("platform")]
         public Input<Inputs.RegistryTaskPlatformArgs>? Platform { get; set; }
 
-        /// <summary>
-        /// One `registry_credential` block as defined below.
-        /// </summary>
         [Input("registryCredential")]
         public Input<Inputs.RegistryTaskRegistryCredentialArgs>? RegistryCredential { get; set; }
 
@@ -332,19 +312,12 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Container Registry Task.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-        /// </summary>
         [Input("timeoutInSeconds")]
         public Input<int>? TimeoutInSeconds { get; set; }
 
@@ -430,9 +403,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("isSystemTask")]
         public Input<bool>? IsSystemTask { get; set; }
 
-        /// <summary>
-        /// The template that describes the run log artifact.
-        /// </summary>
         [Input("logTemplate")]
         public Input<string>? LogTemplate { get; set; }
 
@@ -450,9 +420,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("platform")]
         public Input<Inputs.RegistryTaskPlatformGetArgs>? Platform { get; set; }
 
-        /// <summary>
-        /// One `registry_credential` block as defined below.
-        /// </summary>
         [Input("registryCredential")]
         public Input<Inputs.RegistryTaskRegistryCredentialGetArgs>? RegistryCredential { get; set; }
 
@@ -470,19 +437,12 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Container Registry Task.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-        /// </summary>
         [Input("timeoutInSeconds")]
         public Input<int>? TimeoutInSeconds { get; set; }
 

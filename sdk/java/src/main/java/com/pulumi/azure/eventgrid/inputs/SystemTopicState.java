@@ -107,17 +107,9 @@ public final class SystemTopicState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.sourceArmResourceId);
     }
 
-    /**
-     * A mapping of tags which should be assigned to the Event Grid System Topic.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags which should be assigned to the Event Grid System Topic.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -302,23 +294,11 @@ public final class SystemTopicState extends com.pulumi.resources.ResourceArgs {
             return sourceArmResourceId(Output.of(sourceArmResourceId));
         }
 
-        /**
-         * @param tags A mapping of tags which should be assigned to the Event Grid System Topic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A mapping of tags which should be assigned to the Event Grid System Topic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

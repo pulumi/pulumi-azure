@@ -20,7 +20,6 @@ import (
 //
 // This example provisions a Standard Redis Cache.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,7 +60,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Relevant Links
 //

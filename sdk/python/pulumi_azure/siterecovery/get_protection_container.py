@@ -90,7 +90,6 @@ def get_protection_container(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -100,7 +99,6 @@ def get_protection_container(name: Optional[str] = None,
         resource_group_name="tfex-resource_group",
         recovery_fabric_name="primary-fabric")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the protection container.
@@ -135,7 +133,6 @@ def get_protection_container_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -145,7 +142,6 @@ def get_protection_container_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="tfex-resource_group",
         recovery_fabric_name="primary-fabric")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the protection container.

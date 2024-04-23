@@ -384,7 +384,6 @@ class Endpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -445,11 +444,9 @@ class Endpoint(pulumi.CustomResource):
                 is_manual_connection=False,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Using a Private Link Service Alias with existing resources:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -472,11 +469,9 @@ class Endpoint(pulumi.CustomResource):
                 request_message="PL",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -524,7 +519,6 @@ class Endpoint(pulumi.CustomResource):
             private_dns_zone_name=example_zone.name,
             virtual_network_id=example_virtual_network.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example HCL Configurations
 
@@ -569,7 +563,6 @@ class Endpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -630,11 +623,9 @@ class Endpoint(pulumi.CustomResource):
                 is_manual_connection=False,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Using a Private Link Service Alias with existing resources:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -657,11 +648,9 @@ class Endpoint(pulumi.CustomResource):
                 request_message="PL",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -709,7 +698,6 @@ class Endpoint(pulumi.CustomResource):
             private_dns_zone_name=example_zone.name,
             virtual_network_id=example_virtual_network.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example HCL Configurations
 

@@ -280,7 +280,6 @@ class AnalyticsItem(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -300,7 +299,6 @@ class AnalyticsItem(pulumi.CustomResource):
             scope="shared",
             type="query")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -334,7 +332,6 @@ class AnalyticsItem(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -354,7 +351,6 @@ class AnalyticsItem(pulumi.CustomResource):
             scope="shared",
             type="query")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

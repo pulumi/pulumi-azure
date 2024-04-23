@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupBlob(ctx *pulumi.Context, args *LookupBlobArgs, opts ...pulumi.InvokeOption) (*LookupBlobResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBlobResult

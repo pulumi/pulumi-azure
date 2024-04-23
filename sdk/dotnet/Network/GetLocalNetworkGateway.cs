@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Network
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLocalNetworkGatewayResult> InvokeAsync(GetLocalNetworkGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalNetworkGatewayResult>("azure:network/getLocalNetworkGateway:getLocalNetworkGateway", args ?? new GetLocalNetworkGatewayArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Azure.Network
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLocalNetworkGatewayResult> Invoke(GetLocalNetworkGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalNetworkGatewayResult>("azure:network/getLocalNetworkGateway:getLocalNetworkGateway", args ?? new GetLocalNetworkGatewayInvokeArgs(), options.WithDefaults());

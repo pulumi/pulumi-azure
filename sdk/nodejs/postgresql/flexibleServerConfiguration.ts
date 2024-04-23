@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -36,11 +35,9 @@ import * as utilities from "../utilities";
  *     value: "on",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Azure Extensions
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -65,7 +62,6 @@ import * as utilities from "../utilities";
  *     value: "CUBE,CITEXT,BTREE_GIST",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -103,7 +103,6 @@ def get_shared_image_versions(gallery_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -112,7 +111,6 @@ def get_shared_image_versions(gallery_name: Optional[str] = None,
         gallery_name="my-image-gallery",
         resource_group_name="example-resources")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str gallery_name: The name of the Shared Image in which the Shared Image exists.
@@ -148,7 +146,6 @@ def get_shared_image_versions_output(gallery_name: Optional[pulumi.Input[str]] =
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -157,7 +154,6 @@ def get_shared_image_versions_output(gallery_name: Optional[pulumi.Input[str]] =
         gallery_name="my-image-gallery",
         resource_group_name="example-resources")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str gallery_name: The name of the Shared Image in which the Shared Image exists.

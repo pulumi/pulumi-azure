@@ -16,7 +16,6 @@ namespace Pulumi.Azure.PrivateLink
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Azure.PrivateLink
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServiceEndpointConnectionsResult> InvokeAsync(GetServiceEndpointConnectionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointConnectionsResult>("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args ?? new GetServiceEndpointConnectionsArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Azure.PrivateLink
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Azure.PrivateLink
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServiceEndpointConnectionsResult> Invoke(GetServiceEndpointConnectionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceEndpointConnectionsResult>("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args ?? new GetServiceEndpointConnectionsInvokeArgs(), options.WithDefaults());

@@ -35,16 +35,12 @@ public final class RegistryEncryptionArgs extends com.pulumi.resources.ResourceA
     /**
      * The client ID of the managed identity associated with the encryption key.
      * 
-     * &gt; **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identity_ids`
-     * 
      */
     @Import(name="identityClientId", required=true)
     private Output<String> identityClientId;
 
     /**
      * @return The client ID of the managed identity associated with the encryption key.
-     * 
-     * &gt; **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identity_ids`
      * 
      */
     public Output<String> identityClientId() {
@@ -116,8 +112,6 @@ public final class RegistryEncryptionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param identityClientId The client ID of the managed identity associated with the encryption key.
          * 
-         * &gt; **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identity_ids`
-         * 
          * @return builder
          * 
          */
@@ -128,8 +122,6 @@ public final class RegistryEncryptionArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param identityClientId The client ID of the managed identity associated with the encryption key.
-         * 
-         * &gt; **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identity_ids`
          * 
          * @return builder
          * 

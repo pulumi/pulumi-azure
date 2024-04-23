@@ -18,27 +18,15 @@ namespace Pulumi.Azure.HDInsight.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Indicates whether this IP configuration is primary.
-        /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
 
-        /// <summary>
-        /// The private ip address of the endpoint.
-        /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
-        /// <summary>
-        /// The private IP allocation method. The only possible value now is `Dynamic`.
-        /// </summary>
         [Input("privateIpAllocationMethod")]
         public Input<string>? PrivateIpAllocationMethod { get; set; }
 
-        /// <summary>
-        /// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 

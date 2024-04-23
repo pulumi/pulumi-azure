@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<bool>? Primary { get; set; }
 
         /// <summary>
-        /// The Static IP Address which should be used.
+        /// The first private IP address of the network interface.
         /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }

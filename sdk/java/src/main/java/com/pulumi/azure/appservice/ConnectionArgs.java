@@ -52,17 +52,9 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         return this.authentication;
     }
 
-    /**
-     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-     * 
-     */
     @Import(name="clientType")
     private @Nullable Output<String> clientType;
 
-    /**
-     * @return The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-     * 
-     */
     public Optional<Output<String>> clientType() {
         return Optional.ofNullable(this.clientType);
     }
@@ -82,17 +74,9 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * An option to store secret value in secure place. An `secret_store` block as defined below.
-     * 
-     */
     @Import(name="secretStore")
     private @Nullable Output<ConnectionSecretStoreArgs> secretStore;
 
-    /**
-     * @return An option to store secret value in secure place. An `secret_store` block as defined below.
-     * 
-     */
     public Optional<Output<ConnectionSecretStoreArgs>> secretStore() {
         return Optional.ofNullable(this.secretStore);
     }
@@ -112,17 +96,9 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         return this.targetResourceId;
     }
 
-    /**
-     * The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-     * 
-     */
     @Import(name="vnetSolution")
     private @Nullable Output<String> vnetSolution;
 
-    /**
-     * @return The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-     * 
-     */
     public Optional<Output<String>> vnetSolution() {
         return Optional.ofNullable(this.vnetSolution);
     }
@@ -203,23 +179,11 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
             return authentication(Output.of(authentication));
         }
 
-        /**
-         * @param clientType The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientType(@Nullable Output<String> clientType) {
             $.clientType = clientType;
             return this;
         }
 
-        /**
-         * @param clientType The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientType(String clientType) {
             return clientType(Output.of(clientType));
         }
@@ -245,23 +209,11 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
-        /**
-         * @param secretStore An option to store secret value in secure place. An `secret_store` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretStore(@Nullable Output<ConnectionSecretStoreArgs> secretStore) {
             $.secretStore = secretStore;
             return this;
         }
 
-        /**
-         * @param secretStore An option to store secret value in secure place. An `secret_store` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretStore(ConnectionSecretStoreArgs secretStore) {
             return secretStore(Output.of(secretStore));
         }
@@ -287,23 +239,11 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
             return targetResourceId(Output.of(targetResourceId));
         }
 
-        /**
-         * @param vnetSolution The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vnetSolution(@Nullable Output<String> vnetSolution) {
             $.vnetSolution = vnetSolution;
             return this;
         }
 
-        /**
-         * @param vnetSolution The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vnetSolution(String vnetSolution) {
             return vnetSolution(Output.of(vnetSolution));
         }

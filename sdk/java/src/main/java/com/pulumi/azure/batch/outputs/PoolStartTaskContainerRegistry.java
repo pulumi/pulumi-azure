@@ -12,53 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PoolStartTaskContainerRegistry {
-    /**
-     * @return The password to use for authentication against the CIFS file system.
-     * 
-     */
     private @Nullable String password;
-    /**
-     * @return The container registry URL. Changing this forces a new resource to be created.
-     * 
-     */
     private String registryServer;
     /**
-     * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+     * @return The User Assigned Identity to use for Container Registry access.
      * 
      */
     private @Nullable String userAssignedIdentityId;
-    /**
-     * @return The user to use for authentication against the CIFS file system.
-     * 
-     */
     private @Nullable String userName;
 
     private PoolStartTaskContainerRegistry() {}
-    /**
-     * @return The password to use for authentication against the CIFS file system.
-     * 
-     */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
     }
-    /**
-     * @return The container registry URL. Changing this forces a new resource to be created.
-     * 
-     */
     public String registryServer() {
         return this.registryServer;
     }
     /**
-     * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+     * @return The User Assigned Identity to use for Container Registry access.
      * 
      */
     public Optional<String> userAssignedIdentityId() {
         return Optional.ofNullable(this.userAssignedIdentityId);
     }
-    /**
-     * @return The user to use for authentication against the CIFS file system.
-     * 
-     */
     public Optional<String> userName() {
         return Optional.ofNullable(this.userName);
     }

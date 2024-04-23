@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupSqlRoleDefinition(ctx *pulumi.Context, args *LookupSqlRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupSqlRoleDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSqlRoleDefinitionResult

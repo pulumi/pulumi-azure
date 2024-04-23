@@ -137,7 +137,6 @@ class Powershell72Module(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -157,7 +156,6 @@ class Powershell72Module(pulumi.CustomResource):
                 uri="https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -184,7 +182,6 @@ class Powershell72Module(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -204,7 +201,6 @@ class Powershell72Module(pulumi.CustomResource):
                 uri="https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

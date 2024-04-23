@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupFrontdoorRuleSet(ctx *pulumi.Context, args *LookupFrontdoorRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorRuleSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrontdoorRuleSetResult

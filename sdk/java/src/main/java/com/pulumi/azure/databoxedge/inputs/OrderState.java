@@ -53,14 +53,14 @@ public final class OrderState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The contact person name. Changing this forces a new Databox Edge Order to be created.
+     * The Name of this Databox Edge Order.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The contact person name. Changing this forces a new Databox Edge Order to be created.
+     * @return The Name of this Databox Edge Order.
      * 
      */
     public Optional<Output<String>> name() {
@@ -248,7 +248,7 @@ public final class OrderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The contact person name. Changing this forces a new Databox Edge Order to be created.
+         * @param name The Name of this Databox Edge Order.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class OrderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The contact person name. Changing this forces a new Databox Edge Order to be created.
+         * @param name The Name of this Databox Edge Order.
          * 
          * @return builder
          * 

@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,7 +80,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -93,19 +91,15 @@ import (
 type VpnServerConfiguration struct {
 	pulumi.CustomResourceState
 
-	// A `azureActiveDirectoryAuthentication` block as defined below.
 	AzureActiveDirectoryAuthentications VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput `pulumi:"azureActiveDirectoryAuthentications"`
-	// One or more `clientRevokedCertificate` blocks as defined below.
-	ClientRevokedCertificates VpnServerConfigurationClientRevokedCertificateArrayOutput `pulumi:"clientRevokedCertificates"`
-	// One or more `clientRootCertificate` blocks as defined below.
-	ClientRootCertificates VpnServerConfigurationClientRootCertificateArrayOutput `pulumi:"clientRootCertificates"`
+	ClientRevokedCertificates           VpnServerConfigurationClientRevokedCertificateArrayOutput           `pulumi:"clientRevokedCertificates"`
+	ClientRootCertificates              VpnServerConfigurationClientRootCertificateArrayOutput              `pulumi:"clientRootCertificates"`
 	// A `ipsecPolicy` block as defined below.
 	IpsecPolicy VpnServerConfigurationIpsecPolicyPtrOutput `pulumi:"ipsecPolicy"`
 	// The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A `radius` block as defined below.
+	Name   pulumi.StringOutput                   `pulumi:"name"`
 	Radius VpnServerConfigurationRadiusPtrOutput `pulumi:"radius"`
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -153,19 +147,15 @@ func GetVpnServerConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpnServerConfiguration resources.
 type vpnServerConfigurationState struct {
-	// A `azureActiveDirectoryAuthentication` block as defined below.
 	AzureActiveDirectoryAuthentications []VpnServerConfigurationAzureActiveDirectoryAuthentication `pulumi:"azureActiveDirectoryAuthentications"`
-	// One or more `clientRevokedCertificate` blocks as defined below.
-	ClientRevokedCertificates []VpnServerConfigurationClientRevokedCertificate `pulumi:"clientRevokedCertificates"`
-	// One or more `clientRootCertificate` blocks as defined below.
-	ClientRootCertificates []VpnServerConfigurationClientRootCertificate `pulumi:"clientRootCertificates"`
+	ClientRevokedCertificates           []VpnServerConfigurationClientRevokedCertificate           `pulumi:"clientRevokedCertificates"`
+	ClientRootCertificates              []VpnServerConfigurationClientRootCertificate              `pulumi:"clientRootCertificates"`
 	// A `ipsecPolicy` block as defined below.
 	IpsecPolicy *VpnServerConfigurationIpsecPolicy `pulumi:"ipsecPolicy"`
 	// The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
-	// A `radius` block as defined below.
+	Name   *string                       `pulumi:"name"`
 	Radius *VpnServerConfigurationRadius `pulumi:"radius"`
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -178,19 +168,15 @@ type vpnServerConfigurationState struct {
 }
 
 type VpnServerConfigurationState struct {
-	// A `azureActiveDirectoryAuthentication` block as defined below.
 	AzureActiveDirectoryAuthentications VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayInput
-	// One or more `clientRevokedCertificate` blocks as defined below.
-	ClientRevokedCertificates VpnServerConfigurationClientRevokedCertificateArrayInput
-	// One or more `clientRootCertificate` blocks as defined below.
-	ClientRootCertificates VpnServerConfigurationClientRootCertificateArrayInput
+	ClientRevokedCertificates           VpnServerConfigurationClientRevokedCertificateArrayInput
+	ClientRootCertificates              VpnServerConfigurationClientRootCertificateArrayInput
 	// A `ipsecPolicy` block as defined below.
 	IpsecPolicy VpnServerConfigurationIpsecPolicyPtrInput
 	// The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
-	// A `radius` block as defined below.
+	Name   pulumi.StringPtrInput
 	Radius VpnServerConfigurationRadiusPtrInput
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -207,19 +193,15 @@ func (VpnServerConfigurationState) ElementType() reflect.Type {
 }
 
 type vpnServerConfigurationArgs struct {
-	// A `azureActiveDirectoryAuthentication` block as defined below.
 	AzureActiveDirectoryAuthentications []VpnServerConfigurationAzureActiveDirectoryAuthentication `pulumi:"azureActiveDirectoryAuthentications"`
-	// One or more `clientRevokedCertificate` blocks as defined below.
-	ClientRevokedCertificates []VpnServerConfigurationClientRevokedCertificate `pulumi:"clientRevokedCertificates"`
-	// One or more `clientRootCertificate` blocks as defined below.
-	ClientRootCertificates []VpnServerConfigurationClientRootCertificate `pulumi:"clientRootCertificates"`
+	ClientRevokedCertificates           []VpnServerConfigurationClientRevokedCertificate           `pulumi:"clientRevokedCertificates"`
+	ClientRootCertificates              []VpnServerConfigurationClientRootCertificate              `pulumi:"clientRootCertificates"`
 	// A `ipsecPolicy` block as defined below.
 	IpsecPolicy *VpnServerConfigurationIpsecPolicy `pulumi:"ipsecPolicy"`
 	// The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
-	// A `radius` block as defined below.
+	Name   *string                       `pulumi:"name"`
 	Radius *VpnServerConfigurationRadius `pulumi:"radius"`
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -233,19 +215,15 @@ type vpnServerConfigurationArgs struct {
 
 // The set of arguments for constructing a VpnServerConfiguration resource.
 type VpnServerConfigurationArgs struct {
-	// A `azureActiveDirectoryAuthentication` block as defined below.
 	AzureActiveDirectoryAuthentications VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayInput
-	// One or more `clientRevokedCertificate` blocks as defined below.
-	ClientRevokedCertificates VpnServerConfigurationClientRevokedCertificateArrayInput
-	// One or more `clientRootCertificate` blocks as defined below.
-	ClientRootCertificates VpnServerConfigurationClientRootCertificateArrayInput
+	ClientRevokedCertificates           VpnServerConfigurationClientRevokedCertificateArrayInput
+	ClientRootCertificates              VpnServerConfigurationClientRootCertificateArrayInput
 	// A `ipsecPolicy` block as defined below.
 	IpsecPolicy VpnServerConfigurationIpsecPolicyPtrInput
 	// The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
-	// A `radius` block as defined below.
+	Name   pulumi.StringPtrInput
 	Radius VpnServerConfigurationRadiusPtrInput
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -344,21 +322,18 @@ func (o VpnServerConfigurationOutput) ToVpnServerConfigurationOutputWithContext(
 	return o
 }
 
-// A `azureActiveDirectoryAuthentication` block as defined below.
 func (o VpnServerConfigurationOutput) AzureActiveDirectoryAuthentications() VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput {
 	return o.ApplyT(func(v *VpnServerConfiguration) VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput {
 		return v.AzureActiveDirectoryAuthentications
 	}).(VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput)
 }
 
-// One or more `clientRevokedCertificate` blocks as defined below.
 func (o VpnServerConfigurationOutput) ClientRevokedCertificates() VpnServerConfigurationClientRevokedCertificateArrayOutput {
 	return o.ApplyT(func(v *VpnServerConfiguration) VpnServerConfigurationClientRevokedCertificateArrayOutput {
 		return v.ClientRevokedCertificates
 	}).(VpnServerConfigurationClientRevokedCertificateArrayOutput)
 }
 
-// One or more `clientRootCertificate` blocks as defined below.
 func (o VpnServerConfigurationOutput) ClientRootCertificates() VpnServerConfigurationClientRootCertificateArrayOutput {
 	return o.ApplyT(func(v *VpnServerConfiguration) VpnServerConfigurationClientRootCertificateArrayOutput {
 		return v.ClientRootCertificates
@@ -380,7 +355,6 @@ func (o VpnServerConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnServerConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `radius` block as defined below.
 func (o VpnServerConfigurationOutput) Radius() VpnServerConfigurationRadiusPtrOutput {
 	return o.ApplyT(func(v *VpnServerConfiguration) VpnServerConfigurationRadiusPtrOutput { return v.Radius }).(VpnServerConfigurationRadiusPtrOutput)
 }

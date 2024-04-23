@@ -14,7 +14,6 @@ namespace Pulumi.Azure.ChaosStudio
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,7 +61,6 @@ namespace Pulumi.Azure.ChaosStudio
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

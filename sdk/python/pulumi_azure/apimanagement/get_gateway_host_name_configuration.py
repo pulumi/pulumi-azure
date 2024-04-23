@@ -152,7 +152,6 @@ def get_gateway_host_name_configuration(api_management_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -166,7 +165,6 @@ def get_gateway_host_name_configuration(api_management_id: Optional[str] = None,
         gateway_name=example_get_gateway.name)
     pulumi.export("hostName", example_get_gateway_host_name_configuration.host_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str api_management_id: The ID of the API Management Service.
@@ -204,7 +202,6 @@ def get_gateway_host_name_configuration_output(api_management_id: Optional[pulum
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -218,7 +215,6 @@ def get_gateway_host_name_configuration_output(api_management_id: Optional[pulum
         gateway_name=example_get_gateway.name)
     pulumi.export("hostName", example_get_gateway_host_name_configuration.host_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str api_management_id: The ID of the API Management Service.

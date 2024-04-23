@@ -18,18 +18,14 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
     public static final LinuxWebAppAuthSettingsV2GoogleV2Args Empty = new LinuxWebAppAuthSettingsV2GoogleV2Args();
 
     /**
-     * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-     * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
      * 
      */
     @Import(name="allowedAudiences")
     private @Nullable Output<List<String>> allowedAudiences;
 
     /**
-     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-     * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * @return Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
      * 
      */
     public Optional<Output<List<String>>> allowedAudiences() {
@@ -37,14 +33,14 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
     }
 
     /**
-     * The ID of the Client to use to authenticate with Azure Active Directory.
+     * The OpenID Connect Client ID for the Google web application.
      * 
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The OpenID Connect Client ID for the Google web application.
      * 
      */
     public Output<String> clientId() {
@@ -52,14 +48,18 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
     }
 
     /**
-     * The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * The app setting name that contains the `client_secret` value used for Google Login.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName", required=true)
     private Output<String> clientSecretSettingName;
 
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The app setting name that contains the `client_secret` value used for Google Login.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Output<String> clientSecretSettingName() {
@@ -67,14 +67,14 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
     }
 
     /**
-     * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
      * 
      */
     @Import(name="loginScopes")
     private @Nullable Output<List<String>> loginScopes;
 
     /**
-     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * @return The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
      * 
      */
     public Optional<Output<List<String>>> loginScopes() {
@@ -109,9 +109,7 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
         }
 
         /**
-         * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         * 
-         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * @param allowedAudiences Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
          * 
          * @return builder
          * 
@@ -122,9 +120,7 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
         }
 
         /**
-         * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         * 
-         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * @param allowedAudiences Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
          * 
          * @return builder
          * 
@@ -134,9 +130,7 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
         }
 
         /**
-         * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         * 
-         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * @param allowedAudiences Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
          * 
          * @return builder
          * 
@@ -146,7 +140,7 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The OpenID Connect Client ID for the Google web application.
          * 
          * @return builder
          * 
@@ -157,7 +151,7 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The OpenID Connect Client ID for the Google web application.
          * 
          * @return builder
          * 
@@ -167,7 +161,9 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
         }
 
         /**
-         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Google Login.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -178,7 +174,9 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
         }
 
         /**
-         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Google Login.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -188,7 +186,7 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
         }
 
         /**
-         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * @param loginScopes The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
          * 
          * @return builder
          * 
@@ -199,7 +197,7 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
         }
 
         /**
-         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * @param loginScopes The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
          * 
          * @return builder
          * 
@@ -209,7 +207,7 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
         }
 
         /**
-         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * @param loginScopes The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
          * 
          * @return builder
          * 

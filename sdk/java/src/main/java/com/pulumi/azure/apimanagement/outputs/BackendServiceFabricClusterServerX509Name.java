@@ -16,7 +16,7 @@ public final class BackendServiceFabricClusterServerX509Name {
      */
     private String issuerCertificateThumbprint;
     /**
-     * @return The name of the API Management backend. Changing this forces a new resource to be created.
+     * @return The common name of the certificate.
      * 
      */
     private String name;
@@ -30,7 +30,7 @@ public final class BackendServiceFabricClusterServerX509Name {
         return this.issuerCertificateThumbprint;
     }
     /**
-     * @return The name of the API Management backend. Changing this forces a new resource to be created.
+     * @return The common name of the certificate.
      * 
      */
     public String name() {

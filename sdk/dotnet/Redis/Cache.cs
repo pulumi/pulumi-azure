@@ -18,7 +18,6 @@ namespace Pulumi.Azure.Redis
     /// 
     /// This example provisions a Standard Redis Cache.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,7 +48,6 @@ namespace Pulumi.Azure.Redis
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Relevant Links
     /// 

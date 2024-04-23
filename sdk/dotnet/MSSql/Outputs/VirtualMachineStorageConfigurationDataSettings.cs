@@ -13,13 +13,7 @@ namespace Pulumi.Azure.MSSql.Outputs
     [OutputType]
     public sealed class VirtualMachineStorageConfigurationDataSettings
     {
-        /// <summary>
-        /// The SQL Server default path
-        /// </summary>
         public readonly string DefaultFilePath;
-        /// <summary>
-        /// A list of Logical Unit Numbers for the disks.
-        /// </summary>
         public readonly ImmutableArray<int> Luns;
 
         [OutputConstructor]

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Reference An Existing)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -24,7 +23,6 @@ import * as utilities from "../utilities";
  * export const uaiPrincipalId = example.then(example => example.principalId);
  * export const uaiTenantId = example.then(example => example.tenantId);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
 
@@ -87,7 +85,6 @@ export interface GetUserAssignedIdentityResult {
  *
  * ### Reference An Existing)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -100,7 +97,6 @@ export interface GetUserAssignedIdentityResult {
  * export const uaiPrincipalId = example.then(example => example.principalId);
  * export const uaiTenantId = example.then(example => example.tenantId);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserAssignedIdentityResult> {
     return pulumi.output(args).apply((a: any) => getUserAssignedIdentity(a, opts))

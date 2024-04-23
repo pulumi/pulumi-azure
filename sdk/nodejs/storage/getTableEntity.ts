@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     rowKey: "example-row-key",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTableEntity(args: GetTableEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetTableEntityResult> {
 
@@ -78,7 +76,6 @@ export interface GetTableEntityResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -90,7 +87,6 @@ export interface GetTableEntityResult {
  *     rowKey: "example-row-key",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTableEntityOutput(args: GetTableEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableEntityResult> {
     return pulumi.output(args).apply((a: any) => getTableEntity(a, opts))

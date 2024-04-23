@@ -18,7 +18,6 @@ import (
 //
 // ### Monitor creation with linking to Datadog organization
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,7 +63,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Role Assignment
 //
@@ -72,7 +70,6 @@ import (
 //
 // ### Role assignment on the monitor created
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -109,7 +106,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

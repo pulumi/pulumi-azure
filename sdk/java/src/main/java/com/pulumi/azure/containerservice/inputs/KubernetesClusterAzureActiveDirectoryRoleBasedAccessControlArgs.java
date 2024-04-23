@@ -17,39 +17,21 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
 
     public static final KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs Empty = new KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs();
 
-    /**
-     * A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-     * 
-     */
     @Import(name="adminGroupObjectIds")
     private @Nullable Output<List<String>> adminGroupObjectIds;
 
-    /**
-     * @return A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-     * 
-     */
     public Optional<Output<List<String>>> adminGroupObjectIds() {
         return Optional.ofNullable(this.adminGroupObjectIds);
     }
 
-    /**
-     * Is Role Based Access Control based on Azure AD enabled?
-     * 
-     */
     @Import(name="azureRbacEnabled")
     private @Nullable Output<Boolean> azureRbacEnabled;
 
-    /**
-     * @return Is Role Based Access Control based on Azure AD enabled?
-     * 
-     */
     public Optional<Output<Boolean>> azureRbacEnabled() {
         return Optional.ofNullable(this.azureRbacEnabled);
     }
 
     /**
-     * The Client ID of an Azure Active Directory Application.
-     * 
      * @deprecated
      * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
      * 
@@ -59,8 +41,6 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
     private @Nullable Output<String> clientAppId;
 
     /**
-     * @return The Client ID of an Azure Active Directory Application.
-     * 
      * @deprecated
      * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
      * 
@@ -94,8 +74,6 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
     }
 
     /**
-     * The Server ID of an Azure Active Directory Application.
-     * 
      * @deprecated
      * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
      * 
@@ -105,8 +83,6 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
     private @Nullable Output<String> serverAppId;
 
     /**
-     * @return The Server ID of an Azure Active Directory Application.
-     * 
      * @deprecated
      * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
      * 
@@ -117,8 +93,6 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
     }
 
     /**
-     * The Server Secret of an Azure Active Directory Application.
-     * 
      * @deprecated
      * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
      * 
@@ -128,8 +102,6 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
     private @Nullable Output<String> serverAppSecret;
 
     /**
-     * @return The Server Secret of an Azure Active Directory Application.
-     * 
      * @deprecated
      * Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
      * 
@@ -184,61 +156,29 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
             $ = new KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param adminGroupObjectIds A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adminGroupObjectIds(@Nullable Output<List<String>> adminGroupObjectIds) {
             $.adminGroupObjectIds = adminGroupObjectIds;
             return this;
         }
 
-        /**
-         * @param adminGroupObjectIds A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adminGroupObjectIds(List<String> adminGroupObjectIds) {
             return adminGroupObjectIds(Output.of(adminGroupObjectIds));
         }
 
-        /**
-         * @param adminGroupObjectIds A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adminGroupObjectIds(String... adminGroupObjectIds) {
             return adminGroupObjectIds(List.of(adminGroupObjectIds));
         }
 
-        /**
-         * @param azureRbacEnabled Is Role Based Access Control based on Azure AD enabled?
-         * 
-         * @return builder
-         * 
-         */
         public Builder azureRbacEnabled(@Nullable Output<Boolean> azureRbacEnabled) {
             $.azureRbacEnabled = azureRbacEnabled;
             return this;
         }
 
-        /**
-         * @param azureRbacEnabled Is Role Based Access Control based on Azure AD enabled?
-         * 
-         * @return builder
-         * 
-         */
         public Builder azureRbacEnabled(Boolean azureRbacEnabled) {
             return azureRbacEnabled(Output.of(azureRbacEnabled));
         }
 
         /**
-         * @param clientAppId The Client ID of an Azure Active Directory Application.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -252,8 +192,6 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
         }
 
         /**
-         * @param clientAppId The Client ID of an Azure Active Directory Application.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -295,8 +233,6 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
         }
 
         /**
-         * @param serverAppId The Server ID of an Azure Active Directory Application.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -310,8 +246,6 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
         }
 
         /**
-         * @param serverAppId The Server ID of an Azure Active Directory Application.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -324,8 +258,6 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
         }
 
         /**
-         * @param serverAppSecret The Server Secret of an Azure Active Directory Application.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -339,8 +271,6 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlAr
         }
 
         /**
-         * @param serverAppSecret The Server Secret of an Azure Active Directory Application.
-         * 
          * @return builder
          * 
          * @deprecated

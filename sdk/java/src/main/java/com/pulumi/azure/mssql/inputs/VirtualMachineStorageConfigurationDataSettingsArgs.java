@@ -16,32 +16,16 @@ public final class VirtualMachineStorageConfigurationDataSettingsArgs extends co
 
     public static final VirtualMachineStorageConfigurationDataSettingsArgs Empty = new VirtualMachineStorageConfigurationDataSettingsArgs();
 
-    /**
-     * The SQL Server default path
-     * 
-     */
     @Import(name="defaultFilePath", required=true)
     private Output<String> defaultFilePath;
 
-    /**
-     * @return The SQL Server default path
-     * 
-     */
     public Output<String> defaultFilePath() {
         return this.defaultFilePath;
     }
 
-    /**
-     * A list of Logical Unit Numbers for the disks.
-     * 
-     */
     @Import(name="luns", required=true)
     private Output<List<Integer>> luns;
 
-    /**
-     * @return A list of Logical Unit Numbers for the disks.
-     * 
-     */
     public Output<List<Integer>> luns() {
         return this.luns;
     }
@@ -71,54 +55,24 @@ public final class VirtualMachineStorageConfigurationDataSettingsArgs extends co
             $ = new VirtualMachineStorageConfigurationDataSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultFilePath The SQL Server default path
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultFilePath(Output<String> defaultFilePath) {
             $.defaultFilePath = defaultFilePath;
             return this;
         }
 
-        /**
-         * @param defaultFilePath The SQL Server default path
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultFilePath(String defaultFilePath) {
             return defaultFilePath(Output.of(defaultFilePath));
         }
 
-        /**
-         * @param luns A list of Logical Unit Numbers for the disks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder luns(Output<List<Integer>> luns) {
             $.luns = luns;
             return this;
         }
 
-        /**
-         * @param luns A list of Logical Unit Numbers for the disks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder luns(List<Integer> luns) {
             return luns(Output.of(luns));
         }
 
-        /**
-         * @param luns A list of Logical Unit Numbers for the disks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder luns(Integer... luns) {
             return luns(List.of(luns));
         }

@@ -16,7 +16,6 @@ namespace Pulumi.Azure.AppService
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Azure.AppService
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLinuxWebAppResult> InvokeAsync(GetLinuxWebAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinuxWebAppResult>("azure:appservice/getLinuxWebApp:getLinuxWebApp", args ?? new GetLinuxWebAppArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Azure.AppService
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Azure.AppService
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLinuxWebAppResult> Invoke(GetLinuxWebAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinuxWebAppResult>("azure:appservice/getLinuxWebApp:getLinuxWebApp", args ?? new GetLinuxWebAppInvokeArgs(), options.WithDefaults());

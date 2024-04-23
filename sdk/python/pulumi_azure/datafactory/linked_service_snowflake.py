@@ -335,7 +335,6 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -352,11 +351,9 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Password In Key Vault
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -388,7 +385,6 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
                 secret_name="secret",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -421,7 +417,6 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -438,11 +433,9 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Password In Key Vault
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -474,7 +467,6 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
                 secret_name="secret",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

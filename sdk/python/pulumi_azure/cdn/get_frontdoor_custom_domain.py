@@ -150,7 +150,6 @@ def get_frontdoor_custom_domain(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -159,7 +158,6 @@ def get_frontdoor_custom_domain(name: Optional[str] = None,
         profile_name=example_azurerm_cdn_frontdoor_profile["name"],
         resource_group_name=example_azurerm_cdn_frontdoor_profile["resourceGroupName"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Front Door Custom Domain.
@@ -196,7 +194,6 @@ def get_frontdoor_custom_domain_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -205,7 +202,6 @@ def get_frontdoor_custom_domain_output(name: Optional[pulumi.Input[str]] = None,
         profile_name=example_azurerm_cdn_frontdoor_profile["name"],
         resource_group_name=example_azurerm_cdn_frontdoor_profile["resourceGroupName"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Front Door Custom Domain.

@@ -106,7 +106,6 @@ def get_certificate(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -115,7 +114,6 @@ def get_certificate(name: Optional[str] = None,
         nginx_deployment_id=example_azurerm_nginx_deployment["id"])
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Nginx Certificate.
@@ -145,7 +143,6 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -154,7 +151,6 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
         nginx_deployment_id=example_azurerm_nginx_deployment["id"])
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Nginx Certificate.

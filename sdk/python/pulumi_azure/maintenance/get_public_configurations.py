@@ -99,7 +99,6 @@ def get_public_configurations(location: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -109,7 +108,6 @@ def get_public_configurations(location: Optional[str] = None,
         recur_every="Monday-Thursday")
     pulumi.export("name", existing.configs[0].name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str location: The Azure location to filter the list of Public Maintenance Configurations against.
@@ -141,7 +139,6 @@ def get_public_configurations_output(location: Optional[pulumi.Input[Optional[st
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -151,7 +148,6 @@ def get_public_configurations_output(location: Optional[pulumi.Input[Optional[st
         recur_every="Monday-Thursday")
     pulumi.export("name", existing.configs[0].name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str location: The Azure location to filter the list of Public Maintenance Configurations against.

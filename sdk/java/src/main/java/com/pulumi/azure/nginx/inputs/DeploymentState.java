@@ -166,14 +166,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify the IP Address of this private IP.
+     * The IP address of the deployment.
      * 
      */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
     /**
-     * @return Specify the IP Address of this private IP.
+     * @return The IP address of the deployment.
      * 
      */
     public Optional<Output<String>> ipAddress() {
@@ -571,7 +571,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddress Specify the IP Address of this private IP.
+         * @param ipAddress The IP address of the deployment.
          * 
          * @return builder
          * 
@@ -582,7 +582,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddress Specify the IP Address of this private IP.
+         * @param ipAddress The IP address of the deployment.
          * 
          * @return builder
          * 

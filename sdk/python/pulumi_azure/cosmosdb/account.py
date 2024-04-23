@@ -54,51 +54,18 @@ class AccountArgs:
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None):
         """
         The set of arguments for constructing a Account resource.
-        :param pulumi.Input['AccountConsistencyPolicyArgs'] consistency_policy: Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input['AccountAnalyticalStorageArgs'] analytical_storage: An `analytical_storage` block as defined below.
-        :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-        :param pulumi.Input[bool] automatic_failover_enabled: Enable automatic failover for this Cosmos DB account.
-        :param pulumi.Input['AccountBackupArgs'] backup: A `backup` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input['AccountCapacityArgs'] capacity: A `capacity` block as defined below.
-        :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
                
                > **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
         :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
-        :param pulumi.Input[bool] free_tier_enabled: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-               
-               > **Note:** To enable the "Allow access from the Azure portal" behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-               
-               > **Note:** To enable the "Accept connections from within public Azure datacenters" behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-        :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
-        :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-               
-               > **Note:** When referencing an `keyvault.Key` resource, use `versionless_id` instead of `id`
-               
-               > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-        :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
-        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-        :param pulumi.Input[bool] multiple_write_locations_enabled: Enable multiple write locations for this Cosmos DB account.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
-        :param pulumi.Input[bool] partition_merge_enabled: Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
-        :param pulumi.Input['AccountRestoreArgs'] restore: A `restore` block as defined below.
-               
-               > **Note:** `restore` should be set when `create_mode` is `Restore`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
         """
         pulumi.set(__self__, "consistency_policy", consistency_policy)
         pulumi.set(__self__, "geo_locations", geo_locations)
@@ -181,9 +148,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="consistencyPolicy")
     def consistency_policy(self) -> pulumi.Input['AccountConsistencyPolicyArgs']:
-        """
-        Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-        """
         return pulumi.get(self, "consistency_policy")
 
     @consistency_policy.setter
@@ -193,9 +157,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="geoLocations")
     def geo_locations(self) -> pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]:
-        """
-        Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-        """
         return pulumi.get(self, "geo_locations")
 
     @geo_locations.setter
@@ -229,9 +190,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="accessKeyMetadataWritesEnabled")
     def access_key_metadata_writes_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
-        """
         return pulumi.get(self, "access_key_metadata_writes_enabled")
 
     @access_key_metadata_writes_enabled.setter
@@ -253,9 +211,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="analyticalStorageEnabled")
     def analytical_storage_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-        """
         return pulumi.get(self, "analytical_storage_enabled")
 
     @analytical_storage_enabled.setter
@@ -265,9 +220,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="automaticFailoverEnabled")
     def automatic_failover_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable automatic failover for this Cosmos DB account.
-        """
         return pulumi.get(self, "automatic_failover_enabled")
 
     @automatic_failover_enabled.setter
@@ -277,9 +229,6 @@ class AccountArgs:
     @property
     @pulumi.getter
     def backup(self) -> Optional[pulumi.Input['AccountBackupArgs']]:
-        """
-        A `backup` block as defined below.
-        """
         return pulumi.get(self, "backup")
 
     @backup.setter
@@ -289,9 +238,6 @@ class AccountArgs:
     @property
     @pulumi.getter
     def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]]:
-        """
-        The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
-        """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
@@ -313,9 +259,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="corsRule")
     def cors_rule(self) -> Optional[pulumi.Input['AccountCorsRuleArgs']]:
-        """
-        A `cors_rule` block as defined below.
-        """
         return pulumi.get(self, "cors_rule")
 
     @cors_rule.setter
@@ -387,9 +330,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="freeTierEnabled")
     def free_tier_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "free_tier_enabled")
 
     @free_tier_enabled.setter
@@ -399,9 +339,6 @@ class AccountArgs:
     @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
-        """
-        An `identity` block as defined below.
-        """
         return pulumi.get(self, "identity")
 
     @identity.setter
@@ -411,13 +348,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="ipRangeFilter")
     def ip_range_filter(self) -> Optional[pulumi.Input[str]]:
-        """
-        CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-
-        > **Note:** To enable the "Allow access from the Azure portal" behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-
-        > **Note:** To enable the "Accept connections from within public Azure datacenters" behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-        """
         return pulumi.get(self, "ip_range_filter")
 
     @ip_range_filter.setter
@@ -427,9 +357,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="isVirtualNetworkFilterEnabled")
     def is_virtual_network_filter_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables virtual network filtering for this Cosmos DB account.
-        """
         return pulumi.get(self, "is_virtual_network_filter_enabled")
 
     @is_virtual_network_filter_enabled.setter
@@ -439,13 +366,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-
-        > **Note:** When referencing an `keyvault.Key` resource, use `versionless_id` instead of `id`
-
-        > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-        """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
@@ -455,9 +375,6 @@ class AccountArgs:
     @property
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "kind")
 
     @kind.setter
@@ -467,9 +384,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="localAuthenticationDisabled")
     def local_authentication_disabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
-        """
         return pulumi.get(self, "local_authentication_disabled")
 
     @local_authentication_disabled.setter
@@ -503,9 +417,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="mongoServerVersion")
     def mongo_server_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-        """
         return pulumi.get(self, "mongo_server_version")
 
     @mongo_server_version.setter
@@ -515,9 +426,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="multipleWriteLocationsEnabled")
     def multiple_write_locations_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable multiple write locations for this Cosmos DB account.
-        """
         return pulumi.get(self, "multiple_write_locations_enabled")
 
     @multiple_write_locations_enabled.setter
@@ -539,9 +447,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="networkAclBypassForAzureServices")
     def network_acl_bypass_for_azure_services(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If Azure services can bypass ACLs. Defaults to `false`.
-        """
         return pulumi.get(self, "network_acl_bypass_for_azure_services")
 
     @network_acl_bypass_for_azure_services.setter
@@ -551,9 +456,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="networkAclBypassIds")
     def network_acl_bypass_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
-        """
         return pulumi.get(self, "network_acl_bypass_ids")
 
     @network_acl_bypass_ids.setter
@@ -563,9 +465,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="partitionMergeEnabled")
     def partition_merge_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
-        """
         return pulumi.get(self, "partition_merge_enabled")
 
     @partition_merge_enabled.setter
@@ -575,9 +474,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
-        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -587,11 +483,6 @@ class AccountArgs:
     @property
     @pulumi.getter
     def restore(self) -> Optional[pulumi.Input['AccountRestoreArgs']]:
-        """
-        A `restore` block as defined below.
-
-        > **Note:** `restore` should be set when `create_mode` is `Restore`.
-        """
         return pulumi.get(self, "restore")
 
     @restore.setter
@@ -613,9 +504,6 @@ class AccountArgs:
     @property
     @pulumi.getter(name="virtualNetworkRules")
     def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]:
-        """
-        Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
-        """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
@@ -680,57 +568,25 @@ class _AccountState:
                  write_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
-        :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input['AccountAnalyticalStorageArgs'] analytical_storage: An `analytical_storage` block as defined below.
-        :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-        :param pulumi.Input[bool] automatic_failover_enabled: Enable automatic failover for this Cosmos DB account.
-        :param pulumi.Input['AccountBackupArgs'] backup: A `backup` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input['AccountCapacityArgs'] capacity: A `capacity` block as defined below.
-        :param pulumi.Input['AccountConsistencyPolicyArgs'] consistency_policy: Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-        :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
                
                > **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
         :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the CosmosDB account.
-        :param pulumi.Input[bool] free_tier_enabled: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-               
-               > **Note:** To enable the "Allow access from the Azure portal" behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-               
-               > **Note:** To enable the "Accept connections from within public Azure datacenters" behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-        :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
-        :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-               
-               > **Note:** When referencing an `keyvault.Key` resource, use `versionless_id` instead of `id`
-               
-               > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-        :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
-        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-        :param pulumi.Input[bool] multiple_write_locations_enabled: Enable multiple write locations for this Cosmos DB account.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
-        :param pulumi.Input[bool] partition_merge_enabled: Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
         :param pulumi.Input[str] primary_key: The Primary key for the CosmosDB Account.
         :param pulumi.Input[str] primary_mongodb_connection_string: Primary Mongodb connection string for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_key: The Primary read-only Key for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_mongodb_connection_string: Primary readonly Mongodb connection string for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_sql_connection_string: Primary readonly SQL connection string for the CosmosDB Account.
         :param pulumi.Input[str] primary_sql_connection_string: Primary SQL connection string for the CosmosDB Account.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_endpoints: A list of read endpoints available for this CosmosDB account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
-        :param pulumi.Input['AccountRestoreArgs'] restore: A `restore` block as defined below.
-               
-               > **Note:** `restore` should be set when `create_mode` is `Restore`.
         :param pulumi.Input[str] secondary_key: The Secondary key for the CosmosDB Account.
         :param pulumi.Input[str] secondary_mongodb_connection_string: Secondary Mongodb connection string for the CosmosDB Account.
         :param pulumi.Input[str] secondary_readonly_key: The Secondary read-only key for the CosmosDB Account.
@@ -738,7 +594,6 @@ class _AccountState:
         :param pulumi.Input[str] secondary_readonly_sql_connection_string: Secondary readonly SQL connection string for the CosmosDB Account.
         :param pulumi.Input[str] secondary_sql_connection_string: Secondary SQL connection string for the CosmosDB Account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_endpoints: A list of write endpoints available for this CosmosDB account.
         """
         if access_key_metadata_writes_enabled is not None:
@@ -861,9 +716,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="accessKeyMetadataWritesEnabled")
     def access_key_metadata_writes_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
-        """
         return pulumi.get(self, "access_key_metadata_writes_enabled")
 
     @access_key_metadata_writes_enabled.setter
@@ -885,9 +737,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="analyticalStorageEnabled")
     def analytical_storage_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-        """
         return pulumi.get(self, "analytical_storage_enabled")
 
     @analytical_storage_enabled.setter
@@ -897,9 +746,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="automaticFailoverEnabled")
     def automatic_failover_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable automatic failover for this Cosmos DB account.
-        """
         return pulumi.get(self, "automatic_failover_enabled")
 
     @automatic_failover_enabled.setter
@@ -909,9 +755,6 @@ class _AccountState:
     @property
     @pulumi.getter
     def backup(self) -> Optional[pulumi.Input['AccountBackupArgs']]:
-        """
-        A `backup` block as defined below.
-        """
         return pulumi.get(self, "backup")
 
     @backup.setter
@@ -921,9 +764,6 @@ class _AccountState:
     @property
     @pulumi.getter
     def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]]:
-        """
-        The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
-        """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
@@ -957,9 +797,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="consistencyPolicy")
     def consistency_policy(self) -> Optional[pulumi.Input['AccountConsistencyPolicyArgs']]:
-        """
-        Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-        """
         return pulumi.get(self, "consistency_policy")
 
     @consistency_policy.setter
@@ -969,9 +806,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="corsRule")
     def cors_rule(self) -> Optional[pulumi.Input['AccountCorsRuleArgs']]:
-        """
-        A `cors_rule` block as defined below.
-        """
         return pulumi.get(self, "cors_rule")
 
     @cors_rule.setter
@@ -1055,9 +889,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="freeTierEnabled")
     def free_tier_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "free_tier_enabled")
 
     @free_tier_enabled.setter
@@ -1067,9 +898,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="geoLocations")
     def geo_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]]:
-        """
-        Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-        """
         return pulumi.get(self, "geo_locations")
 
     @geo_locations.setter
@@ -1079,9 +907,6 @@ class _AccountState:
     @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
-        """
-        An `identity` block as defined below.
-        """
         return pulumi.get(self, "identity")
 
     @identity.setter
@@ -1091,13 +916,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="ipRangeFilter")
     def ip_range_filter(self) -> Optional[pulumi.Input[str]]:
-        """
-        CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-
-        > **Note:** To enable the "Allow access from the Azure portal" behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-
-        > **Note:** To enable the "Accept connections from within public Azure datacenters" behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-        """
         return pulumi.get(self, "ip_range_filter")
 
     @ip_range_filter.setter
@@ -1107,9 +925,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="isVirtualNetworkFilterEnabled")
     def is_virtual_network_filter_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables virtual network filtering for this Cosmos DB account.
-        """
         return pulumi.get(self, "is_virtual_network_filter_enabled")
 
     @is_virtual_network_filter_enabled.setter
@@ -1119,13 +934,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-
-        > **Note:** When referencing an `keyvault.Key` resource, use `versionless_id` instead of `id`
-
-        > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-        """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
@@ -1135,9 +943,6 @@ class _AccountState:
     @property
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "kind")
 
     @kind.setter
@@ -1147,9 +952,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="localAuthenticationDisabled")
     def local_authentication_disabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
-        """
         return pulumi.get(self, "local_authentication_disabled")
 
     @local_authentication_disabled.setter
@@ -1183,9 +985,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="mongoServerVersion")
     def mongo_server_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-        """
         return pulumi.get(self, "mongo_server_version")
 
     @mongo_server_version.setter
@@ -1195,9 +994,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="multipleWriteLocationsEnabled")
     def multiple_write_locations_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable multiple write locations for this Cosmos DB account.
-        """
         return pulumi.get(self, "multiple_write_locations_enabled")
 
     @multiple_write_locations_enabled.setter
@@ -1219,9 +1015,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="networkAclBypassForAzureServices")
     def network_acl_bypass_for_azure_services(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If Azure services can bypass ACLs. Defaults to `false`.
-        """
         return pulumi.get(self, "network_acl_bypass_for_azure_services")
 
     @network_acl_bypass_for_azure_services.setter
@@ -1231,9 +1024,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="networkAclBypassIds")
     def network_acl_bypass_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
-        """
         return pulumi.get(self, "network_acl_bypass_ids")
 
     @network_acl_bypass_ids.setter
@@ -1255,9 +1045,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="partitionMergeEnabled")
     def partition_merge_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
-        """
         return pulumi.get(self, "partition_merge_enabled")
 
     @partition_merge_enabled.setter
@@ -1339,9 +1126,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
-        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -1375,11 +1159,6 @@ class _AccountState:
     @property
     @pulumi.getter
     def restore(self) -> Optional[pulumi.Input['AccountRestoreArgs']]:
-        """
-        A `restore` block as defined below.
-
-        > **Note:** `restore` should be set when `create_mode` is `Restore`.
-        """
         return pulumi.get(self, "restore")
 
     @restore.setter
@@ -1473,9 +1252,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="virtualNetworkRules")
     def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]:
-        """
-        Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
-        """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
@@ -1542,7 +1318,6 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1591,11 +1366,9 @@ class Account(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## User Assigned Identity Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1631,7 +1404,6 @@ class Account(pulumi.CustomResource):
                 identity_ids=[example.id],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1643,51 +1415,18 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountAnalyticalStorageArgs']] analytical_storage: An `analytical_storage` block as defined below.
-        :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-        :param pulumi.Input[bool] automatic_failover_enabled: Enable automatic failover for this Cosmos DB account.
-        :param pulumi.Input[pulumi.InputType['AccountBackupArgs']] backup: A `backup` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountCapacityArgs']] capacity: A `capacity` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-        :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
                
                > **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
         :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
-        :param pulumi.Input[bool] free_tier_enabled: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-               
-               > **Note:** To enable the "Allow access from the Azure portal" behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-               
-               > **Note:** To enable the "Accept connections from within public Azure datacenters" behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-        :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
-        :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-               
-               > **Note:** When referencing an `keyvault.Key` resource, use `versionless_id` instead of `id`
-               
-               > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-        :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
-        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-        :param pulumi.Input[bool] multiple_write_locations_enabled: Enable multiple write locations for this Cosmos DB account.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
-        :param pulumi.Input[bool] partition_merge_enabled: Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['AccountRestoreArgs']] restore: A `restore` block as defined below.
-               
-               > **Note:** `restore` should be set when `create_mode` is `Restore`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]] virtual_network_rules: Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
         """
         ...
     @overload
@@ -1700,7 +1439,6 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1749,11 +1487,9 @@ class Account(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## User Assigned Identity Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1789,7 +1525,6 @@ class Account(pulumi.CustomResource):
                 identity_ids=[example.id],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1990,57 +1725,25 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountAnalyticalStorageArgs']] analytical_storage: An `analytical_storage` block as defined below.
-        :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-        :param pulumi.Input[bool] automatic_failover_enabled: Enable automatic failover for this Cosmos DB account.
-        :param pulumi.Input[pulumi.InputType['AccountBackupArgs']] backup: A `backup` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountCapacityArgs']] capacity: A `capacity` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-        :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
                
                > **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
         :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the CosmosDB account.
-        :param pulumi.Input[bool] free_tier_enabled: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-               
-               > **Note:** To enable the "Allow access from the Azure portal" behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-               
-               > **Note:** To enable the "Accept connections from within public Azure datacenters" behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-        :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
-        :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-               
-               > **Note:** When referencing an `keyvault.Key` resource, use `versionless_id` instead of `id`
-               
-               > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-        :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
-        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-        :param pulumi.Input[bool] multiple_write_locations_enabled: Enable multiple write locations for this Cosmos DB account.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
-        :param pulumi.Input[bool] partition_merge_enabled: Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
         :param pulumi.Input[str] primary_key: The Primary key for the CosmosDB Account.
         :param pulumi.Input[str] primary_mongodb_connection_string: Primary Mongodb connection string for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_key: The Primary read-only Key for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_mongodb_connection_string: Primary readonly Mongodb connection string for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_sql_connection_string: Primary readonly SQL connection string for the CosmosDB Account.
         :param pulumi.Input[str] primary_sql_connection_string: Primary SQL connection string for the CosmosDB Account.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_endpoints: A list of read endpoints available for this CosmosDB account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['AccountRestoreArgs']] restore: A `restore` block as defined below.
-               
-               > **Note:** `restore` should be set when `create_mode` is `Restore`.
         :param pulumi.Input[str] secondary_key: The Secondary key for the CosmosDB Account.
         :param pulumi.Input[str] secondary_mongodb_connection_string: Secondary Mongodb connection string for the CosmosDB Account.
         :param pulumi.Input[str] secondary_readonly_key: The Secondary read-only key for the CosmosDB Account.
@@ -2048,7 +1751,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_readonly_sql_connection_string: Secondary readonly SQL connection string for the CosmosDB Account.
         :param pulumi.Input[str] secondary_sql_connection_string: Secondary SQL connection string for the CosmosDB Account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]] virtual_network_rules: Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_endpoints: A list of write endpoints available for this CosmosDB account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -2112,9 +1814,6 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessKeyMetadataWritesEnabled")
     def access_key_metadata_writes_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
-        """
         return pulumi.get(self, "access_key_metadata_writes_enabled")
 
     @property
@@ -2128,33 +1827,21 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="analyticalStorageEnabled")
     def analytical_storage_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
-        """
         return pulumi.get(self, "analytical_storage_enabled")
 
     @property
     @pulumi.getter(name="automaticFailoverEnabled")
     def automatic_failover_enabled(self) -> pulumi.Output[bool]:
-        """
-        Enable automatic failover for this Cosmos DB account.
-        """
         return pulumi.get(self, "automatic_failover_enabled")
 
     @property
     @pulumi.getter
     def backup(self) -> pulumi.Output['outputs.AccountBackup']:
-        """
-        A `backup` block as defined below.
-        """
         return pulumi.get(self, "backup")
 
     @property
     @pulumi.getter
     def capabilities(self) -> pulumi.Output[Sequence['outputs.AccountCapability']]:
-        """
-        The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
-        """
         return pulumi.get(self, "capabilities")
 
     @property
@@ -2176,17 +1863,11 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="consistencyPolicy")
     def consistency_policy(self) -> pulumi.Output['outputs.AccountConsistencyPolicy']:
-        """
-        Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
-        """
         return pulumi.get(self, "consistency_policy")
 
     @property
     @pulumi.getter(name="corsRule")
     def cors_rule(self) -> pulumi.Output[Optional['outputs.AccountCorsRule']]:
-        """
-        A `cors_rule` block as defined below.
-        """
         return pulumi.get(self, "cors_rule")
 
     @property
@@ -2242,73 +1923,41 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="freeTierEnabled")
     def free_tier_enabled(self) -> pulumi.Output[bool]:
-        """
-        Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "free_tier_enabled")
 
     @property
     @pulumi.getter(name="geoLocations")
     def geo_locations(self) -> pulumi.Output[Sequence['outputs.AccountGeoLocation']]:
-        """
-        Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
-        """
         return pulumi.get(self, "geo_locations")
 
     @property
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.AccountIdentity']]:
-        """
-        An `identity` block as defined below.
-        """
         return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="ipRangeFilter")
     def ip_range_filter(self) -> pulumi.Output[Optional[str]]:
-        """
-        CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-
-        > **Note:** To enable the "Allow access from the Azure portal" behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
-
-        > **Note:** To enable the "Accept connections from within public Azure datacenters" behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
-        """
         return pulumi.get(self, "ip_range_filter")
 
     @property
     @pulumi.getter(name="isVirtualNetworkFilterEnabled")
     def is_virtual_network_filter_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Enables virtual network filtering for this Cosmos DB account.
-        """
         return pulumi.get(self, "is_virtual_network_filter_enabled")
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
-
-        > **Note:** When referencing an `keyvault.Key` resource, use `versionless_id` instead of `id`
-
-        > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-        """
         return pulumi.get(self, "key_vault_key_id")
 
     @property
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter(name="localAuthenticationDisabled")
     def local_authentication_disabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
-        """
         return pulumi.get(self, "local_authentication_disabled")
 
     @property
@@ -2330,17 +1979,11 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="mongoServerVersion")
     def mongo_server_version(self) -> pulumi.Output[str]:
-        """
-        The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
-        """
         return pulumi.get(self, "mongo_server_version")
 
     @property
     @pulumi.getter(name="multipleWriteLocationsEnabled")
     def multiple_write_locations_enabled(self) -> pulumi.Output[bool]:
-        """
-        Enable multiple write locations for this Cosmos DB account.
-        """
         return pulumi.get(self, "multiple_write_locations_enabled")
 
     @property
@@ -2354,17 +1997,11 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="networkAclBypassForAzureServices")
     def network_acl_bypass_for_azure_services(self) -> pulumi.Output[Optional[bool]]:
-        """
-        If Azure services can bypass ACLs. Defaults to `false`.
-        """
         return pulumi.get(self, "network_acl_bypass_for_azure_services")
 
     @property
     @pulumi.getter(name="networkAclBypassIds")
     def network_acl_bypass_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
-        """
         return pulumi.get(self, "network_acl_bypass_ids")
 
     @property
@@ -2378,9 +2015,6 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="partitionMergeEnabled")
     def partition_merge_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
-        """
         return pulumi.get(self, "partition_merge_enabled")
 
     @property
@@ -2434,9 +2068,6 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
-        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @property
@@ -2458,11 +2089,6 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter
     def restore(self) -> pulumi.Output[Optional['outputs.AccountRestore']]:
-        """
-        A `restore` block as defined below.
-
-        > **Note:** `restore` should be set when `create_mode` is `Restore`.
-        """
         return pulumi.get(self, "restore")
 
     @property
@@ -2524,9 +2150,6 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="virtualNetworkRules")
     def virtual_network_rules(self) -> pulumi.Output[Optional[Sequence['outputs.AccountVirtualNetworkRule']]]:
-        """
-        Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
-        """
         return pulumi.get(self, "virtual_network_rules")
 
     @property

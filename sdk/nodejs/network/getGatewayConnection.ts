@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const virtualNetworkGatewayConnectionId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGatewayConnection(args: GetGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayConnectionResult> {
 
@@ -156,7 +154,6 @@ export interface GetGatewayConnectionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -167,7 +164,6 @@ export interface GetGatewayConnectionResult {
  * });
  * export const virtualNetworkGatewayConnectionId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGatewayConnectionOutput(args: GetGatewayConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayConnectionResult> {
     return pulumi.output(args).apply((a: any) => getGatewayConnection(a, opts))

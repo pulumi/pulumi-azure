@@ -143,7 +143,6 @@ def get_namespace(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -152,7 +151,6 @@ def get_namespace(name: Optional[str] = None,
         resource_group_name="my-resource-group")
     pulumi.export("servicebusEndpoint", example.servicebus_endpoint)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the Name of the Notification Hub Namespace.
@@ -185,7 +183,6 @@ def get_namespace_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -194,7 +191,6 @@ def get_namespace_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="my-resource-group")
     pulumi.export("servicebusEndpoint", example.servicebus_endpoint)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the Name of the Notification Hub Namespace.

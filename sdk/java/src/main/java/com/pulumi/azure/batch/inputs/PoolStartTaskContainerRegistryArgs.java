@@ -16,62 +16,38 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
 
     public static final PoolStartTaskContainerRegistryArgs Empty = new PoolStartTaskContainerRegistryArgs();
 
-    /**
-     * The password to use for authentication against the CIFS file system.
-     * 
-     */
     @Import(name="password")
     private @Nullable Output<String> password;
 
-    /**
-     * @return The password to use for authentication against the CIFS file system.
-     * 
-     */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
     }
 
-    /**
-     * The container registry URL. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="registryServer", required=true)
     private Output<String> registryServer;
 
-    /**
-     * @return The container registry URL. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> registryServer() {
         return this.registryServer;
     }
 
     /**
-     * The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+     * The User Assigned Identity to use for Container Registry access.
      * 
      */
     @Import(name="userAssignedIdentityId")
     private @Nullable Output<String> userAssignedIdentityId;
 
     /**
-     * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+     * @return The User Assigned Identity to use for Container Registry access.
      * 
      */
     public Optional<Output<String>> userAssignedIdentityId() {
         return Optional.ofNullable(this.userAssignedIdentityId);
     }
 
-    /**
-     * The user to use for authentication against the CIFS file system.
-     * 
-     */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
-    /**
-     * @return The user to use for authentication against the CIFS file system.
-     * 
-     */
     public Optional<Output<String>> userName() {
         return Optional.ofNullable(this.userName);
     }
@@ -103,50 +79,26 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
             $ = new PoolStartTaskContainerRegistryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param password The password to use for authentication against the CIFS file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
 
-        /**
-         * @param password The password to use for authentication against the CIFS file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
-        /**
-         * @param registryServer The container registry URL. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryServer(Output<String> registryServer) {
             $.registryServer = registryServer;
             return this;
         }
 
-        /**
-         * @param registryServer The container registry URL. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryServer(String registryServer) {
             return registryServer(Output.of(registryServer));
         }
 
         /**
-         * @param userAssignedIdentityId The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+         * @param userAssignedIdentityId The User Assigned Identity to use for Container Registry access.
          * 
          * @return builder
          * 
@@ -157,7 +109,7 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param userAssignedIdentityId The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+         * @param userAssignedIdentityId The User Assigned Identity to use for Container Registry access.
          * 
          * @return builder
          * 
@@ -166,23 +118,11 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
             return userAssignedIdentityId(Output.of(userAssignedIdentityId));
         }
 
-        /**
-         * @param userName The user to use for authentication against the CIFS file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(@Nullable Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName The user to use for authentication against the CIFS file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

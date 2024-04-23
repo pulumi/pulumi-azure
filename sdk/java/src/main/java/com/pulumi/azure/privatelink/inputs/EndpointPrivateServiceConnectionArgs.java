@@ -83,14 +83,14 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies the static IP address within the private endpoint&#39;s subnet to be used. Changing this forces a new resource to be created.
+     * (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `private_service_connection` block to obtain the address associated with the private endpoint.
      * 
      */
     @Import(name="privateIpAddress")
     private @Nullable Output<String> privateIpAddress;
 
     /**
-     * @return Specifies the static IP address within the private endpoint&#39;s subnet to be used. Changing this forces a new resource to be created.
+     * @return (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `private_service_connection` block to obtain the address associated with the private endpoint.
      * 
      */
     public Optional<Output<String>> privateIpAddress() {
@@ -254,7 +254,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param privateIpAddress Specifies the static IP address within the private endpoint&#39;s subnet to be used. Changing this forces a new resource to be created.
+         * @param privateIpAddress (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `private_service_connection` block to obtain the address associated with the private endpoint.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param privateIpAddress Specifies the static IP address within the private endpoint&#39;s subnet to be used. Changing this forces a new resource to be created.
+         * @param privateIpAddress (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `private_service_connection` block to obtain the address associated with the private endpoint.
          * 
          * @return builder
          * 

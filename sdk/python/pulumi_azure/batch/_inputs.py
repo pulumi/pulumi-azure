@@ -1846,10 +1846,7 @@ class PoolStartTaskContainerRegistryArgs:
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] registry_server: The container registry URL. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The password to use for authentication against the CIFS file system.
-        :param pulumi.Input[str] user_assigned_identity_id: The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] user_name: The user to use for authentication against the CIFS file system.
+        :param pulumi.Input[str] user_assigned_identity_id: The User Assigned Identity to use for Container Registry access.
         """
         pulumi.set(__self__, "registry_server", registry_server)
         if password is not None:
@@ -1862,9 +1859,6 @@ class PoolStartTaskContainerRegistryArgs:
     @property
     @pulumi.getter(name="registryServer")
     def registry_server(self) -> pulumi.Input[str]:
-        """
-        The container registry URL. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "registry_server")
 
     @registry_server.setter
@@ -1874,9 +1868,6 @@ class PoolStartTaskContainerRegistryArgs:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        The password to use for authentication against the CIFS file system.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -1887,7 +1878,7 @@ class PoolStartTaskContainerRegistryArgs:
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+        The User Assigned Identity to use for Container Registry access.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -1898,9 +1889,6 @@ class PoolStartTaskContainerRegistryArgs:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user to use for authentication against the CIFS file system.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter

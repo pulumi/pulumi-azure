@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * This example provisions an App Service Certificate from a Local File.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -31,7 +30,6 @@ import * as utilities from "../utilities";
  *     password: "password123!",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -97,11 +95,6 @@ export class Certificate extends pulumi.CustomResource {
      * The name of the certificate issuer.
      */
     public /*out*/ readonly issuer!: pulumi.Output<string>;
-    /**
-     * The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-     *
-     * > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
-     */
     public readonly keyVaultId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
@@ -137,9 +130,6 @@ export class Certificate extends pulumi.CustomResource {
      * The subject name of the certificate.
      */
     public /*out*/ readonly subjectName!: pulumi.Output<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The thumbprint for the certificate.
@@ -238,11 +228,6 @@ export interface CertificateState {
      * The name of the certificate issuer.
      */
     issuer?: pulumi.Input<string>;
-    /**
-     * The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-     *
-     * > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
-     */
     keyVaultId?: pulumi.Input<string>;
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
@@ -278,9 +263,6 @@ export interface CertificateState {
      * The subject name of the certificate.
      */
     subjectName?: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The thumbprint for the certificate.
@@ -296,11 +278,6 @@ export interface CertificateArgs {
      * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
      */
     appServicePlanId?: pulumi.Input<string>;
-    /**
-     * The ID of the Key Vault. Must be specified if the Key Vault of `keyVaultSecretId` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-     *
-     * > **NOTE:** `keyVaultId` can only be specified if `keyVaultSecretId` has been set.
-     */
     keyVaultId?: pulumi.Input<string>;
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
@@ -332,8 +309,5 @@ export interface CertificateArgs {
      * > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

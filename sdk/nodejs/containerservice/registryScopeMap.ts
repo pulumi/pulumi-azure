@@ -7,7 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Container Registry scope map.  Scope Maps are a preview feature only available in Premium SKU Container registries.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -41,7 +40,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -51,7 +50,6 @@ import * as utilities from "../utilities";
  *     expiry: "2023-06-23T00:00:00Z",
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSas(args: GetSasArgs, opts?: pulumi.InvokeOptions): Promise<GetSasResult> {
 
@@ -96,7 +94,6 @@ export interface GetSasResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -138,7 +135,6 @@ export interface GetSasResult {
  *     expiry: "2023-06-23T00:00:00Z",
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSasOutput(args: GetSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSasResult> {
     return pulumi.output(args).apply((a: any) => getSas(a, opts))

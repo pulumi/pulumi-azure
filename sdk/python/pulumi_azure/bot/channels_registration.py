@@ -634,7 +634,6 @@ class ChannelsRegistration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -650,7 +649,6 @@ class ChannelsRegistration(pulumi.CustomResource):
             sku="F0",
             microsoft_app_id=current.client_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -699,7 +697,6 @@ class ChannelsRegistration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -715,7 +712,6 @@ class ChannelsRegistration(pulumi.CustomResource):
             sku="F0",
             microsoft_app_id=current.client_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

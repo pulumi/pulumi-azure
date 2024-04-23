@@ -261,7 +261,7 @@ class ComputeInstanceIdentityArgs:
                
                > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
-        :param pulumi.Input[str] tenant_id: User’s AAD Tenant Id.
+        :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -313,7 +313,7 @@ class ComputeInstanceIdentityArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        User’s AAD Tenant Id.
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
         """
         return pulumi.get(self, "tenant_id")
 

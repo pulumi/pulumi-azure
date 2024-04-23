@@ -219,7 +219,6 @@ class Table(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -232,7 +231,6 @@ class Table(pulumi.CustomResource):
             account_name=example.name,
             throughput=400)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -265,7 +263,6 @@ class Table(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -278,7 +275,6 @@ class Table(pulumi.CustomResource):
             account_name=example.name,
             throughput=400)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

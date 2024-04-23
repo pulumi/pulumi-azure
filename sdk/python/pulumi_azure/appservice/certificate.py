@@ -29,9 +29,6 @@ class CertificateArgs:
                
                > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         :param pulumi.Input[str] app_service_plan_id: The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-               
-               > **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
                
                > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
@@ -41,7 +38,6 @@ class CertificateArgs:
         :param pulumi.Input[str] pfx_blob: The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
                
                > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if app_service_plan_id is not None:
@@ -90,11 +86,6 @@ class CertificateArgs:
     @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-
-        > **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
-        """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
@@ -168,9 +159,6 @@ class CertificateArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -207,9 +195,6 @@ class _CertificateState:
         :param pulumi.Input[str] hosting_environment_profile_id: The ID of the App Service Environment where the certificate is in use.
         :param pulumi.Input[str] issue_date: The issue date for the certificate.
         :param pulumi.Input[str] issuer: The name of the certificate issuer.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-               
-               > **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
                
                > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
@@ -223,7 +208,6 @@ class _CertificateState:
                
                > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         :param pulumi.Input[str] subject_name: The subject name of the certificate.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] thumbprint: The thumbprint for the certificate.
         """
         if app_service_plan_id is not None:
@@ -348,11 +332,6 @@ class _CertificateState:
     @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-
-        > **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
-        """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
@@ -452,9 +431,6 @@ class _CertificateState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -496,7 +472,6 @@ class Certificate(pulumi.CustomResource):
 
         This example provisions an App Service Certificate from a Local File.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -512,7 +487,6 @@ class Certificate(pulumi.CustomResource):
             pfx_blob=std.filebase64(input="certificate.pfx").result,
             password="password123!")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -525,9 +499,6 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-               
-               > **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
                
                > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
@@ -540,7 +511,6 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
                
                > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
@@ -555,7 +525,6 @@ class Certificate(pulumi.CustomResource):
 
         This example provisions an App Service Certificate from a Local File.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -571,7 +540,6 @@ class Certificate(pulumi.CustomResource):
             pfx_blob=std.filebase64(input="certificate.pfx").result,
             password="password123!")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -676,9 +644,6 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] hosting_environment_profile_id: The ID of the App Service Environment where the certificate is in use.
         :param pulumi.Input[str] issue_date: The issue date for the certificate.
         :param pulumi.Input[str] issuer: The name of the certificate issuer.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-               
-               > **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
                
                > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
@@ -692,7 +657,6 @@ class Certificate(pulumi.CustomResource):
                
                > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         :param pulumi.Input[str] subject_name: The subject name of the certificate.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] thumbprint: The thumbprint for the certificate.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -777,11 +741,6 @@ class Certificate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-
-        > **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
-        """
         return pulumi.get(self, "key_vault_id")
 
     @property
@@ -849,9 +808,6 @@ class Certificate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @property

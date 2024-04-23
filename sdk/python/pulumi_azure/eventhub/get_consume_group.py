@@ -102,7 +102,6 @@ def get_consume_group(eventhub_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -112,7 +111,6 @@ def get_consume_group(eventhub_name: Optional[str] = None,
         eventhub_name=test_azurerm_eventhub["name"],
         resource_group_name=test_azurerm_resource_group["name"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str eventhub_name: Specifies the name of the EventHub.
@@ -148,7 +146,6 @@ def get_consume_group_output(eventhub_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -158,7 +155,6 @@ def get_consume_group_output(eventhub_name: Optional[pulumi.Input[str]] = None,
         eventhub_name=test_azurerm_eventhub["name"],
         resource_group_name=test_azurerm_resource_group["name"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str eventhub_name: Specifies the name of the EventHub.

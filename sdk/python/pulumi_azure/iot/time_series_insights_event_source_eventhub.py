@@ -394,7 +394,6 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -453,7 +452,6 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
             consumer_group_name=example_consumer_group.name,
             event_source_resource_id=example_event_hub.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -488,7 +486,6 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -547,7 +544,6 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
             consumer_group_name=example_consumer_group.name,
             event_source_resource_id=example_event_hub.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -188,7 +188,6 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
 
         ### With System Assigned Identity
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -257,11 +256,9 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             eventhub_namespace_id=example_event_hub_namespace.id,
             key_vault_key_ids=[example_key.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With User Assigned Identity
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -336,7 +333,6 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             key_vault_key_ids=[example_key.id],
             user_assigned_identity_id=example_user_assigned_identity.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -372,7 +368,6 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
 
         ### With System Assigned Identity
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -441,11 +436,9 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             eventhub_namespace_id=example_event_hub_namespace.id,
             key_vault_key_ids=[example_key.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With User Assigned Identity
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -520,7 +513,6 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             key_vault_key_ids=[example_key.id],
             user_assigned_identity_id=example_user_assigned_identity.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

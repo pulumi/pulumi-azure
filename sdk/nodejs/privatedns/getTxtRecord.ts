@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  * });
  * export const privateDnsTxtRecordId = exampleAzurermPrivateDnsTxtRecord.id;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTxtRecord(args: GetTxtRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetTxtRecordResult> {
 
@@ -82,7 +80,6 @@ export interface GetTxtRecordResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -94,7 +91,6 @@ export interface GetTxtRecordResult {
  * });
  * export const privateDnsTxtRecordId = exampleAzurermPrivateDnsTxtRecord.id;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTxtRecordOutput(args: GetTxtRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTxtRecordResult> {
     return pulumi.output(args).apply((a: any) => getTxtRecord(a, opts))

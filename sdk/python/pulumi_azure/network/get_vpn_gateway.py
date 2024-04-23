@@ -131,7 +131,6 @@ def get_vpn_gateway(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -140,7 +139,6 @@ def get_vpn_gateway(name: Optional[str] = None,
         resource_group_name="existing-vpn_gateway")
     pulumi.export("azurermVpnGatewayId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The Name of the VPN Gateway.
@@ -172,7 +170,6 @@ def get_vpn_gateway_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -181,7 +178,6 @@ def get_vpn_gateway_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="existing-vpn_gateway")
     pulumi.export("azurermVpnGatewayId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The Name of the VPN Gateway.

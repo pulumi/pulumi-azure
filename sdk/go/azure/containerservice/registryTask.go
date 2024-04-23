@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,7 +68,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -102,23 +100,19 @@ type RegistryTask struct {
 	// An `identity` block as defined below.
 	Identity RegistryTaskIdentityPtrOutput `pulumi:"identity"`
 	// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
-	IsSystemTask pulumi.BoolPtrOutput `pulumi:"isSystemTask"`
-	// The template that describes the run log artifact.
-	LogTemplate pulumi.StringPtrOutput `pulumi:"logTemplate"`
+	IsSystemTask pulumi.BoolPtrOutput   `pulumi:"isSystemTask"`
+	LogTemplate  pulumi.StringPtrOutput `pulumi:"logTemplate"`
 	// The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `platform` block as defined below.
 	//
 	// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
-	Platform RegistryTaskPlatformPtrOutput `pulumi:"platform"`
-	// One `registryCredential` block as defined below.
+	Platform           RegistryTaskPlatformPtrOutput           `pulumi:"platform"`
 	RegistryCredential RegistryTaskRegistryCredentialPtrOutput `pulumi:"registryCredential"`
 	// One or more `sourceTrigger` blocks as defined below.
-	SourceTriggers RegistryTaskSourceTriggerArrayOutput `pulumi:"sourceTriggers"`
-	// A mapping of tags which should be assigned to the Container Registry Task.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-	TimeoutInSeconds pulumi.IntPtrOutput `pulumi:"timeoutInSeconds"`
+	SourceTriggers   RegistryTaskSourceTriggerArrayOutput `pulumi:"sourceTriggers"`
+	Tags             pulumi.StringMapOutput               `pulumi:"tags"`
+	TimeoutInSeconds pulumi.IntPtrOutput                  `pulumi:"timeoutInSeconds"`
 	// One or more `timerTrigger` blocks as defined below.
 	TimerTriggers RegistryTaskTimerTriggerArrayOutput `pulumi:"timerTriggers"`
 }
@@ -177,23 +171,19 @@ type registryTaskState struct {
 	// An `identity` block as defined below.
 	Identity *RegistryTaskIdentity `pulumi:"identity"`
 	// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
-	IsSystemTask *bool `pulumi:"isSystemTask"`
-	// The template that describes the run log artifact.
-	LogTemplate *string `pulumi:"logTemplate"`
+	IsSystemTask *bool   `pulumi:"isSystemTask"`
+	LogTemplate  *string `pulumi:"logTemplate"`
 	// The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
 	Name *string `pulumi:"name"`
 	// A `platform` block as defined below.
 	//
 	// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
-	Platform *RegistryTaskPlatform `pulumi:"platform"`
-	// One `registryCredential` block as defined below.
+	Platform           *RegistryTaskPlatform           `pulumi:"platform"`
 	RegistryCredential *RegistryTaskRegistryCredential `pulumi:"registryCredential"`
 	// One or more `sourceTrigger` blocks as defined below.
-	SourceTriggers []RegistryTaskSourceTrigger `pulumi:"sourceTriggers"`
-	// A mapping of tags which should be assigned to the Container Registry Task.
-	Tags map[string]string `pulumi:"tags"`
-	// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+	SourceTriggers   []RegistryTaskSourceTrigger `pulumi:"sourceTriggers"`
+	Tags             map[string]string           `pulumi:"tags"`
+	TimeoutInSeconds *int                        `pulumi:"timeoutInSeconds"`
 	// One or more `timerTrigger` blocks as defined below.
 	TimerTriggers []RegistryTaskTimerTrigger `pulumi:"timerTriggers"`
 }
@@ -221,21 +211,17 @@ type RegistryTaskState struct {
 	Identity RegistryTaskIdentityPtrInput
 	// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
 	IsSystemTask pulumi.BoolPtrInput
-	// The template that describes the run log artifact.
-	LogTemplate pulumi.StringPtrInput
+	LogTemplate  pulumi.StringPtrInput
 	// The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
 	Name pulumi.StringPtrInput
 	// A `platform` block as defined below.
 	//
 	// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
-	Platform RegistryTaskPlatformPtrInput
-	// One `registryCredential` block as defined below.
+	Platform           RegistryTaskPlatformPtrInput
 	RegistryCredential RegistryTaskRegistryCredentialPtrInput
 	// One or more `sourceTrigger` blocks as defined below.
-	SourceTriggers RegistryTaskSourceTriggerArrayInput
-	// A mapping of tags which should be assigned to the Container Registry Task.
-	Tags pulumi.StringMapInput
-	// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
+	SourceTriggers   RegistryTaskSourceTriggerArrayInput
+	Tags             pulumi.StringMapInput
 	TimeoutInSeconds pulumi.IntPtrInput
 	// One or more `timerTrigger` blocks as defined below.
 	TimerTriggers RegistryTaskTimerTriggerArrayInput
@@ -267,23 +253,19 @@ type registryTaskArgs struct {
 	// An `identity` block as defined below.
 	Identity *RegistryTaskIdentity `pulumi:"identity"`
 	// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
-	IsSystemTask *bool `pulumi:"isSystemTask"`
-	// The template that describes the run log artifact.
-	LogTemplate *string `pulumi:"logTemplate"`
+	IsSystemTask *bool   `pulumi:"isSystemTask"`
+	LogTemplate  *string `pulumi:"logTemplate"`
 	// The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
 	Name *string `pulumi:"name"`
 	// A `platform` block as defined below.
 	//
 	// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
-	Platform *RegistryTaskPlatform `pulumi:"platform"`
-	// One `registryCredential` block as defined below.
+	Platform           *RegistryTaskPlatform           `pulumi:"platform"`
 	RegistryCredential *RegistryTaskRegistryCredential `pulumi:"registryCredential"`
 	// One or more `sourceTrigger` blocks as defined below.
-	SourceTriggers []RegistryTaskSourceTrigger `pulumi:"sourceTriggers"`
-	// A mapping of tags which should be assigned to the Container Registry Task.
-	Tags map[string]string `pulumi:"tags"`
-	// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+	SourceTriggers   []RegistryTaskSourceTrigger `pulumi:"sourceTriggers"`
+	Tags             map[string]string           `pulumi:"tags"`
+	TimeoutInSeconds *int                        `pulumi:"timeoutInSeconds"`
 	// One or more `timerTrigger` blocks as defined below.
 	TimerTriggers []RegistryTaskTimerTrigger `pulumi:"timerTriggers"`
 }
@@ -312,21 +294,17 @@ type RegistryTaskArgs struct {
 	Identity RegistryTaskIdentityPtrInput
 	// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
 	IsSystemTask pulumi.BoolPtrInput
-	// The template that describes the run log artifact.
-	LogTemplate pulumi.StringPtrInput
+	LogTemplate  pulumi.StringPtrInput
 	// The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
 	Name pulumi.StringPtrInput
 	// A `platform` block as defined below.
 	//
 	// > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
-	Platform RegistryTaskPlatformPtrInput
-	// One `registryCredential` block as defined below.
+	Platform           RegistryTaskPlatformPtrInput
 	RegistryCredential RegistryTaskRegistryCredentialPtrInput
 	// One or more `sourceTrigger` blocks as defined below.
-	SourceTriggers RegistryTaskSourceTriggerArrayInput
-	// A mapping of tags which should be assigned to the Container Registry Task.
-	Tags pulumi.StringMapInput
-	// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
+	SourceTriggers   RegistryTaskSourceTriggerArrayInput
+	Tags             pulumi.StringMapInput
 	TimeoutInSeconds pulumi.IntPtrInput
 	// One or more `timerTrigger` blocks as defined below.
 	TimerTriggers RegistryTaskTimerTriggerArrayInput
@@ -471,7 +449,6 @@ func (o RegistryTaskOutput) IsSystemTask() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RegistryTask) pulumi.BoolPtrOutput { return v.IsSystemTask }).(pulumi.BoolPtrOutput)
 }
 
-// The template that describes the run log artifact.
 func (o RegistryTaskOutput) LogTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryTask) pulumi.StringPtrOutput { return v.LogTemplate }).(pulumi.StringPtrOutput)
 }
@@ -488,7 +465,6 @@ func (o RegistryTaskOutput) Platform() RegistryTaskPlatformPtrOutput {
 	return o.ApplyT(func(v *RegistryTask) RegistryTaskPlatformPtrOutput { return v.Platform }).(RegistryTaskPlatformPtrOutput)
 }
 
-// One `registryCredential` block as defined below.
 func (o RegistryTaskOutput) RegistryCredential() RegistryTaskRegistryCredentialPtrOutput {
 	return o.ApplyT(func(v *RegistryTask) RegistryTaskRegistryCredentialPtrOutput { return v.RegistryCredential }).(RegistryTaskRegistryCredentialPtrOutput)
 }
@@ -498,12 +474,10 @@ func (o RegistryTaskOutput) SourceTriggers() RegistryTaskSourceTriggerArrayOutpu
 	return o.ApplyT(func(v *RegistryTask) RegistryTaskSourceTriggerArrayOutput { return v.SourceTriggers }).(RegistryTaskSourceTriggerArrayOutput)
 }
 
-// A mapping of tags which should be assigned to the Container Registry Task.
 func (o RegistryTaskOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RegistryTask) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
 func (o RegistryTaskOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RegistryTask) pulumi.IntPtrOutput { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }

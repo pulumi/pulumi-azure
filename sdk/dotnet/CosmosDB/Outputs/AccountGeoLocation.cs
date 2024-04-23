@@ -18,7 +18,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly int FailoverPriority;
         /// <summary>
-        /// The ID of the virtual network subnet.
+        /// The CosmosDB Account ID.
         /// </summary>
         public readonly string? Id;
         /// <summary>

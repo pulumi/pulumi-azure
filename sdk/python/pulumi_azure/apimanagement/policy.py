@@ -138,7 +138,6 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -164,7 +163,6 @@ class Policy(pulumi.CustomResource):
             api_management_id=example_service.id,
             xml_content=std.file(input="example.xml").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -193,7 +191,6 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -219,7 +216,6 @@ class Policy(pulumi.CustomResource):
             api_management_id=example_service.id,
             xml_content=std.file(input="example.xml").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -171,7 +171,6 @@ def get_snapshot_policy(account_name: Optional[str] = None,
 
     ## NetApp Snapshot Policy Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -187,7 +186,6 @@ def get_snapshot_policy(account_name: Optional[str] = None,
     pulumi.export("weeklySchedule", example.weekly_schedules)
     pulumi.export("monthlySchedule", example.monthly_schedules)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the NetApp account where the NetApp Snapshot Policy exists.
@@ -225,7 +223,6 @@ def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
 
     ## NetApp Snapshot Policy Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -241,7 +238,6 @@ def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     pulumi.export("weeklySchedule", example.weekly_schedules)
     pulumi.export("monthlySchedule", example.monthly_schedules)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the NetApp account where the NetApp Snapshot Policy exists.

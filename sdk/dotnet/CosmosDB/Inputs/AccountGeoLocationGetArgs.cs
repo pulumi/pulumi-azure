@@ -19,7 +19,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public Input<int> FailoverPriority { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the virtual network subnet.
+        /// The CosmosDB Account ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

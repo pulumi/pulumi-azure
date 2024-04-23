@@ -232,7 +232,6 @@ class ConnectionCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -259,7 +258,6 @@ class ConnectionCertificate(pulumi.CustomResource):
             automation_certificate_name=example_certificate.name,
             subscription_id=example.subscription_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -289,7 +287,6 @@ class ConnectionCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -316,7 +313,6 @@ class ConnectionCertificate(pulumi.CustomResource):
             automation_certificate_name=example_certificate.name,
             subscription_id=example.subscription_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

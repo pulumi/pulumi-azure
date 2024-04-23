@@ -263,7 +263,6 @@ class NetworkMapping(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -308,7 +307,6 @@ class NetworkMapping(pulumi.CustomResource):
             source_network_id=primary_virtual_network.id,
             target_network_id=secondary_virtual_network.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -339,7 +337,6 @@ class NetworkMapping(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -384,7 +381,6 @@ class NetworkMapping(pulumi.CustomResource):
             source_network_id=primary_virtual_network.id,
             target_network_id=secondary_virtual_network.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

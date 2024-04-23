@@ -16,7 +16,6 @@ import (
 //
 // ### CNAME validation
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,11 +74,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### TXT validation
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -136,7 +133,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

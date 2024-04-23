@@ -234,7 +234,6 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -256,7 +255,6 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
                 message_count=80,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -286,7 +284,6 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -308,7 +305,6 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
                 message_count=80,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

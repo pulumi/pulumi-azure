@@ -11,33 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EventSubscriptionAdvancedFilterBoolEqual {
-    /**
-     * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-     * 
-     */
     private String key;
-    /**
-     * @return Specifies a single value to compare to when using a single value operator.
-     * 
-     * OR
-     * 
-     */
     private Boolean value;
 
     private EventSubscriptionAdvancedFilterBoolEqual() {}
-    /**
-     * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Specifies a single value to compare to when using a single value operator.
-     * 
-     * OR
-     * 
-     */
     public Boolean value() {
         return this.value;
     }

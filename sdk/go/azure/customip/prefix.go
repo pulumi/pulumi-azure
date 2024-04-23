@@ -17,7 +17,6 @@ import (
 // ## Example Usage
 //
 // *IPv4 custom prefix*
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,10 +62,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // *IPv6 custom prefix*
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -125,7 +122,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -16,7 +16,6 @@ namespace Pulumi.Azure.MySql
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Azure.MySql
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFlexibleServerResult> InvokeAsync(GetFlexibleServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlexibleServerResult>("azure:mysql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Azure.MySql
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Azure.MySql
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFlexibleServerResult> Invoke(GetFlexibleServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlexibleServerResult>("azure:mysql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerInvokeArgs(), options.WithDefaults());

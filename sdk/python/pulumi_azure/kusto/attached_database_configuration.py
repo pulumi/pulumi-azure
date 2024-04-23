@@ -316,7 +316,6 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -366,7 +365,6 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                 tables_to_includes=["Table1"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -398,7 +396,6 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -448,7 +445,6 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                 tables_to_includes=["Table1"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

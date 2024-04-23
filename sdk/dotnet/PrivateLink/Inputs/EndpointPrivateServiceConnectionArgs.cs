@@ -39,7 +39,7 @@ namespace Pulumi.Azure.PrivateLink.Inputs
         public Input<string>? PrivateConnectionResourceId { get; set; }
 
         /// <summary>
-        /// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
+        /// (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `private_service_connection` block to obtain the address associated with the private endpoint.
         /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }

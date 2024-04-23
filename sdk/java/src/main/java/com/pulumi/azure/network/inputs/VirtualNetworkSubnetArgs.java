@@ -32,14 +32,14 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ID of DDoS Protection Plan.
+     * The ID of this subnet.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ID of DDoS Protection Plan.
+     * @return The ID of this subnet.
      * 
      */
     public Optional<Output<String>> id() {
@@ -125,7 +125,7 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param id The ID of DDoS Protection Plan.
+         * @param id The ID of this subnet.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param id The ID of DDoS Protection Plan.
+         * @param id The ID of this subnet.
          * 
          * @return builder
          * 

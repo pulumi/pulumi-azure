@@ -83,7 +83,6 @@ def get_subscriptions(display_name_contains: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -92,7 +91,6 @@ def get_subscriptions(display_name_contains: Optional[str] = None,
     pulumi.export("availableSubscriptions", available.subscriptions)
     pulumi.export("firstAvailableSubscriptionDisplayName", available.subscriptions[0].display_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name_contains: A case-insensitive value which must be contained within the `display_name` field, used to filter the results
@@ -120,7 +118,6 @@ def get_subscriptions_output(display_name_contains: Optional[pulumi.Input[Option
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -129,7 +126,6 @@ def get_subscriptions_output(display_name_contains: Optional[pulumi.Input[Option
     pulumi.export("availableSubscriptions", available.subscriptions)
     pulumi.export("firstAvailableSubscriptionDisplayName", available.subscriptions[0].display_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name_contains: A case-insensitive value which must be contained within the `display_name` field, used to filter the results

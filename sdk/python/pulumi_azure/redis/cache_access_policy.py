@@ -135,7 +135,6 @@ class CacheAccessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -161,7 +160,6 @@ class CacheAccessPolicy(pulumi.CustomResource):
             redis_cache_id=example_cache.id,
             permissions="+@read +@connection +cluster|info")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -188,7 +186,6 @@ class CacheAccessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -214,7 +211,6 @@ class CacheAccessPolicy(pulumi.CustomResource):
             redis_cache_id=example_cache.id,
             permissions="+@read +@connection +cluster|info")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

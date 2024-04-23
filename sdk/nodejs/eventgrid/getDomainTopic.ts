@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicResult> {
 
@@ -69,7 +67,6 @@ export interface GetDomainTopicResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -79,7 +76,6 @@ export interface GetDomainTopicResult {
  *     resourceGroupName: "example-resources",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicResult> {
     return pulumi.output(args).apply((a: any) => getDomainTopic(a, opts))

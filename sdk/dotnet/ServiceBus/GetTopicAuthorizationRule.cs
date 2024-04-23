@@ -16,7 +16,6 @@ namespace Pulumi.Azure.ServiceBus
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Azure.ServiceBus
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTopicAuthorizationRuleResult> InvokeAsync(GetTopicAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicAuthorizationRuleResult>("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleArgs(), options.WithDefaults());
@@ -49,7 +47,6 @@ namespace Pulumi.Azure.ServiceBus
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -72,7 +69,6 @@ namespace Pulumi.Azure.ServiceBus
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTopicAuthorizationRuleResult> Invoke(GetTopicAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicAuthorizationRuleResult>("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleInvokeArgs(), options.WithDefaults());

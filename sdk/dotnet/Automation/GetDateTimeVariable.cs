@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Automation
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Azure.Automation
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDateTimeVariableResult> InvokeAsync(GetDateTimeVariableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDateTimeVariableResult>("azure:automation/getDateTimeVariable:getDateTimeVariable", args ?? new GetDateTimeVariableArgs(), options.WithDefaults());
@@ -48,7 +46,6 @@ namespace Pulumi.Azure.Automation
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,7 +67,6 @@ namespace Pulumi.Azure.Automation
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDateTimeVariableResult> Invoke(GetDateTimeVariableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDateTimeVariableResult>("azure:automation/getDateTimeVariable:getDateTimeVariable", args ?? new GetDateTimeVariableInvokeArgs(), options.WithDefaults());

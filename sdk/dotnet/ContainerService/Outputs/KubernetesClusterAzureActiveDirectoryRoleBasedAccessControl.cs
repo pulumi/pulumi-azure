@@ -13,29 +13,14 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl
     {
-        /// <summary>
-        /// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-        /// </summary>
         public readonly ImmutableArray<string> AdminGroupObjectIds;
-        /// <summary>
-        /// Is Role Based Access Control based on Azure AD enabled?
-        /// </summary>
         public readonly bool? AzureRbacEnabled;
-        /// <summary>
-        /// The Client ID of an Azure Active Directory Application.
-        /// </summary>
         public readonly string? ClientAppId;
         /// <summary>
         /// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
         /// </summary>
         public readonly bool? Managed;
-        /// <summary>
-        /// The Server ID of an Azure Active Directory Application.
-        /// </summary>
         public readonly string? ServerAppId;
-        /// <summary>
-        /// The Server Secret of an Azure Active Directory Application.
-        /// </summary>
         public readonly string? ServerAppSecret;
         /// <summary>
         /// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.

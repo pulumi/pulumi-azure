@@ -753,10 +753,6 @@ class HBaseClusterPrivateLinkConfigurationIpConfigurationArgs:
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] primary: Indicates whether this IP configuration is primary.
-        :param pulumi.Input[str] private_ip_address: The private IP address of the IP configuration.
-        :param pulumi.Input[str] private_ip_allocation_method: The private IP allocation method. The only possible value now is `Dynamic`.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         if primary is not None:
@@ -783,9 +779,6 @@ class HBaseClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter
     def primary(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether this IP configuration is primary.
-        """
         return pulumi.get(self, "primary")
 
     @primary.setter
@@ -795,9 +788,6 @@ class HBaseClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private IP address of the IP configuration.
-        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -807,9 +797,6 @@ class HBaseClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter(name="privateIpAllocationMethod")
     def private_ip_allocation_method(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private IP allocation method. The only possible value now is `Dynamic`.
-        """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @private_ip_allocation_method.setter
@@ -819,9 +806,6 @@ class HBaseClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -2430,10 +2414,6 @@ class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs:
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] primary: Indicates whether this IP configuration is primary.
-        :param pulumi.Input[str] private_ip_address: The private ip address of the endpoint.
-        :param pulumi.Input[str] private_ip_allocation_method: The private IP allocation method. The only possible value now is `Dynamic`.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         if primary is not None:
@@ -2460,9 +2440,6 @@ class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter
     def primary(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether this IP configuration is primary.
-        """
         return pulumi.get(self, "primary")
 
     @primary.setter
@@ -2472,9 +2449,6 @@ class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private ip address of the endpoint.
-        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -2484,9 +2458,6 @@ class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter(name="privateIpAllocationMethod")
     def private_ip_allocation_method(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private IP allocation method. The only possible value now is `Dynamic`.
-        """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @private_ip_allocation_method.setter
@@ -2496,9 +2467,6 @@ class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -4453,10 +4421,6 @@ class InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs:
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] primary: Indicates whether this IP configuration is primary.
-        :param pulumi.Input[str] private_ip_address: The private IP address of the IP configuration.
-        :param pulumi.Input[str] private_ip_allocation_method: The private IP allocation method. The only possible value now is `Dynamic`.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         if primary is not None:
@@ -4483,9 +4447,6 @@ class InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter
     def primary(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether this IP configuration is primary.
-        """
         return pulumi.get(self, "primary")
 
     @primary.setter
@@ -4495,9 +4456,6 @@ class InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private IP address of the IP configuration.
-        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -4507,9 +4465,6 @@ class InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter(name="privateIpAllocationMethod")
     def private_ip_allocation_method(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private IP allocation method. The only possible value now is `Dynamic`.
-        """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @private_ip_allocation_method.setter
@@ -4519,9 +4474,6 @@ class InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -6179,10 +6131,6 @@ class KafkaClusterPrivateLinkConfigurationIpConfigurationArgs:
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] primary: Indicates whether this IP configuration is primary.
-        :param pulumi.Input[str] private_ip_address: The private IP address of the IP configuration.
-        :param pulumi.Input[str] private_ip_allocation_method: The private IP allocation method. The only possible value now is `Dynamic`.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         if primary is not None:
@@ -6209,9 +6157,6 @@ class KafkaClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter
     def primary(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether this IP configuration is primary.
-        """
         return pulumi.get(self, "primary")
 
     @primary.setter
@@ -6221,9 +6166,6 @@ class KafkaClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private IP address of the IP configuration.
-        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -6233,9 +6175,6 @@ class KafkaClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter(name="privateIpAllocationMethod")
     def private_ip_allocation_method(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private IP allocation method. The only possible value now is `Dynamic`.
-        """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @private_ip_allocation_method.setter
@@ -6245,9 +6184,6 @@ class KafkaClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -7978,10 +7914,6 @@ class SparkClusterPrivateLinkConfigurationIpConfigurationArgs:
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] primary: Indicates whether this IP configuration is primary.
-        :param pulumi.Input[str] private_ip_address: The private IP address of the IP configuration.
-        :param pulumi.Input[str] private_ip_allocation_method: The private IP allocation method. The only possible value now is `Dynamic`.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         if primary is not None:
@@ -8008,9 +7940,6 @@ class SparkClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter
     def primary(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether this IP configuration is primary.
-        """
         return pulumi.get(self, "primary")
 
     @primary.setter
@@ -8020,9 +7949,6 @@ class SparkClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private IP address of the IP configuration.
-        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -8032,9 +7958,6 @@ class SparkClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter(name="privateIpAllocationMethod")
     def private_ip_allocation_method(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private IP allocation method. The only possible value now is `Dynamic`.
-        """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @private_ip_allocation_method.setter
@@ -8044,9 +7967,6 @@ class SparkClusterPrivateLinkConfigurationIpConfigurationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter

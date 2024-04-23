@@ -29,17 +29,9 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final IoTHubArgs Empty = new IoTHubArgs();
 
-    /**
-     * A `cloud_to_device` block as defined below.
-     * 
-     */
     @Import(name="cloudToDevice")
     private @Nullable Output<IoTHubCloudToDeviceArgs> cloudToDevice;
 
-    /**
-     * @return A `cloud_to_device` block as defined below.
-     * 
-     */
     public Optional<Output<IoTHubCloudToDeviceArgs>> cloudToDevice() {
         return Optional.ofNullable(this.cloudToDevice);
     }
@@ -59,17 +51,9 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.endpoints);
     }
 
-    /**
-     * A `enrichment` block as defined below.
-     * 
-     */
     @Import(name="enrichments")
     private @Nullable Output<List<IoTHubEnrichmentArgs>> enrichments;
 
-    /**
-     * @return A `enrichment` block as defined below.
-     * 
-     */
     public Optional<Output<List<IoTHubEnrichmentArgs>>> enrichments() {
         return Optional.ofNullable(this.enrichments);
     }
@@ -183,17 +167,9 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.location);
     }
 
-    /**
-     * Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="minTlsVersion")
     private @Nullable Output<String> minTlsVersion;
 
-    /**
-     * @return Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<String>> minTlsVersion() {
         return Optional.ofNullable(this.minTlsVersion);
     }
@@ -228,17 +204,9 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.networkRuleSets);
     }
 
-    /**
-     * Is the IotHub resource accessible from a public network?
-     * 
-     */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
-    /**
-     * @return Is the IotHub resource accessible from a public network?
-     * 
-     */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
         return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
@@ -258,17 +226,9 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
         return this.resourceGroupName;
     }
 
-    /**
-     * A `route` block as defined below.
-     * 
-     */
     @Import(name="routes")
     private @Nullable Output<List<IoTHubRouteArgs>> routes;
 
-    /**
-     * @return A `route` block as defined below.
-     * 
-     */
     public Optional<Output<List<IoTHubRouteArgs>>> routes() {
         return Optional.ofNullable(this.routes);
     }
@@ -288,17 +248,9 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
         return this.sku;
     }
 
-    /**
-     * A mapping of tags to assign to the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags to assign to the resource.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -344,23 +296,11 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
             $ = new IoTHubArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudToDevice A `cloud_to_device` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudToDevice(@Nullable Output<IoTHubCloudToDeviceArgs> cloudToDevice) {
             $.cloudToDevice = cloudToDevice;
             return this;
         }
 
-        /**
-         * @param cloudToDevice A `cloud_to_device` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudToDevice(IoTHubCloudToDeviceArgs cloudToDevice) {
             return cloudToDevice(Output.of(cloudToDevice));
         }
@@ -396,33 +336,15 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
             return endpoints(List.of(endpoints));
         }
 
-        /**
-         * @param enrichments A `enrichment` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enrichments(@Nullable Output<List<IoTHubEnrichmentArgs>> enrichments) {
             $.enrichments = enrichments;
             return this;
         }
 
-        /**
-         * @param enrichments A `enrichment` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enrichments(List<IoTHubEnrichmentArgs> enrichments) {
             return enrichments(Output.of(enrichments));
         }
 
-        /**
-         * @param enrichments A `enrichment` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enrichments(IoTHubEnrichmentArgs... enrichments) {
             return enrichments(List.of(enrichments));
         }
@@ -578,23 +500,11 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
             return location(Output.of(location));
         }
 
-        /**
-         * @param minTlsVersion Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minTlsVersion(@Nullable Output<String> minTlsVersion) {
             $.minTlsVersion = minTlsVersion;
             return this;
         }
 
-        /**
-         * @param minTlsVersion Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minTlsVersion(String minTlsVersion) {
             return minTlsVersion(Output.of(minTlsVersion));
         }
@@ -651,23 +561,11 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
             return networkRuleSets(List.of(networkRuleSets));
         }
 
-        /**
-         * @param publicNetworkAccessEnabled Is the IotHub resource accessible from a public network?
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
             $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
 
-        /**
-         * @param publicNetworkAccessEnabled Is the IotHub resource accessible from a public network?
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
@@ -693,33 +591,15 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
-        /**
-         * @param routes A `route` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routes(@Nullable Output<List<IoTHubRouteArgs>> routes) {
             $.routes = routes;
             return this;
         }
 
-        /**
-         * @param routes A `route` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routes(List<IoTHubRouteArgs> routes) {
             return routes(Output.of(routes));
         }
 
-        /**
-         * @param routes A `route` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routes(IoTHubRouteArgs... routes) {
             return routes(List.of(routes));
         }
@@ -745,23 +625,11 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
             return sku(Output.of(sku));
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

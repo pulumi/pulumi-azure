@@ -521,7 +521,6 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -537,7 +536,6 @@ class Domain(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -574,7 +572,6 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -590,7 +587,6 @@ class Domain(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

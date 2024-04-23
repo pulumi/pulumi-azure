@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = existingAzurermMaintenanceConfiguration.id;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
 
@@ -95,7 +93,6 @@ export interface GetConfigurationResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -106,7 +103,6 @@ export interface GetConfigurationResult {
  * });
  * export const id = existingAzurermMaintenanceConfiguration.id;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))

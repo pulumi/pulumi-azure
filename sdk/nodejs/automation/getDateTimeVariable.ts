@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  * });
  * export const variableId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDateTimeVariable(args: GetDateTimeVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetDateTimeVariableResult> {
 
@@ -80,7 +78,6 @@ export interface GetDateTimeVariableResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -92,7 +89,6 @@ export interface GetDateTimeVariableResult {
  * });
  * export const variableId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDateTimeVariableOutput(args: GetDateTimeVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDateTimeVariableResult> {
     return pulumi.output(args).apply((a: any) => getDateTimeVariable(a, opts))

@@ -18,7 +18,6 @@ import (
 //
 // ### With Azure Blob
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -111,7 +110,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

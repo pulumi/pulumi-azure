@@ -101,7 +101,6 @@ def get_registry_scope_map(container_registry_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -111,7 +110,6 @@ def get_registry_scope_map(container_registry_name: Optional[str] = None,
         container_registry_name="example-registry")
     pulumi.export("actions", example.actions)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str container_registry_name: The Name of the Container Registry where the token exists.
@@ -144,7 +142,6 @@ def get_registry_scope_map_output(container_registry_name: Optional[pulumi.Input
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -154,7 +151,6 @@ def get_registry_scope_map_output(container_registry_name: Optional[pulumi.Input
         container_registry_name="example-registry")
     pulumi.export("actions", example.actions)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str container_registry_name: The Name of the Container Registry where the token exists.

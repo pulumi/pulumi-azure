@@ -853,7 +853,6 @@ class FlexibleServer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -898,7 +897,6 @@ class FlexibleServer(pulumi.CustomResource):
             private_dns_zone_id=example_zone.id,
             sku_name="GP_Standard_D2ds_v4")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -955,7 +953,6 @@ class FlexibleServer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1000,7 +997,6 @@ class FlexibleServer(pulumi.CustomResource):
             private_dns_zone_id=example_zone.id,
             sku_name="GP_Standard_D2ds_v4")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

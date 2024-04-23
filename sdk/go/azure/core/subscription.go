@@ -16,7 +16,6 @@ import (
 //
 // ### Creating A New Alias And Subscription For An Enrollment Account
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,11 +48,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Creating A New Alias And Subscription For A Microsoft Customer Account
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,11 +84,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Creating A New Alias And Subscription For A Microsoft Partner Account
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -124,11 +119,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Adding An Alias To An Existing Subscription
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -154,7 +147,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

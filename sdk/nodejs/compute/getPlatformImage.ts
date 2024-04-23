@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPlatformImage(args: GetPlatformImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPlatformImageResult> {
 
@@ -81,7 +79,6 @@ export interface GetPlatformImageResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -94,7 +91,6 @@ export interface GetPlatformImageResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPlatformImageOutput(args: GetPlatformImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlatformImageResult> {
     return pulumi.output(args).apply((a: any) => getPlatformImage(a, opts))

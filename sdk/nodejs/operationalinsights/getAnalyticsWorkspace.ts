@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  * });
  * export const logAnalyticsWorkspaceId = example.then(example => example.workspaceId);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAnalyticsWorkspace(args: GetAnalyticsWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsWorkspaceResult> {
 
@@ -90,7 +88,6 @@ export interface GetAnalyticsWorkspaceResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -101,7 +98,6 @@ export interface GetAnalyticsWorkspaceResult {
  * });
  * export const logAnalyticsWorkspaceId = example.then(example => example.workspaceId);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAnalyticsWorkspaceOutput(args: GetAnalyticsWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyticsWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getAnalyticsWorkspace(a, opts))

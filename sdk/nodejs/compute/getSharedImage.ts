@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSharedImage(args: GetSharedImageArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageResult> {
 
@@ -117,7 +115,6 @@ export interface GetSharedImageResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -128,7 +125,6 @@ export interface GetSharedImageResult {
  *     resourceGroupName: "example-resources",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSharedImageOutput(args: GetSharedImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedImageResult> {
     return pulumi.output(args).apply((a: any) => getSharedImage(a, opts))

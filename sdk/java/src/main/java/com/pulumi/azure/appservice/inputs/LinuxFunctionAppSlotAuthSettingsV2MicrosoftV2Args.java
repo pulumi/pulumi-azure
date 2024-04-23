@@ -18,18 +18,14 @@ public final class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args extends com
     public static final LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args Empty = new LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args();
 
     /**
-     * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-     * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
      * 
      */
     @Import(name="allowedAudiences")
     private @Nullable Output<List<String>> allowedAudiences;
 
     /**
-     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-     * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * @return Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
      * 
      */
     public Optional<Output<List<String>>> allowedAudiences() {
@@ -37,14 +33,14 @@ public final class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args extends com
     }
 
     /**
-     * The ID of the Client to use to authenticate with Azure Active Directory.
+     * The OAuth 2.0 client ID that was created for the app used for authentication.
      * 
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The OAuth 2.0 client ID that was created for the app used for authentication.
      * 
      */
     public Output<String> clientId() {
@@ -52,14 +48,18 @@ public final class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args extends com
     }
 
     /**
-     * The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName", required=true)
     private Output<String> clientSecretSettingName;
 
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Output<String> clientSecretSettingName() {
@@ -109,9 +109,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args extends com
         }
 
         /**
-         * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         * 
-         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * @param allowedAudiences Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          * 
          * @return builder
          * 
@@ -122,9 +120,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args extends com
         }
 
         /**
-         * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         * 
-         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * @param allowedAudiences Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          * 
          * @return builder
          * 
@@ -134,9 +130,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args extends com
         }
 
         /**
-         * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-         * 
-         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * @param allowedAudiences Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          * 
          * @return builder
          * 
@@ -146,7 +140,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args extends com
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The OAuth 2.0 client ID that was created for the app used for authentication.
          * 
          * @return builder
          * 
@@ -157,7 +151,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args extends com
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The OAuth 2.0 client ID that was created for the app used for authentication.
          * 
          * @return builder
          * 
@@ -167,7 +161,9 @@ public final class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args extends com
         }
 
         /**
-         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * @param clientSecretSettingName The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -178,7 +174,9 @@ public final class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args extends com
         }
 
         /**
-         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * @param clientSecretSettingName The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 

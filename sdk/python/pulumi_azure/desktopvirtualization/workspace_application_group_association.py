@@ -102,7 +102,6 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -130,7 +129,6 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
             workspace_id=workspace.id,
             application_group_id=remoteapp.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -156,7 +154,6 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -184,7 +181,6 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
             workspace_id=workspace.id,
             application_group_id=remoteapp.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

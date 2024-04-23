@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,7 +47,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetPublishedVersion(ctx *pulumi.Context, args *GetPublishedVersionArgs, opts ...pulumi.InvokeOption) (*GetPublishedVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublishedVersionResult

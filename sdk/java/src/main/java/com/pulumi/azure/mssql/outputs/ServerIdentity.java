@@ -28,7 +28,7 @@ public final class ServerIdentity {
      */
     private @Nullable String principalId;
     /**
-     * @return The tenant id of the Azure AD Administrator of this SQL Server.
+     * @return The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
      * 
      */
     private @Nullable String tenantId;
@@ -58,7 +58,7 @@ public final class ServerIdentity {
         return Optional.ofNullable(this.principalId);
     }
     /**
-     * @return The tenant id of the Azure AD Administrator of this SQL Server.
+     * @return The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
      * 
      */
     public Optional<String> tenantId() {

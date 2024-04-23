@@ -165,7 +165,6 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -184,7 +183,6 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
             schema_compatibility="Forward",
             schema_type="Avro")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -210,7 +208,6 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -229,7 +226,6 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
             schema_compatibility="Forward",
             schema_type="Avro")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const loadbalancerId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLB(args: GetLBArgs, opts?: pulumi.InvokeOptions): Promise<GetLBResult> {
 
@@ -90,7 +88,6 @@ export interface GetLBResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -101,7 +98,6 @@ export interface GetLBResult {
  * });
  * export const loadbalancerId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLBOutput(args: GetLBOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLBResult> {
     return pulumi.output(args).apply((a: any) => getLB(a, opts))

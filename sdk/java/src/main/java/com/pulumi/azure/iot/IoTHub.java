@@ -199,17 +199,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:iot/ioTHub:IoTHub")
 public class IoTHub extends com.pulumi.resources.CustomResource {
-    /**
-     * A `cloud_to_device` block as defined below.
-     * 
-     */
     @Export(name="cloudToDevice", refs={IoTHubCloudToDevice.class}, tree="[0]")
     private Output<IoTHubCloudToDevice> cloudToDevice;
 
-    /**
-     * @return A `cloud_to_device` block as defined below.
-     * 
-     */
     public Output<IoTHubCloudToDevice> cloudToDevice() {
         return this.cloudToDevice;
     }
@@ -227,17 +219,9 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
     public Output<List<IoTHubEndpoint>> endpoints() {
         return this.endpoints;
     }
-    /**
-     * A `enrichment` block as defined below.
-     * 
-     */
     @Export(name="enrichments", refs={List.class,IoTHubEnrichment.class}, tree="[0,1]")
     private Output<List<IoTHubEnrichment>> enrichments;
 
-    /**
-     * @return A `enrichment` block as defined below.
-     * 
-     */
     public Output<List<IoTHubEnrichment>> enrichments() {
         return this.enrichments;
     }
@@ -427,17 +411,9 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
     public Output<String> location() {
         return this.location;
     }
-    /**
-     * Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
-     * 
-     */
     @Export(name="minTlsVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> minTlsVersion;
 
-    /**
-     * @return Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<Optional<String>> minTlsVersion() {
         return Codegen.optional(this.minTlsVersion);
     }
@@ -469,17 +445,9 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<IoTHubNetworkRuleSet>>> networkRuleSets() {
         return Codegen.optional(this.networkRuleSets);
     }
-    /**
-     * Is the IotHub resource accessible from a public network?
-     * 
-     */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
-    /**
-     * @return Is the IotHub resource accessible from a public network?
-     * 
-     */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
@@ -497,17 +465,9 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    /**
-     * A `route` block as defined below.
-     * 
-     */
     @Export(name="routes", refs={List.class,IoTHubRoute.class}, tree="[0,1]")
     private Output<List<IoTHubRoute>> routes;
 
-    /**
-     * @return A `route` block as defined below.
-     * 
-     */
     public Output<List<IoTHubRoute>> routes() {
         return this.routes;
     }
@@ -539,31 +499,15 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
     public Output<IoTHubSku> sku() {
         return this.sku;
     }
-    /**
-     * A mapping of tags to assign to the resource.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags to assign to the resource.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

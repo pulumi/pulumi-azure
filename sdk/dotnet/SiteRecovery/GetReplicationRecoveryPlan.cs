@@ -16,7 +16,6 @@ namespace Pulumi.Azure.SiteRecovery
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Azure.SiteRecovery
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetReplicationRecoveryPlanResult> InvokeAsync(GetReplicationRecoveryPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationRecoveryPlanResult>("azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan", args ?? new GetReplicationRecoveryPlanArgs(), options.WithDefaults());
@@ -49,7 +47,6 @@ namespace Pulumi.Azure.SiteRecovery
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -72,7 +69,6 @@ namespace Pulumi.Azure.SiteRecovery
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetReplicationRecoveryPlanResult> Invoke(GetReplicationRecoveryPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationRecoveryPlanResult>("azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan", args ?? new GetReplicationRecoveryPlanInvokeArgs(), options.WithDefaults());

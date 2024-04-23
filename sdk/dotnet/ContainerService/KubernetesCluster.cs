@@ -16,7 +16,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// This example provisions a basic Managed Kubernetes Cluster.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,7 +59,6 @@ namespace Pulumi.Azure.ContainerService
     ///     };
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -408,7 +406,6 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -455,7 +452,6 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Output("privateClusterPublicFqdnEnabled")]
         public Output<bool?> PrivateClusterPublicFqdnEnabled { get; private set; } = null!;
@@ -908,7 +904,6 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -955,7 +950,6 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("privateClusterPublicFqdnEnabled")]
         public Input<bool>? PrivateClusterPublicFqdnEnabled { get; set; }
@@ -1463,7 +1457,6 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -1510,7 +1503,6 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("privateClusterPublicFqdnEnabled")]
         public Input<bool>? PrivateClusterPublicFqdnEnabled { get; set; }

@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,7 +76,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -93,7 +91,7 @@ type Order struct {
 	Contact OrderContactOutput `pulumi:"contact"`
 	// The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
 	DeviceName pulumi.StringOutput `pulumi:"deviceName"`
-	// The contact person name. Changing this forces a new Databox Edge Order to be created.
+	// The Name of this Databox Edge Order.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -157,7 +155,7 @@ type orderState struct {
 	Contact *OrderContact `pulumi:"contact"`
 	// The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
 	DeviceName *string `pulumi:"deviceName"`
-	// The contact person name. Changing this forces a new Databox Edge Order to be created.
+	// The Name of this Databox Edge Order.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -180,7 +178,7 @@ type OrderState struct {
 	Contact OrderContactPtrInput
 	// The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
 	DeviceName pulumi.StringPtrInput
-	// The contact person name. Changing this forces a new Databox Edge Order to be created.
+	// The Name of this Databox Edge Order.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -322,7 +320,7 @@ func (o OrderOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Order) pulumi.StringOutput { return v.DeviceName }).(pulumi.StringOutput)
 }
 
-// The contact person name. Changing this forces a new Databox Edge Order to be created.
+// The Name of this Databox Edge Order.
 func (o OrderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Order) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -120,17 +120,9 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> dscServerEndpoint() {
         return this.dscServerEndpoint;
     }
-    /**
-     * An `encryption` block as defined below.
-     * 
-     */
     @Export(name="encryptions", refs={List.class,AccountEncryption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AccountEncryption>> encryptions;
 
-    /**
-     * @return An `encryption` block as defined below.
-     * 
-     */
     public Output<Optional<List<AccountEncryption>>> encryptions() {
         return Codegen.optional(this.encryptions);
     }
@@ -252,17 +244,9 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> skuName() {
         return this.skuName;
     }
-    /**
-     * A mapping of tags to assign to the resource.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags to assign to the resource.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

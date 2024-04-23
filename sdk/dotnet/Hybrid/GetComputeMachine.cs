@@ -20,7 +20,6 @@ namespace Pulumi.Azure.Hybrid
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -41,7 +40,6 @@ namespace Pulumi.Azure.Hybrid
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetComputeMachineResult> InvokeAsync(GetComputeMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComputeMachineResult>("azure:hybrid/getComputeMachine:getComputeMachine", args ?? new GetComputeMachineArgs(), options.WithDefaults());
@@ -55,7 +53,6 @@ namespace Pulumi.Azure.Hybrid
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -76,7 +73,6 @@ namespace Pulumi.Azure.Hybrid
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetComputeMachineResult> Invoke(GetComputeMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputeMachineResult>("azure:hybrid/getComputeMachine:getComputeMachine", args ?? new GetComputeMachineInvokeArgs(), options.WithDefaults());

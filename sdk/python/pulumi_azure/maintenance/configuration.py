@@ -376,7 +376,6 @@ class Configuration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -393,7 +392,6 @@ class Configuration(pulumi.CustomResource):
                 "Env": "prod",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -429,7 +427,6 @@ class Configuration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -446,7 +443,6 @@ class Configuration(pulumi.CustomResource):
                 "Env": "prod",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

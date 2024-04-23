@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The name of the Backend HTTP Settings Collection.
+        /// The name of the Authentication Certificate.
         /// </summary>
         public readonly string Name;
         /// <summary>

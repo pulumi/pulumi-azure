@@ -26,7 +26,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -109,7 +108,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -144,7 +142,7 @@ type Frontdoor struct {
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// A `frontendEndpoint` block as defined below.
 	FrontendEndpoints FrontdoorFrontendEndpointArrayOutput `pulumi:"frontendEndpoints"`
-	// The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
+	// A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
 	FrontendEndpointsMap pulumi.StringMapOutput `pulumi:"frontendEndpointsMap"`
 	// The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
 	HeaderFrontdoorId pulumi.StringOutput `pulumi:"headerFrontdoorId"`
@@ -233,7 +231,7 @@ type frontdoorState struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// A `frontendEndpoint` block as defined below.
 	FrontendEndpoints []FrontdoorFrontendEndpoint `pulumi:"frontendEndpoints"`
-	// The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
+	// A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
 	FrontendEndpointsMap map[string]string `pulumi:"frontendEndpointsMap"`
 	// The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
 	HeaderFrontdoorId *string `pulumi:"headerFrontdoorId"`
@@ -275,7 +273,7 @@ type FrontdoorState struct {
 	FriendlyName pulumi.StringPtrInput
 	// A `frontendEndpoint` block as defined below.
 	FrontendEndpoints FrontdoorFrontendEndpointArrayInput
-	// The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
+	// A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
 	FrontendEndpointsMap pulumi.StringMapInput
 	// The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
 	HeaderFrontdoorId pulumi.StringPtrInput
@@ -495,7 +493,7 @@ func (o FrontdoorOutput) FrontendEndpoints() FrontdoorFrontendEndpointArrayOutpu
 	return o.ApplyT(func(v *Frontdoor) FrontdoorFrontendEndpointArrayOutput { return v.FrontendEndpoints }).(FrontdoorFrontendEndpointArrayOutput)
 }
 
-// The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
+// A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
 func (o FrontdoorOutput) FrontendEndpointsMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Frontdoor) pulumi.StringMapOutput { return v.FrontendEndpointsMap }).(pulumi.StringMapOutput)
 }

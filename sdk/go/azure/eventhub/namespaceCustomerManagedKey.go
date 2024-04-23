@@ -20,7 +20,6 @@ import (
 //
 // ### With System Assigned Identity
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -144,11 +143,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With User Assigned Identity
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -281,7 +278,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

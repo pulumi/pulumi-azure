@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -36,7 +35,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -91,7 +89,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+     * Private IP Address to assign to the Load Balancer.
      */
     public /*out*/ readonly privateIpAddress!: pulumi.Output<string>;
     /**
@@ -182,7 +180,7 @@ export interface LoadBalancerState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+     * Private IP Address to assign to the Load Balancer.
      */
     privateIpAddress?: pulumi.Input<string>;
     /**

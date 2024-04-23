@@ -254,32 +254,16 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.streamingUnits);
     }
 
-    /**
-     * A mapping of tags assigned to the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags assigned to the resource.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-     * 
-     */
     @Import(name="transformationQuery", required=true)
     private Output<String> transformationQuery;
 
-    /**
-     * @return Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-     * 
-     */
     public Output<String> transformationQuery() {
         return this.transformationQuery;
     }
@@ -677,44 +661,20 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
             return streamingUnits(Output.of(streamingUnits));
         }
 
-        /**
-         * @param tags A mapping of tags assigned to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A mapping of tags assigned to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param transformationQuery Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-         * 
-         * @return builder
-         * 
-         */
         public Builder transformationQuery(Output<String> transformationQuery) {
             $.transformationQuery = transformationQuery;
             return this;
         }
 
-        /**
-         * @param transformationQuery Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-         * 
-         * @return builder
-         * 
-         */
         public Builder transformationQuery(String transformationQuery) {
             return transformationQuery(Output.of(transformationQuery));
         }

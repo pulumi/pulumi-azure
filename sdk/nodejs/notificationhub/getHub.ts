@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
 
@@ -86,7 +84,6 @@ export interface GetHubResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -98,7 +95,6 @@ export interface GetHubResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {
     return pulumi.output(args).apply((a: any) => getHub(a, opts))

@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetNetworkPacketCoreDataPlaneResult> InvokeAsync(GetNetworkPacketCoreDataPlaneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkPacketCoreDataPlaneResult>("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", args ?? new GetNetworkPacketCoreDataPlaneArgs(), options.WithDefaults());
@@ -49,7 +47,6 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -72,7 +69,6 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetNetworkPacketCoreDataPlaneResult> Invoke(GetNetworkPacketCoreDataPlaneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkPacketCoreDataPlaneResult>("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", args ?? new GetNetworkPacketCoreDataPlaneInvokeArgs(), options.WithDefaults());

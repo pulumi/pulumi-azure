@@ -14,7 +14,6 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Azure.PrivateDns
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetMxRecordResult> InvokeAsync(GetMxRecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMxRecordResult>("azure:privatedns/getMxRecord:getMxRecord", args ?? new GetMxRecordArgs(), options.WithDefaults());
@@ -44,7 +42,6 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Azure.PrivateDns
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetMxRecordResult> Invoke(GetMxRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMxRecordResult>("azure:privatedns/getMxRecord:getMxRecord", args ?? new GetMxRecordInvokeArgs(), options.WithDefaults());

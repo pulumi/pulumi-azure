@@ -16,7 +16,6 @@ namespace Pulumi.Azure.AppService
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Azure.AppService
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetWindowsWebAppResult> InvokeAsync(GetWindowsWebAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWindowsWebAppResult>("azure:appservice/getWindowsWebApp:getWindowsWebApp", args ?? new GetWindowsWebAppArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Azure.AppService
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Azure.AppService
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetWindowsWebAppResult> Invoke(GetWindowsWebAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWindowsWebAppResult>("azure:appservice/getWindowsWebApp:getWindowsWebApp", args ?? new GetWindowsWebAppInvokeArgs(), options.WithDefaults());

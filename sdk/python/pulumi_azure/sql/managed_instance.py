@@ -679,7 +679,6 @@ class ManagedInstance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -841,7 +840,6 @@ class ManagedInstance(pulumi.CustomResource):
             vcores=4,
             storage_size_in_gb=32)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -888,7 +886,6 @@ class ManagedInstance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1050,7 +1047,6 @@ class ManagedInstance(pulumi.CustomResource):
             vcores=4,
             storage_size_in_gb=32)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

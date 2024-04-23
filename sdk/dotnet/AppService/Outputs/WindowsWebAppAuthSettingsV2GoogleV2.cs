@@ -14,21 +14,21 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppAuthSettingsV2GoogleV2
     {
         /// <summary>
-        /// Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-        /// 
-        /// &gt; **Note:** The `client_id` value is always considered an allowed audience.
+        /// Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
         /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
         /// <summary>
-        /// The ID of the Client to use to authenticate with Azure Active Directory.
+        /// The OpenID Connect Client ID for the Google web application.
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        /// The app setting name that contains the `client_secret` value used for Google Login.
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         /// </summary>
         public readonly string ClientSecretSettingName;
         /// <summary>
-        /// The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        /// The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
         /// </summary>
         public readonly ImmutableArray<string> LoginScopes;
 

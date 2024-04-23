@@ -401,7 +401,6 @@ class SqlPool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -436,7 +435,6 @@ class SqlPool(pulumi.CustomResource):
             create_mode="Default",
             storage_account_type="GRS")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -471,7 +469,6 @@ class SqlPool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -506,7 +503,6 @@ class SqlPool(pulumi.CustomResource):
             create_mode="Default",
             storage_account_type="GRS")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

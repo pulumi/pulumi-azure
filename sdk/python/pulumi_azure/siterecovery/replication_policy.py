@@ -207,7 +207,6 @@ class ReplicationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -227,7 +226,6 @@ class ReplicationPolicy(pulumi.CustomResource):
             recovery_point_retention_in_minutes=24 * 60,
             application_consistent_snapshot_frequency_in_minutes=4 * 60)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -258,7 +256,6 @@ class ReplicationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -278,7 +275,6 @@ class ReplicationPolicy(pulumi.CustomResource):
             recovery_point_retention_in_minutes=24 * 60,
             application_consistent_snapshot_frequency_in_minutes=4 * 60)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

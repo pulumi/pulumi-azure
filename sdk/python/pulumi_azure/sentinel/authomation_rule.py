@@ -466,7 +466,6 @@ class AuthomationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -490,7 +489,6 @@ class AuthomationRule(pulumi.CustomResource):
                 status="Active",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -530,7 +528,6 @@ class AuthomationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -554,7 +551,6 @@ class AuthomationRule(pulumi.CustomResource):
                 status="Active",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -137,7 +137,6 @@ class EdgeModule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -183,7 +182,6 @@ class EdgeModule(pulumi.CustomResource):
             resource_group_name=example.name,
             video_analyzer_name=example_analyzer.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -212,7 +210,6 @@ class EdgeModule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -258,7 +255,6 @@ class EdgeModule(pulumi.CustomResource):
             resource_group_name=example.name,
             video_analyzer_name=example_analyzer.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

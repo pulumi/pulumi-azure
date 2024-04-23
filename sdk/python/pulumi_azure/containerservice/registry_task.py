@@ -48,15 +48,11 @@ class RegistryTaskArgs:
                > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         :param pulumi.Input['RegistryTaskIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
-        :param pulumi.Input[str] log_template: The template that describes the run log artifact.
         :param pulumi.Input[str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input['RegistryTaskPlatformArgs'] platform: A `platform` block as defined below.
                
                > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
-        :param pulumi.Input['RegistryTaskRegistryCredentialArgs'] registry_credential: One `registry_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskSourceTriggerArgs']]] source_triggers: One or more `source_trigger` blocks as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Container Registry Task.
-        :param pulumi.Input[int] timeout_in_seconds: The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
         pulumi.set(__self__, "container_registry_id", container_registry_id)
@@ -220,9 +216,6 @@ class RegistryTaskArgs:
     @property
     @pulumi.getter(name="logTemplate")
     def log_template(self) -> Optional[pulumi.Input[str]]:
-        """
-        The template that describes the run log artifact.
-        """
         return pulumi.get(self, "log_template")
 
     @log_template.setter
@@ -258,9 +251,6 @@ class RegistryTaskArgs:
     @property
     @pulumi.getter(name="registryCredential")
     def registry_credential(self) -> Optional[pulumi.Input['RegistryTaskRegistryCredentialArgs']]:
-        """
-        One `registry_credential` block as defined below.
-        """
         return pulumi.get(self, "registry_credential")
 
     @registry_credential.setter
@@ -282,9 +272,6 @@ class RegistryTaskArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags which should be assigned to the Container Registry Task.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -294,9 +281,6 @@ class RegistryTaskArgs:
     @property
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-        """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
@@ -351,15 +335,11 @@ class _RegistryTaskState:
                > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         :param pulumi.Input['RegistryTaskIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
-        :param pulumi.Input[str] log_template: The template that describes the run log artifact.
         :param pulumi.Input[str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input['RegistryTaskPlatformArgs'] platform: A `platform` block as defined below.
                
                > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
-        :param pulumi.Input['RegistryTaskRegistryCredentialArgs'] registry_credential: One `registry_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskSourceTriggerArgs']]] source_triggers: One or more `source_trigger` blocks as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Container Registry Task.
-        :param pulumi.Input[int] timeout_in_seconds: The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
         if agent_pool_name is not None:
@@ -524,9 +504,6 @@ class _RegistryTaskState:
     @property
     @pulumi.getter(name="logTemplate")
     def log_template(self) -> Optional[pulumi.Input[str]]:
-        """
-        The template that describes the run log artifact.
-        """
         return pulumi.get(self, "log_template")
 
     @log_template.setter
@@ -562,9 +539,6 @@ class _RegistryTaskState:
     @property
     @pulumi.getter(name="registryCredential")
     def registry_credential(self) -> Optional[pulumi.Input['RegistryTaskRegistryCredentialArgs']]:
-        """
-        One `registry_credential` block as defined below.
-        """
         return pulumi.get(self, "registry_credential")
 
     @registry_credential.setter
@@ -586,9 +560,6 @@ class _RegistryTaskState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags which should be assigned to the Container Registry Task.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -598,9 +569,6 @@ class _RegistryTaskState:
     @property
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-        """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
@@ -649,7 +617,6 @@ class RegistryTask(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -675,7 +642,6 @@ class RegistryTask(pulumi.CustomResource):
                 image_names=["helloworld:{{.Run.ID}}"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -699,15 +665,11 @@ class RegistryTask(pulumi.CustomResource):
                > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         :param pulumi.Input[pulumi.InputType['RegistryTaskIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
-        :param pulumi.Input[str] log_template: The template that describes the run log artifact.
         :param pulumi.Input[str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input[pulumi.InputType['RegistryTaskPlatformArgs']] platform: A `platform` block as defined below.
                
                > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
-        :param pulumi.Input[pulumi.InputType['RegistryTaskRegistryCredentialArgs']] registry_credential: One `registry_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskSourceTriggerArgs']]]] source_triggers: One or more `source_trigger` blocks as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Container Registry Task.
-        :param pulumi.Input[int] timeout_in_seconds: The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskTimerTriggerArgs']]]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
         ...
@@ -721,7 +683,6 @@ class RegistryTask(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -747,7 +708,6 @@ class RegistryTask(pulumi.CustomResource):
                 image_names=["helloworld:{{.Run.ID}}"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -866,15 +826,11 @@ class RegistryTask(pulumi.CustomResource):
                > **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
         :param pulumi.Input[pulumi.InputType['RegistryTaskIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_system_task: Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
-        :param pulumi.Input[str] log_template: The template that describes the run log artifact.
         :param pulumi.Input[str] name: The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input[pulumi.InputType['RegistryTaskPlatformArgs']] platform: A `platform` block as defined below.
                
                > **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
-        :param pulumi.Input[pulumi.InputType['RegistryTaskRegistryCredentialArgs']] registry_credential: One `registry_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskSourceTriggerArgs']]]] source_triggers: One or more `source_trigger` blocks as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Container Registry Task.
-        :param pulumi.Input[int] timeout_in_seconds: The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskTimerTriggerArgs']]]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -986,9 +942,6 @@ class RegistryTask(pulumi.CustomResource):
     @property
     @pulumi.getter(name="logTemplate")
     def log_template(self) -> pulumi.Output[Optional[str]]:
-        """
-        The template that describes the run log artifact.
-        """
         return pulumi.get(self, "log_template")
 
     @property
@@ -1012,9 +965,6 @@ class RegistryTask(pulumi.CustomResource):
     @property
     @pulumi.getter(name="registryCredential")
     def registry_credential(self) -> pulumi.Output[Optional['outputs.RegistryTaskRegistryCredential']]:
-        """
-        One `registry_credential` block as defined below.
-        """
         return pulumi.get(self, "registry_credential")
 
     @property
@@ -1028,17 +978,11 @@ class RegistryTask(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A mapping of tags which should be assigned to the Container Registry Task.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> pulumi.Output[Optional[int]]:
-        """
-        The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-        """
         return pulumi.get(self, "timeout_in_seconds")
 
     @property

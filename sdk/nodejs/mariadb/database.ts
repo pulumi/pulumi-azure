@@ -7,7 +7,6 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -37,7 +36,6 @@ import * as utilities from "../utilities";
  *     collation: "utf8mb4_unicode_520_ci",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

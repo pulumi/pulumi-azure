@@ -341,7 +341,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -370,11 +369,9 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             virtual_network_name=example_2.name,
             remote_virtual_network_id=example_1.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Triggers)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -412,7 +409,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                     input=example_1.address_spaces).apply(lambda invoke: invoke.result),
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Note
 
@@ -452,7 +448,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -481,11 +476,9 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             virtual_network_name=example_2.name,
             remote_virtual_network_id=example_1.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Triggers)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -523,7 +516,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                     input=example_1.address_spaces).apply(lambda invoke: invoke.result),
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Note
 

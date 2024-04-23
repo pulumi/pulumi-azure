@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,7 +60,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -108,11 +106,9 @@ type Job struct {
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
-	StreamingUnits pulumi.IntPtrOutput `pulumi:"streamingUnits"`
-	// A mapping of tags assigned to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-	TransformationQuery pulumi.StringOutput `pulumi:"transformationQuery"`
+	StreamingUnits      pulumi.IntPtrOutput    `pulumi:"streamingUnits"`
+	Tags                pulumi.StringMapOutput `pulumi:"tags"`
+	TransformationQuery pulumi.StringOutput    `pulumi:"transformationQuery"`
 	// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** `Edge` doesn't support `streamAnalyticsClusterId` and `streamingUnits`.
@@ -190,11 +186,9 @@ type jobState struct {
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
-	StreamingUnits *int `pulumi:"streamingUnits"`
-	// A mapping of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-	TransformationQuery *string `pulumi:"transformationQuery"`
+	StreamingUnits      *int              `pulumi:"streamingUnits"`
+	Tags                map[string]string `pulumi:"tags"`
+	TransformationQuery *string           `pulumi:"transformationQuery"`
 	// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** `Edge` doesn't support `streamAnalyticsClusterId` and `streamingUnits`.
@@ -237,10 +231,8 @@ type JobState struct {
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
-	StreamingUnits pulumi.IntPtrInput
-	// A mapping of tags assigned to the resource.
-	Tags pulumi.StringMapInput
-	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
+	StreamingUnits      pulumi.IntPtrInput
+	Tags                pulumi.StringMapInput
 	TransformationQuery pulumi.StringPtrInput
 	// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
 	//
@@ -286,11 +278,9 @@ type jobArgs struct {
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
-	StreamingUnits *int `pulumi:"streamingUnits"`
-	// A mapping of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-	TransformationQuery string `pulumi:"transformationQuery"`
+	StreamingUnits      *int              `pulumi:"streamingUnits"`
+	Tags                map[string]string `pulumi:"tags"`
+	TransformationQuery string            `pulumi:"transformationQuery"`
 	// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** `Edge` doesn't support `streamAnalyticsClusterId` and `streamingUnits`.
@@ -332,10 +322,8 @@ type JobArgs struct {
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
-	StreamingUnits pulumi.IntPtrInput
-	// A mapping of tags assigned to the resource.
-	Tags pulumi.StringMapInput
-	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
+	StreamingUnits      pulumi.IntPtrInput
+	Tags                pulumi.StringMapInput
 	TransformationQuery pulumi.StringInput
 	// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
 	//
@@ -514,12 +502,10 @@ func (o JobOutput) StreamingUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.IntPtrOutput { return v.StreamingUnits }).(pulumi.IntPtrOutput)
 }
 
-// A mapping of tags assigned to the resource.
 func (o JobOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 func (o JobOutput) TransformationQuery() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.TransformationQuery }).(pulumi.StringOutput)
 }

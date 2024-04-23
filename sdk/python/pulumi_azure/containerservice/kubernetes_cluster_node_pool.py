@@ -85,15 +85,12 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
-        :param pulumi.Input[int] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
         :param pulumi.Input[str] mode: Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
                
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
-        :param pulumi.Input[int] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
@@ -397,9 +394,6 @@ class KubernetesClusterNodePoolArgs:
     @property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
-        """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
@@ -433,9 +427,6 @@ class KubernetesClusterNodePoolArgs:
     @property
     @pulumi.getter(name="minCount")
     def min_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
-        """
         return pulumi.get(self, "min_count")
 
     @min_count.setter
@@ -471,9 +462,6 @@ class KubernetesClusterNodePoolArgs:
     @property
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
-        """
         return pulumi.get(self, "node_count")
 
     @node_count.setter
@@ -830,15 +818,12 @@ class _KubernetesClusterNodePoolState:
                
                > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
         :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
-        :param pulumi.Input[int] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
         :param pulumi.Input[str] mode: Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
                
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
-        :param pulumi.Input[int] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
@@ -1133,9 +1118,6 @@ class _KubernetesClusterNodePoolState:
     @property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
-        """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
@@ -1169,9 +1151,6 @@ class _KubernetesClusterNodePoolState:
     @property
     @pulumi.getter(name="minCount")
     def min_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
-        """
         return pulumi.get(self, "min_count")
 
     @min_count.setter
@@ -1207,9 +1186,6 @@ class _KubernetesClusterNodePoolState:
     @property
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
-        """
         return pulumi.get(self, "node_count")
 
     @node_count.setter
@@ -1565,7 +1541,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
         This example provisions a basic Kubernetes Node Pool.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1596,7 +1571,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                 "Environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1631,15 +1605,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                
                > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
-        :param pulumi.Input[int] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
         :param pulumi.Input[str] mode: Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
                
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
-        :param pulumi.Input[int] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArgs']] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
@@ -1693,7 +1664,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
         This example provisions a basic Kubernetes Node Pool.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1724,7 +1694,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                 "Environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1931,15 +1900,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                
                > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
-        :param pulumi.Input[int] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
         :param pulumi.Input[str] mode: Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
                
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
-        :param pulumi.Input[int] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArgs']] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
@@ -2144,9 +2110,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> pulumi.Output[Optional[int]]:
-        """
-        The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
-        """
         return pulumi.get(self, "max_count")
 
     @property
@@ -2168,9 +2131,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="minCount")
     def min_count(self) -> pulumi.Output[Optional[int]]:
-        """
-        The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
-        """
         return pulumi.get(self, "min_count")
 
     @property
@@ -2194,9 +2154,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> pulumi.Output[int]:
-        """
-        The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
-        """
         return pulumi.get(self, "node_count")
 
     @property

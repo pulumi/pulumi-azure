@@ -134,7 +134,6 @@ def get_backend_address_pool(loadbalancer_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -146,7 +145,6 @@ def get_backend_address_pool(loadbalancer_id: Optional[str] = None,
     pulumi.export("backendAddressPoolId", example_get_backend_address_pool.id)
     pulumi.export("backendIpConfigurationIds", [__item["id"] for __item in beap["backendIpConfigurations"]])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str loadbalancer_id: The ID of the Load Balancer in which the Backend Address Pool exists.
@@ -178,7 +176,6 @@ def get_backend_address_pool_output(loadbalancer_id: Optional[pulumi.Input[str]]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -190,7 +187,6 @@ def get_backend_address_pool_output(loadbalancer_id: Optional[pulumi.Input[str]]
     pulumi.export("backendAddressPoolId", example_get_backend_address_pool.id)
     pulumi.export("backendIpConfigurationIds", [__item["id"] for __item in beap["backendIpConfigurations"]])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str loadbalancer_id: The ID of the Load Balancer in which the Backend Address Pool exists.

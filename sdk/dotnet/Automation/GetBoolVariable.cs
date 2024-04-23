@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Automation
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Azure.Automation
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBoolVariableResult> InvokeAsync(GetBoolVariableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBoolVariableResult>("azure:automation/getBoolVariable:getBoolVariable", args ?? new GetBoolVariableArgs(), options.WithDefaults());
@@ -48,7 +46,6 @@ namespace Pulumi.Azure.Automation
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,7 +67,6 @@ namespace Pulumi.Azure.Automation
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBoolVariableResult> Invoke(GetBoolVariableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBoolVariableResult>("azure:automation/getBoolVariable:getBoolVariable", args ?? new GetBoolVariableInvokeArgs(), options.WithDefaults());

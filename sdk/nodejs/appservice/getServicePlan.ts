@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServicePlan(args: GetServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetServicePlanResult> {
 
@@ -105,7 +103,6 @@ export interface GetServicePlanResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -116,7 +113,6 @@ export interface GetServicePlanResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServicePlanOutput(args: GetServicePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServicePlanResult> {
     return pulumi.output(args).apply((a: any) => getServicePlan(a, opts))

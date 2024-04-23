@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -46,7 +45,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -93,7 +91,7 @@ export class Order extends pulumi.CustomResource {
      */
     public readonly deviceName!: pulumi.Output<string>;
     /**
-     * The contact person name. Changing this forces a new Databox Edge Order to be created.
+     * The Name of this Databox Edge Order.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -191,7 +189,7 @@ export interface OrderState {
      */
     deviceName?: pulumi.Input<string>;
     /**
-     * The contact person name. Changing this forces a new Databox Edge Order to be created.
+     * The Name of this Databox Edge Order.
      */
     name?: pulumi.Input<string>;
     /**

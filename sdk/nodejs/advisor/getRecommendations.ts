@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  * });
  * export const recommendations = example.then(example => example.recommendations);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRecommendations(args?: GetRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<GetRecommendationsResult> {
     args = args || {};
@@ -71,7 +69,6 @@ export interface GetRecommendationsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -85,7 +82,6 @@ export interface GetRecommendationsResult {
  * });
  * export const recommendations = example.then(example => example.recommendations);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRecommendationsOutput(args?: GetRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecommendationsResult> {
     return pulumi.output(args).apply((a: any) => getRecommendations(a, opts))

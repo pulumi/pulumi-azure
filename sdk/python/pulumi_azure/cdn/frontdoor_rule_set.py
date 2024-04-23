@@ -103,7 +103,6 @@ class FrontdoorRuleSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -119,7 +118,6 @@ class FrontdoorRuleSet(pulumi.CustomResource):
             name="ExampleRuleSet",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -145,7 +143,6 @@ class FrontdoorRuleSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -161,7 +158,6 @@ class FrontdoorRuleSet(pulumi.CustomResource):
             name="ExampleRuleSet",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

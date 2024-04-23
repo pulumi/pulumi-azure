@@ -18,7 +18,6 @@ import (
 //
 // ### SQL Filter)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,11 +80,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Correlation Filter)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -154,7 +151,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -176,21 +176,9 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     public Output<String> issuer() {
         return this.issuer;
     }
-    /**
-     * The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-     * 
-     * &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
-     * 
-     */
     @Export(name="keyVaultId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyVaultId;
 
-    /**
-     * @return The ID of the Key Vault. Must be specified if the Key Vault of `key_vault_secret_id` is in a different subscription from the App Service Certificate. Changing this forces a new resource to be created.
-     * 
-     * &gt; **NOTE:** `key_vault_id` can only be specified if `key_vault_secret_id` has been set.
-     * 
-     */
     public Output<Optional<String>> keyVaultId() {
         return Codegen.optional(this.keyVaultId);
     }
@@ -304,17 +292,9 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     public Output<String> subjectName() {
         return this.subjectName;
     }
-    /**
-     * A mapping of tags to assign to the resource.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags to assign to the resource.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

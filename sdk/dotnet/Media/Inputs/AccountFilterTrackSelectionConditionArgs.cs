@@ -12,21 +12,12 @@ namespace Pulumi.Azure.Media.Inputs
 
     public sealed class AccountFilterTrackSelectionConditionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
-        /// </summary>
         [Input("operation", required: true)]
         public Input<string> Operation { get; set; } = null!;
 
-        /// <summary>
-        /// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
-        /// </summary>
         [Input("property", required: true)]
         public Input<string> Property { get; set; } = null!;
 
-        /// <summary>
-        /// The track property value to match or not match.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

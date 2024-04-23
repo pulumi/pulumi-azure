@@ -203,7 +203,6 @@ class AlertRuleFusion(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -231,7 +230,6 @@ class AlertRuleFusion(pulumi.CustomResource):
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
             alert_rule_template_guid="f71aba3d-28fb-450b-b192-4e76a83015c8")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -260,7 +258,6 @@ class AlertRuleFusion(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -288,7 +285,6 @@ class AlertRuleFusion(pulumi.CustomResource):
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
             alert_rule_template_guid="f71aba3d-28fb-450b-b192-4e76a83015c8")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

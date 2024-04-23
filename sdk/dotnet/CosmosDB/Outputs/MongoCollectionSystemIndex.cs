@@ -14,13 +14,11 @@ namespace Pulumi.Azure.CosmosDB.Outputs
     public sealed class MongoCollectionSystemIndex
     {
         /// <summary>
-        /// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+        /// The list of system keys which are not settable for each Cosmos DB Mongo Collection.
         /// </summary>
         public readonly ImmutableArray<string> Keys;
         /// <summary>
-        /// Is the index unique or not? Defaults to `false`.
-        /// 
-        /// &gt; **Note:** An index with an "_id" key must be specified.
+        /// Identifies whether the table contains no duplicate values.
         /// </summary>
         public readonly bool? Unique;
 

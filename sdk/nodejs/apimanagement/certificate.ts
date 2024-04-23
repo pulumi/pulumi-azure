@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### With Base64 Certificate)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -38,11 +37,9 @@ import * as utilities from "../utilities";
  *     }).then(invoke => invoke.result),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With Key Vault Certificate)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -109,7 +106,6 @@ import * as utilities from "../utilities";
  *     keyVaultSecretId: exampleCertificate.secretId,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

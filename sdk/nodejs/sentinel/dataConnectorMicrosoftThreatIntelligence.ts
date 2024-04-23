@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -31,7 +30,6 @@ import * as utilities from "../utilities";
  *     microsoftEmergingThreatFeedLookbackDate: "1970-01-01T00:00:00Z",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

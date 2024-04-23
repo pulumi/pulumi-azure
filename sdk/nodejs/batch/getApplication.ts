@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  * });
  * export const batchApplicationId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
 
@@ -83,7 +81,6 @@ export interface GetApplicationResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -95,7 +92,6 @@ export interface GetApplicationResult {
  * });
  * export const batchApplicationId = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))

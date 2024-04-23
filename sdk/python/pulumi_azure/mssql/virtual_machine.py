@@ -569,7 +569,6 @@ class VirtualMachine(pulumi.CustomResource):
 
         This example provisions a brief Managed Microsoft SQL Virtual Machine.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -590,7 +589,6 @@ class VirtualMachine(pulumi.CustomResource):
                 maintenance_window_starting_hour=2,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -632,7 +630,6 @@ class VirtualMachine(pulumi.CustomResource):
 
         This example provisions a brief Managed Microsoft SQL Virtual Machine.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -653,7 +650,6 @@ class VirtualMachine(pulumi.CustomResource):
                 maintenance_window_starting_hour=2,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

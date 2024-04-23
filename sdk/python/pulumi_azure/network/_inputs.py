@@ -363,7 +363,7 @@ class ApplicationGatewayBackendHttpSettingArgs:
                  trusted_root_certificate_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] cookie_based_affinity: Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
-        :param pulumi.Input[str] name: The name of the Backend HTTP Settings Collection.
+        :param pulumi.Input[str] name: The name of the Authentication Certificate.
         :param pulumi.Input[int] port: The port which should be used for this Backend HTTP Settings Collection.
         :param pulumi.Input[str] protocol: The Protocol which should be used. Possible values are `Http` and `Https`.
         :param pulumi.Input[str] affinity_cookie_name: The name of the affinity cookie.
@@ -421,7 +421,7 @@ class ApplicationGatewayBackendHttpSettingArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Backend HTTP Settings Collection.
+        The name of the Authentication Certificate.
         """
         return pulumi.get(self, "name")
 
@@ -2712,12 +2712,9 @@ class ApplicationGatewaySslPolicyArgs:
                  policy_name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cipher_suites: A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
                
                > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
-        :param pulumi.Input[str] min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
-        :param pulumi.Input[str] policy_name: The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
         :param pulumi.Input[str] policy_type: The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
                
                > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
@@ -2736,9 +2733,6 @@ class ApplicationGatewaySslPolicyArgs:
     @property
     @pulumi.getter(name="cipherSuites")
     def cipher_suites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
-        """
         return pulumi.get(self, "cipher_suites")
 
     @cipher_suites.setter
@@ -2762,9 +2756,6 @@ class ApplicationGatewaySslPolicyArgs:
     @property
     @pulumi.getter(name="minProtocolVersion")
     def min_protocol_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
-        """
         return pulumi.get(self, "min_protocol_version")
 
     @min_protocol_version.setter
@@ -2774,9 +2765,6 @@ class ApplicationGatewaySslPolicyArgs:
     @property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
-        """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
@@ -2909,12 +2897,9 @@ class ApplicationGatewaySslProfileSslPolicyArgs:
                  policy_name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cipher_suites: A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
                
                > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
-        :param pulumi.Input[str] min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
-        :param pulumi.Input[str] policy_name: The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
         :param pulumi.Input[str] policy_type: The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
                
                > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
@@ -2933,9 +2918,6 @@ class ApplicationGatewaySslProfileSslPolicyArgs:
     @property
     @pulumi.getter(name="cipherSuites")
     def cipher_suites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
-        """
         return pulumi.get(self, "cipher_suites")
 
     @cipher_suites.setter
@@ -2959,9 +2941,6 @@ class ApplicationGatewaySslProfileSslPolicyArgs:
     @property
     @pulumi.getter(name="minProtocolVersion")
     def min_protocol_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
-        """
         return pulumi.get(self, "min_protocol_version")
 
     @min_protocol_version.setter
@@ -2971,9 +2950,6 @@ class ApplicationGatewaySslProfileSslPolicyArgs:
     @property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
-        """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
@@ -4177,16 +4153,9 @@ class ExpressRoutePortLink1Args:
                  rack_id: Optional[pulumi.Input[str]] = None,
                  router_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] admin_enabled: Whether enable administration state on the Express Route Port Link? Defaults to `false`.
         :param pulumi.Input[str] connector_type: The connector type of the Express Route Port Link.
         :param pulumi.Input[str] id: The ID of this Express Route Port Link.
         :param pulumi.Input[str] interface_name: The interface name of the Azure router associated with the Express Route Port Link.
-        :param pulumi.Input[str] macsec_cak_keyvault_secret_id: The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-        :param pulumi.Input[str] macsec_cipher: The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
-        :param pulumi.Input[str] macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
-        :param pulumi.Input[bool] macsec_sci_enabled: Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
-               
-               > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         :param pulumi.Input[str] patch_panel_id: The ID that maps from the Express Route Port Link to the patch panel port.
         :param pulumi.Input[str] rack_id: The ID that maps from the patch panel port to the rack.
         :param pulumi.Input[str] router_name: The name of the Azure router associated with the Express Route Port Link.
@@ -4217,9 +4186,6 @@ class ExpressRoutePortLink1Args:
     @property
     @pulumi.getter(name="adminEnabled")
     def admin_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether enable administration state on the Express Route Port Link? Defaults to `false`.
-        """
         return pulumi.get(self, "admin_enabled")
 
     @admin_enabled.setter
@@ -4265,9 +4231,6 @@ class ExpressRoutePortLink1Args:
     @property
     @pulumi.getter(name="macsecCakKeyvaultSecretId")
     def macsec_cak_keyvault_secret_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-        """
         return pulumi.get(self, "macsec_cak_keyvault_secret_id")
 
     @macsec_cak_keyvault_secret_id.setter
@@ -4277,9 +4240,6 @@ class ExpressRoutePortLink1Args:
     @property
     @pulumi.getter(name="macsecCipher")
     def macsec_cipher(self) -> Optional[pulumi.Input[str]]:
-        """
-        The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
-        """
         return pulumi.get(self, "macsec_cipher")
 
     @macsec_cipher.setter
@@ -4289,9 +4249,6 @@ class ExpressRoutePortLink1Args:
     @property
     @pulumi.getter(name="macsecCknKeyvaultSecretId")
     def macsec_ckn_keyvault_secret_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
-        """
         return pulumi.get(self, "macsec_ckn_keyvault_secret_id")
 
     @macsec_ckn_keyvault_secret_id.setter
@@ -4301,11 +4258,6 @@ class ExpressRoutePortLink1Args:
     @property
     @pulumi.getter(name="macsecSciEnabled")
     def macsec_sci_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
-
-        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
-        """
         return pulumi.get(self, "macsec_sci_enabled")
 
     @macsec_sci_enabled.setter
@@ -4364,16 +4316,9 @@ class ExpressRoutePortLink2Args:
                  rack_id: Optional[pulumi.Input[str]] = None,
                  router_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] admin_enabled: Whether enable administration state on the Express Route Port Link? Defaults to `false`.
         :param pulumi.Input[str] connector_type: The connector type of the Express Route Port Link.
         :param pulumi.Input[str] id: The ID of this Express Route Port Link.
         :param pulumi.Input[str] interface_name: The interface name of the Azure router associated with the Express Route Port Link.
-        :param pulumi.Input[str] macsec_cak_keyvault_secret_id: The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-        :param pulumi.Input[str] macsec_cipher: The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
-        :param pulumi.Input[str] macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
-        :param pulumi.Input[bool] macsec_sci_enabled: Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
-               
-               > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         :param pulumi.Input[str] patch_panel_id: The ID that maps from the Express Route Port Link to the patch panel port.
         :param pulumi.Input[str] rack_id: The ID that maps from the patch panel port to the rack.
         :param pulumi.Input[str] router_name: The name of the Azure router associated with the Express Route Port Link.
@@ -4404,9 +4349,6 @@ class ExpressRoutePortLink2Args:
     @property
     @pulumi.getter(name="adminEnabled")
     def admin_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether enable administration state on the Express Route Port Link? Defaults to `false`.
-        """
         return pulumi.get(self, "admin_enabled")
 
     @admin_enabled.setter
@@ -4452,9 +4394,6 @@ class ExpressRoutePortLink2Args:
     @property
     @pulumi.getter(name="macsecCakKeyvaultSecretId")
     def macsec_cak_keyvault_secret_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-        """
         return pulumi.get(self, "macsec_cak_keyvault_secret_id")
 
     @macsec_cak_keyvault_secret_id.setter
@@ -4464,9 +4403,6 @@ class ExpressRoutePortLink2Args:
     @property
     @pulumi.getter(name="macsecCipher")
     def macsec_cipher(self) -> Optional[pulumi.Input[str]]:
-        """
-        The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
-        """
         return pulumi.get(self, "macsec_cipher")
 
     @macsec_cipher.setter
@@ -4476,9 +4412,6 @@ class ExpressRoutePortLink2Args:
     @property
     @pulumi.getter(name="macsecCknKeyvaultSecretId")
     def macsec_ckn_keyvault_secret_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
-        """
         return pulumi.get(self, "macsec_ckn_keyvault_secret_id")
 
     @macsec_ckn_keyvault_secret_id.setter
@@ -4488,11 +4421,6 @@ class ExpressRoutePortLink2Args:
     @property
     @pulumi.getter(name="macsecSciEnabled")
     def macsec_sci_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
-
-        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
-        """
         return pulumi.get(self, "macsec_sci_enabled")
 
     @macsec_sci_enabled.setter
@@ -5807,17 +5735,6 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
                  web_categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
-        :param pulumi.Input[str] description: The description which should be used for this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdn_tags: Specifies a list of destination FQDN tags.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_urls: Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs']]] http_headers: Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]] protocols: One or more `protocols` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source IP groups.
-        :param pulumi.Input[bool] terminate_tls: Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] web_categories: Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
         """
         pulumi.set(__self__, "name", name)
         if description is not None:
@@ -5858,9 +5775,6 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description which should be used for this rule.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -5870,9 +5784,6 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
-        """
         return pulumi.get(self, "destination_addresses")
 
     @destination_addresses.setter
@@ -5882,9 +5793,6 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="destinationFqdnTags")
     def destination_fqdn_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list of destination FQDN tags.
-        """
         return pulumi.get(self, "destination_fqdn_tags")
 
     @destination_fqdn_tags.setter
@@ -5894,9 +5802,6 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="destinationFqdns")
     def destination_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
-        """
         return pulumi.get(self, "destination_fqdns")
 
     @destination_fqdns.setter
@@ -5906,9 +5811,6 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="destinationUrls")
     def destination_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
-        """
         return pulumi.get(self, "destination_urls")
 
     @destination_urls.setter
@@ -5918,9 +5820,6 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="httpHeaders")
     def http_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs']]]]:
-        """
-        Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
-        """
         return pulumi.get(self, "http_headers")
 
     @http_headers.setter
@@ -5930,9 +5829,6 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @property
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]]:
-        """
-        One or more `protocols` blocks as defined below.
-        """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
@@ -5942,9 +5838,6 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="sourceAddresses")
     def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-        """
         return pulumi.get(self, "source_addresses")
 
     @source_addresses.setter
@@ -5954,9 +5847,6 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="sourceIpGroups")
     def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list of source IP groups.
-        """
         return pulumi.get(self, "source_ip_groups")
 
     @source_ip_groups.setter
@@ -5966,9 +5856,6 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="terminateTls")
     def terminate_tls(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
-        """
         return pulumi.get(self, "terminate_tls")
 
     @terminate_tls.setter
@@ -5978,9 +5865,6 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="webCategories")
     def web_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
-        """
         return pulumi.get(self, "web_categories")
 
     @web_categories.setter
@@ -6144,17 +6028,6 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
                  translated_fqdn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: One or more `protocols` blocks as defined below.
-        :param pulumi.Input[int] translated_port: Specifies the translated port.
-        :param pulumi.Input[str] description: The description which should be used for this rule.
-        :param pulumi.Input[str] destination_address: The destination IP address (including CIDR).
-        :param pulumi.Input[str] destination_ports: Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source IP groups.
-        :param pulumi.Input[str] translated_address: Specifies the translated address.
-        :param pulumi.Input[str] translated_fqdn: Specifies the translated FQDN.
-               
-               > **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocols", protocols)
@@ -6189,9 +6062,6 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
     @property
     @pulumi.getter
     def protocols(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        One or more `protocols` blocks as defined below.
-        """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
@@ -6201,9 +6071,6 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="translatedPort")
     def translated_port(self) -> pulumi.Input[int]:
-        """
-        Specifies the translated port.
-        """
         return pulumi.get(self, "translated_port")
 
     @translated_port.setter
@@ -6213,9 +6080,6 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description which should be used for this rule.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -6225,9 +6089,6 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="destinationAddress")
     def destination_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The destination IP address (including CIDR).
-        """
         return pulumi.get(self, "destination_address")
 
     @destination_address.setter
@@ -6237,9 +6098,6 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="destinationPorts")
     def destination_ports(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-        """
         return pulumi.get(self, "destination_ports")
 
     @destination_ports.setter
@@ -6249,9 +6107,6 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="sourceAddresses")
     def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-        """
         return pulumi.get(self, "source_addresses")
 
     @source_addresses.setter
@@ -6261,9 +6116,6 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="sourceIpGroups")
     def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list of source IP groups.
-        """
         return pulumi.get(self, "source_ip_groups")
 
     @source_ip_groups.setter
@@ -6273,9 +6125,6 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="translatedAddress")
     def translated_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the translated address.
-        """
         return pulumi.get(self, "translated_address")
 
     @translated_address.setter
@@ -6285,11 +6134,6 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="translatedFqdn")
     def translated_fqdn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the translated FQDN.
-
-        > **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
-        """
         return pulumi.get(self, "translated_fqdn")
 
     @translated_fqdn.setter
@@ -6377,15 +6221,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
                  source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ports: Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: One or more `protocols` blocks as defined below.
-        :param pulumi.Input[str] description: The description which should be used for this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ip_groups: Specifies a list of destination IP groups.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source IP groups.
         """
         pulumi.set(__self__, "destination_ports", destination_ports)
         pulumi.set(__self__, "name", name)
@@ -6406,9 +6242,6 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="destinationPorts")
     def destination_ports(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-        """
         return pulumi.get(self, "destination_ports")
 
     @destination_ports.setter
@@ -6430,9 +6263,6 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
     @property
     @pulumi.getter
     def protocols(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        One or more `protocols` blocks as defined below.
-        """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
@@ -6442,9 +6272,6 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description which should be used for this rule.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -6454,9 +6281,6 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
-        """
         return pulumi.get(self, "destination_addresses")
 
     @destination_addresses.setter
@@ -6466,9 +6290,6 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="destinationFqdns")
     def destination_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
-        """
         return pulumi.get(self, "destination_fqdns")
 
     @destination_fqdns.setter
@@ -6478,9 +6299,6 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="destinationIpGroups")
     def destination_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list of destination IP groups.
-        """
         return pulumi.get(self, "destination_ip_groups")
 
     @destination_ip_groups.setter
@@ -6490,9 +6308,6 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="sourceAddresses")
     def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list of source IP addresses (including CIDR, IP range and `*`).
-        """
         return pulumi.get(self, "source_addresses")
 
     @source_addresses.setter
@@ -6502,9 +6317,6 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
     @property
     @pulumi.getter(name="sourceIpGroups")
     def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies a list of source IP groups.
-        """
         return pulumi.get(self, "source_ip_groups")
 
     @source_ip_groups.setter
@@ -7413,7 +7225,7 @@ class NetworkInterfaceIpConfigurationArgs:
                > **Note:** `Dynamic` means "An IP is automatically assigned during creation of this Network Interface"; `Static` means "User supplied IP address will be used"
         :param pulumi.Input[str] gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         :param pulumi.Input[bool] primary: Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
-        :param pulumi.Input[str] private_ip_address: The Static IP Address which should be used.
+        :param pulumi.Input[str] private_ip_address: The first private IP address of the network interface.
         :param pulumi.Input[str] private_ip_address_version: The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
         :param pulumi.Input[str] public_ip_address_id: Reference to a Public IP Address to associate with this NIC
         :param pulumi.Input[str] subnet_id: The ID of the Subnet where this Network Interface should be located in.
@@ -7489,7 +7301,7 @@ class NetworkInterfaceIpConfigurationArgs:
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The Static IP Address which should be used.
+        The first private IP address of the network interface.
         """
         return pulumi.get(self, "private_ip_address")
 
@@ -11215,7 +11027,7 @@ class VirtualNetworkSubnetArgs:
         """
         :param pulumi.Input[str] address_prefix: The address prefix to use for the subnet.
         :param pulumi.Input[str] name: The name of the subnet.
-        :param pulumi.Input[str] id: The ID of DDoS Protection Plan.
+        :param pulumi.Input[str] id: The ID of this subnet.
         :param pulumi.Input[str] security_group: The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
         """
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -11253,7 +11065,7 @@ class VirtualNetworkSubnetArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of DDoS Protection Plan.
+        The ID of this subnet.
         """
         return pulumi.get(self, "id")
 
@@ -11443,7 +11255,6 @@ class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs:
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  tunnel_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ips: A list of custom BGP peering addresses to assign to this instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_ips: The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
         :param pulumi.Input[str] ip_configuration_id: The pre-defined id of VPN Gateway IP Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel_ips: The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
@@ -11459,9 +11270,6 @@ class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs:
     @property
     @pulumi.getter(name="customIps")
     def custom_ips(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of custom BGP peering addresses to assign to this instance.
-        """
         return pulumi.get(self, "custom_ips")
 
     @custom_ips.setter
@@ -11513,7 +11321,6 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs:
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  tunnel_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ips: A list of custom BGP peering addresses to assign to this instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_ips: The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
         :param pulumi.Input[str] ip_configuration_id: The pre-defined id of VPN Gateway IP Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel_ips: The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
@@ -11529,9 +11336,6 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs:
     @property
     @pulumi.getter(name="customIps")
     def custom_ips(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of custom BGP peering addresses to assign to this instance.
-        """
         return pulumi.get(self, "custom_ips")
 
     @custom_ips.setter

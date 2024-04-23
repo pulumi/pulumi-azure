@@ -18,7 +18,6 @@ namespace Pulumi.Azure.Blueprint
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -110,7 +109,6 @@ namespace Pulumi.Azure.Blueprint
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -199,9 +197,6 @@ namespace Pulumi.Azure.Blueprint
         [Output("targetSubscriptionId")]
         public Output<string> TargetSubscriptionId { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -429,9 +424,6 @@ namespace Pulumi.Azure.Blueprint
         [Input("targetSubscriptionId")]
         public Input<string>? TargetSubscriptionId { get; set; }
 
-        /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

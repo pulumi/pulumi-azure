@@ -308,17 +308,9 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     public Output<Optional<KubernetesClusterNodePoolLinuxOsConfig>> linuxOsConfig() {
         return Codegen.optional(this.linuxOsConfig);
     }
-    /**
-     * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
-     * 
-     */
     @Export(name="maxCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxCount;
 
-    /**
-     * @return The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
-     * 
-     */
     public Output<Optional<Integer>> maxCount() {
         return Codegen.optional(this.maxCount);
     }
@@ -350,17 +342,9 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     public Output<Optional<String>> messageOfTheDay() {
         return Codegen.optional(this.messageOfTheDay);
     }
-    /**
-     * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
-     * 
-     */
     @Export(name="minCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minCount;
 
-    /**
-     * @return The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
-     * 
-     */
     public Output<Optional<Integer>> minCount() {
         return Codegen.optional(this.minCount);
     }
@@ -396,17 +380,9 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
-     * 
-     */
     @Export(name="nodeCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> nodeCount;
 
-    /**
-     * @return The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
-     * 
-     */
     public Output<Integer> nodeCount() {
         return this.nodeCount;
     }

@@ -157,7 +157,6 @@ class NotebookWorkspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -183,7 +182,6 @@ class NotebookWorkspace(pulumi.CustomResource):
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -216,7 +214,6 @@ class NotebookWorkspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -242,7 +239,6 @@ class NotebookWorkspace(pulumi.CustomResource):
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

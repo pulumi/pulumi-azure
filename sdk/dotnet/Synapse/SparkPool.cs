@@ -14,7 +14,6 @@ namespace Pulumi.Azure.Synapse
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -97,7 +96,6 @@ namespace Pulumi.Azure.Synapse
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -134,27 +132,15 @@ namespace Pulumi.Azure.Synapse
         [Output("computeIsolationEnabled")]
         public Output<bool?> ComputeIsolationEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-        /// </summary>
         [Output("dynamicExecutorAllocationEnabled")]
         public Output<bool?> DynamicExecutorAllocationEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// A `library_requirement` block as defined below.
-        /// </summary>
         [Output("libraryRequirement")]
         public Output<Outputs.SparkPoolLibraryRequirement?> LibraryRequirement { get; private set; } = null!;
 
-        /// <summary>
-        /// The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        /// </summary>
         [Output("maxExecutors")]
         public Output<int?> MaxExecutors { get; private set; } = null!;
 
-        /// <summary>
-        /// The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        /// </summary>
         [Output("minExecutors")]
         public Output<int?> MinExecutors { get; private set; } = null!;
 
@@ -182,33 +168,18 @@ namespace Pulumi.Azure.Synapse
         [Output("nodeSizeFamily")]
         public Output<string> NodeSizeFamily { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether session level packages are enabled or not. Defaults to `false`.
-        /// </summary>
         [Output("sessionLevelPackagesEnabled")]
         public Output<bool?> SessionLevelPackagesEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// A `spark_config` block as defined below.
-        /// </summary>
         [Output("sparkConfig")]
         public Output<Outputs.SparkPoolSparkConfig?> SparkConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// The Spark events folder. Defaults to `/events`.
-        /// </summary>
         [Output("sparkEventsFolder")]
         public Output<string?> SparkEventsFolder { get; private set; } = null!;
 
-        /// <summary>
-        /// The default folder where Spark logs will be written. Defaults to `/logs`.
-        /// </summary>
         [Output("sparkLogFolder")]
         public Output<string?> SparkLogFolder { get; private set; } = null!;
 
-        /// <summary>
-        /// The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-        /// </summary>
         [Output("sparkVersion")]
         public Output<string?> SparkVersion { get; private set; } = null!;
 
@@ -218,9 +189,6 @@ namespace Pulumi.Azure.Synapse
         [Output("synapseWorkspaceId")]
         public Output<string> SynapseWorkspaceId { get; private set; } = null!;
 
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Synapse Spark Pool.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -294,27 +262,15 @@ namespace Pulumi.Azure.Synapse
         [Input("computeIsolationEnabled")]
         public Input<bool>? ComputeIsolationEnabled { get; set; }
 
-        /// <summary>
-        /// Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-        /// </summary>
         [Input("dynamicExecutorAllocationEnabled")]
         public Input<bool>? DynamicExecutorAllocationEnabled { get; set; }
 
-        /// <summary>
-        /// A `library_requirement` block as defined below.
-        /// </summary>
         [Input("libraryRequirement")]
         public Input<Inputs.SparkPoolLibraryRequirementArgs>? LibraryRequirement { get; set; }
 
-        /// <summary>
-        /// The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        /// </summary>
         [Input("maxExecutors")]
         public Input<int>? MaxExecutors { get; set; }
 
-        /// <summary>
-        /// The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        /// </summary>
         [Input("minExecutors")]
         public Input<int>? MinExecutors { get; set; }
 
@@ -342,33 +298,18 @@ namespace Pulumi.Azure.Synapse
         [Input("nodeSizeFamily", required: true)]
         public Input<string> NodeSizeFamily { get; set; } = null!;
 
-        /// <summary>
-        /// Indicates whether session level packages are enabled or not. Defaults to `false`.
-        /// </summary>
         [Input("sessionLevelPackagesEnabled")]
         public Input<bool>? SessionLevelPackagesEnabled { get; set; }
 
-        /// <summary>
-        /// A `spark_config` block as defined below.
-        /// </summary>
         [Input("sparkConfig")]
         public Input<Inputs.SparkPoolSparkConfigArgs>? SparkConfig { get; set; }
 
-        /// <summary>
-        /// The Spark events folder. Defaults to `/events`.
-        /// </summary>
         [Input("sparkEventsFolder")]
         public Input<string>? SparkEventsFolder { get; set; }
 
-        /// <summary>
-        /// The default folder where Spark logs will be written. Defaults to `/logs`.
-        /// </summary>
         [Input("sparkLogFolder")]
         public Input<string>? SparkLogFolder { get; set; }
 
-        /// <summary>
-        /// The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-        /// </summary>
         [Input("sparkVersion")]
         public Input<string>? SparkVersion { get; set; }
 
@@ -380,10 +321,6 @@ namespace Pulumi.Azure.Synapse
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Synapse Spark Pool.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -422,27 +359,15 @@ namespace Pulumi.Azure.Synapse
         [Input("computeIsolationEnabled")]
         public Input<bool>? ComputeIsolationEnabled { get; set; }
 
-        /// <summary>
-        /// Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-        /// </summary>
         [Input("dynamicExecutorAllocationEnabled")]
         public Input<bool>? DynamicExecutorAllocationEnabled { get; set; }
 
-        /// <summary>
-        /// A `library_requirement` block as defined below.
-        /// </summary>
         [Input("libraryRequirement")]
         public Input<Inputs.SparkPoolLibraryRequirementGetArgs>? LibraryRequirement { get; set; }
 
-        /// <summary>
-        /// The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        /// </summary>
         [Input("maxExecutors")]
         public Input<int>? MaxExecutors { get; set; }
 
-        /// <summary>
-        /// The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
-        /// </summary>
         [Input("minExecutors")]
         public Input<int>? MinExecutors { get; set; }
 
@@ -470,33 +395,18 @@ namespace Pulumi.Azure.Synapse
         [Input("nodeSizeFamily")]
         public Input<string>? NodeSizeFamily { get; set; }
 
-        /// <summary>
-        /// Indicates whether session level packages are enabled or not. Defaults to `false`.
-        /// </summary>
         [Input("sessionLevelPackagesEnabled")]
         public Input<bool>? SessionLevelPackagesEnabled { get; set; }
 
-        /// <summary>
-        /// A `spark_config` block as defined below.
-        /// </summary>
         [Input("sparkConfig")]
         public Input<Inputs.SparkPoolSparkConfigGetArgs>? SparkConfig { get; set; }
 
-        /// <summary>
-        /// The Spark events folder. Defaults to `/events`.
-        /// </summary>
         [Input("sparkEventsFolder")]
         public Input<string>? SparkEventsFolder { get; set; }
 
-        /// <summary>
-        /// The default folder where Spark logs will be written. Defaults to `/logs`.
-        /// </summary>
         [Input("sparkLogFolder")]
         public Input<string>? SparkLogFolder { get; set; }
 
-        /// <summary>
-        /// The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-        /// </summary>
         [Input("sparkVersion")]
         public Input<string>? SparkVersion { get; set; }
 
@@ -508,10 +418,6 @@ namespace Pulumi.Azure.Synapse
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Synapse Spark Pool.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

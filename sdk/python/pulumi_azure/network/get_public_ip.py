@@ -240,7 +240,6 @@ def get_public_ip(name: Optional[str] = None,
 
     ### Reference An Existing)
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -250,11 +249,9 @@ def get_public_ip(name: Optional[str] = None,
     pulumi.export("domainNameLabel", example.domain_name_label)
     pulumi.export("publicIpAddress", example.ip_address)
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Retrieve The Dynamic Public IP Of A New VM)
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -301,7 +298,6 @@ def get_public_ip(name: Optional[str] = None,
         resource_group_name=example_virtual_machine.resource_group_name)
     pulumi.export("publicIpAddress", example.ip_address)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the public IP address.
@@ -344,7 +340,6 @@ def get_public_ip_output(name: Optional[pulumi.Input[str]] = None,
 
     ### Reference An Existing)
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -354,11 +349,9 @@ def get_public_ip_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("domainNameLabel", example.domain_name_label)
     pulumi.export("publicIpAddress", example.ip_address)
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Retrieve The Dynamic Public IP Of A New VM)
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -405,7 +398,6 @@ def get_public_ip_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name=example_virtual_machine.resource_group_name)
     pulumi.export("publicIpAddress", example.ip_address)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the public IP address.

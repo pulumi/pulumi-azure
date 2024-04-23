@@ -17,7 +17,6 @@ import (
 //
 // ### World)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,7 +41,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetTrafficManager(ctx *pulumi.Context, args *GetTrafficManagerArgs, opts ...pulumi.InvokeOption) (*GetTrafficManagerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTrafficManagerResult

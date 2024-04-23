@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,7 +65,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -86,7 +84,7 @@ type LoadBalancer struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+	// Private IP Address to assign to the Load Balancer.
 	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
 	// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
 	PrivateIpAddresses pulumi.StringArrayOutput `pulumi:"privateIpAddresses"`
@@ -143,7 +141,7 @@ type loadBalancerState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+	// Private IP Address to assign to the Load Balancer.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
@@ -168,7 +166,7 @@ type LoadBalancerState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+	// Private IP Address to assign to the Load Balancer.
 	PrivateIpAddress pulumi.StringPtrInput
 	// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
 	PrivateIpAddresses pulumi.StringArrayInput
@@ -340,7 +338,7 @@ func (o LoadBalancerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+// Private IP Address to assign to the Load Balancer.
 func (o LoadBalancerOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }

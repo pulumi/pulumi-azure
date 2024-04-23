@@ -18,7 +18,6 @@ import (
 //
 // ### Using A Built-In Role)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,11 +52,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Custom Role & Service Principal)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -112,11 +109,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Custom Role & User)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -171,11 +166,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Custom Role & Management Group)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -237,11 +230,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### ABAC Condition)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -324,7 +315,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

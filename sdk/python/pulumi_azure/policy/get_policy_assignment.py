@@ -191,7 +191,6 @@ def get_policy_assignment(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -200,7 +199,6 @@ def get_policy_assignment(name: Optional[str] = None,
         scope_id=example_azurerm_resource_group["id"])
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Policy Assignment. Changing this forces a new Policy Assignment to be created.
@@ -237,7 +235,6 @@ def get_policy_assignment_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -246,7 +243,6 @@ def get_policy_assignment_output(name: Optional[pulumi.Input[str]] = None,
         scope_id=example_azurerm_resource_group["id"])
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Policy Assignment. Changing this forces a new Policy Assignment to be created.

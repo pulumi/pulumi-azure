@@ -317,17 +317,9 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     public Output<String> targetSubscriptionId() {
         return this.targetSubscriptionId;
     }
-    /**
-     * Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are `SystemAssigned` and `UserAssigned`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Using A Built-In Role)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -24,11 +23,9 @@ import * as utilities from "../utilities";
  *     principalId: example.then(example => example.objectId),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Custom Role & Service Principal)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -52,11 +49,9 @@ import * as utilities from "../utilities";
  *     principalId: example.then(example => example.objectId),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Custom Role & User)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -80,11 +75,9 @@ import * as utilities from "../utilities";
  *     principalId: example.then(example => example.objectId),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Custom Role & Management Group)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -111,11 +104,9 @@ import * as utilities from "../utilities";
  *     principalId: example.then(example => example.objectId),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### ABAC Condition)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -159,7 +150,6 @@ import * as utilities from "../utilities";
  * `),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

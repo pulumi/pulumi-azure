@@ -266,7 +266,6 @@ class Definition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -282,7 +281,6 @@ class Definition(pulumi.CustomResource):
             )],
             assignable_scopes=[primary.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -314,7 +312,6 @@ class Definition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -330,7 +327,6 @@ class Definition(pulumi.CustomResource):
             )],
             assignable_scopes=[primary.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

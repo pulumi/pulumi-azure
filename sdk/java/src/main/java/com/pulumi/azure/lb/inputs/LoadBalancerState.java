@@ -79,14 +79,14 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+     * Private IP Address to assign to the Load Balancer.
      * 
      */
     @Import(name="privateIpAddress")
     private @Nullable Output<String> privateIpAddress;
 
     /**
-     * @return Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+     * @return Private IP Address to assign to the Load Balancer.
      * 
      */
     public Optional<Output<String>> privateIpAddress() {
@@ -300,7 +300,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateIpAddress Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+         * @param privateIpAddress Private IP Address to assign to the Load Balancer.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateIpAddress Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+         * @param privateIpAddress Private IP Address to assign to the Load Balancer.
          * 
          * @return builder
          * 

@@ -14,7 +14,6 @@ namespace Pulumi.Azure.EventGrid
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,7 +52,6 @@ namespace Pulumi.Azure.EventGrid
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -102,9 +100,6 @@ namespace Pulumi.Azure.EventGrid
         [Output("sourceArmResourceId")]
         public Output<string> SourceArmResourceId { get; private set; } = null!;
 
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Event Grid System Topic.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -196,10 +191,6 @@ namespace Pulumi.Azure.EventGrid
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Event Grid System Topic.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -262,10 +253,6 @@ namespace Pulumi.Azure.EventGrid
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Event Grid System Topic.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

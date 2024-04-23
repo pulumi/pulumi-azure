@@ -98,7 +98,7 @@ class _OrderState:
         Input properties used for looking up and filtering Order resources.
         :param pulumi.Input['OrderContactArgs'] contact: A `contact` block as defined below.
         :param pulumi.Input[str] device_name: The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
-        :param pulumi.Input[str] name: The contact person name. Changing this forces a new Databox Edge Order to be created.
+        :param pulumi.Input[str] name: The Name of this Databox Edge Order.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
         :param pulumi.Input[Sequence[pulumi.Input['OrderReturnTrackingArgs']]] return_trackings: Tracking information for the package returned from the customer whether it has an original or a replacement device. A `return_tracking` block as defined below.
         :param pulumi.Input[str] serial_number: Serial number of the device being tracked.
@@ -156,7 +156,7 @@ class _OrderState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The contact person name. Changing this forces a new Databox Edge Order to be created.
+        The Name of this Databox Edge Order.
         """
         return pulumi.get(self, "name")
 
@@ -266,7 +266,6 @@ class Order(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -296,7 +295,6 @@ class Order(pulumi.CustomResource):
                 country="United States",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -326,7 +324,6 @@ class Order(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -356,7 +353,6 @@ class Order(pulumi.CustomResource):
                 country="United States",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -441,7 +437,7 @@ class Order(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['OrderContactArgs']] contact: A `contact` block as defined below.
         :param pulumi.Input[str] device_name: The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
-        :param pulumi.Input[str] name: The contact person name. Changing this forces a new Databox Edge Order to be created.
+        :param pulumi.Input[str] name: The Name of this Databox Edge Order.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderReturnTrackingArgs']]]] return_trackings: Tracking information for the package returned from the customer whether it has an original or a replacement device. A `return_tracking` block as defined below.
         :param pulumi.Input[str] serial_number: Serial number of the device being tracked.
@@ -486,7 +482,7 @@ class Order(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The contact person name. Changing this forces a new Databox Edge Order to be created.
+        The Name of this Databox Edge Order.
         """
         return pulumi.get(self, "name")
 

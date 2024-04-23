@@ -135,7 +135,6 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -154,7 +153,6 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             aws_role_arn="arn:aws:iam::000000000000:role/role1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -181,7 +179,6 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -200,7 +197,6 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             aws_role_arn="arn:aws:iam::000000000000:role/role1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

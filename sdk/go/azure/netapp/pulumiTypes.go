@@ -2123,14 +2123,10 @@ func (o VolumeGroupSapHanaVolumeArrayOutput) Index(i pulumi.IntInput) VolumeGrou
 }
 
 type VolumeGroupSapHanaVolumeDataProtectionReplication struct {
-	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
-	EndpointType *string `pulumi:"endpointType"`
-	// Location of the primary volume.
-	RemoteVolumeLocation string `pulumi:"remoteVolumeLocation"`
-	// Resource ID of the primary volume.
-	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
-	// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
-	ReplicationFrequency string `pulumi:"replicationFrequency"`
+	EndpointType           *string `pulumi:"endpointType"`
+	RemoteVolumeLocation   string  `pulumi:"remoteVolumeLocation"`
+	RemoteVolumeResourceId string  `pulumi:"remoteVolumeResourceId"`
+	ReplicationFrequency   string  `pulumi:"replicationFrequency"`
 }
 
 // VolumeGroupSapHanaVolumeDataProtectionReplicationInput is an input type that accepts VolumeGroupSapHanaVolumeDataProtectionReplicationArgs and VolumeGroupSapHanaVolumeDataProtectionReplicationOutput values.
@@ -2145,14 +2141,10 @@ type VolumeGroupSapHanaVolumeDataProtectionReplicationInput interface {
 }
 
 type VolumeGroupSapHanaVolumeDataProtectionReplicationArgs struct {
-	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
-	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// Location of the primary volume.
-	RemoteVolumeLocation pulumi.StringInput `pulumi:"remoteVolumeLocation"`
-	// Resource ID of the primary volume.
-	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
-	// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
-	ReplicationFrequency pulumi.StringInput `pulumi:"replicationFrequency"`
+	EndpointType           pulumi.StringPtrInput `pulumi:"endpointType"`
+	RemoteVolumeLocation   pulumi.StringInput    `pulumi:"remoteVolumeLocation"`
+	RemoteVolumeResourceId pulumi.StringInput    `pulumi:"remoteVolumeResourceId"`
+	ReplicationFrequency   pulumi.StringInput    `pulumi:"replicationFrequency"`
 }
 
 func (VolumeGroupSapHanaVolumeDataProtectionReplicationArgs) ElementType() reflect.Type {
@@ -2232,22 +2224,18 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ToVolumeGroupSa
 	}).(VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput)
 }
 
-// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-// Location of the primary volume.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) RemoteVolumeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) string { return v.RemoteVolumeLocation }).(pulumi.StringOutput)
 }
 
-// Resource ID of the primary volume.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) RemoteVolumeResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
 }
 
-// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ReplicationFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) string { return v.ReplicationFrequency }).(pulumi.StringOutput)
 }
@@ -2276,7 +2264,6 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) Elem() Volum
 	}).(VolumeGroupSapHanaVolumeDataProtectionReplicationOutput)
 }
 
-// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionReplication) *string {
 		if v == nil {
@@ -2286,7 +2273,6 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) EndpointType
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location of the primary volume.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) RemoteVolumeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionReplication) *string {
 		if v == nil {
@@ -2296,7 +2282,6 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) RemoteVolume
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource ID of the primary volume.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) RemoteVolumeResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionReplication) *string {
 		if v == nil {
@@ -2306,7 +2291,6 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) RemoteVolume
 	}).(pulumi.StringPtrOutput)
 }
 
-// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) ReplicationFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionReplication) *string {
 		if v == nil {

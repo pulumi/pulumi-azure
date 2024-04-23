@@ -224,7 +224,6 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -237,7 +236,6 @@ class UserAssignedIdentity(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -273,7 +271,6 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -286,7 +283,6 @@ class UserAssignedIdentity(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

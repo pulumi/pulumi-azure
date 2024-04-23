@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -18,7 +17,7 @@ import * as utilities from "../utilities";
  *     name: "example-deployment",
  *     location: "West Europe",
  *     templateContent: ` {
- *    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+ *    "schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
  *    "contentVersion": "1.0.0.0",
  *    "parameters": {},
  *    "variables": {},
@@ -35,7 +34,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

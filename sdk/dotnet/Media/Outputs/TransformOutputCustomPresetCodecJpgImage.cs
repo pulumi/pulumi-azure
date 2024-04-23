@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Media.Outputs
         /// </summary>
         public readonly string? KeyFrameInterval;
         /// <summary>
-        /// Specifies the label for the codec. The label can be used to control muxing behavior.
+        /// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         /// </summary>
         public readonly string? Label;
         /// <summary>

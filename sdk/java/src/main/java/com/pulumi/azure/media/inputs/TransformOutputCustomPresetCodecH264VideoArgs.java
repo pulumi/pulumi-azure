@@ -49,14 +49,14 @@ public final class TransformOutputCustomPresetCodecH264VideoArgs extends com.pul
     }
 
     /**
-     * Specifies the label for the codec. The label can be used to control muxing behavior.
+     * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return Specifies the label for the codec. The label can be used to control muxing behavior.
+     * @return The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
      * 
      */
     public Optional<Output<String>> label() {
@@ -212,7 +212,7 @@ public final class TransformOutputCustomPresetCodecH264VideoArgs extends com.pul
         }
 
         /**
-         * @param label Specifies the label for the codec. The label can be used to control muxing behavior.
+         * @param label The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class TransformOutputCustomPresetCodecH264VideoArgs extends com.pul
         }
 
         /**
-         * @param label Specifies the label for the codec. The label can be used to control muxing behavior.
+         * @param label The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
          * 
          * @return builder
          * 

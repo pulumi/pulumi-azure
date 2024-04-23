@@ -129,7 +129,6 @@ def get_sql_role_definition(account_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -138,7 +137,6 @@ def get_sql_role_definition(account_name: Optional[str] = None,
         account_name="tfex-cosmosdb-sql-role-definition-account-name",
         role_definition_id="00000000-0000-0000-0000-000000000000")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the Cosmos DB Account.
@@ -173,7 +171,6 @@ def get_sql_role_definition_output(account_name: Optional[pulumi.Input[str]] = N
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -182,7 +179,6 @@ def get_sql_role_definition_output(account_name: Optional[pulumi.Input[str]] = N
         account_name="tfex-cosmosdb-sql-role-definition-account-name",
         role_definition_id="00000000-0000-0000-0000-000000000000")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the Cosmos DB Account.

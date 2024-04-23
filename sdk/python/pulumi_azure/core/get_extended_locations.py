@@ -72,14 +72,12 @@ def get_extended_locations(location: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
 
     example = azure.core.get_extended_locations(location="West Europe")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str location: The Azure location to retrieve the Extended Locations for.
@@ -103,14 +101,12 @@ def get_extended_locations_output(location: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
 
     example = azure.core.get_extended_locations(location="West Europe")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str location: The Azure location to retrieve the Extended Locations for.

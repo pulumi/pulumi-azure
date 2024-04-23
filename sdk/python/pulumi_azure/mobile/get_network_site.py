@@ -106,7 +106,6 @@ def get_network_site(mobile_network_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -116,7 +115,6 @@ def get_network_site(mobile_network_id: Optional[str] = None,
     example_get_network_site = azure.mobile.get_network_site(name="example-mns",
         mobile_network_id=example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str mobile_network_id: the ID of the Mobile Network which the Mobile Network Site belongs to.
@@ -146,7 +144,6 @@ def get_network_site_output(mobile_network_id: Optional[pulumi.Input[str]] = Non
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -156,7 +153,6 @@ def get_network_site_output(mobile_network_id: Optional[pulumi.Input[str]] = Non
     example_get_network_site = azure.mobile.get_network_site(name="example-mns",
         mobile_network_id=example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str mobile_network_id: the ID of the Mobile Network which the Mobile Network Site belongs to.

@@ -119,7 +119,6 @@ def get_device(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -127,7 +126,6 @@ def get_device(name: Optional[str] = None,
     example = azure.databoxedge.get_device(name="example-device",
         resource_group_name="example-rg")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name which should be used for this Databox Edge Device. Changing this forces a new Databox Edge Device to be created.
@@ -158,7 +156,6 @@ def get_device_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -166,7 +163,6 @@ def get_device_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.databoxedge.get_device(name="example-device",
         resource_group_name="example-rg")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name which should be used for this Databox Edge Device. Changing this forces a new Databox Edge Device to be created.

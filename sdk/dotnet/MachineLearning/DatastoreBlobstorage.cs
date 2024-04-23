@@ -16,7 +16,6 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     /// ### With Azure Blob
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,7 +89,6 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

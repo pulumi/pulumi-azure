@@ -37,7 +37,7 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends 
     /**
      * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     @Import(name="allowedAudiences")
@@ -46,7 +46,7 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends 
     /**
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     public Optional<Output<List<String>>> allowedAudiences() {
@@ -114,14 +114,18 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends 
     }
 
     /**
-     * The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * The App Setting name that contains the client secret of the Client.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName")
     private @Nullable Output<String> clientSecretSettingName;
 
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The App Setting name that contains the client secret of the Client.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Optional<Output<String>> clientSecretSettingName() {
@@ -272,7 +276,7 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends 
         /**
          * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
-         * &gt; **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 
@@ -285,7 +289,7 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends 
         /**
          * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
-         * &gt; **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 
@@ -297,7 +301,7 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends 
         /**
          * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
-         * &gt; **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 
@@ -411,7 +415,9 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends 
         }
 
         /**
-         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -422,7 +428,9 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends 
         }
 
         /**
-         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 

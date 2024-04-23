@@ -157,17 +157,9 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
     public Output<SpringCloudConnectionAuthentication> authentication() {
         return this.authentication;
     }
-    /**
-     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-     * 
-     */
     @Export(name="clientType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientType;
 
-    /**
-     * @return The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
-     * 
-     */
     public Output<Optional<String>> clientType() {
         return Codegen.optional(this.clientType);
     }
@@ -185,17 +177,9 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * An option to store secret value in secure place. An `secret_store` block as defined below.
-     * 
-     */
     @Export(name="secretStore", refs={SpringCloudConnectionSecretStore.class}, tree="[0]")
     private Output</* @Nullable */ SpringCloudConnectionSecretStore> secretStore;
 
-    /**
-     * @return An option to store secret value in secure place. An `secret_store` block as defined below.
-     * 
-     */
     public Output<Optional<SpringCloudConnectionSecretStore>> secretStore() {
         return Codegen.optional(this.secretStore);
     }
@@ -227,17 +211,9 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
     public Output<String> targetResourceId() {
         return this.targetResourceId;
     }
-    /**
-     * The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-     * 
-     */
     @Export(name="vnetSolution", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vnetSolution;
 
-    /**
-     * @return The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
-     * 
-     */
     public Output<Optional<String>> vnetSolution() {
         return Codegen.optional(this.vnetSolution);
     }

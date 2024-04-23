@@ -22,7 +22,6 @@ import (
 //
 // This example provisions a basic Linux Virtual Machine Scale Set on an internal network.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -112,7 +111,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

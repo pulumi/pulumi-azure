@@ -13,17 +13,8 @@ namespace Pulumi.Azure.Core.Outputs
     [OutputType]
     public sealed class ResourcePolicyAssignmentOverrideSelector
     {
-        /// <summary>
-        /// Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
-        /// </summary>
         public readonly ImmutableArray<string> Ins;
-        /// <summary>
-        /// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-        /// </summary>
         public readonly string? Kind;
-        /// <summary>
-        /// Specify the list of policy reference id values to filter out. Cannot be used with `in`.
-        /// </summary>
         public readonly ImmutableArray<string> NotIns;
 
         [OutputConstructor]

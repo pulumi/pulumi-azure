@@ -14,7 +14,6 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,7 +52,6 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -166,15 +164,9 @@ namespace Pulumi.Azure.StreamAnalytics
         [Output("streamingUnits")]
         public Output<int?> StreamingUnits { get; private set; } = null!;
 
-        /// <summary>
-        /// A mapping of tags assigned to the resource.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-        /// </summary>
         [Output("transformationQuery")]
         public Output<string> TransformationQuery { get; private set; } = null!;
 
@@ -334,19 +326,12 @@ namespace Pulumi.Azure.StreamAnalytics
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags assigned to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-        /// </summary>
         [Input("transformationQuery", required: true)]
         public Input<string> TransformationQuery { get; set; } = null!;
 
@@ -474,19 +459,12 @@ namespace Pulumi.Azure.StreamAnalytics
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags assigned to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-        /// </summary>
         [Input("transformationQuery")]
         public Input<string>? TransformationQuery { get; set; }
 

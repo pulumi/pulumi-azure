@@ -104,7 +104,6 @@ def get_replication_policy(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -113,7 +112,6 @@ def get_replication_policy(name: Optional[str] = None,
         recovery_vault_name="tfex-recovery_vault",
         resource_group_name="tfex-resource_group")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Azure Site Recovery replication policy.
@@ -146,7 +144,6 @@ def get_replication_policy_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -155,7 +152,6 @@ def get_replication_policy_output(name: Optional[pulumi.Input[str]] = None,
         recovery_vault_name="tfex-recovery_vault",
         resource_group_name="tfex-resource_group")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Azure Site Recovery replication policy.

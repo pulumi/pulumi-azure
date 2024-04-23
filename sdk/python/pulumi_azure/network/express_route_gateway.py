@@ -266,7 +266,6 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -294,7 +293,6 @@ class ExpressRouteGateway(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -325,7 +323,6 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -353,7 +350,6 @@ class ExpressRouteGateway(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

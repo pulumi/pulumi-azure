@@ -269,7 +269,6 @@ class CertificateIssuer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -292,7 +291,6 @@ class CertificateIssuer(pulumi.CustomResource):
             account_id="0000",
             password="example-password")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -323,7 +321,6 @@ class CertificateIssuer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -346,7 +343,6 @@ class CertificateIssuer(pulumi.CustomResource):
             account_id="0000",
             password="example-password")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

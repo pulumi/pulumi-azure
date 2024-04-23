@@ -231,7 +231,7 @@ class _FrontdoorState:
         :param pulumi.Input[str] cname: The host that each frontendEndpoint must CNAME to.
         :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]] frontend_endpoints: A `frontend_endpoint` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] frontend_endpoints_map: The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] frontend_endpoints_map: A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
         :param pulumi.Input[str] header_frontdoor_id: The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
         :param pulumi.Input[bool] load_balancer_enabled: Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
@@ -414,7 +414,7 @@ class _FrontdoorState:
     @pulumi.getter(name="frontendEndpointsMap")
     def frontend_endpoints_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+        A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
         """
         return pulumi.get(self, "frontend_endpoints_map")
 
@@ -539,7 +539,6 @@ class Frontdoor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -585,7 +584,6 @@ class Frontdoor(pulumi.CustomResource):
                 host_name="example-FrontDoor.azurefd.net",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -632,7 +630,6 @@ class Frontdoor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -678,7 +675,6 @@ class Frontdoor(pulumi.CustomResource):
                 host_name="example-FrontDoor.azurefd.net",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -802,7 +798,7 @@ class Frontdoor(pulumi.CustomResource):
         :param pulumi.Input[str] cname: The host that each frontendEndpoint must CNAME to.
         :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFrontendEndpointArgs']]]] frontend_endpoints: A `frontend_endpoint` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] frontend_endpoints_map: The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] frontend_endpoints_map: A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
         :param pulumi.Input[str] header_frontdoor_id: The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
         :param pulumi.Input[bool] load_balancer_enabled: Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
@@ -927,7 +923,7 @@ class Frontdoor(pulumi.CustomResource):
     @pulumi.getter(name="frontendEndpointsMap")
     def frontend_endpoints_map(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+        A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
         """
         return pulumi.get(self, "frontend_endpoints_map")
 

@@ -34,14 +34,14 @@ public final class AccountGeoLocationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The ID of the virtual network subnet.
+     * The CosmosDB Account ID.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ID of the virtual network subnet.
+     * @return The CosmosDB Account ID.
      * 
      */
     public Optional<Output<String>> id() {
@@ -127,7 +127,7 @@ public final class AccountGeoLocationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param id The ID of the virtual network subnet.
+         * @param id The CosmosDB Account ID.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class AccountGeoLocationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param id The ID of the virtual network subnet.
+         * @param id The CosmosDB Account ID.
          * 
          * @return builder
          * 

@@ -83,14 +83,12 @@ def get_images(resource_group_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
 
     example = azure.compute.get_images(resource_group_name="example-resources")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str resource_group_name: The name of the Resource Group in which the Image exists.
@@ -118,14 +116,12 @@ def get_images_output(resource_group_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
 
     example = azure.compute.get_images(resource_group_name="example-resources")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str resource_group_name: The name of the Resource Group in which the Image exists.

@@ -267,7 +267,6 @@ class VirtualMachineGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -286,7 +285,6 @@ class VirtualMachineGroup(pulumi.CustomResource):
                 cluster_subnet_type="SingleSubnet",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -317,7 +315,6 @@ class VirtualMachineGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -336,7 +333,6 @@ class VirtualMachineGroup(pulumi.CustomResource):
                 cluster_subnet_type="SingleSubnet",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

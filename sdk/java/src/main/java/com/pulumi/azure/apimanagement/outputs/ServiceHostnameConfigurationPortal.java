@@ -14,12 +14,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceHostnameConfigurationPortal {
     /**
-     * @return One or more `certificate` blocks (up to 10) as defined below.
+     * @return The Base64 Encoded Certificate.
      * 
      */
     private @Nullable String certificate;
     /**
-     * @return The password for the certificate.
+     * @return The password associated with the certificate provided above.
+     * 
+     * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
      * 
      */
     private @Nullable String certificatePassword;
@@ -75,14 +77,16 @@ public final class ServiceHostnameConfigurationPortal {
 
     private ServiceHostnameConfigurationPortal() {}
     /**
-     * @return One or more `certificate` blocks (up to 10) as defined below.
+     * @return The Base64 Encoded Certificate.
      * 
      */
     public Optional<String> certificate() {
         return Optional.ofNullable(this.certificate);
     }
     /**
-     * @return The password for the certificate.
+     * @return The password associated with the certificate provided above.
+     * 
+     * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
      * 
      */
     public Optional<String> certificatePassword() {

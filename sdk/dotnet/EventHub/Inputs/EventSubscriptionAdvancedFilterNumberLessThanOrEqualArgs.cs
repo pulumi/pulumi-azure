@@ -12,17 +12,9 @@ namespace Pulumi.Azure.EventHub.Inputs
 
     public sealed class EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies a single value to compare to when using a single value operator.
-        /// 
-        /// OR
-        /// </summary>
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;
 

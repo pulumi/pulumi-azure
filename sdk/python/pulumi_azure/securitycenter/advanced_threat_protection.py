@@ -102,7 +102,6 @@ class AdvancedThreatProtection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -123,7 +122,6 @@ class AdvancedThreatProtection(pulumi.CustomResource):
             target_resource_id=example_account.id,
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -149,7 +147,6 @@ class AdvancedThreatProtection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -170,7 +167,6 @@ class AdvancedThreatProtection(pulumi.CustomResource):
             target_resource_id=example_account.id,
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

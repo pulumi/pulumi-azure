@@ -32,47 +32,31 @@ public final class PolicyPolicySettingsLogScrubbingRuleArgs extends com.pulumi.r
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
-     * 
-     */
     @Import(name="matchVariable", required=true)
     private Output<String> matchVariable;
 
-    /**
-     * @return The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
-     * 
-     */
     public Output<String> matchVariable() {
         return this.matchVariable;
     }
 
     /**
-     * Describes field of the matchVariable collection.
+     * When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
      * 
      */
     @Import(name="selector")
     private @Nullable Output<String> selector;
 
     /**
-     * @return Describes field of the matchVariable collection.
+     * @return When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
      * 
      */
     public Optional<Output<String>> selector() {
         return Optional.ofNullable(this.selector);
     }
 
-    /**
-     * Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
-     * 
-     */
     @Import(name="selectorMatchOperator")
     private @Nullable Output<String> selectorMatchOperator;
 
-    /**
-     * @return Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
-     * 
-     */
     public Optional<Output<String>> selectorMatchOperator() {
         return Optional.ofNullable(this.selectorMatchOperator);
     }
@@ -125,29 +109,17 @@ public final class PolicyPolicySettingsLogScrubbingRuleArgs extends com.pulumi.r
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param matchVariable The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchVariable(Output<String> matchVariable) {
             $.matchVariable = matchVariable;
             return this;
         }
 
-        /**
-         * @param matchVariable The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchVariable(String matchVariable) {
             return matchVariable(Output.of(matchVariable));
         }
 
         /**
-         * @param selector Describes field of the matchVariable collection.
+         * @param selector When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
          * 
          * @return builder
          * 
@@ -158,7 +130,7 @@ public final class PolicyPolicySettingsLogScrubbingRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param selector Describes field of the matchVariable collection.
+         * @param selector When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
          * 
          * @return builder
          * 
@@ -167,23 +139,11 @@ public final class PolicyPolicySettingsLogScrubbingRuleArgs extends com.pulumi.r
             return selector(Output.of(selector));
         }
 
-        /**
-         * @param selectorMatchOperator Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectorMatchOperator(@Nullable Output<String> selectorMatchOperator) {
             $.selectorMatchOperator = selectorMatchOperator;
             return this;
         }
 
-        /**
-         * @param selectorMatchOperator Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectorMatchOperator(String selectorMatchOperator) {
             return selectorMatchOperator(Output.of(selectorMatchOperator));
         }

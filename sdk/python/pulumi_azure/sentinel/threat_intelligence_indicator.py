@@ -822,7 +822,6 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -847,7 +846,6 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             validate_from_utc="2022-12-14T16:00:00Z",
             display_name="example-indicator")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -891,7 +889,6 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -916,7 +913,6 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             validate_from_utc="2022-12-14T16:00:00Z",
             display_name="example-indicator")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

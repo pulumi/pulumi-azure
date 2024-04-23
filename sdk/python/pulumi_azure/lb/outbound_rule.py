@@ -303,7 +303,6 @@ class OutboundRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -336,7 +335,6 @@ class OutboundRule(pulumi.CustomResource):
                 name="PublicIPAddress",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -370,7 +368,6 @@ class OutboundRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -403,7 +400,6 @@ class OutboundRule(pulumi.CustomResource):
                 name="PublicIPAddress",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

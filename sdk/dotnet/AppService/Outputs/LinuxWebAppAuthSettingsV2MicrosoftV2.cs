@@ -14,17 +14,17 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxWebAppAuthSettingsV2MicrosoftV2
     {
         /// <summary>
-        /// Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-        /// 
-        /// &gt; **Note:** The `client_id` value is always considered an allowed audience.
+        /// Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
         /// <summary>
-        /// The ID of the Client to use to authenticate with Azure Active Directory.
+        /// The OAuth 2.0 client ID that was created for the app used for authentication.
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        /// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         /// </summary>
         public readonly string ClientSecretSettingName;
         /// <summary>

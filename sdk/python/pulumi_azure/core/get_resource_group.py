@@ -93,7 +93,6 @@ def get_resource_group(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -101,7 +100,6 @@ def get_resource_group(name: Optional[str] = None,
     example = azure.core.get_resource_group(name="existing")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The Name of this Resource Group.
@@ -127,7 +125,6 @@ def get_resource_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -135,7 +132,6 @@ def get_resource_group_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.core.get_resource_group(name="existing")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The Name of this Resource Group.

@@ -201,7 +201,6 @@ def get_soa_record(name: Optional[str] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azurerm as azurerm
@@ -211,7 +210,6 @@ def get_soa_record(name: Optional[str] = None,
         resource_group_name=test-rg)
     pulumi.export("privateDnsSoaRecordId", example_azurerm_private_dns_soa_record["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Private DNS SOA Record.
@@ -250,7 +248,6 @@ def get_soa_record_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azurerm as azurerm
@@ -260,7 +257,6 @@ def get_soa_record_output(name: Optional[pulumi.Input[Optional[str]]] = None,
         resource_group_name=test-rg)
     pulumi.export("privateDnsSoaRecordId", example_azurerm_private_dns_soa_record["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Private DNS SOA Record.

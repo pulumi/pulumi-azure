@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDatasetBlobStorage(args: GetDatasetBlobStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetBlobStorageResult> {
 
@@ -86,7 +84,6 @@ export interface GetDatasetBlobStorageResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -97,7 +94,6 @@ export interface GetDatasetBlobStorageResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDatasetBlobStorageOutput(args: GetDatasetBlobStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetBlobStorageResult> {
     return pulumi.output(args).apply((a: any) => getDatasetBlobStorage(a, opts))

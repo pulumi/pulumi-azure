@@ -124,7 +124,6 @@ def get_topic(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -132,7 +131,6 @@ def get_topic(name: Optional[str] = None,
     example = azure.eventgrid.get_topic(name="my-eventgrid-topic",
         resource_group_name="example-resources")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the EventGrid Topic resource.
@@ -164,7 +162,6 @@ def get_topic_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -172,7 +169,6 @@ def get_topic_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.eventgrid.get_topic(name="my-eventgrid-topic",
         resource_group_name="example-resources")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the EventGrid Topic resource.

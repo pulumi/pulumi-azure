@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,7 +64,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // > **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
 //
@@ -89,7 +87,7 @@ type Server struct {
 	Ipv4FirewallRules ServerIpv4FirewallRuleArrayOutput `pulumi:"ipv4FirewallRules"`
 	// The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the firewall rule.
+	// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
 	QuerypoolConnectionMode pulumi.StringOutput `pulumi:"querypoolConnectionMode"`
@@ -156,7 +154,7 @@ type serverState struct {
 	Ipv4FirewallRules []ServerIpv4FirewallRule `pulumi:"ipv4FirewallRules"`
 	// The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the firewall rule.
+	// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
 	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
@@ -181,7 +179,7 @@ type ServerState struct {
 	Ipv4FirewallRules ServerIpv4FirewallRuleArrayInput
 	// The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the firewall rule.
+	// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
 	QuerypoolConnectionMode pulumi.StringPtrInput
@@ -210,7 +208,7 @@ type serverArgs struct {
 	Ipv4FirewallRules []ServerIpv4FirewallRule `pulumi:"ipv4FirewallRules"`
 	// The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the firewall rule.
+	// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
 	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
@@ -234,7 +232,7 @@ type ServerArgs struct {
 	Ipv4FirewallRules ServerIpv4FirewallRuleArrayInput
 	// The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the firewall rule.
+	// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
 	QuerypoolConnectionMode pulumi.StringPtrInput
@@ -358,7 +356,7 @@ func (o ServerOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the firewall rule.
+// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 func (o ServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

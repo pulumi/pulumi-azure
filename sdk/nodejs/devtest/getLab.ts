@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  * });
  * export const uniqueIdentifier = example.then(example => example.uniqueIdentifier);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
 
@@ -97,7 +95,6 @@ export interface GetLabResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -108,7 +105,6 @@ export interface GetLabResult {
  * });
  * export const uniqueIdentifier = example.then(example => example.uniqueIdentifier);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
     return pulumi.output(args).apply((a: any) => getLab(a, opts))

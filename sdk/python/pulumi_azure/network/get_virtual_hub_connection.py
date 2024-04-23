@@ -132,7 +132,6 @@ def get_virtual_hub_connection(name: Optional[str] = None,
 
     ## Virtual Hub Connection Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -142,7 +141,6 @@ def get_virtual_hub_connection(name: Optional[str] = None,
         virtual_hub_name="example-hub-name")
     pulumi.export("virtualHubConnectionId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Connection which should be retrieved.
@@ -177,7 +175,6 @@ def get_virtual_hub_connection_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Virtual Hub Connection Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -187,7 +184,6 @@ def get_virtual_hub_connection_output(name: Optional[pulumi.Input[str]] = None,
         virtual_hub_name="example-hub-name")
     pulumi.export("virtualHubConnectionId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Connection which should be retrieved.

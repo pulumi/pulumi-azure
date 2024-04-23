@@ -158,7 +158,6 @@ def get_service(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -169,7 +168,6 @@ def get_service(name: Optional[str] = None,
     example = azure.search.get_service_output(name="example-search-service",
         resource_group_name=example_resource_group.name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The Name of the Search Service.
@@ -203,7 +201,6 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -214,7 +211,6 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.search.get_service_output(name="example-search-service",
         resource_group_name=example_resource_group.name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The Name of the Search Service.

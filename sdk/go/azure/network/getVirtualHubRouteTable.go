@@ -15,7 +15,6 @@ import (
 //
 // ## Virtual Hub Route Table Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,7 +41,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupVirtualHubRouteTable(ctx *pulumi.Context, args *LookupVirtualHubRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubRouteTableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualHubRouteTableResult

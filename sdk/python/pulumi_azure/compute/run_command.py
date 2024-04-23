@@ -479,7 +479,6 @@ class RunCommand(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -653,7 +652,6 @@ class RunCommand(pulumi.CustomResource):
                 "some_key": "some-value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -690,7 +688,6 @@ class RunCommand(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -864,7 +861,6 @@ class RunCommand(pulumi.CustomResource):
                 "some_key": "some-value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

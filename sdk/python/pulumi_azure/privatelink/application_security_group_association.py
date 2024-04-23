@@ -102,7 +102,6 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -173,7 +172,6 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
             private_endpoint_id=example_endpoint.id,
             application_security_group_id=example_application_security_group.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -199,7 +197,6 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -270,7 +267,6 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
             private_endpoint_id=example_endpoint.id,
             application_security_group_id=example_application_security_group.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

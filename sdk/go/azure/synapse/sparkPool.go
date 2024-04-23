@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -104,7 +103,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -123,15 +121,11 @@ type SparkPool struct {
 	// The cache size in the Spark Pool.
 	CacheSize pulumi.IntPtrOutput `pulumi:"cacheSize"`
 	// Indicates whether compute isolation is enabled or not. Defaults to `false`.
-	ComputeIsolationEnabled pulumi.BoolPtrOutput `pulumi:"computeIsolationEnabled"`
-	// Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-	DynamicExecutorAllocationEnabled pulumi.BoolPtrOutput `pulumi:"dynamicExecutorAllocationEnabled"`
-	// A `libraryRequirement` block as defined below.
-	LibraryRequirement SparkPoolLibraryRequirementPtrOutput `pulumi:"libraryRequirement"`
-	// The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-	MaxExecutors pulumi.IntPtrOutput `pulumi:"maxExecutors"`
-	// The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-	MinExecutors pulumi.IntPtrOutput `pulumi:"minExecutors"`
+	ComputeIsolationEnabled          pulumi.BoolPtrOutput                 `pulumi:"computeIsolationEnabled"`
+	DynamicExecutorAllocationEnabled pulumi.BoolPtrOutput                 `pulumi:"dynamicExecutorAllocationEnabled"`
+	LibraryRequirement               SparkPoolLibraryRequirementPtrOutput `pulumi:"libraryRequirement"`
+	MaxExecutors                     pulumi.IntPtrOutput                  `pulumi:"maxExecutors"`
+	MinExecutors                     pulumi.IntPtrOutput                  `pulumi:"minExecutors"`
 	// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
@@ -139,21 +133,15 @@ type SparkPool struct {
 	// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
 	NodeSize pulumi.StringOutput `pulumi:"nodeSize"`
 	// The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
-	NodeSizeFamily pulumi.StringOutput `pulumi:"nodeSizeFamily"`
-	// Indicates whether session level packages are enabled or not. Defaults to `false`.
-	SessionLevelPackagesEnabled pulumi.BoolPtrOutput `pulumi:"sessionLevelPackagesEnabled"`
-	// A `sparkConfig` block as defined below.
-	SparkConfig SparkPoolSparkConfigPtrOutput `pulumi:"sparkConfig"`
-	// The Spark events folder. Defaults to `/events`.
-	SparkEventsFolder pulumi.StringPtrOutput `pulumi:"sparkEventsFolder"`
-	// The default folder where Spark logs will be written. Defaults to `/logs`.
-	SparkLogFolder pulumi.StringPtrOutput `pulumi:"sparkLogFolder"`
-	// The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-	SparkVersion pulumi.StringPtrOutput `pulumi:"sparkVersion"`
+	NodeSizeFamily              pulumi.StringOutput           `pulumi:"nodeSizeFamily"`
+	SessionLevelPackagesEnabled pulumi.BoolPtrOutput          `pulumi:"sessionLevelPackagesEnabled"`
+	SparkConfig                 SparkPoolSparkConfigPtrOutput `pulumi:"sparkConfig"`
+	SparkEventsFolder           pulumi.StringPtrOutput        `pulumi:"sparkEventsFolder"`
+	SparkLogFolder              pulumi.StringPtrOutput        `pulumi:"sparkLogFolder"`
+	SparkVersion                pulumi.StringPtrOutput        `pulumi:"sparkVersion"`
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
-	SynapseWorkspaceId pulumi.StringOutput `pulumi:"synapseWorkspaceId"`
-	// A mapping of tags which should be assigned to the Synapse Spark Pool.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	SynapseWorkspaceId pulumi.StringOutput    `pulumi:"synapseWorkspaceId"`
+	Tags               pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewSparkPool registers a new resource with the given unique name, arguments, and options.
@@ -202,15 +190,11 @@ type sparkPoolState struct {
 	// The cache size in the Spark Pool.
 	CacheSize *int `pulumi:"cacheSize"`
 	// Indicates whether compute isolation is enabled or not. Defaults to `false`.
-	ComputeIsolationEnabled *bool `pulumi:"computeIsolationEnabled"`
-	// Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-	DynamicExecutorAllocationEnabled *bool `pulumi:"dynamicExecutorAllocationEnabled"`
-	// A `libraryRequirement` block as defined below.
-	LibraryRequirement *SparkPoolLibraryRequirement `pulumi:"libraryRequirement"`
-	// The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-	MaxExecutors *int `pulumi:"maxExecutors"`
-	// The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-	MinExecutors *int `pulumi:"minExecutors"`
+	ComputeIsolationEnabled          *bool                        `pulumi:"computeIsolationEnabled"`
+	DynamicExecutorAllocationEnabled *bool                        `pulumi:"dynamicExecutorAllocationEnabled"`
+	LibraryRequirement               *SparkPoolLibraryRequirement `pulumi:"libraryRequirement"`
+	MaxExecutors                     *int                         `pulumi:"maxExecutors"`
+	MinExecutors                     *int                         `pulumi:"minExecutors"`
 	// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
 	Name *string `pulumi:"name"`
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
@@ -218,21 +202,15 @@ type sparkPoolState struct {
 	// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
 	NodeSize *string `pulumi:"nodeSize"`
 	// The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
-	NodeSizeFamily *string `pulumi:"nodeSizeFamily"`
-	// Indicates whether session level packages are enabled or not. Defaults to `false`.
-	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
-	// A `sparkConfig` block as defined below.
-	SparkConfig *SparkPoolSparkConfig `pulumi:"sparkConfig"`
-	// The Spark events folder. Defaults to `/events`.
-	SparkEventsFolder *string `pulumi:"sparkEventsFolder"`
-	// The default folder where Spark logs will be written. Defaults to `/logs`.
-	SparkLogFolder *string `pulumi:"sparkLogFolder"`
-	// The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-	SparkVersion *string `pulumi:"sparkVersion"`
+	NodeSizeFamily              *string               `pulumi:"nodeSizeFamily"`
+	SessionLevelPackagesEnabled *bool                 `pulumi:"sessionLevelPackagesEnabled"`
+	SparkConfig                 *SparkPoolSparkConfig `pulumi:"sparkConfig"`
+	SparkEventsFolder           *string               `pulumi:"sparkEventsFolder"`
+	SparkLogFolder              *string               `pulumi:"sparkLogFolder"`
+	SparkVersion                *string               `pulumi:"sparkVersion"`
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
-	SynapseWorkspaceId *string `pulumi:"synapseWorkspaceId"`
-	// A mapping of tags which should be assigned to the Synapse Spark Pool.
-	Tags map[string]string `pulumi:"tags"`
+	SynapseWorkspaceId *string           `pulumi:"synapseWorkspaceId"`
+	Tags               map[string]string `pulumi:"tags"`
 }
 
 type SparkPoolState struct {
@@ -243,15 +221,11 @@ type SparkPoolState struct {
 	// The cache size in the Spark Pool.
 	CacheSize pulumi.IntPtrInput
 	// Indicates whether compute isolation is enabled or not. Defaults to `false`.
-	ComputeIsolationEnabled pulumi.BoolPtrInput
-	// Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
+	ComputeIsolationEnabled          pulumi.BoolPtrInput
 	DynamicExecutorAllocationEnabled pulumi.BoolPtrInput
-	// A `libraryRequirement` block as defined below.
-	LibraryRequirement SparkPoolLibraryRequirementPtrInput
-	// The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-	MaxExecutors pulumi.IntPtrInput
-	// The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-	MinExecutors pulumi.IntPtrInput
+	LibraryRequirement               SparkPoolLibraryRequirementPtrInput
+	MaxExecutors                     pulumi.IntPtrInput
+	MinExecutors                     pulumi.IntPtrInput
 	// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
 	Name pulumi.StringPtrInput
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
@@ -259,21 +233,15 @@ type SparkPoolState struct {
 	// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
 	NodeSize pulumi.StringPtrInput
 	// The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
-	NodeSizeFamily pulumi.StringPtrInput
-	// Indicates whether session level packages are enabled or not. Defaults to `false`.
+	NodeSizeFamily              pulumi.StringPtrInput
 	SessionLevelPackagesEnabled pulumi.BoolPtrInput
-	// A `sparkConfig` block as defined below.
-	SparkConfig SparkPoolSparkConfigPtrInput
-	// The Spark events folder. Defaults to `/events`.
-	SparkEventsFolder pulumi.StringPtrInput
-	// The default folder where Spark logs will be written. Defaults to `/logs`.
-	SparkLogFolder pulumi.StringPtrInput
-	// The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-	SparkVersion pulumi.StringPtrInput
+	SparkConfig                 SparkPoolSparkConfigPtrInput
+	SparkEventsFolder           pulumi.StringPtrInput
+	SparkLogFolder              pulumi.StringPtrInput
+	SparkVersion                pulumi.StringPtrInput
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
 	SynapseWorkspaceId pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the Synapse Spark Pool.
-	Tags pulumi.StringMapInput
+	Tags               pulumi.StringMapInput
 }
 
 func (SparkPoolState) ElementType() reflect.Type {
@@ -288,15 +256,11 @@ type sparkPoolArgs struct {
 	// The cache size in the Spark Pool.
 	CacheSize *int `pulumi:"cacheSize"`
 	// Indicates whether compute isolation is enabled or not. Defaults to `false`.
-	ComputeIsolationEnabled *bool `pulumi:"computeIsolationEnabled"`
-	// Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
-	DynamicExecutorAllocationEnabled *bool `pulumi:"dynamicExecutorAllocationEnabled"`
-	// A `libraryRequirement` block as defined below.
-	LibraryRequirement *SparkPoolLibraryRequirement `pulumi:"libraryRequirement"`
-	// The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-	MaxExecutors *int `pulumi:"maxExecutors"`
-	// The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-	MinExecutors *int `pulumi:"minExecutors"`
+	ComputeIsolationEnabled          *bool                        `pulumi:"computeIsolationEnabled"`
+	DynamicExecutorAllocationEnabled *bool                        `pulumi:"dynamicExecutorAllocationEnabled"`
+	LibraryRequirement               *SparkPoolLibraryRequirement `pulumi:"libraryRequirement"`
+	MaxExecutors                     *int                         `pulumi:"maxExecutors"`
+	MinExecutors                     *int                         `pulumi:"minExecutors"`
 	// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
 	Name *string `pulumi:"name"`
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
@@ -304,21 +268,15 @@ type sparkPoolArgs struct {
 	// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
 	NodeSize string `pulumi:"nodeSize"`
 	// The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
-	NodeSizeFamily string `pulumi:"nodeSizeFamily"`
-	// Indicates whether session level packages are enabled or not. Defaults to `false`.
-	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
-	// A `sparkConfig` block as defined below.
-	SparkConfig *SparkPoolSparkConfig `pulumi:"sparkConfig"`
-	// The Spark events folder. Defaults to `/events`.
-	SparkEventsFolder *string `pulumi:"sparkEventsFolder"`
-	// The default folder where Spark logs will be written. Defaults to `/logs`.
-	SparkLogFolder *string `pulumi:"sparkLogFolder"`
-	// The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-	SparkVersion *string `pulumi:"sparkVersion"`
+	NodeSizeFamily              string                `pulumi:"nodeSizeFamily"`
+	SessionLevelPackagesEnabled *bool                 `pulumi:"sessionLevelPackagesEnabled"`
+	SparkConfig                 *SparkPoolSparkConfig `pulumi:"sparkConfig"`
+	SparkEventsFolder           *string               `pulumi:"sparkEventsFolder"`
+	SparkLogFolder              *string               `pulumi:"sparkLogFolder"`
+	SparkVersion                *string               `pulumi:"sparkVersion"`
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
-	SynapseWorkspaceId string `pulumi:"synapseWorkspaceId"`
-	// A mapping of tags which should be assigned to the Synapse Spark Pool.
-	Tags map[string]string `pulumi:"tags"`
+	SynapseWorkspaceId string            `pulumi:"synapseWorkspaceId"`
+	Tags               map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SparkPool resource.
@@ -330,15 +288,11 @@ type SparkPoolArgs struct {
 	// The cache size in the Spark Pool.
 	CacheSize pulumi.IntPtrInput
 	// Indicates whether compute isolation is enabled or not. Defaults to `false`.
-	ComputeIsolationEnabled pulumi.BoolPtrInput
-	// Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
+	ComputeIsolationEnabled          pulumi.BoolPtrInput
 	DynamicExecutorAllocationEnabled pulumi.BoolPtrInput
-	// A `libraryRequirement` block as defined below.
-	LibraryRequirement SparkPoolLibraryRequirementPtrInput
-	// The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-	MaxExecutors pulumi.IntPtrInput
-	// The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
-	MinExecutors pulumi.IntPtrInput
+	LibraryRequirement               SparkPoolLibraryRequirementPtrInput
+	MaxExecutors                     pulumi.IntPtrInput
+	MinExecutors                     pulumi.IntPtrInput
 	// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
 	Name pulumi.StringPtrInput
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
@@ -346,21 +300,15 @@ type SparkPoolArgs struct {
 	// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
 	NodeSize pulumi.StringInput
 	// The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
-	NodeSizeFamily pulumi.StringInput
-	// Indicates whether session level packages are enabled or not. Defaults to `false`.
+	NodeSizeFamily              pulumi.StringInput
 	SessionLevelPackagesEnabled pulumi.BoolPtrInput
-	// A `sparkConfig` block as defined below.
-	SparkConfig SparkPoolSparkConfigPtrInput
-	// The Spark events folder. Defaults to `/events`.
-	SparkEventsFolder pulumi.StringPtrInput
-	// The default folder where Spark logs will be written. Defaults to `/logs`.
-	SparkLogFolder pulumi.StringPtrInput
-	// The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
-	SparkVersion pulumi.StringPtrInput
+	SparkConfig                 SparkPoolSparkConfigPtrInput
+	SparkEventsFolder           pulumi.StringPtrInput
+	SparkLogFolder              pulumi.StringPtrInput
+	SparkVersion                pulumi.StringPtrInput
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
 	SynapseWorkspaceId pulumi.StringInput
-	// A mapping of tags which should be assigned to the Synapse Spark Pool.
-	Tags pulumi.StringMapInput
+	Tags               pulumi.StringMapInput
 }
 
 func (SparkPoolArgs) ElementType() reflect.Type {
@@ -470,22 +418,18 @@ func (o SparkPoolOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.BoolPtrOutput { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
 func (o SparkPoolOutput) DynamicExecutorAllocationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.BoolPtrOutput { return v.DynamicExecutorAllocationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `libraryRequirement` block as defined below.
 func (o SparkPoolOutput) LibraryRequirement() SparkPoolLibraryRequirementPtrOutput {
 	return o.ApplyT(func(v *SparkPool) SparkPoolLibraryRequirementPtrOutput { return v.LibraryRequirement }).(SparkPoolLibraryRequirementPtrOutput)
 }
 
-// The maximum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
 func (o SparkPoolOutput) MaxExecutors() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.IntPtrOutput { return v.MaxExecutors }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of executors allocated only when `dynamicExecutorAllocationEnabled` set to `true`.
 func (o SparkPoolOutput) MinExecutors() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.IntPtrOutput { return v.MinExecutors }).(pulumi.IntPtrOutput)
 }
@@ -510,27 +454,22 @@ func (o SparkPoolOutput) NodeSizeFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.StringOutput { return v.NodeSizeFamily }).(pulumi.StringOutput)
 }
 
-// Indicates whether session level packages are enabled or not. Defaults to `false`.
 func (o SparkPoolOutput) SessionLevelPackagesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.BoolPtrOutput { return v.SessionLevelPackagesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `sparkConfig` block as defined below.
 func (o SparkPoolOutput) SparkConfig() SparkPoolSparkConfigPtrOutput {
 	return o.ApplyT(func(v *SparkPool) SparkPoolSparkConfigPtrOutput { return v.SparkConfig }).(SparkPoolSparkConfigPtrOutput)
 }
 
-// The Spark events folder. Defaults to `/events`.
 func (o SparkPoolOutput) SparkEventsFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.StringPtrOutput { return v.SparkEventsFolder }).(pulumi.StringPtrOutput)
 }
 
-// The default folder where Spark logs will be written. Defaults to `/logs`.
 func (o SparkPoolOutput) SparkLogFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.StringPtrOutput { return v.SparkLogFolder }).(pulumi.StringPtrOutput)
 }
 
-// The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2`, `3.3`, and `3.4`. Defaults to `2.4`.
 func (o SparkPoolOutput) SparkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.StringPtrOutput { return v.SparkVersion }).(pulumi.StringPtrOutput)
 }
@@ -540,7 +479,6 @@ func (o SparkPoolOutput) SynapseWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.StringOutput { return v.SynapseWorkspaceId }).(pulumi.StringOutput)
 }
 
-// A mapping of tags which should be assigned to the Synapse Spark Pool.
 func (o SparkPoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

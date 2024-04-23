@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Dashboard
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Azure.Dashboard
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetGrafanaResult> InvokeAsync(GetGrafanaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGrafanaResult>("azure:dashboard/getGrafana:getGrafana", args ?? new GetGrafanaArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Azure.Dashboard
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Azure.Dashboard
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetGrafanaResult> Invoke(GetGrafanaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGrafanaResult>("azure:dashboard/getGrafana:getGrafana", args ?? new GetGrafanaInvokeArgs(), options.WithDefaults());

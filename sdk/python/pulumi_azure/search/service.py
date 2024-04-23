@@ -639,7 +639,6 @@ class Service(pulumi.CustomResource):
 
         ### Supporting API Keys)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -653,11 +652,9 @@ class Service(pulumi.CustomResource):
             location=example.location,
             sku="standard")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using Both AzureAD And API Keys)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -673,11 +670,9 @@ class Service(pulumi.CustomResource):
             local_authentication_enabled=True,
             authentication_failure_mode="http403")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Supporting Only AzureAD Authentication)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -692,7 +687,6 @@ class Service(pulumi.CustomResource):
             sku="standard",
             local_authentication_enabled=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -747,7 +741,6 @@ class Service(pulumi.CustomResource):
 
         ### Supporting API Keys)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -761,11 +754,9 @@ class Service(pulumi.CustomResource):
             location=example.location,
             sku="standard")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using Both AzureAD And API Keys)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -781,11 +772,9 @@ class Service(pulumi.CustomResource):
             local_authentication_enabled=True,
             authentication_failure_mode="http403")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Supporting Only AzureAD Authentication)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -800,7 +789,6 @@ class Service(pulumi.CustomResource):
             sku="standard",
             local_authentication_enabled=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

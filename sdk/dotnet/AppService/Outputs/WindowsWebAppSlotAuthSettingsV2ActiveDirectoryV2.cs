@@ -20,7 +20,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
         /// 
-        /// &gt; **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+        /// &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
         /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
         /// <summary>
@@ -40,7 +40,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ClientSecretCertificateThumbprint;
         /// <summary>
-        /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        /// The App Setting name that contains the client secret of the Client.
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>

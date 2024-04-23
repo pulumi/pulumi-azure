@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  *     mobileNetworkPacketCoreDataPlaneId: example1.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkAttachedDataNetwork(args: GetNetworkAttachedDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAttachedDataNetworkResult> {
 
@@ -100,7 +98,6 @@ export interface GetNetworkAttachedDataNetworkResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -114,7 +111,6 @@ export interface GetNetworkAttachedDataNetworkResult {
  *     mobileNetworkPacketCoreDataPlaneId: example1.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkAttachedDataNetworkOutput(args: GetNetworkAttachedDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkAttachedDataNetworkResult> {
     return pulumi.output(args).apply((a: any) => getNetworkAttachedDataNetwork(a, opts))

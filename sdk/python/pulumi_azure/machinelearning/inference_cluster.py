@@ -345,7 +345,6 @@ class InferenceCluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -420,7 +419,6 @@ class InferenceCluster(pulumi.CustomResource):
                 "stage": "example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -457,7 +455,6 @@ class InferenceCluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -532,7 +529,6 @@ class InferenceCluster(pulumi.CustomResource):
                 "stage": "example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -166,7 +166,6 @@ class ProductApi(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -186,7 +185,6 @@ class ProductApi(pulumi.CustomResource):
             api_management_name=example.name,
             resource_group_name=example.resource_group_name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -214,7 +212,6 @@ class ProductApi(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -234,7 +231,6 @@ class ProductApi(pulumi.CustomResource):
             api_management_name=example.name,
             resource_group_name=example.resource_group_name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

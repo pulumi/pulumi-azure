@@ -253,7 +253,6 @@ def get_private_cloud(name: Optional[str] = None,
 
     > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -262,7 +261,6 @@ def get_private_cloud(name: Optional[str] = None,
         resource_group_name="existing-resgroup")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Azure VMware Solution Private Cloud.
@@ -306,7 +304,6 @@ def get_private_cloud_output(name: Optional[pulumi.Input[str]] = None,
 
     > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -315,7 +312,6 @@ def get_private_cloud_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="existing-resgroup")
     pulumi.export("id", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Azure VMware Solution Private Cloud.

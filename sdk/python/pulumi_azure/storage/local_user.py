@@ -302,7 +302,6 @@ class LocalUser(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -346,7 +345,6 @@ class LocalUser(pulumi.CustomResource):
                 resource_name=example_container.name,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -377,7 +375,6 @@ class LocalUser(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -421,7 +418,6 @@ class LocalUser(pulumi.CustomResource):
                 resource_name=example_container.name,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

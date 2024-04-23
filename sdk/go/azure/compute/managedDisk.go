@@ -18,7 +18,6 @@ import (
 //
 // ### With Create Empty
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,11 +57,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Create Copy
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -117,7 +114,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

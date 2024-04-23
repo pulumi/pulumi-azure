@@ -185,7 +185,6 @@ def get_network_attached_data_network(mobile_network_data_network_name: Optional
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -195,7 +194,6 @@ def get_network_attached_data_network(mobile_network_data_network_name: Optional
     example_get_network_attached_data_network = azure.mobile.get_network_attached_data_network(mobile_network_data_network_name=example.name,
         mobile_network_packet_core_data_plane_id=example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str mobile_network_data_network_name: The Name of the `mobile.NetworkDataNetwork` this resource belongs to.
@@ -232,7 +230,6 @@ def get_network_attached_data_network_output(mobile_network_data_network_name: O
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -242,7 +239,6 @@ def get_network_attached_data_network_output(mobile_network_data_network_name: O
     example_get_network_attached_data_network = azure.mobile.get_network_attached_data_network(mobile_network_data_network_name=example.name,
         mobile_network_packet_core_data_plane_id=example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str mobile_network_data_network_name: The Name of the `mobile.NetworkDataNetwork` this resource belongs to.

@@ -137,7 +137,6 @@ class Target(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -166,7 +165,6 @@ class Target(pulumi.CustomResource):
             target_resource_id=example.id,
             target_type="example-value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -199,7 +197,6 @@ class Target(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -228,7 +225,6 @@ class Target(pulumi.CustomResource):
             target_resource_id=example.id,
             target_type="example-value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

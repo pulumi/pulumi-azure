@@ -94,7 +94,6 @@ def get_encryption_scope(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -105,7 +104,6 @@ def get_encryption_scope(name: Optional[str] = None,
         storage_account_id=example.id)
     pulumi.export("id", example_get_encryption_scope.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Storage Encryption Scope.
@@ -134,7 +132,6 @@ def get_encryption_scope_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -145,7 +142,6 @@ def get_encryption_scope_output(name: Optional[pulumi.Input[str]] = None,
         storage_account_id=example.id)
     pulumi.export("id", example_get_encryption_scope.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of this Storage Encryption Scope.

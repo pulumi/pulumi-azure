@@ -14,7 +14,6 @@ namespace Pulumi.Azure.Network
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,7 +69,6 @@ namespace Pulumi.Azure.Network
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -83,21 +81,12 @@ namespace Pulumi.Azure.Network
     [AzureResourceType("azure:network/vpnServerConfiguration:VpnServerConfiguration")]
     public partial class VpnServerConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A `azure_active_directory_authentication` block as defined below.
-        /// </summary>
         [Output("azureActiveDirectoryAuthentications")]
         public Output<ImmutableArray<Outputs.VpnServerConfigurationAzureActiveDirectoryAuthentication>> AzureActiveDirectoryAuthentications { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more `client_revoked_certificate` blocks as defined below.
-        /// </summary>
         [Output("clientRevokedCertificates")]
         public Output<ImmutableArray<Outputs.VpnServerConfigurationClientRevokedCertificate>> ClientRevokedCertificates { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more `client_root_certificate` blocks as defined below.
-        /// </summary>
         [Output("clientRootCertificates")]
         public Output<ImmutableArray<Outputs.VpnServerConfigurationClientRootCertificate>> ClientRootCertificates { get; private set; } = null!;
 
@@ -119,9 +108,6 @@ namespace Pulumi.Azure.Network
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A `radius` block as defined below.
-        /// </summary>
         [Output("radius")]
         public Output<Outputs.VpnServerConfigurationRadius?> Radius { get; private set; } = null!;
 
@@ -197,10 +183,6 @@ namespace Pulumi.Azure.Network
     {
         [Input("azureActiveDirectoryAuthentications")]
         private InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs>? _azureActiveDirectoryAuthentications;
-
-        /// <summary>
-        /// A `azure_active_directory_authentication` block as defined below.
-        /// </summary>
         public InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs> AzureActiveDirectoryAuthentications
         {
             get => _azureActiveDirectoryAuthentications ?? (_azureActiveDirectoryAuthentications = new InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs>());
@@ -209,10 +191,6 @@ namespace Pulumi.Azure.Network
 
         [Input("clientRevokedCertificates")]
         private InputList<Inputs.VpnServerConfigurationClientRevokedCertificateArgs>? _clientRevokedCertificates;
-
-        /// <summary>
-        /// One or more `client_revoked_certificate` blocks as defined below.
-        /// </summary>
         public InputList<Inputs.VpnServerConfigurationClientRevokedCertificateArgs> ClientRevokedCertificates
         {
             get => _clientRevokedCertificates ?? (_clientRevokedCertificates = new InputList<Inputs.VpnServerConfigurationClientRevokedCertificateArgs>());
@@ -221,10 +199,6 @@ namespace Pulumi.Azure.Network
 
         [Input("clientRootCertificates")]
         private InputList<Inputs.VpnServerConfigurationClientRootCertificateArgs>? _clientRootCertificates;
-
-        /// <summary>
-        /// One or more `client_root_certificate` blocks as defined below.
-        /// </summary>
         public InputList<Inputs.VpnServerConfigurationClientRootCertificateArgs> ClientRootCertificates
         {
             get => _clientRootCertificates ?? (_clientRootCertificates = new InputList<Inputs.VpnServerConfigurationClientRootCertificateArgs>());
@@ -249,9 +223,6 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A `radius` block as defined below.
-        /// </summary>
         [Input("radius")]
         public Input<Inputs.VpnServerConfigurationRadiusArgs>? Radius { get; set; }
 
@@ -307,10 +278,6 @@ namespace Pulumi.Azure.Network
     {
         [Input("azureActiveDirectoryAuthentications")]
         private InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationGetArgs>? _azureActiveDirectoryAuthentications;
-
-        /// <summary>
-        /// A `azure_active_directory_authentication` block as defined below.
-        /// </summary>
         public InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationGetArgs> AzureActiveDirectoryAuthentications
         {
             get => _azureActiveDirectoryAuthentications ?? (_azureActiveDirectoryAuthentications = new InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationGetArgs>());
@@ -319,10 +286,6 @@ namespace Pulumi.Azure.Network
 
         [Input("clientRevokedCertificates")]
         private InputList<Inputs.VpnServerConfigurationClientRevokedCertificateGetArgs>? _clientRevokedCertificates;
-
-        /// <summary>
-        /// One or more `client_revoked_certificate` blocks as defined below.
-        /// </summary>
         public InputList<Inputs.VpnServerConfigurationClientRevokedCertificateGetArgs> ClientRevokedCertificates
         {
             get => _clientRevokedCertificates ?? (_clientRevokedCertificates = new InputList<Inputs.VpnServerConfigurationClientRevokedCertificateGetArgs>());
@@ -331,10 +294,6 @@ namespace Pulumi.Azure.Network
 
         [Input("clientRootCertificates")]
         private InputList<Inputs.VpnServerConfigurationClientRootCertificateGetArgs>? _clientRootCertificates;
-
-        /// <summary>
-        /// One or more `client_root_certificate` blocks as defined below.
-        /// </summary>
         public InputList<Inputs.VpnServerConfigurationClientRootCertificateGetArgs> ClientRootCertificates
         {
             get => _clientRootCertificates ?? (_clientRootCertificates = new InputList<Inputs.VpnServerConfigurationClientRootCertificateGetArgs>());
@@ -359,9 +318,6 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A `radius` block as defined below.
-        /// </summary>
         [Input("radius")]
         public Input<Inputs.VpnServerConfigurationRadiusGetArgs>? Radius { get; set; }
 

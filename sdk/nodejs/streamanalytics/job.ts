@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -40,7 +39,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -146,13 +144,7 @@ export class Job extends pulumi.CustomResource {
      * > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
      */
     public readonly streamingUnits!: pulumi.Output<number | undefined>;
-    /**
-     * A mapping of tags assigned to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-     */
     public readonly transformationQuery!: pulumi.Output<string>;
     /**
      * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
@@ -298,13 +290,7 @@ export interface JobState {
      * > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
      */
     streamingUnits?: pulumi.Input<number>;
-    /**
-     * A mapping of tags assigned to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-     */
     transformationQuery?: pulumi.Input<string>;
     /**
      * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
@@ -382,13 +368,7 @@ export interface JobArgs {
      * > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
      */
     streamingUnits?: pulumi.Input<number>;
-    /**
-     * A mapping of tags assigned to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-     */
     transformationQuery: pulumi.Input<string>;
     /**
      * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.

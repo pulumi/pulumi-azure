@@ -12,9 +12,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class RegistryNetworkRuleSetVirtualNetworkArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 

@@ -528,11 +528,6 @@ class RunBookDraftContentLinkArgs:
                  uri: pulumi.Input[str],
                  hash: Optional[pulumi.Input['RunBookDraftContentLinkHashArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] uri: The URI of the runbook content.
-        :param pulumi.Input['RunBookDraftContentLinkHashArgs'] hash: A `hash` block as defined below.
-        :param pulumi.Input[str] version: Specifies the version of the content
-        """
         pulumi.set(__self__, "uri", uri)
         if hash is not None:
             pulumi.set(__self__, "hash", hash)
@@ -542,9 +537,6 @@ class RunBookDraftContentLinkArgs:
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Input[str]:
-        """
-        The URI of the runbook content.
-        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -554,9 +546,6 @@ class RunBookDraftContentLinkArgs:
     @property
     @pulumi.getter
     def hash(self) -> Optional[pulumi.Input['RunBookDraftContentLinkHashArgs']]:
-        """
-        A `hash` block as defined below.
-        """
         return pulumi.get(self, "hash")
 
     @hash.setter
@@ -566,9 +555,6 @@ class RunBookDraftContentLinkArgs:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the version of the content
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -705,9 +691,6 @@ class RunBookJobScheduleArgs:
                  job_schedule_id: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  run_on: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A list of `parameters` block as defined below.
-        """
         pulumi.set(__self__, "schedule_name", schedule_name)
         if job_schedule_id is not None:
             pulumi.set(__self__, "job_schedule_id", job_schedule_id)
@@ -737,9 +720,6 @@ class RunBookJobScheduleArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A list of `parameters` block as defined below.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter

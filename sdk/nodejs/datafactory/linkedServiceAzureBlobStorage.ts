@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -35,7 +34,6 @@ import * as utilities from "../utilities";
  *     connectionString: example.apply(example => example.primaryConnectionString),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -121,33 +119,12 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
      * The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      */
     public readonly sasUri!: pulumi.Output<string | undefined>;
-    /**
-     * The Service Endpoint. Conflicts with `connectionString`, `connectionStringInsecure` and `sasUri`.
-     */
     public readonly serviceEndpoint!: pulumi.Output<string | undefined>;
-    /**
-     * The service principal id in which to authenticate against the Azure Blob Storage account.
-     */
     public readonly servicePrincipalId!: pulumi.Output<string | undefined>;
-    /**
-     * The service principal key in which to authenticate against the AAzure Blob Storage account.
-     */
     public readonly servicePrincipalKey!: pulumi.Output<string | undefined>;
-    /**
-     * A `servicePrincipalLinkedKeyVaultKey` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
-     */
     public readonly servicePrincipalLinkedKeyVaultKey!: pulumi.Output<outputs.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey | undefined>;
-    /**
-     * Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
-     */
     public readonly storageKind!: pulumi.Output<string | undefined>;
-    /**
-     * The tenant id or name in which to authenticate against the Azure Blob Storage account.
-     */
     public readonly tenantId!: pulumi.Output<string | undefined>;
-    /**
-     * Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`.
-     */
     public readonly useManagedIdentity!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -264,33 +241,12 @@ export interface LinkedServiceAzureBlobStorageState {
      * The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      */
     sasUri?: pulumi.Input<string>;
-    /**
-     * The Service Endpoint. Conflicts with `connectionString`, `connectionStringInsecure` and `sasUri`.
-     */
     serviceEndpoint?: pulumi.Input<string>;
-    /**
-     * The service principal id in which to authenticate against the Azure Blob Storage account.
-     */
     servicePrincipalId?: pulumi.Input<string>;
-    /**
-     * The service principal key in which to authenticate against the AAzure Blob Storage account.
-     */
     servicePrincipalKey?: pulumi.Input<string>;
-    /**
-     * A `servicePrincipalLinkedKeyVaultKey` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
-     */
     servicePrincipalLinkedKeyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey>;
-    /**
-     * Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
-     */
     storageKind?: pulumi.Input<string>;
-    /**
-     * The tenant id or name in which to authenticate against the Azure Blob Storage account.
-     */
     tenantId?: pulumi.Input<string>;
-    /**
-     * Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`.
-     */
     useManagedIdentity?: pulumi.Input<boolean>;
 }
 
@@ -346,32 +302,11 @@ export interface LinkedServiceAzureBlobStorageArgs {
      * The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      */
     sasUri?: pulumi.Input<string>;
-    /**
-     * The Service Endpoint. Conflicts with `connectionString`, `connectionStringInsecure` and `sasUri`.
-     */
     serviceEndpoint?: pulumi.Input<string>;
-    /**
-     * The service principal id in which to authenticate against the Azure Blob Storage account.
-     */
     servicePrincipalId?: pulumi.Input<string>;
-    /**
-     * The service principal key in which to authenticate against the AAzure Blob Storage account.
-     */
     servicePrincipalKey?: pulumi.Input<string>;
-    /**
-     * A `servicePrincipalLinkedKeyVaultKey` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
-     */
     servicePrincipalLinkedKeyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey>;
-    /**
-     * Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
-     */
     storageKind?: pulumi.Input<string>;
-    /**
-     * The tenant id or name in which to authenticate against the Azure Blob Storage account.
-     */
     tenantId?: pulumi.Input<string>;
-    /**
-     * Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`.
-     */
     useManagedIdentity?: pulumi.Input<boolean>;
 }

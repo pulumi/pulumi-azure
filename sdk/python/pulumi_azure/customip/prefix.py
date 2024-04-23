@@ -424,7 +424,6 @@ class Prefix(pulumi.CustomResource):
         ## Example Usage
 
         *IPv4 custom prefix*
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -449,10 +448,8 @@ class Prefix(pulumi.CustomResource):
                 "env": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         *IPv6 custom prefix*
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -478,7 +475,6 @@ class Prefix(pulumi.CustomResource):
                 netnum=1)).apply(lambda invoke: invoke.result),
             zones=["1"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -520,7 +516,6 @@ class Prefix(pulumi.CustomResource):
         ## Example Usage
 
         *IPv4 custom prefix*
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -545,10 +540,8 @@ class Prefix(pulumi.CustomResource):
                 "env": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         *IPv6 custom prefix*
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -574,7 +567,6 @@ class Prefix(pulumi.CustomResource):
                 netnum=1)).apply(lambda invoke: invoke.result),
             zones=["1"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

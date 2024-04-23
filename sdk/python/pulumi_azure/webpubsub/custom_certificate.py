@@ -167,7 +167,6 @@ class CustomCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -235,7 +234,6 @@ class CustomCertificate(pulumi.CustomResource):
             web_pubsub_id=example_web_pubsub_service["id"],
             custom_certificate_id=example_certificate.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -266,7 +264,6 @@ class CustomCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -334,7 +331,6 @@ class CustomCertificate(pulumi.CustomResource):
             web_pubsub_id=example_web_pubsub_service["id"],
             custom_certificate_id=example_certificate.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

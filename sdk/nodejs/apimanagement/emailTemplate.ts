@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -38,13 +37,12 @@ import * as utilities from "../utilities";
  *   <title>Customized Letter Title</title>
  * </head>
  * <body>
- *   <p style="font-size:12pt;font-family:'Segoe UI'">Dear $DevFirstName $DevLastName,</p>
+ *   <p style="font-size:12pt;font-family:'Segoe UI'">Dear DevFirstName DevLastName,</p>
  * </body>
  * </html>
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

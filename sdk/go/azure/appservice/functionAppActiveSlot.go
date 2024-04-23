@@ -18,7 +18,6 @@ import (
 //
 // ### Windows Function App
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,11 +90,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Linux Function App
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -168,7 +165,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

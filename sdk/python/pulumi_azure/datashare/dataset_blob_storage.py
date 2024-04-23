@@ -251,7 +251,6 @@ class DatasetBlobStorage(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -297,7 +296,6 @@ class DatasetBlobStorage(pulumi.CustomResource):
             ),
             file_path="myfile.txt")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -327,7 +325,6 @@ class DatasetBlobStorage(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -373,7 +370,6 @@ class DatasetBlobStorage(pulumi.CustomResource):
             ),
             file_path="myfile.txt")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

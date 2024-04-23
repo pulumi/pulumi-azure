@@ -169,7 +169,6 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -199,7 +198,6 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
             description="example admin conf",
             apply_on_network_intent_policy_based_services="None")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -227,7 +225,6 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -257,7 +254,6 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
             description="example admin conf",
             apply_on_network_intent_policy_based_services="None")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

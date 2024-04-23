@@ -16,7 +16,6 @@ namespace Pulumi.Azure.ServiceBus
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Azure.ServiceBus
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetQueueAuthorizationRuleResult> InvokeAsync(GetQueueAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueAuthorizationRuleResult>("azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleArgs(), options.WithDefaults());
@@ -49,7 +47,6 @@ namespace Pulumi.Azure.ServiceBus
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -72,7 +69,6 @@ namespace Pulumi.Azure.ServiceBus
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetQueueAuthorizationRuleResult> Invoke(GetQueueAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueAuthorizationRuleResult>("azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleInvokeArgs(), options.WithDefaults());

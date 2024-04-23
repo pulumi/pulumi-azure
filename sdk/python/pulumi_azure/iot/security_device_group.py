@@ -171,7 +171,6 @@ class SecurityDeviceGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -206,7 +205,6 @@ class SecurityDeviceGroup(pulumi.CustomResource):
                 duration="PT5M",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -234,7 +232,6 @@ class SecurityDeviceGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -269,7 +266,6 @@ class SecurityDeviceGroup(pulumi.CustomResource):
                 duration="PT5M",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

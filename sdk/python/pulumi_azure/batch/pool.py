@@ -1008,7 +1008,6 @@ class Pool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1090,7 +1089,6 @@ class Pool(pulumi.CustomResource):
                 visibilities=["StartTask"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1147,7 +1145,6 @@ class Pool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1229,7 +1226,6 @@ class Pool(pulumi.CustomResource):
                 visibilities=["StartTask"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

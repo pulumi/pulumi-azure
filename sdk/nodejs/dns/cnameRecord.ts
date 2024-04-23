@@ -7,7 +7,6 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -28,11 +27,9 @@ import * as utilities from "../utilities";
  *     record: "contoso.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Alias Record)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -60,7 +57,6 @@ import * as utilities from "../utilities";
  *     targetResourceId: target.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -40,7 +39,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -120,9 +118,6 @@ export class RegistryTask extends pulumi.CustomResource {
      * Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
      */
     public readonly isSystemTask!: pulumi.Output<boolean | undefined>;
-    /**
-     * The template that describes the run log artifact.
-     */
     public readonly logTemplate!: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
@@ -134,21 +129,12 @@ export class RegistryTask extends pulumi.CustomResource {
      * > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      */
     public readonly platform!: pulumi.Output<outputs.containerservice.RegistryTaskPlatform | undefined>;
-    /**
-     * One `registryCredential` block as defined below.
-     */
     public readonly registryCredential!: pulumi.Output<outputs.containerservice.RegistryTaskRegistryCredential | undefined>;
     /**
      * One or more `sourceTrigger` blocks as defined below.
      */
     public readonly sourceTriggers!: pulumi.Output<outputs.containerservice.RegistryTaskSourceTrigger[] | undefined>;
-    /**
-     * A mapping of tags which should be assigned to the Container Registry Task.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-     */
     public readonly timeoutInSeconds!: pulumi.Output<number | undefined>;
     /**
      * One or more `timerTrigger` blocks as defined below.
@@ -261,9 +247,6 @@ export interface RegistryTaskState {
      * Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
      */
     isSystemTask?: pulumi.Input<boolean>;
-    /**
-     * The template that describes the run log artifact.
-     */
     logTemplate?: pulumi.Input<string>;
     /**
      * The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
@@ -275,21 +258,12 @@ export interface RegistryTaskState {
      * > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      */
     platform?: pulumi.Input<inputs.containerservice.RegistryTaskPlatform>;
-    /**
-     * One `registryCredential` block as defined below.
-     */
     registryCredential?: pulumi.Input<inputs.containerservice.RegistryTaskRegistryCredential>;
     /**
      * One or more `sourceTrigger` blocks as defined below.
      */
     sourceTriggers?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryTaskSourceTrigger>[]>;
-    /**
-     * A mapping of tags which should be assigned to the Container Registry Task.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-     */
     timeoutInSeconds?: pulumi.Input<number>;
     /**
      * One or more `timerTrigger` blocks as defined below.
@@ -343,9 +317,6 @@ export interface RegistryTaskArgs {
      * Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
      */
     isSystemTask?: pulumi.Input<boolean>;
-    /**
-     * The template that describes the run log artifact.
-     */
     logTemplate?: pulumi.Input<string>;
     /**
      * The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
@@ -357,21 +328,12 @@ export interface RegistryTaskArgs {
      * > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      */
     platform?: pulumi.Input<inputs.containerservice.RegistryTaskPlatform>;
-    /**
-     * One `registryCredential` block as defined below.
-     */
     registryCredential?: pulumi.Input<inputs.containerservice.RegistryTaskRegistryCredential>;
     /**
      * One or more `sourceTrigger` blocks as defined below.
      */
     sourceTriggers?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryTaskSourceTrigger>[]>;
-    /**
-     * A mapping of tags which should be assigned to the Container Registry Task.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
-     */
     timeoutInSeconds?: pulumi.Input<number>;
     /**
      * One or more `timerTrigger` blocks as defined below.

@@ -383,7 +383,6 @@ class ClusterExtension(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -408,7 +407,6 @@ class ClusterExtension(pulumi.CustomResource):
             cluster_id=example_cluster.id,
             extension_type="microsoft.flux")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -442,7 +440,6 @@ class ClusterExtension(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -467,7 +464,6 @@ class ClusterExtension(pulumi.CustomResource):
             cluster_id=example_cluster.id,
             extension_type="microsoft.flux")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -826,10 +826,8 @@ class PolicyPolicySettingsLogScrubbingRuleArgs:
                  selector: Optional[pulumi.Input[str]] = None,
                  selector_match_operator: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] match_variable: The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
         :param pulumi.Input[bool] enabled: Describes if the managed rule is in enabled state or disabled state.
-        :param pulumi.Input[str] selector: Describes field of the matchVariable collection.
-        :param pulumi.Input[str] selector_match_operator: Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+        :param pulumi.Input[str] selector: When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
         """
         pulumi.set(__self__, "match_variable", match_variable)
         if enabled is not None:
@@ -842,9 +840,6 @@ class PolicyPolicySettingsLogScrubbingRuleArgs:
     @property
     @pulumi.getter(name="matchVariable")
     def match_variable(self) -> pulumi.Input[str]:
-        """
-        The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
-        """
         return pulumi.get(self, "match_variable")
 
     @match_variable.setter
@@ -867,7 +862,7 @@ class PolicyPolicySettingsLogScrubbingRuleArgs:
     @pulumi.getter
     def selector(self) -> Optional[pulumi.Input[str]]:
         """
-        Describes field of the matchVariable collection.
+        When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
         """
         return pulumi.get(self, "selector")
 
@@ -878,9 +873,6 @@ class PolicyPolicySettingsLogScrubbingRuleArgs:
     @property
     @pulumi.getter(name="selectorMatchOperator")
     def selector_match_operator(self) -> Optional[pulumi.Input[str]]:
-        """
-        Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
-        """
         return pulumi.get(self, "selector_match_operator")
 
     @selector_match_operator.setter

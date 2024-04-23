@@ -14,7 +14,6 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Azure.PrivateDns
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSoaRecordResult> InvokeAsync(GetSoaRecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSoaRecordResult>("azure:privatedns/getSoaRecord:getSoaRecord", args ?? new GetSoaRecordArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Azure.PrivateDns
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSoaRecordResult> Invoke(GetSoaRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSoaRecordResult>("azure:privatedns/getSoaRecord:getSoaRecord", args ?? new GetSoaRecordInvokeArgs(), options.WithDefaults());

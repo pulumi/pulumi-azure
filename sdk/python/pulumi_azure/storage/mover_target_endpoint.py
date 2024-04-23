@@ -200,7 +200,6 @@ class MoverTargetEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -230,7 +229,6 @@ class MoverTargetEndpoint(pulumi.CustomResource):
             storage_container_name=example_container.name,
             description="Example Storage Container Endpoint Description")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -259,7 +257,6 @@ class MoverTargetEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -289,7 +286,6 @@ class MoverTargetEndpoint(pulumi.CustomResource):
             storage_container_name=example_container.name,
             description="Example Storage Container Endpoint Description")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

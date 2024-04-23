@@ -253,7 +253,6 @@ class ActiveRoleAssignment(pulumi.CustomResource):
 
         ### Subscription)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -279,11 +278,9 @@ class ActiveRoleAssignment(pulumi.CustomResource):
                 system="example ticket system",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Management Group)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -309,7 +306,6 @@ class ActiveRoleAssignment(pulumi.CustomResource):
                 system="example ticket system",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -341,7 +337,6 @@ class ActiveRoleAssignment(pulumi.CustomResource):
 
         ### Subscription)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -367,11 +362,9 @@ class ActiveRoleAssignment(pulumi.CustomResource):
                 system="example ticket system",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Management Group)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -397,7 +390,6 @@ class ActiveRoleAssignment(pulumi.CustomResource):
                 system="example ticket system",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

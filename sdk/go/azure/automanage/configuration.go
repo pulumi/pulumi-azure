@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -111,7 +110,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -146,9 +144,8 @@ type Configuration struct {
 	// The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Whether the status change alert is enabled. Defaults to `false`.
-	StatusChangeAlertEnabled pulumi.BoolPtrOutput `pulumi:"statusChangeAlertEnabled"`
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	StatusChangeAlertEnabled pulumi.BoolPtrOutput   `pulumi:"statusChangeAlertEnabled"`
+	Tags                     pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -207,9 +204,8 @@ type configurationState struct {
 	// The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Whether the status change alert is enabled. Defaults to `false`.
-	StatusChangeAlertEnabled *bool `pulumi:"statusChangeAlertEnabled"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	StatusChangeAlertEnabled *bool             `pulumi:"statusChangeAlertEnabled"`
+	Tags                     map[string]string `pulumi:"tags"`
 }
 
 type ConfigurationState struct {
@@ -237,8 +233,7 @@ type ConfigurationState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Whether the status change alert is enabled. Defaults to `false`.
 	StatusChangeAlertEnabled pulumi.BoolPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (ConfigurationState) ElementType() reflect.Type {
@@ -269,9 +264,8 @@ type configurationArgs struct {
 	// The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Whether the status change alert is enabled. Defaults to `false`.
-	StatusChangeAlertEnabled *bool `pulumi:"statusChangeAlertEnabled"`
-	// A mapping of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	StatusChangeAlertEnabled *bool             `pulumi:"statusChangeAlertEnabled"`
+	Tags                     map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Configuration resource.
@@ -300,8 +294,7 @@ type ConfigurationArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Whether the status change alert is enabled. Defaults to `false`.
 	StatusChangeAlertEnabled pulumi.BoolPtrInput
-	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (ConfigurationArgs) ElementType() reflect.Type {
@@ -451,7 +444,6 @@ func (o ConfigurationOutput) StatusChangeAlertEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.BoolPtrOutput { return v.StatusChangeAlertEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A mapping of tags to assign to the resource.
 func (o ConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

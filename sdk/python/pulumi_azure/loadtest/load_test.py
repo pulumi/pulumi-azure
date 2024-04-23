@@ -255,7 +255,6 @@ class LoadTest(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -272,7 +271,6 @@ class LoadTest(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Blocks Reference
 
@@ -324,7 +322,6 @@ class LoadTest(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -341,7 +338,6 @@ class LoadTest(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Blocks Reference
 

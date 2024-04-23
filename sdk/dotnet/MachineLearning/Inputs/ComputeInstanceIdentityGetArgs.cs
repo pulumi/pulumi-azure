@@ -33,7 +33,7 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// User’s AAD Tenant Id.
+        /// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

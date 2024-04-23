@@ -199,7 +199,6 @@ class SqlTrigger(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -224,7 +223,6 @@ class SqlTrigger(pulumi.CustomResource):
             operation="Delete",
             type="Post")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -253,7 +251,6 @@ class SqlTrigger(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -278,7 +275,6 @@ class SqlTrigger(pulumi.CustomResource):
             operation="Delete",
             type="Post")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -3300,7 +3300,7 @@ class BackendServiceFabricClusterServerX509NameArgs:
                  name: pulumi.Input[str]):
         """
         :param pulumi.Input[str] issuer_certificate_thumbprint: The thumbprint for the issuer of the certificate.
-        :param pulumi.Input[str] name: The name of the API Management backend. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The common name of the certificate.
         """
         pulumi.set(__self__, "issuer_certificate_thumbprint", issuer_certificate_thumbprint)
         pulumi.set(__self__, "name", name)
@@ -3321,7 +3321,7 @@ class BackendServiceFabricClusterServerX509NameArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the API Management backend. Changing this forces a new resource to be created.
+        The common name of the certificate.
         """
         return pulumi.get(self, "name")
 
@@ -5542,8 +5542,10 @@ class ServiceHostnameConfigurationDeveloperPortalArgs:
                  thumbprint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] host_name: The Hostname to use for the Management API.
-        :param pulumi.Input[str] certificate: One or more `certificate` blocks (up to 10) as defined below.
-        :param pulumi.Input[str] certificate_password: The password for the certificate.
+        :param pulumi.Input[str] certificate: The Base64 Encoded Certificate.
+        :param pulumi.Input[str] certificate_password: The password associated with the certificate provided above.
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param pulumi.Input[str] certificate_source: The source of the certificate.
         :param pulumi.Input[str] certificate_status: The status of the certificate.
         :param pulumi.Input[str] expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
@@ -5595,7 +5597,7 @@ class ServiceHostnameConfigurationDeveloperPortalArgs:
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        One or more `certificate` blocks (up to 10) as defined below.
+        The Base64 Encoded Certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -5607,7 +5609,9 @@ class ServiceHostnameConfigurationDeveloperPortalArgs:
     @pulumi.getter(name="certificatePassword")
     def certificate_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password for the certificate.
+        The password associated with the certificate provided above.
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
         return pulumi.get(self, "certificate_password")
 
@@ -5926,8 +5930,10 @@ class ServiceHostnameConfigurationPortalArgs:
                  thumbprint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] host_name: The Hostname to use for the Management API.
-        :param pulumi.Input[str] certificate: One or more `certificate` blocks (up to 10) as defined below.
-        :param pulumi.Input[str] certificate_password: The password for the certificate.
+        :param pulumi.Input[str] certificate: The Base64 Encoded Certificate.
+        :param pulumi.Input[str] certificate_password: The password associated with the certificate provided above.
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param pulumi.Input[str] certificate_source: The source of the certificate.
         :param pulumi.Input[str] certificate_status: The status of the certificate.
         :param pulumi.Input[str] expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
@@ -5979,7 +5985,7 @@ class ServiceHostnameConfigurationPortalArgs:
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        One or more `certificate` blocks (up to 10) as defined below.
+        The Base64 Encoded Certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -5991,7 +5997,9 @@ class ServiceHostnameConfigurationPortalArgs:
     @pulumi.getter(name="certificatePassword")
     def certificate_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password for the certificate.
+        The password associated with the certificate provided above.
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
         return pulumi.get(self, "certificate_password")
 
@@ -6322,8 +6330,10 @@ class ServiceHostnameConfigurationScmArgs:
                  thumbprint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] host_name: The Hostname to use for the Management API.
-        :param pulumi.Input[str] certificate: One or more `certificate` blocks (up to 10) as defined below.
-        :param pulumi.Input[str] certificate_password: The password for the certificate.
+        :param pulumi.Input[str] certificate: The Base64 Encoded Certificate.
+        :param pulumi.Input[str] certificate_password: The password associated with the certificate provided above.
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param pulumi.Input[str] certificate_source: The source of the certificate.
         :param pulumi.Input[str] certificate_status: The status of the certificate.
         :param pulumi.Input[str] expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
@@ -6375,7 +6385,7 @@ class ServiceHostnameConfigurationScmArgs:
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        One or more `certificate` blocks (up to 10) as defined below.
+        The Base64 Encoded Certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -6387,7 +6397,9 @@ class ServiceHostnameConfigurationScmArgs:
     @pulumi.getter(name="certificatePassword")
     def certificate_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password for the certificate.
+        The password associated with the certificate provided above.
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
         return pulumi.get(self, "certificate_password")
 

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -26,7 +25,6 @@ import * as utilities from "../utilities";
  * }));
  * export const id = exampleGetCertificateIssuer.then(exampleGetCertificateIssuer => exampleGetCertificateIssuer.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCertificateIssuer(args: GetCertificateIssuerArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateIssuerResult> {
 
@@ -83,7 +81,6 @@ export interface GetCertificateIssuerResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -98,7 +95,6 @@ export interface GetCertificateIssuerResult {
  * }));
  * export const id = exampleGetCertificateIssuer.then(exampleGetCertificateIssuer => exampleGetCertificateIssuer.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCertificateIssuerOutput(args: GetCertificateIssuerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateIssuerResult> {
     return pulumi.output(args).apply((a: any) => getCertificateIssuer(a, opts))

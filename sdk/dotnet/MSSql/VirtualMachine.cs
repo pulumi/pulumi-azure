@@ -16,7 +16,6 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// This example provisions a brief Managed Microsoft SQL Virtual Machine.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,7 +49,6 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

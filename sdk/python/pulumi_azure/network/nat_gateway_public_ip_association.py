@@ -102,7 +102,6 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -125,7 +124,6 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
             nat_gateway_id=example_nat_gateway.id,
             public_ip_address_id=example_public_ip.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -151,7 +149,6 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -174,7 +171,6 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
             nat_gateway_id=example_nat_gateway.id,
             public_ip_address_id=example_public_ip.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

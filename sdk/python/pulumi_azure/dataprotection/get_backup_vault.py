@@ -131,7 +131,6 @@ def get_backup_vault(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -141,7 +140,6 @@ def get_backup_vault(name: Optional[str] = None,
     pulumi.export("azurermDataProtectionBackupVaultId", example_azurerm_vpn_gateway["id"])
     pulumi.export("azurermDataProtectionBackupVaultPrincipalId", example.identities[0].principal_id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Backup Vault.
@@ -173,7 +171,6 @@ def get_backup_vault_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -183,7 +180,6 @@ def get_backup_vault_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("azurermDataProtectionBackupVaultId", example_azurerm_vpn_gateway["id"])
     pulumi.export("azurermDataProtectionBackupVaultPrincipalId", example.identities[0].principal_id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the Backup Vault.

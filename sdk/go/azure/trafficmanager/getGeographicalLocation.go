@@ -17,7 +17,6 @@ import (
 //
 // ### World)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,7 +41,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
 func GetGeographicalLocation(ctx *pulumi.Context, args *GetGeographicalLocationArgs, opts ...pulumi.InvokeOption) (*GetGeographicalLocationResult, error) {

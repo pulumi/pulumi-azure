@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRestorableDatabaseAccounts(args: GetRestorableDatabaseAccountsArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorableDatabaseAccountsResult> {
 
@@ -70,7 +68,6 @@ export interface GetRestorableDatabaseAccountsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -81,7 +78,6 @@ export interface GetRestorableDatabaseAccountsResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRestorableDatabaseAccountsOutput(args: GetRestorableDatabaseAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorableDatabaseAccountsResult> {
     return pulumi.output(args).apply((a: any) => getRestorableDatabaseAccounts(a, opts))

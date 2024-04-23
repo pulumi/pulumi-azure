@@ -16,7 +16,6 @@ namespace Pulumi.Azure.EventGrid
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Azure.EventGrid
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSystemTopicResult> InvokeAsync(GetSystemTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicResult>("azure:eventgrid/getSystemTopic:getSystemTopic", args ?? new GetSystemTopicArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Azure.EventGrid
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Azure.EventGrid
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSystemTopicResult> Invoke(GetSystemTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemTopicResult>("azure:eventgrid/getSystemTopic:getSystemTopic", args ?? new GetSystemTopicInvokeArgs(), options.WithDefaults());

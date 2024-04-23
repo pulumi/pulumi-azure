@@ -12,33 +12,20 @@ namespace Pulumi.Azure.DataFactory.Inputs
 
     public sealed class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the name of an existing Key Vault Data Factory Linked Service.
-        /// </summary>
         [Input("linkedServiceName", required: true)]
         public Input<string> LinkedServiceName { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
-
-        /// <summary>
-        /// A map of parameters to associate with the Key Vault Data Factory Linked Service.
-        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Specifies the secret name in Azure Key Vault.
-        /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the secret version in Azure Key Vault.
-        /// </summary>
         [Input("secretVersion")]
         public Input<string>? SecretVersion { get; set; }
 

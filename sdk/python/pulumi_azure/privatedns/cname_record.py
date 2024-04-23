@@ -248,7 +248,6 @@ class CnameRecord(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -266,7 +265,6 @@ class CnameRecord(pulumi.CustomResource):
             ttl=300,
             record="contoso.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -296,7 +294,6 @@ class CnameRecord(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -314,7 +311,6 @@ class CnameRecord(pulumi.CustomResource):
             ttl=300,
             record="contoso.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     dnsForwardingRulesetId: "example-dns-forwarding-ruleset-id",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverVirtualNetworkLink(args: GetResolverVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverVirtualNetworkLinkResult> {
 
@@ -68,7 +66,6 @@ export interface GetResolverVirtualNetworkLinkResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -78,7 +75,6 @@ export interface GetResolverVirtualNetworkLinkResult {
  *     dnsForwardingRulesetId: "example-dns-forwarding-ruleset-id",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverVirtualNetworkLinkOutput(args: GetResolverVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverVirtualNetworkLinkResult> {
     return pulumi.output(args).apply((a: any) => getResolverVirtualNetworkLink(a, opts))

@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Policy
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Azure.Policy
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPolicyDefintionBuiltInResult> InvokeAsync(GetPolicyDefintionBuiltInArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefintionBuiltInResult>("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", args ?? new GetPolicyDefintionBuiltInArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Azure.Policy
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Azure.Policy
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPolicyDefintionBuiltInResult> Invoke(GetPolicyDefintionBuiltInInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDefintionBuiltInResult>("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", args ?? new GetPolicyDefintionBuiltInInvokeArgs(), options.WithDefaults());

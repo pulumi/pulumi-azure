@@ -342,7 +342,6 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -367,7 +366,6 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
             component_type="state.azure.blobstorage",
             version="v1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -402,7 +400,6 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -427,7 +424,6 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
             component_type="state.azure.blobstorage",
             version="v1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

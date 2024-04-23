@@ -236,7 +236,6 @@ def get_scheduled_query_rules_alert(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -245,7 +244,6 @@ def get_scheduled_query_rules_alert(name: Optional[str] = None,
         name="tfex-queryrule")
     pulumi.export("queryRuleId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the scheduled query rule.
@@ -286,7 +284,6 @@ def get_scheduled_query_rules_alert_output(name: Optional[pulumi.Input[str]] = N
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -295,7 +292,6 @@ def get_scheduled_query_rules_alert_output(name: Optional[pulumi.Input[str]] = N
         name="tfex-queryrule")
     pulumi.export("queryRuleId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specifies the name of the scheduled query rule.

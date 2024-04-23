@@ -300,7 +300,6 @@ class RegistryAgentPool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -319,7 +318,6 @@ class RegistryAgentPool(pulumi.CustomResource):
             location=example.location,
             container_registry_name=example_registry.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -351,7 +349,6 @@ class RegistryAgentPool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -370,7 +367,6 @@ class RegistryAgentPool(pulumi.CustomResource):
             location=example.location,
             container_registry_name=example_registry.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

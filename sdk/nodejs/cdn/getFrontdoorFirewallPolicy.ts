@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFrontdoorFirewallPolicy(args: GetFrontdoorFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorFirewallPolicyResult> {
 
@@ -80,7 +78,6 @@ export interface GetFrontdoorFirewallPolicyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -90,7 +87,6 @@ export interface GetFrontdoorFirewallPolicyResult {
  *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFrontdoorFirewallPolicyOutput(args: GetFrontdoorFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorFirewallPolicyResult> {
     return pulumi.output(args).apply((a: any) => getFrontdoorFirewallPolicy(a, opts))

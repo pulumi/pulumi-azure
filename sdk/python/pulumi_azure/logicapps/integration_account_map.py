@@ -232,7 +232,6 @@ class IntegrationAccountMap(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -253,7 +252,6 @@ class IntegrationAccountMap(pulumi.CustomResource):
             map_type="Xslt",
             content=std.file(input="testdata/integration_account_map_content.xsd").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -283,7 +281,6 @@ class IntegrationAccountMap(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -304,7 +301,6 @@ class IntegrationAccountMap(pulumi.CustomResource):
             map_type="Xslt",
             content=std.file(input="testdata/integration_account_map_content.xsd").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

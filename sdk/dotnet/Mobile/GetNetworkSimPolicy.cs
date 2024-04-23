@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetNetworkSimPolicyResult> InvokeAsync(GetNetworkSimPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSimPolicyResult>("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", args ?? new GetNetworkSimPolicyArgs(), options.WithDefaults());
@@ -49,7 +47,6 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -72,7 +69,6 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetNetworkSimPolicyResult> Invoke(GetNetworkSimPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSimPolicyResult>("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", args ?? new GetNetworkSimPolicyInvokeArgs(), options.WithDefaults());

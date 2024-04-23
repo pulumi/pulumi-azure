@@ -26,11 +26,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ClientCredentialMethod;
         /// <summary>
-        /// The ID of the Client to use to authenticate with Azure Active Directory.
+        /// The ID of the Client to use to authenticate with the Custom OIDC.
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        /// The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>
@@ -38,7 +38,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? IssuerEndpoint;
         /// <summary>
-        /// The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+        /// The name of the Custom OIDC Authentication Provider.
+        /// 
+        /// &gt; **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         /// </summary>
         public readonly string Name;
         /// <summary>

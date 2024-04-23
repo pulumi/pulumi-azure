@@ -526,7 +526,6 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -589,7 +588,6 @@ class Extension(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -645,7 +643,6 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -708,7 +705,6 @@ class Extension(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

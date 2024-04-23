@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword {
-    /**
-     * @return Specifies the name of an existing Key Vault Data Factory Linked Service.
-     * 
-     */
     private String linkedServiceName;
-    /**
-     * @return A map of parameters to associate with the Key Vault Data Factory Linked Service.
-     * 
-     */
     private @Nullable Map<String,String> parameters;
-    /**
-     * @return Specifies the secret name in Azure Key Vault.
-     * 
-     */
     private String secretName;
-    /**
-     * @return Specifies the secret version in Azure Key Vault.
-     * 
-     */
     private @Nullable String secretVersion;
 
     private IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword() {}
-    /**
-     * @return Specifies the name of an existing Key Vault Data Factory Linked Service.
-     * 
-     */
     public String linkedServiceName() {
         return this.linkedServiceName;
     }
-    /**
-     * @return A map of parameters to associate with the Key Vault Data Factory Linked Service.
-     * 
-     */
     public Map<String,String> parameters() {
         return this.parameters == null ? Map.of() : this.parameters;
     }
-    /**
-     * @return Specifies the secret name in Azure Key Vault.
-     * 
-     */
     public String secretName() {
         return this.secretName;
     }
-    /**
-     * @return Specifies the secret version in Azure Key Vault.
-     * 
-     */
     public Optional<String> secretVersion() {
         return Optional.ofNullable(this.secretVersion);
     }

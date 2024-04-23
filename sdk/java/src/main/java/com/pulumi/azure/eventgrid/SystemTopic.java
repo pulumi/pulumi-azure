@@ -169,17 +169,9 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
     public Output<String> sourceArmResourceId() {
         return this.sourceArmResourceId;
     }
-    /**
-     * A mapping of tags which should be assigned to the Event Grid System Topic.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags which should be assigned to the Event Grid System Topic.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

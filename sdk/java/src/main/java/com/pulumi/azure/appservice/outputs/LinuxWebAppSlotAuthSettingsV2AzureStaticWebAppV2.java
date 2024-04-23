@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2 {
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with Azure Static Web App Authentication.
      * 
      */
     private String clientId;
 
     private LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2() {}
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with Azure Static Web App Authentication.
      * 
      */
     public String clientId() {

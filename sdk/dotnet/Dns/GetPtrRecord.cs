@@ -14,7 +14,6 @@ namespace Pulumi.Azure.Dns
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Azure.Dns
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPtrRecordResult> InvokeAsync(GetPtrRecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPtrRecordResult>("azure:dns/getPtrRecord:getPtrRecord", args ?? new GetPtrRecordArgs(), options.WithDefaults());
@@ -44,7 +42,6 @@ namespace Pulumi.Azure.Dns
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Azure.Dns
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPtrRecordResult> Invoke(GetPtrRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPtrRecordResult>("azure:dns/getPtrRecord:getPtrRecord", args ?? new GetPtrRecordInvokeArgs(), options.WithDefaults());

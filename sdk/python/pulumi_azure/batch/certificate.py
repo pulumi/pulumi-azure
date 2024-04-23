@@ -295,7 +295,6 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -329,7 +328,6 @@ class Certificate(pulumi.CustomResource):
             thumbprint="42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
             thumbprint_algorithm="SHA1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -360,7 +358,6 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -394,7 +391,6 @@ class Certificate(pulumi.CustomResource):
             thumbprint="42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
             thumbprint_algorithm="SHA1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -157,14 +157,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Specifies the name of the firewall rule.
+     * The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the firewall rule.
+     * @return The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

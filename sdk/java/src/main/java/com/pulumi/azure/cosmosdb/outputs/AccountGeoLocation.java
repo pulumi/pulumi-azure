@@ -20,7 +20,7 @@ public final class AccountGeoLocation {
      */
     private Integer failoverPriority;
     /**
-     * @return The ID of the virtual network subnet.
+     * @return The CosmosDB Account ID.
      * 
      */
     private @Nullable String id;
@@ -44,7 +44,7 @@ public final class AccountGeoLocation {
         return this.failoverPriority;
     }
     /**
-     * @return The ID of the virtual network subnet.
+     * @return The CosmosDB Account ID.
      * 
      */
     public Optional<String> id() {

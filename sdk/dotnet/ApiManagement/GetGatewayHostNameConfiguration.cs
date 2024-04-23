@@ -16,7 +16,6 @@ namespace Pulumi.Azure.ApiManagement
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -50,7 +49,6 @@ namespace Pulumi.Azure.ApiManagement
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetGatewayHostNameConfigurationResult> InvokeAsync(GetGatewayHostNameConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayHostNameConfigurationResult>("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", args ?? new GetGatewayHostNameConfigurationArgs(), options.WithDefaults());
@@ -60,7 +58,6 @@ namespace Pulumi.Azure.ApiManagement
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -94,7 +91,6 @@ namespace Pulumi.Azure.ApiManagement
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetGatewayHostNameConfigurationResult> Invoke(GetGatewayHostNameConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayHostNameConfigurationResult>("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", args ?? new GetGatewayHostNameConfigurationInvokeArgs(), options.WithDefaults());

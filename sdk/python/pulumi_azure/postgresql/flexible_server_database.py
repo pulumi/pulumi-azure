@@ -167,7 +167,6 @@ class FlexibleServerDatabase(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -190,7 +189,6 @@ class FlexibleServerDatabase(pulumi.CustomResource):
             collation="en_US.utf8",
             charset="utf8")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -216,7 +214,6 @@ class FlexibleServerDatabase(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -239,7 +236,6 @@ class FlexibleServerDatabase(pulumi.CustomResource):
             collation="en_US.utf8",
             charset="utf8")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

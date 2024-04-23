@@ -83,7 +83,6 @@ def get_containers(name_prefix: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -91,7 +90,6 @@ def get_containers(name_prefix: Optional[str] = None,
     example = azure.storage.get_containers(storage_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1")
     pulumi.export("containerId", example.containers[0].resource_manager_id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name_prefix: A prefix match used for the Storage Container `name` field.
@@ -119,7 +117,6 @@ def get_containers_output(name_prefix: Optional[pulumi.Input[Optional[str]]] = N
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -127,7 +124,6 @@ def get_containers_output(name_prefix: Optional[pulumi.Input[Optional[str]]] = N
     example = azure.storage.get_containers(storage_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1")
     pulumi.export("containerId", example.containers[0].resource_manager_id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name_prefix: A prefix match used for the Storage Container `name` field.

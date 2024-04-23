@@ -183,7 +183,6 @@ class ReplicaSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -388,7 +387,6 @@ class ReplicaSet(pulumi.CustomResource):
             location=replica.location,
             subnet_id=aadds_replica.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -415,7 +413,6 @@ class ReplicaSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -620,7 +617,6 @@ class ReplicaSet(pulumi.CustomResource):
             location=replica.location,
             subnet_id=aadds_replica.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

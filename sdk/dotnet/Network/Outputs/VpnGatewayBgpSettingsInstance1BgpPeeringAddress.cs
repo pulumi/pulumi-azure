@@ -13,9 +13,6 @@ namespace Pulumi.Azure.Network.Outputs
     [OutputType]
     public sealed class VpnGatewayBgpSettingsInstance1BgpPeeringAddress
     {
-        /// <summary>
-        /// A list of custom BGP peering addresses to assign to this instance.
-        /// </summary>
         public readonly ImmutableArray<string> CustomIps;
         /// <summary>
         /// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## NetApp Pool Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -32,7 +31,6 @@ import * as utilities from "../utilities";
  *     sizeInTb: 4,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

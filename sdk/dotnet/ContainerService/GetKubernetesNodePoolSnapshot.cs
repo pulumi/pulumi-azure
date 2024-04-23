@@ -16,7 +16,6 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetKubernetesNodePoolSnapshotResult> InvokeAsync(GetKubernetesNodePoolSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesNodePoolSnapshotResult>("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args ?? new GetKubernetesNodePoolSnapshotArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetKubernetesNodePoolSnapshotResult> Invoke(GetKubernetesNodePoolSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesNodePoolSnapshotResult>("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args ?? new GetKubernetesNodePoolSnapshotInvokeArgs(), options.WithDefaults());

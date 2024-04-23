@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string AddressPrefix;
         /// <summary>
-        /// The ID of DDoS Protection Plan.
+        /// The ID of this subnet.
         /// </summary>
         public readonly string? Id;
         /// <summary>

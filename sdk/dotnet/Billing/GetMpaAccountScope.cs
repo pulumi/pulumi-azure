@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Billing
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Azure.Billing
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetMpaAccountScopeResult> InvokeAsync(GetMpaAccountScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMpaAccountScopeResult>("azure:billing/getMpaAccountScope:getMpaAccountScope", args ?? new GetMpaAccountScopeArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Azure.Billing
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Azure.Billing
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetMpaAccountScopeResult> Invoke(GetMpaAccountScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMpaAccountScopeResult>("azure:billing/getMpaAccountScope:getMpaAccountScope", args ?? new GetMpaAccountScopeInvokeArgs(), options.WithDefaults());

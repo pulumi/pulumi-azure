@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     resourceId: example.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDiagnosticCategories(args: GetDiagnosticCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticCategoriesResult> {
 
@@ -75,7 +73,6 @@ export interface GetDiagnosticCategoriesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -88,7 +85,6 @@ export interface GetDiagnosticCategoriesResult {
  *     resourceId: example.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDiagnosticCategoriesOutput(args: GetDiagnosticCategoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticCategoriesResult> {
     return pulumi.output(args).apply((a: any) => getDiagnosticCategories(a, opts))

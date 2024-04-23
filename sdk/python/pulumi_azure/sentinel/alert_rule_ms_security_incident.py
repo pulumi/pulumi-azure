@@ -372,7 +372,6 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -393,7 +392,6 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
             display_name="example rule",
             severity_filters=["High"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -429,7 +427,6 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -450,7 +447,6 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
             display_name="example rule",
             severity_filters=["High"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,6 @@ namespace Pulumi.Azure.Compute
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Azure.Compute
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSharedImageVersionsResult> InvokeAsync(GetSharedImageVersionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageVersionsResult>("azure:compute/getSharedImageVersions:getSharedImageVersions", args ?? new GetSharedImageVersionsArgs(), options.WithDefaults());
@@ -44,7 +42,6 @@ namespace Pulumi.Azure.Compute
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Azure.Compute
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSharedImageVersionsResult> Invoke(GetSharedImageVersionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedImageVersionsResult>("azure:compute/getSharedImageVersions:getSharedImageVersions", args ?? new GetSharedImageVersionsInvokeArgs(), options.WithDefaults());

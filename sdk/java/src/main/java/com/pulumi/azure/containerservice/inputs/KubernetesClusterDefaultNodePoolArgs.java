@@ -205,17 +205,9 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         return Optional.ofNullable(this.linuxOsConfig);
     }
 
-    /**
-     * The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-     * 
-     */
     @Import(name="maxCount")
     private @Nullable Output<Integer> maxCount;
 
-    /**
-     * @return The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-     * 
-     */
     public Optional<Output<Integer>> maxCount() {
         return Optional.ofNullable(this.maxCount);
     }
@@ -250,17 +242,9 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         return Optional.ofNullable(this.messageOfTheDay);
     }
 
-    /**
-     * The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-     * 
-     */
     @Import(name="minCount")
     private @Nullable Output<Integer> minCount;
 
-    /**
-     * @return The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-     * 
-     */
     public Optional<Output<Integer>> minCount() {
         return Optional.ofNullable(this.minCount);
     }
@@ -280,25 +264,9 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         return this.name;
     }
 
-    /**
-     * The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-     * 
-     * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     * 
-     * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
-     * 
-     */
     @Import(name="nodeCount")
     private @Nullable Output<Integer> nodeCount;
 
-    /**
-     * @return The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-     * 
-     * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     * 
-     * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
-     * 
-     */
     public Optional<Output<Integer>> nodeCount() {
         return Optional.ofNullable(this.nodeCount);
     }
@@ -970,23 +938,11 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
             return linuxOsConfig(Output.of(linuxOsConfig));
         }
 
-        /**
-         * @param maxCount The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxCount(@Nullable Output<Integer> maxCount) {
             $.maxCount = maxCount;
             return this;
         }
 
-        /**
-         * @param maxCount The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxCount(Integer maxCount) {
             return maxCount(Output.of(maxCount));
         }
@@ -1033,23 +989,11 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
             return messageOfTheDay(Output.of(messageOfTheDay));
         }
 
-        /**
-         * @param minCount The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minCount(@Nullable Output<Integer> minCount) {
             $.minCount = minCount;
             return this;
         }
 
-        /**
-         * @param minCount The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minCount(Integer minCount) {
             return minCount(Output.of(minCount));
         }
@@ -1075,31 +1019,11 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
             return name(Output.of(name));
         }
 
-        /**
-         * @param nodeCount The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-         * 
-         * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-         * 
-         * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeCount(@Nullable Output<Integer> nodeCount) {
             $.nodeCount = nodeCount;
             return this;
         }
 
-        /**
-         * @param nodeCount The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-         * 
-         * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-         * 
-         * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeCount(Integer nodeCount) {
             return nodeCount(Output.of(nodeCount));
         }

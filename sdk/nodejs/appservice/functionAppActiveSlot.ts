@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Windows Function App
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -50,11 +49,9 @@ import * as utilities from "../utilities";
  * });
  * const exampleFunctionAppActiveSlot = new azure.appservice.FunctionAppActiveSlot("example", {slotId: exampleWindowsFunctionAppSlot.id});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Linux Function App
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -93,7 +90,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleFunctionAppActiveSlot = new azure.appservice.FunctionAppActiveSlot("example", {slotId: exampleLinuxFunctionAppSlot.id});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

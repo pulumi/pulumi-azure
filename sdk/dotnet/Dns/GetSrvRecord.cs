@@ -14,7 +14,6 @@ namespace Pulumi.Azure.Dns
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Azure.Dns
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSrvRecordResult> InvokeAsync(GetSrvRecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSrvRecordResult>("azure:dns/getSrvRecord:getSrvRecord", args ?? new GetSrvRecordArgs(), options.WithDefaults());
@@ -44,7 +42,6 @@ namespace Pulumi.Azure.Dns
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Azure.Dns
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSrvRecordResult> Invoke(GetSrvRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSrvRecordResult>("azure:dns/getSrvRecord:getSrvRecord", args ?? new GetSrvRecordInvokeArgs(), options.WithDefaults());

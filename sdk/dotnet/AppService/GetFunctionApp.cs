@@ -18,7 +18,6 @@ namespace Pulumi.Azure.AppService
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Azure.AppService
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFunctionAppResult> InvokeAsync(GetFunctionAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionAppResult>("azure:appservice/getFunctionApp:getFunctionApp", args ?? new GetFunctionAppArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Azure.AppService
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Azure.AppService
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFunctionAppResult> Invoke(GetFunctionAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionAppResult>("azure:appservice/getFunctionApp:getFunctionApp", args ?? new GetFunctionAppInvokeArgs(), options.WithDefaults());

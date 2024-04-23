@@ -128,7 +128,6 @@ def get_pool(account_name: Optional[str] = None,
 
     ## NetApp Pool Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -138,7 +137,6 @@ def get_pool(account_name: Optional[str] = None,
         name="acctestnetapppool")
     pulumi.export("netappPoolId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the NetApp account where the NetApp pool exists.
@@ -173,7 +171,6 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
 
     ## NetApp Pool Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_azure as azure
@@ -183,7 +180,6 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
         name="acctestnetapppool")
     pulumi.export("netappPoolId", example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_name: The name of the NetApp account where the NetApp pool exists.

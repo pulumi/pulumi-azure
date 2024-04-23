@@ -279,14 +279,14 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
         return this.frontendEndpoints;
     }
     /**
-     * The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+     * A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
      * 
      */
     @Export(name="frontendEndpointsMap", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> frontendEndpointsMap;
 
     /**
-     * @return The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+     * @return A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
      * 
      */
     public Output<Map<String,String>> frontendEndpointsMap() {

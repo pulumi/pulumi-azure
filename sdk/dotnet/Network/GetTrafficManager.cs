@@ -18,7 +18,6 @@ namespace Pulumi.Azure.Network
         /// 
         /// ### World)
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTrafficManagerResult> InvokeAsync(GetTrafficManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficManagerResult>("azure:network/getTrafficManager:getTrafficManager", args ?? new GetTrafficManagerArgs(), options.WithDefaults());
@@ -50,7 +48,6 @@ namespace Pulumi.Azure.Network
         /// 
         /// ### World)
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,7 +67,6 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTrafficManagerResult> Invoke(GetTrafficManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficManagerResult>("azure:network/getTrafficManager:getTrafficManager", args ?? new GetTrafficManagerInvokeArgs(), options.WithDefaults());

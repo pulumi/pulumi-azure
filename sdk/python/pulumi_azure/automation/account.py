@@ -29,13 +29,11 @@ class AccountArgs:
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of the account. Possible values are `Basic` and `Free`.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the automation account. Defaults to `true`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku_name", sku_name)
@@ -81,9 +79,6 @@ class AccountArgs:
     @property
     @pulumi.getter
     def encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]]:
-        """
-        An `encryption` block as defined below.
-        """
         return pulumi.get(self, "encryptions")
 
     @encryptions.setter
@@ -153,9 +148,6 @@ class AccountArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -185,7 +177,6 @@ class _AccountState:
         :param pulumi.Input[str] dsc_primary_access_key: The Primary Access Key for the DSC Endpoint associated with this Automation Account.
         :param pulumi.Input[str] dsc_secondary_access_key: The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
         :param pulumi.Input[str] dsc_server_endpoint: The DSC Server Endpoint associated with this Automation Account.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input[str] hybrid_service_url: The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
@@ -194,7 +185,6 @@ class _AccountState:
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the automation account. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of the account. Possible values are `Basic` and `Free`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if dsc_primary_access_key is not None:
             pulumi.set(__self__, "dsc_primary_access_key", dsc_primary_access_key)
@@ -264,9 +254,6 @@ class _AccountState:
     @property
     @pulumi.getter
     def encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]]:
-        """
-        An `encryption` block as defined below.
-        """
         return pulumi.get(self, "encryptions")
 
     @encryptions.setter
@@ -381,9 +368,6 @@ class _AccountState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -411,7 +395,6 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -428,7 +411,6 @@ class Account(pulumi.CustomResource):
                 "environment": "development",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -440,7 +422,6 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -448,7 +429,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the automation account. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of the account. Possible values are `Basic` and `Free`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
@@ -461,7 +441,6 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -478,7 +457,6 @@ class Account(pulumi.CustomResource):
                 "environment": "development",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -575,7 +553,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] dsc_primary_access_key: The Primary Access Key for the DSC Endpoint associated with this Automation Account.
         :param pulumi.Input[str] dsc_secondary_access_key: The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
         :param pulumi.Input[str] dsc_server_endpoint: The DSC Server Endpoint associated with this Automation Account.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input[str] hybrid_service_url: The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
@@ -584,7 +561,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the automation account. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of the account. Possible values are `Basic` and `Free`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -633,9 +609,6 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter
     def encryptions(self) -> pulumi.Output[Optional[Sequence['outputs.AccountEncryption']]]:
-        """
-        An `encryption` block as defined below.
-        """
         return pulumi.get(self, "encryptions")
 
     @property
@@ -710,8 +683,5 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 

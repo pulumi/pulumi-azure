@@ -282,7 +282,6 @@ class AccountNetworkRules(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -317,7 +316,6 @@ class AccountNetworkRules(pulumi.CustomResource):
             virtual_network_subnet_ids=[example_subnet.id],
             bypasses=["Metrics"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -363,7 +361,6 @@ class AccountNetworkRules(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -398,7 +395,6 @@ class AccountNetworkRules(pulumi.CustomResource):
             virtual_network_subnet_ids=[example_subnet.id],
             bypasses=["Metrics"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

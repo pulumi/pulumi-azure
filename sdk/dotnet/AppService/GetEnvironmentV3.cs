@@ -16,7 +16,6 @@ namespace Pulumi.Azure.AppService
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Azure.AppService
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEnvironmentV3Result> InvokeAsync(GetEnvironmentV3Args args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentV3Result>("azure:appservice/getEnvironmentV3:getEnvironmentV3", args ?? new GetEnvironmentV3Args(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Azure.AppService
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Azure.AppService
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEnvironmentV3Result> Invoke(GetEnvironmentV3InvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentV3Result>("azure:appservice/getEnvironmentV3:getEnvironmentV3", args ?? new GetEnvironmentV3InvokeArgs(), options.WithDefaults());
