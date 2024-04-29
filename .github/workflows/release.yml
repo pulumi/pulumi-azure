@@ -43,15 +43,15 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
-    - uses: pulumi/provider-version-action@v1
-      with:
-        set-env: 'PROVIDER_VERSION'
     - name: Checkout Scripts Repo
       uses: actions/checkout@v4
       with:
         path: ci-scripts
         repository: pulumi/scripts
         ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
+    - run: echo "ci-scripts" >> .git/info/exclude # actions/checkout#197
+    - name: Unshallow clone for tags
+      run: git fetch --prune --unshallow --tags
     - name: Install Go
       uses: actions/setup-go@v5
       with:
@@ -111,6 +111,9 @@ jobs:
       run: make install_plugins
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
+    - name: Set PACKAGE_VERSION to Env
+      run: echo "PACKAGE_VERSION=$(pulumictl get version --language generic)" >>
+        "$GITHUB_ENV"
     - name: Build SDK
       run: make build_${{ matrix.language }}
     - name: Check worktree clean
@@ -169,21 +172,14 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
-    - uses: pulumi/provider-version-action@v1
-      with:
-        set-env: 'PROVIDER_VERSION'
     - name: Cache examples generation
       uses: actions/cache@v4
       with:
         path: |
           .pulumi/examples-cache
         key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v4
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
-        ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
+    - name: Unshallow clone for tags
+      run: git fetch --prune --unshallow --tags
     - name: Prepare upstream code
       run: make upstream
     - name: Install Go
@@ -300,6 +296,8 @@ jobs:
         swap-storage: false
     - name: Checkout Repo
       uses: actions/checkout@v4
+    - name: Unshallow clone for tags
+      run: git fetch --prune --unshallow --tags
     - name: Install Go
       uses: actions/setup-go@v5
       with:
@@ -325,12 +323,10 @@ jobs:
         role-external-id: upload-pulumi-release
         role-session-name: ${{ env.PROVIDER }}@githubActions
         role-to-assume: ${{ secrets.AWS_UPLOAD_ROLE_ARN }}
-    - id: version
-      uses: pulumi/provider-version-action@v1
+    - name: Set PreRelease Version
+      run: echo "GORELEASER_CURRENT_TAG=v$(pulumictl get version --language generic)" >> "$GITHUB_ENV"
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v5
-      env:
-        GORELEASER_CURRENT_TAG: v${{ steps.version.outputs.version }}
       with:
         args: -p 1 release --rm-dist --timeout 90m0s
         version: latest
@@ -373,11 +369,9 @@ jobs:
       with:
         tag: v0.0.46
         repo: pulumi/pulumictl
-    - id: version
-      uses: pulumi/provider-version-action@v1
     - name: Add SDK version tag
-      run: git tag "sdk/v${{ steps.version.outputs.version }}" && git push origin
-        "sdk/v${{ steps.version.outputs.version }}"
+      run: git tag "sdk/v$(pulumictl get version --language generic)" && git push origin
+        "sdk/v$(pulumictl get version --language generic)"
 
   clean_up_release_labels:
     name: Clean up release labels
@@ -387,6 +381,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
+    - name: Unshallow clone for PR merge bases
+      run: git fetch --prune --unshallow --tags
     - name: Clean up release labels
       uses: pulumi/action-release-by-pr-label@main
       with:
@@ -406,15 +402,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
-    - uses: pulumi/provider-version-action@v1
-      with:
-        set-env: 'PROVIDER_VERSION'
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v4
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
-        ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
+    - name: Unshallow clone for tags
+      run: git fetch --prune --unshallow --tags
     - name: Install Go
       uses: actions/setup-go@v5
       with:
