@@ -276,9 +276,9 @@ class DeploymentFrontendPrivateArgs:
                  ip_address: pulumi.Input[str],
                  subnet_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] allocation_method: Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
-        :param pulumi.Input[str] ip_address: Specify the IP Address of this private IP.
-        :param pulumi.Input[str] subnet_id: Specify the SubNet Resource ID to this Nginx Deployment.
+        :param pulumi.Input[str] allocation_method: Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
+        :param pulumi.Input[str] ip_address: Specify the private IP Address.
+        :param pulumi.Input[str] subnet_id: Specify the Subnet Resource ID for this NGINX Deployment.
         """
         pulumi.set(__self__, "allocation_method", allocation_method)
         pulumi.set(__self__, "ip_address", ip_address)
@@ -288,7 +288,7 @@ class DeploymentFrontendPrivateArgs:
     @pulumi.getter(name="allocationMethod")
     def allocation_method(self) -> pulumi.Input[str]:
         """
-        Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
+        Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
         """
         return pulumi.get(self, "allocation_method")
 
@@ -300,7 +300,7 @@ class DeploymentFrontendPrivateArgs:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Input[str]:
         """
-        Specify the IP Address of this private IP.
+        Specify the private IP Address.
         """
         return pulumi.get(self, "ip_address")
 
@@ -312,7 +312,7 @@ class DeploymentFrontendPrivateArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
         """
-        Specify the SubNet Resource ID to this Nginx Deployment.
+        Specify the Subnet Resource ID for this NGINX Deployment.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -326,7 +326,7 @@ class DeploymentFrontendPublicArgs:
     def __init__(__self__, *,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: Specifies a list of Public IP Resource ID to this Nginx Deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: Specifies a list of Public IP Resource ID to this NGINX Deployment.
         """
         if ip_addresses is not None:
             pulumi.set(__self__, "ip_addresses", ip_addresses)
@@ -335,7 +335,7 @@ class DeploymentFrontendPublicArgs:
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of Public IP Resource ID to this Nginx Deployment.
+        Specifies a list of Public IP Resource ID to this NGINX Deployment.
         """
         return pulumi.get(self, "ip_addresses")
 
@@ -352,7 +352,7 @@ class DeploymentIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned.
                
                > **NOTE:** This is required when `type` is set to `UserAssigned`.
@@ -369,7 +369,7 @@ class DeploymentIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+        Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -416,8 +416,8 @@ class DeploymentLoggingStorageAccountArgs:
                  container_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] container_name: Specify the container name of Storage Account for logging.
-        :param pulumi.Input[str] name: The account name of the StorageAccount for Nginx Logging.
+        :param pulumi.Input[str] container_name: Specify the container name in the Storage Account for logging.
+        :param pulumi.Input[str] name: The name of the StorageAccount for NGINX Logging.
         """
         if container_name is not None:
             pulumi.set(__self__, "container_name", container_name)
@@ -428,7 +428,7 @@ class DeploymentLoggingStorageAccountArgs:
     @pulumi.getter(name="containerName")
     def container_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the container name of Storage Account for logging.
+        Specify the container name in the Storage Account for logging.
         """
         return pulumi.get(self, "container_name")
 
@@ -440,7 +440,7 @@ class DeploymentLoggingStorageAccountArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The account name of the StorageAccount for Nginx Logging.
+        The name of the StorageAccount for NGINX Logging.
         """
         return pulumi.get(self, "name")
 
@@ -454,7 +454,7 @@ class DeploymentNetworkInterfaceArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] subnet_id: Specify The SubNet Resource ID to this Nginx Deployment.
+        :param pulumi.Input[str] subnet_id: Specify The Subnet Resource ID for this NGINX Deployment.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
 
@@ -462,7 +462,7 @@ class DeploymentNetworkInterfaceArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
         """
-        Specify The SubNet Resource ID to this Nginx Deployment.
+        Specify The Subnet Resource ID for this NGINX Deployment.
         """
         return pulumi.get(self, "subnet_id")
 

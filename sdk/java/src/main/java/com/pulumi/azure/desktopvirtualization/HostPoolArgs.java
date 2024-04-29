@@ -166,6 +166,21 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+     * 
+     */
+    @Import(name="publicNetworkAccess")
+    private @Nullable Output<String> publicNetworkAccess;
+
+    /**
+     * @return Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+     * 
+     */
+    public Optional<Output<String>> publicNetworkAccess() {
+        return Optional.ofNullable(this.publicNetworkAccess);
+    }
+
+    /**
      * The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      * 
      */
@@ -282,6 +297,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.personalDesktopAssignmentType = $.personalDesktopAssignmentType;
         this.preferredAppGroupType = $.preferredAppGroupType;
+        this.publicNetworkAccess = $.publicNetworkAccess;
         this.resourceGroupName = $.resourceGroupName;
         this.scheduledAgentUpdates = $.scheduledAgentUpdates;
         this.startVmOnConnect = $.startVmOnConnect;
@@ -506,6 +522,27 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder preferredAppGroupType(String preferredAppGroupType) {
             return preferredAppGroupType(Output.of(preferredAppGroupType));
+        }
+
+        /**
+         * @param publicNetworkAccess Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccess(@Nullable Output<String> publicNetworkAccess) {
+            $.publicNetworkAccess = publicNetworkAccess;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccess Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccess(String publicNetworkAccess) {
+            return publicNetworkAccess(Output.of(publicNetworkAccess));
         }
 
         /**

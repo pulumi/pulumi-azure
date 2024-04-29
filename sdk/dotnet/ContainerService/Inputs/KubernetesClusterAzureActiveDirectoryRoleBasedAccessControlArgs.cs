@@ -27,7 +27,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? ClientAppId { get; set; }
 
         /// <summary>
-        /// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+        /// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
         /// </summary>
         [Input("managed")]
         public Input<bool>? Managed { get; set; }

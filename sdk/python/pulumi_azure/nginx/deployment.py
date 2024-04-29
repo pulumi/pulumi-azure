@@ -35,8 +35,8 @@ class DeploymentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[str] sku: Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[str] sku: Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
@@ -44,16 +44,16 @@ class DeploymentArgs:
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input['DeploymentConfigurationArgs'] configuration: Specify a custom `configuration` block as defined below.
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
-        :param pulumi.Input[str] email: Specify the preferred support contact email address of the user used for sending alerts and notification.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
+        :param pulumi.Input[str] email: Specify the preferred support contact email address for receiving alerts and notifications.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input['DeploymentIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] location: The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        :param pulumi.Input[str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
-        :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Nginx Deployment.
+        :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
@@ -92,7 +92,7 @@ class DeploymentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -104,7 +104,7 @@ class DeploymentArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input[str]:
         """
-        Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+        Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -178,7 +178,7 @@ class DeploymentArgs:
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the preferred support contact email address of the user used for sending alerts and notification.
+        Specify the preferred support contact email address for receiving alerts and notifications.
         """
         return pulumi.get(self, "email")
 
@@ -190,7 +190,7 @@ class DeploymentArgs:
     @pulumi.getter(name="frontendPrivates")
     def frontend_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]]:
         """
-        One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+        One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "frontend_privates")
 
@@ -202,7 +202,7 @@ class DeploymentArgs:
     @pulumi.getter(name="frontendPublic")
     def frontend_public(self) -> Optional[pulumi.Input['DeploymentFrontendPublicArgs']]:
         """
-        A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
+        A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "frontend_public")
 
@@ -226,7 +226,7 @@ class DeploymentArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "location")
 
@@ -250,7 +250,7 @@ class DeploymentArgs:
     @pulumi.getter(name="managedResourceGroup")
     def managed_resource_group(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+        Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "managed_resource_group")
 
@@ -262,7 +262,7 @@ class DeploymentArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+        The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "name")
 
@@ -274,7 +274,7 @@ class DeploymentArgs:
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]]:
         """
-        One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+        One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "network_interfaces")
 
@@ -286,7 +286,7 @@ class DeploymentArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Nginx Deployment.
+        A mapping of tags which should be assigned to the NGINX Deployment.
         """
         return pulumi.get(self, "tags")
 
@@ -326,20 +326,20 @@ class _DeploymentState:
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input['DeploymentConfigurationArgs'] configuration: Specify a custom `configuration` block as defined below.
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
-        :param pulumi.Input[str] email: Specify the preferred support contact email address of the user used for sending alerts and notification.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
+        :param pulumi.Input[str] email: Specify the preferred support contact email address for receiving alerts and notifications.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input['DeploymentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_address: The IP address of the deployment.
-        :param pulumi.Input[str] location: The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        :param pulumi.Input[str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
-        :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[str] nginx_version: The version of deployed nginx.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[str] sku: Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Nginx Deployment.
+        :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[str] nginx_version: The version of deployed NGINX.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[str] sku: Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
         """
         if auto_scale_profiles is not None:
             pulumi.set(__self__, "auto_scale_profiles", auto_scale_profiles)
@@ -446,7 +446,7 @@ class _DeploymentState:
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the preferred support contact email address of the user used for sending alerts and notification.
+        Specify the preferred support contact email address for receiving alerts and notifications.
         """
         return pulumi.get(self, "email")
 
@@ -458,7 +458,7 @@ class _DeploymentState:
     @pulumi.getter(name="frontendPrivates")
     def frontend_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]]:
         """
-        One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+        One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "frontend_privates")
 
@@ -470,7 +470,7 @@ class _DeploymentState:
     @pulumi.getter(name="frontendPublic")
     def frontend_public(self) -> Optional[pulumi.Input['DeploymentFrontendPublicArgs']]:
         """
-        A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
+        A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "frontend_public")
 
@@ -506,7 +506,7 @@ class _DeploymentState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "location")
 
@@ -530,7 +530,7 @@ class _DeploymentState:
     @pulumi.getter(name="managedResourceGroup")
     def managed_resource_group(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+        Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "managed_resource_group")
 
@@ -542,7 +542,7 @@ class _DeploymentState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+        The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "name")
 
@@ -554,7 +554,7 @@ class _DeploymentState:
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]]:
         """
-        One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+        One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "network_interfaces")
 
@@ -566,7 +566,7 @@ class _DeploymentState:
     @pulumi.getter(name="nginxVersion")
     def nginx_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of deployed nginx.
+        The version of deployed NGINX.
         """
         return pulumi.get(self, "nginx_version")
 
@@ -578,7 +578,7 @@ class _DeploymentState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -590,7 +590,7 @@ class _DeploymentState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+        Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -602,7 +602,7 @@ class _DeploymentState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Nginx Deployment.
+        A mapping of tags which should be assigned to the NGINX Deployment.
         """
         return pulumi.get(self, "tags")
 
@@ -635,7 +635,7 @@ class Deployment(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages a Nginx Deployment.
+        Manages an NGINX Deployment.
 
         ## Example Usage
 
@@ -731,7 +731,7 @@ class Deployment(pulumi.CustomResource):
 
         ## Import
 
-        Nginx Deployments can be imported using the `resource id`, e.g.
+        NGINX Deployments can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:nginx/deployment:Deployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/dep1
@@ -746,18 +746,18 @@ class Deployment(pulumi.CustomResource):
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']] configuration: Specify a custom `configuration` block as defined below.
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
-        :param pulumi.Input[str] email: Specify the preferred support contact email address of the user used for sending alerts and notification.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
+        :param pulumi.Input[str] email: Specify the preferred support contact email address for receiving alerts and notifications.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[pulumi.InputType['DeploymentIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] location: The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        :param pulumi.Input[str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentLoggingStorageAccountArgs']]]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
-        :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[str] sku: Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Nginx Deployment.
+        :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[str] sku: Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
         """
         ...
     @overload
@@ -766,7 +766,7 @@ class Deployment(pulumi.CustomResource):
                  args: DeploymentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Nginx Deployment.
+        Manages an NGINX Deployment.
 
         ## Example Usage
 
@@ -862,7 +862,7 @@ class Deployment(pulumi.CustomResource):
 
         ## Import
 
-        Nginx Deployments can be imported using the `resource id`, e.g.
+        NGINX Deployments can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:nginx/deployment:Deployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/dep1
@@ -975,20 +975,20 @@ class Deployment(pulumi.CustomResource):
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']] configuration: Specify a custom `configuration` block as defined below.
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
-        :param pulumi.Input[str] email: Specify the preferred support contact email address of the user used for sending alerts and notification.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
+        :param pulumi.Input[str] email: Specify the preferred support contact email address for receiving alerts and notifications.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[pulumi.InputType['DeploymentIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_address: The IP address of the deployment.
-        :param pulumi.Input[str] location: The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        :param pulumi.Input[str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentLoggingStorageAccountArgs']]]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
-        :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[str] nginx_version: The version of deployed nginx.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
-        :param pulumi.Input[str] sku: Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Nginx Deployment.
+        :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[str] nginx_version: The version of deployed NGINX.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[str] sku: Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1061,7 +1061,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def email(self) -> pulumi.Output[Optional[str]]:
         """
-        Specify the preferred support contact email address of the user used for sending alerts and notification.
+        Specify the preferred support contact email address for receiving alerts and notifications.
         """
         return pulumi.get(self, "email")
 
@@ -1069,7 +1069,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="frontendPrivates")
     def frontend_privates(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentFrontendPrivate']]]:
         """
-        One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+        One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "frontend_privates")
 
@@ -1077,7 +1077,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="frontendPublic")
     def frontend_public(self) -> pulumi.Output[Optional['outputs.DeploymentFrontendPublic']]:
         """
-        A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
+        A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "frontend_public")
 
@@ -1101,7 +1101,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "location")
 
@@ -1117,7 +1117,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="managedResourceGroup")
     def managed_resource_group(self) -> pulumi.Output[str]:
         """
-        Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+        Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "managed_resource_group")
 
@@ -1125,7 +1125,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+        The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1133,7 +1133,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentNetworkInterface']]]:
         """
-        One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+        One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "network_interfaces")
 
@@ -1141,7 +1141,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="nginxVersion")
     def nginx_version(self) -> pulumi.Output[str]:
         """
-        The version of deployed nginx.
+        The version of deployed NGINX.
         """
         return pulumi.get(self, "nginx_version")
 
@@ -1149,7 +1149,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -1157,7 +1157,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[str]:
         """
-        Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+        Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -1165,7 +1165,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags which should be assigned to the Nginx Deployment.
+        A mapping of tags which should be assigned to the NGINX Deployment.
         """
         return pulumi.get(self, "tags")
 

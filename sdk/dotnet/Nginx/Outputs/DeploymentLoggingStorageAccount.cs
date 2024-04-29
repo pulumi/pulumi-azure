@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Nginx.Outputs
     public sealed class DeploymentLoggingStorageAccount
     {
         /// <summary>
-        /// Specify the container name of Storage Account for logging.
+        /// Specify the container name in the Storage Account for logging.
         /// </summary>
         public readonly string? ContainerName;
         /// <summary>
-        /// The account name of the StorageAccount for Nginx Logging.
+        /// The name of the StorageAccount for NGINX Logging.
         /// </summary>
         public readonly string? Name;
 

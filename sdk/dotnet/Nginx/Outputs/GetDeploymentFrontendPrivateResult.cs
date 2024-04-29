@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Nginx.Outputs
     public sealed class GetDeploymentFrontendPrivateResult
     {
         /// <summary>
-        /// The method of allocating the private IP to the Nginx Deployment.
+        /// The method of allocating the private IP to the NGINX Deployment.
         /// </summary>
         public readonly string AllocationMethod;
         /// <summary>
-        /// List of public IPs of the Ngix Deployment.
+        /// The list of Public IP Resource IDs for this NGINX Deployment.
         /// </summary>
         public readonly string IpAddress;
         /// <summary>
-        /// The subnet resource ID of the Nginx Deployment.
+        /// The subnet resource ID of the NGINX Deployment.
         /// </summary>
         public readonly string SubnetId;
 

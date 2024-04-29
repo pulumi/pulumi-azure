@@ -12675,7 +12675,7 @@ func (o OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput) Version
 }
 
 type OrchestratedVirtualMachineScaleSetTerminationNotification struct {
-	// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
+	// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
 	Enabled bool `pulumi:"enabled"`
 	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
 	Timeout *string `pulumi:"timeout"`
@@ -12693,7 +12693,7 @@ type OrchestratedVirtualMachineScaleSetTerminationNotificationInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetTerminationNotificationArgs struct {
-	// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
+	// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
@@ -12776,7 +12776,7 @@ func (o OrchestratedVirtualMachineScaleSetTerminationNotificationOutput) ToOrche
 	}).(OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput)
 }
 
-// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
+// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
 func (o OrchestratedVirtualMachineScaleSetTerminationNotificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetTerminationNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -12810,7 +12810,7 @@ func (o OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput) Elem
 	}).(OrchestratedVirtualMachineScaleSetTerminationNotificationOutput)
 }
 
-// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
+// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
 func (o OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetTerminationNotification) *bool {
 		if v == nil {

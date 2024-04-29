@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing Nginx Deployment.
+ * Use this data source to access information about an existing NGINX Deployment.
  *
  * ## Example Usage
  *
@@ -36,11 +36,11 @@ export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetDeploymentArgs {
     /**
-     * The name of this Nginx Deployment.
+     * The name of this NGINX Deployment.
      */
     name: string;
     /**
-     * The name of the Resource Group where the Nginx Deployment exists.
+     * The name of the Resource Group where the NGINX Deployment exists.
      */
     resourceGroupName: string;
 }
@@ -58,7 +58,7 @@ export interface GetDeploymentResult {
      */
     readonly automaticUpgradeChannel: string;
     /**
-     * The number of NGINX capacity units for this Nginx Deployment.
+     * The number of NGINX capacity units for this NGINX Deployment.
      */
     readonly capacity: number;
     /**
@@ -66,7 +66,7 @@ export interface GetDeploymentResult {
      */
     readonly diagnoseSupportEnabled: boolean;
     /**
-     * Preferred email associated with the Nginx Deployment.
+     * Preferred email associated with the NGINX Deployment.
      */
     readonly email: string;
     /**
@@ -86,11 +86,11 @@ export interface GetDeploymentResult {
      */
     readonly identities: outputs.nginx.GetDeploymentIdentity[];
     /**
-     * List of public IPs of the Ngix Deployment.
+     * The list of Public IP Resource IDs for this NGINX Deployment.
      */
     readonly ipAddress: string;
     /**
-     * The Azure Region where the Nginx Deployment exists.
+     * The Azure Region where the NGINX Deployment exists.
      */
     readonly location: string;
     /**
@@ -98,7 +98,7 @@ export interface GetDeploymentResult {
      */
     readonly loggingStorageAccounts: outputs.nginx.GetDeploymentLoggingStorageAccount[];
     /**
-     * Auto-generated managed resource group for the Nginx Deployment.
+     * Auto-generated managed resource group for the NGINX Deployment.
      */
     readonly managedResourceGroup: string;
     /**
@@ -110,21 +110,21 @@ export interface GetDeploymentResult {
      */
     readonly networkInterfaces: outputs.nginx.GetDeploymentNetworkInterface[];
     /**
-     * NGINX version of the Nginx Deployment.
+     * NGINX version of the Deployment.
      */
     readonly nginxVersion: string;
     readonly resourceGroupName: string;
     /**
-     * The Nginx Deployment SKU. Possible values include `standard_Monthly`.
+     * The NGINX Deployment SKU. Possible values include `standard_Monthly`.
      */
     readonly sku: string;
     /**
-     * A mapping of tags assigned to the Nginx Deployment.
+     * A mapping of tags assigned to the NGINX Deployment.
      */
     readonly tags: {[key: string]: string};
 }
 /**
- * Use this data source to access information about an existing Nginx Deployment.
+ * Use this data source to access information about an existing NGINX Deployment.
  *
  * ## Example Usage
  *
@@ -148,11 +148,11 @@ export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi
  */
 export interface GetDeploymentOutputArgs {
     /**
-     * The name of this Nginx Deployment.
+     * The name of this NGINX Deployment.
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Nginx Deployment exists.
+     * The name of the Resource Group where the NGINX Deployment exists.
      */
     resourceGroupName: pulumi.Input<string>;
 }

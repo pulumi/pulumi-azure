@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Certificate for an NGinx Deployment.
+// Manages a Certificate for an NGINX Deployment.
 //
 // ## Example Usage
 //
@@ -175,7 +175,7 @@ import (
 //
 // ## Import
 //
-// An Nginx Certificate can be imported using the `resource id`, e.g.
+// An NGINX Certificate can be imported using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:nginx/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/deploy1/certificates/cer1
@@ -189,9 +189,9 @@ type Certificate struct {
 	KeyVaultSecretId pulumi.StringOutput `pulumi:"keyVaultSecretId"`
 	// Specify the path to the key file of this certificate.
 	KeyVirtualPath pulumi.StringOutput `pulumi:"keyVirtualPath"`
-	// The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+	// The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+	// The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
 	NginxDeploymentId pulumi.StringOutput `pulumi:"nginxDeploymentId"`
 }
 
@@ -243,9 +243,9 @@ type certificateState struct {
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// Specify the path to the key file of this certificate.
 	KeyVirtualPath *string `pulumi:"keyVirtualPath"`
-	// The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+	// The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+	// The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
 	NginxDeploymentId *string `pulumi:"nginxDeploymentId"`
 }
 
@@ -256,9 +256,9 @@ type CertificateState struct {
 	KeyVaultSecretId pulumi.StringPtrInput
 	// Specify the path to the key file of this certificate.
 	KeyVirtualPath pulumi.StringPtrInput
-	// The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+	// The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+	// The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
 	NginxDeploymentId pulumi.StringPtrInput
 }
 
@@ -273,9 +273,9 @@ type certificateArgs struct {
 	KeyVaultSecretId string `pulumi:"keyVaultSecretId"`
 	// Specify the path to the key file of this certificate.
 	KeyVirtualPath string `pulumi:"keyVirtualPath"`
-	// The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+	// The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+	// The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
 	NginxDeploymentId string `pulumi:"nginxDeploymentId"`
 }
 
@@ -287,9 +287,9 @@ type CertificateArgs struct {
 	KeyVaultSecretId pulumi.StringInput
 	// Specify the path to the key file of this certificate.
 	KeyVirtualPath pulumi.StringInput
-	// The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+	// The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+	// The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
 	NginxDeploymentId pulumi.StringInput
 }
 
@@ -395,12 +395,12 @@ func (o CertificateOutput) KeyVirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.KeyVirtualPath }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+// The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
 func (o CertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+// The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
 func (o CertificateOutput) NginxDeploymentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.NginxDeploymentId }).(pulumi.StringOutput)
 }

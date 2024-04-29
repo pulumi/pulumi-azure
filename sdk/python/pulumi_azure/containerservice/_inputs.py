@@ -3331,7 +3331,9 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
                  server_app_secret: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] managed: Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+        :param pulumi.Input[bool] managed: Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
+               
+               > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
         :param pulumi.Input[str] tenant_id: The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         """
         if admin_group_object_ids is not None:
@@ -3344,8 +3346,8 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
         if client_app_id is not None:
             pulumi.set(__self__, "client_app_id", client_app_id)
         if managed is not None:
-            warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""managed is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
+            warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""managed is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.""")
         if managed is not None:
             pulumi.set(__self__, "managed", managed)
         if server_app_id is not None:
@@ -3395,10 +3397,12 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
     @pulumi.getter
     def managed(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+        Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
+
+        > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
         """
-        warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-        pulumi.log.warn("""managed is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
+        warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""managed is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.""")
 
         return pulumi.get(self, "managed")
 
@@ -6499,7 +6503,7 @@ class KubernetesClusterNetworkProfileArgs:
         """
         :param pulumi.Input[str] network_plugin: Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
                
-               > **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set.
+               > **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set, unless specifying `network_plugin_mode` to `overlay`.
         :param pulumi.Input[str] dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         :param pulumi.Input[str] docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
                
@@ -6533,7 +6537,7 @@ class KubernetesClusterNetworkProfileArgs:
                
                > **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
         :param pulumi.Input[str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
-        :param pulumi.Input[str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pod_cidrs: A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_cidr: The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_cidrs: A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
@@ -6581,7 +6585,7 @@ class KubernetesClusterNetworkProfileArgs:
         """
         Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 
-        > **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set.
+        > **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set, unless specifying `network_plugin_mode` to `overlay`.
         """
         return pulumi.get(self, "network_plugin")
 
@@ -6750,7 +6754,7 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="podCidr")
     def pod_cidr(self) -> Optional[pulumi.Input[str]]:
         """
-        The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
+        The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "pod_cidr")
 

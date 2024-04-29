@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Nginx.Outputs
     public sealed class GetDeploymentFrontendPublicResult
     {
         /// <summary>
-        /// List of public IPs of the Ngix Deployment.
+        /// The list of Public IP Resource IDs for this NGINX Deployment.
         /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
 

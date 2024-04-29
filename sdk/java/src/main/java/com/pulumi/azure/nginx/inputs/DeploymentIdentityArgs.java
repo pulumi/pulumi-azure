@@ -51,14 +51,14 @@ public final class DeploymentIdentityArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+     * Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+     * @return Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
      * 
      */
     public Output<String> type() {
@@ -148,7 +148,7 @@ public final class DeploymentIdentityArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+         * @param type Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class DeploymentIdentityArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+         * @param type Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
          * 
          * @return builder
          * 

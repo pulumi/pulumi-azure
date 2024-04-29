@@ -5354,7 +5354,7 @@ class OrchestratedVirtualMachineScaleSetTerminationNotification(dict):
                  enabled: bool,
                  timeout: Optional[str] = None):
         """
-        :param bool enabled: Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
+        :param bool enabled: Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
         :param str timeout: Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -5365,7 +5365,7 @@ class OrchestratedVirtualMachineScaleSetTerminationNotification(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
+        Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
         """
         return pulumi.get(self, "enabled")
 

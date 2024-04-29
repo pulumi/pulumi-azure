@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class OrchestratedVirtualMachineScaleSetTerminationNotification
     {
         /// <summary>
-        /// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
+        /// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

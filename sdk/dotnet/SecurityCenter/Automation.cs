@@ -68,7 +68,7 @@ namespace Pulumi.Azure.SecurityCenter
     ///         {
     ///             new Azure.SecurityCenter.Inputs.AutomationActionArgs
     ///             {
-    ///                 Type = "EventHub",
+    ///                 Type = "eventhub",
     ///                 ResourceId = exampleEventHub.Id,
     ///                 ConnectionString = exampleAuthorizationRule.PrimaryConnectionString,
     ///             },

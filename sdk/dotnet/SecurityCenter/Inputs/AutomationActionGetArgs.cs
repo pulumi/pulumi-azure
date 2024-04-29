@@ -16,7 +16,7 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
         private Input<string>? _connectionString;
 
         /// <summary>
-        /// (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+        /// (Optional, but required when `type` is `eventhub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
         /// </summary>
         public Input<string>? ConnectionString
         {
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
         private Input<string>? _triggerUrl;
 
         /// <summary>
-        /// (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+        /// (Optional, but required when `type` is `logicapp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
         /// </summary>
         public Input<string>? TriggerUrl
         {
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
         }
 
         /// <summary>
-        /// Type of Azure resource to send data to. Must be set to one of: `LogicApp`, `EventHub` or `LogAnalytics`.
+        /// Type of Azure resource to send data to. Must be set to one of: `logicapp`, `eventhub` or `loganalytics`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

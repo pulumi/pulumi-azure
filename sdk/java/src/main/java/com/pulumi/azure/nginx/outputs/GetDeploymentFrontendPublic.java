@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class GetDeploymentFrontendPublic {
     /**
-     * @return List of public IPs of the Ngix Deployment.
+     * @return The list of Public IP Resource IDs for this NGINX Deployment.
      * 
      */
     private List<String> ipAddresses;
 
     private GetDeploymentFrontendPublic() {}
     /**
-     * @return List of public IPs of the Ngix Deployment.
+     * @return The list of Public IP Resource IDs for this NGINX Deployment.
      * 
      */
     public List<String> ipAddresses() {

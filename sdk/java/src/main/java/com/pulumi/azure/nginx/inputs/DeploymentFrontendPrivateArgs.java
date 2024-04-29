@@ -15,14 +15,14 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
     public static final DeploymentFrontendPrivateArgs Empty = new DeploymentFrontendPrivateArgs();
 
     /**
-     * Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
+     * Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
      * 
      */
     @Import(name="allocationMethod", required=true)
     private Output<String> allocationMethod;
 
     /**
-     * @return Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
+     * @return Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
      * 
      */
     public Output<String> allocationMethod() {
@@ -30,14 +30,14 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specify the IP Address of this private IP.
+     * Specify the private IP Address.
      * 
      */
     @Import(name="ipAddress", required=true)
     private Output<String> ipAddress;
 
     /**
-     * @return Specify the IP Address of this private IP.
+     * @return Specify the private IP Address.
      * 
      */
     public Output<String> ipAddress() {
@@ -45,14 +45,14 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specify the SubNet Resource ID to this Nginx Deployment.
+     * Specify the Subnet Resource ID for this NGINX Deployment.
      * 
      */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
     /**
-     * @return Specify the SubNet Resource ID to this Nginx Deployment.
+     * @return Specify the Subnet Resource ID for this NGINX Deployment.
      * 
      */
     public Output<String> subnetId() {
@@ -86,7 +86,7 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param allocationMethod Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
+         * @param allocationMethod Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param allocationMethod Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
+         * @param allocationMethod Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipAddress Specify the IP Address of this private IP.
+         * @param ipAddress Specify the private IP Address.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipAddress Specify the IP Address of this private IP.
+         * @param ipAddress Specify the private IP Address.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param subnetId Specify the SubNet Resource ID to this Nginx Deployment.
+         * @param subnetId Specify the Subnet Resource ID for this NGINX Deployment.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param subnetId Specify the SubNet Resource ID to this Nginx Deployment.
+         * @param subnetId Specify the Subnet Resource ID for this NGINX Deployment.
          * 
          * @return builder
          * 

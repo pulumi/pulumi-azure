@@ -395,7 +395,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+     * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
      * 
      */
     @Export(name="platformFaultDomainCount", refs={Integer.class}, tree="[0]")
@@ -404,7 +404,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * @return Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+     * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
      * 
      */
     public Output<Integer> platformFaultDomainCount() {

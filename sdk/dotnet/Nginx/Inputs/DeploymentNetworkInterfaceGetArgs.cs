@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Nginx.Inputs
     public sealed class DeploymentNetworkInterfaceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specify The SubNet Resource ID to this Nginx Deployment.
+        /// Specify The Subnet Resource ID for this NGINX Deployment.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Nginx
 {
     /// <summary>
-    /// Manages a Certificate for an NGinx Deployment.
+    /// Manages a Certificate for an NGINX Deployment.
     /// 
     /// ## Example Usage
     /// 
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.Nginx
     /// 
     /// ## Import
     /// 
-    /// An Nginx Certificate can be imported using the `resource id`, e.g.
+    /// An NGINX Certificate can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:nginx/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/deploy1/certificates/cer1
@@ -193,13 +193,13 @@ namespace Pulumi.Azure.Nginx
         public Output<string> KeyVirtualPath { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+        /// The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+        /// The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
         /// </summary>
         [Output("nginxDeploymentId")]
         public Output<string> NginxDeploymentId { get; private set; } = null!;
@@ -269,13 +269,13 @@ namespace Pulumi.Azure.Nginx
         public Input<string> KeyVirtualPath { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+        /// The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+        /// The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
         /// </summary>
         [Input("nginxDeploymentId", required: true)]
         public Input<string> NginxDeploymentId { get; set; } = null!;
@@ -307,13 +307,13 @@ namespace Pulumi.Azure.Nginx
         public Input<string>? KeyVirtualPath { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+        /// The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+        /// The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
         /// </summary>
         [Input("nginxDeploymentId")]
         public Input<string>? NginxDeploymentId { get; set; }

@@ -31,7 +31,7 @@ public final class GetDeploymentResult {
      */
     private String automaticUpgradeChannel;
     /**
-     * @return The number of NGINX capacity units for this Nginx Deployment.
+     * @return The number of NGINX capacity units for this NGINX Deployment.
      * 
      */
     private Integer capacity;
@@ -41,7 +41,7 @@ public final class GetDeploymentResult {
      */
     private Boolean diagnoseSupportEnabled;
     /**
-     * @return Preferred email associated with the Nginx Deployment.
+     * @return Preferred email associated with the NGINX Deployment.
      * 
      */
     private String email;
@@ -66,12 +66,12 @@ public final class GetDeploymentResult {
      */
     private List<GetDeploymentIdentity> identities;
     /**
-     * @return List of public IPs of the Ngix Deployment.
+     * @return The list of Public IP Resource IDs for this NGINX Deployment.
      * 
      */
     private String ipAddress;
     /**
-     * @return The Azure Region where the Nginx Deployment exists.
+     * @return The Azure Region where the NGINX Deployment exists.
      * 
      */
     private String location;
@@ -81,7 +81,7 @@ public final class GetDeploymentResult {
      */
     private List<GetDeploymentLoggingStorageAccount> loggingStorageAccounts;
     /**
-     * @return Auto-generated managed resource group for the Nginx Deployment.
+     * @return Auto-generated managed resource group for the NGINX Deployment.
      * 
      */
     private String managedResourceGroup;
@@ -96,18 +96,18 @@ public final class GetDeploymentResult {
      */
     private List<GetDeploymentNetworkInterface> networkInterfaces;
     /**
-     * @return NGINX version of the Nginx Deployment.
+     * @return NGINX version of the Deployment.
      * 
      */
     private String nginxVersion;
     private String resourceGroupName;
     /**
-     * @return The Nginx Deployment SKU. Possible values include `standard_Monthly`.
+     * @return The NGINX Deployment SKU. Possible values include `standard_Monthly`.
      * 
      */
     private String sku;
     /**
-     * @return A mapping of tags assigned to the Nginx Deployment.
+     * @return A mapping of tags assigned to the NGINX Deployment.
      * 
      */
     private Map<String,String> tags;
@@ -128,7 +128,7 @@ public final class GetDeploymentResult {
         return this.automaticUpgradeChannel;
     }
     /**
-     * @return The number of NGINX capacity units for this Nginx Deployment.
+     * @return The number of NGINX capacity units for this NGINX Deployment.
      * 
      */
     public Integer capacity() {
@@ -142,7 +142,7 @@ public final class GetDeploymentResult {
         return this.diagnoseSupportEnabled;
     }
     /**
-     * @return Preferred email associated with the Nginx Deployment.
+     * @return Preferred email associated with the NGINX Deployment.
      * 
      */
     public String email() {
@@ -177,14 +177,14 @@ public final class GetDeploymentResult {
         return this.identities;
     }
     /**
-     * @return List of public IPs of the Ngix Deployment.
+     * @return The list of Public IP Resource IDs for this NGINX Deployment.
      * 
      */
     public String ipAddress() {
         return this.ipAddress;
     }
     /**
-     * @return The Azure Region where the Nginx Deployment exists.
+     * @return The Azure Region where the NGINX Deployment exists.
      * 
      */
     public String location() {
@@ -198,7 +198,7 @@ public final class GetDeploymentResult {
         return this.loggingStorageAccounts;
     }
     /**
-     * @return Auto-generated managed resource group for the Nginx Deployment.
+     * @return Auto-generated managed resource group for the NGINX Deployment.
      * 
      */
     public String managedResourceGroup() {
@@ -219,7 +219,7 @@ public final class GetDeploymentResult {
         return this.networkInterfaces;
     }
     /**
-     * @return NGINX version of the Nginx Deployment.
+     * @return NGINX version of the Deployment.
      * 
      */
     public String nginxVersion() {
@@ -229,14 +229,14 @@ public final class GetDeploymentResult {
         return this.resourceGroupName;
     }
     /**
-     * @return The Nginx Deployment SKU. Possible values include `standard_Monthly`.
+     * @return The NGINX Deployment SKU. Possible values include `standard_Monthly`.
      * 
      */
     public String sku() {
         return this.sku;
     }
     /**
-     * @return A mapping of tags assigned to the Nginx Deployment.
+     * @return A mapping of tags assigned to the NGINX Deployment.
      * 
      */
     public Map<String,String> tags() {

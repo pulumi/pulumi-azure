@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to access information about an existing Nginx Certificate.
+// Use this data source to access information about an existing NGINX Certificate.
 //
 // ## Example Usage
 //
@@ -52,21 +52,21 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateArgs struct {
-	// The name of this Nginx Certificate.
+	// The name of the NGINX Certificate.
 	Name string `pulumi:"name"`
-	// The ID of the Nginx Deployment that this certificate is associated with.
+	// The ID of the NGINX Deployment that the certificate is associated with.
 	NginxDeploymentId string `pulumi:"nginxDeploymentId"`
 }
 
 // A collection of values returned by getCertificate.
 type LookupCertificateResult struct {
-	// The path to the certificate file of this certificate.
+	// The path to the certificate file of the certificate.
 	CertificateVirtualPath string `pulumi:"certificateVirtualPath"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The ID of the Key Vault Secret for this certificate.
+	// The ID of the Key Vault Secret for the certificate.
 	KeyVaultSecretId string `pulumi:"keyVaultSecretId"`
-	// The path to the key file of this certificate.
+	// The path to the key file of the certificate.
 	KeyVirtualPath    string `pulumi:"keyVirtualPath"`
 	Name              string `pulumi:"name"`
 	NginxDeploymentId string `pulumi:"nginxDeploymentId"`
@@ -87,9 +87,9 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateOutputArgs struct {
-	// The name of this Nginx Certificate.
+	// The name of the NGINX Certificate.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The ID of the Nginx Deployment that this certificate is associated with.
+	// The ID of the NGINX Deployment that the certificate is associated with.
 	NginxDeploymentId pulumi.StringInput `pulumi:"nginxDeploymentId"`
 }
 
@@ -112,7 +112,7 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContex
 	return o
 }
 
-// The path to the certificate file of this certificate.
+// The path to the certificate file of the certificate.
 func (o LookupCertificateResultOutput) CertificateVirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateVirtualPath }).(pulumi.StringOutput)
 }
@@ -122,12 +122,12 @@ func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ID of the Key Vault Secret for this certificate.
+// The ID of the Key Vault Secret for the certificate.
 func (o LookupCertificateResultOutput) KeyVaultSecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.KeyVaultSecretId }).(pulumi.StringOutput)
 }
 
-// The path to the key file of this certificate.
+// The path to the key file of the certificate.
 func (o LookupCertificateResultOutput) KeyVirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.KeyVirtualPath }).(pulumi.StringOutput)
 }

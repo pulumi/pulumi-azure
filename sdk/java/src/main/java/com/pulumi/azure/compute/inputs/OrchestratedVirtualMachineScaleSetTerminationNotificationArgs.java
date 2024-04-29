@@ -18,14 +18,14 @@ public final class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs
     public static final OrchestratedVirtualMachineScaleSetTerminationNotificationArgs Empty = new OrchestratedVirtualMachineScaleSetTerminationNotificationArgs();
 
     /**
-     * Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
+     * Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
+     * @return Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
      * 
      */
     public Output<Boolean> enabled() {
@@ -73,7 +73,7 @@ public final class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs
         }
 
         /**
-         * @param enabled Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
+         * @param enabled Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs
         }
 
         /**
-         * @param enabled Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
+         * @param enabled Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
          * 
          * @return builder
          * 

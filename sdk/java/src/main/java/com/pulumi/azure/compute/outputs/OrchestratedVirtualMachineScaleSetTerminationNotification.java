@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetTerminationNotification {
     /**
-     * @return Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
+     * @return Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
      * 
      */
     private Boolean enabled;
@@ -26,7 +26,7 @@ public final class OrchestratedVirtualMachineScaleSetTerminationNotification {
 
     private OrchestratedVirtualMachineScaleSetTerminationNotification() {}
     /**
-     * @return Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
+     * @return Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
      * 
      */
     public Boolean enabled() {

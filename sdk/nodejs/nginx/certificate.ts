@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Certificate for an NGinx Deployment.
+ * Manages a Certificate for an NGINX Deployment.
  *
  * ## Example Usage
  *
@@ -108,7 +108,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * An Nginx Certificate can be imported using the `resource id`, e.g.
+ * An NGINX Certificate can be imported using the `resource id`, e.g.
  *
  * ```sh
  * $ pulumi import azure:nginx/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/deploy1/certificates/cer1
@@ -155,11 +155,11 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly keyVirtualPath!: pulumi.Output<string>;
     /**
-     * The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+     * The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+     * The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
      */
     public readonly nginxDeploymentId!: pulumi.Output<string>;
 
@@ -223,11 +223,11 @@ export interface CertificateState {
      */
     keyVirtualPath?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+     * The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+     * The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
      */
     nginxDeploymentId?: pulumi.Input<string>;
 }
@@ -249,11 +249,11 @@ export interface CertificateArgs {
      */
     keyVirtualPath: pulumi.Input<string>;
     /**
-     * The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+     * The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+     * The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
      */
     nginxDeploymentId: pulumi.Input<string>;
 }

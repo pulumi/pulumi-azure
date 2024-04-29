@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     actions: [{
- *         type: "EventHub",
+ *         type: "eventhub",
  *         resourceId: exampleEventHub.id,
  *         connectionString: exampleAuthorizationRule.primaryConnectionString,
  *     }],

@@ -6919,9 +6919,11 @@ type KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl struct {
 	AzureRbacEnabled    *bool    `pulumi:"azureRbacEnabled"`
 	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ClientAppId *string `pulumi:"clientAppId"`
-	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
 	//
-	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+	// > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
+	//
+	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.
 	Managed *bool `pulumi:"managed"`
 	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ServerAppId *string `pulumi:"serverAppId"`
@@ -6947,9 +6949,11 @@ type KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs struct {
 	AzureRbacEnabled    pulumi.BoolPtrInput     `pulumi:"azureRbacEnabled"`
 	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ClientAppId pulumi.StringPtrInput `pulumi:"clientAppId"`
-	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
 	//
-	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+	// > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
+	//
+	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.
 	Managed pulumi.BoolPtrInput `pulumi:"managed"`
 	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
 	ServerAppId pulumi.StringPtrInput `pulumi:"serverAppId"`
@@ -7051,9 +7055,11 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) Clien
 	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string { return v.ClientAppId }).(pulumi.StringPtrOutput)
 }
 
-// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
 //
-// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+// > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
+//
+// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) Managed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *bool { return v.Managed }).(pulumi.BoolPtrOutput)
 }
@@ -7125,9 +7131,11 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Cl
 	}).(pulumi.StringPtrOutput)
 }
 
-// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
 //
-// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+// > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
+//
+// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Managed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *bool {
 		if v == nil {
@@ -13744,7 +13752,7 @@ type KubernetesClusterNetworkProfile struct {
 	NetworkMode *string `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set.
+	// > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set, unless specifying `networkPluginMode` to `overlay`.
 	NetworkPlugin string `pulumi:"networkPlugin"`
 	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
 	//
@@ -13758,7 +13766,7 @@ type KubernetesClusterNetworkProfile struct {
 	NetworkPolicy *string `pulumi:"networkPolicy"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 	OutboundType *string `pulumi:"outboundType"`
-	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
+	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
 	PodCidr *string `pulumi:"podCidr"`
 	// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
 	PodCidrs []string `pulumi:"podCidrs"`
@@ -13818,7 +13826,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set.
+	// > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set, unless specifying `networkPluginMode` to `overlay`.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
 	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
 	//
@@ -13832,7 +13840,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
-	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
+	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
 	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
 	// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
 	PodCidrs pulumi.StringArrayInput `pulumi:"podCidrs"`
@@ -13985,7 +13993,7 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkMode() pulumi.StringPtrOut
 
 // Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 //
-// > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set.
+// > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set, unless specifying `networkPluginMode` to `overlay`.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
@@ -14011,7 +14019,7 @@ func (o KubernetesClusterNetworkProfileOutput) OutboundType() pulumi.StringPtrOu
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.OutboundType }).(pulumi.StringPtrOutput)
 }
 
-// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
+// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
 }
@@ -14157,7 +14165,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkMode() pulumi.StringPtr
 
 // Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 //
-// > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set.
+// > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set, unless specifying `networkPluginMode` to `overlay`.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -14203,7 +14211,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) OutboundType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
+// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {

@@ -81,7 +81,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Actions: securitycenter.AutomationActionArray{
 //					&securitycenter.AutomationActionArgs{
-//						Type:             pulumi.String("EventHub"),
+//						Type:             pulumi.String("eventhub"),
 //						ResourceId:       exampleEventHub.ID(),
 //						ConnectionString: exampleAuthorizationRule.PrimaryConnectionString,
 //					},

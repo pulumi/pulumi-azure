@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Nginx
     public static class GetCertificate
     {
         /// <summary>
-        /// Use this data source to access information about an existing Nginx Certificate.
+        /// Use this data source to access information about an existing NGINX Certificate.
         /// 
         /// ## Example Usage
         /// 
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Nginx
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure:nginx/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing Nginx Certificate.
+        /// Use this data source to access information about an existing NGINX Certificate.
         /// 
         /// ## Example Usage
         /// 
@@ -74,13 +74,13 @@ namespace Pulumi.Azure.Nginx
     public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of this Nginx Certificate.
+        /// The name of the NGINX Certificate.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Nginx Deployment that this certificate is associated with.
+        /// The ID of the NGINX Deployment that the certificate is associated with.
         /// </summary>
         [Input("nginxDeploymentId", required: true)]
         public string NginxDeploymentId { get; set; } = null!;
@@ -94,13 +94,13 @@ namespace Pulumi.Azure.Nginx
     public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of this Nginx Certificate.
+        /// The name of the NGINX Certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Nginx Deployment that this certificate is associated with.
+        /// The ID of the NGINX Deployment that the certificate is associated with.
         /// </summary>
         [Input("nginxDeploymentId", required: true)]
         public Input<string> NginxDeploymentId { get; set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Nginx
     public sealed class GetCertificateResult
     {
         /// <summary>
-        /// The path to the certificate file of this certificate.
+        /// The path to the certificate file of the certificate.
         /// </summary>
         public readonly string CertificateVirtualPath;
         /// <summary>
@@ -124,11 +124,11 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ID of the Key Vault Secret for this certificate.
+        /// The ID of the Key Vault Secret for the certificate.
         /// </summary>
         public readonly string KeyVaultSecretId;
         /// <summary>
-        /// The path to the key file of this certificate.
+        /// The path to the key file of the certificate.
         /// </summary>
         public readonly string KeyVirtualPath;
         public readonly string Name;

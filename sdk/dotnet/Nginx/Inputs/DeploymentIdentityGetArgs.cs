@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Nginx.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+        /// Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

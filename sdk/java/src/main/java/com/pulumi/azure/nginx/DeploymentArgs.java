@@ -107,14 +107,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify the preferred support contact email address of the user used for sending alerts and notification.
+     * Specify the preferred support contact email address for receiving alerts and notifications.
      * 
      */
     @Import(name="email")
     private @Nullable Output<String> email;
 
     /**
-     * @return Specify the preferred support contact email address of the user used for sending alerts and notification.
+     * @return Specify the preferred support contact email address for receiving alerts and notifications.
      * 
      */
     public Optional<Output<String>> email() {
@@ -122,14 +122,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+     * One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     @Import(name="frontendPrivates")
     private @Nullable Output<List<DeploymentFrontendPrivateArgs>> frontendPrivates;
 
     /**
-     * @return One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+     * @return One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     public Optional<Output<List<DeploymentFrontendPrivateArgs>>> frontendPrivates() {
@@ -137,14 +137,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
+     * A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     @Import(name="frontendPublic")
     private @Nullable Output<DeploymentFrontendPublicArgs> frontendPublic;
 
     /**
-     * @return A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
+     * @return A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     public Optional<Output<DeploymentFrontendPublicArgs>> frontendPublic() {
@@ -167,14 +167,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+     * The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+     * @return The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -197,14 +197,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+     * Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     @Import(name="managedResourceGroup")
     private @Nullable Output<String> managedResourceGroup;
 
     /**
-     * @return Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+     * @return Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     public Optional<Output<String>> managedResourceGroup() {
@@ -212,14 +212,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+     * The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+     * @return The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -227,14 +227,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+     * One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     @Import(name="networkInterfaces")
     private @Nullable Output<List<DeploymentNetworkInterfaceArgs>> networkInterfaces;
 
     /**
-     * @return One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+     * @return One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     public Optional<Output<List<DeploymentNetworkInterfaceArgs>>> networkInterfaces() {
@@ -242,14 +242,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+     * The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+     * @return The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -257,14 +257,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+     * Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sku", required=true)
     private Output<String> sku;
 
     /**
-     * @return Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+     * @return Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sku() {
@@ -272,14 +272,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A mapping of tags which should be assigned to the Nginx Deployment.
+     * A mapping of tags which should be assigned to the NGINX Deployment.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Nginx Deployment.
+     * @return A mapping of tags which should be assigned to the NGINX Deployment.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -446,7 +446,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param email Specify the preferred support contact email address of the user used for sending alerts and notification.
+         * @param email Specify the preferred support contact email address for receiving alerts and notifications.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param email Specify the preferred support contact email address of the user used for sending alerts and notification.
+         * @param email Specify the preferred support contact email address for receiving alerts and notifications.
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPrivates One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+         * @param frontendPrivates One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPrivates One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+         * @param frontendPrivates One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -488,7 +488,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPrivates One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+         * @param frontendPrivates One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPublic A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
+         * @param frontendPublic A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPublic A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
+         * @param frontendPublic A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -540,7 +540,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+         * @param location The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -551,7 +551,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+         * @param location The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedResourceGroup Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+         * @param managedResourceGroup Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedResourceGroup Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+         * @param managedResourceGroup Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -613,7 +613,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+         * @param name The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -624,7 +624,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+         * @param name The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -634,7 +634,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+         * @param networkInterfaces One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -645,7 +645,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+         * @param networkInterfaces One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -655,7 +655,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+         * @param networkInterfaces One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -665,7 +665,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+         * @param resourceGroupName The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -676,7 +676,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+         * @param resourceGroupName The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -686,7 +686,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+         * @param sku Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -697,7 +697,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+         * @param sku Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -707,7 +707,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Nginx Deployment.
+         * @param tags A mapping of tags which should be assigned to the NGINX Deployment.
          * 
          * @return builder
          * 
@@ -718,7 +718,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Nginx Deployment.
+         * @param tags A mapping of tags which should be assigned to the NGINX Deployment.
          * 
          * @return builder
          * 

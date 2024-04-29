@@ -732,11 +732,11 @@ func (o DeploymentConfigurationProtectedFileArrayOutput) Index(i pulumi.IntInput
 }
 
 type DeploymentFrontendPrivate struct {
-	// Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
+	// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
 	AllocationMethod string `pulumi:"allocationMethod"`
-	// Specify the IP Address of this private IP.
+	// Specify the private IP Address.
 	IpAddress string `pulumi:"ipAddress"`
-	// Specify the SubNet Resource ID to this Nginx Deployment.
+	// Specify the Subnet Resource ID for this NGINX Deployment.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -752,11 +752,11 @@ type DeploymentFrontendPrivateInput interface {
 }
 
 type DeploymentFrontendPrivateArgs struct {
-	// Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
+	// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
 	AllocationMethod pulumi.StringInput `pulumi:"allocationMethod"`
-	// Specify the IP Address of this private IP.
+	// Specify the private IP Address.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
-	// Specify the SubNet Resource ID to this Nginx Deployment.
+	// Specify the Subnet Resource ID for this NGINX Deployment.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -811,17 +811,17 @@ func (o DeploymentFrontendPrivateOutput) ToDeploymentFrontendPrivateOutputWithCo
 	return o
 }
 
-// Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
+// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
 func (o DeploymentFrontendPrivateOutput) AllocationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentFrontendPrivate) string { return v.AllocationMethod }).(pulumi.StringOutput)
 }
 
-// Specify the IP Address of this private IP.
+// Specify the private IP Address.
 func (o DeploymentFrontendPrivateOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentFrontendPrivate) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// Specify the SubNet Resource ID to this Nginx Deployment.
+// Specify the Subnet Resource ID for this NGINX Deployment.
 func (o DeploymentFrontendPrivateOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentFrontendPrivate) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -847,7 +847,7 @@ func (o DeploymentFrontendPrivateArrayOutput) Index(i pulumi.IntInput) Deploymen
 }
 
 type DeploymentFrontendPublic struct {
-	// Specifies a list of Public IP Resource ID to this Nginx Deployment.
+	// Specifies a list of Public IP Resource ID to this NGINX Deployment.
 	IpAddresses []string `pulumi:"ipAddresses"`
 }
 
@@ -863,7 +863,7 @@ type DeploymentFrontendPublicInput interface {
 }
 
 type DeploymentFrontendPublicArgs struct {
-	// Specifies a list of Public IP Resource ID to this Nginx Deployment.
+	// Specifies a list of Public IP Resource ID to this NGINX Deployment.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 }
 
@@ -944,7 +944,7 @@ func (o DeploymentFrontendPublicOutput) ToDeploymentFrontendPublicPtrOutputWithC
 	}).(DeploymentFrontendPublicPtrOutput)
 }
 
-// Specifies a list of Public IP Resource ID to this Nginx Deployment.
+// Specifies a list of Public IP Resource ID to this NGINX Deployment.
 func (o DeploymentFrontendPublicOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeploymentFrontendPublic) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
@@ -973,7 +973,7 @@ func (o DeploymentFrontendPublicPtrOutput) Elem() DeploymentFrontendPublicOutput
 	}).(DeploymentFrontendPublicOutput)
 }
 
-// Specifies a list of Public IP Resource ID to this Nginx Deployment.
+// Specifies a list of Public IP Resource ID to this NGINX Deployment.
 func (o DeploymentFrontendPublicPtrOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeploymentFrontendPublic) []string {
 		if v == nil {
@@ -990,7 +990,7 @@ type DeploymentIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
-	// Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+	// Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -1012,7 +1012,7 @@ type DeploymentIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	// Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+	// Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1108,7 +1108,7 @@ func (o DeploymentIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+// Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
 func (o DeploymentIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1167,7 +1167,7 @@ func (o DeploymentIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+// Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
 func (o DeploymentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentIdentity) *string {
 		if v == nil {
@@ -1178,9 +1178,9 @@ func (o DeploymentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type DeploymentLoggingStorageAccount struct {
-	// Specify the container name of Storage Account for logging.
+	// Specify the container name in the Storage Account for logging.
 	ContainerName *string `pulumi:"containerName"`
-	// The account name of the StorageAccount for Nginx Logging.
+	// The name of the StorageAccount for NGINX Logging.
 	Name *string `pulumi:"name"`
 }
 
@@ -1196,9 +1196,9 @@ type DeploymentLoggingStorageAccountInput interface {
 }
 
 type DeploymentLoggingStorageAccountArgs struct {
-	// Specify the container name of Storage Account for logging.
+	// Specify the container name in the Storage Account for logging.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// The account name of the StorageAccount for Nginx Logging.
+	// The name of the StorageAccount for NGINX Logging.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1253,12 +1253,12 @@ func (o DeploymentLoggingStorageAccountOutput) ToDeploymentLoggingStorageAccount
 	return o
 }
 
-// Specify the container name of Storage Account for logging.
+// Specify the container name in the Storage Account for logging.
 func (o DeploymentLoggingStorageAccountOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentLoggingStorageAccount) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// The account name of the StorageAccount for Nginx Logging.
+// The name of the StorageAccount for NGINX Logging.
 func (o DeploymentLoggingStorageAccountOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentLoggingStorageAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1284,7 +1284,7 @@ func (o DeploymentLoggingStorageAccountArrayOutput) Index(i pulumi.IntInput) Dep
 }
 
 type DeploymentNetworkInterface struct {
-	// Specify The SubNet Resource ID to this Nginx Deployment.
+	// Specify The Subnet Resource ID for this NGINX Deployment.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -1300,7 +1300,7 @@ type DeploymentNetworkInterfaceInput interface {
 }
 
 type DeploymentNetworkInterfaceArgs struct {
-	// Specify The SubNet Resource ID to this Nginx Deployment.
+	// Specify The Subnet Resource ID for this NGINX Deployment.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -1355,7 +1355,7 @@ func (o DeploymentNetworkInterfaceOutput) ToDeploymentNetworkInterfaceOutputWith
 	return o
 }
 
-// Specify The SubNet Resource ID to this Nginx Deployment.
+// Specify The Subnet Resource ID for this NGINX Deployment.
 func (o DeploymentNetworkInterfaceOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentNetworkInterface) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -1585,7 +1585,7 @@ type GetDeploymentAutoScaleProfile struct {
 	MaxCapacity int `pulumi:"maxCapacity"`
 	// The minimum number of NGINX capacity units for this NGINX Deployment.
 	MinCapacity int `pulumi:"minCapacity"`
-	// The name of this Nginx Deployment.
+	// The name of this NGINX Deployment.
 	Name string `pulumi:"name"`
 }
 
@@ -1605,7 +1605,7 @@ type GetDeploymentAutoScaleProfileArgs struct {
 	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
 	// The minimum number of NGINX capacity units for this NGINX Deployment.
 	MinCapacity pulumi.IntInput `pulumi:"minCapacity"`
-	// The name of this Nginx Deployment.
+	// The name of this NGINX Deployment.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1670,7 +1670,7 @@ func (o GetDeploymentAutoScaleProfileOutput) MinCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDeploymentAutoScaleProfile) int { return v.MinCapacity }).(pulumi.IntOutput)
 }
 
-// The name of this Nginx Deployment.
+// The name of this NGINX Deployment.
 func (o GetDeploymentAutoScaleProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDeploymentAutoScaleProfile) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1696,11 +1696,11 @@ func (o GetDeploymentAutoScaleProfileArrayOutput) Index(i pulumi.IntInput) GetDe
 }
 
 type GetDeploymentFrontendPrivate struct {
-	// The method of allocating the private IP to the Nginx Deployment.
+	// The method of allocating the private IP to the NGINX Deployment.
 	AllocationMethod string `pulumi:"allocationMethod"`
-	// List of public IPs of the Ngix Deployment.
+	// The list of Public IP Resource IDs for this NGINX Deployment.
 	IpAddress string `pulumi:"ipAddress"`
-	// The subnet resource ID of the Nginx Deployment.
+	// The subnet resource ID of the NGINX Deployment.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -1716,11 +1716,11 @@ type GetDeploymentFrontendPrivateInput interface {
 }
 
 type GetDeploymentFrontendPrivateArgs struct {
-	// The method of allocating the private IP to the Nginx Deployment.
+	// The method of allocating the private IP to the NGINX Deployment.
 	AllocationMethod pulumi.StringInput `pulumi:"allocationMethod"`
-	// List of public IPs of the Ngix Deployment.
+	// The list of Public IP Resource IDs for this NGINX Deployment.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
-	// The subnet resource ID of the Nginx Deployment.
+	// The subnet resource ID of the NGINX Deployment.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -1775,17 +1775,17 @@ func (o GetDeploymentFrontendPrivateOutput) ToGetDeploymentFrontendPrivateOutput
 	return o
 }
 
-// The method of allocating the private IP to the Nginx Deployment.
+// The method of allocating the private IP to the NGINX Deployment.
 func (o GetDeploymentFrontendPrivateOutput) AllocationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDeploymentFrontendPrivate) string { return v.AllocationMethod }).(pulumi.StringOutput)
 }
 
-// List of public IPs of the Ngix Deployment.
+// The list of Public IP Resource IDs for this NGINX Deployment.
 func (o GetDeploymentFrontendPrivateOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDeploymentFrontendPrivate) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// The subnet resource ID of the Nginx Deployment.
+// The subnet resource ID of the NGINX Deployment.
 func (o GetDeploymentFrontendPrivateOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDeploymentFrontendPrivate) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -1811,7 +1811,7 @@ func (o GetDeploymentFrontendPrivateArrayOutput) Index(i pulumi.IntInput) GetDep
 }
 
 type GetDeploymentFrontendPublic struct {
-	// List of public IPs of the Ngix Deployment.
+	// The list of Public IP Resource IDs for this NGINX Deployment.
 	IpAddresses []string `pulumi:"ipAddresses"`
 }
 
@@ -1827,7 +1827,7 @@ type GetDeploymentFrontendPublicInput interface {
 }
 
 type GetDeploymentFrontendPublicArgs struct {
-	// List of public IPs of the Ngix Deployment.
+	// The list of Public IP Resource IDs for this NGINX Deployment.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 }
 
@@ -1882,7 +1882,7 @@ func (o GetDeploymentFrontendPublicOutput) ToGetDeploymentFrontendPublicOutputWi
 	return o
 }
 
-// List of public IPs of the Ngix Deployment.
+// The list of Public IP Resource IDs for this NGINX Deployment.
 func (o GetDeploymentFrontendPublicOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDeploymentFrontendPublic) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
@@ -1908,11 +1908,11 @@ func (o GetDeploymentFrontendPublicArrayOutput) Index(i pulumi.IntInput) GetDepl
 }
 
 type GetDeploymentIdentity struct {
-	// List of identities attached to the Nginx Deployment.
+	// List of identities attached to the NGINX Deployment.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId string   `pulumi:"principalId"`
 	TenantId    string   `pulumi:"tenantId"`
-	// Type of identity attached to the Nginx Deployment.
+	// Type of identity attached to the NGINX Deployment.
 	Type string `pulumi:"type"`
 }
 
@@ -1928,11 +1928,11 @@ type GetDeploymentIdentityInput interface {
 }
 
 type GetDeploymentIdentityArgs struct {
-	// List of identities attached to the Nginx Deployment.
+	// List of identities attached to the NGINX Deployment.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringInput      `pulumi:"principalId"`
 	TenantId    pulumi.StringInput      `pulumi:"tenantId"`
-	// Type of identity attached to the Nginx Deployment.
+	// Type of identity attached to the NGINX Deployment.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1987,7 +1987,7 @@ func (o GetDeploymentIdentityOutput) ToGetDeploymentIdentityOutputWithContext(ct
 	return o
 }
 
-// List of identities attached to the Nginx Deployment.
+// List of identities attached to the NGINX Deployment.
 func (o GetDeploymentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDeploymentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -2000,7 +2000,7 @@ func (o GetDeploymentIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDeploymentIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Type of identity attached to the Nginx Deployment.
+// Type of identity attached to the NGINX Deployment.
 func (o GetDeploymentIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDeploymentIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2026,9 +2026,9 @@ func (o GetDeploymentIdentityArrayOutput) Index(i pulumi.IntInput) GetDeployment
 }
 
 type GetDeploymentLoggingStorageAccount struct {
-	// the container name of Storage Account for logging.
+	// The container name of Storage Account for logging.
 	ContainerName string `pulumi:"containerName"`
-	// The name of this Nginx Deployment.
+	// The name of this NGINX Deployment.
 	Name string `pulumi:"name"`
 }
 
@@ -2044,9 +2044,9 @@ type GetDeploymentLoggingStorageAccountInput interface {
 }
 
 type GetDeploymentLoggingStorageAccountArgs struct {
-	// the container name of Storage Account for logging.
+	// The container name of Storage Account for logging.
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// The name of this Nginx Deployment.
+	// The name of this NGINX Deployment.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2101,12 +2101,12 @@ func (o GetDeploymentLoggingStorageAccountOutput) ToGetDeploymentLoggingStorageA
 	return o
 }
 
-// the container name of Storage Account for logging.
+// The container name of Storage Account for logging.
 func (o GetDeploymentLoggingStorageAccountOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDeploymentLoggingStorageAccount) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// The name of this Nginx Deployment.
+// The name of this NGINX Deployment.
 func (o GetDeploymentLoggingStorageAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDeploymentLoggingStorageAccount) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2132,7 +2132,7 @@ func (o GetDeploymentLoggingStorageAccountArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetDeploymentNetworkInterface struct {
-	// The subnet resource ID of the Nginx Deployment.
+	// The subnet resource ID of the NGINX Deployment.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -2148,7 +2148,7 @@ type GetDeploymentNetworkInterfaceInput interface {
 }
 
 type GetDeploymentNetworkInterfaceArgs struct {
-	// The subnet resource ID of the Nginx Deployment.
+	// The subnet resource ID of the NGINX Deployment.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -2203,7 +2203,7 @@ func (o GetDeploymentNetworkInterfaceOutput) ToGetDeploymentNetworkInterfaceOutp
 	return o
 }
 
-// The subnet resource ID of the Nginx Deployment.
+// The subnet resource ID of the NGINX Deployment.
 func (o GetDeploymentNetworkInterfaceOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDeploymentNetworkInterface) string { return v.SubnetId }).(pulumi.StringOutput)
 }

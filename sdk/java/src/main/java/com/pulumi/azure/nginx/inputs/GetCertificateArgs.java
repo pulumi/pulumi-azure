@@ -15,14 +15,14 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetCertificateArgs Empty = new GetCertificateArgs();
 
     /**
-     * The name of this Nginx Certificate.
+     * The name of the NGINX Certificate.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of this Nginx Certificate.
+     * @return The name of the NGINX Certificate.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the Nginx Deployment that this certificate is associated with.
+     * The ID of the NGINX Deployment that the certificate is associated with.
      * 
      */
     @Import(name="nginxDeploymentId", required=true)
     private Output<String> nginxDeploymentId;
 
     /**
-     * @return The ID of the Nginx Deployment that this certificate is associated with.
+     * @return The ID of the NGINX Deployment that the certificate is associated with.
      * 
      */
     public Output<String> nginxDeploymentId() {
@@ -70,7 +70,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of this Nginx Certificate.
+         * @param name The name of the NGINX Certificate.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of this Nginx Certificate.
+         * @param name The name of the NGINX Certificate.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param nginxDeploymentId The ID of the Nginx Deployment that this certificate is associated with.
+         * @param nginxDeploymentId The ID of the NGINX Deployment that the certificate is associated with.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param nginxDeploymentId The ID of the Nginx Deployment that this certificate is associated with.
+         * @param nginxDeploymentId The ID of the NGINX Deployment that the certificate is associated with.
          * 
          * @return builder
          * 

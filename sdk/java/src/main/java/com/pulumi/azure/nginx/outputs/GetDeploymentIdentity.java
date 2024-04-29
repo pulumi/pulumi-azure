@@ -12,21 +12,21 @@ import java.util.Objects;
 @CustomType
 public final class GetDeploymentIdentity {
     /**
-     * @return List of identities attached to the Nginx Deployment.
+     * @return List of identities attached to the NGINX Deployment.
      * 
      */
     private List<String> identityIds;
     private String principalId;
     private String tenantId;
     /**
-     * @return Type of identity attached to the Nginx Deployment.
+     * @return Type of identity attached to the NGINX Deployment.
      * 
      */
     private String type;
 
     private GetDeploymentIdentity() {}
     /**
-     * @return List of identities attached to the Nginx Deployment.
+     * @return List of identities attached to the NGINX Deployment.
      * 
      */
     public List<String> identityIds() {
@@ -39,7 +39,7 @@ public final class GetDeploymentIdentity {
         return this.tenantId;
     }
     /**
-     * @return Type of identity attached to the Nginx Deployment.
+     * @return Type of identity attached to the NGINX Deployment.
      * 
      */
     public String type() {

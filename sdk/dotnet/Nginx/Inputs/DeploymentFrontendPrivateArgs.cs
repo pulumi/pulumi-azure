@@ -13,19 +13,19 @@ namespace Pulumi.Azure.Nginx.Inputs
     public sealed class DeploymentFrontendPrivateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
+        /// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
         /// </summary>
         [Input("allocationMethod", required: true)]
         public Input<string> AllocationMethod { get; set; } = null!;
 
         /// <summary>
-        /// Specify the IP Address of this private IP.
+        /// Specify the private IP Address.
         /// </summary>
         [Input("ipAddress", required: true)]
         public Input<string> IpAddress { get; set; } = null!;
 
         /// <summary>
-        /// Specify the SubNet Resource ID to this Nginx Deployment.
+        /// Specify the Subnet Resource ID for this NGINX Deployment.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;

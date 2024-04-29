@@ -64,7 +64,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// <summary>
         /// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set.
+        /// &gt; **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set, unless specifying `network_plugin_mode` to `overlay`.
         /// </summary>
         public readonly string NetworkPlugin;
         /// <summary>
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? OutboundType;
         /// <summary>
-        /// The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
+        /// The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? PodCidr;
         /// <summary>

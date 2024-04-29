@@ -16,14 +16,14 @@ public final class DeploymentLoggingStorageAccountArgs extends com.pulumi.resour
     public static final DeploymentLoggingStorageAccountArgs Empty = new DeploymentLoggingStorageAccountArgs();
 
     /**
-     * Specify the container name of Storage Account for logging.
+     * Specify the container name in the Storage Account for logging.
      * 
      */
     @Import(name="containerName")
     private @Nullable Output<String> containerName;
 
     /**
-     * @return Specify the container name of Storage Account for logging.
+     * @return Specify the container name in the Storage Account for logging.
      * 
      */
     public Optional<Output<String>> containerName() {
@@ -31,14 +31,14 @@ public final class DeploymentLoggingStorageAccountArgs extends com.pulumi.resour
     }
 
     /**
-     * The account name of the StorageAccount for Nginx Logging.
+     * The name of the StorageAccount for NGINX Logging.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The account name of the StorageAccount for Nginx Logging.
+     * @return The name of the StorageAccount for NGINX Logging.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class DeploymentLoggingStorageAccountArgs extends com.pulumi.resour
         }
 
         /**
-         * @param containerName Specify the container name of Storage Account for logging.
+         * @param containerName Specify the container name in the Storage Account for logging.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DeploymentLoggingStorageAccountArgs extends com.pulumi.resour
         }
 
         /**
-         * @param containerName Specify the container name of Storage Account for logging.
+         * @param containerName Specify the container name in the Storage Account for logging.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class DeploymentLoggingStorageAccountArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The account name of the StorageAccount for Nginx Logging.
+         * @param name The name of the StorageAccount for NGINX Logging.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DeploymentLoggingStorageAccountArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The account name of the StorageAccount for Nginx Logging.
+         * @param name The name of the StorageAccount for NGINX Logging.
          * 
          * @return builder
          * 

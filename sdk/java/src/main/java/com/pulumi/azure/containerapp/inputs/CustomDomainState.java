@@ -16,14 +16,14 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
     public static final CustomDomainState Empty = new CustomDomainState();
 
     /**
-     * The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+     * The Binding type. Possible values include `Disabled` and `SniEnabled`.
      * 
      */
     @Import(name="certificateBindingType")
     private @Nullable Output<String> certificateBindingType;
 
     /**
-     * @return The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+     * @return The Binding type. Possible values include `Disabled` and `SniEnabled`.
      * 
      */
     public Optional<Output<String>> certificateBindingType() {
@@ -33,12 +33,16 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+     * 
      */
     @Import(name="containerAppEnvironmentCertificateId")
     private @Nullable Output<String> containerAppEnvironmentCertificateId;
 
     /**
      * @return The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
      * 
      */
     public Optional<Output<String>> containerAppEnvironmentCertificateId() {
@@ -107,7 +111,7 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateBindingType The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+         * @param certificateBindingType The Binding type. Possible values include `Disabled` and `SniEnabled`.
          * 
          * @return builder
          * 
@@ -118,7 +122,7 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateBindingType The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+         * @param certificateBindingType The Binding type. Possible values include `Disabled` and `SniEnabled`.
          * 
          * @return builder
          * 
@@ -130,6 +134,8 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param containerAppEnvironmentCertificateId The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+         * 
          * @return builder
          * 
          */
@@ -140,6 +146,8 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param containerAppEnvironmentCertificateId The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
          * 
          * @return builder
          * 

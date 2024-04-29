@@ -121,6 +121,10 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly preferredAppGroupType!: pulumi.Output<string | undefined>;
     /**
+     * Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -171,6 +175,7 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["personalDesktopAssignmentType"] = state ? state.personalDesktopAssignmentType : undefined;
             resourceInputs["preferredAppGroupType"] = state ? state.preferredAppGroupType : undefined;
+            resourceInputs["publicNetworkAccess"] = state ? state.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["scheduledAgentUpdates"] = state ? state.scheduledAgentUpdates : undefined;
             resourceInputs["startVmOnConnect"] = state ? state.startVmOnConnect : undefined;
@@ -198,6 +203,7 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["personalDesktopAssignmentType"] = args ? args.personalDesktopAssignmentType : undefined;
             resourceInputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scheduledAgentUpdates"] = args ? args.scheduledAgentUpdates : undefined;
             resourceInputs["startVmOnConnect"] = args ? args.startVmOnConnect : undefined;
@@ -256,6 +262,10 @@ export interface HostPoolState {
      * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
      */
     preferredAppGroupType?: pulumi.Input<string>;
+    /**
+     * Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+     */
+    publicNetworkAccess?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
@@ -331,6 +341,10 @@ export interface HostPoolArgs {
      * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
      */
     preferredAppGroupType?: pulumi.Input<string>;
+    /**
+     * Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+     */
+    publicNetworkAccess?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */

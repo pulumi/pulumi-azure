@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Nginx.Outputs
     public sealed class DeploymentFrontendPrivate
     {
         /// <summary>
-        /// Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
+        /// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
         /// </summary>
         public readonly string AllocationMethod;
         /// <summary>
-        /// Specify the IP Address of this private IP.
+        /// Specify the private IP Address.
         /// </summary>
         public readonly string IpAddress;
         /// <summary>
-        /// Specify the SubNet Resource ID to this Nginx Deployment.
+        /// Specify the Subnet Resource ID for this NGINX Deployment.
         /// </summary>
         public readonly string SubnetId;
 

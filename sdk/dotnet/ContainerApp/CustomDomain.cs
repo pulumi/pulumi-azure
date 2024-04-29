@@ -12,6 +12,30 @@ namespace Pulumi.Azure.ContainerApp
     /// <summary>
     /// Manages a Container App Custom Domain.
     /// 
+    /// ### Managed Certificate
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.ContainerApp.CustomDomain("example", new()
+    ///     {
+    ///         Name = Std.Trimprefix.Invoke(new()
+    ///         {
+    ///             Input = exampleAzurermDnsTxtRecord.Fqdn,
+    ///             Prefix = "asuid.",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         ContainerAppId = exampleAzurermContainerApp.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// A Container App Custom Domain can be imported using the `resource id`, e.g.
@@ -24,16 +48,18 @@ namespace Pulumi.Azure.ContainerApp
     public partial class CustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+        /// The Binding type. Possible values include `Disabled` and `SniEnabled`.
         /// </summary>
         [Output("certificateBindingType")]
-        public Output<string> CertificateBindingType { get; private set; } = null!;
+        public Output<string?> CertificateBindingType { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         /// </summary>
         [Output("containerAppEnvironmentCertificateId")]
-        public Output<string> ContainerAppEnvironmentCertificateId { get; private set; } = null!;
+        public Output<string?> ContainerAppEnvironmentCertificateId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
@@ -96,16 +122,18 @@ namespace Pulumi.Azure.ContainerApp
     public sealed class CustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+        /// The Binding type. Possible values include `Disabled` and `SniEnabled`.
         /// </summary>
-        [Input("certificateBindingType", required: true)]
-        public Input<string> CertificateBindingType { get; set; } = null!;
+        [Input("certificateBindingType")]
+        public Input<string>? CertificateBindingType { get; set; }
 
         /// <summary>
         /// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         /// </summary>
-        [Input("containerAppEnvironmentCertificateId", required: true)]
-        public Input<string> ContainerAppEnvironmentCertificateId { get; set; } = null!;
+        [Input("containerAppEnvironmentCertificateId")]
+        public Input<string>? ContainerAppEnvironmentCertificateId { get; set; }
 
         /// <summary>
         /// The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
@@ -130,13 +158,15 @@ namespace Pulumi.Azure.ContainerApp
     public sealed class CustomDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+        /// The Binding type. Possible values include `Disabled` and `SniEnabled`.
         /// </summary>
         [Input("certificateBindingType")]
         public Input<string>? CertificateBindingType { get; set; }
 
         /// <summary>
         /// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         /// </summary>
         [Input("containerAppEnvironmentCertificateId")]
         public Input<string>? ContainerAppEnvironmentCertificateId { get; set; }

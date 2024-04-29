@@ -14,14 +14,14 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetCertificatePlainArgs Empty = new GetCertificatePlainArgs();
 
     /**
-     * The name of this Nginx Certificate.
+     * The name of the NGINX Certificate.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of this Nginx Certificate.
+     * @return The name of the NGINX Certificate.
      * 
      */
     public String name() {
@@ -29,14 +29,14 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The ID of the Nginx Deployment that this certificate is associated with.
+     * The ID of the NGINX Deployment that the certificate is associated with.
      * 
      */
     @Import(name="nginxDeploymentId", required=true)
     private String nginxDeploymentId;
 
     /**
-     * @return The ID of the Nginx Deployment that this certificate is associated with.
+     * @return The ID of the NGINX Deployment that the certificate is associated with.
      * 
      */
     public String nginxDeploymentId() {
@@ -69,7 +69,7 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name The name of this Nginx Certificate.
+         * @param name The name of the NGINX Certificate.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param nginxDeploymentId The ID of the Nginx Deployment that this certificate is associated with.
+         * @param nginxDeploymentId The ID of the NGINX Deployment that the certificate is associated with.
          * 
          * @return builder
          * 

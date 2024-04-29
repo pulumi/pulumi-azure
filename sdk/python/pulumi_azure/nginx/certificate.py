@@ -24,8 +24,8 @@ class CertificateArgs:
         :param pulumi.Input[str] certificate_virtual_path: Specify the path to the certificate file of this certificate.
         :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate.
         :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate.
-        :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+        :param pulumi.Input[str] nginx_deployment_id: The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
+        :param pulumi.Input[str] name: The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
         """
         pulumi.set(__self__, "certificate_virtual_path", certificate_virtual_path)
         pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
@@ -74,7 +74,7 @@ class CertificateArgs:
     @pulumi.getter(name="nginxDeploymentId")
     def nginx_deployment_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+        The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
         """
         return pulumi.get(self, "nginx_deployment_id")
 
@@ -86,7 +86,7 @@ class CertificateArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+        The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
         """
         return pulumi.get(self, "name")
 
@@ -108,8 +108,8 @@ class _CertificateState:
         :param pulumi.Input[str] certificate_virtual_path: Specify the path to the certificate file of this certificate.
         :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate.
         :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate.
-        :param pulumi.Input[str] name: The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
-        :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+        :param pulumi.Input[str] name: The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
+        :param pulumi.Input[str] nginx_deployment_id: The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
         """
         if certificate_virtual_path is not None:
             pulumi.set(__self__, "certificate_virtual_path", certificate_virtual_path)
@@ -162,7 +162,7 @@ class _CertificateState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+        The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
         """
         return pulumi.get(self, "name")
 
@@ -174,7 +174,7 @@ class _CertificateState:
     @pulumi.getter(name="nginxDeploymentId")
     def nginx_deployment_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+        The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
         """
         return pulumi.get(self, "nginx_deployment_id")
 
@@ -195,7 +195,7 @@ class Certificate(pulumi.CustomResource):
                  nginx_deployment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Certificate for an NGinx Deployment.
+        Manages a Certificate for an NGINX Deployment.
 
         ## Example Usage
 
@@ -288,7 +288,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        An Nginx Certificate can be imported using the `resource id`, e.g.
+        An NGINX Certificate can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:nginx/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/deploy1/certificates/cer1
@@ -299,8 +299,8 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_virtual_path: Specify the path to the certificate file of this certificate.
         :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate.
         :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate.
-        :param pulumi.Input[str] name: The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
-        :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+        :param pulumi.Input[str] name: The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
+        :param pulumi.Input[str] nginx_deployment_id: The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
         """
         ...
     @overload
@@ -309,7 +309,7 @@ class Certificate(pulumi.CustomResource):
                  args: CertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Certificate for an NGinx Deployment.
+        Manages a Certificate for an NGINX Deployment.
 
         ## Example Usage
 
@@ -402,7 +402,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        An Nginx Certificate can be imported using the `resource id`, e.g.
+        An NGINX Certificate can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:nginx/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/deploy1/certificates/cer1
@@ -475,8 +475,8 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_virtual_path: Specify the path to the certificate file of this certificate.
         :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate.
         :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate.
-        :param pulumi.Input[str] name: The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
-        :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+        :param pulumi.Input[str] name: The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
+        :param pulumi.Input[str] nginx_deployment_id: The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -517,7 +517,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+        The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
         """
         return pulumi.get(self, "name")
 
@@ -525,7 +525,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="nginxDeploymentId")
     def nginx_deployment_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+        The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
         """
         return pulumi.get(self, "nginx_deployment_id")
 

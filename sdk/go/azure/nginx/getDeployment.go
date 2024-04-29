@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to access information about an existing Nginx Deployment.
+// Use this data source to access information about an existing NGINX Deployment.
 //
 // ## Example Usage
 //
@@ -52,9 +52,9 @@ func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...p
 
 // A collection of arguments for invoking getDeployment.
 type LookupDeploymentArgs struct {
-	// The name of this Nginx Deployment.
+	// The name of this NGINX Deployment.
 	Name string `pulumi:"name"`
-	// The name of the Resource Group where the Nginx Deployment exists.
+	// The name of the Resource Group where the NGINX Deployment exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -64,11 +64,11 @@ type LookupDeploymentResult struct {
 	AutoScaleProfiles []GetDeploymentAutoScaleProfile `pulumi:"autoScaleProfiles"`
 	// The automatic upgrade channel for this NGINX deployment.
 	AutomaticUpgradeChannel string `pulumi:"automaticUpgradeChannel"`
-	// The number of NGINX capacity units for this Nginx Deployment.
+	// The number of NGINX capacity units for this NGINX Deployment.
 	Capacity int `pulumi:"capacity"`
 	// Whether diagnostic settings are enabled.
 	DiagnoseSupportEnabled bool `pulumi:"diagnoseSupportEnabled"`
-	// Preferred email associated with the Nginx Deployment.
+	// Preferred email associated with the NGINX Deployment.
 	Email string `pulumi:"email"`
 	// A `frontendPrivate` block as defined below.
 	FrontendPrivates []GetDeploymentFrontendPrivate `pulumi:"frontendPrivates"`
@@ -78,24 +78,24 @@ type LookupDeploymentResult struct {
 	Id string `pulumi:"id"`
 	// A `identity` block as defined below.
 	Identities []GetDeploymentIdentity `pulumi:"identities"`
-	// List of public IPs of the Ngix Deployment.
+	// The list of Public IP Resource IDs for this NGINX Deployment.
 	IpAddress string `pulumi:"ipAddress"`
-	// The Azure Region where the Nginx Deployment exists.
+	// The Azure Region where the NGINX Deployment exists.
 	Location string `pulumi:"location"`
 	// A `loggingStorageAccount` block as defined below.
 	LoggingStorageAccounts []GetDeploymentLoggingStorageAccount `pulumi:"loggingStorageAccounts"`
-	// Auto-generated managed resource group for the Nginx Deployment.
+	// Auto-generated managed resource group for the NGINX Deployment.
 	ManagedResourceGroup string `pulumi:"managedResourceGroup"`
 	// Name of the autoscaling profile.
 	Name string `pulumi:"name"`
 	// A `networkInterface` block as defined below.
 	NetworkInterfaces []GetDeploymentNetworkInterface `pulumi:"networkInterfaces"`
-	// NGINX version of the Nginx Deployment.
+	// NGINX version of the Deployment.
 	NginxVersion      string `pulumi:"nginxVersion"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Nginx Deployment SKU. Possible values include `standard_Monthly`.
+	// The NGINX Deployment SKU. Possible values include `standard_Monthly`.
 	Sku string `pulumi:"sku"`
-	// A mapping of tags assigned to the Nginx Deployment.
+	// A mapping of tags assigned to the NGINX Deployment.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -114,9 +114,9 @@ func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs
 
 // A collection of arguments for invoking getDeployment.
 type LookupDeploymentOutputArgs struct {
-	// The name of this Nginx Deployment.
+	// The name of this NGINX Deployment.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Resource Group where the Nginx Deployment exists.
+	// The name of the Resource Group where the NGINX Deployment exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
@@ -149,7 +149,7 @@ func (o LookupDeploymentResultOutput) AutomaticUpgradeChannel() pulumi.StringOut
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.AutomaticUpgradeChannel }).(pulumi.StringOutput)
 }
 
-// The number of NGINX capacity units for this Nginx Deployment.
+// The number of NGINX capacity units for this NGINX Deployment.
 func (o LookupDeploymentResultOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) int { return v.Capacity }).(pulumi.IntOutput)
 }
@@ -159,7 +159,7 @@ func (o LookupDeploymentResultOutput) DiagnoseSupportEnabled() pulumi.BoolOutput
 	return o.ApplyT(func(v LookupDeploymentResult) bool { return v.DiagnoseSupportEnabled }).(pulumi.BoolOutput)
 }
 
-// Preferred email associated with the Nginx Deployment.
+// Preferred email associated with the NGINX Deployment.
 func (o LookupDeploymentResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.Email }).(pulumi.StringOutput)
 }
@@ -184,12 +184,12 @@ func (o LookupDeploymentResultOutput) Identities() GetDeploymentIdentityArrayOut
 	return o.ApplyT(func(v LookupDeploymentResult) []GetDeploymentIdentity { return v.Identities }).(GetDeploymentIdentityArrayOutput)
 }
 
-// List of public IPs of the Ngix Deployment.
+// The list of Public IP Resource IDs for this NGINX Deployment.
 func (o LookupDeploymentResultOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// The Azure Region where the Nginx Deployment exists.
+// The Azure Region where the NGINX Deployment exists.
 func (o LookupDeploymentResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -199,7 +199,7 @@ func (o LookupDeploymentResultOutput) LoggingStorageAccounts() GetDeploymentLogg
 	return o.ApplyT(func(v LookupDeploymentResult) []GetDeploymentLoggingStorageAccount { return v.LoggingStorageAccounts }).(GetDeploymentLoggingStorageAccountArrayOutput)
 }
 
-// Auto-generated managed resource group for the Nginx Deployment.
+// Auto-generated managed resource group for the NGINX Deployment.
 func (o LookupDeploymentResultOutput) ManagedResourceGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.ManagedResourceGroup }).(pulumi.StringOutput)
 }
@@ -214,7 +214,7 @@ func (o LookupDeploymentResultOutput) NetworkInterfaces() GetDeploymentNetworkIn
 	return o.ApplyT(func(v LookupDeploymentResult) []GetDeploymentNetworkInterface { return v.NetworkInterfaces }).(GetDeploymentNetworkInterfaceArrayOutput)
 }
 
-// NGINX version of the Nginx Deployment.
+// NGINX version of the Deployment.
 func (o LookupDeploymentResultOutput) NginxVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.NginxVersion }).(pulumi.StringOutput)
 }
@@ -223,12 +223,12 @@ func (o LookupDeploymentResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The Nginx Deployment SKU. Possible values include `standard_Monthly`.
+// The NGINX Deployment SKU. Possible values include `standard_Monthly`.
 func (o LookupDeploymentResultOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.Sku }).(pulumi.StringOutput)
 }
 
-// A mapping of tags assigned to the Nginx Deployment.
+// A mapping of tags assigned to the NGINX Deployment.
 func (o LookupDeploymentResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

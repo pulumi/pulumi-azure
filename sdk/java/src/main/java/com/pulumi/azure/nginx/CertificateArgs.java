@@ -62,14 +62,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+     * The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+     * @return The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -77,14 +77,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+     * The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
      * 
      */
     @Import(name="nginxDeploymentId", required=true)
     private Output<String> nginxDeploymentId;
 
     /**
-     * @return The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+     * @return The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
      * 
      */
     public Output<String> nginxDeploymentId() {
@@ -183,7 +183,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+         * @param name The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+         * @param name The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nginxDeploymentId The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+         * @param nginxDeploymentId The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nginxDeploymentId The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+         * @param nginxDeploymentId The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
          * 
          * @return builder
          * 
