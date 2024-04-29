@@ -14,48 +14,28 @@ __all__ = ['CustomDomainArgs', 'CustomDomain']
 @pulumi.input_type
 class CustomDomainArgs:
     def __init__(__self__, *,
-                 certificate_binding_type: pulumi.Input[str],
-                 container_app_environment_certificate_id: pulumi.Input[str],
                  container_app_id: pulumi.Input[str],
+                 certificate_binding_type: Optional[pulumi.Input[str]] = None,
+                 container_app_environment_certificate_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CustomDomain resource.
-        :param pulumi.Input[str] certificate_binding_type: The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] container_app_environment_certificate_id: The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_app_id: The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`.
+        :param pulumi.Input[str] container_app_environment_certificate_id: The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         :param pulumi.Input[str] name: The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
                
                > **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
         """
-        pulumi.set(__self__, "certificate_binding_type", certificate_binding_type)
-        pulumi.set(__self__, "container_app_environment_certificate_id", container_app_environment_certificate_id)
         pulumi.set(__self__, "container_app_id", container_app_id)
+        if certificate_binding_type is not None:
+            pulumi.set(__self__, "certificate_binding_type", certificate_binding_type)
+        if container_app_environment_certificate_id is not None:
+            pulumi.set(__self__, "container_app_environment_certificate_id", container_app_environment_certificate_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="certificateBindingType")
-    def certificate_binding_type(self) -> pulumi.Input[str]:
-        """
-        The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "certificate_binding_type")
-
-    @certificate_binding_type.setter
-    def certificate_binding_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "certificate_binding_type", value)
-
-    @property
-    @pulumi.getter(name="containerAppEnvironmentCertificateId")
-    def container_app_environment_certificate_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "container_app_environment_certificate_id")
-
-    @container_app_environment_certificate_id.setter
-    def container_app_environment_certificate_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "container_app_environment_certificate_id", value)
 
     @property
     @pulumi.getter(name="containerAppId")
@@ -68,6 +48,32 @@ class CustomDomainArgs:
     @container_app_id.setter
     def container_app_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "container_app_id", value)
+
+    @property
+    @pulumi.getter(name="certificateBindingType")
+    def certificate_binding_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Binding type. Possible values include `Disabled` and `SniEnabled`.
+        """
+        return pulumi.get(self, "certificate_binding_type")
+
+    @certificate_binding_type.setter
+    def certificate_binding_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_binding_type", value)
+
+    @property
+    @pulumi.getter(name="containerAppEnvironmentCertificateId")
+    def container_app_environment_certificate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
+
+        > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+        """
+        return pulumi.get(self, "container_app_environment_certificate_id")
+
+    @container_app_environment_certificate_id.setter
+    def container_app_environment_certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_app_environment_certificate_id", value)
 
     @property
     @pulumi.getter
@@ -93,8 +99,10 @@ class _CustomDomainState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CustomDomain resources.
-        :param pulumi.Input[str] certificate_binding_type: The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`.
         :param pulumi.Input[str] container_app_environment_certificate_id: The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         :param pulumi.Input[str] container_app_id: The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
                
@@ -113,7 +121,7 @@ class _CustomDomainState:
     @pulumi.getter(name="certificateBindingType")
     def certificate_binding_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+        The Binding type. Possible values include `Disabled` and `SniEnabled`.
         """
         return pulumi.get(self, "certificate_binding_type")
 
@@ -126,6 +134,8 @@ class _CustomDomainState:
     def container_app_environment_certificate_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
+
+        > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         """
         return pulumi.get(self, "container_app_environment_certificate_id")
 
@@ -173,6 +183,19 @@ class CustomDomain(pulumi.CustomResource):
         """
         Manages a Container App Custom Domain.
 
+        ### Managed Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.containerapp.CustomDomain("example",
+            name=std.trimprefix(input=example_azurerm_dns_txt_record["fqdn"],
+                prefix="asuid.").result,
+            container_app_id=example_azurerm_container_app["id"])
+        ```
+
         ## Import
 
         A Container App Custom Domain can be imported using the `resource id`, e.g.
@@ -183,8 +206,10 @@ class CustomDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_binding_type: The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`.
         :param pulumi.Input[str] container_app_environment_certificate_id: The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         :param pulumi.Input[str] container_app_id: The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
                
@@ -198,6 +223,19 @@ class CustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container App Custom Domain.
+
+        ### Managed Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.containerapp.CustomDomain("example",
+            name=std.trimprefix(input=example_azurerm_dns_txt_record["fqdn"],
+                prefix="asuid.").result,
+            container_app_id=example_azurerm_container_app["id"])
+        ```
 
         ## Import
 
@@ -235,11 +273,7 @@ class CustomDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomDomainArgs.__new__(CustomDomainArgs)
 
-            if certificate_binding_type is None and not opts.urn:
-                raise TypeError("Missing required property 'certificate_binding_type'")
             __props__.__dict__["certificate_binding_type"] = certificate_binding_type
-            if container_app_environment_certificate_id is None and not opts.urn:
-                raise TypeError("Missing required property 'container_app_environment_certificate_id'")
             __props__.__dict__["container_app_environment_certificate_id"] = container_app_environment_certificate_id
             if container_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'container_app_id'")
@@ -266,8 +300,10 @@ class CustomDomain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_binding_type: The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`.
         :param pulumi.Input[str] container_app_environment_certificate_id: The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         :param pulumi.Input[str] container_app_id: The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
                
@@ -285,17 +321,19 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateBindingType")
-    def certificate_binding_type(self) -> pulumi.Output[str]:
+    def certificate_binding_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+        The Binding type. Possible values include `Disabled` and `SniEnabled`.
         """
         return pulumi.get(self, "certificate_binding_type")
 
     @property
     @pulumi.getter(name="containerAppEnvironmentCertificateId")
-    def container_app_environment_certificate_id(self) -> pulumi.Output[str]:
+    def container_app_environment_certificate_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
+
+        > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         """
         return pulumi.get(self, "container_app_environment_certificate_id")
 

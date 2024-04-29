@@ -21,7 +21,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class NginxFunctions {
     /**
-     * Use this data source to access information about an existing Nginx Certificate.
+     * Use this data source to access information about an existing NGINX Certificate.
      * 
      * ## Example Usage
      * 
@@ -63,7 +63,7 @@ public final class NginxFunctions {
         return getCertificate(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing Nginx Certificate.
+     * Use this data source to access information about an existing NGINX Certificate.
      * 
      * ## Example Usage
      * 
@@ -105,7 +105,7 @@ public final class NginxFunctions {
         return getCertificatePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing Nginx Certificate.
+     * Use this data source to access information about an existing NGINX Certificate.
      * 
      * ## Example Usage
      * 
@@ -147,7 +147,7 @@ public final class NginxFunctions {
         return Deployment.getInstance().invoke("azure:nginx/getCertificate:getCertificate", TypeShape.of(GetCertificateResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing Nginx Certificate.
+     * Use this data source to access information about an existing NGINX Certificate.
      * 
      * ## Example Usage
      * 
@@ -201,7 +201,7 @@ public final class NginxFunctions {
         return Deployment.getInstance().invokeAsync("azure:nginx/getConfiguration:getConfiguration", TypeShape.of(GetConfigurationResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing Nginx Deployment.
+     * Use this data source to access information about an existing NGINX Deployment.
      * 
      * ## Example Usage
      * 
@@ -243,7 +243,7 @@ public final class NginxFunctions {
         return getDeployment(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing Nginx Deployment.
+     * Use this data source to access information about an existing NGINX Deployment.
      * 
      * ## Example Usage
      * 
@@ -285,7 +285,7 @@ public final class NginxFunctions {
         return getDeploymentPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing Nginx Deployment.
+     * Use this data source to access information about an existing NGINX Deployment.
      * 
      * ## Example Usage
      * 
@@ -327,7 +327,7 @@ public final class NginxFunctions {
         return Deployment.getInstance().invoke("azure:nginx/getDeployment:getDeployment", TypeShape.of(GetDeploymentResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing Nginx Deployment.
+     * Use this data source to access information about an existing NGINX Deployment.
      * 
      * ## Example Usage
      * 

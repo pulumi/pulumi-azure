@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetCertificateResult {
     /**
-     * @return The path to the certificate file of this certificate.
+     * @return The path to the certificate file of the certificate.
      * 
      */
     private String certificateVirtualPath;
@@ -21,12 +21,12 @@ public final class GetCertificateResult {
      */
     private String id;
     /**
-     * @return The ID of the Key Vault Secret for this certificate.
+     * @return The ID of the Key Vault Secret for the certificate.
      * 
      */
     private String keyVaultSecretId;
     /**
-     * @return The path to the key file of this certificate.
+     * @return The path to the key file of the certificate.
      * 
      */
     private String keyVirtualPath;
@@ -35,7 +35,7 @@ public final class GetCertificateResult {
 
     private GetCertificateResult() {}
     /**
-     * @return The path to the certificate file of this certificate.
+     * @return The path to the certificate file of the certificate.
      * 
      */
     public String certificateVirtualPath() {
@@ -49,14 +49,14 @@ public final class GetCertificateResult {
         return this.id;
     }
     /**
-     * @return The ID of the Key Vault Secret for this certificate.
+     * @return The ID of the Key Vault Secret for the certificate.
      * 
      */
     public String keyVaultSecretId() {
         return this.keyVaultSecretId;
     }
     /**
-     * @return The path to the key file of this certificate.
+     * @return The path to the key file of the certificate.
      * 
      */
     public String keyVirtualPath() {

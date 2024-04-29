@@ -14,13 +14,13 @@ namespace Pulumi.Azure.Nginx.Outputs
     public sealed class GetDeploymentIdentityResult
     {
         /// <summary>
-        /// List of identities attached to the Nginx Deployment.
+        /// List of identities attached to the NGINX Deployment.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         public readonly string PrincipalId;
         public readonly string TenantId;
         /// <summary>
-        /// Type of identity attached to the Nginx Deployment.
+        /// Type of identity attached to the NGINX Deployment.
         /// </summary>
         public readonly string Type;
 

@@ -356,9 +356,9 @@ class DeploymentFrontendPrivate(dict):
                  ip_address: str,
                  subnet_id: str):
         """
-        :param str allocation_method: Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
-        :param str ip_address: Specify the IP Address of this private IP.
-        :param str subnet_id: Specify the SubNet Resource ID to this Nginx Deployment.
+        :param str allocation_method: Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
+        :param str ip_address: Specify the private IP Address.
+        :param str subnet_id: Specify the Subnet Resource ID for this NGINX Deployment.
         """
         pulumi.set(__self__, "allocation_method", allocation_method)
         pulumi.set(__self__, "ip_address", ip_address)
@@ -368,7 +368,7 @@ class DeploymentFrontendPrivate(dict):
     @pulumi.getter(name="allocationMethod")
     def allocation_method(self) -> str:
         """
-        Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
+        Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
         """
         return pulumi.get(self, "allocation_method")
 
@@ -376,7 +376,7 @@ class DeploymentFrontendPrivate(dict):
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
         """
-        Specify the IP Address of this private IP.
+        Specify the private IP Address.
         """
         return pulumi.get(self, "ip_address")
 
@@ -384,7 +384,7 @@ class DeploymentFrontendPrivate(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        Specify the SubNet Resource ID to this Nginx Deployment.
+        Specify the Subnet Resource ID for this NGINX Deployment.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -411,7 +411,7 @@ class DeploymentFrontendPublic(dict):
     def __init__(__self__, *,
                  ip_addresses: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] ip_addresses: Specifies a list of Public IP Resource ID to this Nginx Deployment.
+        :param Sequence[str] ip_addresses: Specifies a list of Public IP Resource ID to this NGINX Deployment.
         """
         if ip_addresses is not None:
             pulumi.set(__self__, "ip_addresses", ip_addresses)
@@ -420,7 +420,7 @@ class DeploymentFrontendPublic(dict):
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Public IP Resource ID to this Nginx Deployment.
+        Specifies a list of Public IP Resource ID to this NGINX Deployment.
         """
         return pulumi.get(self, "ip_addresses")
 
@@ -454,7 +454,7 @@ class DeploymentIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+        :param str type: Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
         :param Sequence[str] identity_ids: Specifies a list of user managed identity ids to be assigned.
                
                > **NOTE:** This is required when `type` is set to `UserAssigned`.
@@ -471,7 +471,7 @@ class DeploymentIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+        Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -519,8 +519,8 @@ class DeploymentLoggingStorageAccount(dict):
                  container_name: Optional[str] = None,
                  name: Optional[str] = None):
         """
-        :param str container_name: Specify the container name of Storage Account for logging.
-        :param str name: The account name of the StorageAccount for Nginx Logging.
+        :param str container_name: Specify the container name in the Storage Account for logging.
+        :param str name: The name of the StorageAccount for NGINX Logging.
         """
         if container_name is not None:
             pulumi.set(__self__, "container_name", container_name)
@@ -531,7 +531,7 @@ class DeploymentLoggingStorageAccount(dict):
     @pulumi.getter(name="containerName")
     def container_name(self) -> Optional[str]:
         """
-        Specify the container name of Storage Account for logging.
+        Specify the container name in the Storage Account for logging.
         """
         return pulumi.get(self, "container_name")
 
@@ -539,7 +539,7 @@ class DeploymentLoggingStorageAccount(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The account name of the StorageAccount for Nginx Logging.
+        The name of the StorageAccount for NGINX Logging.
         """
         return pulumi.get(self, "name")
 
@@ -566,7 +566,7 @@ class DeploymentNetworkInterface(dict):
     def __init__(__self__, *,
                  subnet_id: str):
         """
-        :param str subnet_id: Specify The SubNet Resource ID to this Nginx Deployment.
+        :param str subnet_id: Specify The Subnet Resource ID for this NGINX Deployment.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
 
@@ -574,7 +574,7 @@ class DeploymentNetworkInterface(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        Specify The SubNet Resource ID to this Nginx Deployment.
+        Specify The Subnet Resource ID for this NGINX Deployment.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -626,7 +626,7 @@ class GetDeploymentAutoScaleProfileResult(dict):
         """
         :param int max_capacity: The maximum number of NGINX capacity units for this NGINX Deployment.
         :param int min_capacity: The minimum number of NGINX capacity units for this NGINX Deployment.
-        :param str name: The name of this Nginx Deployment.
+        :param str name: The name of this NGINX Deployment.
         """
         pulumi.set(__self__, "max_capacity", max_capacity)
         pulumi.set(__self__, "min_capacity", min_capacity)
@@ -652,7 +652,7 @@ class GetDeploymentAutoScaleProfileResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of this Nginx Deployment.
+        The name of this NGINX Deployment.
         """
         return pulumi.get(self, "name")
 
@@ -664,9 +664,9 @@ class GetDeploymentFrontendPrivateResult(dict):
                  ip_address: str,
                  subnet_id: str):
         """
-        :param str allocation_method: The method of allocating the private IP to the Nginx Deployment.
-        :param str ip_address: List of public IPs of the Ngix Deployment.
-        :param str subnet_id: The subnet resource ID of the Nginx Deployment.
+        :param str allocation_method: The method of allocating the private IP to the NGINX Deployment.
+        :param str ip_address: The list of Public IP Resource IDs for this NGINX Deployment.
+        :param str subnet_id: The subnet resource ID of the NGINX Deployment.
         """
         pulumi.set(__self__, "allocation_method", allocation_method)
         pulumi.set(__self__, "ip_address", ip_address)
@@ -676,7 +676,7 @@ class GetDeploymentFrontendPrivateResult(dict):
     @pulumi.getter(name="allocationMethod")
     def allocation_method(self) -> str:
         """
-        The method of allocating the private IP to the Nginx Deployment.
+        The method of allocating the private IP to the NGINX Deployment.
         """
         return pulumi.get(self, "allocation_method")
 
@@ -684,7 +684,7 @@ class GetDeploymentFrontendPrivateResult(dict):
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
         """
-        List of public IPs of the Ngix Deployment.
+        The list of Public IP Resource IDs for this NGINX Deployment.
         """
         return pulumi.get(self, "ip_address")
 
@@ -692,7 +692,7 @@ class GetDeploymentFrontendPrivateResult(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        The subnet resource ID of the Nginx Deployment.
+        The subnet resource ID of the NGINX Deployment.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -702,7 +702,7 @@ class GetDeploymentFrontendPublicResult(dict):
     def __init__(__self__, *,
                  ip_addresses: Sequence[str]):
         """
-        :param Sequence[str] ip_addresses: List of public IPs of the Ngix Deployment.
+        :param Sequence[str] ip_addresses: The list of Public IP Resource IDs for this NGINX Deployment.
         """
         pulumi.set(__self__, "ip_addresses", ip_addresses)
 
@@ -710,7 +710,7 @@ class GetDeploymentFrontendPublicResult(dict):
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Sequence[str]:
         """
-        List of public IPs of the Ngix Deployment.
+        The list of Public IP Resource IDs for this NGINX Deployment.
         """
         return pulumi.get(self, "ip_addresses")
 
@@ -723,8 +723,8 @@ class GetDeploymentIdentityResult(dict):
                  tenant_id: str,
                  type: str):
         """
-        :param Sequence[str] identity_ids: List of identities attached to the Nginx Deployment.
-        :param str type: Type of identity attached to the Nginx Deployment.
+        :param Sequence[str] identity_ids: List of identities attached to the NGINX Deployment.
+        :param str type: Type of identity attached to the NGINX Deployment.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
@@ -735,7 +735,7 @@ class GetDeploymentIdentityResult(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Sequence[str]:
         """
-        List of identities attached to the Nginx Deployment.
+        List of identities attached to the NGINX Deployment.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -753,7 +753,7 @@ class GetDeploymentIdentityResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of identity attached to the Nginx Deployment.
+        Type of identity attached to the NGINX Deployment.
         """
         return pulumi.get(self, "type")
 
@@ -764,8 +764,8 @@ class GetDeploymentLoggingStorageAccountResult(dict):
                  container_name: str,
                  name: str):
         """
-        :param str container_name: the container name of Storage Account for logging.
-        :param str name: The name of this Nginx Deployment.
+        :param str container_name: The container name of Storage Account for logging.
+        :param str name: The name of this NGINX Deployment.
         """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "name", name)
@@ -774,7 +774,7 @@ class GetDeploymentLoggingStorageAccountResult(dict):
     @pulumi.getter(name="containerName")
     def container_name(self) -> str:
         """
-        the container name of Storage Account for logging.
+        The container name of Storage Account for logging.
         """
         return pulumi.get(self, "container_name")
 
@@ -782,7 +782,7 @@ class GetDeploymentLoggingStorageAccountResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of this Nginx Deployment.
+        The name of this NGINX Deployment.
         """
         return pulumi.get(self, "name")
 
@@ -792,7 +792,7 @@ class GetDeploymentNetworkInterfaceResult(dict):
     def __init__(__self__, *,
                  subnet_id: str):
         """
-        :param str subnet_id: The subnet resource ID of the Nginx Deployment.
+        :param str subnet_id: The subnet resource ID of the NGINX Deployment.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
 
@@ -800,7 +800,7 @@ class GetDeploymentNetworkInterfaceResult(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        The subnet resource ID of the Nginx Deployment.
+        The subnet resource ID of the NGINX Deployment.
         """
         return pulumi.get(self, "subnet_id")
 

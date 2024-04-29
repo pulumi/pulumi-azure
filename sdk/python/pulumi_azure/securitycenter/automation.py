@@ -366,7 +366,7 @@ class Automation(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             actions=[azure.securitycenter.AutomationActionArgs(
-                type="EventHub",
+                type="eventhub",
                 resource_id=example_event_hub.id,
                 connection_string=example_authorization_rule.primary_connection_string,
             )],
@@ -448,7 +448,7 @@ class Automation(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             actions=[azure.securitycenter.AutomationActionArgs(
-                type="EventHub",
+                type="eventhub",
                 resource_id=example_event_hub.id,
                 connection_string=example_authorization_rule.primary_connection_string,
             )],

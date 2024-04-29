@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -138,6 +139,43 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Managed Certificate
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.containerapp.CustomDomain;
+ * import com.pulumi.azure.containerapp.CustomDomainArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new CustomDomain(&#34;example&#34;, CustomDomainArgs.builder()        
+ *             .name(StdFunctions.trimprefix(TrimprefixArgs.builder()
+ *                 .input(exampleAzurermDnsTxtRecord.fqdn())
+ *                 .prefix(&#34;asuid.&#34;)
+ *                 .build()).result())
+ *             .containerAppId(exampleAzurermContainerApp.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * A Container App Custom Domain can be imported using the `resource id`, e.g.
@@ -150,32 +188,36 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:containerapp/customDomain:CustomDomain")
 public class CustomDomain extends com.pulumi.resources.CustomResource {
     /**
-     * The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+     * The Binding type. Possible values include `Disabled` and `SniEnabled`.
      * 
      */
     @Export(name="certificateBindingType", refs={String.class}, tree="[0]")
-    private Output<String> certificateBindingType;
+    private Output</* @Nullable */ String> certificateBindingType;
 
     /**
-     * @return The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+     * @return The Binding type. Possible values include `Disabled` and `SniEnabled`.
      * 
      */
-    public Output<String> certificateBindingType() {
-        return this.certificateBindingType;
+    public Output<Optional<String>> certificateBindingType() {
+        return Codegen.optional(this.certificateBindingType);
     }
     /**
      * The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+     * 
      */
     @Export(name="containerAppEnvironmentCertificateId", refs={String.class}, tree="[0]")
-    private Output<String> containerAppEnvironmentCertificateId;
+    private Output</* @Nullable */ String> containerAppEnvironmentCertificateId;
 
     /**
      * @return The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+     * 
      */
-    public Output<String> containerAppEnvironmentCertificateId() {
-        return this.containerAppEnvironmentCertificateId;
+    public Output<Optional<String>> containerAppEnvironmentCertificateId() {
+        return Codegen.optional(this.containerAppEnvironmentCertificateId);
     }
     /**
      * The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.

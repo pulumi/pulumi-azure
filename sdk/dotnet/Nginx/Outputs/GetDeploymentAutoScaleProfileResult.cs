@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Nginx.Outputs
         /// </summary>
         public readonly int MinCapacity;
         /// <summary>
-        /// The name of this Nginx Deployment.
+        /// The name of this NGINX Deployment.
         /// </summary>
         public readonly string Name;
 

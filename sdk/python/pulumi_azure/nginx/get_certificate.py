@@ -45,7 +45,7 @@ class GetCertificateResult:
     @pulumi.getter(name="certificateVirtualPath")
     def certificate_virtual_path(self) -> str:
         """
-        The path to the certificate file of this certificate.
+        The path to the certificate file of the certificate.
         """
         return pulumi.get(self, "certificate_virtual_path")
 
@@ -61,7 +61,7 @@ class GetCertificateResult:
     @pulumi.getter(name="keyVaultSecretId")
     def key_vault_secret_id(self) -> str:
         """
-        The ID of the Key Vault Secret for this certificate.
+        The ID of the Key Vault Secret for the certificate.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -69,7 +69,7 @@ class GetCertificateResult:
     @pulumi.getter(name="keyVirtualPath")
     def key_virtual_path(self) -> str:
         """
-        The path to the key file of this certificate.
+        The path to the key file of the certificate.
         """
         return pulumi.get(self, "key_virtual_path")
 
@@ -102,7 +102,7 @@ def get_certificate(name: Optional[str] = None,
                     nginx_deployment_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Use this data source to access information about an existing Nginx Certificate.
+    Use this data source to access information about an existing NGINX Certificate.
 
     ## Example Usage
 
@@ -116,8 +116,8 @@ def get_certificate(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of this Nginx Certificate.
-    :param str nginx_deployment_id: The ID of the Nginx Deployment that this certificate is associated with.
+    :param str name: The name of the NGINX Certificate.
+    :param str nginx_deployment_id: The ID of the NGINX Deployment that the certificate is associated with.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -139,7 +139,7 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
                            nginx_deployment_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
-    Use this data source to access information about an existing Nginx Certificate.
+    Use this data source to access information about an existing NGINX Certificate.
 
     ## Example Usage
 
@@ -153,7 +153,7 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of this Nginx Certificate.
-    :param str nginx_deployment_id: The ID of the Nginx Deployment that this certificate is associated with.
+    :param str name: The name of the NGINX Certificate.
+    :param str nginx_deployment_id: The ID of the NGINX Deployment that the certificate is associated with.
     """
     ...

@@ -14,6 +14,41 @@ import (
 
 // Manages a Container App Custom Domain.
 //
+// ### Managed Certificate
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerapp"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeTrimprefix, err := std.Trimprefix(ctx, &std.TrimprefixArgs{
+//				Input:  exampleAzurermDnsTxtRecord.Fqdn,
+//				Prefix: "asuid.",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerapp.NewCustomDomain(ctx, "example", &containerapp.CustomDomainArgs{
+//				Name:           invokeTrimprefix.Result,
+//				ContainerAppId: pulumi.Any(exampleAzurermContainerApp.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // A Container App Custom Domain can be imported using the `resource id`, e.g.
@@ -24,10 +59,12 @@ import (
 type CustomDomain struct {
 	pulumi.CustomResourceState
 
-	// The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
-	CertificateBindingType pulumi.StringOutput `pulumi:"certificateBindingType"`
+	// The Binding type. Possible values include `Disabled` and `SniEnabled`.
+	CertificateBindingType pulumi.StringPtrOutput `pulumi:"certificateBindingType"`
 	// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
-	ContainerAppEnvironmentCertificateId pulumi.StringOutput `pulumi:"containerAppEnvironmentCertificateId"`
+	//
+	// > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+	ContainerAppEnvironmentCertificateId pulumi.StringPtrOutput `pulumi:"containerAppEnvironmentCertificateId"`
 	// The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
 	ContainerAppId pulumi.StringOutput `pulumi:"containerAppId"`
 	// The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
@@ -43,12 +80,6 @@ func NewCustomDomain(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CertificateBindingType == nil {
-		return nil, errors.New("invalid value for required argument 'CertificateBindingType'")
-	}
-	if args.ContainerAppEnvironmentCertificateId == nil {
-		return nil, errors.New("invalid value for required argument 'ContainerAppEnvironmentCertificateId'")
-	}
 	if args.ContainerAppId == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerAppId'")
 	}
@@ -75,9 +106,11 @@ func GetCustomDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomDomain resources.
 type customDomainState struct {
-	// The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+	// The Binding type. Possible values include `Disabled` and `SniEnabled`.
 	CertificateBindingType *string `pulumi:"certificateBindingType"`
 	// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
 	ContainerAppEnvironmentCertificateId *string `pulumi:"containerAppEnvironmentCertificateId"`
 	// The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
 	ContainerAppId *string `pulumi:"containerAppId"`
@@ -88,9 +121,11 @@ type customDomainState struct {
 }
 
 type CustomDomainState struct {
-	// The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+	// The Binding type. Possible values include `Disabled` and `SniEnabled`.
 	CertificateBindingType pulumi.StringPtrInput
 	// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
 	ContainerAppEnvironmentCertificateId pulumi.StringPtrInput
 	// The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
 	ContainerAppId pulumi.StringPtrInput
@@ -105,10 +140,12 @@ func (CustomDomainState) ElementType() reflect.Type {
 }
 
 type customDomainArgs struct {
-	// The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
-	CertificateBindingType string `pulumi:"certificateBindingType"`
+	// The Binding type. Possible values include `Disabled` and `SniEnabled`.
+	CertificateBindingType *string `pulumi:"certificateBindingType"`
 	// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
-	ContainerAppEnvironmentCertificateId string `pulumi:"containerAppEnvironmentCertificateId"`
+	//
+	// > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+	ContainerAppEnvironmentCertificateId *string `pulumi:"containerAppEnvironmentCertificateId"`
 	// The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
 	ContainerAppId string `pulumi:"containerAppId"`
 	// The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
@@ -119,10 +156,12 @@ type customDomainArgs struct {
 
 // The set of arguments for constructing a CustomDomain resource.
 type CustomDomainArgs struct {
-	// The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
-	CertificateBindingType pulumi.StringInput
+	// The Binding type. Possible values include `Disabled` and `SniEnabled`.
+	CertificateBindingType pulumi.StringPtrInput
 	// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
-	ContainerAppEnvironmentCertificateId pulumi.StringInput
+	//
+	// > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+	ContainerAppEnvironmentCertificateId pulumi.StringPtrInput
 	// The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
 	ContainerAppId pulumi.StringInput
 	// The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
@@ -218,14 +257,16 @@ func (o CustomDomainOutput) ToCustomDomainOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
-func (o CustomDomainOutput) CertificateBindingType() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.CertificateBindingType }).(pulumi.StringOutput)
+// The Binding type. Possible values include `Disabled` and `SniEnabled`.
+func (o CustomDomainOutput) CertificateBindingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDomain) pulumi.StringPtrOutput { return v.CertificateBindingType }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
-func (o CustomDomainOutput) ContainerAppEnvironmentCertificateId() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.ContainerAppEnvironmentCertificateId }).(pulumi.StringOutput)
+//
+// > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+func (o CustomDomainOutput) ContainerAppEnvironmentCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDomain) pulumi.StringPtrOutput { return v.ContainerAppEnvironmentCertificateId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.

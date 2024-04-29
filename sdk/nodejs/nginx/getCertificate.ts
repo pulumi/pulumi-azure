@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing Nginx Certificate.
+ * Use this data source to access information about an existing NGINX Certificate.
  *
  * ## Example Usage
  *
@@ -34,11 +34,11 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetCertificateArgs {
     /**
-     * The name of this Nginx Certificate.
+     * The name of the NGINX Certificate.
      */
     name: string;
     /**
-     * The ID of the Nginx Deployment that this certificate is associated with.
+     * The ID of the NGINX Deployment that the certificate is associated with.
      */
     nginxDeploymentId: string;
 }
@@ -48,7 +48,7 @@ export interface GetCertificateArgs {
  */
 export interface GetCertificateResult {
     /**
-     * The path to the certificate file of this certificate.
+     * The path to the certificate file of the certificate.
      */
     readonly certificateVirtualPath: string;
     /**
@@ -56,18 +56,18 @@ export interface GetCertificateResult {
      */
     readonly id: string;
     /**
-     * The ID of the Key Vault Secret for this certificate.
+     * The ID of the Key Vault Secret for the certificate.
      */
     readonly keyVaultSecretId: string;
     /**
-     * The path to the key file of this certificate.
+     * The path to the key file of the certificate.
      */
     readonly keyVirtualPath: string;
     readonly name: string;
     readonly nginxDeploymentId: string;
 }
 /**
- * Use this data source to access information about an existing Nginx Certificate.
+ * Use this data source to access information about an existing NGINX Certificate.
  *
  * ## Example Usage
  *
@@ -91,11 +91,11 @@ export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulu
  */
 export interface GetCertificateOutputArgs {
     /**
-     * The name of this Nginx Certificate.
+     * The name of the NGINX Certificate.
      */
     name: pulumi.Input<string>;
     /**
-     * The ID of the Nginx Deployment that this certificate is associated with.
+     * The ID of the NGINX Deployment that the certificate is associated with.
      */
     nginxDeploymentId: pulumi.Input<string>;
 }

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Nginx.Outputs
     public sealed class DeploymentNetworkInterface
     {
         /// <summary>
-        /// Specify The SubNet Resource ID to this Nginx Deployment.
+        /// Specify The Subnet Resource ID for this NGINX Deployment.
         /// </summary>
         public readonly string SubnetId;
 

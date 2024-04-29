@@ -11,38 +11,38 @@ import java.util.Objects;
 @CustomType
 public final class DeploymentFrontendPrivate {
     /**
-     * @return Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
+     * @return Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
      * 
      */
     private String allocationMethod;
     /**
-     * @return Specify the IP Address of this private IP.
+     * @return Specify the private IP Address.
      * 
      */
     private String ipAddress;
     /**
-     * @return Specify the SubNet Resource ID to this Nginx Deployment.
+     * @return Specify the Subnet Resource ID for this NGINX Deployment.
      * 
      */
     private String subnetId;
 
     private DeploymentFrontendPrivate() {}
     /**
-     * @return Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
+     * @return Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
      * 
      */
     public String allocationMethod() {
         return this.allocationMethod;
     }
     /**
-     * @return Specify the IP Address of this private IP.
+     * @return Specify the private IP Address.
      * 
      */
     public String ipAddress() {
         return this.ipAddress;
     }
     /**
-     * @return Specify the SubNet Resource ID to this Nginx Deployment.
+     * @return Specify the Subnet Resource ID for this NGINX Deployment.
      * 
      */
     public String subnetId() {

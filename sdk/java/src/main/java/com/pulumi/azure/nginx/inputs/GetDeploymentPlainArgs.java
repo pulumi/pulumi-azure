@@ -14,14 +14,14 @@ public final class GetDeploymentPlainArgs extends com.pulumi.resources.InvokeArg
     public static final GetDeploymentPlainArgs Empty = new GetDeploymentPlainArgs();
 
     /**
-     * The name of this Nginx Deployment.
+     * The name of this NGINX Deployment.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of this Nginx Deployment.
+     * @return The name of this NGINX Deployment.
      * 
      */
     public String name() {
@@ -29,14 +29,14 @@ public final class GetDeploymentPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The name of the Resource Group where the Nginx Deployment exists.
+     * The name of the Resource Group where the NGINX Deployment exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private String resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Nginx Deployment exists.
+     * @return The name of the Resource Group where the NGINX Deployment exists.
      * 
      */
     public String resourceGroupName() {
@@ -69,7 +69,7 @@ public final class GetDeploymentPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name The name of this Nginx Deployment.
+         * @param name The name of this NGINX Deployment.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetDeploymentPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Nginx Deployment exists.
+         * @param resourceGroupName The name of the Resource Group where the NGINX Deployment exists.
          * 
          * @return builder
          * 

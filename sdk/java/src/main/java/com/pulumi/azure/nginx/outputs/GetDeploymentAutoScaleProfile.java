@@ -22,7 +22,7 @@ public final class GetDeploymentAutoScaleProfile {
      */
     private Integer minCapacity;
     /**
-     * @return The name of this Nginx Deployment.
+     * @return The name of this NGINX Deployment.
      * 
      */
     private String name;
@@ -43,7 +43,7 @@ public final class GetDeploymentAutoScaleProfile {
         return this.minCapacity;
     }
     /**
-     * @return The name of this Nginx Deployment.
+     * @return The name of this NGINX Deployment.
      * 
      */
     public String name() {

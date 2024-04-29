@@ -101,7 +101,7 @@ class GetDeploymentResult:
     @pulumi.getter
     def capacity(self) -> int:
         """
-        The number of NGINX capacity units for this Nginx Deployment.
+        The number of NGINX capacity units for this NGINX Deployment.
         """
         return pulumi.get(self, "capacity")
 
@@ -117,7 +117,7 @@ class GetDeploymentResult:
     @pulumi.getter
     def email(self) -> str:
         """
-        Preferred email associated with the Nginx Deployment.
+        Preferred email associated with the NGINX Deployment.
         """
         return pulumi.get(self, "email")
 
@@ -157,7 +157,7 @@ class GetDeploymentResult:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
         """
-        List of public IPs of the Ngix Deployment.
+        The list of Public IP Resource IDs for this NGINX Deployment.
         """
         return pulumi.get(self, "ip_address")
 
@@ -165,7 +165,7 @@ class GetDeploymentResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        The Azure Region where the Nginx Deployment exists.
+        The Azure Region where the NGINX Deployment exists.
         """
         return pulumi.get(self, "location")
 
@@ -181,7 +181,7 @@ class GetDeploymentResult:
     @pulumi.getter(name="managedResourceGroup")
     def managed_resource_group(self) -> str:
         """
-        Auto-generated managed resource group for the Nginx Deployment.
+        Auto-generated managed resource group for the NGINX Deployment.
         """
         return pulumi.get(self, "managed_resource_group")
 
@@ -205,7 +205,7 @@ class GetDeploymentResult:
     @pulumi.getter(name="nginxVersion")
     def nginx_version(self) -> str:
         """
-        NGINX version of the Nginx Deployment.
+        NGINX version of the Deployment.
         """
         return pulumi.get(self, "nginx_version")
 
@@ -218,7 +218,7 @@ class GetDeploymentResult:
     @pulumi.getter
     def sku(self) -> str:
         """
-        The Nginx Deployment SKU. Possible values include `standard_Monthly`.
+        The NGINX Deployment SKU. Possible values include `standard_Monthly`.
         """
         return pulumi.get(self, "sku")
 
@@ -226,7 +226,7 @@ class GetDeploymentResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A mapping of tags assigned to the Nginx Deployment.
+        A mapping of tags assigned to the NGINX Deployment.
         """
         return pulumi.get(self, "tags")
 
@@ -262,7 +262,7 @@ def get_deployment(name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
-    Use this data source to access information about an existing Nginx Deployment.
+    Use this data source to access information about an existing NGINX Deployment.
 
     ## Example Usage
 
@@ -276,8 +276,8 @@ def get_deployment(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of this Nginx Deployment.
-    :param str resource_group_name: The name of the Resource Group where the Nginx Deployment exists.
+    :param str name: The name of this NGINX Deployment.
+    :param str resource_group_name: The name of the Resource Group where the NGINX Deployment exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -312,7 +312,7 @@ def get_deployment_output(name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
     """
-    Use this data source to access information about an existing Nginx Deployment.
+    Use this data source to access information about an existing NGINX Deployment.
 
     ## Example Usage
 
@@ -326,7 +326,7 @@ def get_deployment_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of this Nginx Deployment.
-    :param str resource_group_name: The name of the Resource Group where the Nginx Deployment exists.
+    :param str name: The name of this NGINX Deployment.
+    :param str resource_group_name: The name of the Resource Group where the NGINX Deployment exists.
     """
     ...

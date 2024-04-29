@@ -229,6 +229,20 @@ public class HostPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.preferredAppGroupType);
     }
     /**
+     * Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+     * 
+     */
+    @Export(name="publicNetworkAccess", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> publicNetworkAccess;
+
+    /**
+     * @return Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+     * 
+     */
+    public Output<Optional<String>> publicNetworkAccess() {
+        return Codegen.optional(this.publicNetworkAccess);
+    }
+    /**
      * The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      * 
      */

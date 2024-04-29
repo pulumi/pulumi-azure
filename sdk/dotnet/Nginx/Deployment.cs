@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Nginx
 {
     /// <summary>
-    /// Manages a Nginx Deployment.
+    /// Manages an NGINX Deployment.
     /// 
     /// ## Example Usage
     /// 
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Nginx
     /// 
     /// ## Import
     /// 
-    /// Nginx Deployments can be imported using the `resource id`, e.g.
+    /// NGINX Deployments can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:nginx/deployment:Deployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/dep1
@@ -212,19 +212,19 @@ namespace Pulumi.Azure.Nginx
         public Output<bool?> DiagnoseSupportEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the preferred support contact email address of the user used for sending alerts and notification.
+        /// Specify the preferred support contact email address for receiving alerts and notifications.
         /// </summary>
         [Output("email")]
         public Output<string?> Email { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+        /// One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Output("frontendPrivates")]
         public Output<ImmutableArray<Outputs.DeploymentFrontendPrivate>> FrontendPrivates { get; private set; } = null!;
 
         /// <summary>
-        /// A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
+        /// A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Output("frontendPublic")]
         public Output<Outputs.DeploymentFrontendPublic?> FrontendPublic { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Nginx
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        /// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -254,43 +254,43 @@ namespace Pulumi.Azure.Nginx
         public Output<ImmutableArray<Outputs.DeploymentLoggingStorageAccount>> LoggingStorageAccounts { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+        /// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Output("managedResourceGroup")]
         public Output<string> ManagedResourceGroup { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+        /// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+        /// One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.DeploymentNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
-        /// The version of deployed nginx.
+        /// The version of deployed NGINX.
         /// </summary>
         [Output("nginxVersion")]
         public Output<string> NginxVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        /// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+        /// Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Nginx Deployment.
+        /// A mapping of tags which should be assigned to the NGINX Deployment.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -380,7 +380,7 @@ namespace Pulumi.Azure.Nginx
         public Input<bool>? DiagnoseSupportEnabled { get; set; }
 
         /// <summary>
-        /// Specify the preferred support contact email address of the user used for sending alerts and notification.
+        /// Specify the preferred support contact email address for receiving alerts and notifications.
         /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
@@ -389,7 +389,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.DeploymentFrontendPrivateArgs>? _frontendPrivates;
 
         /// <summary>
-        /// One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+        /// One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         public InputList<Inputs.DeploymentFrontendPrivateArgs> FrontendPrivates
         {
@@ -398,7 +398,7 @@ namespace Pulumi.Azure.Nginx
         }
 
         /// <summary>
-        /// A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
+        /// A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Input("frontendPublic")]
         public Input<Inputs.DeploymentFrontendPublicArgs>? FrontendPublic { get; set; }
@@ -410,7 +410,7 @@ namespace Pulumi.Azure.Nginx
         public Input<Inputs.DeploymentIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        /// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -428,13 +428,13 @@ namespace Pulumi.Azure.Nginx
         }
 
         /// <summary>
-        /// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+        /// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Input("managedResourceGroup")]
         public Input<string>? ManagedResourceGroup { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+        /// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -443,7 +443,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.DeploymentNetworkInterfaceArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+        /// One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         public InputList<Inputs.DeploymentNetworkInterfaceArgs> NetworkInterfaces
         {
@@ -452,13 +452,13 @@ namespace Pulumi.Azure.Nginx
         }
 
         /// <summary>
-        /// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        /// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+        /// Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -467,7 +467,7 @@ namespace Pulumi.Azure.Nginx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Nginx Deployment.
+        /// A mapping of tags which should be assigned to the NGINX Deployment.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -522,7 +522,7 @@ namespace Pulumi.Azure.Nginx
         public Input<bool>? DiagnoseSupportEnabled { get; set; }
 
         /// <summary>
-        /// Specify the preferred support contact email address of the user used for sending alerts and notification.
+        /// Specify the preferred support contact email address for receiving alerts and notifications.
         /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
@@ -531,7 +531,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.DeploymentFrontendPrivateGetArgs>? _frontendPrivates;
 
         /// <summary>
-        /// One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+        /// One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         public InputList<Inputs.DeploymentFrontendPrivateGetArgs> FrontendPrivates
         {
@@ -540,7 +540,7 @@ namespace Pulumi.Azure.Nginx
         }
 
         /// <summary>
-        /// A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
+        /// A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Input("frontendPublic")]
         public Input<Inputs.DeploymentFrontendPublicGetArgs>? FrontendPublic { get; set; }
@@ -558,7 +558,7 @@ namespace Pulumi.Azure.Nginx
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        /// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -576,13 +576,13 @@ namespace Pulumi.Azure.Nginx
         }
 
         /// <summary>
-        /// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+        /// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Input("managedResourceGroup")]
         public Input<string>? ManagedResourceGroup { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+        /// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -591,7 +591,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.DeploymentNetworkInterfaceGetArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+        /// One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         public InputList<Inputs.DeploymentNetworkInterfaceGetArgs> NetworkInterfaces
         {
@@ -600,19 +600,19 @@ namespace Pulumi.Azure.Nginx
         }
 
         /// <summary>
-        /// The version of deployed nginx.
+        /// The version of deployed NGINX.
         /// </summary>
         [Input("nginxVersion")]
         public Input<string>? NginxVersion { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+        /// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+        /// Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -621,7 +621,7 @@ namespace Pulumi.Azure.Nginx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Nginx Deployment.
+        /// A mapping of tags which should be assigned to the NGINX Deployment.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -5,10 +5,10 @@ Subject: [PATCH] Shared-features
 
 
 diff --git a/internal/features/four_point_oh.go b/internal/features/four_point_oh.go
-index 4387a9c18f..4013a59e46 100644
+index d3723a3480..4953bff3b7 100644
 --- a/internal/features/four_point_oh.go
 +++ b/internal/features/four_point_oh.go
-@@ -44,3 +44,9 @@ func FourPointOh() bool {
+@@ -40,3 +40,9 @@ func FourPointOh() bool {
  func FourPointOhBeta() bool {
  	return FourPointOh() || false
  }

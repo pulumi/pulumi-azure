@@ -15,14 +15,14 @@ public final class DeploymentNetworkInterfaceArgs extends com.pulumi.resources.R
     public static final DeploymentNetworkInterfaceArgs Empty = new DeploymentNetworkInterfaceArgs();
 
     /**
-     * Specify The SubNet Resource ID to this Nginx Deployment.
+     * Specify The Subnet Resource ID for this NGINX Deployment.
      * 
      */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
     /**
-     * @return Specify The SubNet Resource ID to this Nginx Deployment.
+     * @return Specify The Subnet Resource ID for this NGINX Deployment.
      * 
      */
     public Output<String> subnetId() {
@@ -54,7 +54,7 @@ public final class DeploymentNetworkInterfaceArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param subnetId Specify The SubNet Resource ID to this Nginx Deployment.
+         * @param subnetId Specify The Subnet Resource ID for this NGINX Deployment.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class DeploymentNetworkInterfaceArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param subnetId Specify The SubNet Resource ID to this Nginx Deployment.
+         * @param subnetId Specify The Subnet Resource ID for this NGINX Deployment.
          * 
          * @return builder
          * 

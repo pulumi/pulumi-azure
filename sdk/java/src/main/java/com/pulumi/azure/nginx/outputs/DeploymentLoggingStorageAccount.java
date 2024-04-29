@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DeploymentLoggingStorageAccount {
     /**
-     * @return Specify the container name of Storage Account for logging.
+     * @return Specify the container name in the Storage Account for logging.
      * 
      */
     private @Nullable String containerName;
     /**
-     * @return The account name of the StorageAccount for Nginx Logging.
+     * @return The name of the StorageAccount for NGINX Logging.
      * 
      */
     private @Nullable String name;
 
     private DeploymentLoggingStorageAccount() {}
     /**
-     * @return Specify the container name of Storage Account for logging.
+     * @return Specify the container name in the Storage Account for logging.
      * 
      */
     public Optional<String> containerName() {
         return Optional.ofNullable(this.containerName);
     }
     /**
-     * @return The account name of the StorageAccount for Nginx Logging.
+     * @return The name of the StorageAccount for NGINX Logging.
      * 
      */
     public Optional<String> name() {

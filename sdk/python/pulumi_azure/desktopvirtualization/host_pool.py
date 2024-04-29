@@ -27,6 +27,7 @@ class HostPoolArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  personal_desktop_assignment_type: Optional[pulumi.Input[str]] = None,
                  preferred_app_group_type: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  scheduled_agent_updates: Optional[pulumi.Input['HostPoolScheduledAgentUpdatesArgs']] = None,
                  start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -50,6 +51,7 @@ class HostPoolArgs:
                
                > **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
         :param pulumi.Input[str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] public_network_access: Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
         :param pulumi.Input['HostPoolScheduledAgentUpdatesArgs'] scheduled_agent_updates: A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
         :param pulumi.Input[bool] start_vm_on_connect: Enables or disables the Start VM on Connection Feature. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -75,6 +77,8 @@ class HostPoolArgs:
             pulumi.set(__self__, "personal_desktop_assignment_type", personal_desktop_assignment_type)
         if preferred_app_group_type is not None:
             pulumi.set(__self__, "preferred_app_group_type", preferred_app_group_type)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if scheduled_agent_updates is not None:
             pulumi.set(__self__, "scheduled_agent_updates", scheduled_agent_updates)
         if start_vm_on_connect is not None:
@@ -224,6 +228,18 @@ class HostPoolArgs:
         pulumi.set(self, "preferred_app_group_type", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
     @pulumi.getter(name="scheduledAgentUpdates")
     def scheduled_agent_updates(self) -> Optional[pulumi.Input['HostPoolScheduledAgentUpdatesArgs']]:
         """
@@ -296,6 +312,7 @@ class _HostPoolState:
                  name: Optional[pulumi.Input[str]] = None,
                  personal_desktop_assignment_type: Optional[pulumi.Input[str]] = None,
                  preferred_app_group_type: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scheduled_agent_updates: Optional[pulumi.Input['HostPoolScheduledAgentUpdatesArgs']] = None,
                  start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
@@ -319,6 +336,7 @@ class _HostPoolState:
                
                > **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
         :param pulumi.Input[str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] public_network_access: Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         :param pulumi.Input['HostPoolScheduledAgentUpdatesArgs'] scheduled_agent_updates: A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
         :param pulumi.Input[bool] start_vm_on_connect: Enables or disables the Start VM on Connection Feature. Defaults to `false`.
@@ -345,6 +363,8 @@ class _HostPoolState:
             pulumi.set(__self__, "personal_desktop_assignment_type", personal_desktop_assignment_type)
         if preferred_app_group_type is not None:
             pulumi.set(__self__, "preferred_app_group_type", preferred_app_group_type)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if scheduled_agent_updates is not None:
@@ -474,6 +494,18 @@ class _HostPoolState:
         pulumi.set(self, "preferred_app_group_type", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -572,6 +604,7 @@ class HostPool(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  personal_desktop_assignment_type: Optional[pulumi.Input[str]] = None,
                  preferred_app_group_type: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scheduled_agent_updates: Optional[pulumi.Input[pulumi.InputType['HostPoolScheduledAgentUpdatesArgs']]] = None,
                  start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
@@ -639,6 +672,7 @@ class HostPool(pulumi.CustomResource):
                
                > **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
         :param pulumi.Input[str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] public_network_access: Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HostPoolScheduledAgentUpdatesArgs']] scheduled_agent_updates: A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
         :param pulumi.Input[bool] start_vm_on_connect: Enables or disables the Start VM on Connection Feature. Defaults to `false`.
@@ -720,6 +754,7 @@ class HostPool(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  personal_desktop_assignment_type: Optional[pulumi.Input[str]] = None,
                  preferred_app_group_type: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scheduled_agent_updates: Optional[pulumi.Input[pulumi.InputType['HostPoolScheduledAgentUpdatesArgs']]] = None,
                  start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
@@ -747,6 +782,7 @@ class HostPool(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["personal_desktop_assignment_type"] = personal_desktop_assignment_type
             __props__.__dict__["preferred_app_group_type"] = preferred_app_group_type
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -777,6 +813,7 @@ class HostPool(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             personal_desktop_assignment_type: Optional[pulumi.Input[str]] = None,
             preferred_app_group_type: Optional[pulumi.Input[str]] = None,
+            public_network_access: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             scheduled_agent_updates: Optional[pulumi.Input[pulumi.InputType['HostPoolScheduledAgentUpdatesArgs']]] = None,
             start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
@@ -805,6 +842,7 @@ class HostPool(pulumi.CustomResource):
                
                > **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
         :param pulumi.Input[str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] public_network_access: Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HostPoolScheduledAgentUpdatesArgs']] scheduled_agent_updates: A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
         :param pulumi.Input[bool] start_vm_on_connect: Enables or disables the Start VM on Connection Feature. Defaults to `false`.
@@ -826,6 +864,7 @@ class HostPool(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["personal_desktop_assignment_type"] = personal_desktop_assignment_type
         __props__.__dict__["preferred_app_group_type"] = preferred_app_group_type
+        __props__.__dict__["public_network_access"] = public_network_access
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["scheduled_agent_updates"] = scheduled_agent_updates
         __props__.__dict__["start_vm_on_connect"] = start_vm_on_connect
@@ -911,6 +950,14 @@ class HostPool(pulumi.CustomResource):
         Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "preferred_app_group_type")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="resourceGroupName")

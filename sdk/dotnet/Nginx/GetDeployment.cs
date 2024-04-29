@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Nginx
     public static class GetDeployment
     {
         /// <summary>
-        /// Use this data source to access information about an existing Nginx Deployment.
+        /// Use this data source to access information about an existing NGINX Deployment.
         /// 
         /// ## Example Usage
         /// 
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Nginx
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure:nginx/getDeployment:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing Nginx Deployment.
+        /// Use this data source to access information about an existing NGINX Deployment.
         /// 
         /// ## Example Usage
         /// 
@@ -74,13 +74,13 @@ namespace Pulumi.Azure.Nginx
     public sealed class GetDeploymentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of this Nginx Deployment.
+        /// The name of this NGINX Deployment.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Nginx Deployment exists.
+        /// The name of the Resource Group where the NGINX Deployment exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -94,13 +94,13 @@ namespace Pulumi.Azure.Nginx
     public sealed class GetDeploymentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of this Nginx Deployment.
+        /// The name of this NGINX Deployment.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Nginx Deployment exists.
+        /// The name of the Resource Group where the NGINX Deployment exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         public readonly string AutomaticUpgradeChannel;
         /// <summary>
-        /// The number of NGINX capacity units for this Nginx Deployment.
+        /// The number of NGINX capacity units for this NGINX Deployment.
         /// </summary>
         public readonly int Capacity;
         /// <summary>
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         public readonly bool DiagnoseSupportEnabled;
         /// <summary>
-        /// Preferred email associated with the Nginx Deployment.
+        /// Preferred email associated with the NGINX Deployment.
         /// </summary>
         public readonly string Email;
         /// <summary>
@@ -152,11 +152,11 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDeploymentIdentityResult> Identities;
         /// <summary>
-        /// List of public IPs of the Ngix Deployment.
+        /// The list of Public IP Resource IDs for this NGINX Deployment.
         /// </summary>
         public readonly string IpAddress;
         /// <summary>
-        /// The Azure Region where the Nginx Deployment exists.
+        /// The Azure Region where the NGINX Deployment exists.
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDeploymentLoggingStorageAccountResult> LoggingStorageAccounts;
         /// <summary>
-        /// Auto-generated managed resource group for the Nginx Deployment.
+        /// Auto-generated managed resource group for the NGINX Deployment.
         /// </summary>
         public readonly string ManagedResourceGroup;
         /// <summary>
@@ -176,16 +176,16 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDeploymentNetworkInterfaceResult> NetworkInterfaces;
         /// <summary>
-        /// NGINX version of the Nginx Deployment.
+        /// NGINX version of the Deployment.
         /// </summary>
         public readonly string NginxVersion;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The Nginx Deployment SKU. Possible values include `standard_Monthly`.
+        /// The NGINX Deployment SKU. Possible values include `standard_Monthly`.
         /// </summary>
         public readonly string Sku;
         /// <summary>
-        /// A mapping of tags assigned to the Nginx Deployment.
+        /// A mapping of tags assigned to the NGINX Deployment.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

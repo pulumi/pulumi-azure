@@ -19442,7 +19442,7 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetTerminationNotification {
         /**
-         * Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
+         * Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
          */
         enabled: pulumi.Input<boolean>;
         /**
@@ -23278,9 +23278,11 @@ export namespace containerservice {
          */
         clientAppId?: pulumi.Input<string>;
         /**
-         * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+         * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
          *
-         * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
+         * > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
+         *
+         * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.
          */
         managed?: pulumi.Input<boolean>;
         /**
@@ -24165,7 +24167,7 @@ export namespace containerservice {
         /**
          * Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
          *
-         * > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set.
+         * > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set, unless specifying `networkPluginMode` to `overlay`.
          */
         networkPlugin: pulumi.Input<string>;
         /**
@@ -24187,7 +24189,7 @@ export namespace containerservice {
          */
         outboundType?: pulumi.Input<string>;
         /**
-         * The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
+         * The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
          */
         podCidr?: pulumi.Input<string>;
         /**
@@ -46136,22 +46138,22 @@ export namespace nginx {
 
     export interface DeploymentFrontendPrivate {
         /**
-         * Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
+         * Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
          */
         allocationMethod: pulumi.Input<string>;
         /**
-         * Specify the IP Address of this private IP.
+         * Specify the private IP Address.
          */
         ipAddress: pulumi.Input<string>;
         /**
-         * Specify the SubNet Resource ID to this Nginx Deployment.
+         * Specify the Subnet Resource ID for this NGINX Deployment.
          */
         subnetId: pulumi.Input<string>;
     }
 
     export interface DeploymentFrontendPublic {
         /**
-         * Specifies a list of Public IP Resource ID to this Nginx Deployment.
+         * Specifies a list of Public IP Resource ID to this NGINX Deployment.
          */
         ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -46166,25 +46168,25 @@ export namespace nginx {
         principalId?: pulumi.Input<string>;
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+         * Specifies the identity type of the NGINX Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface DeploymentLoggingStorageAccount {
         /**
-         * Specify the container name of Storage Account for logging.
+         * Specify the container name in the Storage Account for logging.
          */
         containerName?: pulumi.Input<string>;
         /**
-         * The account name of the StorageAccount for Nginx Logging.
+         * The name of the StorageAccount for NGINX Logging.
          */
         name?: pulumi.Input<string>;
     }
 
     export interface DeploymentNetworkInterface {
         /**
-         * Specify The SubNet Resource ID to this Nginx Deployment.
+         * Specify The Subnet Resource ID for this NGINX Deployment.
          */
         subnetId: pulumi.Input<string>;
     }
@@ -47681,7 +47683,7 @@ export namespace securitycenter {
 
     export interface AutomationAction {
         /**
-         * (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+         * (Optional, but required when `type` is `eventhub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
          */
         connectionString?: pulumi.Input<string>;
         /**
@@ -47689,11 +47691,11 @@ export namespace securitycenter {
          */
         resourceId: pulumi.Input<string>;
         /**
-         * (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+         * (Optional, but required when `type` is `logicapp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
          */
         triggerUrl?: pulumi.Input<string>;
         /**
-         * Type of Azure resource to send data to. Must be set to one of: `LogicApp`, `EventHub` or `LogAnalytics`.
+         * Type of Azure resource to send data to. Must be set to one of: `logicapp`, `eventhub` or `loganalytics`.
          */
         type: pulumi.Input<string>;
     }

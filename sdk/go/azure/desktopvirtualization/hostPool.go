@@ -102,6 +102,8 @@ type HostPool struct {
 	PersonalDesktopAssignmentType pulumi.StringPtrOutput `pulumi:"personalDesktopAssignmentType"`
 	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
 	PreferredAppGroupType pulumi.StringPtrOutput `pulumi:"preferredAppGroupType"`
+	// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
@@ -180,6 +182,8 @@ type hostPoolState struct {
 	PersonalDesktopAssignmentType *string `pulumi:"personalDesktopAssignmentType"`
 	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
 	PreferredAppGroupType *string `pulumi:"preferredAppGroupType"`
+	// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
@@ -220,6 +224,8 @@ type HostPoolState struct {
 	PersonalDesktopAssignmentType pulumi.StringPtrInput
 	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
 	PreferredAppGroupType pulumi.StringPtrInput
+	// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
@@ -264,6 +270,8 @@ type hostPoolArgs struct {
 	PersonalDesktopAssignmentType *string `pulumi:"personalDesktopAssignmentType"`
 	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
 	PreferredAppGroupType *string `pulumi:"preferredAppGroupType"`
+	// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
@@ -305,6 +313,8 @@ type HostPoolArgs struct {
 	PersonalDesktopAssignmentType pulumi.StringPtrInput
 	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
 	PreferredAppGroupType pulumi.StringPtrInput
+	// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
@@ -456,6 +466,11 @@ func (o HostPoolOutput) PersonalDesktopAssignmentType() pulumi.StringPtrOutput {
 // Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
 func (o HostPoolOutput) PreferredAppGroupType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.PreferredAppGroupType }).(pulumi.StringPtrOutput)
+}
+
+// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+func (o HostPoolOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.

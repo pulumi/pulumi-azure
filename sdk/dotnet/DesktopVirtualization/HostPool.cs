@@ -131,6 +131,12 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string?> PreferredAppGroupType { get; private set; } = null!;
 
         /// <summary>
+        /// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -278,6 +284,12 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? PreferredAppGroupType { get; set; }
 
         /// <summary>
+        /// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -391,6 +403,12 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// </summary>
         [Input("preferredAppGroupType")]
         public Input<string>? PreferredAppGroupType { get; set; }
+
+        /// <summary>
+        /// Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.

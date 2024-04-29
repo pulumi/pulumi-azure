@@ -30,10 +30,10 @@ class AvailabilitySetArgs:
         :param pulumi.Input[str] name: Specifies the name of the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+               > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         :param pulumi.Input[int] platform_update_domain_count: Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+               > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -107,7 +107,7 @@ class AvailabilitySetArgs:
         """
         Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+        > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         """
         return pulumi.get(self, "platform_fault_domain_count")
 
@@ -121,7 +121,7 @@ class AvailabilitySetArgs:
         """
         Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+        > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         """
         return pulumi.get(self, "platform_update_domain_count")
 
@@ -172,10 +172,10 @@ class _AvailabilitySetState:
         :param pulumi.Input[str] name: Specifies the name of the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+               > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         :param pulumi.Input[int] platform_update_domain_count: Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+               > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -239,7 +239,7 @@ class _AvailabilitySetState:
         """
         Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+        > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         """
         return pulumi.get(self, "platform_fault_domain_count")
 
@@ -253,7 +253,7 @@ class _AvailabilitySetState:
         """
         Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+        > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         """
         return pulumi.get(self, "platform_update_domain_count")
 
@@ -348,10 +348,10 @@ class AvailabilitySet(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+               > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         :param pulumi.Input[int] platform_update_domain_count: Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+               > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -463,10 +463,10 @@ class AvailabilitySet(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+               > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         :param pulumi.Input[int] platform_update_domain_count: Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+               > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -515,7 +515,7 @@ class AvailabilitySet(pulumi.CustomResource):
         """
         Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+        > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         """
         return pulumi.get(self, "platform_fault_domain_count")
 
@@ -525,7 +525,7 @@ class AvailabilitySet(pulumi.CustomResource):
         """
         Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
+        > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         """
         return pulumi.get(self, "platform_update_domain_count")
 

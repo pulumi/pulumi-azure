@@ -17,33 +17,37 @@ public final class CustomDomainArgs extends com.pulumi.resources.ResourceArgs {
     public static final CustomDomainArgs Empty = new CustomDomainArgs();
 
     /**
-     * The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+     * The Binding type. Possible values include `Disabled` and `SniEnabled`.
      * 
      */
-    @Import(name="certificateBindingType", required=true)
-    private Output<String> certificateBindingType;
+    @Import(name="certificateBindingType")
+    private @Nullable Output<String> certificateBindingType;
 
     /**
-     * @return The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+     * @return The Binding type. Possible values include `Disabled` and `SniEnabled`.
      * 
      */
-    public Output<String> certificateBindingType() {
-        return this.certificateBindingType;
+    public Optional<Output<String>> certificateBindingType() {
+        return Optional.ofNullable(this.certificateBindingType);
     }
 
     /**
      * The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+     * 
      */
-    @Import(name="containerAppEnvironmentCertificateId", required=true)
-    private Output<String> containerAppEnvironmentCertificateId;
+    @Import(name="containerAppEnvironmentCertificateId")
+    private @Nullable Output<String> containerAppEnvironmentCertificateId;
 
     /**
      * @return The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+     * 
      */
-    public Output<String> containerAppEnvironmentCertificateId() {
-        return this.containerAppEnvironmentCertificateId;
+    public Optional<Output<String>> containerAppEnvironmentCertificateId() {
+        return Optional.ofNullable(this.containerAppEnvironmentCertificateId);
     }
 
     /**
@@ -108,18 +112,18 @@ public final class CustomDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateBindingType The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+         * @param certificateBindingType The Binding type. Possible values include `Disabled` and `SniEnabled`.
          * 
          * @return builder
          * 
          */
-        public Builder certificateBindingType(Output<String> certificateBindingType) {
+        public Builder certificateBindingType(@Nullable Output<String> certificateBindingType) {
             $.certificateBindingType = certificateBindingType;
             return this;
         }
 
         /**
-         * @param certificateBindingType The Certificate Binding type. Possible values include `Disabled` and `SniEnabled`. Changing this forces a new resource to be created.
+         * @param certificateBindingType The Binding type. Possible values include `Disabled` and `SniEnabled`.
          * 
          * @return builder
          * 
@@ -131,16 +135,20 @@ public final class CustomDomainArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param containerAppEnvironmentCertificateId The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+         * 
          * @return builder
          * 
          */
-        public Builder containerAppEnvironmentCertificateId(Output<String> containerAppEnvironmentCertificateId) {
+        public Builder containerAppEnvironmentCertificateId(@Nullable Output<String> containerAppEnvironmentCertificateId) {
             $.containerAppEnvironmentCertificateId = containerAppEnvironmentCertificateId;
             return this;
         }
 
         /**
          * @param containerAppEnvironmentCertificateId The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
          * 
          * @return builder
          * 
@@ -196,12 +204,6 @@ public final class CustomDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CustomDomainArgs build() {
-            if ($.certificateBindingType == null) {
-                throw new MissingRequiredPropertyException("CustomDomainArgs", "certificateBindingType");
-            }
-            if ($.containerAppEnvironmentCertificateId == null) {
-                throw new MissingRequiredPropertyException("CustomDomainArgs", "containerAppEnvironmentCertificateId");
-            }
             if ($.containerAppId == null) {
                 throw new MissingRequiredPropertyException("CustomDomainArgs", "containerAppId");
             }

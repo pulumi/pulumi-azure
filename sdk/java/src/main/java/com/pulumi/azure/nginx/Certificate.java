@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Certificate for an NGinx Deployment.
+ * Manages a Certificate for an NGINX Deployment.
  * 
  * ## Example Usage
  * 
@@ -164,7 +164,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An Nginx Certificate can be imported using the `resource id`, e.g.
+ * An NGINX Certificate can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:nginx/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/deploy1/certificates/cer1
@@ -216,28 +216,28 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.keyVirtualPath;
     }
     /**
-     * The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+     * The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
+     * @return The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+     * The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
      * 
      */
     @Export(name="nginxDeploymentId", refs={String.class}, tree="[0]")
     private Output<String> nginxDeploymentId;
 
     /**
-     * @return The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
+     * @return The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
      * 
      */
     public Output<String> nginxDeploymentId() {

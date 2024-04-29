@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Nginx Deployment.
+// Manages an NGINX Deployment.
 //
 // ## Example Usage
 //
@@ -166,7 +166,7 @@ import (
 //
 // ## Import
 //
-// Nginx Deployments can be imported using the `resource id`, e.g.
+// NGINX Deployments can be imported using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:nginx/deployment:Deployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/dep1
@@ -186,33 +186,33 @@ type Deployment struct {
 	Configuration DeploymentConfigurationOutput `pulumi:"configuration"`
 	// Should the diagnosis support be enabled?
 	DiagnoseSupportEnabled pulumi.BoolPtrOutput `pulumi:"diagnoseSupportEnabled"`
-	// Specify the preferred support contact email address of the user used for sending alerts and notification.
+	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email pulumi.StringPtrOutput `pulumi:"email"`
-	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
 	FrontendPrivates DeploymentFrontendPrivateArrayOutput `pulumi:"frontendPrivates"`
-	// A `frontendPublic` block as defined below. Changing this forces a new Nginx Deployment to be created.
+	// A `frontendPublic` block as defined below. Changing this forces a new NGINX Deployment to be created.
 	FrontendPublic DeploymentFrontendPublicPtrOutput `pulumi:"frontendPublic"`
 	// An `identity` block as defined below.
 	Identity DeploymentIdentityPtrOutput `pulumi:"identity"`
 	// The IP address of the deployment.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
-	// The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+	// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// One or more `loggingStorageAccount` blocks as defined below.
 	LoggingStorageAccounts DeploymentLoggingStorageAccountArrayOutput `pulumi:"loggingStorageAccounts"`
-	// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+	// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
 	ManagedResourceGroup pulumi.StringOutput `pulumi:"managedResourceGroup"`
-	// The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// One or more `networkInterface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+	// One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
 	NetworkInterfaces DeploymentNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
-	// The version of deployed nginx.
+	// The version of deployed NGINX.
 	NginxVersion pulumi.StringOutput `pulumi:"nginxVersion"`
-	// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+	// Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
 	Sku pulumi.StringOutput `pulumi:"sku"`
-	// A mapping of tags which should be assigned to the Nginx Deployment.
+	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -264,33 +264,33 @@ type deploymentState struct {
 	Configuration *DeploymentConfiguration `pulumi:"configuration"`
 	// Should the diagnosis support be enabled?
 	DiagnoseSupportEnabled *bool `pulumi:"diagnoseSupportEnabled"`
-	// Specify the preferred support contact email address of the user used for sending alerts and notification.
+	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email *string `pulumi:"email"`
-	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
 	FrontendPrivates []DeploymentFrontendPrivate `pulumi:"frontendPrivates"`
-	// A `frontendPublic` block as defined below. Changing this forces a new Nginx Deployment to be created.
+	// A `frontendPublic` block as defined below. Changing this forces a new NGINX Deployment to be created.
 	FrontendPublic *DeploymentFrontendPublic `pulumi:"frontendPublic"`
 	// An `identity` block as defined below.
 	Identity *DeploymentIdentity `pulumi:"identity"`
 	// The IP address of the deployment.
 	IpAddress *string `pulumi:"ipAddress"`
-	// The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+	// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	Location *string `pulumi:"location"`
 	// One or more `loggingStorageAccount` blocks as defined below.
 	LoggingStorageAccounts []DeploymentLoggingStorageAccount `pulumi:"loggingStorageAccounts"`
-	// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+	// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
 	ManagedResourceGroup *string `pulumi:"managedResourceGroup"`
-	// The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name *string `pulumi:"name"`
-	// One or more `networkInterface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+	// One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
 	NetworkInterfaces []DeploymentNetworkInterface `pulumi:"networkInterfaces"`
-	// The version of deployed nginx.
+	// The version of deployed NGINX.
 	NginxVersion *string `pulumi:"nginxVersion"`
-	// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+	// Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
-	// A mapping of tags which should be assigned to the Nginx Deployment.
+	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -307,33 +307,33 @@ type DeploymentState struct {
 	Configuration DeploymentConfigurationPtrInput
 	// Should the diagnosis support be enabled?
 	DiagnoseSupportEnabled pulumi.BoolPtrInput
-	// Specify the preferred support contact email address of the user used for sending alerts and notification.
+	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email pulumi.StringPtrInput
-	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
 	FrontendPrivates DeploymentFrontendPrivateArrayInput
-	// A `frontendPublic` block as defined below. Changing this forces a new Nginx Deployment to be created.
+	// A `frontendPublic` block as defined below. Changing this forces a new NGINX Deployment to be created.
 	FrontendPublic DeploymentFrontendPublicPtrInput
 	// An `identity` block as defined below.
 	Identity DeploymentIdentityPtrInput
 	// The IP address of the deployment.
 	IpAddress pulumi.StringPtrInput
-	// The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+	// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	Location pulumi.StringPtrInput
 	// One or more `loggingStorageAccount` blocks as defined below.
 	LoggingStorageAccounts DeploymentLoggingStorageAccountArrayInput
-	// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+	// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
 	ManagedResourceGroup pulumi.StringPtrInput
-	// The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name pulumi.StringPtrInput
-	// One or more `networkInterface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+	// One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
 	NetworkInterfaces DeploymentNetworkInterfaceArrayInput
-	// The version of deployed nginx.
+	// The version of deployed NGINX.
 	NginxVersion pulumi.StringPtrInput
-	// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+	// Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the Nginx Deployment.
+	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags pulumi.StringMapInput
 }
 
@@ -354,29 +354,29 @@ type deploymentArgs struct {
 	Configuration *DeploymentConfiguration `pulumi:"configuration"`
 	// Should the diagnosis support be enabled?
 	DiagnoseSupportEnabled *bool `pulumi:"diagnoseSupportEnabled"`
-	// Specify the preferred support contact email address of the user used for sending alerts and notification.
+	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email *string `pulumi:"email"`
-	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
 	FrontendPrivates []DeploymentFrontendPrivate `pulumi:"frontendPrivates"`
-	// A `frontendPublic` block as defined below. Changing this forces a new Nginx Deployment to be created.
+	// A `frontendPublic` block as defined below. Changing this forces a new NGINX Deployment to be created.
 	FrontendPublic *DeploymentFrontendPublic `pulumi:"frontendPublic"`
 	// An `identity` block as defined below.
 	Identity *DeploymentIdentity `pulumi:"identity"`
-	// The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+	// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	Location *string `pulumi:"location"`
 	// One or more `loggingStorageAccount` blocks as defined below.
 	LoggingStorageAccounts []DeploymentLoggingStorageAccount `pulumi:"loggingStorageAccounts"`
-	// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+	// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
 	ManagedResourceGroup *string `pulumi:"managedResourceGroup"`
-	// The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name *string `pulumi:"name"`
-	// One or more `networkInterface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+	// One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
 	NetworkInterfaces []DeploymentNetworkInterface `pulumi:"networkInterfaces"`
-	// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+	// Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
 	Sku string `pulumi:"sku"`
-	// A mapping of tags which should be assigned to the Nginx Deployment.
+	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -394,29 +394,29 @@ type DeploymentArgs struct {
 	Configuration DeploymentConfigurationPtrInput
 	// Should the diagnosis support be enabled?
 	DiagnoseSupportEnabled pulumi.BoolPtrInput
-	// Specify the preferred support contact email address of the user used for sending alerts and notification.
+	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email pulumi.StringPtrInput
-	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
 	FrontendPrivates DeploymentFrontendPrivateArrayInput
-	// A `frontendPublic` block as defined below. Changing this forces a new Nginx Deployment to be created.
+	// A `frontendPublic` block as defined below. Changing this forces a new NGINX Deployment to be created.
 	FrontendPublic DeploymentFrontendPublicPtrInput
 	// An `identity` block as defined below.
 	Identity DeploymentIdentityPtrInput
-	// The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+	// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	Location pulumi.StringPtrInput
 	// One or more `loggingStorageAccount` blocks as defined below.
 	LoggingStorageAccounts DeploymentLoggingStorageAccountArrayInput
-	// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+	// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
 	ManagedResourceGroup pulumi.StringPtrInput
-	// The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name pulumi.StringPtrInput
-	// One or more `networkInterface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+	// One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
 	NetworkInterfaces DeploymentNetworkInterfaceArrayInput
-	// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+	// Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
 	Sku pulumi.StringInput
-	// A mapping of tags which should be assigned to the Nginx Deployment.
+	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags pulumi.StringMapInput
 }
 
@@ -534,17 +534,17 @@ func (o DeploymentOutput) DiagnoseSupportEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.BoolPtrOutput { return v.DiagnoseSupportEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specify the preferred support contact email address of the user used for sending alerts and notification.
+// Specify the preferred support contact email address for receiving alerts and notifications.
 func (o DeploymentOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// One or more `frontendPrivate` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+// One or more `frontendPrivate` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
 func (o DeploymentOutput) FrontendPrivates() DeploymentFrontendPrivateArrayOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentFrontendPrivateArrayOutput { return v.FrontendPrivates }).(DeploymentFrontendPrivateArrayOutput)
 }
 
-// A `frontendPublic` block as defined below. Changing this forces a new Nginx Deployment to be created.
+// A `frontendPublic` block as defined below. Changing this forces a new NGINX Deployment to be created.
 func (o DeploymentOutput) FrontendPublic() DeploymentFrontendPublicPtrOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentFrontendPublicPtrOutput { return v.FrontendPublic }).(DeploymentFrontendPublicPtrOutput)
 }
@@ -559,7 +559,7 @@ func (o DeploymentOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 func (o DeploymentOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -569,37 +569,37 @@ func (o DeploymentOutput) LoggingStorageAccounts() DeploymentLoggingStorageAccou
 	return o.ApplyT(func(v *Deployment) DeploymentLoggingStorageAccountArrayOutput { return v.LoggingStorageAccounts }).(DeploymentLoggingStorageAccountArrayOutput)
 }
 
-// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
+// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
 func (o DeploymentOutput) ManagedResourceGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ManagedResourceGroup }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
+// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 func (o DeploymentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// One or more `networkInterface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
+// One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
 func (o DeploymentOutput) NetworkInterfaces() DeploymentNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(DeploymentNetworkInterfaceArrayOutput)
 }
 
-// The version of deployed nginx.
+// The version of deployed NGINX.
 func (o DeploymentOutput) NginxVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.NginxVersion }).(pulumi.StringOutput)
 }
 
-// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
+// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 func (o DeploymentOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies the Nginx Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
+// Specifies the NGINX Deployment SKU. Possible values include `standard_Monthly`. Changing this forces a new resource to be created.
 func (o DeploymentOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }
 
-// A mapping of tags which should be assigned to the Nginx Deployment.
+// A mapping of tags which should be assigned to the NGINX Deployment.
 func (o DeploymentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

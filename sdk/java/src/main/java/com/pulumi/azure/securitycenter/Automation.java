@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .actions(AutomationActionArgs.builder()
- *                 .type(&#34;EventHub&#34;)
+ *                 .type(&#34;eventhub&#34;)
  *                 .resourceId(exampleEventHub.id())
  *                 .connectionString(exampleAuthorizationRule.primaryConnectionString())
  *                 .build())
