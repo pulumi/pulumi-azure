@@ -338,7 +338,7 @@ index 539c138df6..5446846a89 100644
  
  			"incremental_enabled": {
 diff --git a/internal/services/compute/virtual_machine_data_disk_attachment_resource.go b/internal/services/compute/virtual_machine_data_disk_attachment_resource.go
-index 4852606790..219bed8e64 100644
+index db0a760341..fe30ade2d5 100644
 --- a/internal/services/compute/virtual_machine_data_disk_attachment_resource.go
 +++ b/internal/services/compute/virtual_machine_data_disk_attachment_resource.go
 @@ -5,6 +5,7 @@ package compute
@@ -350,9 +350,9 @@ index 4852606790..219bed8e64 100644
  	"time"
  
 @@ -71,7 +72,8 @@ func resourceVirtualMachineDataDiskAttachment() *pluginsdk.Resource {
- 					string(compute.CachingTypesNone),
- 					string(compute.CachingTypesReadOnly),
- 					string(compute.CachingTypesReadWrite),
+ 					string(virtualmachines.CachingTypesNone),
+ 					string(virtualmachines.CachingTypesReadOnly),
+ 					string(virtualmachines.CachingTypesReadWrite),
 -				}, false),
 +				}, features.CaseInsensitive()),
 +				DiffSuppressFunc: suppress.CaseDifferenceV2Only,
@@ -361,8 +361,8 @@ index 4852606790..219bed8e64 100644
  			"create_option": {
 @@ -82,7 +84,8 @@ func resourceVirtualMachineDataDiskAttachment() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
- 					string(compute.DiskCreateOptionTypesAttach),
- 					string(compute.DiskCreateOptionTypesEmpty),
+ 					string(virtualmachines.DiskCreateOptionTypesAttach),
+ 					string(virtualmachines.DiskCreateOptionTypesEmpty),
 -				}, false),
 +				}, features.CaseInsensitive()),
 +				DiffSuppressFunc: suppress.CaseDifferenceV2Only,
@@ -457,10 +457,10 @@ index 46644dc374..1a8604d4a8 100644
  
  	return nil
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index 3891945e1e..899ce51bdc 100644
+index e80f81e97d..caea1a9856 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
-@@ -1062,7 +1062,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
+@@ -1060,7 +1060,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(managedclusters.LoadBalancerSkuBasic),
  								string(managedclusters.LoadBalancerSkuStandard),
@@ -1058,7 +1058,7 @@ index dbbf9132fb..2e56c94e0e 100644
  			},
  		},
 diff --git a/internal/services/loganalytics/log_analytics_workspace_resource.go b/internal/services/loganalytics/log_analytics_workspace_resource.go
-index 6cb3af7347..7b36437f13 100644
+index b98942039f..6d29439643 100644
 --- a/internal/services/loganalytics/log_analytics_workspace_resource.go
 +++ b/internal/services/loganalytics/log_analytics_workspace_resource.go
 @@ -6,6 +6,8 @@ package loganalytics
@@ -1832,7 +1832,7 @@ index 5687410c2c..c265864390 100644
  
  						"sa_datasize": {
 diff --git a/internal/services/network/virtual_network_gateway_resource.go b/internal/services/network/virtual_network_gateway_resource.go
-index 780d029fc3..2802730704 100644
+index 055b16308d..487608122e 100644
 --- a/internal/services/network/virtual_network_gateway_resource.go
 +++ b/internal/services/network/virtual_network_gateway_resource.go
 @@ -6,6 +6,7 @@ package network
@@ -1979,7 +1979,7 @@ index d68d5963fa..5da4ee2bdc 100644
  
  			"administrator_login": {
 diff --git a/internal/services/recoveryservices/recovery_services_vault_resource.go b/internal/services/recoveryservices/recovery_services_vault_resource.go
-index 3adbbcfa45..5551e72662 100644
+index b25ef6d5c9..a585a495ad 100644
 --- a/internal/services/recoveryservices/recovery_services_vault_resource.go
 +++ b/internal/services/recoveryservices/recovery_services_vault_resource.go
 @@ -10,6 +10,8 @@ import (

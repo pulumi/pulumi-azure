@@ -1794,7 +1794,7 @@ index c6387f8e37..ab11365777 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index fced2e6d2c..dbbd8ca642 100644
+index fda716b4de..0b6c51fbdd 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1814,7 +1814,7 @@ index fced2e6d2c..dbbd8ca642 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -392,7 +386,7 @@ A `default_node_pool` block supports the following:
+@@ -386,7 +380,7 @@ A `default_node_pool` block supports the following:
  
  -> **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
  
@@ -1823,7 +1823,7 @@ index fced2e6d2c..dbbd8ca642 100644
  
  * `enable_host_encryption` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
  
-@@ -450,7 +444,7 @@ A `default_node_pool` block supports the following:
+@@ -444,7 +438,7 @@ A `default_node_pool` block supports the following:
  
  * `tags` - (Optional) A mapping of tags to assign to the Node Pool.
  
@@ -1832,7 +1832,7 @@ index fced2e6d2c..dbbd8ca642 100644
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
  
-@@ -476,7 +470,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
+@@ -470,7 +464,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
@@ -1841,7 +1841,7 @@ index fced2e6d2c..dbbd8ca642 100644
  
  -> **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
  
-@@ -715,8 +709,6 @@ A `network_profile` block supports the following:
+@@ -709,8 +703,6 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -1850,7 +1850,7 @@ index fced2e6d2c..dbbd8ca642 100644
  * `ip_versions` - (Optional) Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
  
  ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
-@@ -1061,19 +1053,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1055,19 +1047,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
