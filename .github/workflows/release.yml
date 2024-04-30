@@ -52,6 +52,7 @@ jobs:
         path: ci-scripts
         repository: pulumi/scripts
         ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
+    - run: echo "ci-scripts" >> .git/info/exclude # actions/checkout#197
     - name: Install Go
       uses: actions/setup-go@v5
       with:
@@ -178,12 +179,6 @@ jobs:
         path: |
           .pulumi/examples-cache
         key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v4
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
-        ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
     - name: Prepare upstream code
       run: make upstream
     - name: Install Go
@@ -409,12 +404,6 @@ jobs:
     - uses: pulumi/provider-version-action@v1
       with:
         set-env: 'PROVIDER_VERSION'
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v4
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
-        ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
     - name: Install Go
       uses: actions/setup-go@v5
       with:
